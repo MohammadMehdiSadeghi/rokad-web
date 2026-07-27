@@ -1,27 +1,21 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import StatsSection from './components/StatsSection'
-import SchoolsSection from './components/SchoolsSection'
-import WhyDifferentSection from './components/WhyDifferentSection'
-import FamilyTrustSection from './components/FamilyTrustSection'
-import EcosystemSection from './components/EcosystemSection'
-import Footer from './components/Footer'
+import Header from "./components/Header.jsx";
+import Hero from "./components/Hero.jsx";
+import Stats from "./components/Stats.jsx";
+import DualSchool from "./components/DualSchool.jsx";
+import Story from "./components/Story.jsx";
+import Pillars from "./components/Pillars.jsx";
+import Ecosystem from "./components/Ecosystem.jsx";
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <StatsSection />
-        <SchoolsSection />
-        <WhyDifferentSection />
-        <FamilyTrustSection />
-        <EcosystemSection />
-      </main>
-      <Footer />
-    </div>
-  )
+    <>
+      <Header />
+      <Hero />
+      <Stats />
+      <DualSchool />
+      <Story />
+      <Pillars />
+      <Ecosystem />
+    </>
+  );
 }
-
-export default App

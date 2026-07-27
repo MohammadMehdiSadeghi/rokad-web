@@ -1,56 +1,77 @@
-# رکاد — Website
+# رکاد (Rokad) Landing Page — React + Tailwind
 
-A pixel-close recreation of the Rekad ("رکاد") landing page, built with **React + Vite + Tailwind CSS**, in RTL Persian.
+Vite + React 18 + Tailwind CSS build of the Figma frame "Wireframe - 6",
+based on the `rokad-landing-page-design-spec.md` reverse-engineering doc
+(from the companion plain-HTML build of this same page).
 
-## Getting started
+## Run it
 
 ```bash
 npm install
-npm run dev
+npm run dev       # local dev server
+npm run build     # production build → dist/
+npm run preview   # preview the production build
 ```
 
-Open the printed local URL (usually `http://localhost:5173`) in your browser.
+Requires Node 18+.
 
-To build for production:
-
-```bash
-npm run build
-npm run preview
-```
-
-## Project structure
+## Structure
 
 ```
-rekad-website/
-├── index.html                  # RTL HTML shell, Vazirmatn font import
-├── src/
-│   ├── main.jsx                # React entry point
-│   ├── App.jsx                 # Composes all page sections
-│   ├── index.css               # Tailwind base + global styles
-│   ├── assets/
-│   │   └── images/             # All provided design assets (logo, illustrations, avatars)
-│   └── components/
-│       ├── Navbar.jsx          # Top navigation (logo, links, CTA, mobile menu)
-│       ├── Hero.jsx            # Teal hero banner with illustration + stats
-│       ├── StatsSection.jsx    # "رکاد در یک نگاه" stat cards + trust line
-│       ├── SchoolsSection.jsx  # Girls / boys school cards
-│       ├── WhyDifferentSection.jsx  # "چرا رکاد..." + yarn illustration
-│       ├── FamilyTrustSection.jsx   # 4 feature cards (light gray section)
-│       ├── EcosystemSection.jsx     # Dark navy 8-card ecosystem grid
-│       └── Footer.jsx          # Minimal footer
-├── tailwind.config.js          # Color tokens (teal / navy / magenta / orange), font, patterns
-└── postcss.config.js
+index.html                 Vite HTML entry (loads the Vazirmatn webfont)
+tailwind.config.js         Design tokens: colors, radii, type scale (see design-spec §2/§3/§11)
+postcss.config.js
+src/
+  main.jsx                 React root
+  index.css                Tailwind directives + small shared utilities
+  App.jsx                  Composes all sections in page order
+  components/
+    Header.jsx             Navbar
+    Hero.jsx                Hero band + CTA row + trust ribbon
+    StatCard.jsx            Reusable stat-card (4 color themes)
+    Stats.jsx               "رکاد در یک نگاه" stats bar (uses StatCard)
+    SchoolCard.jsx          Reusable boys/girls school card
+    DualSchool.jsx          "دخترونه یا پسرونه" section (uses SchoolCard)
+    Story.jsx               "چرا رکاد یه مدرسه معمولی نیست؟" section
+    icons.jsx               Placeholder line-icon set
+    PillarCard.jsx          Reusable numbered/icon card (light/dark/featured)
+    Pillars.jsx             "چرا خانواده‌ها به ما اعتماد می‌کنن" 4-card row
+    Ecosystem.jsx           Dark closing 8-card grid (reuses PillarCard)
 ```
+
+Every component that repeats in the source design (`StatCard`,
+`SchoolCard`, `PillarCard`) is a real reusable component here, driven by
+a `theme`/`variant` prop — matching the "Components Inventory" table in
+the design spec (§5).
 
 ## Design tokens
 
-Colors were sampled directly from the provided screenshots and centralized in
-`tailwind.config.js` under the `teal`, `navy`, `magenta`, `orange`, `ink`, and
-`muted` keys, so any color adjustment only needs to happen in one place.
+All colors, border-radii, and the type scale live in `tailwind.config.js`
+as named theme extensions (`bg-navy`, `rounded-card-lg`, `text-6xl2`,
+etc.) rather than inline hex/px values, so the whole palette can be
+retuned from one file. See design-spec §11 for what each token maps to.
 
-## Notes
+## Known gaps vs. the original Figma file (carried over from the HTML build)
 
-- Font: [Vazirmatn](https://github.com/rastikerdar/vazirmatn) loaded via CDN in `index.html`, a modern variable Persian typeface well suited for UI.
-- The diamond/rhombus overlay pattern on the teal and colored cards is an inline SVG data-URI background (`bg-diamond-pattern` in the Tailwind config), so no extra image request is needed for it.
-- All images shared in the design package (`images.zip`) are used and mapped 1:1 to their sections — nothing was replaced with a stock placeholder.
-- Layout is responsive: 2-column desktop layouts collapse to a single column on mobile/tablet, the nav collapses into a hamburger menu below the `lg` breakpoint, and card grids reflow from 4 → 2 → 1 columns.
+- **Font:** uses **Vazirmatn** (open-license) in place of the source
+  file's commercial **IRANSansX**. Swap the `fontFamily.sans` array in
+  `tailwind.config.js` once you have a licensed IRANSansX webfont kit.
+- **Hero mentor illustration:** points at the real Figma-exported asset
+  URL, which **expires ~7 days after export**. Download it into
+  `public/` and update the `heroMentorSrc` constant in `Hero.jsx`.
+- **Boys'/girls' school illustrations, background blobs, and the
+  spaghetti/fork illustration:** each is 50–150+ layered vector shapes
+  in the source file (real illustration art, not something to hand-code
+  shape-by-shape). This build uses lightweight placeholder SVGs in
+  their place — export the real artwork as flattened PNG/SVG per
+  design-spec §8 and drop it into `public/`, then reference it from the
+  relevant component.
+- **Icons** (`icons.jsx`): placeholders standing in for the source
+  file's icon-library instances (looks like Iconsax/HugeIcons "linear").
+  Swap in the real icon set if pixel-exact glyphs matter.
+- **8 "ecosystem" cards** (`Ecosystem.jsx`): the source Figma file has
+  all 8 sharing identical placeholder copy — reproduced as-is here.
+  Replace `title`/`body` per card with real copy before shipping.
+- **Hero headline copy:** the Figma layer text doesn't fully agree with
+  the rendered screenshot (design-spec §15.1) — this build follows the
+  screenshot. Double-check against final approved copy.

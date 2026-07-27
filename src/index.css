@@ -6,19 +6,27 @@
   html {
     scroll-behavior: smooth;
   }
-
   body {
-    @apply font-vazir text-ink bg-white;
-    -webkit-font-smoothing: antialiased;
+    @apply font-sans text-ink bg-white antialiased;
+    overflow-x: hidden;
   }
-
-  * {
-    box-sizing: border-box;
+  a,
+  button {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal focus-visible:rounded;
   }
 }
 
-@layer utilities {
-  .container-page {
-    @apply mx-auto w-full max-w-[1200px] px-5 md:px-8;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
+}
+
+/* Two-layer "shadow card" pattern used by StatCard / SchoolCard / StoryPill
+   (see design-spec §7). Kept as a small utility rather than repeated
+   inline styles because the offset must stay pixel-consistent across cards. */
+.shadow-card-back {
+  position: absolute;
+  inset: 6px -6px -6px 6px;
 }

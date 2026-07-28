@@ -36,19 +36,25 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section className="py-[88px] px-6 bg-white">
-      <h2 className="text-center font-black text-[28px] sm:text-[38px] lg:text-[46px] leading-[1.3] mb-5">
+    <section className="max-w-[90%] mx-auto py-[88px] px-6 bg-white">
+      <h2 className="text-right font-black text-[28px] sm:text-[38px] lg:text-[46px] leading-[1.3] mb-5">
         چرا خانواده‌ها به ما{" "}
         <span className="text-teal-wordmark">اعتماد می‌کنن</span>
       </h2>
-      <p className="text-center font-medium text-[14px] sm:text-[16px] leading-[1.9] text-navy/60 max-w-[600px] mx-auto mb-16">
+      <p className="text-right font-medium text-[14px] sm:text-[16px] leading-[1.9] text-navy/60 max-w-[620px]  mb-16">
         هر دانش‌آموز یه مسیر شخصی داره. سیستم آموزشی ما براساس چهار ستون طراحی شده تا هرفرد بهترین نسخه از خودش بشه
       </p>
 
-      <div className="max-w-content mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {pillars.map((p) => (
-          <PillarCard key={p.index} {...p} />
-        ))}
+      <div className="max-w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {pillars.map((p, i) => {
+          // ترتیب چرخش از راست به چپ: منفی دو، دو، منفی دو، دو
+          // چون ایندکس ۰ سمت راست قرار می‌گیرد، زوج‌ها منفی ۲ و فرد‌ها ۲ درجه می‌چرخند.
+          const rotation = i % 2 === 0 ? -2 : 2;
+          
+          return (
+            <PillarCard key={p.index} {...p} rotation={rotation} />
+          );
+        })}
       </div>
     </section>
   );

@@ -74,8 +74,8 @@ export default function StatCard({ theme, label, value, caption = {} }) {
           absolute
           top-2
           left-2
-          -right-[7px]
-          -bottom-[7px]
+          -right-[5px]
+          -bottom-[5px]
           rounded-tl-card-sm
           rounded-br-card-sm
           ${t.back}

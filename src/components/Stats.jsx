@@ -35,7 +35,7 @@ const stats = [
 export default function Stats() {
   return (
 <section className="w-full px-6 py-20">
-  <h2 className="mb-14 text-center text-[26px] font-black sm:text-4xl">
+  <h2 className="mb-14 text-center text-[24px] font-black sm:text-[53px]">
     رکاد در یک نگاه،{" "}
     <span className="inline-block -rotate-2 text-teal">
       با اعتماد

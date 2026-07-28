@@ -15,7 +15,7 @@ export default function Header() {
       <nav
         aria-label="ناوبری اصلی"
         // Width: 1200px, Height: 112px, Radius: 22px
-        className="max-w-[1200px] mx-auto flex items-center justify-between h-auto sm:h-[95px] rounded-[22px] bg-bg-mint px-6 sm:px-8"
+        className="max-w-[80%] mx-auto flex items-center justify-between h-auto sm:h-[95px] rounded-[22px] bg-bg-mint px-6 sm:px-8"
       >
         {/* ── سمت راست: لوگو ── */}
         <a href="#" className="flex-shrink-0" aria-label="رکاد">

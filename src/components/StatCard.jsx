@@ -8,8 +8,8 @@ const THEMES = {
     front: "bg-orange-50 border-orange-alt",
     text: "text-orange",
     badge: "border-orange text-orange",
+    bg: "#FEF2DF",
   },
-
   navy: {
     rotate: "-rotate-[2deg]",
     badgeRotate: "-rotate-[2.5deg]",
@@ -17,8 +17,8 @@ const THEMES = {
     front: "bg-lavender border-navy",
     text: "text-navy-alt",
     badge: "border-navy-alt text-navy-alt",
+    bg: "#DEDFE6",
   },
-
   magenta: {
     rotate: "rotate-[2.5deg]",
     badgeRotate: "rotate-[3deg]",
@@ -26,8 +26,8 @@ const THEMES = {
     front: "bg-blush border-magenta",
     text: "text-magenta-text",
     badge: "border-magenta-text text-magenta-text",
+    bg: "#FADDE7",
   },
-
   teal: {
     rotate: "-rotate-[2deg]",
     badgeRotate: "-rotate-[2.5deg]",
@@ -35,6 +35,7 @@ const THEMES = {
     front: "bg-teal-50 border-teal",
     text: "text-teal-text",
     badge: "border-teal-text text-teal-text",
+    bg: "#E6F5F3",
   },
 };
 
@@ -43,13 +44,14 @@ export default function StatCard({ theme, label, value, caption }) {
 
   return (
     <div className={`relative ${t.rotate}`}>
-      {/* Back Shadow Layer */}
+      {/* Back Shadow Layer - روش اصلاح شده برای جلوگیری از نوار سفید */}
       <div
         className={`
           absolute
-          inset-0
-          translate-x-[7px]
-          translate-y-[7px]
+          top-2
+          left-2
+          -right-[7px]
+          -bottom-[7px]
           rounded-tl-card-sm
           rounded-br-card-sm
           ${t.back}
@@ -60,9 +62,10 @@ export default function StatCard({ theme, label, value, caption }) {
       <div
         className={`
           relative
+          z-10
           rounded-tl-card-sm
           rounded-br-card-sm
-          border-[3px]
+          border-[2px]
           ${t.front}
           px-5
           pt-9
@@ -70,9 +73,12 @@ export default function StatCard({ theme, label, value, caption }) {
           text-center
           overflow-visible
         `}
+        style={{
+          backgroundColor: t.bg,
+        }}
       >
         <div className="absolute inset-0 rounded-tl-card-sm rounded-br-card-sm overflow-hidden pointer-events-none">
-          {/* White overlay */}
+          {/* White overlay - کاملا دست نخورده */}
           <div className="absolute inset-0 bg-white/85" />
 
           {/* Texture */}
@@ -120,7 +126,7 @@ export default function StatCard({ theme, label, value, caption }) {
         <div
           className={`
             relative
-            z-10
+            z-20
             mb-4
             text-[72px]
             leading-none
@@ -135,7 +141,7 @@ export default function StatCard({ theme, label, value, caption }) {
         <div
           className={`
             relative
-            z-10
+            z-20
             ${t.text}
           `}
         >

@@ -34,15 +34,24 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-20 w-full px-6  ">
-      <h2 className="text-center font-black text-[26px] sm:text-4xl mb-14">
-        رکاد در یک نگاه، <span className="inline-block -rotate-2 text-teal">با اعتماد</span>
-      </h2>
-      <div className="max-w-content w-[80%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        {stats.map((s) => (
-          <StatCard key={s.label} {...s} />
-        ))}
+<section className="w-full px-6 py-20">
+  <h2 className="mb-14 text-center text-[26px] font-black sm:text-4xl">
+    رکاد در یک نگاه،{" "}
+    <span className="inline-block -rotate-2 text-teal">
+      با اعتماد
+    </span>
+  </h2>
+
+  <div className="mx-auto flex w-[80%] flex-wrap justify-between gap-y-10">
+    {stats.map((s) => (
+      <div
+        key={s.label}
+        className="w-full sm:w-[48%] lg:w-[23%]"
+      >
+        <StatCard {...s} />
       </div>
-    </section>
+    ))}
+  </div>
+</section>
   );
 }

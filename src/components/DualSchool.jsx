@@ -1,4 +1,6 @@
 import SchoolCard from "./SchoolCard.jsx";
+import boyIllustration from "../assets/images/boy-illustration.png";
+import girlIllustration from "../assets/images/girl-illustration.png";
 
 export default function DualSchool() {
   return (
@@ -14,14 +16,12 @@ export default function DualSchool() {
       </p>
 
       <div className="max-w-content mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <SchoolCard
-          theme="girls"
-          category="مدرسه‌دخترانه"
-          title="هنرستان‌دخترانه‌رکاد"
-          meta="مشهد | فرامرز عباسی 54"
-          chips={["شبکه و نرم‌افزار", "متن تستی رشته دخترانه"]}
-          ctaLabel="پیش‌ثبت‌نام دخترانه"
-        />
+        {/*
+          Order matters: under dir="rtl" the first grid item lands in the
+          right-hand column. Source screenshot shows the boys' (navy)
+          card on the right and the girls' (pink) card on the left, so
+          boys goes first here.
+        */}
         <SchoolCard
           theme="boys"
           category="مدرسه‌پسرانه"
@@ -29,6 +29,16 @@ export default function DualSchool() {
           meta="مشهد | فرامرز عباسی ۳۳"
           chips={["تولید و توسعه پایگاه اینترنتی", "تولید محتوای چندرسانه‌ای"]}
           ctaLabel="پیش‌ثبت‌نام پسرانه"
+          illustration={boyIllustration}
+        />
+        <SchoolCard
+          theme="girls"
+          category="مدرسه‌دخترانه"
+          title="هنرستان‌دخترانه‌رکاد"
+          meta="مشهد | فرامرز عباسی 54"
+          chips={["شبکه و نرم‌افزار", "متن تستی رشته دخترانه"]}
+          ctaLabel="پیش‌ثبت‌نام دخترانه"
+          illustration={girlIllustration}
         />
       </div>
     </section>

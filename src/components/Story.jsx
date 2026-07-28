@@ -5,6 +5,8 @@ const pills = [
   { label: "رکاد یعنی متفاوت بودن...", back: "bg-orange-alt", border: "border-orange", text: "text-orange" },
 ];
 
+import yarnIllustration from "../assets/images/yarn-illustration.png";
+
 export default function Story() {
   return (
     <section className="py-[88px] px-6 bg-bg-lavender">
@@ -48,33 +50,15 @@ export default function Story() {
           </a>
         </div>
 
-        {/*
-          Placeholder for the "fork twirling spaghetti" illustration —
-          see design-spec §4.5 / README. Export the real asset from Figma
-          node `image 140` and swap this out.
-        */}
         <div
-          aria-hidden="true"
-          className="bg-white rounded-[32px] min-h-[280px] lg:min-h-[340px] flex items-center justify-center shadow-soft"
+          className="bg-white rounded-[32px] min-h-[280px] lg:min-h-[340px] flex items-center justify-center shadow-soft overflow-hidden"
         >
-          <svg viewBox="0 0 200 200" className="w-[65%] h-auto">
-            <circle cx="100" cy="100" r="70" fill="#fde9c8" />
-            <path
-              d="M60 130 Q100 60 140 130"
-              stroke="#f4b942"
-              strokeWidth="10"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M70 140 Q100 80 130 140"
-              stroke="#f8d174"
-              strokeWidth="8"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <rect x="94" y="40" width="12" height="60" fill="#6b7280" />
-          </svg>
+          <img
+            src={yarnIllustration}
+            alt="نشانگر تصویری از تفاوت رکاد با یک مدرسه معمولی"
+            loading="lazy"
+            className="w-full h-auto object-contain"
+          />
         </div>
       </div>
     </section>

@@ -1,17 +1,16 @@
 import StatCard from "./StatCard.jsx";
 
+// Order matters: with the grid set to dir="rtl", the first array item
+// lands in the *rightmost* grid column. This order is written so the
+// rendered result matches the source screenshot's left-to-right order
+// exactly: شبکه رکاد · جامعه فعال · رویداد استارتاپی · نرخ اشتغال
+// (left → right), i.e. نرخ اشتغال is rightmost → goes first here.
 const stats = [
   {
-    theme: "orange",
-    label: "شبکه رکاد",
-    value: "2",
-    caption: { strong: "شعبه‌ی مجزای هنرستانی", rest: "با فضای اختصاصی برای هر جنسیت" },
-  },
-  {
-    theme: "navy",
-    label: "جامعه فعال",
-    value: "+250",
-    caption: { strong: "دانش‌آموز فعال در دو شعبه", rest: "دخترانه و پسرانه" },
+    theme: "teal",
+    label: "نرخ اشتغال",
+    value: "٪76",
+    caption: { strong: "دانش‌آموختگان شاغل و درآمدزا", rest: "در سال اول پس از فارغ‌التحصیلی" },
   },
   {
     theme: "magenta",
@@ -20,10 +19,16 @@ const stats = [
     caption: { strong: "رویداد استارتاپی دانش‌آموزی", rest: "در سال اول پس از فارغ‌التحصیلی" },
   },
   {
-    theme: "teal",
-    label: "نرخ اشتغال",
-    value: "٪76",
-    caption: { strong: "دانش‌آموختگان شاغل و درآمدزا", rest: "در سال اول پس از فارغ‌التحصیلی" },
+    theme: "navy",
+    label: "جامعه فعال",
+    value: "+250",
+    caption: { strong: "دانش‌آموز فعال در دو شعبه", rest: "دخترانه و پسرانه" },
+  },
+  {
+    theme: "orange",
+    label: "شبکه رکاد",
+    value: "2",
+    caption: { strong: "شعبه‌ی مجزای هنرستانی", rest: "با فضای اختصاصی برای هر جنسیت" },
   },
 ];
 

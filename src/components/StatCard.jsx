@@ -1,3 +1,5 @@
+import doodleShape from "../assets/images/doodle-shape.svg";
+
 const THEMES = {
   orange: {
     rotate: "rotate-[2.5deg]",
@@ -38,13 +40,21 @@ export default function StatCard({ theme, label, value, caption }) {
       <div
         className={`relative border-2 rounded-tl-card-sm rounded-br-card-sm px-4 py-6 pb-7 text-center overflow-hidden ${t.front}`}
       >
+        {/* Low-opacity decorative blob bleeding from the corner — see
+            design-spec §7. Purely atmospheric, sits behind the text. */}
+        <img
+          src={doodleShape}
+          alt=""
+          aria-hidden="true"
+          className="absolute -top-6 -left-8 w-32 h-auto opacity-10 pointer-events-none select-none"
+        />
         <span
-          className={`inline-block bg-white font-bold text-sm rounded-badge border px-3.5 py-1.5 mb-4 ${t.badgeBorder}`}
+          className={`relative inline-block bg-white font-bold text-sm rounded-badge border px-3.5 py-1.5 mb-4 ${t.badgeBorder}`}
         >
           {label}
         </span>
-        <div className={`font-black text-5xl leading-none mb-3.5 ${t.text}`}>{value}</div>
-        <p className={`text-sm leading-relaxed font-semibold ${t.text}`}>
+        <div className={`relative font-black text-5xl leading-none mb-3.5 ${t.text}`}>{value}</div>
+        <p className={`relative text-sm leading-relaxed font-semibold ${t.text}`}>
           <strong className="block font-black mb-0.5">{caption.strong}</strong>
           {caption.rest}
         </p>

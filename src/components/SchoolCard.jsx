@@ -20,38 +20,52 @@ function DotBullet() {
   );
 }
 
-export default function SchoolCard({ theme, category, title, meta, chips, ctaLabel }) {
+export default function SchoolCard({ theme, category, title, meta, chips, ctaLabel, illustration }) {
   const t = THEMES[theme];
 
   return (
     <div
       className={`${t.bg} ${t.rotate} rounded-card-lg text-white p-8 sm:p-10 relative overflow-hidden min-h-[380px] flex flex-col`}
     >
-      <span className="self-start rotate-2 bg-white/[0.17] border border-white font-bold text-sm rounded-badge px-3.5 py-2 mb-5">
-        {category}
-      </span>
+      {/* Illustration sits behind the text stack, anchored to the card's
+          left edge (RTL trailing edge) and bottom — matches the source
+          composition for both the boy and girl illustrations. */}
+      {illustration && (
+        <img
+          src={illustration}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute bottom-0 left-0 w-[55%] max-w-[280px] h-auto opacity-95 z-0"
+        />
+      )}
 
-      <h3 className="font-black text-[26px] sm:text-[34px] mb-2">{title}</h3>
-      <p className="text-sm opacity-80 mb-6">{meta}</p>
+      <div className="relative z-10 flex flex-col h-full max-w-[75%] sm:max-w-[70%]">
+        <span className="self-start rotate-2 bg-white/[0.17] border border-white font-bold text-sm rounded-badge px-3.5 py-2 mb-5">
+          {category}
+        </span>
 
-      <div className="flex flex-wrap gap-2.5 mb-auto">
-        {chips.map((chip) => (
-          <span
-            key={chip}
-            className="-rotate-2 flex items-center gap-2 bg-white/[0.15] font-semibold text-[13px] rounded-chip px-3.5 py-2"
-          >
-            <DotBullet />
-            {chip}
-          </span>
-        ))}
+        <h3 className="font-black text-[26px] sm:text-[34px] mb-2">{title}</h3>
+        <p className="text-sm opacity-80 mb-6">{meta}</p>
+
+        <div className="flex flex-wrap gap-2.5 mb-auto">
+          {chips.map((chip) => (
+            <span
+              key={chip}
+              className="-rotate-2 flex items-center gap-2 bg-white/[0.15] font-semibold text-[13px] rounded-chip px-3.5 py-2"
+            >
+              <DotBullet />
+              {chip}
+            </span>
+          ))}
+        </div>
+
+        <a
+          href="#"
+          className={`self-start rotate-[1.5deg] mt-6 bg-white font-extrabold text-[15px] rounded-chip px-5 py-3 ${t.ctaText}`}
+        >
+          {ctaLabel}
+        </a>
       </div>
-
-      <a
-        href="#"
-        className={`self-start rotate-[1.5deg] mt-6 bg-white font-extrabold text-[15px] rounded-chip px-5 py-3 ${t.ctaText}`}
-      >
-        {ctaLabel}
-      </a>
     </div>
   );
 }

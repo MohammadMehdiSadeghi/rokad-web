@@ -6,10 +6,15 @@ import { UserIcon } from "./icons.jsx";
 // `title`/`body` below with real per-card content before shipping — the
 // component/markup is ready either way. `featured: true` marks the single
 // card the source file renders with a highlighted (teal) fill.
+//
+// Order matters: under dir="rtl" the grid's first item lands in the
+// rightmost column. The source screenshot shows the featured card 2nd
+// from the LEFT in the top row — i.e. 3rd from the right — so it's the
+// 3rd item below, not the 2nd.
 const cards = [
   { title: "مسیر رشد شخصی‌سازی‌شده", body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه یه مسیر یکسان برای همه." },
-  { title: "مسیر رشد شخصی‌سازی‌شده", body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه یه مسیر یکسان برای همه.", featured: true },
   { title: "مسیر رشد شخصی‌سازی‌شده", body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه یه مسیر یکسان برای همه." },
+  { title: "مسیر رشد شخصی‌سازی‌شده", body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه یه مسیر یکسان برای همه.", featured: true },
   { title: "مسیر رشد شخصی‌سازی‌شده", body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه یه مسیر یکسان برای همه." },
   { title: "مسیر رشد شخصی‌سازی‌شده", body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه یه مسیر یکسان برای همه." },
   { title: "مسیر رشد شخصی‌سازی‌شده", body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه یه مسیر یکسان برای همه." },

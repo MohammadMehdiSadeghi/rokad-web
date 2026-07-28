@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Swap for "IRANSansX" once you have a licensed webfont kit —
-        // see README. Vazirmatn is the open-license stand-in.
-        sans: ["Vazirmatn", "IRANSansX", "sans-serif"],
+        // Real, self-hosted IRANSansX (see src/fonts.css) — no more
+        // Vazirmatn placeholder / Google Fonts dependency.
+        sans: ["IRANSansX", "Tahoma", "sans-serif"],
       },
       colors: {
         navy: "#21295a",

@@ -27,7 +27,7 @@ export default function Header() {
 
         <a
           href="#"
-          className="hidden sm:inline-block whitespace-nowrap -rotate-3 rounded-pill-sm bg-navy px-[11px] py-[7px] text-base2 font-extrabold text-white"
+          className="hidden sm:inline-block whitespace-nowrap -rotate-3 rounded-pill-sm bg-navy px-[11px] py-[7px] text-base2 font-black text-white"
         >
           پیش‌ثبت‌نام
         </a>

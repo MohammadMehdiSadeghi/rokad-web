@@ -30,8 +30,7 @@ src/
   assets/images/           Real photos/illustrations from assets.zip (imported by components)
   components/
     Header.jsx             Navbar (logo, nav links, both CTA pills)
-    AvatarStack.jsx         Social-proof avatar stack (added — see note below)
-    Hero.jsx                Hero band + CTA row + avatar stack + trust ribbon
+    Hero.jsx                Hero band + CTA row + floating trust-ribbon badge (rebuilt to match a teal reference screenshot)
     StatCard.jsx            Reusable stat-card (4 color themes)
     Stats.jsx               "رکاد در یک نگاه" stats bar (uses StatCard)
     SchoolCard.jsx          Reusable boys/girls school card
@@ -64,12 +63,12 @@ the design spec (§5).
     placeholder fork/noodle SVG)
   - `doodle-shape.svg` → `StatCard.jsx`, as the low-opacity corner
     decoration described in design-spec §7
-  - `avatar-1.png`…`avatar-5.png` → new `AvatarStack.jsx`, used once in
-    `Hero.jsx`. **Note:** these 5 avatars weren't part of the original
-    Figma export, so there was no prescribed spot for them — they're
-    placed as a "+250 students" social-proof strip under the hero CTAs,
-    the most natural fit given the rest of the page. Move, restyle, or
-    remove `<AvatarStack />` if you had a different spot in mind.
+  - `avatar-1.png`…`avatar-5.png` → **not currently used**. They were
+    briefly wired into a small avatar-stack component in the hero, but
+    the hero was rebuilt to match a specific reference screenshot that
+    doesn't include one, so that component was removed entirely. The
+    5 PNGs are still sitting in `src/assets/images/` if you want to
+    build something with them elsewhere.
 
 ## RTL
 
@@ -102,6 +101,27 @@ All colors, border-radii, and the type scale live in `tailwind.config.js`
 as named theme extensions (`bg-navy`, `rounded-card-lg`, `text-6xl2`,
 etc.) rather than inline hex/px values, so the whole palette can be
 retuned from one file. See design-spec §11 for what each token maps to.
+
+## Hero redesign (matched to reference screenshot)
+
+`Hero.jsx` was rebuilt to closely match a supplied reference image of
+the real hero card, which differs from the earlier navy-gradient
+version in a few ways worth knowing if you touch it again:
+- **Background is teal** (`#63c4b6` → `#4bb5a7` gradient), not navy —
+  with a subtle diamond/argyle pattern laid over it via a
+  `repeating-linear-gradient` inline style (two 45°/-45° diagonal line
+  sets), not a raster texture.
+- **Buttons are full pills** (`rounded-full`), not the `rounded-pill-lg`
+  (10px) used elsewhere on the page.
+- **The trust ribbon** is a solid navy pill (`rounded-full`, `bg-navy`,
+  `shadow-lg`) that floats over and overlaps the card's bottom edge
+  (positioned `absolute` + `translate-y-1/2` as a sibling of the
+  overflow-hidden card, so the card's rounded corners never clip it) —
+  not the dashed/semi-transparent band or the "ticket stub" ribbon
+  shape used in earlier drafts. Copy is
+  `اولین هنرستان استارتاپی ایران...` (note: **"هنرستان"**, not "مدرسه",
+  and an ellipsis, not "!" — taken directly from the reference image,
+  which differs from the original Figma layer text).
 
 ## Remaining gaps vs. the original Figma file
 

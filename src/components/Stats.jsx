@@ -9,25 +9,25 @@ const stats = [
   {
     theme: "teal",
     label: "نرخ اشتغال",
-    value: "٪76",
+    value: "٪۷۶",
     caption: { strong: "دانش‌آموختگان شاغل و درآمدزا", rest: "در سال اول پس از فارغ‌التحصیلی" },
   },
   {
     theme: "magenta",
     label: "رویداد استارتاپی",
-    value: "+30",
+    value: "+۳۰",
     caption: { strong: "رویداد استارتاپی دانش‌آموزی", rest: "در سال اول پس از فارغ‌التحصیلی" },
   },
   {
     theme: "navy",
     label: "جامعه فعال",
-    value: "+250",
+    value: "+۲۵۰",
     caption: { strong: "دانش‌آموز فعال در دو شعبه", rest: "دخترانه و پسرانه" },
   },
   {
     theme: "orange",
     label: "شبکه رکاد",
-    value: "2",
+    value: "۲",
     caption: { strong: "شعبه‌ی مجزای هنرستانی", rest: "با فضای اختصاصی برای هر جنسیت" },
   },
 ];

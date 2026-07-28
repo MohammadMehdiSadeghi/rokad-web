@@ -38,7 +38,7 @@ export default function Stats() {
       <h2 className="text-center font-black text-[26px] sm:text-4xl mb-14">
         رکاد در یک نگاه، <span className="inline-block -rotate-2 text-teal">با اعتماد</span>
       </h2>
-      <div className="max-w-content mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+      <div className="max-w-content mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {stats.map((s) => (
           <StatCard key={s.label} {...s} />
         ))}

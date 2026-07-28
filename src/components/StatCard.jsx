@@ -3,35 +3,38 @@ import texture from "../assets/images/Group 1000006377.png";
 const THEMES = {
   orange: {
     rotate: "rotate-[2.5deg]",
-    badgeRotate: "-rotate-[7deg]",
+    badgeRotate: "rotate-[3deg]",
     back: "bg-orange-alt",
-    front: "bg-bg-neutral border-orange-alt",
+    front: "bg-orange-50 border-orange-alt",
     text: "text-orange",
-    badgeBorder: "border-orange text-orange",
+    badge: "border-orange text-orange",
   },
+
   navy: {
-    rotate: "-rotate-2",
-    badgeRotate: "rotate-[6deg]",
+    rotate: "-rotate-[2deg]",
+    badgeRotate: "-rotate-[2.5deg]",
     back: "bg-navy-alt",
-    front: "bg-bg-lavender border-navy",
+    front: "bg-lavender border-navy",
     text: "text-navy-alt",
-    badgeBorder: "border-navy-alt text-navy-alt",
+    badge: "border-navy-alt text-navy-alt",
   },
+
   magenta: {
     rotate: "rotate-[2.5deg]",
-    badgeRotate: "-rotate-[6deg]",
+    badgeRotate: "rotate-[3deg]",
     back: "bg-magenta",
-    front: "bg-bg-blush border-magenta",
-    text: "text-magenta",
-    badgeBorder: "border-magenta-text text-magenta-text",
+    front: "bg-blush border-magenta",
+    text: "text-magenta-text",
+    badge: "border-magenta-text text-magenta-text",
   },
+
   teal: {
-    rotate: "-rotate-2",
-    badgeRotate: "rotate-[7deg]",
+    rotate: "-rotate-[2deg]",
+    badgeRotate: "-rotate-[2.5deg]",
     back: "bg-teal-alt",
-    front: "bg-bg-mint border-teal",
+    front: "bg-teal-50 border-teal",
     text: "text-teal-text",
-    badgeBorder: "border-teal-text-alt text-teal-text-alt",
+    badge: "border-teal-text text-teal-text",
   },
 };
 
@@ -40,44 +43,108 @@ export default function StatCard({ theme, label, value, caption }) {
 
   return (
     <div className={`relative ${t.rotate}`}>
+      {/* Back Shadow Layer */}
       <div
-        className={`absolute inset-1.5 -right-1.5 -bottom-1.5 rounded-tl-card-sm rounded-br-card-sm ${t.back}`}
+        className={`
+          absolute
+          inset-0
+          translate-x-[7px]
+          translate-y-[7px]
+          rounded-tl-card-sm
+          rounded-br-card-sm
+          ${t.back}
+        `}
       />
+
+      {/* Main Card */}
       <div
-        className={`relative border-2 rounded-tl-card-sm rounded-br-card-sm px-4 pt-9 pb-7 text-center ${t.front}`}
+        className={`
+          relative
+          rounded-tl-card-sm
+          rounded-br-card-sm
+          border-[3px]
+          ${t.front}
+          px-5
+          pt-9
+          pb-7
+          text-center
+          overflow-visible
+        `}
       >
-        {/* Low-opacity decorative blob bleeding from the corner — see
-            design-spec §7. Purely atmospheric, sits behind the text. Clipped
-            in its own wrapper (rather than on the card itself) so the badge
-            below can overlap/poke past the card's top border. */}
         <div className="absolute inset-0 rounded-tl-card-sm rounded-br-card-sm overflow-hidden pointer-events-none">
-          {/* Texture overlay */}
+          {/* White overlay */}
+          <div className="absolute inset-0 bg-white/85" />
+
+          {/* Texture */}
           <img
             src={texture}
             alt=""
-            className="select-none absolute w-full h-full object-cover"
-            style={{
-              opacity: 1,
-              transform: "scale(1.5)",
-            }}
+            draggable={false}
+            className="
+              absolute
+              inset-0
+              w-full
+              h-full
+              object-cover
+              scale-150
+              select-none
+            "
           />
         </div>
+
+        {/* Badge */}
         <span
-          className={`absolute -top-4 left-1/2 -translate-x-1/2 inline-block whitespace-nowrap bg-white font-bold text-sm-alt rounded-badge border px-3.5 py-1.5 ${t.badgeRotate} ${t.badgeBorder}`}
+          className={`
+            relative
+            z-20
+            inline-block
+            -mt-2
+            mb-8
+            bg-white
+            border-2
+            rounded-xl
+            px-4
+            py-1.5
+            whitespace-nowrap
+            text-sm
+            font-extrabold
+            shadow-sm
+            ${t.badgeRotate}
+            ${t.badge}
+          `}
         >
           {label}
         </span>
+
+        {/* Number */}
         <div
-          className={`relative font-black text-6xl2 leading-none mb-3.5 ${t.text}`}
+          className={`
+            relative
+            z-10
+            mb-4
+            text-[72px]
+            leading-none
+            font-black
+            ${t.text}
+          `}
         >
           {value}
         </div>
-        <p
-          className={`relative text-2xs leading-relaxed font-semibold ${t.text}`}
+
+        {/* Caption */}
+        <div
+          className={`
+            relative
+            z-10
+            ${t.text}
+          `}
         >
-          <strong className="block font-black mb-0.5">{caption.strong}</strong>
-          {caption.rest}
-        </p>
+          <strong className="block mb-1 text-base font-black">
+            {caption.strong}
+          </strong>
+
+          <p className="text-sm leading-7 font-semibold">{caption.rest}</p>
+        </div>
       </div>
     </div>
   );

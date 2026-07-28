@@ -4,8 +4,6 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Real, self-hosted IRANSansX (see src/fonts.css) — no more
-        // Vazirmatn placeholder / Google Fonts dependency.
         sans: ["IRANSansX", "Tahoma", "sans-serif"],
       },
       colors: {

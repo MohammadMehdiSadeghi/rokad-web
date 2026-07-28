@@ -1,4 +1,6 @@
 import { UserIcon } from "./icons.jsx";
+// ایمپورت پترن با مسیر دقیقی که دادید
+import ecosystemPattern from "../assets/Patterns/Ecosystem/Ecosystem-Pattern.png";
 
 const cards = [
   {
@@ -95,26 +97,46 @@ export default function Ecosystem() {
           "radial-gradient(ellipse at 30% 20%, #1c2c60 0%, #0e1633 60%, #0b1228 100%)",
       }}
     >
+      {/* ── Background Pattern Layer ── */}
+      {/* پترن با شفافیت ۳۰ درصد بدون blend mode تا کاملاً خودش را نشان دهد */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <img
+          src={ecosystemPattern}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover opacity-30"
+        />
+      </div>
+
       {/* Subtle decorative blobs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
         <div className="absolute -top-20 -right-20 w-[420px] h-[420px] rounded-full bg-teal/10 blur-[90px]" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-navy/40 blur-[70px]" />
       </div>
 
-      {/* Heading */}
-      <h2 className="relative z-10 text-center font-black text-[28px] sm:text-[38px] lg:text-[46px] leading-[1.3] text-white mb-4">
-        یه <span className="text-teal">اکوسیستم کامل</span> برای رشد
-      </h2>
-      <p className="relative z-10 text-center font-medium text-[14px] sm:text-[16px] leading-[1.9] text-white/60 max-w-[520px] mx-auto mb-16">
-        از استعدادسنجی تا اولین شغلت، تمام گام‌های مسیر با پشتیبانی متخصصان طی
-        می‌شه.
-      </p>
+      {/* Content Container - 80% width */}
+      <div className="relative z-10 max-w-[80%] mx-auto">
+        
+        {/* Heading with Rotations (-1.9, 1.9, ...) */}
+        <h2 className="text-center font-black text-[28px] sm:text-[38px] lg:text-[46px] leading-[1.3] text-white mb-4 flex flex-wrap justify-center items-center gap-x-2">
+          <span className="inline-block -rotate-[1.9deg]">یه</span>
+          <span className="inline-block rotate-[1.9deg] text-teal">اکوسیستم</span>
+          <span className="inline-block -rotate-[1.9deg]">کامل</span>
+          <span className="inline-block rotate-[1.9deg]">برای</span>
+          <span className="inline-block -rotate-[1.9deg]">رشد</span>
+        </h2>
 
-      {/* Grid */}
-      <div className="relative z-10 max-w-[80%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {cards.map((c, i) => (
-          <EcoCard key={i} {...c} />
-        ))}
+        <p className="text-center font-medium text-[14px] sm:text-[16px] leading-[1.9] text-white/60 max-w-[520px] mx-auto mb-16">
+          از استعدادسنجی تا اولین شغلت، تمام گام‌های مسیر با پشتیبانی متخصصان طی
+          می‌شه.
+        </p>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {cards.map((c, i) => (
+            <EcoCard key={i} {...c} />
+          ))}
+        </div>
       </div>
     </section>
   );

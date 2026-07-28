@@ -1,4 +1,4 @@
-import doodleShape from "../assets/images/doodle-shape.svg";
+import texture from "../assets/images/Group 1000006377.png";
 
 const THEMES = {
   orange: {
@@ -40,18 +40,26 @@ export default function StatCard({ theme, label, value, caption }) {
 
   return (
     <div className={`relative ${t.rotate}`}>
-      <div className={`absolute inset-1.5 -right-1.5 -bottom-1.5 rounded-tl-card-sm rounded-br-card-sm ${t.back}`} />
-      <div className={`relative border-2 rounded-tl-card-sm rounded-br-card-sm px-4 pt-9 pb-7 text-center ${t.front}`}>
+      <div
+        className={`absolute inset-1.5 -right-1.5 -bottom-1.5 rounded-tl-card-sm rounded-br-card-sm ${t.back}`}
+      />
+      <div
+        className={`relative border-2 rounded-tl-card-sm rounded-br-card-sm px-4 pt-9 pb-7 text-center ${t.front}`}
+      >
         {/* Low-opacity decorative blob bleeding from the corner — see
             design-spec §7. Purely atmospheric, sits behind the text. Clipped
             in its own wrapper (rather than on the card itself) so the badge
             below can overlap/poke past the card's top border. */}
         <div className="absolute inset-0 rounded-tl-card-sm rounded-br-card-sm overflow-hidden pointer-events-none">
+          {/* Texture overlay */}
           <img
-            src={doodleShape}
+            src={texture}
             alt=""
-            aria-hidden="true"
-            className="absolute -top-6 -left-8 w-32 h-auto opacity-10 select-none"
+            className="select-none absolute w-full h-full object-cover"
+            style={{
+              opacity: 1,
+              transform: "scale(1.5)",
+            }}
           />
         </div>
         <span
@@ -59,8 +67,14 @@ export default function StatCard({ theme, label, value, caption }) {
         >
           {label}
         </span>
-        <div className={`relative font-black text-6xl2 leading-none mb-3.5 ${t.text}`}>{value}</div>
-        <p className={`relative text-2xs leading-relaxed font-semibold ${t.text}`}>
+        <div
+          className={`relative font-black text-6xl2 leading-none mb-3.5 ${t.text}`}
+        >
+          {value}
+        </div>
+        <p
+          className={`relative text-2xs leading-relaxed font-semibold ${t.text}`}
+        >
           <strong className="block font-black mb-0.5">{caption.strong}</strong>
           {caption.rest}
         </p>

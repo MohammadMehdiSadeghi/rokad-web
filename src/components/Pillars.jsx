@@ -36,7 +36,7 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section className="max-w-[90%] mx-auto py-[88px] px-6 bg-white">
+    <section className="max-w-[80%] mx-auto py-[88px] px-6 bg-white">
       <h2 className="text-right font-black text-[28px] sm:text-[38px] lg:text-[46px] leading-[1.3] mb-5">
         چرا خانواده‌ها به ما{" "}
         <span className="text-teal-wordmark">اعتماد می‌کنن</span>

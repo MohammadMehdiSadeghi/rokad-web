@@ -1,4 +1,4 @@
-import yarnIllustration from "../assets/images/boy-illustration.png";
+import yarnIllustration from "../assets/images/yarn-illustration.png";
 
 const pills = [
   { label: "اکوسیستم استارتاپی", back: "bg-teal-alt", border: "border-teal", text: "text-teal-text" },

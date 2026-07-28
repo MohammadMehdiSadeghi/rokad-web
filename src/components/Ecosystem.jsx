@@ -111,7 +111,7 @@ export default function Ecosystem() {
       </p>
 
       {/* Grid */}
-      <div className="relative z-10 max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="relative z-10 max-w-[80%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {cards.map((c, i) => (
           <EcoCard key={i} {...c} />
         ))}

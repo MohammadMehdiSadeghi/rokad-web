@@ -1,3 +1,4 @@
+// SchoolCard.jsx
 const THEMES = {
   boys: {
     rotate: "rotate-1",
@@ -25,11 +26,9 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
 
   return (
     <div
-      className={`${t.bg} ${t.rotate} rounded-card-lg text-white p-8 sm:p-10 relative overflow-hidden min-h-[380px] flex flex-col`}
+      className={`${t.bg} ${t.rotate} rounded-card-lg text-white p-8 sm:p-10 relative overflow-hidden min-h-[380px] flex flex-col transition-all duration-500 ease-out hover:rotate-0 hover:-translate-y-1.5 hover:shadow-2xl`}
     >
-      {/* Illustration sits behind the text stack, anchored to the card's
-          left edge (RTL trailing edge) and bottom — matches the source
-          composition for both the boy and girl illustrations. */}
+      {/* Illustration - سمت چپ (left-0) */}
       {illustration && (
         <img
           src={illustration}
@@ -39,7 +38,8 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
         />
       )}
 
-      <div className="relative z-10 flex flex-col h-full max-w-[75%] sm:max-w-[70%]">
+      {/* Text Container - سمت راست (ml-auto در RTL) */}
+      <div className="relative z-10 flex flex-col h-full max-w-[75%] sm:max-w-[70%] ml-auto">
         <span className="self-start rotate-2 bg-white/[0.17] border border-white font-bold text-sm rounded-badge px-3.5 py-2 mb-5">
           {category}
         </span>
@@ -47,7 +47,7 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
         <h3 className="font-black text-[26px] sm:text-[34px] mb-2">{title}</h3>
         <p className="text-sm opacity-80 mb-6">{meta}</p>
 
-        <div className="flex flex-wrap gap-2.5 mb-auto">
+        <div className="flex flex-wrap gap-2.5 mb-auto justify-end">
           {chips.map((chip) => (
             <span
               key={chip}
@@ -61,7 +61,7 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
 
         <a
           href="#"
-          className={`self-start rotate-[1.5deg] mt-6 bg-white font-extrabold text-[15px] rounded-chip px-5 py-3 ${t.ctaText}`}
+          className={`self-end rotate-[1.5deg] mt-6 bg-white font-extrabold text-[15px] rounded-chip px-5 py-3 ${t.ctaText} transition-transform duration-300 hover:scale-105 hover:rotate-0`}
         >
           {ctaLabel}
         </a>

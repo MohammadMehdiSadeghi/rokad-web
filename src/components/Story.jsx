@@ -1,33 +1,39 @@
-const pills = [
-  { label: "هنرستان رسمی", back: "bg-navy-alt", border: "border-navy-alt", text: "text-navy-alt" },
-  { label: "بازار کار واقعی", back: "bg-teal-alt", border: "border-teal", text: "text-teal-text" },
-  { label: "اکوسیستم استاتاپی", back: "bg-magenta", border: "border-magenta", text: "text-magenta-text" },
-  { label: "رکاد یعنی متفاوت بودن...", back: "bg-orange-alt", border: "border-orange", text: "text-orange" },
-];
+import yarnIllustration from "../assets/images/boy-illustration.png";
 
-import yarnIllustration from "../assets/images/yarn-illustration.png";
+const pills = [
+  { label: "اکوسیستم استارتاپی", back: "bg-teal-alt", border: "border-teal", text: "text-teal-text" },
+  { label: "بازار کار واقعی",     back: "bg-magenta",  border: "border-magenta", text: "text-magenta" },
+  { label: "هنرستان رسمی",        back: "bg-navy-alt", border: "border-navy-alt", text: "text-navy-alt" },
+];
 
 export default function Story() {
   return (
     <section className="py-[88px] px-6 bg-bg-lavender">
-      <div className="max-w-content mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+      <div className="max-w-content mx-auto grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
+
+        {/* ── Right column: text (RTL → renders on right) ── */}
         <div>
-          <h2 className="font-black text-[28px] sm:text-4xl lg:text-[46px] leading-[1.3] mb-5">
-            چرا رکاد یه مدرسه معمولی نیست؟
+          <h2 className="font-black text-[32px] sm:text-[40px] lg:text-[46px] leading-[1.35] mb-5">
+            چرا <span className="text-teal-wordmark">رکاد</span> به مدرسه معمولی نیست؟
           </h2>
-          <p className="text-base leading-[1.9] text-navy max-w-[520px] mb-7">
-            ما هنرستان رو با اکوسیستم استارتاپی و بازار کار واقعی ترکیب کردیم.
-            اینجا فقط کتاب نمی‌خونی؛ روی چالش‌های واقعی کار می‌کنی، با
-            منتورهای متخصص همراهی می‌شی و توی محیطی امن، جرأتِ شکست خوردن و
-            دوباره پاشدن رو یاد می‌گیری.
+
+          <p className="text-[14px] sm:text-[15px] leading-[2] text-navy/70 max-w-[460px] mb-8">
+            ما هنرستان رو با اکوسیستم استارتاپی و بازار کار واقعی ترکیب کردیم. اینجا فقط کتاب
+            نمی‌خونی؛ روی چالش‌های واقعی کار می‌کنی، با منتورهای متخصص همراهی می‌شی و توی
+            محیطی امن، جرأت شکست خوردن و دوباره پاشدن رو یاد می‌گیری.
           </p>
 
-          <div className="flex flex-wrap gap-3 mb-7">
+          {/* Pills */}
+          <div className="flex flex-wrap gap-3 mb-9">
             {pills.map((p) => (
               <span key={p.label} className="relative inline-block">
-                <span className={`absolute inset-1 -right-1 -bottom-1 rounded-[10px] ${p.back}`} />
+                {/* shadow layer */}
                 <span
-                  className={`relative block bg-white border-2 rounded-[10px] px-[18px] py-2.5 font-bold text-sm ${p.border} ${p.text}`}
+                  className={`absolute inset-0 translate-x-[-4px] translate-y-[4px] rounded-[10px] ${p.back}`}
+                />
+                {/* front layer */}
+                <span
+                  className={`relative block bg-white border-2 rounded-[10px] px-5 py-2.5 font-bold text-sm ${p.border} ${p.text}`}
                 >
                   {p.label}
                 </span>
@@ -35,31 +41,47 @@ export default function Story() {
             ))}
           </div>
 
-          <a href="#" className="inline-flex items-center gap-2 font-extrabold text-[15px] text-teal-text">
-            ادامه داستان رکاد
-            <svg width="20" height="20" viewBox="0 0 24 24" className="rotate-180">
+          {/* CTA */}
+          <a
+            href="#"
+            className="inline-flex items-center gap-3 bg-teal text-white font-extrabold text-[15px] rounded-[12px] px-7 py-4 transition-opacity hover:opacity-90"
+          >
+            {/* Arrow icon (RTL: points left = "forward") */}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
               <path
-                d="M9 5l7 7-7 7"
+                d="M5 12h14M12 5l7 7-7 7"
                 stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
+                strokeWidth="2.2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
             </svg>
+            ادامه داستان رکاد
           </a>
         </div>
 
-        <div
-          className="bg-white rounded-[32px] min-h-[280px] lg:min-h-[340px] flex items-center justify-center shadow-soft overflow-hidden"
-        >
+        {/* ── Left column: illustration (RTL → renders on left) ── */}
+        <div className="relative flex items-center justify-center">
           <img
             src={yarnIllustration}
-            alt="نشانگر تصویری از تفاوت رکاد با یک مدرسه معمولی"
+            alt="تصویر چنگال با ماکارونی — نماد تفاوت رکاد"
             loading="lazy"
-            className="w-full h-auto object-contain"
+            className="w-full max-w-[520px] h-auto object-contain"
           />
+
+          {/* Floating tag — bottom-right of illustration */}
+          <span
+            className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6
+                       bg-[#f9f3e3] border-2 border-[#f4c76a]
+                       font-bold text-[13px] text-[#8a6a00]
+                       rounded-[10px] px-4 py-2
+                       rotate-[-2deg]
+                       shadow-sm"
+          >
+            رکاد یعنی متفاوت بودن...
+          </span>
         </div>
+
       </div>
     </section>
   );

@@ -1,17 +1,34 @@
 import heroMentor from "../assets/images/hero-illustration.png";
+import texture from "../assets/images/Group 1000006377.png";
 
 export default function Hero() {
   return (
     <section className="pt-9 pb-20 sm:pb-24">
       <div className="max-w-content mx-auto relative">
         <div
-          className="rounded-[28px] sm:rounded-[32px] overflow-hidden relative bg-gradient-to-br from-[#63c4b6] to-[#4bb5a7]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 28px), repeating-linear-gradient(-45deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 28px), linear-gradient(135deg, #63c4b6, #4bb5a7)",
-          }}
+          className="rounded-[28px] sm:rounded-[32px] overflow-hidden relative"
+          style={{ background: "linear-gradient(135deg, #63c4b6, #4bb5a7)" }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] items-end pb-14 sm:pb-16">
+          {/* Texture overlay */}
+          <img
+            src={texture}
+            alt=""
+            className="select-none absolute w-full h-full object-cover"
+            style={{
+              opacity: 1,
+              transform: "scale(1.5)",
+            }}
+          />
+          <img
+            src={texture}
+            alt=""
+            className="select-none absolute w-full h-full object-cover"
+            style={{
+              opacity: 1,
+              transform: "scale(1.5)",
+            }}
+          />
+          <div className="relative z-[1] grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] items-end pb-14 sm:pb-16">
             {/* Illustration */}
             <div className="order-2 lg:order-1 flex justify-center lg:justify-start items-end pt-6 lg:pt-10 px-6 lg:pl-8">
               <img
@@ -47,11 +64,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Trust ribbon — a small rounded-top "tab" that hugs the left
-            edge of the card and shrinks to fit its own text (not a
-            full-width bar), matching the reference screenshot. It's a
-            sibling of the (overflow-hidden) card rather than a child of
-            it, so the card's rounded corners never clip it. */}
+        {/* Trust ribbon */}
         <div className="relative w-fit mr-auto ml-6 sm:ml-10 bg-[rgba(180,180,180,0.22)] border-[5px] border-teal rounded-t-2xl px-6 sm:px-8 py-4 flex gap-2.5 flex-wrap">
           {["اولین", "مدرسه", "استارتاپی", "ایران!"].map((word, i) => (
             <span

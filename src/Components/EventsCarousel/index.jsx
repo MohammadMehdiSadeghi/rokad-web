@@ -6,6 +6,9 @@ import { ChevronLeftIcon, ChevronRightIcon, ArrowIcon } from "../Icons";
 // استایل‌های پایه swiper
 import "swiper/css";
 
+// 1. ایمپورت پترن (مسیر را بر اساس فایل خودتان تغییر دهید)
+import patternBg from "../../assets/Events/Event-Pattern.png";
+
 const events = [
   {
     index: "۰۱",
@@ -79,36 +82,57 @@ export default function EventsCarousel() {
 
   return (
     <section className="py-20 px-6 relative overflow-hidden bg-white">
-      <div className="w-[70%] mx-auto">
+      {/* 1. لایه پترن پس‌زمینه */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <img
+          // اگر عکس را ایمپورت کردید، متغیر patternBg را به src بدهید
+          src={patternBg || ""} 
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover opacity-80"
+        />
+      </div>
+
+      <div className="relative z-10 w-[80%] mx-auto">
         
         {/* ── هدر: تایتل و دکمه‌های ناوبری ── */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
           <div>
-            <h2 className="font-black text-[28px] sm:text-[38px] lg:text-[42px] leading-[1.35] text-navy mb-4">
-              جایی که <span className="text-magenta">ایده‌ها جون می‌گیرن</span>
+            <h2 className="font-black text-[28px] sm:text-[38px] lg:text-[42px] leading-[1.35] mb-4">
+              جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
             </h2>
-            <p className="font-medium text-ink/60 text-[15px] sm:text-[16px] leading-[1.9] max-w-xl">
+            <p className="font-medium text-[#292827] text-[15px] sm:text-[16px] leading-[1.9] max-w-xl">
               رویدادهایی که دانش‌آموزها توش از ایده تا اجرا رو با دست خودشون طی می‌کنن.
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              ref={prevRef}
-              aria-label="رویداد قبلی"
-              className="w-12 h-12 rounded-full border-2 border-navy/15 flex items-center justify-center text-navy transition-colors duration-300 hover:bg-navy hover:text-white hover:border-navy cursor-pointer"
-            >
-              <ChevronRightIcon className="w-5 h-5" />
-            </button>
-            <button
-              type="button"
-              ref={nextRef}
-              aria-label="رویداد بعدی"
-              className="w-12 h-12 rounded-full border-2 border-navy/15 flex items-center justify-center text-navy transition-colors duration-300 hover:bg-navy hover:text-white hover:border-navy cursor-pointer"
-            >
-              <ChevronLeftIcon className="w-5 h-5" />
-            </button>
+          {/* 2, 3, 4. دکمه‌های ناوبری با استایل کارت (لایه پشتی، بوردر و ردیوس) */}
+          <div className="flex items-center gap-6">
+            {/* دکمه قبلی */}
+            <div className="relative">
+              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_8.65px_0_8.65px]"></div>
+              <button
+                type="button"
+                ref={prevRef}
+                aria-label="رویداد قبلی"
+                className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              >
+                <ChevronRightIcon className="w-5 h-5" />
+              </button>
+            </div>
+            
+            {/* دکمه بعدی */}
+            <div className="relative">
+              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_8.65px_0_8.65px]"></div>
+              <button
+                type="button"
+                ref={nextRef}
+                aria-label="رویداد بعدی"
+                className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              >
+                <ChevronLeftIcon className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -159,7 +183,6 @@ export default function EventsCarousel() {
                                 {event.meta}
                               </span>
                             </div>
-                            {/* کوچک‌تر شدن سایز عدد به 80px */}
                             <span className={`font-black text-[60px] ${theme.indexColor} leading-none`}>
                               {event.index}
                             </span>
@@ -192,7 +215,7 @@ export default function EventsCarousel() {
                             {event.body}
                           </p>
 
-                          {/* دکمه (وسط‌چین) */}
+                          {/* دکمه داخل کارت (وسط‌چین) */}
                           <a
                             href="#"
                             className={`self-center inline-flex items-center gap-2 ${theme.btnBg} text-white text-sm font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-x-1`}
@@ -220,7 +243,7 @@ export default function EventsCarousel() {
         </div>
 
         {/* ── نوار پیشرفت (Progress Bar) ── */}
-        <div className="w-[90px] mx-auto h-1.5 bg-[#EDECEC] rounded-full overflow-hidden mt-4">
+        <div className="w-[120px] mx-auto h-1.5 bg-[#EDECEC] rounded-full overflow-hidden mt-4">
           <div 
             className="h-full bg-[#333230] transition-all duration-500 ease-out rounded-full"
             style={{ width: `${((activeIndex + 1) / events.length) * 100}%` }}

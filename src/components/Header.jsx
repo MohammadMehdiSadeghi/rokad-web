@@ -19,12 +19,12 @@ export default function Header() {
       >
         {/* ── سمت راست: لوگو ── */}
         <a href="#" className="flex-shrink-0" aria-label="رکاد">
-          <img 
-            src={logo} 
-            alt="رکاد" 
-            width="71" 
-            height="56" 
-            className="h-9 sm:h-10 w-auto" 
+          <img
+            src={logo}
+            alt="رکاد"
+            width="71"
+            height="56"
+            className="h-9 sm:h-10 w-auto"
           />
         </a>
 
@@ -33,13 +33,14 @@ export default function Header() {
           {/* دکمه پیش‌ثبت‌نام (اولین آیتم در وسط) */}
           <a
             href="#"
-            className="whitespace-nowrap -rotate-3 rounded-pill-sm bg-navy px-[11px] py-[7px] text-base2 font-black text-white transition-transform duration-200 hover:-rotate-6 hover:scale-105"
+            className="whitespace-nowrap -rotate-3 rounded-pill-sm bg-navy px-[11px] py-[7px] text-base2 font-black text-white transition-transform
+             duration-200 hover:rotate-0 hover:scale-105"
           >
             پیش‌ثبت‌نام
           </a>
 
           {/* لینک‌های ناوبری */}
-          <ul className="flex items-center gap-7 list-none m-0 p-0">
+          <ul className="flex items-center gap-8  list-none m-0 p-0">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <a
@@ -57,7 +58,8 @@ export default function Header() {
         {/* ── سمت چپ: دکمه ورود/ثبت‌نام ── */}
         <a
           href="#"
-          className="whitespace-nowrap rounded-pill-md bg-teal px-5 sm:px-6 py-[9.4px] text-base2 font-extrabold text-white transition-colors duration-200 hover:bg-teal-text flex-shrink-0"
+          className="whitespace-nowrap rounded-pill-md bg-teal px-5 sm:px-6 py-[9.4px] text-base2 font-extrabold
+           text-white transition-colors duration-300 hover:bg-white hover:text-teal border border-1 border-white hover:border-teal flex-shrink-0"
         >
           ورود / ثبت نام
         </a>

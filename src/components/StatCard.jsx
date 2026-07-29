@@ -74,8 +74,8 @@ export default function StatCard({ theme, label, value, caption = {} }) {
           absolute
           top-2
           left-2
-          -right-[5px]
-          -bottom-[5px]
+          -right-[4px]
+          -bottom-[4px]
           rounded-tl-card-sm
           rounded-br-card-sm
           ${t.back}
@@ -114,7 +114,7 @@ export default function StatCard({ theme, label, value, caption = {} }) {
               w-full
               h-full
               object-cover
-              scale-150
+              scale-125
               select-none
               opacity-${t.opacity}
             `}

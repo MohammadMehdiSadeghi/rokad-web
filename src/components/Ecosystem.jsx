@@ -126,7 +126,7 @@ export default function Ecosystem() {
           <span className="inline-block -rotate-[1.9deg]">رشد</span>
         </h2>
 
-        <p className="text-center font-medium text-[14px] sm:text-[16px] leading-[1.9] text-white/60 max-w-[520px] mx-auto mb-16">
+        <p className="text-center font-medium text-[14px] sm:text-[16px] leading-[1.9] text-white/60  mx-auto mb-16">
           از استعدادسنجی تا اولین شغلت، تمام گام‌های مسیر با پشتیبانی متخصصان طی
           می‌شه.
         </p>

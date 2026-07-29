@@ -1,39 +1,43 @@
-import heroPic from "../../assets/Hero/Hero_pic.png";
-
 export default function Hero() {
   return (
     <section className="pt-9 pb-20 sm:pb-24" dir="rtl">
       <div className="w-[80%] mx-auto relative">
-        {/* ── کانتینر اصلی با بک‌گراند سرمه‌ای ── */}
-        <div className="bg-[#21295A] rounded-[36px] relative overflow-hidden min-h-[600px] flex flex-col justify-end">
-          {/* ───────────────────────────────────────────────── */}
-          {/* جایگذاری عکس هیرو: عکس خود را در تگ زیر قرار دهید */}
-          {/* ───────────────────────────────────────────────── */}
-          <div className="absolute top-0 left-0 w-full h-[80%] z-0 pointer-events-none">
-            <img
-              src={heroPic}
-              alt="Hero Illustration"
-              className="w-full h-full object-cover overflow-visible"
-            />
+        {/* ── کانتینر اصلی با بک‌گراند سبزآبی ── */}
+        <div className="bg-[#57BCAF] rounded-[36px] relative overflow-hidden min-h-[600px] flex flex-col justify-between">
+          
+          {/* ── متن اصلی هیرو ── */}
+          <div className="relative z-10 px-8 sm:px-14 pt-14 sm:pt-20 text-right">
+            <h1 className="font-extrabold text-white text-4xl sm:text-6xl leading-[1.35]">
+              آینده
+              <br />
+              از اینجا شروع میشه !
+            </h1>
+            <p className="font-extrabold text-[#21295A] text-2xl sm:text-3xl mt-8 sm:mt-10">
+              اولین هنرستان استارتاپ ایران ...
+            </p>
           </div>
 
-          {/* ── کانتینر دکمه‌ها ── */}
-          {/* عرض ۵۰ درصد و در سمت راست (چپ در آرایه RTL) قرار دارد */}
-          <div className="relative z-10 w-1/2 ml-auto p-6 sm:p-8 mb-4 flex items-end justify-start gap-4">
-            {/* لینک ثبت‌نام و رزرو مصاحبه */}
-            <a
-              href="#"
-              className="font-extrabold text-base sm:text-lg text-white whitespace-nowrap cursor-pointer transition-opacity hover:opacity-80 pb-1"
+          {/* ── نوار پایین (سفید + سرمه‌ای) ── */}
+          <div className="relative z-10 w-[35%] rounded-t-3xl bg-white flex items-stretch">
+            {/* بخش سرمه‌ای (سمت راست در نمای RTL) */}
+            <div
+              className="bg-[#21295A] flex-1 py-6 px-6 sm:px-10 flex items-center justify-center"
+              style={{ clipPath: "polygon(12% 0, 100% 0, 100% 100%, 0% 100%)" }}
             >
-              ثبت‌نام و رزرو مصاحبه
-            </a>
+              <a
+                href="#"
+                className="font-extrabold text-base sm:text-lg text-white whitespace-nowrap cursor-pointer transition-opacity hover:opacity-80"
+              >
+                ثبت‌نام و رزرو مصاحبه
+              </a>
+            </div>
 
-            {/* دکمه درخواست مشاوره (سفید با بوردر پایین و ردیوس مشابه هیرو) */}
-            <button
-              className="bg-[#FFFFFF] text-[#21295A] font-extrabold text-base sm:text-lg whitespace-nowrap px-6 py-3 cursor-pointer transition-all hover:bg-gray-100 border-b-4 border-[#21295A] rounded-[28px]"
-            >
-              درخواست مشاوره
-            </button>
+            {/* بخش سفید (سمت چپ در نمای RTL) */}
+            <div className="py-6 border-b-2 border-r-0 border-[#21295A] px-6 sm:px-10 flex items-center justify-center">
+              <button className="font-extrabold  text-base sm:text-lg text-[#21295A] whitespace-nowrap cursor-pointer transition-opacity hover:opacity-80">
+                درخواست مشاوره
+              </button>
+            </div>
           </div>
         </div>
       </div>

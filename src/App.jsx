@@ -1,10 +1,10 @@
-import Header from "./components/Header.jsx";
-import Hero from "./components/Hero.jsx";
-import Stats from "./components/Stats.jsx";
-import DualSchool from "./components/DualSchool.jsx";
-import Story from "./components/Story.jsx";
-import Pillars from "./components/Pillars.jsx";
-import Ecosystem from "./components/Ecosystem.jsx";
+import Header from "./Components/Header";
+import Hero from "./Components/Hero";
+import Stats from "./Components/Stats";
+import DualSchool from "./Components/DualSchool";
+import Story from "./Components/Story";
+import Pillars from "./Components/Pillars";
+import Ecosystem from "./Components/Ecosystem";
 
 export default function App() {
   return (

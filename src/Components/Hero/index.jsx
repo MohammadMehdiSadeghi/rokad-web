@@ -1,10 +1,25 @@
+import patternBg from "../../assets/Hero/Hero-Pattern.png"; // مسیر فایل پترن خود را اینجا بدهید
+
 export default function Hero() {
   return (
     <section className="pt-9 pb-20 sm:pb-24" dir="rtl">
+      <div
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none 
+                [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] 
+                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+      >
+        <img
+          src={patternBg || ""}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover opacity-70"
+        />
+      </div>
       <div className="w-[80%] mx-auto relative">
         {/* ── کانتینر اصلی با بک‌گراند سبزآبی ── */}
         <div className="bg-[#57BCAF] rounded-[36px] relative overflow-hidden min-h-[600px] flex flex-col justify-between">
-          
+          {/* ── لایه پترن پس‌زمینه ── */}
+
           {/* ── متن اصلی هیرو ── */}
           <div className="relative z-10 px-8 sm:px-14 pt-14 sm:pt-20 text-right">
             <h1 className="font-extrabold text-white text-4xl sm:text-6xl leading-[1.35]">

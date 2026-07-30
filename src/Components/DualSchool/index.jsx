@@ -5,18 +5,22 @@ import girlIllustration from "../../assets/DualSchool/girl-illustration.svg";
 import boysCardPattern from "../../assets/DualSchool/SchoolSelection-Boys.png";
 import girlsCardPattern from "../../assets/DualSchool/SchoolSelection-Girls.png";
 // پترن پس‌زمینه‌ی کل سکشن (مسیر رو با فایل واقعی جایگزین کن)
-import sectionPattern from "../../assets/Shared/Patterns/Ecosystem-Pattern.png";
+import patternBg from "../../assets/DualSchool/Schools-Pattern.png";
 
 export default function DualSchool() {
   return (
     <section className="relative bg-white py-14 sm:py-20 px-4 sm:px-6 overflow-hidden">
       {/* ── Background Pattern Layer ── */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+      <div
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none 
+                [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] 
+                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+      >
         <img
-          src={sectionPattern} // استفاده از متغیر ایمپورت شده
+          src={patternBg || ""}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover opacity-30" // شفافیت ۳۰ درصد
+          className="w-full h-full object-cover opacity-70"
         />
       </div>
 
@@ -43,7 +47,10 @@ export default function DualSchool() {
             category="مدرسه‌پسرانه"
             title="هنرستان‌پسرانه‌رکاد"
             meta="مشهد | فرامرز عباسی ۳۳"
-            chips={["تولید و توسعه پایگاه اینترنتی", "تولید محتوای چندرسانه‌ای"]}
+            chips={[
+              "تولید و توسعه پایگاه اینترنتی",
+              "تولید محتوای چندرسانه‌ای",
+            ]}
             ctaLabel="پیش‌ثبت‌نام پسرانه"
             illustration={boyIllustration}
             pattern={boysCardPattern}

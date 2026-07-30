@@ -49,53 +49,20 @@ export default function Faq() {
         />
       </div>
 
-      <div className="relative z-10 w-[92%] sm:w-[85%] lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-24 xl:gap-36 items-start">
+      {/* اعمال قانون 80% عرض */}
+      <div className="relative z-10 w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-24 xl:gap-36 items-start">
+        
         {/* سمت راست: عنوان و باکس مشاوره */}
         <div className="lg:pt-4">
           <h2 className="font-black text-[28px] xs:text-[32px] sm:text-[44px] lg:text-[52px] leading-[1.5] sm:leading-[1.8] text-navy mb-5 sm:mb-6">
-            <span
-              className="inline-block text-ink"
-              style={{ transform: "rotate(3deg)" }}
-            >
-              دغدغه‌ی
-            </span>{" "}
-            <span
-              className="inline-block text-navy"
-              style={{ transform: "rotate(-3deg)" }}
-            >
-              آینده
-            </span>{" "}
-            <span
-              className="inline-block text-ink"
-              style={{ transform: "rotate(-3deg)" }}
-            >
-              و
-            </span>{" "}
-            <span
-              className="inline-block text-magenta"
-              style={{ transform: "rotate(-3deg)" }}
-            >
-              شغل
-            </span>
+            <span className="inline-block text-ink" style={{ transform: "rotate(3deg)" }}>دغدغه‌ی</span>{" "}
+            <span className="inline-block text-navy" style={{ transform: "rotate(-3deg)" }}>آینده</span>{" "}
+            <span className="inline-block text-ink" style={{ transform: "rotate(-3deg)" }}>و</span>{" "}
+            <span className="inline-block text-magenta" style={{ transform: "rotate(-3deg)" }}>شغل</span>
             <br />
-            <span
-              className="inline-block text-ink"
-              style={{ transform: "rotate(3deg)" }}
-            >
-              فرزندتون
-            </span>{" "}
-            <span
-              className="inline-block text-ink"
-              style={{ transform: "rotate(-3deg)" }}
-            >
-              رو
-            </span>{" "}
-            <span
-              className="inline-block text-ink"
-              style={{ transform: "rotate(3deg)" }}
-            >
-              دارید؟
-            </span>
+            <span className="inline-block text-ink" style={{ transform: "rotate(3deg)" }}>فرزندتون</span>{" "}
+            <span className="inline-block text-ink" style={{ transform: "rotate(-3deg)" }}>رو</span>{" "}
+            <span className="inline-block text-ink" style={{ transform: "rotate(3deg)" }}>دارید؟</span>
           </h2>
 
           <p className="text-[15px] sm:text-[18px] font-semibold leading-[1.8] sm:leading-[1.9] text-ink mb-7 sm:mb-9">
@@ -126,12 +93,15 @@ export default function Faq() {
                 </p>
               </div>
 
+              {/* ── دکمه با استایل جدید (لایه پشتی دقیق، بوردر و ردیوس) ── */}
               <div className="relative sm:absolute -rotate-3 hover:rotate-0 transition-transform duration-500 ease-out z-10 mt-5 sm:mt-0 sm:left-10 sm:bottom-6">
                 <div className="relative group inline-flex items-center justify-center">
-                  <div className="absolute inset-0 scale-105 rounded-[7px] transition-colors duration-300 ease-out group-hover:bg-black bg-white" />
+                  {/* لایه پشتی سفید: 2px راست (left-2) و 1px پایین (top-1) */}
+                  <div className="absolute top-[1px] left-[2px] w-full h-full rounded-[7px] bg-white transition-colors duration-300 ease-out group-hover:bg-black"></div>
+                  {/* خود دکمه */}
                   <a
                     href="#"
-                    className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[14px] sm:text-[16px] font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-[7px] whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95"
+                    className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[14px] sm:text-[16px] font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-[7px] border-[1.23px] border-white group-hover:border-ink whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95"
                   >
                     رزرو جلسه‌ی مشاوره
                   </a>
@@ -146,14 +116,11 @@ export default function Faq() {
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (
-              <div
-                key={item.question}
-                className="relative transition-transform duration-300"
-              >
+              <div key={item.question} className="relative transition-transform duration-300">
                 <div className="absolute top-[5px] left-[5px] w-full h-full rounded-tl-none rounded-br-none rounded-tr-[16px] rounded-bl-[16px] bg-ink" />
 
                 <div
-                  className={`relative z-10 rounded-tl-none rounded-br-none rounded-tr-[16px] rounded-bl-[16px] border-2 border-ink overflow-hidden transition-colors duration-200 ${
+                  className={`relative z-10 rounded-tl-none rounded-br-none rounded-tr-[16px] rounded-bl-[16px] border-2 border-ink overflow-hidden transition-colors duration-300 ${
                     isOpen ? "bg-teal text-ink" : "bg-white text-ink"
                   }`}
                 >
@@ -180,8 +147,9 @@ export default function Faq() {
                     <div className="relative flex-shrink-0">
                       <div className="absolute top-[2px] left-[3px] w-full h-full bg-black rounded-[0_8.65px_0_8.65px]"></div>
                       <div
-                        className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-ink border-[2px] border-black text-white
-                      rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                        className={`relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-ink border-[2px] border-black text-white rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer ${
+                          isOpen ? "rotate-180" : "rotate-0"
+                        }`}
                       >
                         {isOpen ? (
                           <ChevronDownIcon className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -192,11 +160,18 @@ export default function Faq() {
                     </div>
                   </button>
 
-                  {isOpen && (
-                    <p className="relative z-10 px-4 sm:px-5 pb-4 sm:pb-5 text-[13px] sm:text-[16px] font-medium leading-6 sm:leading-7 text-ink/90">
-                      {item.answer}
-                    </p>
-                  )}
+                  {/* انیمیشن نرم باز شدن با CSS Grid */}
+                  <div
+                    className={`grid transition-all duration-500 ease-in-out ${
+                      isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="relative z-10 px-4 sm:px-5 pb-4 sm:pb-5 text-[13px] sm:text-[16px] font-medium leading-6 sm:leading-7 text-ink/90">
+                        {item.answer}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             );

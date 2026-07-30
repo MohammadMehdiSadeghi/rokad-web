@@ -45,7 +45,7 @@ export default function Pillars() {
           src={pattern} // استفاده از متغیر ایمپورت شده
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover opacity-70" // شفافیت ۳۰ درصد
+          className="w-full h-full object-cover opacity-60" // شفافیت 70 درصد
         />
       </div>
 

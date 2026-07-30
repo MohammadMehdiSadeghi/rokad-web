@@ -12,7 +12,7 @@ export default function Hero() {
           src={patternBg || ""}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover opacity-70"
+          className="w-full h-full object-cover opacity-70 rotate-180"
         />
       </div>
       <div className="w-[80%] mx-auto relative">

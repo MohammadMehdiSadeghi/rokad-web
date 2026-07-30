@@ -38,7 +38,7 @@ export default function Faq() {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#dcefec] py-20 px-6"
+      className="relative overflow-hidden bg-[#dcefec] py-14 sm:py-20 px-4 sm:px-6"
       dir="rtl"
     >
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -49,10 +49,10 @@ export default function Faq() {
         />
       </div>
 
-      <div className="relative z-10 w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-36 items-start">
+      <div className="relative z-10 w-[92%] sm:w-[85%] lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-24 xl:gap-36 items-start">
         {/* سمت راست: عنوان و باکس مشاوره */}
         <div className="lg:pt-4">
-          <h2 className="font-black text-[34px] sm:text-[44px] lg:text-[52px] leading-[1.8] text-navy mb-6">
+          <h2 className="font-black text-[28px] xs:text-[32px] sm:text-[44px] lg:text-[52px] leading-[1.5] sm:leading-[1.8] text-navy mb-5 sm:mb-6">
             <span
               className="inline-block text-ink"
               style={{ transform: "rotate(3deg)" }}
@@ -98,7 +98,7 @@ export default function Faq() {
             </span>
           </h2>
 
-          <p className="text-[16px] sm:text-[18px] font-semibold leading-[1.9] text-ink mb-9 ">
+          <p className="text-[15px] sm:text-[18px] font-semibold leading-[1.8] sm:leading-[1.9] text-ink mb-7 sm:mb-9">
             انتخاب مدرسه یعنی انتخاب آینده. اینجا صادقانه، مستقیم و بدون تعارف،
             به سوالات بی‌نهایت شما درباره‌ی کنکور، مدرک رسمی و آینده‌ی شغلی پاسخ
             می‌دین؛ چون باور داریم راهِ درست، از شفافیت می‌گذره.
@@ -106,7 +106,7 @@ export default function Faq() {
 
           <div className="relative rotate-2">
             <div className="absolute top-2 left-2 w-full h-full rounded-tl-[28px] rounded-br-[28px] rounded-tr-none rounded-bl-none bg-ink" />
-            <div className="relative z-10 border-[3px] border-ink rounded-tl-[28px] rounded-br-[28px] rounded-tr-none rounded-bl-none bg-teal p-6 sm:p-7 min-h-[176px] overflow-hidden">
+            <div className="relative z-10 border-[3px] border-ink rounded-tl-[28px] rounded-br-[28px] rounded-tr-none rounded-bl-none bg-teal p-5 sm:p-7 min-h-[176px] overflow-hidden">
               <div className="absolute inset-0 pointer-events-none">
                 <img
                   src={faqPatternBoxs}
@@ -115,22 +115,23 @@ export default function Faq() {
                 />
               </div>
 
-              <div className="relative z-10 max-w-[68%] sm:max-w-[64%]">
-                <h3 className="font-black text-[26px] sm:text-[32px] text-ink mb-2">
+              <div className="relative z-10 max-w-full sm:max-w-[64%]">
+                <h3 className="font-black text-[22px] sm:text-[32px] text-ink mb-2">
                   <span className="text-white">دریافت</span> کوچینگ{" "}
                   <span className="text-white">تخصصی</span>
                 </h3>
-                <p className="text-xs sm:text-[16px] font-medium leading-[1.9] text-ink">
+                <p className="text-[13px] sm:text-[16px] font-medium leading-[1.8] sm:leading-[1.9] text-ink">
                   می‌توانید یک جلسه‌ی مشاوره‌ی رایگان با تیم متخصصان ما رزرو
                   کنید و درباره‌ی مسیر فرزندتون بطور اختصاصی صحبت کنید.
                 </p>
               </div>
-              <div className="absolute -rotate-3 hover:rotate-0 transition-transform duration-500 ease-out z-10 left-5 bottom-5 sm:left-10 sm:bottom-6">
+
+              <div className="relative sm:absolute -rotate-3 hover:rotate-0 transition-transform duration-500 ease-out z-10 mt-5 sm:mt-0 sm:left-10 sm:bottom-6">
                 <div className="relative group inline-flex items-center justify-center">
                   <div className="absolute inset-0 scale-105 rounded-[7px] transition-colors duration-300 ease-out group-hover:bg-black bg-white" />
                   <a
                     href="#"
-                    className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[16px] font-bold px-5 py-3 rounded-[7px] whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95"
+                    className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[14px] sm:text-[16px] font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-[7px] whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95"
                   >
                     رزرو جلسه‌ی مشاوره
                   </a>
@@ -141,7 +142,7 @@ export default function Faq() {
         </div>
 
         {/* سمت چپ: باکس‌های سوالات متداول */}
-        <div className="space-y-5 mt-10">
+        <div className="space-y-4 sm:space-y-5 mt-4 lg:mt-10">
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (
@@ -170,32 +171,29 @@ export default function Faq() {
                     type="button"
                     onClick={() => toggle(i)}
                     aria-expanded={isOpen}
-                    // تغییر 1: استفاده از justify-between برای فرستادن آیکون به سمت چپ
-                    className="relative z-10 w-full flex items-center justify-between gap-4 px-5 py-4 text-right"
+                    className="relative z-10 w-full flex items-center justify-between gap-3 sm:gap-4 px-4 sm:px-5 py-3.5 sm:py-4 text-right"
                   >
-                    <span className="font-bold text-[16px] sm:text-[18px] font-extrabold leading-7">
+                    <span className="font-extrabold text-[14px] sm:text-[18px] leading-6 sm:leading-7">
                       {item.question}
                     </span>
 
-                    {/* تغییر 2: استایل جدید دکمه با الهام از کد ارسالی شما */}
                     <div className="relative flex-shrink-0">
                       <div className="absolute top-[2px] left-[3px] w-full h-full bg-black rounded-[0_8.65px_0_8.65px]"></div>
                       <div
-                        className="relative w-12 h-12 flex items-center justify-center bg-ink border-[2px] border-black text-white 
+                        className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-ink border-[2px] border-black text-white
                       rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
                       >
                         {isOpen ? (
-                          <ChevronDownIcon className="w-5 h-5" />
+                          <ChevronDownIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                         ) : (
-                          <PlusIcon className="w-5 h-5" />
+                          <PlusIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                         )}
                       </div>
                     </div>
                   </button>
 
                   {isOpen && (
-                    // تغییر 3: حذف pr-[68px] زیر متن چون دیگر آیکونی در سمت راست وجود ندارد
-                    <p className="relative z-10 px-5 pb-5 text-[16px] font-medium leading-7 text-ink/90">
+                    <p className="relative z-10 px-4 sm:px-5 pb-4 sm:pb-5 text-[13px] sm:text-[16px] font-medium leading-6 sm:leading-7 text-ink/90">
                       {item.answer}
                     </p>
                   )}

@@ -9,7 +9,7 @@ import sectionPattern from "../../assets/Shared/Patterns/Ecosystem-Pattern.png";
 
 export default function DualSchool() {
   return (
-    <section className="relative bg-white py-20 px-6 overflow-hidden">
+    <section className="relative bg-white py-14 sm:py-20 px-4 sm:px-6 overflow-hidden">
       {/* ── Background Pattern Layer ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
@@ -21,9 +21,9 @@ export default function DualSchool() {
       </div>
 
       {/* اعمال قانون 80% عرض */}
-      <div className="relative z-10 w-[80%] mx-auto">
+      <div className="relative z-10 w-[92%] sm:w-[85%] lg:w-[80%] mx-auto">
         {/* Title - 53px, 900, #292827 */}
-        <h2 className="text-center font-black text-[53px] text-[#292827] mb-4 leading-[1.4] flex flex-wrap justify-center items-center gap-x-3">
+        <h2 className="text-center font-black text-[30px] xs:text-[34px] sm:text-[42px] lg:text-[53px] text-[#292827] mb-4 leading-[1.5] sm:leading-[1.4] flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3">
           <span className="text-magenta inline-block rotate-3">دخترونه</span>
           <span className="inline-block -rotate-3">یا</span>
           <span className="text-navy-alt inline-block rotate-3">پسرونه</span>
@@ -32,12 +32,12 @@ export default function DualSchool() {
         </h2>
 
         {/* Subtitle - 18px, 600, #292827 */}
-        <p className="text-center font-semibold text-[18px] leading-[1.7] text-[#292827] max-w-[520px] mx-auto mb-14">
+        <p className="text-center font-semibold text-[14px] sm:text-[18px] leading-[1.7] text-[#292827] max-w-[520px] mx-auto mb-10 sm:mb-14">
           هر دو شعبه با محیطی امن، منتورهای مجرب و اکوسیستم اختصاصی. فقط کافیه
           مسیر خودت رو انتخاب کنی.
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           <SchoolCard
             theme="boys"
             category="مدرسه‌پسرانه"

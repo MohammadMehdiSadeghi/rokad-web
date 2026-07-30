@@ -18,7 +18,6 @@ const pills = [
     rotate: "rotate-[-2deg]",
     bg: "bg-[#FCE8EF]",
   },
-  ,
   {
     label: "هنرستان رسمی",
     back: "bg-teal-alt",
@@ -31,11 +30,11 @@ const pills = [
 
 export default function Story() {
   return (
-    <section className="py-[88px] w-full px-6 bg-[#F3F3F1]">
-      <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-40 items-center">
+    <section className="py-16 sm:py-20 lg:py-[88px] w-full px-4 sm:px-6 bg-[#F3F3F1]">
+      <div className="w-[92%] sm:w-[85%] lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 sm:gap-20 lg:gap-40 items-center">
         {/* ── ستون راست: تصویر ── */}
         <div className="relative flex items-start justify-center lg:justify-start -mt-2">
-          <div className="relative w-full max-w-[560px]">
+          <div className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[560px]">
             <img
               src={yarnIllustration}
               alt="تصویر چنگال با ماکارونی — نماد تفاوت رکاد"
@@ -45,8 +44,8 @@ export default function Story() {
 
             {/* برچسب شناور روی عکس (کج -3 درجه) */}
             <span
-              className="absolute bottom-[15%] right-[20%] inline-block rotate-3 bg-[#FFD641] border-2 border-black font-bold text-[14px] text-black rounded-tl-[10px]
-             rounded-tr-none rounded-br-[10px] rounded-bl-none px-5 py-2 shadow-[3px_3px_0_0_#000] "
+              className="absolute bottom-[10%] right-[12%] sm:right-[20%] inline-block rotate-3 bg-[#FFD641] border-2 border-black font-bold text-[11px] sm:text-[14px] text-black rounded-tl-[10px]
+             rounded-tr-none rounded-br-[10px] rounded-bl-none px-3 sm:px-5 py-1.5 sm:py-2 shadow-[3px_3px_0_0_#000] max-w-[62%] sm:max-w-none text-center leading-snug"
             >
               رکاد یعنی متفاوت بودن...
             </span>
@@ -54,8 +53,8 @@ export default function Story() {
         </div>
 
         {/* ── ستون چپ: متن ── */}
-        <div className="max-w-[500px]">
-          <h2 className="font-black text-[32px] sm:text-[40px] lg:text-[46px] leading-[1.35] mb-5">
+        <div className="max-w-full lg:max-w-[500px]">
+          <h2 className="font-black text-[26px] xs:text-[30px] sm:text-[40px] lg:text-[46px] leading-[1.4] sm:leading-[1.35] mb-5">
             <span className="inline-block rotate-3">چرا</span>{" "}
             <span className="inline-block text-teal-wordmark -rotate-3">
               رکاد
@@ -65,7 +64,7 @@ export default function Story() {
             <span className="inline-block rotate-3">معمولی</span>{" "}
             <span className="inline-block -rotate-3">نیست؟</span>
           </h2>
-          <p className="text-[14px] sm:text-[15px] leading-[2] text-navy/70 max-w-[460px] mb-8">
+          <p className="text-[13px] sm:text-[15px] leading-[1.9] sm:leading-[2] text-navy/70 max-w-full lg:max-w-[460px] mb-7 sm:mb-8">
             ما هنرستان رو با اکوسیستم استارتاپی و بازار کار واقعی ترکیب کردیم.
             اینجا فقط کتاب نمی‌خونی؛ روی چالش‌های واقعی کار می‌کنی، با منتورهای
             متخصص همراهی می‌شی و توی محیطی امن، جرأت شکست خوردن و دوباره پاشدن
@@ -73,7 +72,7 @@ export default function Story() {
           </p>
 
           {/* Pills با زاویه کج برای متن‌ها و سایه استیکری */}
-          <div className="flex flex-wrap gap-4 mb-9">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-9">
             {pills.map((p) => (
               <span
                 key={p.label}
@@ -85,7 +84,7 @@ export default function Story() {
                 />
                 {/* لایه اصلی و متن استیکر */}
                 <span
-                  className={`relative block ${p.bg} border-2 rounded-[10px] px-5 py-2.5 font-bold text-sm ${p.border} ${p.text}`}
+                  className={`relative block ${p.bg} border-2 rounded-[10px] px-4 sm:px-5 py-2 sm:py-2.5 font-bold text-[13px] sm:text-sm ${p.border} ${p.text}`}
                 >
                   {p.label}
                 </span>
@@ -94,10 +93,10 @@ export default function Story() {
           </div>
 
           {/* CTA */}
-          <div className="flex justify-center items-center w-[90%]">
+          <div className="flex justify-center lg:justify-start items-center w-full">
             <a
               href="#"
-              className="group inline-flex items-center justify-center gap-3 w-[240px] h-[52px] bg-[#61C4BC] text-white font-extrabold text-[18px] 
+              className="group inline-flex items-center justify-center gap-3 w-full max-w-[240px] h-[48px] sm:h-[52px] bg-[#61C4BC] text-white font-extrabold text-[16px] sm:text-[18px]
               rounded-tl-none rounded-br-none rounded-tr-[10px] rounded-bl-[10px] transition-all hover:rounded-tl-[10px] hover:rounded-br-[10px]
                hover:rounded-tr-none hover:rounded-bl-none border border-white duration-300 hover:border-teal-text"
             >

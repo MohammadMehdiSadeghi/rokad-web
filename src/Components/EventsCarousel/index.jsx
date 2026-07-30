@@ -175,11 +175,11 @@ export default function EventsCarousel() {
                           
                           {/* ردیف اول: عنوان/تاریخ (راست) و عدد (چپ) در یک خط */}
                           <div className="flex justify-between items-start w-full">
-                            <div className="flex flex-col items-end">
-                              <span className={`font-black text-[12.97px] ${theme.accentText}`}>
+                            <div className="flex flex-col items-start">
+                              <span className={`font-black text-[14.97px] ${theme.accentText}`}>
                                 {event.category}
                               </span>
-                              <span className={`font-medium text-[9.9px] mt-1 ${theme.metaColor}`}>
+                              <span className={`font-medium text-[11.9px] mt-1 ${theme.metaColor}`}>
                                 {event.meta}
                               </span>
                             </div>

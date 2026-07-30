@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { UserIcon } from "../Icons";
 // ایمپورت پترن با مسیر دقیقی که دادید
 import ecosystemPattern from "../../assets/Shared/Patterns/Ecosystem-Pattern.png";
@@ -46,19 +47,105 @@ const cards = [
   },
 ];
 
-function EcoCard({ title, body, featured, tilt }) {
+/**
+ * این هوک مشخص می‌کنه از بین یه لیست از عنصرها (refs)، کدوم یکی
+ * از نظر «مرکز عنصر» به «مرکز صفحه (50vh)» نزدیک‌تره.
+ * فقط زیر یک breakpoint خاص (پیش‌فرض 1024px = lg) فعال می‌شه،
+ * چون تو دسکتاپ همون :hover واقعی کارو انجام می‌ده.
+ *
+ * محدوده‌ی مجاز جستجو بین minPercent و maxPercent از ارتفاع صفحه‌ست
+ * (طبق مثال شما 30vh تا 70vh)؛ اگه هیچ کارتی داخل این محدوده نباشه
+ * (مثلاً بالای همه یا پایین همه‌ی کارت‌ها) هیچکدوم فعال نمی‌شن.
+ */
+function useClosestToCenter(count, { minPercent = 30, maxPercent = 70, disableAboveWidth = 1024 } = {}) {
+  const itemRefs = useRef([]);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    const checkWidth = () => setEnabled(window.innerWidth < disableAboveWidth);
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
+    return () => window.removeEventListener("resize", checkWidth);
+  }, [disableAboveWidth]);
+
+  useEffect(() => {
+    if (!enabled) {
+      setActiveIndex(null);
+      return;
+    }
+
+    let rafId = null;
+
+    const compute = () => {
+      const vh = window.innerHeight;
+      const zoneTop = vh * (minPercent / 100);
+      const zoneBottom = vh * (maxPercent / 100);
+      const viewportCenter = vh / 2;
+
+      let bestIndex = null;
+      let bestDistance = Infinity;
+
+      itemRefs.current.forEach((node, i) => {
+        if (!node) return;
+        const rect = node.getBoundingClientRect();
+        const elCenter = rect.top + rect.height / 2;
+
+        // فقط کارت‌هایی که مرکزشون داخل محدوده‌ی 30vh-70vh هست در نظر گرفته می‌شن
+        if (elCenter < zoneTop || elCenter > zoneBottom) return;
+
+        const distance = Math.abs(elCenter - viewportCenter);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestIndex = i;
+        }
+      });
+
+      setActiveIndex(bestIndex);
+    };
+
+    const onScrollOrResize = () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        compute();
+        rafId = null;
+      });
+    };
+
+    compute();
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+    return () => {
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [enabled, minPercent, maxPercent]);
+
+  const setRef = (index) => (node) => {
+    itemRefs.current[index] = node;
+  };
+
+  return { setRef, activeIndex };
+}
+
+function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
   return (
     <article
+      ref={cardRef}
       style={{ "--tilt": `${tilt}deg` }}
+      data-active={isActive || undefined}
       className={`
         group p-6 flex flex-col gap-4
         backdrop-blur-[19.06px] rotate-[var(--tilt)] hover:rotate-0
         transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
         hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
-        
+
         bg-[#FFFFFF12] hover:bg-[#59BBAF]
         border-[1.32px] border-[#59BBAF] hover:border-[#FFFFFF]
         rounded-[0_13.54px_0_13.54px]
+
+        ${isActive ? "-translate-y-1.5 shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)] bg-[#59BBAF] border-[#FFFFFF] rotate-0" : ""}
       `}
     >
       {/* Icon */}
@@ -68,9 +155,14 @@ function EcoCard({ title, body, featured, tilt }) {
           transition-colors duration-500
           rounded-[5.02px_0_5.02px_0]
           bg-[#58BDAF] group-hover:bg-[#202A5A]
+          ${isActive ? "bg-[#202A5A]" : ""}
         `}
       >
-        <span className={`w-5 h-5 text-[#0e1633] group-hover:text-white transition-colors duration-300`}>
+        <span
+          className={`w-5 h-5 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
+            isActive ? "text-white" : ""
+          }`}
+        >
           <UserIcon />
         </span>
       </div>
@@ -80,7 +172,11 @@ function EcoCard({ title, body, featured, tilt }) {
         <h4 className="font-black text-[17px] sm:text-[18px] text-white mb-2 leading-snug transition-colors duration-300">
           {title}
         </h4>
-        <p className="text-[13px] leading-[1.85] text-white/60 group-hover:text-white/90 transition-colors duration-300">
+        <p
+          className={`text-[13px] leading-[1.85] text-white/60 group-hover:text-white/90 transition-colors duration-300 ${
+            isActive ? "text-white/90" : ""
+          }`}
+        >
           {body}
         </p>
       </div>
@@ -89,6 +185,11 @@ function EcoCard({ title, body, featured, tilt }) {
 }
 
 export default function Ecosystem() {
+  const { setRef, activeIndex } = useClosestToCenter(cards.length, {
+    minPercent: 30,
+    maxPercent: 70,
+  });
+
   return (
     <section
       className="py-24 px-6 relative overflow-hidden"
@@ -133,7 +234,7 @@ export default function Ecosystem() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {cards.map((c, i) => (
-            <EcoCard key={i} {...c} />
+            <EcoCard key={i} {...c} isActive={activeIndex === i} cardRef={setRef(i)} />
           ))}
         </div>
       </div>

@@ -65,7 +65,7 @@ export default function Comments() {
 
   return (
     <section className="relative w-full py-20 px-6 overflow-hidden bg-[#E4F4F2]">
-      <div className="relative z-10 w-[80%] mx-auto">
+      <div className="relative z-10 w-[94%] mx-auto">
         
         {/* ── هدر سکشن ── */}
         <h2 className="font-black text-[28px] sm:text-[38px] lg:text-[42px] leading-[1.5] text-[#292827] mb-12 flex flex-wrap justify-center items-center gap-x-3">
@@ -121,7 +121,7 @@ export default function Comments() {
                       {/* لایه پشتی کارت */}
                       <div 
                         aria-hidden="true" 
-                        className={`absolute top-[4px] left-[7px] w-full h-full ${theme.solidColor} rounded-[0_18.06px_0_18.06px]`}
+                        className={`absolute top-[3px] left-[5px] w-full h-full ${theme.solidColor} rounded-[0_18.06px_0_18.06px]`}
                       ></div>
 
                       {/* کارت اصلی */}

@@ -58,40 +58,44 @@ export default function HonorsCarousel() {
   const nextRef = useRef(null);
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden bg-white" dir="rtl">
-      <div className="relative z-10 w-[80%] mx-auto">
+    <section
+      className="py-10 sm:py-16 md:py-20 px-3 sm:px-6 relative overflow-hidden bg-white"
+      dir="rtl"
+    >
+      {/* تغییر این خط: استفاده از 80vw برای دقیقا 80 درصد عرض صفحه در مانیتورها */}
+      <div className="relative z-10 w-full sm:w-[92%] md:w-[88%] lg:w-[80vw] mx-auto">
         {/* ── هدر ── */}
-        <div className="flex flex-row-reverse justify-between items-start md:items-center gap-6 mb-14 flex-wrap">
-          <div className="flex items-center gap-6">
+        <div className="flex flex-col-reverse sm:flex-row-reverse justify-between items-center gap-5 sm:gap-6 mb-8 sm:mb-10 md:mb-14 flex-wrap text-center sm:text-right">
+          <div className="flex items-center gap-3 sm:gap-6">
             <div className="relative">
-              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_8.65px_0_8.65px]"></div>
+              <div className="absolute top-[2px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#21295A] rounded-[0_8.65px_0_8.65px]"></div>
               <button
                 type="button"
                 ref={prevRef}
                 aria-label="افتخار قبلی"
-                className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-[#F4F5FB] border-[1.5px] sm:border-[2px] border-[#21295A] text-[#21295A] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
-                <ChevronRightIcon className="w-5 h-5" />
+                <ChevronRightIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
               </button>
             </div>
             <div className="relative">
-              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_8.65px_0_8.65px]"></div>
+              <div className="absolute top-[2px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#21295A] rounded-[0_8.65px_0_8.65px]"></div>
               <button
                 type="button"
                 ref={nextRef}
                 aria-label="افتخار بعدی"
-                className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-[#F4F5FB] border-[1.5px] sm:border-[2px] border-[#21295A] text-[#21295A] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
-                <ChevronLeftIcon className="w-5 h-5" />
+                <ChevronLeftIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
               </button>
             </div>
           </div>
 
-          <div className="text-right">
-            <h2 className="font-black text-[30px] sm:text-[40px] lg:text-[44px] leading-[1.35] mb-4">
+          <div className="mx-auto sm:mx-0 max-w-[90%] sm:max-w-none">
+            <h2 className="font-black text-[20px] xs:text-[22px] sm:text-[34px] lg:text-[44px] leading-[1.35] mb-2 sm:mb-4">
               افتخاراتی که <span className="text-[#21295A]">با هم</span> ساختیم
             </h2>
-            <p className="font-medium text-[#292827] text-[15px] sm:text-[16px] leading-[1.9] max-w-xl">
+            <p className="font-medium text-[#292827] text-[12px] sm:text-[16px] leading-[1.8] sm:leading-[1.9] max-w-sm sm:max-w-xl mx-auto sm:mx-0">
               هر مدال اینجا یه اسم یه دانش‌آموزه که یه چیزی رو از صفر ساخت و تا
               آخرش ایستاد.
             </p>
@@ -101,11 +105,13 @@ export default function HonorsCarousel() {
         {/* ── کاروسل ── */}
         <Swiper
           modules={[Navigation, A11y]}
-          spaceBetween={24}
+          spaceBetween={12}
           dir="rtl"
           breakpoints={{
-            0: { slidesPerView: 1.15, spaceBetween: 16 },
+            0: { slidesPerView: 1.15, spaceBetween: 12 },
+            420: { slidesPerView: 1.4, spaceBetween: 14 },
             640: { slidesPerView: 2.1, spaceBetween: 20 },
+            900: { slidesPerView: 2.6, spaceBetween: 22 },
             1024: { slidesPerView: 3, spaceBetween: 24 },
             1280: { slidesPerView: 3.5, spaceBetween: 28 },
           }}
@@ -113,33 +119,33 @@ export default function HonorsCarousel() {
             swiper.params.navigation.prevEl = prevRef.current;
             swiper.params.navigation.nextEl = nextRef.current;
           }}
-          className="!pb-6"
+          className="!pb-4 sm:!pb-6"
         >
           {honors.map((honor, i) => {
             const theme = THEME_MAP[honor.rank];
-            const cardRotation = i % 2 === 0 ? 1.5 : -1.5;
-            const badgeRotation = i % 2 === 0 ? -8 : 8;
+            const cardRotation = i % 2 === 0 ? 1.2 : -1.2;
+            const badgeRotation = i % 2 === 0 ? -6 : 6;
 
             return (
               <SwiperSlide key={i} className="!h-auto mt-5 flex justify-center">
                 <div
-                  className="relative"
+                  className="relative w-full flex justify-center"
                   style={{ transform: `rotate(${cardRotation}deg)` }}
                 >
-                  <div className="relative mt-12 w-[350px] max-w-full h-[250px]">
+                  <div className="relative mt-8 sm:mt-12 w-full max-w-[260px] xs:max-w-[280px] sm:max-w-[320px] md:max-w-[350px] min-h-[230px] sm:min-h-[280px] md:min-h-[260px]">
+                    
                     {/* لایه سایه/آفست پشت کارت */}
                     <div
                       aria-hidden="true"
-                      className="absolute top-[5px] left-[5px] w-full h-full rounded-[0_24px_0_24px]"
+                      className="absolute top-[3px] left-[3px] sm:top-[5px] sm:left-[5px] w-full h-full rounded-[0_20px_0_20px] sm:rounded-[0_24px_0_24px]"
                       style={{ backgroundColor: theme.accent }}
                     />
 
                     {/* کارت اصلی */}
                     <div
-                      className="relative z-10 w-full h-full bg-white border-[2px] rounded-[0_24px_0_24px] overflow-hidden"
+                      className="relative z-10 w-full h-full bg-white border-[1.5px] sm:border-[2px] rounded-[0_20px_0_20px] sm:rounded-[0_24px_0_24px] overflow-hidden"
                       style={{ borderColor: theme.accent }}
                     >
-                      {/* پترن پس‌زمینه */}
                       <div className="absolute inset-0 pointer-events-none">
                         <div
                           className="absolute inset-0"
@@ -153,34 +159,29 @@ export default function HonorsCarousel() {
                         />
                       </div>
 
-                      {/* محتوا — meta / تایتل / دکمه، همه وسط‌چین و زیر هم */}
-                      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center gap-4 px-7 py-8">
+                      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center gap-2 sm:gap-3 px-3 sm:px-7 py-6 sm:py-8">
                         <p
-                          className="text-[13px] leading-7 font-semibold"
+                          className="text-[10px] sm:text-[13px] leading-5 sm:leading-7 font-semibold"
                           style={{ color: theme.accent, opacity: 0.7 }}
                         >
                           {honor.meta}
                         </p>
 
                         <h4
-                          className="font-black text-[22px] sm:text-[24px] leading-snug"
+                          className="font-black text-[14px] sm:text-[20px] lg:text-[22px] leading-snug"
                           style={{ color: theme.accent }}
                         >
                           {honor.title}
                         </h4>
 
-                        {/* ── دکمه: سایه مشکی، از هر طرف ۲px بیرون‌زده ── */}
-                        <div className="relative inline-flex items-center justify-center mt-1">
-                          {/* لایه سایه مشکی */}
-                          <div className="absolute -inset-[2px] rounded-[9px] bg-black"></div>
-                          {/* خود دکمه */}
+                        <div className="relative inline-flex items-center justify-center mt-1 sm:mt-2">
+                          <div className="absolute top-[2px] left-[2px] sm:top-[3px] sm:left-[3px] w-full h-full rounded-[6px] sm:rounded-[7px] bg-black"></div>
+                          
+                          {/* اشکال تگ <a> در اینجا برطرف شد */}
                           <a
                             href="#"
-                            className="relative z-10 inline-flex items-center justify-center text-white text-[14px] sm:text-[16px] font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-[7px] border-[1.23px] whitespace-nowrap"
-                            style={{
-                              backgroundColor: theme.accent,
-                              borderColor: theme.accent,
-                            }}
+                            className="relative z-10 inline-flex items-center justify-center text-white text-[10px] sm:text-[14px] font-bold px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-[6px] sm:rounded-[7px] border border-black whitespace-nowrap"
+                            style={{ backgroundColor: theme.accent }}
                           >
                             {honor.ctaLabel}
                           </a>
@@ -190,7 +191,7 @@ export default function HonorsCarousel() {
 
                     {/* بج مدال */}
                     <div
-                      className="absolute -top-[52px] left-1/2 w-24 h-24 z-30"
+                      className="absolute -top-6 sm:-top-10 left-1/2 w-12 h-12 sm:w-20 sm:h-20 z-30"
                       style={{
                         transform: `translateX(-50%) rotate(${badgeRotation}deg)`,
                       }}

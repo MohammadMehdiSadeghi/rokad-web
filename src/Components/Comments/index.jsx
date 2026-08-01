@@ -32,15 +32,21 @@ const comments = [
 const THEME_MAP = {
   navy: {
     borderColor: "border-[#21295A]",
+    solidColor: "bg-[#21295A]",
     nameColor: "text-[#21295A]",
+    quoteColor: "text-[#21295A]/20",
   },
   pink: {
     borderColor: "border-[#E0195B]",
+    solidColor: "bg-[#E0195B]",
     nameColor: "text-[#E0195B]",
+    quoteColor: "text-[#E0195B]/20",
   },
   teal: {
     borderColor: "border-[#58BDAF]",
+    solidColor: "bg-[#58BDAF]",
     nameColor: "text-[#58BDAF]",
+    quoteColor: "text-[#58BDAF]/20",
   },
 };
 
@@ -49,15 +55,18 @@ export default function Comments() {
   const nextRef = useRef(null);
 
   return (
-    <section className="relative w-full py-20 px-6 overflow-hidden bg-[#F0F4F8]">
+    <section className="relative w-full py-20 px-6 overflow-hidden bg-[#E4F4F2]">
       <div className="relative z-10 w-[80%] mx-auto">
         
         {/* ── هدر سکشن ── */}
-        <div className="text-center mb-12">
-          <h2 className="font-black text-[28px] sm:text-[38px] lg:text-[42px] leading-[1.35] text-[#21295A] mb-4">
-            از کجا بفهمیم چه فردی مناسب است؟
-          </h2>
-        </div>
+        <h2 className="font-black text-[28px] sm:text-[38px] lg:text-[42px] leading-[1.5] text-[#292827] mb-12 flex flex-wrap justify-center items-center gap-x-3">
+          <span className="inline-block -rotate-3">از</span>
+          <span className="inline-block rotate-3">زبون</span>
+          <span className="inline-block -rotate-3">کسایی</span>
+          <span className="inline-block rotate-3">که</span>
+          <span className="inline-block -rotate-3 text-teal">تجربه</span>
+          <span className="inline-block rotate-3 text-teal">کردن</span>
+        </h2>
 
         {/* ── دکمه‌های ناوبری ── */}
         <div className="flex justify-center items-center gap-6 mb-10">
@@ -106,20 +115,34 @@ export default function Comments() {
             const theme = THEME_MAP[comment.theme];
             return (
               <SwiperSlide key={comment.id} className="!h-auto">
-                <div className={`relative bg-white border-2 ${theme.borderColor} rounded-[16px] p-6 min-h-[250px] flex flex-col`}>
-                  {/* علامت کوتیشن */}
-                  <span className="text-4xl font-black opacity-10 mb-2">”</span>
+                {/* پکیج کارت (برای نگه داشتن لایه پشتی و کارت اصلی) */}
+                <div className="relative">
                   
-                  <p className="text-[14px] sm:text-[15px] leading-7 text-[#292827] flex-grow">
-                    {comment.text}
-                  </p>
+                  {/* 1. لایه پشتی (Offset Layer) - 7px راست، 4px پایین */}
+                  <div 
+                    aria-hidden="true" 
+                    className={`absolute top-[4px] left-[7px] w-full h-full ${theme.solidColor} rounded-[0_18.06px_0_18.06px]`}
+                  ></div>
 
-                  {/* اطلاعات نویسنده */}
-                  <div className="mt-6 pt-4 border-t border-gray-100">
-                    <h4 className={`font-black text-[16px] ${theme.nameColor}`}>
-                      {comment.name}
-                    </h4>
-                    <p className="text-[12px] text-gray-500 mt-1">{comment.role}</p>
+                  {/* کارت اصلی */}
+                  {/* 2. بوردر 2.01px و ردیوس دقیق */}
+                  <div className={`relative z-10 bg-white border-[2.01px] ${theme.borderColor} rounded-[0_18.06px_0_18.06px] p-6 min-h-[250px] flex flex-col`}>
+                    
+                    {/* 4. علامت کوتیشن با رنگ متناسب با کارت */}
+                    <span className={`text-4xl font-black mb-2 ${theme.quoteColor}`}>”</span>
+                    
+                    <p className="text-[14px] sm:text-[15px] leading-7 text-[#292827] flex-grow">
+                      {comment.text}
+                    </p>
+
+                    {/* اطلاعات نویسنده */}
+                    {/* 3. خط جداکننده dashed با رنگ کارت */}
+                    <div className={`mt-6 pt-4 border-t-2 border-dashed ${theme.borderColor}`}>
+                      <h4 className={`font-black text-[16px] ${theme.nameColor}`}>
+                        {comment.name}
+                      </h4>
+                      <p className="text-[12px] text-gray-500 mt-1">{comment.role}</p>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>

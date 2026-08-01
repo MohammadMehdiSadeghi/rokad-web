@@ -62,16 +62,6 @@ export default function HonorsCarousel() {
       <div className="relative z-10 w-[80%] mx-auto">
         {/* ── هدر ── */}
         <div className="flex flex-row-reverse justify-between items-start md:items-center gap-6 mb-14 flex-wrap">
-          <div className="text-right">
-            <h2 className="font-black text-[30px] sm:text-[40px] lg:text-[44px] leading-[1.35] mb-4">
-              افتخاراتی که <span className="text-[#21295A]">با هم</span> ساختیم
-            </h2>
-            <p className="font-medium text-[#292827] text-[15px] sm:text-[16px] leading-[1.9] max-w-xl">
-              هر مدال اینجا یه اسم یه دانش‌آموزه که یه چیزی رو از صفر ساخت و تا
-              آخرش ایستاد.
-            </p>
-          </div>
-
           <div className="flex items-center gap-6">
             <div className="relative">
               <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_8.65px_0_8.65px]"></div>
@@ -95,6 +85,16 @@ export default function HonorsCarousel() {
                 <ChevronLeftIcon className="w-5 h-5" />
               </button>
             </div>
+          </div>
+
+          <div className="text-right">
+            <h2 className="font-black text-[30px] sm:text-[40px] lg:text-[44px] leading-[1.35] mb-4">
+              افتخاراتی که <span className="text-[#21295A]">با هم</span> ساختیم
+            </h2>
+            <p className="font-medium text-[#292827] text-[15px] sm:text-[16px] leading-[1.9] max-w-xl">
+              هر مدال اینجا یه اسم یه دانش‌آموزه که یه چیزی رو از صفر ساخت و تا
+              آخرش ایستاد.
+            </p>
           </div>
         </div>
 
@@ -169,13 +169,10 @@ export default function HonorsCarousel() {
                           {honor.title}
                         </h4>
 
-                        {/* ── دکمه: ثابت، وسط، بدون انیمیشن، دیو زیرش هم‌رنگ اکسنت ── */}
+                        {/* ── دکمه: سایه مشکی، از هر طرف ۲px بیرون‌زده ── */}
                         <div className="relative inline-flex items-center justify-center mt-1">
-                          {/* لایه پشتی هم‌رنگ اکسنت */}
-                          <div
-                            className="absolute top-[3px] left-[3px] w-full h-full rounded-[7px]"
-                            style={{ backgroundColor: theme.accent }}
-                          ></div>
+                          {/* لایه سایه مشکی */}
+                          <div className="absolute -inset-[2px] rounded-[9px] bg-black"></div>
                           {/* خود دکمه */}
                           <a
                             href="#"

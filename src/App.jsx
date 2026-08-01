@@ -7,6 +7,7 @@ import Pillars from "./Components/Pillars";
 import Ecosystem from "./Components/Ecosystem";
 import EventsCarousel from "./Components/EventsCarousel";
 import Faq from "./Components/Faq";
+import Honors from "./Components/Honors";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
       <Ecosystem />
       <EventsCarousel />
       <Faq />
+      <Honors />
     </>
   );
 }

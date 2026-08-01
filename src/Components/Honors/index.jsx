@@ -133,7 +133,6 @@ export default function HonorsCarousel() {
                   style={{ transform: `rotate(${cardRotation}deg)` }}
                 >
                   <div className="relative mt-8 sm:mt-12 w-full max-w-[260px] xs:max-w-[280px] sm:max-w-[320px] md:max-w-[350px] min-h-[230px] sm:min-h-[280px] md:min-h-[260px]">
-                    
                     {/* لایه سایه/آفست پشت کارت */}
                     <div
                       aria-hidden="true"
@@ -176,7 +175,7 @@ export default function HonorsCarousel() {
 
                         <div className="relative inline-flex items-center justify-center mt-1 sm:mt-2">
                           <div className="absolute top-[2px] left-[2px] sm:top-[3px] sm:left-[3px] w-full h-full rounded-[6px] sm:rounded-[7px] bg-black"></div>
-                          
+
                           {/* اشکال تگ <a> در اینجا برطرف شد */}
                           <a
                             href="#"

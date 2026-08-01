@@ -26,7 +26,28 @@ const comments = [
     text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
     name: "محمد کریمی",
     role: "جپ",
-  }
+  },
+  {
+    id: 4,
+    theme: "teal",
+    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "محمد کریمی",
+    role: "جپ",
+  },
+  {
+    id: 5,
+    theme: "teal",
+    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "محمد کریمی",
+    role: "جپ",
+  },
+  {
+    id: 6,
+    theme: "teal",
+    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "محمد کریمی",
+    role: "جپ",
+  },
 ];
 
 // تابع استخراج حروف اول نام و فامیل
@@ -66,7 +87,6 @@ export default function Comments() {
   return (
     <section className="relative w-full py-20 px-6 overflow-hidden bg-[#E4F4F2]">
       <div className="relative z-10 w-[80%] mx-auto">
-        
         {/* ── هدر سکشن ── */}
         <h2 className="font-black text-[28px] sm:text-[38px] lg:text-[42px] leading-[1.5] text-[#292827] mb-12 flex flex-wrap justify-center items-center gap-x-3">
           <span className="inline-block -rotate-3">از</span>
@@ -79,7 +99,6 @@ export default function Comments() {
 
         {/* ── پکیج کاروسل و دکمه‌های ناوبری ── */}
         <div className="flex items-center justify-between gap-4 md:gap-6">
-          
           {/* دکمه سمت راست */}
           <div className="relative flex-shrink-0 z-20">
             <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px]"></div>
@@ -113,23 +132,30 @@ export default function Comments() {
               {comments.map((comment, i) => {
                 const theme = THEME_MAP[comment.theme];
                 const rotation = i % 2 === 0 ? -1 : 1;
-                
+
                 return (
                   <SwiperSlide key={comment.id} className="!h-auto">
-                    <div className="relative" style={{ transform: `rotate(${rotation}deg)` }}>
-                      
+                    <div
+                      className="relative"
+                      style={{ transform: `rotate(${rotation}deg)` }}
+                    >
                       {/* لایه پشتی کارت */}
-                      <div 
-                        aria-hidden="true" 
+                      <div
+                        aria-hidden="true"
                         className={`absolute top-[4px] left-[7px] w-full h-full ${theme.solidColor} rounded-[0_18.06px_0_18.06px]`}
                       ></div>
 
                       {/* کارت اصلی */}
-                      <div className={`relative z-10 bg-white border-[2.01px] ${theme.borderColor} rounded-[0_18.06px_0_18.06px] p-6 min-h-[250px] flex flex-col`}>
-                        
+                      <div
+                        className={`relative z-10 bg-white border-[2.01px] ${theme.borderColor} rounded-[0_18.06px_0_18.06px] p-6 min-h-[250px] flex flex-col`}
+                      >
                         {/* علامت کوتیشن */}
-                        <span className={`text-4xl font-black mb-2 ${theme.quoteColor}`}>”</span>
-                        
+                        <span
+                          className={`text-4xl font-black mb-2 ${theme.quoteColor}`}
+                        >
+                          ”
+                        </span>
+
                         {/* متن داخل کارت */}
                         <p className="text-[14px] sm:text-[15px] leading-7 text-[#292827] flex-grow">
                           {comment.text}
@@ -137,17 +163,16 @@ export default function Comments() {
 
                         {/* اطلاعات نویسنده و آواتار */}
                         {/* 1. کاهش فاصله از کارت (gap-3) */}
-                        <div className={`mt-6 pt-4 border-t border-dashed ${theme.borderColor} flex items-center gap-3`}>
-                          
+                        <div
+                          className={`mt-6 pt-4 border-t border-dashed ${theme.borderColor} flex items-center gap-3`}
+                        >
                           {/* ── مستطیل آواتار (پروفایل) ── */}
                           <div className="relative flex-shrink-0">
                             {/* لایه پشتی آواتار: رنگ #292827، 7px راست، 4px پایین */}
-                            <div 
-                              className="absolute top-[1px] left-[2px] w-full h-full bg-[#292827] rounded-[5.83px_0_5.83px_0]"
-                            ></div>
+                            <div className="absolute top-[1px] left-[2px] w-full h-full bg-[#292827] rounded-[5.83px_0_5.83px_0]"></div>
                             {/* لایه اصلی آواتار */}
                             {/* 2. رنگ بک‌گراند تم، 3. بوردر 0.05px #292827 و ردیوس 5.83px */}
-                            <div 
+                            <div
                               className={`relative w-10 h-10 rounded-[5.83px_0_5.83px_0] border-[0.05px] border-[#292827] ${theme.solidColor} flex items-center justify-center`}
                             >
                               {/* 4. رنگ متن سفید */}
@@ -159,12 +184,15 @@ export default function Comments() {
 
                           {/* نام و نقش */}
                           <div className="flex flex-col">
-                            <h4 className={`font-black text-[16px] ${theme.nameColor}`}>
+                            <h4
+                              className={`font-black text-[16px] ${theme.nameColor}`}
+                            >
                               {comment.name}
                             </h4>
-                            <p className="text-[12px] text-gray-500 mt-1">{comment.role}</p>
+                            <p className="text-[12px] text-gray-500 mt-1">
+                              {comment.role}
+                            </p>
                           </div>
-
                         </div>
                       </div>
                     </div>
@@ -186,9 +214,7 @@ export default function Comments() {
               <ChevronLeftIcon className="w-5 h-5" />
             </button>
           </div>
-
         </div>
-
       </div>
     </section>
   );

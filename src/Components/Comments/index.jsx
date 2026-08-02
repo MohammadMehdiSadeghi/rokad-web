@@ -1,12 +1,77 @@
+import { useState, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, A11y } from "swiper/modules";
+import { ChevronLeftIcon, ChevronRightIcon } from "../Icons";
+
+import "swiper/css";
+
+const comments = [
+  {
+    id: 1,
+    theme: "navy",
+    text: "این یک متن تستی برای کامنت اول است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "آرتین امیری",
+    role: "جپ",
+  },
+  {
+    id: 2,
+    theme: "pink",
+    text: "این یک متن تستی برای کامنت دوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "سارا رضایی",
+    role: "جپ",
+  },
+  {
+    id: 3,
+    theme: "teal",
+    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "محمد کریمی",
+    role: "جپ",
+  },
+];
+
+// تابع استخراج حروف اول نام و فامیل
+const getInitials = (name) => {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length === 0) return "";
+  const first = parts[0].charAt(0);
+  const second = parts.length > 1 ? parts[1].charAt(0) : "";
+  return second ? `${first}.${second}` : first;
+};
+
+const THEME_MAP = {
+  navy: {
+    borderColor: "border-[#21295A]",
+    solidColor: "bg-[#21295A]",
+    nameColor: "text-[#21295A]",
+    quoteColor: "text-[#21295A]",
+  },
+  pink: {
+    borderColor: "border-[#E0195B]",
+    solidColor: "bg-[#E0195B]",
+    nameColor: "text-[#E0195B]",
+    quoteColor: "text-[#E0195B]",
+  },
+  teal: {
+    borderColor: "border-[#58BDAF]",
+    solidColor: "bg-[#58BDAF]",
+    nameColor: "text-[#58BDAF]",
+    quoteColor: "text-[#58BDAF]",
+  },
+};
+
 export default function Comments() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
   return (
-    <section className="relative w-full py-20 px-6 bg-[#E4F4F2]">
-      <div className="relative z-10 w-[80%] mx-auto">
+    <section className="relative w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 overflow-hidden bg-[#E4F4F2]">
+      {/* عرض ریسپانسیو: موبایل تقریباً تمام عرض، دسکتاپ 80% */}
+      <div className="relative z-10 w-[94%] sm:w-[88%] lg:w-[80%] mx-auto">
         {/* ── هدر سکشن ── */}
-        <h2 className="font-black text-[28px] sm:text-[38px] lg:text-[42px] leading-[1.5] text-[#292827] mb-12 flex flex-wrap justify-center items-center gap-x-3">
+        <h2
+          className="font-black text-[28px] xs:text-[36px] sm:text-[34px] lg:text-[42px] leading-[1.6] sm:leading-[1.5]
+         text-[#292827] mb-1 sm:mb-10 lg:mb-8 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2"
+        >
           <span className="inline-block -rotate-3">از</span>
           <span className="inline-block rotate-3">زبون</span>
           <span className="inline-block -rotate-3">کسایی</span>
@@ -16,107 +81,124 @@ export default function Comments() {
         </h2>
 
         {/* ── پکیج کاروسل و دکمه‌های ناوبری ── */}
-        <div className="flex items-center justify-between gap-4 md:gap-6">
-          {/* دکمه سمت راست */}
+        <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
+          {/* دکمه سمت راست: روی موبایل کوچیک‌تره */}
           <div className="relative flex-shrink-0 z-30">
-            <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px]"></div>
+            <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px]"></div>
             <button
               type="button"
               ref={prevRef}
               aria-label="کامت قبلی"
-              className="relative w-12 h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-[#292827] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
-              <ChevronRightIcon className="w-5 h-5" />
+              <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 
-          {/* کاروسل Swiper - پدینگ عمودی کمی کاهش یافت چون مشکل برش با روش دیگر حل می‌شود */}
-          <div className="flex-1 w-full relative z-10 py-10 px-2 overflow-hidden">
-            
+          {/*
+            کاروسل Swiper
+            نکته مهم رفع باگ: خود کتابخانه‌ی Swiper به‌صورت پیش‌فرض روی
+            کانتینر داخلی‌اش overflow:hidden می‌ذاره. چون کارت‌ها rotate
+            دارن و یه لایه‌ی سایه با آفست چند پیکسلی (top/left) دارن،
+            همون چند پیکسل اضافه از لبه‌ی اسلاید بیرون می‌زد و توسط همین
+            overflow داخلی Swiper (نه فقط دیو بیرونی خودمون) کات می‌شد.
+            راه‌حل: به هر اسلاید یه padding می‌دیم تا کارت چرخیده‌شده
+            هیچ‌وقت به لبه‌ی اسلاید نچسبه، و pt/pb کانتینر رو هم بیشتر
+            می‌کنیم تا فضای کافی برای چرخش و سایه باشه.
+          */}
+          <div className="flex-1 w-full relative z-10 py-8 sm:py-10 lg:py-12 px-1 sm:px-2 overflow-hidden">
+            {/* ماسک فید سمت راست */}
+            <div className="absolute top-0 right-0 w-[5%] sm:w-[8%] lg:w-[10%] h-full bg-gradient-to-l from-[#E4F4F2] to-transparent z-20 pointer-events-none"></div>
+
+            {/* ماسک فید سمت چپ */}
+            <div className="absolute top-0 left-0 w-[5%] sm:w-[8%] lg:w-[10%] h-full bg-gradient-to-r from-[#E4F4F2] to-transparent z-20 pointer-events-none"></div>
+
             <Swiper
               modules={[Navigation, A11y]}
-              spaceBetween={24}
-              slidesPerView={1}
+              spaceBetween={16}
+              slidesPerView={1.05}
               loop={true}
               centeredSlides={true}
               dir="rtl"
-              // 👇 این دو خط باعث می‌شوند اسلایدها از لبه‌های کادر فاصله بگیرند
-              slidesOffsetBefore={40}
-              slidesOffsetAfter={40}
               onBeforeInit={(swiper) => {
                 swiper.params.navigation.prevEl = prevRef.current;
                 swiper.params.navigation.nextEl = nextRef.current;
               }}
+              // پله‌پله بشه: موبایل کوچیک ~1 کارت، موبایل بزرگ/تبلت 2،
+              // از لپ‌تاپ به بالا دقیقاً 3 کارت تو 80% عرض
               breakpoints={{
-                640: { slidesPerView: 1.5, slidesOffsetBefore: 40, slidesOffsetAfter: 40 },
-                1024: { slidesPerView: 3, slidesOffsetBefore: 60, slidesOffsetAfter: 60 },
+                0: { slidesPerView: 1.05, spaceBetween: 16 },
+                480: { slidesPerView: 1.3, spaceBetween: 18 },
+                640: { slidesPerView: 1.8, spaceBetween: 20 },
+                768: { slidesPerView: 2.2, spaceBetween: 20 },
+                1024: { slidesPerView: 3, spaceBetween: 24 },
               }}
+              // فضای بالا/پایین داخل هر اسلاید تا چرخش کارت کات نشه
+              className="!py-4 !overflow-visible sm:!overflow-hidden"
             >
               {comments.map((comment, i) => {
                 const theme = THEME_MAP[comment.theme];
                 const rotation = i % 2 === 0 ? -1 : 1;
 
                 return (
-                  <SwiperSlide 
-                    key={comment.id} 
-                    className="!h-auto" 
-                    // 👇 بسیار مهم: اجازه می‌دهد چرخش و لایه پشتی از کادر اسلاید بیرون بزند بدون بریده شدن
-                    style={{ overflow: 'visible' }} 
-                  >
-                    <div
-                      className="relative"
-                      style={{ transform: `rotate(${rotation}deg)` }}
-                    >
-                      {/* لایه پشتی کارت */}
+                  <SwiperSlide key={comment.id} className="!h-auto">
+                    {/* پدینگ اضافه دور کارت تا لایه‌ی سایه و چرخش، به لبه‌ی اسلاید نچسبه و کات نشه */}
+                    <div className="p-2 sm:p-3 lg:p-4">
                       <div
-                        aria-hidden="true"
-                        className={`absolute top-[3px] left-[5px] w-full h-full ${theme.solidColor} rounded-[0_18.06px_0_18.06px]`}
-                      ></div>
-
-                      {/* کارت اصلی */}
-                      <div
-                        className={`relative z-10 bg-white border-[2.01px] ${theme.borderColor} rounded-[0_18.06px_0_18.06px] p-6 min-h-[250px] flex flex-col`}
+                        className="relative"
+                        style={{ transform: `rotate(${rotation}deg)` }}
                       >
-                        {/* علامت کوتیشن */}
-                        <span
-                          className={`text-4xl font-black mb-2 ${theme.quoteColor}`}
-                        >
-                          ”
-                        </span>
-
-                        {/* متن داخل کارت */}
-                        <p className="text-[14px] sm:text-[15px] leading-7 text-[#292827] flex-grow">
-                          {comment.text}
-                        </p>
-
-                        {/* اطلاعات نویسنده و آواتار */}
+                        {/* لایه پشتی کارت */}
                         <div
-                          className={`mt-6 pt-4 border-t border-dashed ${theme.borderColor} flex items-center gap-3`}
-                        >
-                          {/* ── مستطیل آواتار (پروفایل) ── */}
-                          <div className="relative flex-shrink-0">
-                            {/* لایه پشتی آواتار */}
-                            <div className="absolute top-[1px] left-[2px] w-full h-full bg-[#292827] rounded-[5.83px_0_5.83px_0]"></div>
-                            {/* لایه اصلی آواتار */}
-                            <div
-                              className={`relative w-10 h-10 rounded-[5.83px_0_5.83px_0] border-[0.05px] border-[#292827] ${theme.solidColor} flex items-center justify-center`}
-                            >
-                              <span className="font-black text-[14px] text-white">
-                                {getInitials(comment.name)}
-                              </span>
-                            </div>
-                          </div>
+                          aria-hidden="true"
+                          className={`absolute top-[2px] left-[3px] sm:top-[3px] sm:left-[5px] w-full h-full ${theme.solidColor} rounded-[0_14px_0_14px] sm:rounded-[0_18.06px_0_18.06px]`}
+                        ></div>
 
-                          {/* نام و نقش */}
-                          <div className="flex flex-col">
-                            <h4
-                              className={`font-black text-[16px] ${theme.nameColor}`}
-                            >
-                              {comment.name}
-                            </h4>
-                            <p className="text-[12px] text-gray-500 mt-1">
-                              {comment.role}
-                            </p>
+                        {/* کارت اصلی */}
+                        <div
+                          className={`relative z-10 bg-white border-[1.5px] sm:border-[2.01px] ${theme.borderColor} rounded-[0_14px_0_14px] sm:rounded-[0_18.06px_0_18.06px] p-4 sm:p-5 lg:p-6 min-h-[200px] sm:min-h-[230px] lg:min-h-[250px] flex flex-col`}
+                        >
+                          {/* علامت کوتیشن */}
+                          <span
+                            className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}
+                          >
+                            ”
+                          </span>
+
+                          {/* متن داخل کارت */}
+                          <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-6 sm:leading-7 text-[#292827] flex-grow">
+                            {comment.text}
+                          </p>
+
+                          {/* اطلاعات نویسنده و آواتار */}
+                          <div
+                            className={`mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-dashed ${theme.borderColor} flex items-center gap-2 sm:gap-3`}
+                          >
+                            {/* ── مستطیل آواتار (پروفایل) ── */}
+                            <div className="relative flex-shrink-0">
+                              {/* لایه پشتی آواتار */}
+                              <div className="absolute top-[1px] left-[2px] w-full h-full bg-[#292827] rounded-[5.83px_0_5.83px_0]"></div>
+                              {/* لایه اصلی آواتار */}
+                              <div
+                                className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-[5.83px_0_5.83px_0] border-[0.05px] border-[#292827] ${theme.solidColor} flex items-center justify-center`}
+                              >
+                                <span className="font-black text-[12px] sm:text-[14px] text-white">
+                                  {getInitials(comment.name)}
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* نام و نقش */}
+                            <div className="flex flex-col">
+                              <h4
+                                className={`font-black text-[14px] sm:text-[16px] ${theme.nameColor}`}
+                              >
+                                {comment.name}
+                              </h4>
+                              <p className="text-[11px] sm:text-[12px] text-gray-500 mt-0.5 sm:mt-1">
+                                {comment.role}
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -129,14 +211,14 @@ export default function Comments() {
 
           {/* دکمه سمت چپ */}
           <div className="relative flex-shrink-0 z-30">
-            <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px]"></div>
+            <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px]"></div>
             <button
               type="button"
               ref={nextRef}
               aria-label="کامت بعدی"
-              className="relative w-12 h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-[#292827] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
-              <ChevronLeftIcon className="w-5 h-5" />
+              <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>

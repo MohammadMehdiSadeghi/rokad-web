@@ -136,10 +136,6 @@ export default function Comments() {
           */}
           <div className="flex-1 w-full relative z-10 py-8 sm:py-10 lg:py-12 px-1 sm:px-2 overflow-hidden">
             {/* ماسک فید سمت راست */}
-            <div className="absolute top-0 right-0 w-[5%] sm:w-[8%] lg:w-[10%] h-full bg-gradient-to-l from-[#E4F4F2] to-transparent z-20 pointer-events-none"></div>
-
-            {/* ماسک فید سمت چپ */}
-            <div className="absolute top-0 left-0 w-[5%] sm:w-[8%] lg:w-[10%] h-full bg-gradient-to-r from-[#E4F4F2] to-transparent z-20 pointer-events-none"></div>
 
             <Swiper
               modules={[Navigation, A11y]}

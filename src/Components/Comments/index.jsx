@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import { ChevronLeftIcon, ChevronRightIcon } from "../Icons";
+import commentsPattern from "../../assets/Shared/Patterns/Ecosystem-Pattern.png";
 
 import "swiper/css";
 
@@ -22,6 +23,27 @@ const comments = [
   },
   {
     id: 3,
+    theme: "teal",
+    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "محمد کریمی",
+    role: "جپ",
+  },
+  {
+    id: 4,
+    theme: "teal",
+    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "محمد کریمی",
+    role: "جپ",
+  },
+  {
+    id: 5,
+    theme: "teal",
+    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "محمد کریمی",
+    role: "جپ",
+  },
+  {
+    id: 6,
     theme: "teal",
     text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
     name: "محمد کریمی",
@@ -65,13 +87,19 @@ export default function Comments() {
 
   return (
     <section className="relative w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 overflow-hidden bg-[#E4F4F2]">
+      {/* پترن پس‌زمینه، هم‌سبک با سکشن FAQ */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <img
+          src={commentsPattern}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover scale-125 select-none opacity-30"
+        />
+      </div>
+
       {/* عرض ریسپانسیو: موبایل تقریباً تمام عرض، دسکتاپ 80% */}
       <div className="relative z-10 w-[94%] sm:w-[88%] lg:w-[80%] mx-auto">
         {/* ── هدر سکشن ── */}
-        <h2
-          className="font-black text-[28px] xs:text-[36px] sm:text-[34px] lg:text-[42px] leading-[1.6] sm:leading-[1.5]
-         text-[#292827] mb-1 sm:mb-10 lg:mb-8 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2"
-        >
+        <h2 className="font-black text-[22px] xs:text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.6] sm:leading-[1.5] text-[#292827] mb-8 sm:mb-10 lg:mb-12 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
           <span className="inline-block -rotate-3">از</span>
           <span className="inline-block rotate-3">زبون</span>
           <span className="inline-block -rotate-3">کسایی</span>

@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, A11y } from "swiper/modules";
+// حذف Navigation ماژول چون نیازی به آن نداریم
+import { A11y, Autoplay } from "swiper/modules";
 import { ChevronLeftIcon, ChevronRightIcon } from "../Icons";
 import commentsPattern from "../../assets/Shared/Patterns/Ecosystem-Pattern.png";
 
@@ -81,8 +82,8 @@ const THEME_MAP = {
 };
 
 export default function Comments() {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  // رفرنس برای گرفتن نمونه Swiper
+  const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -135,7 +136,7 @@ export default function Comments() {
       </div>
 
       <div className="relative z-10 w-[80%] mx-auto">
-        {/* ── هدر سکشن ── */}
+        {/* ── هدر سکشن ─ـ */}
         <h2 className="font-black text-[22px] xs:text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.6] sm:leading-[1.5] text-[#292827] mb-8 sm:mb-10 lg:mb-12 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
           <span className="inline-block -rotate-3">از</span>
           <span className="inline-block rotate-3">زبون</span>
@@ -147,12 +148,15 @@ export default function Comments() {
 
         {/* ── پکیج کاروسل و دکمه‌های ناوبری ── */}
         <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
+          
+          {/* دکمه سمت راست (اسلاید قبلی در RTL) */}
           <div className="relative flex-shrink-0 z-30">
             <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px]"></div>
             <button
               type="button"
-              ref={prevRef}
               aria-label="کامت قبلی"
+              // فراخوانی دستی تابع قبلی
+              onClick={() => swiperRef.current?.slidePrev()}
               className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -161,19 +165,21 @@ export default function Comments() {
 
           <div className="flex-1 w-full relative z-10 py-10 sm:py-12 lg:py-14 px-1 sm:px-2 overflow-hidden">
             <Swiper
-              modules={[Navigation, A11y]}
+              modules={[A11y, Autoplay]}
               centeredSlides={true}
               loop={true}
-              // رفع مشکل توقف کاروسل: اضافه شدن کپی‌های بیشتر برای پایداری حلقه
-              loopAdditionalSlides={3}
               dir="rtl"
-              onBeforeInit={(swiper) => {
-                swiper.params.navigation.prevEl = prevRef.current;
-                swiper.params.navigation.nextEl = nextRef.current;
-              }}
+              // گرفتن نمونه Swiper در زمان آماده شدن
+              onSwiper={(swiper) => { swiperRef.current = swiper; }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
               slidesPerView={1}
               spaceBetween={0}
+              speed={500}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
               className="comments-swiper !py-6"
             >
               {comments.map((comment) => {
@@ -182,10 +188,7 @@ export default function Comments() {
                 return (
                   <SwiperSlide key={comment.id} className="!h-auto">
                     <div className="p-2 sm:p-3 lg:p-4">
-                      {/* لایه حرکتی (بدون max-w تا calc درست کار کند) */}
                       <div className="card-inner-wrap">
-                        
-                        {/* لایه محتوا (max-w به اینجا منتقل شد تا کارت‌ها کوچک‌تر شوند) */}
                         <div className="relative max-w-[300px] sm:max-w-[350px] lg:max-w-[400px] mx-auto">
                           
                           {/* لایه پشتی کارت */}
@@ -243,12 +246,14 @@ export default function Comments() {
             </Swiper>
           </div>
 
+          {/* دکمه سمت چپ (اسلاید بعدی در RTL) */}
           <div className="relative flex-shrink-0 z-30">
             <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px]"></div>
             <button
               type="button"
-              ref={nextRef}
               aria-label="کامت بعدی"
+              // فراخوانی دستی تابع بعدی
+              onClick={() => swiperRef.current?.slideNext()}
               className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5" />

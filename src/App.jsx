@@ -9,6 +9,7 @@ import EventsCarousel from "./Components/EventsCarousel";
 import Faq from "./Components/Faq";
 import Honors from "./Components/Honors";
 import Comments from "./Components/Comments";
+import FinalCTA from "./Components/FinalCTA";
 
 export default function App() {
   return (
@@ -23,7 +24,8 @@ export default function App() {
       <EventsCarousel />
       <Faq />
       <Honors />
-      <Comments/>
+      <Comments />
+      <FinalCTA />
     </>
   );
 }

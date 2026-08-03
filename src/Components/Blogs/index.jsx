@@ -73,7 +73,7 @@ export default function Blogs() {
     <section className="py-20 sm:py-24 px-4 sm:px-6 bg-white">
       <div className="max-w-[92%] sm:max-w-[85%] lg:max-w-[80%] mx-auto">
         {/* عنوان */}
-        <h2 className="text-center font-black text-[26px] sm:text-[34px] lg:text-[40px] leading-[1.3] text-ink mb-4 flex flex-wrap justify-center items-center gap-x-2">
+        <h2 className="text-center pb-14 font-black text-[26px] sm:text-[34px] lg:text-[40px] leading-[1.3] text-ink mb-4 flex flex-wrap justify-center items-center gap-x-2">
           <span className="inline-block rotate-3 text-ink">تازه‌های</span>
           <span className="inline-block -rotate-3 text-navy">اکوسیستم</span>
           <span className="inline-block rotate-3 text-ink">و</span>

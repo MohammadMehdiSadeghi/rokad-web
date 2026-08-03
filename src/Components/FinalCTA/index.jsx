@@ -40,10 +40,12 @@ export default function FinalCTA() {
 
       {/* محتوای مرکزی */}
       <div className="relative z-20 w-[80%] mx-auto flex flex-col items-center text-center">
-        <h2 className="font-black text-[32px] xs:text-[38px] sm:text-[52px] lg:text-[64px] leading-[1.4] sm:leading-[1.8] mb-6 sm:mb-8">
+        <h2 className="font-black text-[32px] xs:text-[38px] sm:text-[52px] lg:text-[64px] leading-[1.4] sm:leading-[2.2] mb-6 sm:mb-8">
           <span className="inline-block rotate-[4deg] text-white">برای</span>{" "}
           <span className="inline-block rotate-[-4deg] text-white">ساختن</span>{" "}
-          <span className="inline-block rotate-[4deg] text-white">آینده</span>
+          <span className="bg-white rounded-lg px-3 pt-4 pb-3 leading-none inline-block rotate-[4deg] text-navy">
+            آینده
+          </span>
           <br />
           <span className="inline-block rotate-[-4deg] text-white">
             همین
@@ -63,7 +65,7 @@ export default function FinalCTA() {
           <div className="relative group inline-flex items-center justify-center">
             {/* لایه سایه */}
             <div
-              className="absolute top-[2px] left-[3px] w-full h-full rounded-tl-[10px] rounded-br-[10px]
+              className="absolute top-[3px] left-[3px] w-full h-full rounded-tl-[10px] rounded-br-[10px]
       rounded-tr-none rounded-bl-none bg-white transition-colors duration-300 ease-out"
             />
             <a

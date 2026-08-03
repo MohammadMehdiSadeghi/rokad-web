@@ -29,21 +29,21 @@ const comments = [
     role: "جپ",
   },
   {
-    id: 4,
-    theme: "teal",
-    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
-    name: "محمد کریمی",
+    id: 1,
+    theme: "navy",
+    text: "این یک متن تستی برای کامنت اول است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "آرتین امیری",
     role: "جپ",
   },
   {
-    id: 5,
-    theme: "teal",
-    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
-    name: "محمد کریمی",
+    id: 2,
+    theme: "pink",
+    text: "این یک متن تستی برای کامنت دوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "سارا رضایی",
     role: "جپ",
   },
   {
-    id: 6,
+    id: 3,
     theme: "teal",
     text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
     name: "محمد کریمی",
@@ -113,13 +113,13 @@ export default function Comments() {
           z-index: 10 !important;
         }
         .comments-swiper .swiper-slide-prev .card-inner-wrap {
-          transform: scale(0.85) translateX(calc(-100% + 135px)) rotate(-3deg);
+          transform: scale(0.85) translateX(calc(-100% + 135px)) rotate(3deg);
           opacity: 0.7;
           z-index: 10;
           pointer-events: auto;
         }
         .comments-swiper .swiper-slide-next .card-inner-wrap {
-          transform: scale(0.85) translateX(calc(100% - 135px)) rotate(4deg);
+          transform: scale(0.85) translateX(calc(100% - 135px)) rotate(-4deg);
           opacity: 0.7;
           z-index: 10;
           pointer-events: auto;
@@ -186,9 +186,12 @@ export default function Comments() {
                 return (
                   <SwiperSlide key={comment.id} className="!h-auto">
                     <div className="p-2 sm:p-3 lg:p-4">
-                      {/* اضافه شدن max-w برای کوچک‌تر شدن ابعاد کارت‌ها و وسط‌چین شدن آن‌ها */}
-                      <div className="card-inner-wrap max-w-[300px] sm:max-w-[350px] lg:max-w-[400px] mx-auto">
-                        <div className="relative">
+                      {/* لایه حرکتی (بدون max-w تا calc درست کار کند) */}
+                      <div className="card-inner-wrap">
+                        
+                        {/* لایه محتوا (max-w به اینجا منتقل شد تا کارت‌ها کوچک‌تر شوند) */}
+                        <div className="relative max-w-[300px] sm:max-w-[350px] lg:max-w-[400px] mx-auto">
+                          
                           {/* لایه پشتی کارت */}
                           <div
                             aria-hidden="true"

@@ -29,21 +29,21 @@ const comments = [
     role: "جپ",
   },
   {
-    id: 1,
-    theme: "navy",
-    text: "این یک متن تستی برای کامنت اول است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
-    name: "آرتین امیری",
+    id: 4,
+    theme: "teal",
+    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "محمد کریمی",
     role: "جپ",
   },
   {
-    id: 2,
-    theme: "pink",
-    text: "این یک متن تستی برای کامنت دوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
-    name: "سارا رضایی",
+    id: 5,
+    theme: "teal",
+    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
+    name: "محمد کریمی",
     role: "جپ",
   },
   {
-    id: 3,
+    id: 6,
     theme: "teal",
     text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
     name: "محمد کریمی",
@@ -113,13 +113,13 @@ export default function Comments() {
           z-index: 10 !important;
         }
         .comments-swiper .swiper-slide-prev .card-inner-wrap {
-          transform: scale(0.85) translateX(calc(-100% + 135px)) rotate(3deg);
+          transform: scale(0.85) translateX(calc(-100% + 135px)) rotate(-3deg);
           opacity: 0.7;
           z-index: 10;
           pointer-events: auto;
         }
         .comments-swiper .swiper-slide-next .card-inner-wrap {
-          transform: scale(0.85) translateX(calc(100% - 135px)) rotate(-4deg);
+          transform: scale(0.85) translateX(calc(100% - 135px)) rotate(4deg);
           opacity: 0.7;
           z-index: 10;
           pointer-events: auto;
@@ -164,20 +164,16 @@ export default function Comments() {
               modules={[Navigation, A11y]}
               centeredSlides={true}
               loop={true}
+              // رفع مشکل توقف کاروسل: اضافه شدن کپی‌های بیشتر برای پایداری حلقه
+              loopAdditionalSlides={3}
               dir="rtl"
               onBeforeInit={(swiper) => {
                 swiper.params.navigation.prevEl = prevRef.current;
                 swiper.params.navigation.nextEl = nextRef.current;
               }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+              slidesPerView={1}
               spaceBetween={0}
-              breakpoints={{
-                0: { slidesPerView: 1 },
-                480: { slidesPerView: 1 },
-                640: { slidesPerView: 1 },
-                768: { slidesPerView: 1 },
-                1024: { slidesPerView: 1 },
-              }}
               className="comments-swiper !py-6"
             >
               {comments.map((comment) => {

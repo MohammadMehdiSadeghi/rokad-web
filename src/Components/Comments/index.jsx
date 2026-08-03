@@ -87,11 +87,6 @@ export default function Comments() {
 
   return (
     <section className="relative w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 overflow-hidden bg-[#E4F4F2]">
-      {/*
-        استایل استک اصلاح شده:
-        1. z-index روی خود سطوح swiper-slide اعمال شد تا کارت وسط قطعا بالا باشد.
-        2. scale(0.85) به کارت‌های کناری اضافه شد تا کوچک‌تر باشند.
-      */}
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;
@@ -117,14 +112,12 @@ export default function Comments() {
         .comments-swiper .swiper-slide-next {
           z-index: 10 !important;
         }
-        /* کارت سمت راست (prev در RTL) */
         .comments-swiper .swiper-slide-prev .card-inner-wrap {
           transform: scale(0.85) translateX(calc(-100% + 135px)) rotate(-3deg);
           opacity: 0.7;
           z-index: 10;
           pointer-events: auto;
         }
-        /* کارت سمت چپ (next در RTL) */
         .comments-swiper .swiper-slide-next .card-inner-wrap {
           transform: scale(0.85) translateX(calc(100% - 135px)) rotate(4deg);
           opacity: 0.7;
@@ -193,7 +186,8 @@ export default function Comments() {
                 return (
                   <SwiperSlide key={comment.id} className="!h-auto">
                     <div className="p-2 sm:p-3 lg:p-4">
-                      <div className="card-inner-wrap">
+                      {/* اضافه شدن max-w برای کوچک‌تر شدن ابعاد کارت‌ها و وسط‌چین شدن آن‌ها */}
+                      <div className="card-inner-wrap max-w-[300px] sm:max-w-[350px] lg:max-w-[400px] mx-auto">
                         <div className="relative">
                           {/* لایه پشتی کارت */}
                           <div

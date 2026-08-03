@@ -51,7 +51,6 @@ const comments = [
   },
 ];
 
-// تابع استخراج حروف اول نام و فامیل
 const getInitials = (name) => {
   const parts = name.trim().split(/\s+/);
   if (parts.length === 0) return "";
@@ -89,44 +88,51 @@ export default function Comments() {
   return (
     <section className="relative w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 overflow-hidden bg-[#E4F4F2]">
       {/*
-        نکته مهم: افکت اسکیل/بلر/همپوشانی روی یک المان داخلی (card-inner-wrap)
-        پیاده شده، نه روی خود .swiper-slide و نه با spaceBetween منفی.
-        دلیل: spaceBetween منفی در حالت loop + dir="rtl" محاسبه‌ی
-        centeredSlides خود Swiper رو به‌هم می‌زند و کل ردیف به یک طرف
-        کشیده می‌شود. با این روش، محاسبات داخلی Swiper همیشه سالم
-        می‌ماند و کارت وسط همیشه دقیقاً وسط قرار می‌گیرد؛ همپوشانی فقط
-        یک افکت بصری روی مارجین داخلیه.
+        استایل استک اصلاح شده:
+        1. z-index روی خود سطوح swiper-slide اعمال شد تا کارت وسط قطعا بالا باشد.
+        2. scale(0.85) به کارت‌های کناری اضافه شد تا کوچک‌تر باشند.
       */}
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;
-        }
-        .comments-swiper .card-inner-wrap {
-          transition: transform 0.45s ease, filter 0.45s ease, opacity 0.45s ease, margin 0.45s ease;
-          transform: scale(0.6);
-          filter: blur(3px);
-          opacity: 0.5;
-          margin-inline: -22%;
-          position: relative;
+          height: auto;
           z-index: 1;
         }
-        .comments-swiper .swiper-slide-active .card-inner-wrap {
-          transform: scale(1);
-          filter: blur(0);
-          opacity: 1;
-          margin-inline: 0;
-          z-index: 20;
+        .comments-swiper .card-inner-wrap {
+          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+          opacity: 0;
+          transform: scale(0.8);
+          pointer-events: none;
         }
-        @media (max-width: 639px) {
-          .comments-swiper .card-inner-wrap {
-            filter: blur(2px);
-            transform: scale(0.65);
-            margin-inline: -18%;
-          }
+        .comments-swiper .swiper-slide-active {
+          z-index: 20 !important;
+        }
+        .comments-swiper .swiper-slide-active .card-inner-wrap {
+          transform: scale(1) translateX(0) rotate(0deg);
+          opacity: 1;
+          z-index: 20;
+          pointer-events: auto;
+        }
+        .comments-swiper .swiper-slide-prev,
+        .comments-swiper .swiper-slide-next {
+          z-index: 10 !important;
+        }
+        /* کارت سمت راست (prev در RTL) */
+        .comments-swiper .swiper-slide-prev .card-inner-wrap {
+          transform: scale(0.85) translateX(calc(-100% + 135px)) rotate(-3deg);
+          opacity: 0.7;
+          z-index: 10;
+          pointer-events: auto;
+        }
+        /* کارت سمت چپ (next در RTL) */
+        .comments-swiper .swiper-slide-next .card-inner-wrap {
+          transform: scale(0.85) translateX(calc(100% - 135px)) rotate(4deg);
+          opacity: 0.7;
+          z-index: 10;
+          pointer-events: auto;
         }
       `}</style>
 
-      {/* پترن پس‌زمینه، هم‌سبک با سکشن FAQ */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <img
           src={commentsPattern}
@@ -135,7 +141,6 @@ export default function Comments() {
         />
       </div>
 
-      {/* عرض ثابت 80% در همه‌ی سایزها */}
       <div className="relative z-10 w-[80%] mx-auto">
         {/* ── هدر سکشن ── */}
         <h2 className="font-black text-[22px] xs:text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.6] sm:leading-[1.5] text-[#292827] mb-8 sm:mb-10 lg:mb-12 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
@@ -149,7 +154,6 @@ export default function Comments() {
 
         {/* ── پکیج کاروسل و دکمه‌های ناوبری ── */}
         <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
-          {/* دکمه سمت راست */}
           <div className="relative flex-shrink-0 z-30">
             <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px]"></div>
             <button
@@ -162,14 +166,7 @@ export default function Comments() {
             </button>
           </div>
 
-          {/*
-            کاروسل Swiper
-            overflow-hidden روی این محفظه نگه داشته شده تا هیچ‌چیزی
-            زیر دکمه‌های کناری دیده نشه. spaceBetween حالا مثبت و
-            عادیه تا centeredSlides درست کار کنه.
-          */}
-          <div className="flex-1 w-full relative z-10 py-10 
-          sm:py-12 lg:py-14 px-1 sm:px-2 overflow-hidden">
+          <div className="flex-1 w-full relative z-10 py-10 sm:py-12 lg:py-14 px-1 sm:px-2 overflow-hidden">
             <Swiper
               modules={[Navigation, A11y]}
               centeredSlides={true}
@@ -180,30 +177,24 @@ export default function Comments() {
                 swiper.params.navigation.nextEl = nextRef.current;
               }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+              spaceBetween={0}
               breakpoints={{
-                0: { slidesPerView: 1.4, spaceBetween: 12 },
-                480: { slidesPerView: 1.5, spaceBetween: 16 },
-                640: { slidesPerView: 1.6, spaceBetween: 20 },
-                768: { slidesPerView: 1.7, spaceBetween: 24 },
-                1024: { slidesPerView: 1.8, spaceBetween: 28 },
+                0: { slidesPerView: 1 },
+                480: { slidesPerView: 1 },
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 1 },
+                1024: { slidesPerView: 1 },
               }}
               className="comments-swiper !py-6"
             >
-              {comments.map((comment, i) => {
+              {comments.map((comment) => {
                 const theme = THEME_MAP[comment.theme];
-                const isActive = i === activeIndex;
-                const rotation = isActive ? 0 : i % 2 === 0 ? -1 : 1;
 
                 return (
                   <SwiperSlide key={comment.id} className="!h-auto">
-                    {/* پدینگ اضافه دور کارت تا لایه‌ی سایه و چرخش، به لبه‌ی اسلاید نچسبه و کات نشه */}
                     <div className="p-2 sm:p-3 lg:p-4">
-                      {/* این wrapper مسئول افکت اسکیل/بلر/همپوشانیه؛ کاملاً بصری و مستقل از محاسبات Swiper */}
                       <div className="card-inner-wrap">
-                        <div
-                          className="relative transition-transform duration-300"
-                          style={{ transform: `rotate(${rotation}deg)` }}
-                        >
+                        <div className="relative">
                           {/* لایه پشتی کارت */}
                           <div
                             aria-hidden="true"
@@ -212,21 +203,18 @@ export default function Comments() {
 
                           {/* کارت اصلی */}
                           <div
-                            className={`relative z-10 bg-white border-[1.5px] sm:border-[2.01px] ${theme.borderColor} rounded-[0_14px_0_14px] sm:rounded-[0_18.06px_0_18.06px] p-4 sm:p-5 lg:p-6 min-h-[200px] sm:min-h-[230px] lg:min-h-[250px] flex flex-col`}
+                            className={`relative z-10 bg-white border-[1.5px] sm:border-[2.01px] ${theme.borderColor} rounded-[0_14px_0_14px] sm:rounded-[0_18.06px_0_18.06px] p-4 sm:p-5 lg:p-6 min-h-[200px] sm:min-h-[230px] lg:min-h-[250px] flex flex-col shadow-xl`}
                           >
-                            {/* علامت کوتیشن */}
                             <span
                               className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}
                             >
                               ”
                             </span>
 
-                            {/* متن داخل کارت */}
                             <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-6 sm:leading-7 text-[#292827] flex-grow">
                               {comment.text}
                             </p>
 
-                            {/* اطلاعات نویسنده و آواتار */}
                             <div
                               className={`mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-dashed ${theme.borderColor} flex items-center gap-2 sm:gap-3`}
                             >
@@ -262,7 +250,6 @@ export default function Comments() {
             </Swiper>
           </div>
 
-          {/* دکمه سمت چپ */}
           <div className="relative flex-shrink-0 z-30">
             <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px]"></div>
             <button

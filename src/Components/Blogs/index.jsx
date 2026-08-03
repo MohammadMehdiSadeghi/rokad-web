@@ -74,16 +74,11 @@ export default function Blogs() {
       <div className="max-w-[92%] sm:max-w-[85%] lg:max-w-[80%] mx-auto">
         {/* عنوان */}
         <h2 className="text-center font-black text-[26px] sm:text-[34px] lg:text-[40px] leading-[1.3] text-ink mb-4 flex flex-wrap justify-center items-center gap-x-2">
-          <span className="inline-block -rotate-3">تازه‌های</span>
-          <span className="inline-block rotate-3 text-teal">اکوسیستم</span>
-          <span className="inline-block -rotate-3">و</span>
-          <span className="inline-block rotate-3">آموزش</span>
+          <span className="inline-block rotate-3 text-ink">تازه‌های</span>
+          <span className="inline-block -rotate-3 text-navy">اکوسیستم</span>
+          <span className="inline-block rotate-3 text-ink">و</span>
+          <span className="inline-block rotate-3 text-magenta">آموزش</span>
         </h2>
-
-        <p className="text-center font-medium text-[13px] sm:text-[15px] leading-[1.9] text-ink/60 max-w-[560px] mx-auto mb-14 sm:mb-16">
-          آخرین خبرها، تجربه‌ها و راهنماهای رکاد رو اینجا دنبال کن.
-        </p>
-
         {/* گرید کارت‌ها */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 justify-items-center">
           {posts.map((p) => (

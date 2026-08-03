@@ -127,7 +127,7 @@ export default function HonorsCarousel() {
             const badgeRotation = i % 2 === 0 ? -6 : 6;
 
             return (
-              <SwiperSlide key={i} className="!h-auto mt-5 flex justify-center">
+              <SwiperSlide key={i} className="!h-auto mt-5 flex px-1 justify-center">
                 <div
                   className="relative w-full flex justify-center"
                   style={{ transform: `rotate(${cardRotation}deg)` }}

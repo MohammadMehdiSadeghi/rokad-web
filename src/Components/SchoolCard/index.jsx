@@ -53,10 +53,7 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
 
       {/* Text Container - سمت راست */}
       <div className="relative z-10 flex flex-col h-full max-w-[68%] sm:max-w-[68%] lg:max-w-[70%] ml-auto">
-        {/* Badge */}
-        <span className="self-start rotate-2 bg-white/[0.17] border border-white font-bold text-[12px] sm:text-sm rounded-[8px] px-3 sm:px-3.5 py-1.5 sm:py-2 mb-3 sm:mb-5">
-          {category}
-        </span>
+
 
         {/* Title */}
         <h3 className="font-black text-[26px] xs:text-[29px] sm:text-[36px] lg:text-[43px] mb-2 leading-tight">

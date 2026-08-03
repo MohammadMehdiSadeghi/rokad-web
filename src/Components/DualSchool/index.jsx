@@ -44,8 +44,7 @@ export default function DualSchool() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           <SchoolCard
             theme="boys"
-            category="مدرسه‌پسرانه"
-            title="هنرستان‌پسرانه‌رکاد"
+            title="هنرستان‌پسرانه‌"
             meta="مشهد | فرامرز عباسی ۳۳"
             chips={[
               "تولید و توسعه پایگاه اینترنتی",
@@ -57,9 +56,8 @@ export default function DualSchool() {
           />
           <SchoolCard
             theme="girls"
-            category="مدرسه‌دخترانه"
-            title="هنرستان‌دخترانه‌رکاد"
-            meta="مشهد | فرامرز عباسی 54"
+            title="هنرستان‌دخترانه‌"
+            meta="مشهد | فرامرز عباسی ۵۴"
             chips={["شبکه و نرم‌افزار", "متن تستی رشته دخترانه"]}
             ctaLabel="پیش‌ثبت‌نام دخترانه"
             illustration={girlIllustration}

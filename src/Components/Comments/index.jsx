@@ -104,7 +104,7 @@ export default function Comments() {
           z-index: 20 !important;
         }
         .comments-swiper .swiper-slide-active .card-inner-wrap {
-          transform: scale(1) translateX(0) rotate(0deg);
+          transform: scale(1.2) translateX(0) rotate(0deg);
           opacity: 1;
           z-index: 20;
           pointer-events: auto;
@@ -114,13 +114,13 @@ export default function Comments() {
           z-index: 10 !important;
         }
         .comments-swiper .swiper-slide-prev .card-inner-wrap {
-          transform: scale(0.85) translateX(calc(-100% + 135px)) rotate(-3deg);
+          transform: scale(0.85) translateX(calc(-100% + 50px)) rotate(3deg);
           opacity: 0.7;
           z-index: 10;
           pointer-events: auto;
         }
         .comments-swiper .swiper-slide-next .card-inner-wrap {
-          transform: scale(0.85) translateX(calc(100% - 135px)) rotate(4deg);
+          transform: scale(0.85) translateX(calc(100% - 50px)) rotate(-4deg);
           opacity: 0.7;
           z-index: 10;
           pointer-events: auto;
@@ -189,7 +189,7 @@ export default function Comments() {
                   <SwiperSlide key={comment.id} className="!h-auto">
                     <div className="p-2 sm:p-3 lg:p-4">
                       <div className="card-inner-wrap">
-                        <div className="relative max-w-[300px] sm:max-w-[350px] lg:max-w-[400px] mx-auto">
+                        <div className="relative max-w-[300px] sm:max-w-[350px] lg:max-w-[450px] mx-auto">
                           
                           {/* لایه پشتی کارت */}
                           <div
@@ -199,7 +199,7 @@ export default function Comments() {
 
                           {/* کارت اصلی */}
                           <div
-                            className={`relative z-10 bg-white border-[1.5px] sm:border-[2.01px] ${theme.borderColor} rounded-[0_14px_0_14px] sm:rounded-[0_18.06px_0_18.06px] p-4 sm:p-5 lg:p-6 min-h-[200px] sm:min-h-[230px] lg:min-h-[250px] flex flex-col shadow-xl`}
+                            className={`relative z-10 bg-white border-[1.5px] sm:border-[2.01px] ${theme.borderColor} rounded-[0_14px_0_14px] sm:rounded-[0_18.06px_0_18.06px] p-4 sm:p-5 lg:p-6 min-h-[200px] sm:min-h-[230px] lg:min-h-[250px] flex flex-col`}
                           >
                             <span
                               className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}

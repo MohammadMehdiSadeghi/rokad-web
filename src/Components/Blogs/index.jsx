@@ -21,13 +21,17 @@ const posts = [
   },
 ];
 
-function BlogCard({ tag, date, title, body }) {
+function BlogCard({ tag, date, title, body, rotation = 0 }) {
   return (
-    <div className="relative w-full max-w-[300px]  sm:max-w-[320px] mx-auto">
-      {/* لایه سایه‌ی مشکی پشت کارت — مثل کارت‌های Honors */}
+    // عرض کارت‌ها بیشتر شد (max-w افزایش یافت) و w-full گرفتند
+    <div 
+      className="relative w-full max-w-[360px] sm:max-w-[400px] mx-auto transition-transform duration-500 ease-out hover:rotate-0" 
+      style={{ transform: `rotate(${rotation}deg)` }}
+    >
+      {/* لایه سایه‌ی مشکی پشت کارت */}
       <div
         aria-hidden="true"
-        className="absolute top-[4px] left-[4px] min-h-[410px]   sm:top-[5px] sm:left-[5px] w-full h-full bg-[#292827] rounded-[0_20px_0_20px] sm:rounded-[0_24px_0_24px]"
+        className="absolute top-[4px] left-[4px] min-h-[410px] sm:top-[5px] sm:left-[5px] w-full h-full bg-[#292827] rounded-[0_20px_0_20px] sm:rounded-[0_24px_0_24px]"
       />
 
       {/* کارت اصلی */}
@@ -71,19 +75,26 @@ function BlogCard({ tag, date, title, body }) {
 export default function Blogs() {
   return (
     <section className="py-20 sm:py-24 px-4 sm:px-6 bg-white">
-      <div className="max-w-[92%] sm:max-w-[85%] lg:max-w-[80%] mx-auto">
-        {/* عنوان */}
-        <h2 className="text-center font-black text-[26px] sm:text-[34px] lg:text-[40px] leading-[1.3] text-ink mb-4 flex flex-wrap justify-center items-center gap-x-2">
+      {/* عرض 80% */}
+      <div className="w-[80%] mx-auto">
+        {/* عنوان: راست‌چین، سایز 53.11px، وزن 900، فاصله پایین 97px */}
+        <h2 className="text-right font-black text-[53.11px] leading-[1.3] text-ink mb-[97px] flex flex-wrap justify-start items-center gap-x-2">
           <span className="inline-block rotate-3 text-ink">تازه‌های</span>
           <span className="inline-block -rotate-3 text-navy">اکوسیستم</span>
           <span className="inline-block rotate-3 text-ink">و</span>
           <span className="inline-block rotate-3 text-magenta">آموزش</span>
         </h2>
-        {/* گرید کارت‌ها */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 justify-items-center">
-          {posts.map((p) => (
-            <BlogCard key={p.title} {...p} />
-          ))}
+
+        {/* گرید کارت‌ها با فاصله دقیق 25px */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[25px] justify-items-center">
+          {posts.map((p, i) => {
+            // اعمال چرخش متناوب -1, 1, -1, 1
+            const rotation = i % 2 === 0 ? -1 : 1;
+            
+            return (
+              <BlogCard key={p.title} {...p} rotation={rotation} />
+            );
+          })}
         </div>
       </div>
     </section>

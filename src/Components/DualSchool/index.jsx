@@ -46,11 +46,8 @@ export default function DualSchool() {
             theme="boys"
             title="هنرستان‌پسرانه‌"
             meta="مشهد | فرامرز عباسی ۳۳"
-            chips={[
-              "تولید و توسعه پایگاه اینترنتی",
-              "تولید محتوای چندرسانه‌ای",
-            ]}
-            ctaLabel="پیش‌ثبت‌نام پسرانه"
+            chips={["شبکه و نرم‌افزار"]}
+            ctaLabel="پیش‌ثبت‌نام"
             illustration={boyIllustration}
             pattern={boysCardPattern}
           />
@@ -58,8 +55,8 @@ export default function DualSchool() {
             theme="girls"
             title="هنرستان‌دخترانه‌"
             meta="مشهد | فرامرز عباسی ۵۴"
-            chips={["شبکه و نرم‌افزار", "متن تستی رشته دخترانه"]}
-            ctaLabel="پیش‌ثبت‌نام دخترانه"
+            chips={["شبکه و نرم‌افزار"]}
+            ctaLabel="پیش‌ثبت‌نام"
             illustration={girlIllustration}
             pattern={girlsCardPattern}
           />

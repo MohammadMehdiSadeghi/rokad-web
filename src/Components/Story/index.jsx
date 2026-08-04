@@ -93,14 +93,14 @@ export default function Story() {
           </div>
 
           {/* CTA */}
-          <div className="flex justify-center lg:justify-start items-center w-full">
+          <div className="flex justify-center lg:justify-center items-center w-full ">
             <a
               href="#"
               className="group inline-flex items-center justify-center gap-3 w-full max-w-[240px] h-[48px] sm:h-[52px] bg-[#61C4BC] text-white font-extrabold text-[16px] sm:text-[18px]
-              rounded-tl-none rounded-br-none rounded-tr-[10px] rounded-bl-[10px] transition-all hover:rounded-tl-[10px] hover:rounded-br-[10px]
-               hover:rounded-tr-none hover:rounded-bl-none border border-white duration-300 hover:border-teal-text"
+              rounded-tr-none rounded-bl-none rounded-tl-[10px] rounded-br-[10px] 
+              border-2 border-[#D6EEEB]"
             >
-              <img src={vectorIcon} alt="" className="w-7.5 shrink-0 " />
+              <img src={vectorIcon} alt="" className="w-5 shrink-0 " />
               <span>ادامه داستان رکاد</span>
             </a>
           </div>

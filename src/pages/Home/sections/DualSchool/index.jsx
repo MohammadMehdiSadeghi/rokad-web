@@ -13,7 +13,7 @@ export default function DualSchool() {
   return (
     <section
       id="schools"
-      className="relative bg-white py-14 sm:py-20 px-4 sm:px-6 overflow-hidden"
+      className="relative bg-white pt-[90px] pb-14 sm:pb-20 px-4 sm:px-6 overflow-hidden"
     >
       {/* ── Background Pattern Layer ── */}
       <div
@@ -40,7 +40,7 @@ export default function DualSchool() {
         </h2>
 
         {/* Subtitle - 18px, 600, #292827 */}
-        <p className="text-center font-semibold text-[14px] sm:text-[18px] leading-[1.7] text-[#292827] max-w-[520px] mx-auto mb-10 sm:mb-14">
+        <p className="text-center font-semibold text-[14px] sm:text-[18px] leading-[1.7] text-[#292827] max-w-[520px] mx-auto mb-[133px]">
           هر دو شعبه با محیطی امن، منتورهای مجرب و اکوسیستم اختصاصی. فقط کافیه
           مسیر خودت رو انتخاب کنی.
         </p>

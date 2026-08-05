@@ -82,7 +82,8 @@ export default function EventsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden bg-white">
+    // فاصله ۶۵ پیکسل از بالا
+    <section className="pt-[65px] pb-20 px-6 relative overflow-hidden bg-white">
       {/* 1. لایه پترن پس‌زمینه */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
@@ -96,9 +97,11 @@ export default function EventsCarousel() {
       <Container className="relative z-10">
         
         {/* ── هدر: تایتل و دکمه‌های ناوبری ── */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+        {/* فاصله ۸۰ پیکسل متن پایین (p) تا اسلایدر */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-[80px]">
           <div>
-            <h2 className="font-black text-[28px] sm:text-[38px] lg:text-[42px] leading-[1.35] mb-4">
+            {/* فاصله ۳۵ پیکسل تایتل تا متن پایین */}
+            <h2 className="font-black text-[28px] sm:text-[38px] lg:text-[42px] leading-[1.35] mb-[35px]">
               جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
             </h2>
             <p className="font-medium text-[#292827] text-[15px] sm:text-[16px] leading-[1.9] max-w-xl">
@@ -148,7 +151,7 @@ export default function EventsCarousel() {
               swiper.params.navigation.nextEl = nextRef.current;
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            className="!overflow-visible !pb-12"
+            className="!overflow-visible"
           >
             {events.map((event, i) => {
               const theme = THEME_MAP[event.theme];
@@ -243,7 +246,8 @@ export default function EventsCarousel() {
         </div>
 
         {/* ── نوار پیشرفت (Progress Bar) ── */}
-        <div className="w-[120px] mx-auto h-1.5 bg-[#EDECEC] rounded-full overflow-hidden mt-4">
+        {/* فاصله ۲۰ پیکسل اسلایدر تا نوار پیشرفت */}
+        <div className="w-[120px] mx-auto h-1.5 bg-[#EDECEC] rounded-full overflow-hidden mt-[20px]">
           <div 
             className="h-full bg-[#333230] transition-all duration-500 ease-out rounded-full"
             style={{ width: `${((activeIndex + 1) / events.length) * 100}%` }}

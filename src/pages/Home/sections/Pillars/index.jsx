@@ -1,6 +1,11 @@
 import Container from "../../../../layout/Container";
 import PillarCard from "./PillarCard";
-import { UserIcon, ProblemIcon, TeamIcon, DocumentIcon } from "../../../../common/Icons";
+import {
+  UserIcon,
+  ProblemIcon,
+  TeamIcon,
+  DocumentIcon,
+} from "../../../../common/Icons";
 
 const pattern = "/assets/Pillars/WhyUs-Pattern.png";
 
@@ -57,12 +62,17 @@ export default function Pillars() {
           <span className="inline-block rotate-2">خانواده‌ها</span>
           <span className="inline-block -rotate-3">به</span>
           <span className="inline-block rotate-2">ما</span>
-          <span className="inline-block -rotate-3 text-teal-wordmark">اعتماد</span>
-          <span className="inline-block rotate-2 text-teal-wordmark">می‌کنن</span>
+          <span className="inline-block -rotate-3 text-teal-wordmark">
+            اعتماد
+          </span>
+          <span className="inline-block rotate-2 text-teal-wordmark">
+            می‌کنن
+          </span>
         </h2>
 
         <p className="text-right font-medium text-[14px] sm:text-[16px] leading-[1.9] text-navy/60 max-w-[620px] mb-16">
-          هر دانش‌آموز یه مسیر شخصی داره. سیستم آموزشی ما براساس چهار ستون طراحی شده تا هرفرد بهترین نسخه از خودش بشه
+          هر دانش‌آموز یه مسیر شخصی داره. سیستم آموزشی ما براساس چهار ستون طراحی
+          شده تا هرفرد بهترین نسخه از خودش بشه
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -70,9 +80,7 @@ export default function Pillars() {
             // ترتیب چرخش از راست به چپ: منفی دو، دو، منفی دو، دو
             const rotation = i % 2 === 0 ? -2 : 2;
 
-            return (
-              <PillarCard key={p.index} {...p} rotation={rotation} />
-            );
+            return <PillarCard key={p.index} {...p} rotation={rotation} />;
           })}
         </div>
       </Container>

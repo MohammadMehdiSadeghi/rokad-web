@@ -32,7 +32,7 @@ const pills = [
 
 export default function Story() {
   return (
-    <section id="about" className="py-16 sm:py-20 lg:py-[88px] w-full px-4 sm:px-6 bg-[#F3F3F1]">
+    <section id="about" className="pt-[116px] pb-16 sm:pb-20 lg:pb-[88px] w-full px-4 sm:px-6 bg-[#F3F3F1]">
       <Container className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 sm:gap-20 lg:gap-40 items-center">
         {/* ── ستون راست: تصویر ── */}
         <div className="relative flex items-start justify-center lg:justify-start -mt-2">
@@ -66,7 +66,7 @@ export default function Story() {
             <span className="inline-block rotate-3">معمولی</span>{" "}
             <span className="inline-block -rotate-3">نیست؟</span>
           </h2>
-          <p className="text-[13px] sm:text-[15px] leading-[1.9] sm:leading-[2] text-navy/70 max-w-full lg:max-w-[460px] mb-7 sm:mb-8">
+          <p className="text-[13px] sm:text-[15px] leading-[1.9] sm:leading-[2] text-navy/70 max-w-full lg:max-w-[460px] mb-[20px]">
             ما هنرستان رو با اکوسیستم استارتاپی و بازار کار واقعی ترکیب کردیم.
             اینجا فقط کتاب نمی‌خونی؛ روی چالش‌های واقعی کار می‌کنی، با منتورهای
             متخصص همراهی می‌شی و توی محیطی امن، جرأت شکست خوردن و دوباره پاشدن

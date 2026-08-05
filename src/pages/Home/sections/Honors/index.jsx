@@ -61,12 +61,13 @@ export default function HonorsCarousel() {
   return (
     <section
       id="honors"
-      className="py-10 sm:py-16 md:py-20 px-3 sm:px-6 relative overflow-hidden bg-white"
+      className="pt-[132px] pb-10 sm:pb-16 md:pb-20 px-3 sm:px-6 relative overflow-hidden bg-white"
       dir="rtl"
     >
       <Container className="relative z-10">
         {/* ── هدر ── */}
-        <div className="flex flex-col-reverse sm:flex-row-reverse justify-between items-center gap-5 sm:gap-6 mb-8 sm:mb-10 md:mb-14 flex-wrap text-center sm:text-right">
+        {/* فاصله ۱۰۰ پیکسل متن پایین تا اسلایدر */}
+        <div className="flex flex-col-reverse sm:flex-row-reverse justify-between items-center gap-5 sm:gap-6 mb-[100px] flex-wrap text-center sm:text-right">
           <div className="flex items-center gap-3 sm:gap-6">
             <div className="relative">
               <div className="absolute top-[2px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#21295A] rounded-[0_8.65px_0_8.65px]"></div>
@@ -93,7 +94,8 @@ export default function HonorsCarousel() {
           </div>
 
           <div className="mx-auto sm:mx-0 max-w-[90%] sm:max-w-none">
-            <h2 className="font-black text-[20px] xs:text-[22px] sm:text-[34px] lg:text-[44px] leading-[1.35] mb-2 sm:mb-4">
+            {/* فاصله ۴۵ پیکسل تایتل تا متن پایین */}
+            <h2 className="font-black text-[20px] xs:text-[22px] sm:text-[34px] lg:text-[44px] leading-[1.35] mb-[45px]">
               افتخاراتی که <span className="text-[#21295A]">با هم</span> ساختیم
             </h2>
             <p className="font-medium text-[#292827] text-[12px] sm:text-[16px] leading-[1.8] sm:leading-[1.9] max-w-sm sm:max-w-xl mx-auto sm:mx-0">

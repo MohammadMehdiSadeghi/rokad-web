@@ -58,7 +58,10 @@ const cards = [
  * (طبق مثال شما 30vh تا 70vh)؛ اگه هیچ کارتی داخل این محدوده نباشه
  * (مثلاً بالای همه یا پایین همه‌ی کارت‌ها) هیچکدوم فعال نمی‌شن.
  */
-function useClosestToCenter(count, { minPercent = 30, maxPercent = 70, disableAboveWidth = 1024 } = {}) {
+function useClosestToCenter(
+  count,
+  { minPercent = 30, maxPercent = 70, disableAboveWidth = 1024 } = {},
+) {
   const itemRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(null);
   const [enabled, setEnabled] = useState(false);
@@ -219,7 +222,9 @@ export default function Ecosystem() {
         {/* Heading with Rotations (-1.9, 1.9, ...) */}
         <h2 className="text-center font-black text-[28px] sm:text-[38px] lg:text-[46px] leading-[1.3] text-white mb-4 flex flex-wrap justify-center items-center gap-x-2">
           <span className="inline-block -rotate-[1.9deg]">یه</span>
-          <span className="inline-block rotate-[1.9deg] text-teal">اکوسیستم</span>
+          <span className="inline-block rotate-[1.9deg] text-teal">
+            اکوسیستم
+          </span>
           <span className="inline-block -rotate-[1.9deg]">کامل</span>
           <span className="inline-block rotate-[1.9deg]">برای</span>
           <span className="inline-block -rotate-[1.9deg]">رشد</span>
@@ -233,7 +238,12 @@ export default function Ecosystem() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {cards.map((c, i) => (
-            <EcoCard key={i} {...c} isActive={activeIndex === i} cardRef={setRef(i)} />
+            <EcoCard
+              key={i}
+              {...c}
+              isActive={activeIndex === i}
+              cardRef={setRef(i)}
+            />
           ))}
         </div>
       </Container>

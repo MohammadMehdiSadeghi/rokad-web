@@ -7,7 +7,7 @@ const pattern = "/assets/unassigned/pattern-boxes.png";
 export default function FinalCTA() {
   return (
     <section
-      className="relative overflow-hidden bg-teal py-14 sm:py-20 px-4 sm:px-6"
+      className="relative overflow-hidden bg-teal pt-[70px] pb-[65px] px-4 sm:px-6"
       dir="rtl"
     >
       {/* پترن پس‌زمینه */}

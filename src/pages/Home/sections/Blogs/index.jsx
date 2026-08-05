@@ -102,7 +102,8 @@ export default function Blogs() {
   const swiperRef = useRef(null);
 
   return (
-    <section className="py-20 sm:py-24 bg-white" dir="rtl">
+    // فاصله ۱۲۰ از بالا و ۹۸ از پایین
+    <section className="pt-[120px] pb-[98px] bg-white" dir="rtl">
       <Container>
         <div className="w-full mx-auto">
           {/* عنوان */}

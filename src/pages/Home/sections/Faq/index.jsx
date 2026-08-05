@@ -56,7 +56,8 @@ export default function Faq() {
         
         {/* سمت راست: عنوان و باکس مشاوره */}
         <div className="lg:pt-4">
-          <h2 className="font-black text-[28px] xs:text-[32px] sm:text-[44px] lg:text-[52px] leading-[1.5] sm:leading-[1.8] text-navy mb-5 sm:mb-6">
+          {/* فاصله ۳۵ پیکسل تایتل تا تگ p */}
+          <h2 className="font-black text-[28px] xs:text-[32px] sm:text-[44px] lg:text-[52px] leading-[1.5] sm:leading-[1.8] text-navy mb-[35px]">
             <span className="inline-block text-ink" style={{ transform: "rotate(3deg)" }}>دغدغه‌ی</span>{" "}
             <span className="inline-block text-navy" style={{ transform: "rotate(-3deg)" }}>آینده</span>{" "}
             <span className="inline-block text-ink" style={{ transform: "rotate(-3deg)" }}>و</span>{" "}

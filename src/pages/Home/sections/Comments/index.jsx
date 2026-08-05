@@ -88,7 +88,7 @@ export default function Comments() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 overflow-hidden bg-[#E4F4F2]">
+    <section className="relative w-full pt-[70px] pb-[70px] px-4 sm:px-6 overflow-hidden bg-[#E4F4F2]">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;
@@ -137,7 +137,7 @@ export default function Comments() {
       </div>
 
       <Container className="relative z-10">
-        {/* ── هدر سکشن ─ـ */}
+        {/* ── هدر سکشن ── */}
         <h2 className="font-black text-[22px] xs:text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.6] sm:leading-[1.5] text-[#292827] mb-8 sm:mb-10 lg:mb-12 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
           <span className="inline-block -rotate-3">از</span>
           <span className="inline-block rotate-3">زبون</span>

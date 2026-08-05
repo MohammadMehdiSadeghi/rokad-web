@@ -1,12 +1,16 @@
 import { useState } from "react";
-import logo from "../../assets/Shared/Logos/logo.png";
+import { Link } from "react-router-dom";
 
+const logo = "/assets/Shared/Logos/logo.png";
+
+// هر لینک یا به یه انکر داخل صفحه‌ی اصلی می‌ره (schools/about/counseling)
+// یا به یه روت اختصاصی مثل /honors.
 const navLinks = [
-  { label: "مدارس", href: "#" },
-  { label: "افتخارات", href: "#" },
-  { label: "مشاوره هدایت تحصیلی و شغلی", href: "#" },
-  { label: "درباره ما", href: "#" },
-  { label: "درخواست همکاری", href: "#" },
+  { label: "مدارس", to: "/#schools" },
+  { label: "افتخارات", to: "/honors" },
+  { label: "مشاوره هدایت تحصیلی و شغلی", to: "/#counseling" },
+  { label: "درباره ما", to: "/#about" },
+  { label: "درخواست همکاری", to: "/#cooperation" },
 ];
 
 export default function Header() {
@@ -18,11 +22,11 @@ export default function Header() {
       <nav
         aria-label="ناوبری اصلی"
         // Width: 1200px, Height: 112px, Radius: 22px
-        className="relative max-w-[92%] sm:max-w-[85%] lg:max-w-[80%] mx-auto"
+        className="relative w-[80%] mx-auto"
       >
         <div className="flex items-center justify-between h-16 sm:h-[95px] rounded-[22px] bg-bg-mint px-4 sm:px-8">
           {/* ── سمت راست: لوگو ── */}
-          <a href="#" className="flex-shrink-0" aria-label="رکاد">
+          <Link to="/" className="flex-shrink-0" aria-label="رکاد">
             <img
               src={logo}
               alt="رکاد"
@@ -30,7 +34,7 @@ export default function Header() {
               height="56"
               className="h-8 sm:h-9 lg:h-10 w-auto"
             />
-          </a>
+          </Link>
 
           {/* ── وسط: دکمه پیش‌ثبت‌نام + لینک‌های ناوبری (فقط دسکتاپ) ── */}
           <div className="hidden lg:flex flex-1 items-center justify-center gap-7">
@@ -47,13 +51,13 @@ export default function Header() {
             <ul className="flex items-center gap-8  list-none m-0 p-0">
               {navLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.to}
                     className="whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group"
                   >
                     {link.label}
                     <span className="absolute -bottom-1 right-0 w-0 h-[2px] bg-teal transition-all duration-300 group-hover:w-full"></span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -110,13 +114,13 @@ export default function Header() {
             <ul className="flex flex-col gap-4 list-none m-0 p-0">
               {navLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.to}
                     onClick={() => setOpen(false)}
                     className="block text-[15px] font-semibold text-navy transition-colors duration-200 hover:text-teal"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

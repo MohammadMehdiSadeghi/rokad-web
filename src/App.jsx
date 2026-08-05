@@ -1,33 +1,17 @@
-import Header from "./Components/Header";
-import Hero from "./Components/Hero";
-import Stats from "./Components/Stats";
-import DualSchool from "./Components/DualSchool";
-import Story from "./Components/Story";
-import Pillars from "./Components/Pillars";
-import Ecosystem from "./Components/Ecosystem";
-import EventsCarousel from "./Components/EventsCarousel";
-import Faq from "./Components/Faq";
-import Honors from "./Components/Honors";
-import Comments from "./Components/Comments";
-import FinalCTA from "./Components/FinalCTA";
-import Blogs from "./Components/Blogs";
+import { Routes, Route } from "react-router-dom";
+import MainLayout from "./layout/MainLayout";
+import Home from "./pages/Home";
+import HonorsPage from "./pages/Honors";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <>
-      <Header />
-      <Hero />
-      <Stats />
-      <DualSchool />
-      <Story />
-      <Pillars />
-      <Ecosystem />
-      <EventsCarousel />
-      <Faq />
-      <Honors />
-      <Comments />
-      <FinalCTA />
-      <Blogs />
-    </>
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route index element={<Home />} />
+        <Route path="honors" element={<HonorsPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }

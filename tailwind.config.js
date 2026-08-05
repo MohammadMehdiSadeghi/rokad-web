@@ -1,7 +1,13 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
+    screens: {
+      xs: "420px",
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
         sans: ["IRANSansX", "Tahoma", "sans-serif"],

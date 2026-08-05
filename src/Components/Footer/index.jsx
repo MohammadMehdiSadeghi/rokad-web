@@ -15,7 +15,7 @@ export default function Footer() {
 
           background: var(--bg);
           color: var(--text);
-          padding: 40px 8.6% 24px;
+          padding: 54px 8.6% 24px;
           box-sizing: border-box;
         }
         .rk-footer *{ box-sizing: border-box; }
@@ -28,11 +28,11 @@ export default function Footer() {
         }
 
         .rk-footer__brand{
-          max-width: 230px;
+          max-width: 320px; /* افزایش عرض برای اینکه متن بشه ۲ خط */
           flex-shrink: 0;
           display: flex;
           flex-direction: column;
-          align-items: flex-start; /* تغییر کرد: در RTL استارت یعنی سمت راست */
+          align-items: flex-start;
           text-align: right;
         }
 
@@ -57,7 +57,8 @@ export default function Footer() {
         }
 
         .rk-footer__desc{
-          font-size: 13px;
+          font-size: 14px; /* سایز ۱۴ */
+          font-weight: 600; /* وزن ۶۰۰ */
           line-height: 2;
           color: var(--text-muted);
           margin: 0;
@@ -73,7 +74,7 @@ export default function Footer() {
         .rk-footer__col h4{
           margin: 0 0 4px;
           color: var(--heading);
-          font-size: 15px;
+          font-size: 20px; /* سایز ۲۰ */
           font-weight: 700;
         }
         .rk-footer__col ul{
@@ -87,7 +88,7 @@ export default function Footer() {
         .rk-footer__col a{
           color: var(--text);
           text-decoration: none;
-          font-size: 13px;
+          font-size: 14px; /* سایز ۱۴ */
           line-height: 1.6;
           opacity: 0.95;
           transition: opacity .2s ease;
@@ -127,7 +128,7 @@ export default function Footer() {
         @media (max-width: 760px){
           .rk-footer{ padding: 32px 6% 20px; }
           .rk-footer__top{ flex-wrap: wrap; align-items: flex-end; }
-          .rk-footer__brand{ max-width: 100%; align-items: flex-start; } /* تغییر کرد: در موبایل هم راست چین بشه */
+          .rk-footer__brand{ max-width: 100%; align-items: flex-start; }
           .rk-footer__bottom{ flex-direction: column-reverse; align-items: flex-end; }
         }
       `}</style>
@@ -149,10 +150,18 @@ export default function Footer() {
         <div className="rk-footer__col">
           <h4>رکاد</h4>
           <ul>
-            <li><a href="#">درباره ما</a></li>
-            <li><a href="#">تیم ما</a></li>
-            <li><a href="#">اکوسیستم</a></li>
-            <li><a href="#">همکاری با ما</a></li>
+            <li>
+              <a href="#">درباره ما</a>
+            </li>
+            <li>
+              <a href="#">تیم ما</a>
+            </li>
+            <li>
+              <a href="#">اکوسیستم</a>
+            </li>
+            <li>
+              <a href="#">همکاری با ما</a>
+            </li>
           </ul>
         </div>
 
@@ -160,10 +169,18 @@ export default function Footer() {
         <div className="rk-footer__col">
           <h4>مدارس</h4>
           <ul>
-            <li><a href="#">هنرستان پسرانه</a></li>
-            <li><a href="#">هنرستان دخترانه</a></li>
-            <li><a href="#">پیش‌ثبت‌نام</a></li>
-            <li><a href="#">شرایط پذیرش</a></li>
+            <li>
+              <a href="#">هنرستان پسرانه</a>
+            </li>
+            <li>
+              <a href="#">هنرستان دخترانه</a>
+            </li>
+            <li>
+              <a href="#">پیش‌ثبت‌نام</a>
+            </li>
+            <li>
+              <a href="#">شرایط پذیرش</a>
+            </li>
           </ul>
         </div>
 
@@ -171,10 +188,18 @@ export default function Footer() {
         <div className="rk-footer__col">
           <h4>ارتباط</h4>
           <ul>
-            <li><a href="#">مشهد، فرامرز عباسی۳۳</a></li>
-            <li><a href="#">۰۲۱-۱۲۳۴۵۶۷۸</a></li>
-            <li><a href="#">info@rokad.school</a></li>
-            <li><a href="#">فرم تماس</a></li>
+            <li>
+              <a href="#">مشهد، فرامرز عباسی۳۳</a>
+            </li>
+            <li>
+              <a href="#">۰۲۱-۱۲۳۴۵۶۷۸</a>
+            </li>
+            <li>
+              <a href="#">info@rokad.school</a>
+            </li>
+            <li>
+              <a href="#">فرم تماس</a>
+            </li>
           </ul>
         </div>
       </div>

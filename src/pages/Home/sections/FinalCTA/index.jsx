@@ -23,7 +23,7 @@ export default function FinalCTA() {
       {/* تصویر دختر — سمت راست */}
       <div className="absolute bottom-0 right-0 z-10 pointer-events-none select-none h-full flex items-end">
         <img
-          src={imgGirl}
+          src={imgBoy}
           alt=""
           aria-hidden="true"
           className="h-[85%] max-h-[420px] sm:max-h-[500px] lg:max-h-[560px] w-auto object-contain object-bottom"
@@ -33,7 +33,7 @@ export default function FinalCTA() {
       {/* تصویر پسر — سمت چپ */}
       <div className="absolute bottom-0 left-0 z-10 pointer-events-none select-none h-full flex items-end">
         <img
-          src={imgBoy}
+          src={imgGirl}
           alt=""
           aria-hidden="true"
           className="h-[85%] max-h-[420px] sm:max-h-[500px] lg:max-h-[560px] w-auto object-contain object-bottom"

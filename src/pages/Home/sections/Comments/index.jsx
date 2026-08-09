@@ -173,7 +173,7 @@ export default function Comments() {
                           z-index: 10 !important;
                         }
                         .comments-swiper .swiper-slide-prev .card-inner-wrap {
-                          transform: scale(0.92) translateX(calc(-103% + 62px)) translateY(8px) rotate(5deg);
+                          transform: scale(0.92) translateX(calc(-103% + 190px)) translateY(8px) rotate(5deg);
                           opacity: 0.72;
                           z-index: 10;
                         }
@@ -181,7 +181,7 @@ export default function Comments() {
                           z-index: 10 !important;
                         }
                         .comments-swiper .swiper-slide-next .card-inner-wrap {
-                          transform: scale(0.92) translateX(calc(103% - 62px)) translateY(8px) rotate(-6deg);
+                          transform: scale(0.92) translateX(calc(103% - 190px)) translateY(8px) rotate(-6deg);
                           opacity: 0.72;
                           z-index: 10;
                         }

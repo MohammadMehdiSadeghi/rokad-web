@@ -83,7 +83,6 @@ const comments = [
 
     role: "جپ",
   },
-
 ];
 
 const getInitials = (name) => {
@@ -158,92 +157,34 @@ export default function Comments() {
 
 
                 .comments-swiper .card-inner-wrap {
-
-
                           transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
-
-
                           opacity: 0.35;
-
-
                           transform: scale(0.62);
-
-
                         }
-
-
                         .comments-swiper .swiper-slide-active {
-
-
                           z-index: 30 !important;
-
-
                         }
-
-
                         .comments-swiper .swiper-slide-active .card-inner-wrap {
-
-
                           transform: scale(1.3) translateX(0) translateY(-6px) rotate(0deg);
-
-
                           opacity: 1;
-
-
                           z-index: 30;
-
-
                         }
-
-
                         .comments-swiper .swiper-slide-prev {
-
-
                           z-index: 10 !important;
-
-
                         }
-
-
                         .comments-swiper .swiper-slide-prev .card-inner-wrap {
-
-
                           transform: scale(0.92) translateX(calc(-103% + 62px)) translateY(8px) rotate(5deg);
-
-
                           opacity: 0.72;
-
-
                           z-index: 10;
-
-
                         }
-
-
                         .comments-swiper .swiper-slide-next {
-
-
                           z-index: 10 !important;
-
-
                         }
-
-
                         .comments-swiper .swiper-slide-next .card-inner-wrap {
-
-
                           transform: scale(0.92) translateX(calc(103% - 62px)) translateY(8px) rotate(-6deg);
-
-
                           opacity: 0.72;
-
-
                           z-index: 10;
-
-
                         }
-
-
       `}</style>
 
       <div className="absolute inset-0 pointer-events-none z-0">

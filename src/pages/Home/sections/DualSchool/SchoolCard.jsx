@@ -26,7 +26,7 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
 
   return (
     <div
-      className={`${t.bg} ${t.rotate} rounded-card-lg text-white p-5 sm:p-8 lg:p-10 relative overflow-hidden min-h-[300px] sm:min-h-[340px] lg:min-h-[380px] flex flex-col transition-all duration-500 ease-out hover:rotate-0 hover:-translate-y-1.5 hover:shadow-2xl`}
+      className={`${t.bg} ${t.rotate} rounded-card-lg text-white p-4 sm:p-8 lg:p-10 relative overflow-hidden min-h-[253px] sm:min-h-[300px] lg:min-h-[380px] flex flex-col transition-all duration-500 ease-out hover:rotate-0 hover:-translate-y-1.5 hover:shadow-2xl`}
     >
       {/* ── Background Pattern (لایه پترن) ── */}
       {/* عکس پترن اینجا رندر میشه. opacity و blend-mode تنظیم شده که با کارت ترکیب بشه */}
@@ -47,26 +47,32 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
           src={illustration}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none select-none absolute bottom-0 left-0 w-[48%] max-w-[170px] sm:w-[55%] sm:max-w-[230px] lg:max-w-[280px] h-auto opacity-95 z-[1]"
+          className="pointer-events-none select-none absolute bottom-0 left-0 w-[42%] max-w-[110px] sm:w-[55%] sm:max-w-[230px] lg:max-w-[280px] h-auto opacity-95 z-[1]"
         />
       )}
 
       {/* Text Container - سمت راست */}
       <div className="relative z-10 flex flex-col h-full max-w-[68%] sm:max-w-[68%] lg:max-w-[70%] ml-auto">
 
+        {/* Category Badge — بج «مدرسه پسرانه/دخترانه» (فیگما موبایل) */}
+        {category && (
+          <span className="self-start mb-2 sm:mb-3 bg-white text-navy-alt font-extrabold text-[10px] xs:text-[11px] sm:text-sm rounded-chip px-2.5 py-1 sm:px-3.5 sm:py-1.5 inline-block -rotate-1">
+            {category}
+          </span>
+        )}
 
         {/* Title */}
-        <h3 className="font-black text-[26px] xs:text-[29px] sm:text-[36px] lg:text-[43px] mb-2 leading-tight">
+        <h3 className="font-black text-[24px] xs:text-[26px] sm:text-[36px] lg:text-[43px] mb-1.5 sm:mb-2 leading-[1.5] lg:leading-tight">
           {title}
         </h3>
-        <p className="text-[13px] sm:text-sm opacity-80 mb-4 sm:mb-6">{meta}</p>
+        <p className="text-[11px] xs:text-[12px] sm:text-sm opacity-80 mb-3 sm:mb-6">{meta}</p>
 
         {/* Chips */}
-        <div className="flex flex-col items-start gap-2 sm:gap-2.5 mb-auto">
+        <div className="flex flex-col items-start gap-1.5 sm:gap-2.5 mb-auto">
           {chips.map((chip) => (
             <span
               key={chip}
-              className="-rotate-2 flex items-center gap-2 bg-white/[0.15] font-semibold text-[12px] sm:text-[13px] rounded-chip px-3 sm:px-3.5 py-1.5 sm:py-2"
+              className="-rotate-2 flex items-center gap-2 bg-white/[0.15] font-semibold text-[10px] xs:text-[11px] sm:text-[13px] rounded-chip px-2.5 py-1 sm:px-3.5 sm:py-2"
             >
               <DotBullet />
               {chip}
@@ -77,7 +83,7 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
         {/* Button */}
         <a
           href="#"
-          className={`self-start rotate-[1.5deg] mt-5 sm:mt-6 bg-white font-extrabold text-[14px] sm:text-[15px] rounded-[8px] px-4 sm:px-5 py-2.5 sm:py-3 ${t.ctaText} transition-transform duration-300 hover:scale-105 hover:rotate-0`}
+          className={`self-start rotate-[1.5deg] mt-3 sm:mt-6 bg-white font-extrabold text-[11px] xs:text-[12px] sm:text-[15px] rounded-[8px] px-3.5 sm:px-5 py-2 sm:py-3 ${t.ctaText} transition-transform duration-300 hover:scale-105 hover:rotate-0`}
         >
           {ctaLabel}
         </a>

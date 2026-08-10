@@ -14,7 +14,7 @@ const headlineLine2 = [
 
 export default function Hero() {
   return (
-    <section className="pt-9 pb-20 sm:pb-24 relative" dir="rtl">
+    <section className="pt-4 sm:pt-6 lg:pt-9 pb-12 sm:pb-16 lg:pb-24 relative" dir="rtl">
       {/* پترن پس‌زمینه کل سکشن */}
       <div
         className="absolute inset-0 w-full h-full z-0 pointer-events-none
@@ -30,8 +30,8 @@ export default function Hero() {
       </div>
 
       <Container className="relative z-10">
-        {/* کارت اصلی — نسبت 1200/510 = 2.35 از فیگما */}
-        <div className="relative overflow-hidden rounded-[36px] bg-[#58BDAF] shadow-soft w-full aspect-[1200/510]">
+        {/* کارت اصلی — موبایل: نسبت 348/162 ≈ 2.15 (فیگما)، دسکتاپ: 1200/510 = 2.35 */}
+        <div className="relative overflow-hidden rounded-[14px] sm:rounded-[20px] lg:rounded-[36px] bg-[#58BDAF] shadow-soft w-full aspect-[2.15] lg:aspect-[1200/510]">
           {/* پترن داخل کارت با اپسیتی 0.24 مطابق فیگما */}
           <img
             src={patternBg}
@@ -40,70 +40,70 @@ export default function Hero() {
             className="absolute inset-0 w-full h-full object-cover opacity-25"
           />
 
-          {/* ── شخصیت (500×781): x:50px از چپ (4.2%)، y:42px از بالا (8.2%)، h:153% ── */}
+          {/* ── شخصیت (موبایل: نشسته، تمام‌قد چپ؛ دسکتاپ: 500×781 با h:153%) ── */}
           <img
             src={characterImg}
             alt="منتور رکاد"
-            className="absolute left-[4.2%] top-[8.2%] h-[153%] w-auto select-none pointer-events-none"
+            className="absolute left-[2%] lg:left-[4.2%] top-[4%] lg:top-[8.2%] h-[104%] lg:h-[153%] w-auto select-none pointer-events-none"
             style={{ maxWidth: "none" }}
           />
 
-          {/* ── تیتر: خط اول y45 کارت (8.8%)، خط دوم y136 (91px پایین‌تر) ── */}
-          <div className="absolute right-[3.9%] top-[12.7%] w-[50%] z-20">
-            {/* خط اول: "آینده" rotate(2deg) */}
-            <div
-              className="font-black text-white text-4xl sm:text-5xl xl:text-[59.4px] leading-[1.15] whitespace-nowrap"
-              style={{ transform: "rotate(2deg)" }}
-            >
-              آینده
-            </div>
-            {/* خط دوم: کلمات خطی، فاصله از خط اول در فیگما = 91px */}
-            <div
-              className="mt-[34px] flex flex-wrap items-end gap-x-[6px] font-black text-white text-4xl sm:text-5xl xl:text-[59.4px] leading-[1.53]"
-            >
-              {headlineLine2.map((w) => (
-                <span
-                  key={w.text}
-                  className="inline-block whitespace-nowrap"
-                  style={{ transform: `rotate(${w.deg}deg)` }}
-                >
-                  {w.text}
-                </span>
-              ))}
-            </div>
-          </div>
+          {/* ── تیتر: خط اول / خط دوم با کلمات کج (موبایل ~20px فیگما، دسکتاپ 59px) ── */}
+                    <div className="absolute right-[4%] lg:right-[3.9%] top-[7%] lg:top-[12.7%] w-[68%] lg:w-[50%] z-20">
+                      {/* خط اول: "آینده" rotate(2deg) */}
+                      <div
+                        className="font-black text-white text-[20px] xs:text-[22px] sm:text-4xl xl:text-[59.4px] leading-[1.15] whitespace-nowrap"
+                        style={{ transform: "rotate(2deg)" }}
+                      >
+                        آینده
+                      </div>
+                      {/* خط دوم: کلمات خطی، فاصله از خط اول در فیگما = 91px */}
+                      <div
+                        className="mt-[6px] sm:mt-[18px] lg:mt-[34px] flex flex-wrap items-end gap-x-[4px] sm:gap-x-[6px] font-black text-white text-[15px] xs:text-[17px] sm:text-4xl xl:text-[59.4px] leading-[1.4] lg:leading-[1.53]"
+                      >
+                        {headlineLine2.map((w) => (
+                          <span
+                            key={w.text}
+                            className="inline-block whitespace-nowrap"
+                            style={{ transform: `rotate(${w.deg}deg)` }}
+                          >
+                            {w.text}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-          {/* ── دکمه‌ها: از بالا 277px (54.3%)؛ سفید راست (47px)، سرمه‌ای بعدش با gap 16px ── */}
-          <div className="absolute right-[3.9%] top-[54.3%] z-20 flex flex-wrap items-center gap-4">
-            <button
-              className="w-[199px] h-[70px] bg-white text-[#21295A] font-extrabold text-xl2 rounded-[10px] cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center"
-              style={{ transform: "rotate(1.5deg)" }}
-            >
-              درخواست مشاوره
-            </button>
-            <button
-              className="w-[231px] h-[71px] bg-[#21295A] text-white font-extrabold text-xl2 rounded-[10px] cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center"
-              style={{ transform: "rotate(-1.5deg)" }}
-            >
-              ثبت‌نام و رزرو مصاحبه
-            </button>
-          </div>
+                    {/* ── دکمه‌ها: موبایل پایین کارت (فیگما y≈206)، دسکتاپ top-[54.3%] ── */}
+                    <div className="absolute right-[4%] lg:right-[3.9%] bottom-[7%] lg:bottom-auto lg:top-[54.3%] z-20 flex flex-wrap items-center gap-2 sm:gap-3 lg:gap-4">
+                      <button
+                        className="w-auto h-[34px] sm:h-[46px] px-3 sm:px-5 lg:w-[199px] lg:h-[70px] lg:px-0 bg-white text-[#21295A] font-extrabold text-[11px] xs:text-xs sm:text-sm lg:text-xl2 rounded-[8px] lg:rounded-[10px] cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center"
+                        style={{ transform: "rotate(1.5deg)" }}
+                      >
+                        درخواست مشاوره
+                      </button>
+                      <button
+                        className="w-auto h-[34px] sm:h-[46px] px-3 sm:px-5 lg:w-[231px] lg:h-[71px] lg:px-0 bg-[#21295A] text-white font-extrabold text-[11px] xs:text-xs sm:text-sm lg:text-xl2 rounded-[8px] lg:rounded-[10px] cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center"
+                        style={{ transform: "rotate(-1.5deg)" }}
+                      >
+                        ثبت‌نام و رزرو مصاحبه
+                      </button>
+                    </div>
 
-          {/* ── پنل اعتماد: 635×201، 7px از راست (0.6%)، 5px از پایین (1%) ── */}
-          <div className="absolute bottom-[1%] right-[0.6%] z-10 w-[53%]">
-            <div className="absolute translate-x-[6px] translate-y-[5px] right-0 top-0 w-full h-full rounded-br-[36px] bg-[#4EB9AB]" />
-            <div className="relative rounded-br-[36px] bg-[#E9F6F4] overflow-hidden">
-              <img
-                src={patternBg}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover opacity-15"
-              />
-              <p className="relative font-black text-[#4AB7AA] text-[22px] sm:text-[30px] xl:text-[38px] leading-[1.35] whitespace-nowrap px-5 sm:px-8 py-4 sm:py-6">
-                اولین هنرستان استارتاپی ایران ...
-              </p>
-            </div>
-          </div>
+                    {/* ── پنل اعتماد: ribbon (موبایل: وسط کارت مطابق فیگما، دسکتاپ: پایین) ── */}
+                    <div className="absolute bottom-[3%] lg:bottom-[1%] right-[2%] lg:right-[0.6%] top-[38%] lg:top-auto z-10 w-[52%] lg:w-[53%]">
+                      <div className="absolute translate-x-[4px] translate-y-[3px] lg:translate-x-[6px] lg:translate-y-[5px] right-0 top-0 w-full h-full rounded-br-[14px] sm:rounded-br-[20px] lg:rounded-br-[36px] bg-[#4EB9AB]" />
+                      <div className="relative rounded-br-[14px] sm:rounded-br-[20px] lg:rounded-br-[36px] bg-[#E9F6F4] overflow-hidden">
+                        <img
+                          src={patternBg}
+                          alt=""
+                          aria-hidden="true"
+                          className="absolute inset-0 w-full h-full object-cover opacity-15"
+                        />
+                        <p className="relative font-black text-[#21295A] lg:text-[#4AB7AA] text-[10px] xs:text-[11px] sm:text-lg lg:text-[30px] xl:text-[38px] leading-[1.5] lg:leading-[1.35] whitespace-nowrap px-2.5 sm:px-5 lg:px-8 py-1.5 sm:py-3 lg:py-6">
+                          اولین هنرستان استارتاپی ایران ...
+                        </p>
+                      </div>
+                    </div>
         </div>
       </Container>
     </section>

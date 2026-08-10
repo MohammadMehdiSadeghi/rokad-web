@@ -81,7 +81,8 @@ export default function HonorsCarousel() {
           {/* دکمه همه افتخارات — جلوی تایتل */}
           <a
             href="#"
-            className="self-start md:self-auto bg-white border-[2px] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base px-6 py-3 rounded-[0_9.12px_0_9.12px] rotate-[-1.55deg] hover:rotate-0 transition-transform duration-300 whitespace-nowrap cursor-pointer flex-shrink-0"
+            className="self-start md:self-auto bg-white border-[2px] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base 
+            px-6 py-3 rounded-[0_9.12px_0_9.12px] rotate-[-1.55deg] hover:rotate-0 transition-transform duration-300 whitespace-nowrap cursor-pointer flex-shrink-0"
           >
             همه افتخارات
           </a>
@@ -137,7 +138,8 @@ export default function HonorsCarousel() {
                       className="relative w-full flex justify-center"
                       style={{ transform: `rotate(${cardRotation}deg)` }}
                     >
-                      <div className="relative mt-8 sm:mt-12 w-full max-w-[260px] xs:max-w-[280px] sm:max-w-[320px] md:max-w-[350px] min-h-[230px] sm:min-h-[280px] md:min-h-[260px]">
+                      <div className="relative mt-8 sm:mt-12 w-full max-w-[260px] xs:max-w-[280px] sm:max-w-[320px] md:max-w-[350px] min-h-[230px] 
+                      sm:min-h-[280px] md:min-h-[260px]">
                         {/* لایه سایه/آفست پشت کارت */}
                         <div
                           aria-hidden="true"

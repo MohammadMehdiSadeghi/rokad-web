@@ -41,7 +41,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative w-full px-6 py-20 overflow-hidden bg-white">
+    <section className="relative w-full px-4 sm:px-6 py-14 sm:py-20 overflow-hidden bg-white">
       {/* ── لایه پترن پس‌زمینه ── */}
       <div
         className="absolute inset-0 w-full h-full z-0 pointer-events-none 
@@ -56,8 +56,8 @@ export default function Stats() {
         />
       </div>
 
-      {/* محتوای سکشن */}
-      <h2 className="relative z-10 mb-14 text-center text-[24px] font-black sm:text-[55px]">
+      {/* محتوای سکشن — موبایل: 20px (فیگما)، دسکتاپ 55px */}
+      <h2 className="relative z-10 mb-10 sm:mb-14 text-center text-[22px] xs:text-[24px] sm:text-[32px] lg:text-[55px] font-black">
         <span className="inline-block rotate-1 text-black">
           {" "}
           رکاد در یک نگاه،{" "}
@@ -65,9 +65,9 @@ export default function Stats() {
         <span className="inline-block -rotate-3 text-teal">با اعتماد</span>
       </h2>
 
-      <Container className="relative z-10 flex flex-wrap justify-between gap-y-10">
+      <Container className="relative z-10 flex flex-wrap justify-between gap-y-8 sm:gap-y-10">
         {stats.map((s) => (
-          <div key={s.label} className="w-full sm:w-[48%] lg:w-[23%]">
+          <div key={s.label} className="w-[48%] lg:w-[23%]">
             <StatCard {...s} />
           </div>
         ))}

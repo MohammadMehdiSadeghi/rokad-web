@@ -32,8 +32,8 @@ const pills = [
 
 export default function Story() {
   return (
-    <section id="about" className="pt-[116px] pb-16 sm:pb-20 lg:pb-[88px] w-full px-4 sm:px-6 bg-[#F3F3F1]">
-      <Container className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 sm:gap-20 lg:gap-40 items-center">
+    <section id="about" className="pt-14 sm:pt-16 lg:pt-[116px] pb-14 sm:pb-20 lg:pb-[88px] w-full px-4 sm:px-6 bg-[#F6F6F6]">
+      <Container className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-16 lg:gap-40 items-center">
         {/* ── ستون راست: تصویر ── */}
         <div className="relative flex items-start justify-center lg:justify-start -mt-2">
           <div className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[560px]">
@@ -56,7 +56,7 @@ export default function Story() {
 
         {/* ── ستون چپ: متن ── */}
         <div className="max-w-full lg:max-w-[500px]">
-          <h2 className="font-black text-[26px] xs:text-[30px] sm:text-[40px] lg:text-[46px] leading-[1.4] sm:leading-[1.35] mb-5">
+          <h2 className="font-black text-[24px] xs:text-[26px] sm:text-[40px] lg:text-[46px] leading-[1.4] sm:leading-[1.35] mb-4 sm:mb-5">
             <span className="inline-block rotate-3">چرا</span>{" "}
             <span className="inline-block text-teal-wordmark -rotate-3">
               رکاد
@@ -66,7 +66,7 @@ export default function Story() {
             <span className="inline-block rotate-3">معمولی</span>{" "}
             <span className="inline-block -rotate-3">نیست؟</span>
           </h2>
-          <p className="text-[13px] sm:text-[15px] leading-[1.9] sm:leading-[2] text-navy/70 max-w-full lg:max-w-[460px] mb-[20px]">
+          <p className="text-[12px] xs:text-[13px] sm:text-[15px] leading-[1.9] sm:leading-[2] text-navy/70 max-w-full lg:max-w-[460px] mb-[16px] sm:mb-[20px]">
             ما هنرستان رو با اکوسیستم استارتاپی و بازار کار واقعی ترکیب کردیم.
             اینجا فقط کتاب نمی‌خونی؛ روی چالش‌های واقعی کار می‌کنی، با منتورهای
             متخصص همراهی می‌شی و توی محیطی امن، جرأت شکست خوردن و دوباره پاشدن
@@ -74,7 +74,7 @@ export default function Story() {
           </p>
 
           {/* Pills با زاویه کج برای متن‌ها و سایه استیکری */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-9">
+          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-4 mb-7 sm:mb-9">
             {pills.map((p) => (
               <span
                 key={p.label}
@@ -86,7 +86,7 @@ export default function Story() {
                 />
                 {/* لایه اصلی و متن استیکر */}
                 <span
-                  className={`relative block ${p.bg} border-2 rounded-[10px] px-4 sm:px-5 py-2 sm:py-2.5 font-bold text-[13px] sm:text-sm ${p.border} ${p.text}`}
+                  className={`relative block ${p.bg} border-2 rounded-[10px] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[11px] xs:text-[12px] sm:text-sm ${p.border} ${p.text}`}
                 >
                   {p.label}
                 </span>
@@ -98,11 +98,11 @@ export default function Story() {
           <div className="flex justify-center lg:justify-center items-center w-full ">
             <a
               href="#"
-              className="group inline-flex items-center justify-center gap-3 w-full max-w-[240px] h-[48px] sm:h-[52px] bg-[#61C4BC] text-white font-extrabold text-[16px] sm:text-[18px]
+              className="group inline-flex items-center justify-center gap-3 w-full max-w-[200px] sm:max-w-[240px] h-[42px] sm:h-[52px] bg-[#59BBAF] text-white font-extrabold text-[14px] sm:text-[18px]
               rounded-tr-none rounded-bl-none rounded-tl-[10px] rounded-br-[10px] 
               border-2 border-[#D6EEEB]"
             >
-              <img src={vectorIcon} alt="" className="w-5 shrink-0 " />
+              <img src={vectorIcon} alt="" className="w-4 sm:w-5 shrink-0 " />
               <span>ادامه داستان رکاد</span>
             </a>
           </div>

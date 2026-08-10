@@ -44,7 +44,7 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section className="relative py-[88px] bg-white overflow-hidden">
+    <section className="relative py-12 sm:py-14 lg:py-[88px] bg-white overflow-hidden">
       {/* ── Background Pattern Layer ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
@@ -56,8 +56,8 @@ export default function Pillars() {
       </div>
 
       <Container className="relative z-10">
-        {/* Title with Rotations (-3, 2, -3, 2, ...) */}
-        <h2 className="text-right font-black text-[28px] sm:text-[38px] lg:text-[46px] leading-[1.3] mb-5 flex flex-wrap gap-x-2">
+        {/* Title with Rotations (-3, 2, -3, 2, ...) — موبایل 20px (فیگما)، دسکتاپ 46px */}
+        <h2 className="text-right font-black text-[22px] xs:text-[24px] sm:text-[38px] lg:text-[46px] leading-[1.3] mb-4 sm:mb-5 flex flex-wrap gap-x-2">
           <span className="inline-block -rotate-3">چرا</span>
           <span className="inline-block rotate-2">خانواده‌ها</span>
           <span className="inline-block -rotate-3">به</span>
@@ -70,12 +70,13 @@ export default function Pillars() {
           </span>
         </h2>
 
-        <p className="text-right font-medium text-[14px] sm:text-[16px] leading-[1.9] text-navy/60 max-w-[620px] mb-16">
+        <p className="text-right font-medium text-[12px] xs:text-[13px] sm:text-[16px] leading-[1.9] text-navy/60 max-w-[620px] mb-6 sm:mb-16">
           هر دانش‌آموز یه مسیر شخصی داره. سیستم آموزشی ما براساس چهار ستون طراحی
           شده تا هرفرد بهترین نسخه از خودش بشه
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* موبایل: گرید ۲×۲ فشرده (فیگما 412px)؛ دسکتاپ: ۴ ستون */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 xs:gap-4 sm:gap-6 lg:gap-8">
           {pillars.map((p, i) => {
             // ترتیب چرخش از راست به چپ: منفی دو، دو، منفی دو، دو
             const rotation = i % 2 === 0 ? -2 : 2;

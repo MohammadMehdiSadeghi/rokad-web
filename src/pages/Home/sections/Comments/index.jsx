@@ -137,7 +137,7 @@ export default function Comments() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full pt-[70px] pb-[70px] px-4 sm:px-6 bg-[#E4F4F2] overflow-visible">
+    <section className="relative w-full pt-[70px] pb-[70px] px-4 sm:px-6 bg-[#E4F4F2] overflow-x-clip">
       <style>{`
 
 

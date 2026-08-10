@@ -19,7 +19,7 @@ export default function Header() {
   return (
     // موبایل: نوار ساده‌ی تمام‌عرض (فیگما Android Compact: h=45px، فقط لوگو + همبرگر)
     // دسکتاپ: کارت منت گرد 1200px با pt-32px (top:32px در فیگما)
-    <header className="pt-2 sm:pt-4 lg:pt-6 xl:pt-8 px-3 sm:px-4 lg:px-0">
+    <header className="pt-0 sm:pt-4 lg:pt-6 xl:pt-8 px-3 sm:px-4 lg:px-0">
       <nav
         aria-label="ناوبری اصلی"
         className="relative w-full lg:w-[80%] mx-auto"

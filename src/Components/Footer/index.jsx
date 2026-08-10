@@ -125,12 +125,12 @@ export default function Footer() {
         }
         .rk-footer__socials button:hover{ background: var(--icon-bg-hover); }
 
-        @media (max-width: 760px){
-          .rk-footer{ padding: 32px 6% 20px; }
-          .rk-footer__top{ flex-wrap: wrap; align-items: flex-end; }
-          .rk-footer__brand{ max-width: 100%; align-items: flex-start; }
-          .rk-footer__bottom{ flex-direction: column-reverse; align-items: flex-end; }
-        }
+        @media (max-width: 920px){
+                  .rk-footer{ padding: 32px 7% 20px; }
+                  .rk-footer__top{ flex-wrap: wrap; align-items: flex-end; }
+                  .rk-footer__brand{ max-width: 100%; align-items: flex-start; }
+                  .rk-footer__bottom{ flex-direction: column-reverse; align-items: flex-end; }
+                }
       `}</style>
 
       <div className="rk-footer__top">

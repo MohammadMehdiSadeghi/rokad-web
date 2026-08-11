@@ -7,6 +7,7 @@ import Ecosystem from "./sections/Ecosystem";
 import EventsCarousel from "./sections/EventsCarousel";
 import Faq from "./sections/Faq";
 import Honors from "./sections/Honors";
+import Rokadians from "./sections/Rokadians";
 import Comments from "./sections/Comments";
 import Blogs from "./sections/Blogs";
 import FinalCTA from "./sections/FinalCTA";
@@ -23,6 +24,7 @@ export default function Home() {
       <EventsCarousel />
       <Faq />
       <Honors />
+      <Rokadians />
       <Comments />
       <Blogs />
       <FinalCTA />

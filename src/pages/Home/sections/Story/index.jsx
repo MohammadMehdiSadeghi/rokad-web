@@ -98,11 +98,10 @@ export default function Story() {
           <div className="flex justify-center lg:justify-center items-center w-full ">
             <a
               href="#"
-              className="group inline-flex items-center justify-center gap-3 w-full max-w-[200px] sm:max-w-[240px] h-[42px] sm:h-[52px] bg-[#59BBAF] text-white font-extrabold text-[14px] sm:text-[18px]
+              className="group inline-flex items-center justify-center gap-3 w-full max-w-[200px] sm:max-w-[170px] h-[42px] sm:h-[52px] bg-[#59BBAF] text-white font-extrabold text-[14px] sm:text-[18px]
               rounded-tr-none rounded-bl-none rounded-tl-[10px] rounded-br-[10px] 
               border-2 border-[#D6EEEB]"
             >
-              <img src={vectorIcon} alt="" className="w-4 sm:w-5 shrink-0 " />
               <span>ادامه داستان رکاد</span>
             </a>
           </div>

@@ -108,7 +108,6 @@ export default function Blogs() {
         <div className="w-full mx-auto">
           
           {/* ── کانتینر تایتل و دکمه ── */}
-          {/* flex-col در موبایل، flex-row در دسکتاپ */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-[97px] mr-5">
             
             {/* تایتل داخل یک div */}
@@ -121,10 +120,11 @@ export default function Blogs() {
               </h2>
             </div>
 
-            {/* دکمه همه مقالات */}
+            {/* دکمه همه مقالات با افکت پر شدن از چپ به راست */}
             <a 
               href="#" 
-              className="self-start md:self-auto bg-white border-[2px] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base px-6 py-3 rounded-[0_9.12px_0_9.12px] rotate-[-1.55deg] hover:rotate-0 transition-transform duration-300 whitespace-nowrap cursor-pointer flex-shrink-0"
+              className="relative overflow-hidden self-start md:self-auto bg-white border-[2px] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base px-6 py-3 rounded-[0_9.12px_0_9.12px] rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 whitespace-nowrap cursor-pointer flex-shrink-0
+              bg-[linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white"
             >
               همه مقالات
             </a>
@@ -147,7 +147,8 @@ export default function Blogs() {
             </div>
 
             {/* اسلایدر */}
-            <div className="flex-1 w-full overflow-hidden">
+            {/* اضافه شدن padding برای جلوگیری از بریده شدن گوشه کارت‌های کج‌شده */}
+            <div className="flex-1 w-full overflow-hidden px-4 sm:px-8 py-6 sm:py-10">
               <Swiper
                 modules={[A11y]}
                 onSwiper={(swiper) => {
@@ -161,7 +162,7 @@ export default function Blogs() {
                   640: { slidesPerView: 2 },
                   1024: { slidesPerView: 3 },
                 }}
-                className="!overflow-visible pb-4"
+                className="!overflow-visible"
               >
                 {posts.map((p, i) => {
                   const rotation = i % 2 === 0 ? -1 : 1;

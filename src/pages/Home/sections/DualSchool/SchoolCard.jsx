@@ -54,13 +54,6 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
       {/* Text Container - سمت راست */}
       <div className="relative z-10 flex flex-col h-full max-w-[68%] sm:max-w-[68%] lg:max-w-[70%] ml-auto">
 
-        {/* Category Badge — بج «مدرسه پسرانه/دخترانه» (فیگما موبایل) */}
-        {category && (
-          <span className="self-start mb-2 sm:mb-3 bg-white text-navy-alt font-extrabold text-[10px] xs:text-[11px] sm:text-sm rounded-chip px-2.5 py-1 sm:px-3.5 sm:py-1.5 inline-block -rotate-1">
-            {category}
-          </span>
-        )}
-
         {/* Title */}
         <h3 className="font-black text-[24px] xs:text-[26px] sm:text-[36px] lg:text-[43px] mb-1.5 sm:mb-2 leading-[1.5] lg:leading-tight">
           {title}

@@ -1,6 +1,4 @@
-// Pillar card — "torn paper" / sticky-note style matching the Figma design.
-// Only ever used inside Pillars, so it lives next to it.
-
+// PillarCard.jsx
 export default function PillarCard({
   index,
   icon,
@@ -10,7 +8,6 @@ export default function PillarCard({
   variant = "light",
   rotation = 0,
 }) {
-  // variant "dark" / "featured" kept for possible reuse elsewhere.
   const isDark = variant === "dark" || variant === "featured";
   const featured = variant === "featured";
 
@@ -44,49 +41,47 @@ export default function PillarCard({
   }
 
   // ── Light "paper" style (Pillars section) ──
-
-  // ردیوس اختصاصی کارت
-  const cornerRadius = "rounded-[0_13.44px_0_13.44px]";
-
-  // ردیوس اختصاصی آیکون
-  const iconRadius = "rounded-[4.98px_0_4.98px_0]";
+  const cornerRadius = "rounded-[0_48px_0_48px] [corner-shape:squircle]";
+  const iconRadius = "rounded-[4.98px_0_4.98px_0] [corner-shape:squircle]";
 
   return (
-    // اعمال چرخش روی کل پکیج کارت
-    <div className="relative " style={{ transform: `rotate(${rotation}deg)` }}>
-      {/* Shadow / offset layer (لایه سیاه پشت کارت) */}
+    // اضافه شدن h-full برای پر کردن ارتفاع سطر گرید
+    <div className="relative h-full" style={{ transform: `rotate(${rotation}deg)` }}>
+      {/* Shadow / offset layer */}
       <div
         className={`absolute top-[4.8px] left-[4.8px] w-full h-full bg-[#292827] ${cornerRadius}`}
       />
 
-      {/* Card (کارت اصلی روی لایه سیاه) — موبایل: 160×107 (فیگما)، دسکتاپ: 332×228 */}
-            <article
-              className={`relative z-10 min-h-[112px] xs:min-h-[120px] sm:min-h-[220px] bg-[#F6F6F6] border-[2px] border-[#292827] ${cornerRadius} px-2.5 xs:px-3 sm:px-6 py-3 xs:py-3.5 sm:py-7`}
-            >
-              {/* Index — top-left (فیگما موبایل: 17px) */}
-              {index && (
-                <span className="absolute top-2 xs:top-2.5 sm:top-5 left-2 xs:left-3 sm:left-5 font-black text-[14px] xs:text-[16px] sm:text-[32px] text-[#0000001f] leading-none">
-                  {index}
-                </span>
-              )}
+      {/* Card - اضافه شدن h-full و flex flex-col */}
+      <article
+        className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[2px] border-[#292827] ${cornerRadius} px-4 sm:px-6 py-4 sm:py-7`}
+      >
+        {/* Index */}
+        {index && (
+          <span className="absolute top-3 sm:top-5 left-3 sm:left-5 font-black text-[14px] sm:text-[32px] text-[#0000001f] leading-none">
+            {index}
+          </span>
+        )}
 
-              {/* Icon box (فیگما موبایل: 23×23) */}
-              <div
-                className={`w-[22px] h-[22px] xs:w-6 xs:h-6 sm:w-11 sm:h-11 flex items-center justify-center mb-1.5 xs:mb-2 sm:mb-5 border-[1px] xs:border-[1.2px] sm:border-[1.2px] border-[#292827] ${iconRadius} p-[3px] xs:p-[4px] sm:p-[7.2px] ${iconBg || "bg-[#292827]"} mt-0`}
-              >
-                <span className="w-full h-full text-white flex items-center justify-center">
-                  {icon}
-                </span>
-              </div>
+        {/* Icon box */}
+        <div
+          className={`w-8 h-8 sm:w-11 sm:h-11 flex items-center justify-center mb-2 sm:mb-5 border-[1.2px] border-[#292827] ${iconRadius} p-[4px] sm:p-[7.2px] ${iconBg || "bg-[#292827]"} mt-0`}
+        >
+          <span className="w-full h-full text-white flex items-center justify-center">
+            {icon}
+          </span>
+        </div>
 
-              <h4 className="font-black text-[11px] xs:text-[11.5px] sm:text-[20px] text-ink mb-1 xs:mb-1.5 sm:mb-3 leading-snug xs:leading-[1.9] sm:whitespace-nowrap">
-                {title}
-              </h4>
-              {/* خط دوم متن کوتاه در موبایل (مانند فیگما) */}
-              <p className="text-[8.5px] xs:text-[9px] sm:text-[14px] leading-[1.6] xs:leading-[1.65] sm:leading-[1.85] text-ink/60 line-clamp-2">
-                {body}
-              </p>
-            </article>
+        {/* Title */}
+        <h4 className="font-black text-[14px] sm:text-[20px] text-ink mb-1.5 sm:mb-3 leading-snug">
+          {title}
+        </h4>
+        
+        {/* Body */}
+        <p className="text-[14px] sm:text-[14px] leading-[1.8] text-ink/60">
+          {body}
+        </p>
+      </article>
     </div>
   );
 }

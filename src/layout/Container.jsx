@@ -9,7 +9,7 @@
 // پله‌پله بازتر می‌شه تا در سایزهای کوچیک هم محتوا فضای مناسب داشته باشه.
 // نسخه‌ی موبایل از فیگما (Android Compact 412px): حاشیه‌ی کناری ~31px = ~7.5٪
 // → عرض محتوا ~85٪ در موبایل.
-const WIDTH_STEPS = "w-[85%] xs:w-[85%] sm:w-[85%] md:w-[85%] lg:w-4/5";
+const WIDTH_STEPS = "w-[90%] xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-4/5";
 
 export default function Container({
   as: Tag = "div",

@@ -187,18 +187,23 @@ export default function Comments() {
                         }
       `}</style>
 
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <img
-          src={commentsPattern}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover scale-125 select-none opacity-30"
-        />
-      </div>
+      {/* ── لایه پترن اصلاح شده با background-image ── */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `url(${commentsPattern})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.3,
+        }}
+      ></div>
 
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}
 
-        <h2 className="font-black text-[22px] xs:text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.6] sm:leading-[1.5] text-[#292827] mb-8 sm:mb-10 lg:mb-12 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
+        {/* mb-0 شد تا فاصله فقط توسط pt کاروسل کنترل شود */}
+        <h2 className="font-black text-[22px] xs:text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.6] sm:leading-[1.5] text-[#292827] mb-0 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
           <span className="inline-block -rotate-3">از</span>
 
           <span className="inline-block rotate-3">زبون</span>
@@ -214,9 +219,8 @@ export default function Comments() {
 
         {/* ── پکیج کاروسل و دکمه‌های ناوبری ── */}
 
-        {/* ── پکیج کاروسل و دکمه‌های ناوبری ── */}
-
-        <div className="relative w-full pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-visible">
+        {/* pt-[60px] برای فاصله دقیق 60px از تایتل */}
+        <div className="relative w-full pt-[60px] pb-12 sm:pb-16 overflow-visible">
           {/* دکمه سمت راست (اسلاید بعدی در RTL) — چسبیده به کارت وسط */}
 
           <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0">

@@ -1,12 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y } from "swiper/modules";
-import { ChevronLeftIcon, ChevronRightIcon } from "../../../../common/Icons"; // مسیر اصلاح شد
+import { ChevronLeftIcon, ChevronRightIcon } from "../../../../common/Icons";
 import Container from "../../../../layout/Container";
 
 import "swiper/css";
 
-// چون عکس در پوشه public است، مستقیماً با آدرس ریشه فراخوانی می‌شود
 const blogImg = "/assets/Blogs/blog-card-cover.png";
 
 const posts = [
@@ -100,18 +99,16 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
 
 export default function Blogs() {
   const swiperRef = useRef(null);
+  // استیت برای نگهداری ایندکس اسلاید فعلی (برای نوار پیشرفت موبایل)
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    // فاصله ۱۲۰ از بالا و ۹۸ از پایین
     <section className="pt-[120px] pb-[98px] bg-white" dir="rtl">
       <Container>
         <div className="w-full mx-auto">
           
           {/* ── کانتینر تایتل و دکمه ── */}
-          {/* flex-col در موبایل، flex-row در دسکتاپ */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-[97px] mr-5">
-            
-            {/* تایتل داخل یک div */}
             <div>
               <h2 className="text-right font-black text-[53.11px] leading-[1.3] text-ink flex flex-wrap justify-start items-center gap-x-2">
                 <span className="inline-block rotate-3 text-ink">تازه‌های</span>
@@ -121,47 +118,49 @@ export default function Blogs() {
               </h2>
             </div>
 
-            {/* دکمه همه مقالات */}
             <a 
               href="#" 
-              className="self-start md:self-auto bg-white border-[2px] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base px-6 py-3 rounded-[0_9.12px_0_9.12px] rotate-[-1.55deg] hover:rotate-0 transition-transform duration-300 whitespace-nowrap cursor-pointer flex-shrink-0"
+              className="relative overflow-hidden self-start md:self-auto bg-white border-[2px] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base px-6 py-3 rounded-[0_9.12px_0_9.12px] rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 whitespace-nowrap cursor-pointer flex-shrink-0
+              bg-[linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white"
             >
               همه مقالات
             </a>
-
           </div>
 
           {/* ── پکیج کاروسل و دکمه‌های ناوبری ── */}
           <div className="flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
-            {/* دکمه سمت راست (اسلاید قبلی در RTL) */}
-            <div className="relative flex-shrink-0 z-30">
-              <div className="absolute top-[2px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px]"></div>
+            
+            {/* دکمه سمت راست (مخفی در موبایل) */}
+            <div className="relative flex-shrink-0 z-30 hidden md:flex">
+              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px]"></div>
               <button
                 type="button"
                 aria-label="پست قبلی"
                 onClick={() => swiperRef.current?.slidePrev()}
-                className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-ink rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-12 h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-ink rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
-                <ChevronRightIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                <ChevronRightIcon className="w-5 h-5" />
               </button>
             </div>
 
             {/* اسلایدر */}
-            <div className="flex-1 w-full overflow-hidden">
+            <div className="flex-1 w-full overflow-hidden px-0 sm:px-8 py-6 sm:py-10">
               <Swiper
                 modules={[A11y]}
                 onSwiper={(swiper) => {
                   swiperRef.current = swiper;
                 }}
+                // آپدیت استیت هنگام تغییر اسلاید برای نوار پیشرفت
+                onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                 dir="rtl"
                 spaceBetween={25}
                 slidesPerView={1}
-                loop={true} // لوپ بی‌نهایت
+                loop={true}
                 breakpoints={{
                   640: { slidesPerView: 2 },
                   1024: { slidesPerView: 3 },
                 }}
-                className="!overflow-visible pb-4"
+                className="!overflow-visible"
               >
                 {posts.map((p, i) => {
                   const rotation = i % 2 === 0 ? -1 : 1;
@@ -177,19 +176,31 @@ export default function Blogs() {
               </Swiper>
             </div>
 
-            {/* دکمه سمت چپ (اسلاید بعدی در RTL) */}
-            <div className="relative flex-shrink-0 z-30">
-              <div className="absolute top-[2px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px]"></div>
+            {/* دکمه سمت چپ (مخفی در موبایل) */}
+            <div className="relative flex-shrink-0 z-30 hidden md:flex">
+              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px]"></div>
               <button
                 type="button"
                 aria-label="پست بعدی"
                 onClick={() => swiperRef.current?.slideNext()}
-                className="relative w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-12 h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-[#292827] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
-                <ChevronLeftIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                <ChevronLeftIcon className="w-5 h-5" />
               </button>
             </div>
           </div>
+
+          {/* ── نوار پیشرفت (فقط در موبایل و تبلت) ── */}
+          {/* md:hidden باعث میشه در دسکتاپ دیده نشه */}
+          <div className="mt-2 flex justify-center md:hidden">
+            <div className="w-[150px] h-1.5 bg-gray-200 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-[#21295A] transition-all duration-500 ease-out rounded-full"
+                style={{ width: `${((activeIndex + 1) / posts.length) * 100}%` }}
+              />
+            </div>
+          </div>
+
         </div>
       </Container>
     </section>

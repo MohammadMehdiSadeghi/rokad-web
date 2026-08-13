@@ -44,8 +44,8 @@ export default function DualSchool() {
           مسیر خودت رو انتخاب کنی.
         </p>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        {/* Grid - کاهش gap در سایز lg (1024px) به 8 و افزایش در xl (1280px) به 12 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-8 xl:gap-12">
           <SchoolCard
             theme="boys"
             category="مدرسه پسرانه"

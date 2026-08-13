@@ -4,7 +4,6 @@ import { Navigation, A11y } from "swiper/modules";
 import Container from "../../../../layout/Container";
 import { ChevronLeftIcon, ChevronRightIcon, ArrowIcon } from "../../../../common/Icons";
 
-// استایل‌های پایه swiper
 import "swiper/css";
 
 const patternBg = "/assets/Events/Event-Pattern.png";
@@ -82,7 +81,6 @@ export default function EventsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-      // فاصله ۶۵ پیکسل از بالا — موبایل فشرده‌تر
       <section className="pt-12 sm:pt-14 lg:pt-[65px] pb-14 sm:pb-20 px-4 sm:px-6 relative overflow-hidden bg-white">
         {/* 1. لایه پترن پس‌زمینه */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
@@ -97,42 +95,41 @@ export default function EventsCarousel() {
         <Container className="relative z-10">
         
           {/* ── هدر: تایتل و دکمه‌های ناوبری ── */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 md:mb-[80px]">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-8 lg:mb-[80px]">
             <div>
-              {/* موبایل 20px (فیگما)، دسکتاپ 42px */}
-              <h2 className="font-black text-[22px] xs:text-[24px] sm:text-[38px] lg:text-[42px] leading-[1.35] mb-4 md:mb-[35px]">
+              <h2 className="font-black text-[22px] xs:text-[24px] sm:text-[38px] lg:text-[42px] leading-[1.35] mb-3 sm:mb-4">
                 جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
               </h2>
-              <p className="font-medium text-[#292827] text-[12px] xs:text-[13px] sm:text-[16px] leading-[1.9] max-w-xl">
+              <p className="font-medium text-[#292827] text-[12px] xs:text-[13px] sm:text-[16px] leading-[1.9] max-w-xl mb-[64px]">
                 رویدادهایی که دانش‌آموزها توش از ایده تا اجرا رو با دست خودشون طی می‌کنن.
               </p>
             </div>
 
-            {/* 2, 3, 4. دکمه‌های ناوبری با استایل کارت (لایه پشتی، بوردر و ردیوس) */}
-            <div className="flex items-center gap-4 md:gap-6 self-center md:self-auto">
+            {/* دکمه‌های ناوبری (فقط در lg به بالا) */}
+            <div className="hidden lg:flex items-center gap-4 lg:gap-6 self-center lg:self-auto">
               {/* دکمه قبلی */}
               <div className="relative">
-                <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_8.65px_0_8.65px]"></div>
+                <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_24px_0_24px] [corner-shape:squircle]"></div>
                 <button
                   type="button"
                   ref={prevRef}
                   aria-label="رویداد قبلی"
-                  className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                  className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_24px_0_24px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <ChevronRightIcon className="w-4 h-4 md:w-5 md:h-5" />
+                  <ChevronRightIcon className="w-5 h-5" />
                 </button>
               </div>
             
               {/* دکمه بعدی */}
               <div className="relative">
-                <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_8.65px_0_8.65px]"></div>
+                <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_24px_0_24px] [corner-shape:squircle]"></div>
                 <button
                   type="button"
                   ref={nextRef}
                   aria-label="رویداد بعدی"
-                  className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                  className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_24px_0_24px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <ChevronLeftIcon className="w-4 h-4 md:w-5 md:h-5" />
+                  <ChevronLeftIcon className="w-5 h-5" />
                 </button>
               </div>
             </div>
@@ -164,76 +161,79 @@ export default function EventsCarousel() {
                     {/* لایه زیرین اصلی کارت */}
                     <div 
                       aria-hidden="true" 
-                      className={`absolute top-[4px] left-[7px] w-full h-full ${theme.solidColor} rounded-[0_29px_0_29px]`} 
+                      className={`absolute top-[4px] left-[7px] w-full h-full ${theme.solidColor} rounded-[0_44px_0_44px] [corner-shape:squircle]`} 
                     />
 
-                    {/* کارت اصلی */}
-                    <div className={`relative bg-white border-[2.25px] ${theme.borderColor} rounded-[0_29px_0_29px] overflow-hidden grid grid-cols-1 lg:grid-cols-[40%_60%]`}>
+                    {/* کارت اصلی - افزایش شدید ارتفاع به 700px در موبایل و 560px در دسکتاپ */}
+                    <div className={`relative bg-white border-[2.25px] ${theme.borderColor} rounded-[0_44px_0_44px] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[700px] lg:min-h-[560px]`}>
                       
-                      {/* کارت اطلاعات رویداد (سمت راست) — موبایل فشرده (فیگما 346×181) */}
-                                            <div className={`relative ${theme.cardBg} p-4 sm:p-12 flex flex-col justify-center overflow-hidden`}>
+                      {/* کارت اطلاعات رویداد (سمت راست در دسکتاپ / پایین در موبایل) */}
+                      <div className={`relative ${theme.cardBg} p-6 sm:p-10 lg:p-12 flex flex-col justify-between flex-1 lg:flex-none overflow-hidden`}>
                         
-                                              <div className="relative z-10 flex flex-col gap-3 sm:gap-6 h-full text-right justify-between py-2 sm:py-4">
-                          
-                                                {/* ردیف اول: عنوان/تاریخ (راست) و عدد (چپ) در یک خط */}
-                                                <div className="flex justify-between items-start w-full">
-                                                  <div className="flex flex-col items-start">
-                                                    <span className={`font-black text-[11px] xs:text-[12px] sm:text-[14.97px] ${theme.accentText}`}>
-                                                      {event.category}
-                                                    </span>
-                                                    <span className={`font-medium text-[9px] xs:text-[10px] sm:text-[11.9px] mt-0.5 sm:mt-1 ${theme.metaColor}`}>
-                                                      {event.meta}
-                                                    </span>
-                                                  </div>
-                                                  <span className={`font-black text-[30px] xs:text-[34px] sm:text-[60px] ${theme.indexColor} leading-none`}>
-                                                    {event.index}
-                                                  </span>
-                                                </div>
+                        {/* بخش بالا: متون و بَج */}
+                        <div className="relative z-10 flex flex-col gap-5 sm:gap-8">
+                          {/* ردیف اول: عنوان/تاریخ و عدد */}
+                          <div className="flex justify-between items-start w-full">
+                            <div className="flex flex-col items-start">
+                              <span className={`font-black text-[14px] sm:text-[16px] ${theme.accentText}`}>
+                                {event.category}
+                              </span>
+                              <span className={`font-medium text-[11px] sm:text-[13px] mt-1.5 ${theme.metaColor}`}>
+                                {event.meta}
+                              </span>
+                            </div>
+                            <span className={`font-black text-[40px] sm:text-[72px] ${theme.indexColor} leading-none`}>
+                              {event.index}
+                            </span>
+                          </div>
 
-                                                {/* بَج بزرگ‌تر همراه با لایه پشتی */}
-                                                <div className="relative self-start">
-                                                  <div 
-                                                    className={`absolute top-[3px] left-[3px] w-full h-full ${theme.badgeOffset} rounded-[4px] pointer-events-none`}
-                                                  ></div>
-                                                  <div className={`relative ${theme.badgeBg} border-[1px] ${theme.badgeBorder} ${theme.badgeText} rounded-[4px] px-2.5 xs:px-3 sm:px-5 py-1 xs:py-1.5 sm:py-2.5 text-[9px] xs:text-[10px] sm:text-base font-bold`}>
-                                                    ساخت محصول واقعی
-                                                  </div>
-                                                </div>
+                          {/* بَج */}
+                          <div className="relative self-start">
+                            <div 
+                              className={`absolute top-[3px] left-[3px] w-full h-full ${theme.badgeOffset} rounded-[14px] [corner-shape:squircle] pointer-events-none`}
+                            ></div>
+                            <div className={`relative ${theme.badgeBg} border-[1px] ${theme.badgeBorder} ${theme.badgeText} rounded-[14px] [corner-shape:squircle] px-4 sm:px-6 py-2 sm:py-3 text-[12px] sm:text-base font-bold`}>
+                              ساخت محصول واقعی
+                            </div>
+                          </div>
 
-                                                {/* تایتل (موبایل 18px، دسکتاپ 32px) */}
-                                                <h3 className={`font-black text-[18px] xs:text-[20px] sm:text-[32px] leading-tight mb-1 sm:mb-3 flex flex-wrap justify-start gap-x-2 ${theme.titleColor}`}>
-                                                  {titleWords.map((word, idx) => (
-                                                    <span 
-                                                      key={idx} 
-                                                      className={`inline-block ${idx % 2 === 0 ? '-rotate-3' : 'rotate-1'}`}
-                                                    >
-                                                      {word}
-                                                    </span>
-                                                  ))}
-                                                </h3>
+                          {/* تایتل و ساب‌تایتل */}
+                          <div className="flex flex-col gap-3 sm:gap-4">
+                            <h3 className={`font-black text-[24px] sm:text-[36px] leading-tight flex flex-wrap justify-start gap-x-2 ${theme.titleColor}`}>
+                              {titleWords.map((word, idx) => (
+                                <span 
+                                  key={idx} 
+                                  className={`inline-block ${idx % 2 === 0 ? '-rotate-3' : 'rotate-1'}`}
+                                >
+                                  {word}
+                                </span>
+                              ))}
+                            </h3>
+                            <p className={`font-semibold text-[13px] sm:text-[16px] leading-7 sm:leading-8 line-clamp-4 sm:line-clamp-none ${theme.bodyColor}`}>
+                              {event.body}
+                            </p>
+                          </div>
+                        </div>
 
-                                                {/* ساب‌تایتل (13px, 600) */}
-                                                <p className={`font-semibold text-[10px] xs:text-[11px] sm:text-[13px] leading-6 sm:leading-7 mb-2 sm:mb-6 line-clamp-3 sm:line-clamp-none ${theme.bodyColor}`}>
-                                                  {event.body}
-                                                </p>
+                        {/* بخش پایین: دکمه (همیشه در پایین کارت) */}
+                        <div className="relative z-10 flex justify-center mt-6">
+                          <a
+                            href="#"
+                            className={`inline-flex items-center gap-2 ${theme.btnBg} text-white text-[13px] sm:text-base font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-[14px] [corner-shape:squircle] transition-all duration-300 hover:-translate-x-1`}
+                          >
+                            {event.ctaLabel}
+                            <ArrowIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                          </a>
+                        </div>
+                      </div>
 
-                                                {/* دکمه داخل کارت (وسط‌چین) */}
-                                                <a
-                                                  href="#"
-                                                  className={`self-center inline-flex items-center gap-2 ${theme.btnBg} text-white text-[10px] xs:text-[11px] sm:text-sm font-bold px-3.5 xs:px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-all duration-300 hover:-translate-x-1`}
-                                                >
-                                                  {event.ctaLabel}
-                                                  <ArrowIcon className="w-3 h-3 sm:w-4 sm:h-4" />
-                                                </a>
-                                              </div>
-                                            </div>
-
-                                            {/* تصویر رویداد (سمت چپ) — موبایل کوتاه */}
-                                            <div className="relative min-h-[130px] xs:min-h-[150px] sm:min-h-[200px] lg:min-h-[440px] bg-gray-100">
+                      {/* تصویر رویداد (سمت چپ در دسکتاپ / بالا در موبایل) */}
+                      {/* افزایش ارتفاع عکس در موبایل برای هماهنگی با ارتفاع کل کارت */}
+                      <div className="relative w-full h-[380px] sm:h-[450px] lg:h-auto overflow-hidden bg-gray-100">
                         <img
                           src={event.image}
                           alt={event.title}
-                          className="w-full h-full object-cover"
+                          className="absolute inset-0 w-full h-full object-cover object-top"
                         />
                       </div>
                     </div>
@@ -245,8 +245,7 @@ export default function EventsCarousel() {
         </div>
 
         {/* ── نوار پیشرفت (Progress Bar) ── */}
-        {/* فاصله ۲۰ پیکسل اسلایدر تا نوار پیشرفت */}
-        <div className="w-[120px] mx-auto h-1.5 bg-[#EDECEC] rounded-full overflow-hidden mt-[20px]">
+        <div className="w-[120px] mx-auto h-1.5 bg-[#EDECEC] rounded-full overflow-hidden mt-[60px]">
           <div 
             className="h-full bg-[#333230] transition-all duration-500 ease-out rounded-full"
             style={{ width: `${((activeIndex + 1) / events.length) * 100}%` }}

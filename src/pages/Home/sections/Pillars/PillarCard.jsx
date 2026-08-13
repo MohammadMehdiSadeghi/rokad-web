@@ -42,7 +42,7 @@ export default function PillarCard({
 
   // ── Light "paper" style (Pillars section) ──
   const cornerRadius = "rounded-[0_48px_0_48px] [corner-shape:squircle]";
-  const iconRadius = "rounded-[4.98px_0_4.98px_0] [corner-shape:squircle]";
+  const iconRadius = "rounded-[10.98px_0_10.98px_0] [corner-shape:squircle]";
 
   return (
     // اضافه شدن h-full برای پر کردن ارتفاع سطر گرید
@@ -65,7 +65,7 @@ export default function PillarCard({
 
         {/* Icon box */}
         <div
-          className={`w-8 h-8 sm:w-11 sm:h-11 flex items-center justify-center mb-2 sm:mb-5 border-[1.2px] border-[#292827] ${iconRadius} p-[4px] sm:p-[7.2px] ${iconBg || "bg-[#292827]"} mt-0`}
+          className={`w-8 h-8 sm:w-11 sm:h-11 flex items-center justify-center mb-2 sm:mb-5 border-[1.5px] border-[#292827] ${iconRadius} p-[4px] sm:p-[7.2px] ${iconBg || "bg-[#292827]"} mt-0`}
         >
           <span className="w-full h-full text-white flex items-center justify-center">
             {icon}

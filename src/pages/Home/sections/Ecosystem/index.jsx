@@ -53,10 +53,6 @@ const cards = [
  * از نظر «مرکز عنصر» به «مرکز صفحه (50vh)» نزدیک‌تره.
  * فقط زیر یک breakpoint خاص (پیش‌فرض 1024px = lg) فعال می‌شه،
  * چون تو دسکتاپ همون :hover واقعی کارو انجام می‌ده.
- *
- * محدوده‌ی مجاز جستجو بین minPercent و maxPercent از ارتفاع صفحه‌ست
- * (طبق مثال شما 30vh تا 70vh)؛ اگه هیچ کارتی داخل این محدوده نباشه
- * (مثلاً بالای همه یا پایین همه‌ی کارت‌ها) هیچکدوم فعال نمی‌شن.
  */
 function useClosestToCenter(
   count,
@@ -95,7 +91,6 @@ function useClosestToCenter(
         const rect = node.getBoundingClientRect();
         const elCenter = rect.top + rect.height / 2;
 
-        // فقط کارت‌هایی که مرکزشون داخل محدوده‌ی 30vh-70vh هست در نظر گرفته می‌شن
         if (elCenter < zoneTop || elCenter > zoneBottom) return;
 
         const distance = Math.abs(elCenter - viewportCenter);
@@ -146,8 +141,8 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
         hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
 
         bg-[#FFFFFF12] hover:bg-[#59BBAF]
-        border-[1.32px] border-[#59BBAF] hover:border-[#FFFFFF]
-        rounded-[0_13.54px_0_13.54px]
+        border-[1.9px] border-[#59BBAF] hover:border-[#FFFFFF]
+        rounded-[0_30.54px_0_30.54px] [corner-shape:squircle]
 
         ${isActive ? "-translate-y-1.5 shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)] bg-[#59BBAF] border-[#FFFFFF] rotate-0" : ""}
       `}
@@ -157,7 +152,7 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
         className={`
           w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0
           transition-colors duration-500
-          rounded-[5.02px_0_5.02px_0]
+          rounded-[10.02px_0_10.02px_0] [corner-shape:squircle]
           bg-[#58BDAF] group-hover:bg-[#202A5A]
           ${isActive ? "bg-[#202A5A]" : ""}
         `}
@@ -219,7 +214,7 @@ export default function Ecosystem() {
         </div>
 
         <Container className="relative z-10">
-          {/* Heading with Rotations (-1.9, 1.9, ...) — موبایل 20px (فیگما)، دسکتاپ 46px */}
+          {/* Heading */}
           <h2 className="text-center font-black text-[22px] xs:text-[24px] sm:text-[38px] lg:text-[46px] leading-[1.3] text-white mb-3 sm:mb-4 flex flex-wrap justify-center items-center gap-x-2">
             <span className="inline-block -rotate-[1.9deg]">یه</span>
             <span className="inline-block rotate-[1.9deg] text-teal">
@@ -235,7 +230,7 @@ export default function Ecosystem() {
             می‌شه.
           </p>
 
-          {/* Grid — موبایل ۲×۲ فشرده، دسکتاپ ۴ ستون */}
+          {/* Grid */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 xs:gap-3 sm:gap-5">
             {cards.map((c, i) => (
               <EcoCard

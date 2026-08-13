@@ -11,69 +11,70 @@ const students = [
   },
   {
     name: "امیرعلی شفاهی",
-    desc: "طراح و توسعه‌دهنده‌ی محصولات دیجیتال",
+    desc: "7طراح و توسعه‌دهنده‌ی محصولات دیجیتال",
   },
 ];
 
-// ── نشان_small (پازلی کارت) ──
-function CardBadge() {
-  return (
-    <div className="relative z-10 grid h-[14px] w-[30px] place-items-center rounded-[3px] border border-[#8F8F8F]/70 text-[#8F8F8F]">
-      <svg
-        className="h-[10px] w-[24px]"
-        viewBox="0 0 28 12"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      >
-        <rect x="1.5" y="1.5" width="25" height="9" rx="1.5" />
-        <circle cx="7" cy="6" r="2.4" fill="currentColor" stroke="none" />
-        <path d="M12.5 4.2h8M12.5 7.6h8M22.5 4.2h3M22.5 7.6h3" strokeWidth="1.3" />
-      </svg>
-    </div>
-  );
-}
-
-// ── کارت دانش‌آموز ──
 function StudentCard({ student }) {
   return (
-    <div className="relative w-full bg-white rounded-[0_24px_0_24px] overflow-hidden shadow-md border border-gray-100/50 flex flex-col">
-      {/* هدر فیروزه‌ای */}
-      <div className="relative h-[120px] bg-gradient-to-l from-[#59BEAF] to-[#5EBFB1]"></div>
+    <div className="relative w-[225px] flex-shrink-0">
+      {/* سایه سخت پشت کارت */}
+      <div aria-hidden="true" className="absolute top-[4px] left-[4px] sm:top-[5px] sm:left-[5px] w-full h-full bg-[#292827] rounded-[0_13px_0_13px]"></div>
 
-      {/* آواتار مرکزی (قرار گرفته روی مرز هدر و بدنه) */}
-      <img
-        src="/assets/Rokadians/Ellipse 83.png"
-        alt={student.name}
-        className="absolute top-[60px] left-1/2 -translate-x-1/2 h-[90px] w-[90px] rounded-full object-cover border-4 border-white shadow-sm"
-      />
-
-      {/* بدنه کارت */}
-      <div className="flex-1 flex flex-col items-center px-5 pt-14 pb-4 text-center">
-        <h4 className="font-black text-[17px] leading-[1.28] text-[#292827]">
-          {student.name}
-        </h4>
-        {/* رنگ متن توضیحات فیروزه‌ای شد */}
-        <p className="text-[13px] text-[#4DB8A8] font-medium mt-2 leading-[1.5]">
-          {student.desc}
-        </p>
-
-        {/* دکمه درباره من */}
-        <button className="mt-5 px-5 py-1.5 border-2 border-[#5EBFB1] text-[#5EBFB1] text-[12px] font-bold rounded-[0_8px_0_8px] hover:bg-[#5EBFB1] hover:text-white transition-colors">
-          درباره من
-        </button>
-      </div>
-
-      {/* فوتر کارت شامل لینکدین و نشان پازلی */}
-      <div className="flex items-center justify-between px-5 pb-4 pt-2 border-t border-gray-100/50 mt-auto">
-        <div className="text-[#8F8F8F] hover:text-[#0A66C2] cursor-pointer transition-colors">
-          {/* آیکون لینکدین */}
-          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-          </svg>
+      {/* کارت اصلی */}
+      <div className="relative z-10 w-full h-[320px] bg-white rounded-[0_13px_0_13px] overflow-hidden border-[2px] border-[#292827] flex flex-col">
+        
+        {/* هدر فیروزه‌ای + لایه پترن */}
+        <div className="relative h-[120px] bg-gradient-to3-l from-[#59bbaf] to-[#58bdaf] overflow-hidden">
+          <img
+            src="/public/assets/Rokadians/Frame 1000006407.png" 
+            alt=""
+            aria-hidden="true"
+            draggable="false"
+            className="absolute inset-0 w-full h-full object-cover opacity-100 pointer-events-none select-none"
+          />
         </div>
-        <CardBadge />
+
+        {/* آواتار مرکزی با سایه سخت */}
+        <div className="absolute top-[60px] left-1/2 -translate-x-1/2 z-20">
+          <div aria-hidden="true" className="absolute top-[3px] left-[3px] w-[90px] h-[90px] bg-[#292827] rounded-full"></div>
+          <img
+            src="/assets/Rokadians/Ellipse 83.png"
+            alt={student.name}
+            className="relative z-10 w-[90px] h-[90px] rounded-full object-cover"
+          />
+        </div>
+
+        {/* بدنه کارت */}
+        <div className="flex-1 flex flex-col items-center px-4 pt-14 pb-4 text-center">
+          <h4 className="font-black text-[16px] leading-[1.28] text-[#292827]">{student.name}</h4>
+          <p className="text-[12px] text-[#347e75] font-medium mt-2 leading-[1.5]">{student.desc}</p>
+          
+          {/* دکمه مشکی با سایه سخت */}
+          <div className="relative inline-flex items-center justify-center mt-4">
+            <div className="absolute top-[2px] left-[2px] w-full h-full bg-[#292827] rounded-[0_8px_0_8px]"></div>
+            <button className="relative z-10 px-5 py-1.5 border-2 border-[#292827] text-[#292827] bg-white text-[11px] font-bold rounded-[0_8px_0_8px] hover:bg-[#292827] hover:text-white transition-colors">
+              درباره من
+            </button>
+          </div>
+        </div>
+
+        {/* فوتر کارت - خط سخت */}
+        <div className="mt-auto border-t-2 border-[#292827]">
+          <div className="flex items-center justify-between px-4 pt-2.5 pb-3">
+            
+            {/* سه دکمه لینکدین */}
+            <div className="flex items-center gap-1.5">
+              <span className="inline-flex items-center justify-center w-5 h-5 bg-white border border-[#292827]/30 text-[#292827] text-[8px] font-bold rounded-[2px] cursor-pointer">in</span>
+              <span className="inline-flex items-center justify-center w-5 h-5 bg-white border border-[#292827]/30 text-[#292827] text-[8px] font-bold rounded-[2px] cursor-pointer">in</span>
+              <span className="inline-flex items-center justify-center w-5 h-5 bg-white border border-[#292827]/30 text-[#292827] text-[8px] font-bold rounded-[2px] cursor-pointer">in</span>
+            </div>
+
+            {/* متن تستی */}
+            <span className="text-[10px] text-[#292827]/30 font-medium">متن تستی</span>
+            
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -81,52 +82,36 @@ function StudentCard({ student }) {
 
 export default function Rokadians() {
   return (
-    <section
-      id="rokadians"
-      dir="rtl"
-      className="relative overflow-hidden bg-[#F7F7F7] pt-[80px] sm:pt-[100px] lg:pt-[70px] pb-16 sm:pb-24 lg:pb-[100px] px-3 sm:px-6 lg:px-0"
-    >
+    <section id="rokadians" dir="rtl" className="relative overflow-hidden bg-[#f2faf9] pt-[80px] sm:pt-[100px] lg:pt-[70px] pb-16 sm:pb-24 lg:pb-[100px] px-3 sm:px-6 lg:px-0">
       <Container className="relative z-10">
         <div className="w-full lg:w-[85%] lg:mx-auto">
-          {/* ── هدر وسط‌چین ── */}
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-[60px]">
-            <h2 className="font-black text-[22px] xs:text-[24px] sm:text-[34px] lg:text-[40px] leading-[1.35]">
-              ببین رکادی‌ها الان <span className="text-[#5EBFB1]">کجان</span>؟
+            <h2 className="font-black text-[22px] xs:text-[24px] sm:text-[34px] lg:text-[40px] leading-[1.35] text-[#292827]">
+              ببین رکادی‌ها الان <span className="text-[#4bb5a8]">کجان</span>؟
             </h2>
-            <p className="font-medium text-[#292827] text-[13px] sm:text-[16px] lg:text-[15px] lg:leading-[1.85] sm:leading-[2] max-w-xl lg:max-w-[450px] mx-auto mt-4 sm:mt-6">
-              فارغ‌التحصیلان ما در بهترین رشته‌های فنی به‌عنوان بنیان‌گذار
-              استارتاپ‌های کشور و خودشون فعال هستن.
+            <p className="font-medium text-[#292827] text-[13px] sm:text-[16px] lg:text-[15px] lg:leading-[1.85]( sm:leading-[2] max-w-xl lg:max-w-[450px] mx-auto mt-4 sm:mt-6">
+              فارغ‌التحصیلان ما در بهترین رشته‌های فنی به‌عنوان بنیان‌گذار استارتاپ‌های کشور و خودشون فعال هستن.
             </p>
           </div>
-
-          {/* ── ردیف اصلی: کارت‌ها (راست) + آمار (چپ) ── */}
+          
+          {/* چیدمان اصلی */}
           <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-12">
             
-            {/* کارت‌ها — چیده شده به صورت ستونی (سمت راست در طرح RTL) */}
-            <div className="lg:w-[70%] flex flex-col sm:grid sm:grid-cols-3 gap-6 order-2 lg:order-1">
+            {/* کارت‌ها (حالا سمت راست در RTL) */}
+            <div className="lg:w-[70%] flex flex-wrap justify-center gap-6 order-1 lg:order-1">
               {students.map((student, i) => (
                 <StudentCard key={i} student={student} />
               ))}
             </div>
 
-            {/* بلوک آمار (سمت چپ در طرح RTL) */}
-            <div className="lg:w-[30%] flex-shrink-0 flex flex-col justify-center text-right lg:text-right lg:pr-[30px] order-1 lg:order-2">
+            {/* بلوک آمار (حالا سمت چپ در RTL) */}
+            <div className="lg:w-[30%] flex-shrink-0 flex flex-col justify-center text-right lg:text-right lg:pl-[30px] order-2 lg:order-2">
               <div>
-                <p className="font-black font-[1000] text-[42px] sm:text-[52px] lg:text-[64px] leading-[1.05] text-[#21295A]">
-                  +۳۵۵
-                </p>
-                <p className="font-black text-[16px] sm:text-[18px] lg:text-[24px] text-[#21295A] mt-[10px]">
-                  دانش‌آموز
-                </p>
-                <p className="font-medium text-[13px] sm:text-[14px] lg:text-[13px] text-[#21295A]/70 mt-[8px]">
-                  در مسیر ساختن آینده
-                </p>
+                <p className="font-black font-[1000] text-[42px] sm:text-[52px] lg:text-[64px] leading-[1.05] text-[#21295a]">+۳۵۵</p>
+                <p className="font-black text-[16px] sm:text-[18px] lg:text-[24px] text-[#21295a] mt-[10px]">دانش‌آموز</p>
+                <p className="font-medium text-[13px] sm:text-[14px] lg:text-[13px] text-[#21295a]/70 mt-[8px]">در مسیر ساختن آینده</p>
               </div>
-
-              <a
-                href="#"
-                className="inline-flex items-center bg-white border-[2px] border-[#21295A] text-[#21295A] font-extrabold text-[14px] px-8 py-3 rounded-[0_9.12px_0_9.12px] rotate-[-1.55deg] hover:rotate-0 transition-transform duration-300 whitespace-nowrap cursor-pointer mt-8 self-start"
-              >
+              <a href="#" className="inline-flex items-center bg-white border-[2px] border-[#21295a] text-[#21295a] font-extrabold text-[14px] px-8 py-3 rounded-[0_9.12px_0_9.12px] rotate-[-1.55deg] hover:rotate-0 transition-transform duration-300 whitespace-nowrap cursor-pointer mt-8 self-start">
                 مشاهده نمونه‌کارها
               </a>
             </div>

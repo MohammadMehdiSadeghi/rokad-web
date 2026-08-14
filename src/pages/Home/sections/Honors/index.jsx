@@ -84,7 +84,7 @@ export default function HonorsCarousel() {
   return (
     <section
       id="honors"
-      className="pt-[132px] pb-10 sm:pb-16 md:pb-20 px-3 sm:px-6 relative bg-white overflow-x-clip"
+      className="pt-[70px] sm:pt-[90px] md:pt-[110px] lg:pt-[132px] pb-10 sm:pb-16 md:pb-20 px-3 sm:px-6 relative bg-white overflow-x-clip"
       dir="rtl"
     >
       {/* ── پس‌زمینه‌ی پترن (مثل Hero) ── */}
@@ -124,7 +124,7 @@ export default function HonorsCarousel() {
 
       <Container className="relative z-10">
         {/* ── هدر ─ـ */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 mb-[40px] text-right">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 mb-[22px] sm:mb-[28px] md:mb-[34px] lg:mb-[40px] text-right">
           <div className="max-w-[90%] sm:max-w-none">
             <h2 className="font-black text-[20px] xs:text-[26px] sm:text-[34px] lg:text-[53px] leading-[1.35] mb-[35px]">
               افتخاراتی که <span className="text-[#21295A]">با هم</span> ساختیم
@@ -149,7 +149,7 @@ export default function HonorsCarousel() {
         </div>
 
         {/* ── کاروسل ── */}
-        <div className="relative w-full pt-20 sm:pt-44 pb-12 sm:pb-16 overflow-visible">
+        <div className="relative w-full pt-10 sm:pt-24 md:pt-32 lg:pt-40 xl:pt-44 pb-12 sm:pb-16 overflow-visible">
           {/* دکمه بعدی (RTL: چپ) — رنگ مثل Blogs: #292827 */}
           <div className="honors-nav-btn absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0">
             <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px] sm:rounded-[0_12.65px_0_12.65px] [corner-shape:squircle]"></div>

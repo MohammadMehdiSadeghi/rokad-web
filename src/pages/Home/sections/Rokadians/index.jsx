@@ -38,7 +38,7 @@ const AVATAR_SIZE =
 const AVATAR_BORDER_OFFSET = "top-[2px] left-[2px] lg:top-[3px] lg:left-[3px]";
 
 const CARD_CONTENT_PAD =
-  "px-3 pt-[38px] pb-2.5 sm:px-3.5 sm:pt-[45px] sm:pb-3 md:px-4 md:pt-[51px] lg:pt-[57px] lg:pb-3 2xl:pt-[64px]";
+  "px-3 pt-[38px] pb-3 sm:px-3.5 sm:pt-[45px] sm:pb-3.5 md:px-4 md:pt-[51px] lg:pt-[57px] lg:pb-4 2xl:pt-[64px]";
 
 const NAME_SIZE = "text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] 2xl:text-[18px]";
 
@@ -188,7 +188,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-[#f2faf9] pt-[70px] sm:pt-[90px] lg:pt-[80px] pb-16 sm:pb-24 lg:pb-[100px] px-3 sm:px-6 lg:px-0"
+      className="relative overflow-hidden bg-[#f2faf9] pt-[56px] sm:pt-[72px] md:pt-[84px] lg:pt-[90px] 2xl:pt-[100px] pb-14 sm:pb-20 md:pb-24 lg:pb-[100px] 2xl:pb-[112px] px-3 sm:px-6 lg:px-0"
     >
       {/* hides the scrollbar on the mobile/tablet horizontal card rail */}
       <style>{`
@@ -198,7 +198,7 @@ export default function Rokadians() {
 
       <Container className="relative z-10">
         <div className="w-full lg:w-[94%] lg:mx-auto 2xl:w-[86%] 2xl:max-w-[1760px]">
-          <div className="text-center max-w-[800px] mx-auto mb-[50px] sm:mb-[70px] lg:mb-[95px]">
+          <div className="text-center max-w-[800px] mx-auto mb-[40px] sm:mb-[56px] md:mb-[72px] lg:mb-[95px] 2xl:mb-[110px]">
             <h2 className="flex flex-wrap justify-center items-center gap-x-[7px] gap-y-[4px] font-black text-[22px] sm:text-[28px] md:text-[34px] lg:text-[42px] 2xl:text-[46px] leading-[1.4] text-[#292827]">
               <span className="inline-block" style={{ transform: "rotate(-3deg)" }}>
                 ببین
@@ -222,7 +222,7 @@ export default function Rokadians() {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:items-center gap-8 sm:gap-10 lg:gap-4">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-8 sm:gap-10 md:gap-12 lg:gap-4">
             <div className="relative w-full lg:w-[76%] xl:w-[78%] 2xl:w-[80%] order-1 overflow-visible">
               {/* MASK — untouched, exactly as original */}
               <div
@@ -237,7 +237,7 @@ export default function Rokadians() {
               {/* CARD ROW — below lg this is now a horizontal scroll-snap rail instead of
                   flex-wrap, so cards no longer break into an awkward 2-then-1 layout on
                   phones/tablets. At lg and up it's the same static flex row as before. */}
-              <div className="rokadians-rail relative z-[10] flex lg:flex-nowrap justify-start lg:justify-start items-center gap-4 sm:gap-5 md:gap-6 lg:gap-[20px] xl:gap-[24px] 2xl:gap-[32px] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-2 lg:py-0 -mx-3 px-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[10px] 2xl:pl-[16px]">
+              <div className="rokadians-rail relative z-[10] flex flex-nowrap lg:flex-nowrap justify-start lg:justify-start items-center gap-4 sm:gap-5 md:gap-6 lg:gap-[20px] xl:gap-[24px] 2xl:gap-[32px] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-3 sm:py-4 lg:py-0 -mx-3 px-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[10px] 2xl:pl-[16px]">
                 {students.map((student, index) => (
                   <StudentCard key={index} student={student} index={index} stacked={index === students.length - 1} />
                 ))}
@@ -258,7 +258,7 @@ export default function Rokadians() {
 
                 <a
                   href="#"
-                  className="relative inline-flex items-center justify-center w-fit bg-white border-[2px] border-[#21295a] text-[#21295a] font-black text-[16px] sm:text-[18px] lg:text-[20px] px-6 sm:px-7 py-2 sm:py-2.5 rounded-[0_10px_0_10px] hover:rotate-0 transition-transform duration-300 whitespace-nowrap mt-6 sm:mt-8"
+                  className="relative inline-flex items-center justify-center w-fit bg-white border-[2px] border-[#21295a] text-[#21295a] font-black text-[14px] sm:text-[16px] lg:text-[18px] 2xl:text-[20px] px-5 sm:px-7 py-2 sm:py-2.5 rounded-[0_10px_0_10px] hover:rotate-0 transition-transform duration-300 whitespace-nowrap mt-6 sm:mt-8"
                 >
                   مشاهده همه
                 </a>

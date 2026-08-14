@@ -3,76 +3,179 @@ import Container from "../../../../layout/Container";
 const students = [
   {
     name: "امیرعلی شفاهی",
-    desc: "توسعه‌دهنده و طراح وب",
+    desc: "فریلنسر و برنامه‌نویس گریپ‌وب",
+    experience: "+۴ سال تجربه تخصصی",
   },
   {
     name: "امیرعلی شفاهی",
-    desc: "فریلنسر و برنامه‌نویس",
+    desc: "فریلنسر و برنامه‌نویس گریپ‌وب",
+    experience: "+۴ سال تجربه تخصصی",
   },
   {
     name: "امیرعلی شفاهی",
-    desc: "7طراح و توسعه‌دهنده‌ی محصولات دیجیتال",
+    desc: "طراح و توسعه‌دهنده‌ی محصولات دیجیتال",
+    experience: "+۴ سال تجربه تخصصی",
   },
 ];
 
-function StudentCard({ student }) {
-  return (
-    <div className="relative w-[225px] flex-shrink-0">
-      {/* سایه سخت پشت کارت */}
-      <div aria-hidden="true" className="absolute top-[4px] left-[4px] sm:top-[5px] sm:left-[5px] w-full h-full bg-[#292827] rounded-[0_13px_0_13px]"></div>
+// Card sizing per breakpoint. lg == the original/desired desktop design (unchanged).
+// base/sm/md scale it down for phones & tablets, 2xl scales it up for very large monitors.
+const CARD_SIZE =
+  "w-[152px] h-[216px] sm:w-[178px] sm:h-[253px] md:w-[200px] md:h-[284px] lg:w-[225px] lg:h-[320px] 2xl:w-[252px] 2xl:h-[358px]";
 
-      {/* کارت اصلی */}
-      <div className="relative z-10 w-full h-[320px] bg-white rounded-[0_13px_0_13px] overflow-hidden border-[2px] border-[#292827] flex flex-col">
-        
-        {/* هدر فیروزه‌ای + لایه پترن */}
-        <div className="relative h-[120px] bg-gradient-to3-l from-[#59bbaf] to-[#58bdaf] overflow-hidden">
+const HEADER_SIZE =
+  "h-[81px] sm:h-[95px] md:h-[106px] lg:h-[120px] 2xl:h-[134px]";
+
+const HEADER_TOP =
+  "top-[81px] sm:top-[95px] md:top-[106px] lg:top-[120px] 2xl:top-[134px]";
+
+const AVATAR_WRAP_POS =
+  "top-[40px] sm:top-[47px] md:top-[54px] lg:top-[60px] 2xl:top-[67px]";
+
+const AVATAR_SIZE =
+  "w-[60px] h-[60px] sm:w-[71px] sm:h-[71px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] 2xl:w-[101px] 2xl:h-[101px]";
+
+const AVATAR_BORDER_OFFSET = "top-[2px] left-[2px] lg:top-[3px] lg:left-[3px]";
+
+const CARD_CONTENT_PAD =
+  "px-3 pt-[38px] pb-2.5 sm:px-3.5 sm:pt-[45px] sm:pb-3 md:px-4 md:pt-[51px] lg:pt-[57px] lg:pb-3 2xl:pt-[64px]";
+
+const NAME_SIZE = "text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] 2xl:text-[18px]";
+
+const DESC_SIZE =
+  "text-[10px] sm:text-[11px] md:text-[11.5px] lg:text-[12px] 2xl:text-[13px] max-w-[135px] sm:max-w-[158px] md:max-w-[178px] lg:max-w-[190px] 2xl:max-w-[212px]";
+
+const BADGE_SIZE =
+  "text-[8.5px] sm:text-[9px] md:text-[9.5px] lg:text-[10px] 2xl:text-[11px] px-[10px] py-[3px] sm:px-[11px] lg:px-[13px] lg:py-[4px]";
+
+const BADGE_OFFSET_POS = "top-[1.5px] left-[1.5px] lg:top-[2px] lg:left-[2px]";
+
+const FOOTER_ICON_SIZE = "w-[16px] h-[16px] sm:w-[18px] sm:h-[18px] lg:w-[20px] lg:h-[20px]";
+
+const FOOTER_EXP_SIZE = "text-[8px] sm:text-[9px] lg:text-[10px] 2xl:text-[11px]";
+
+// Cumulative left-shift for each stacked "ghost" card behind the last real card.
+// Only the lg value changed (22px -> 14px): the cards container is narrowest relative
+// to viewport at lg (1024-1279px), so the untouched mask's fade zone covers less raw
+// pixel width there. A shorter tail at that breakpoint keeps every ghost layer tucked
+// under the existing mask instead of poking out past its fade edge. sm/md/2xl are
+// exactly as before.
+const STACK_OFFSET_VAR =
+  "[--stack-unit:16px] sm:[--stack-unit:18px] md:[--stack-unit:20px] lg:[--stack-unit:14px] 2xl:[--stack-unit:25px]";
+
+function LinkedinIcon() {
+  return (
+    <span
+      className={`inline-flex items-center justify-center ${FOOTER_ICON_SIZE} bg-[#eef7ff] border border-[#70b8e8] text-[#0a78b5] rounded-[2px] shrink-0`}
+    >
+      <svg width="55%" height="55%" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M6.5 8.5H3V21h3.5V8.5ZM4.75 3C3.65 3 3 3.72 3 4.65S3.65 6.3 4.72 6.3h.03c1.1 0 1.75-.73 1.75-1.65C6.47 3.72 5.83 3 4.75 3ZM21 13.85c0-3.77-2.01-5.52-4.7-5.52-2.16 0-3.13 1.19-3.67 2.02V8.5H9.13V21h3.5v-6.97c0-1.84.35-3.62 2.63-3.62 2.25 0 2.28 2.1 2.28 3.74V21H21v-7.15Z" />
+      </svg>
+    </span>
+  );
+}
+
+function StackCard({ layer, rotation }) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`absolute top-0 left-0 ${CARD_SIZE} ${STACK_OFFSET_VAR} bg-white border-[2px] border-[#292827] rounded-[0_14px_0_14px] overflow-hidden pointer-events-none`}
+      style={{
+        transform: `translateX(calc(var(--stack-unit) * -${layer})) rotate(${rotation}deg)`,
+        transformOrigin: "center center",
+      }}
+    >
+      <div className={`relative w-full ${HEADER_SIZE} bg-gradient-to-l from-[#59bbaf] to-[#58bdaf] overflow-hidden`}>
+        <img
+          src="/public/assets/Rokadians/Frame 1000006407.png"
+          alt=""
+          draggable="false"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+
+      <div className={`absolute ${HEADER_TOP} left-0 right-0 bottom-0 bg-white`} />
+      <div className="absolute left-[8px] right-[8px] sm:left-[10px] sm:right-[10px] bottom-[32px] sm:bottom-[38px] lg:bottom-[42px] border-t-[1.5px] border-dashed border-[#292827]/20" />
+
+      <div className="absolute left-[8px] sm:left-[10px] bottom-[8px] sm:bottom-[10px] flex gap-[4px] sm:gap-[5px]">
+        <span className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[2px]`} />
+        <span className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[2px]`} />
+        <span className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[2px]`} />
+      </div>
+    </div>
+  );
+}
+
+function StudentCard({ student, index, stacked }) {
+  const rotation = index % 2 === 0 ? 1 : -1;
+
+  return (
+    <div
+      className={`relative ${CARD_SIZE} flex-shrink-0 snap-center`}
+      style={{ transform: `rotate(${rotation}deg)`, transformOrigin: "center center" }}
+    >
+      {stacked && (
+        <div aria-hidden="true" className={`absolute top-0 left-0 ${CARD_SIZE} pointer-events-none z-[1]`}>
+          <StackCard layer={5} rotation={1} />
+          <StackCard layer={4} rotation={-1} />
+          <StackCard layer={3} rotation={1} />
+          <StackCard layer={2} rotation={-1} />
+          <StackCard layer={1} rotation={1} />
+        </div>
+      )}
+
+      <div
+        aria-hidden="true"
+        className="absolute top-[3px] left-[3px] sm:top-[4px] sm:left-[4px] lg:top-[5px] lg:left-[5px] w-full h-full bg-[#292827] rounded-[0_14px_0_14px] z-[5]"
+      />
+
+      <div className={`relative z-[10] w-full h-full bg-white rounded-[0_14px_0_14px] overflow-hidden border-[2px] border-[#292827] flex flex-col`}>
+        <div className={`relative w-full ${HEADER_SIZE} shrink-0 overflow-hidden bg-gradient-to-l from-[#59bbaf] to-[#58bdaf]`}>
           <img
-            src="/public/assets/Rokadians/Frame 1000006407.png" 
+            src="/public/assets/Rokadians/Frame 1000006407.png"
             alt=""
             aria-hidden="true"
             draggable="false"
-            className="absolute inset-0 w-full h-full object-cover opacity-100 pointer-events-none select-none"
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
           />
         </div>
 
-        {/* آواتار مرکزی با سایه سخت */}
-        <div className="absolute top-[60px] left-1/2 -translate-x-1/2 z-20">
-          <div aria-hidden="true" className="absolute top-[3px] left-[3px] w-[90px] h-[90px] bg-[#292827] rounded-full"></div>
+        <div className={`absolute ${AVATAR_WRAP_POS} left-1/2 -translate-x-1/2 z-[30]`}>
+          <div aria-hidden="true" className={`absolute ${AVATAR_BORDER_OFFSET} ${AVATAR_SIZE} bg-[#292827] rounded-full`} />
           <img
             src="/assets/Rokadians/Ellipse 83.png"
             alt={student.name}
-            className="relative z-10 w-[90px] h-[90px] rounded-full object-cover"
+            className={`relative z-[10] ${AVATAR_SIZE} rounded-full object-cover border-[1.5px] border-[#292827]`}
           />
         </div>
 
-        {/* بدنه کارت */}
-        <div className="flex-1 flex flex-col items-center px-4 pt-14 pb-4 text-center">
-          <h4 className="font-black text-[16px] leading-[1.28] text-[#292827]">{student.name}</h4>
-          <p className="text-[12px] text-[#347e75] font-medium mt-2 leading-[1.5]">{student.desc}</p>
-          
-          {/* دکمه مشکی با سایه سخت */}
-          <div className="relative inline-flex items-center justify-center mt-4">
-            <div className="absolute top-[2px] left-[2px] w-full h-full bg-[#292827] rounded-[0_8px_0_8px]"></div>
-            <button className="relative z-10 px-5 py-1.5 border-2 border-[#292827] text-[#292827] bg-white text-[11px] font-bold rounded-[0_8px_0_8px] hover:bg-[#292827] hover:text-white transition-colors">
-              درباره من
+        <div className={`flex-1 min-h-0 flex flex-col items-center ${CARD_CONTENT_PAD} text-center`}>
+          <h4 className={`font-black ${NAME_SIZE} leading-[1.3] text-[#292827] whitespace-nowrap`}>{student.name}</h4>
+          <p className={`${DESC_SIZE} text-[#777777] font-medium mt-[5px] sm:mt-[6px] lg:mt-[7px] leading-[1.5]`}>
+            {student.desc}
+          </p>
+
+          <div className="relative inline-flex items-center justify-center mt-2.5 sm:mt-3 lg:mt-4">
+            <div aria-hidden="true" className={`absolute ${BADGE_OFFSET_POS} w-full h-full bg-[#292827] rounded-[0_6px_0_6px]`} />
+            <button
+              className={`relative z-10 ${BADGE_SIZE} bg-white border-[1.5px] border-[#292827] text-[#292827] font-bold rounded-[0_6px_0_6px] whitespace-nowrap hover:bg-[#292827] hover:text-white transition-colors`}
+            >
+              نسل پنجم رکاد
             </button>
           </div>
         </div>
 
-        {/* فوتر کارت - خط سخت */}
-        <div className="mt-auto border-t-2 border-[#292827]">
-          <div className="flex items-center justify-between px-4 pt-2.5 pb-3">
-            
-            {/* سه دکمه لینکدین */}
-            <div className="flex items-center gap-1.5">
-              <span className="inline-flex items-center justify-center w-5 h-5 bg-white border border-[#292827]/30 text-[#292827] text-[8px] font-bold rounded-[2px] cursor-pointer">in</span>
-              <span className="inline-flex items-center justify-center w-5 h-5 bg-white border border-[#292827]/30 text-[#292827] text-[8px] font-bold rounded-[2px] cursor-pointer">in</span>
-              <span className="inline-flex items-center justify-center w-5 h-5 bg-white border border-[#292827]/30 text-[#292827] text-[8px] font-bold rounded-[2px] cursor-pointer">in</span>
+        <div className="mt-auto shrink-0 border-t-[1.5px] border-dashed border-[#292827]/35">
+          <div dir="ltr" className="flex items-center justify-between px-[8px] sm:px-[9px] lg:px-[10px] pt-[6px] sm:pt-[7px] lg:pt-[8px] pb-[7px] sm:pb-[8px] lg:pb-[9px]">
+            <div className="flex items-center gap-[4px] sm:gap-[5px]">
+              <LinkedinIcon />
+              <LinkedinIcon />
+              <LinkedinIcon />
             </div>
 
-            {/* متن تستی */}
-            <span className="text-[10px] text-[#292827]/30 font-medium">متن تستی</span>
-            
+            <span dir="rtl" className={`${FOOTER_EXP_SIZE} text-[#292827]/45 font-medium whitespace-nowrap`}>
+              {student.experience}
+            </span>
           </div>
         </div>
       </div>
@@ -82,40 +185,85 @@ function StudentCard({ student }) {
 
 export default function Rokadians() {
   return (
-    <section id="rokadians" dir="rtl" className="relative overflow-hidden bg-[#f2faf9] pt-[80px] sm:pt-[100px] lg:pt-[70px] pb-16 sm:pb-24 lg:pb-[100px] px-3 sm:px-6 lg:px-0">
+    <section
+      id="rokadians"
+      dir="rtl"
+      className="relative overflow-hidden bg-[#f2faf9] pt-[70px] sm:pt-[90px] lg:pt-[80px] pb-16 sm:pb-24 lg:pb-[100px] px-3 sm:px-6 lg:px-0"
+    >
+      {/* hides the scrollbar on the mobile/tablet horizontal card rail */}
+      <style>{`
+        .rokadians-rail::-webkit-scrollbar { display: none; }
+        .rokadians-rail { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
+
       <Container className="relative z-10">
-        <div className="w-full lg:w-[85%] lg:mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-[60px]">
-            <h2 className="font-black text-[22px] xs:text-[24px] sm:text-[34px] lg:text-[40px] leading-[1.35] text-[#292827]">
-              ببین رکادی‌ها الان <span className="text-[#4bb5a8]">کجان</span>؟
+        <div className="w-full lg:w-[94%] lg:mx-auto 2xl:w-[86%] 2xl:max-w-[1760px]">
+          <div className="text-center max-w-[800px] mx-auto mb-[50px] sm:mb-[70px] lg:mb-[95px]">
+            <h2 className="flex flex-wrap justify-center items-center gap-x-[7px] gap-y-[4px] font-black text-[22px] sm:text-[28px] md:text-[34px] lg:text-[42px] 2xl:text-[46px] leading-[1.4] text-[#292827]">
+              <span className="inline-block" style={{ transform: "rotate(-3deg)" }}>
+                ببین
+              </span>
+              <span className="inline-block" style={{ transform: "rotate(3deg)" }}>
+                رکادی‌ها
+              </span>
+              <span className="inline-block" style={{ transform: "rotate(-3deg)" }}>
+                الان
+              </span>
+              <span className="inline-block text-[#4bb5a8]" style={{ transform: "rotate(3deg)" }}>
+                کجان
+              </span>
+              <span className="inline-block" style={{ transform: "rotate(-3deg)" }}>
+                ؟
+              </span>
             </h2>
-            <p className="font-medium text-[#292827] text-[13px] sm:text-[16px] lg:text-[15px] lg:leading-[1.85]( sm:leading-[2] max-w-xl lg:max-w-[450px] mx-auto mt-4 sm:mt-6">
-              فارغ‌التحصیلان ما در بهترین رشته‌های فنی به‌عنوان بنیان‌گذار استارتاپ‌های کشور و خودشون فعال هستن.
+
+            <p className="font-medium text-[#292827] text-[13px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-[1.9] sm:leading-[2] max-w-[520px] sm:max-w-[580px] lg:max-w-[620px] mx-auto mt-4 sm:mt-5 lg:mt-6">
+              فارغ‌التحصیلان ما در بهترین تیم‌های فنی کشور و به‌عنوان بنیان‌گذار استارتاپ‌های خودشون فعال هستن.
             </p>
           </div>
-          
-          {/* چیدمان اصلی */}
-          <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-12">
-            
-            {/* کارت‌ها (حالا سمت راست در RTL) */}
-            <div className="lg:w-[70%] flex flex-wrap justify-center gap-6 order-1 lg:order-1">
-              {students.map((student, i) => (
-                <StudentCard key={i} student={student} />
-              ))}
-            </div>
 
-            {/* بلوک آمار (حالا سمت چپ در RTL) */}
-            <div className="lg:w-[30%] flex-shrink-0 flex flex-col justify-center text-right lg:text-right lg:pl-[30px] order-2 lg:order-2">
-              <div>
-                <p className="font-black font-[1000] text-[42px] sm:text-[52px] lg:text-[64px] leading-[1.05] text-[#21295a]">+۳۵۵</p>
-                <p className="font-black text-[16px] sm:text-[18px] lg:text-[24px] text-[#21295a] mt-[10px]">دانش‌آموز</p>
-                <p className="font-medium text-[13px] sm:text-[14px] lg:text-[13px] text-[#21295a]/70 mt-[8px]">در مسیر ساختن آینده</p>
+          <div className="flex flex-col lg:flex-row lg:items-center gap-8 sm:gap-10 lg:gap-4">
+            <div className="relative w-full lg:w-[76%] xl:w-[78%] 2xl:w-[80%] order-1 overflow-visible">
+              {/* MASK — untouched, exactly as original */}
+              <div
+                aria-hidden="true"
+                className="hidden lg:block absolute -top-[25px] -bottom-[25px] left-0 w-full z-[30] pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to right, #f2faf9 18%, rgba(242,250,249,0.92) 23%, rgba(242,250,249,0.58) 35%, rgba(242,250,249,0.25) 55%, rgba(242,250,249,0) 70%)",
+                }}
+              />
+
+              {/* CARD ROW — below lg this is now a horizontal scroll-snap rail instead of
+                  flex-wrap, so cards no longer break into an awkward 2-then-1 layout on
+                  phones/tablets. At lg and up it's the same static flex row as before. */}
+              <div className="rokadians-rail relative z-[10] flex lg:flex-nowrap justify-start lg:justify-start items-center gap-4 sm:gap-5 md:gap-6 lg:gap-[20px] xl:gap-[24px] 2xl:gap-[32px] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-2 lg:py-0 -mx-3 px-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[10px] 2xl:pl-[16px]">
+                {students.map((student, index) => (
+                  <StudentCard key={index} student={student} index={index} stacked={index === students.length - 1} />
+                ))}
               </div>
-              <a href="#" className="inline-flex items-center bg-white border-[2px] border-[#21295a] text-[#21295a] font-extrabold text-[14px] px-8 py-3 rounded-[0_9.12px_0_9.12px] rotate-[-1.55deg] hover:rotate-0 transition-transform duration-300 whitespace-nowrap cursor-pointer mt-8 self-start">
-                مشاهده نمونه‌کارها
-              </a>
             </div>
 
+            <div className="w-full lg:w-[24%] xl:w-[22%] 2xl:w-[20%] flex-shrink-0 flex flex-col justify-center text-center lg:text-right order-2 lg:pr-[25px] 2xl:pr-[32px]">
+              <div className="rotate-[2deg] items-center justify-center flex flex-col mx-auto lg:mx-0">
+                <p className="font-black text-[44px] sm:text-[52px] md:text-[58px] lg:text-[64px] 2xl:text-[72px] leading-[1] text-[#21295a]">
+                  ۳۰۰+
+                </p>
+                <p className="font-black text-[17px] sm:text-[19px] md:text-[22px] lg:text-[24px] 2xl:text-[27px] text-[#21295a] mt-[10px] sm:mt-[12px]">
+                  دانش‌آموز
+                </p>
+                <p className="font-bold text-[12px] sm:text-[13px] lg:text-[14px] 2xl:text-[15px] text-[#21295a]/80 mt-[7px] sm:mt-[8px]">
+                  در مسیر ساخت آینده
+                </p>
+
+                <a
+                  href="#"
+                  className="relative inline-flex items-center justify-center w-fit bg-white border-[2px] border-[#21295a] text-[#21295a] font-black text-[16px] sm:text-[18px] lg:text-[20px] px-6 sm:px-7 py-2 sm:py-2.5 rounded-[0_10px_0_10px] hover:rotate-0 transition-transform duration-300 whitespace-nowrap mt-6 sm:mt-8"
+                >
+                  مشاهده همه
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </Container>

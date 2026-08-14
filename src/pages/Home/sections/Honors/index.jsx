@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay } from "swiper/modules";
 import Container from "../../../../layout/Container";
@@ -15,12 +15,13 @@ const goldPattern = "/assets/Honors/yellowTexture.png";
 const silverPattern = "/assets/Honors/grayTexture.png";
 const bronzePattern = "/assets/Honors/BronzeTexture.png";
 const navyPattern = "/assets/Honors/blueTexture.png";
+const sectionPattern = "/public/assets/Pattern/layout-pattern.png";
 
 const honors = [
   {
     rank: "first",
     badge: firstPerson,
-    title: "مقام اول جشنواره‌ی فردا",
+    title: "مقام اول جشنواره‌ی فردa",
     meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
     ctaLabel: "مشاهده منتخبین",
   },
@@ -45,6 +46,28 @@ const honors = [
     meta: "نشان افتخار",
     ctaLabel: "مشاهده منتخبین",
   },
+  // کپی‌ها برای لوپ نرم
+  {
+    rank: "district",
+    badge: districtOfficial,
+    title: "مقام برتر جشنواره",
+    meta: "نشان افتخار",
+    ctaLabel: "مشاهده منتخبین",
+  },
+  {
+    rank: "first",
+    badge: firstPerson,
+    title: "مقام اول جشنواره‌ی فردa",
+    meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
+    ctaLabel: "مشاهده منتخبین",
+  },
+  {
+    rank: "second",
+    badge: secondPerson,
+    title: "مقام برتر جشنواره‌ی خوارزمی",
+    meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
+    ctaLabel: "مشاهده منتخبین",
+  },
 ];
 
 const THEME_MAP = {
@@ -56,74 +79,54 @@ const THEME_MAP = {
 
 export default function HonorsCarousel() {
   const swiperRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section
       id="honors"
-      className="pt-[132px] pb-10 sm:pb-16 md:pb-20 px-3 sm:px-6 relative bg-white overflow-hidden"
+      className="pt-[132px] pb-10 sm:pb-16 md:pb-20 px-3 sm:px-6 relative bg-white overflow-x-clip"
       dir="rtl"
     >
-      {/* ── پس‌زمینه‌ی پترن ── */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.08]">
+      {/* ── پس‌زمینه‌ی پترن (مثل Hero) ── */}
+      <div className="absolute inset-0 pointer-events-none opacity-60 rotate-180">
         <img
-          src={navyPattern}
+          src={sectionPattern}
           alt=""
           className="w-full h-full object-cover"
         />
       </div>
 
       <style>{`
-        .honors-swiper {
-          overflow: visible !important;
-        }
-        .honors-swiper .swiper-wrapper {
-          overflow: visible !important;
-        }
-        .honors-swiper .swiper-slide {
-          overflow: visible;
-          height: auto;
-          z-index: 1;
-        }
-        .honors-swiper .card-inner-wrap {
-          transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
-          opacity: 0;
-          transform: scale(0.62);
-          pointer-events: none;
-        }
-        .honors-swiper .swiper-slide-active {
-          z-index: 30 !important;
-        }
-        .honors-swiper .swiper-slide-active .card-inner-wrap {
-          transform: scale(1.3) translateX(0) translateY(-6px) rotate(0deg);
-          opacity: 1;
-          z-index: 30;
-          pointer-events: auto;
-        }
-        .honors-swiper .swiper-slide-prev {
-          z-index: 10 !important;
-        }
-        .honors-swiper .swiper-slide-prev .card-inner-wrap {
-          transform: scale(0.92) translateX(calc(-103% + 190px)) translateY(8px) rotate(5deg);
-          opacity: 0.72;
-          z-index: 10;
-          pointer-events: auto;
-        }
-        .honors-swiper .swiper-slide-next {
-          z-index: 10 !important;
-        }
-        .honors-swiper .swiper-slide-next .card-inner-wrap {
-          transform: scale(0.92) translateX(calc(103% - 190px)) translateY(8px) rotate(-6deg);
-          opacity: 0.72;
-          z-index: 10;
-          pointer-events: auto;
-        }
+.honors-swiper .card-inner-wrap {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.85;
+  transform: scale(0.9);
+}
+.honors-swiper .swiper-slide-active {
+  z-index: 30 !important;
+}
+.honors-swiper .swiper-slide-active .card-inner-wrap {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 30;
+}
+.honors-swiper .swiper-slide-prev,
+.honors-swiper .swiper-slide-next {
+  z-index: 10 !important;
+}
+.honors-swiper .swiper-slide-prev .card-inner-wrap,
+.honors-swiper .swiper-slide-next .card-inner-wrap {
+  transform: scale(0.9);
+  opacity: 0.85;
+  z-index: 10;
+}
       `}</style>
 
       <Container className="relative z-10">
         {/* ── هدر ─ـ */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 mb-[40px] text-right">
           <div className="max-w-[90%] sm:max-w-none">
-            <h2 className="font-black text-[20px] xs:text-[22px] sm:text-[34px] lg:text-[44px] leading-[1.35] mb-[45px]">
+            <h2 className="font-black text-[20px] xs:text-[26px] sm:text-[34px] lg:text-[53px] leading-[1.35] mb-[35px]">
               افتخاراتی که <span className="text-[#21295A]">با هم</span> ساختیم
             </h2>
             <p className="font-medium text-[#292827] text-[12px] sm:text-[16px] leading-[1.8] sm:leading-[1.9] max-w-sm sm:max-w-xl">
@@ -132,7 +135,7 @@ export default function HonorsCarousel() {
             </p>
           </div>
 
-          {/* دکمه همه افتخارات با انیمیشن fill از چپ به راست */}
+          {/* دکمه همه افتخارات */}
           <div className="relative inline-flex items-center justify-center self-start md:self-auto rotate-[-1.55deg] hover:rotate-0 transition-all duration-300">
             <div className="absolute top-[2px] left-[2px] w-full h-full rounded-[0_13.12px_0_13.12px] [corner-shape:squircle] bg-[#21295A]"></div>
             <a
@@ -146,33 +149,34 @@ export default function HonorsCarousel() {
         </div>
 
         {/* ── کاروسل ── */}
-        <div className="relative w-full pt-40 sm:pt-44 pb-12 sm:pb-16 overflow-visible">
-          {/* دکمه بعدی (RTL: چپ) */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0">
-            <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_12.65px_0_12.65px] [corner-shape:squircle]"></div>
+        <div className="relative w-full pt-20 sm:pt-44 pb-12 sm:pb-16 overflow-visible">
+          {/* دکمه بعدی (RTL: چپ) — رنگ مثل Blogs: #292827 */}
+          <div className="honors-nav-btn absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0">
+            <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px] sm:rounded-[0_12.65px_0_12.65px] [corner-shape:squircle]"></div>
             <button
               type="button"
               aria-label="افتخار بعدی"
               onClick={() => swiperRef.current?.slideNext()}
-              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_12.65px_0_12.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-[#292827] rounded-[0_8.65px_0_8.65px] sm:rounded-[0_12.65px_0_12.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 
-          <div className="w-full px-14 sm:px-20 md:px-24 lg:px-28 [overflow-x:clip] [overflow-y:visible]">
+          <div className="w-full px-14 sm:px-20 md:px-24 lg:px-40 xl:px-24 [overflow-x:clip] [overflow-y:visible]">
             <Swiper
               modules={[A11y, Autoplay]}
               centeredSlides={true}
               loop={true}
-              loopAdditionalSlides={20}        // افزایش چشمگیر برای چرخش بی‌نهایت
-              initialSlide={0}
+              dir="rtl"
+              initialSlide={2}
               slidesPerView={1}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
               }}
+              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
               spaceBetween={16}
-              speed={600}
+              speed={500}
               breakpoints={{
                 640: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 },
@@ -182,7 +186,7 @@ export default function HonorsCarousel() {
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
               }}
-              className="honors-swiper !overflow-visible !pt-10 !pb-12"
+              className="honors-swiper !pt-10 !pb-12"
             >
               {honors.map((honor, i) => {
                 const theme = THEME_MAP[honor.rank];
@@ -233,7 +237,7 @@ export default function HonorsCarousel() {
                                 {honor.title}
                               </h4>
 
-                              {/* دکمه CTA - اضافه شدن rotate -1 */}
+                              {/* دکمه CTA */}
                               <div className="relative inline-flex items-center justify-center mt-1 sm:mt-2 -rotate-1 hover:rotate-0 transition-transform duration-300">
                                 <div className="absolute top-[1px] left-[1px] sm:top-[1px] sm:left-[1px] w-full h-full rounded-[11px] sm:rounded-[12px] [corner-shape:squircle] bg-black"></div>
                                 <a
@@ -270,17 +274,27 @@ export default function HonorsCarousel() {
             </Swiper>
           </div>
 
-          {/* دکمه قبلی (RTL: راست) */}
-          <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0">
-            <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_12.65px_0_12.65px] [corner-shape:squircle]"></div>
+          {/* دکمه قبلی (RTL: راست) — رنگ مثل Blogs: #292827 */}
+          <div className="honors-nav-btn absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0">
+            <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px] sm:rounded-[0_12.65px_0_12.65px] [corner-shape:squircle]"></div>
             <button
               type="button"
               aria-label="افتخار قبلی"
               onClick={() => swiperRef.current?.slidePrev()}
-              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_12.65px_0_12.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-[#292827] rounded-[0_8.65px_0_8.65px] sm:rounded-[0_12.65px_0_12.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
+          </div>
+        </div>
+
+        {/* ── نوار پیشرفت (فقط در موبایل و تبلت) ── */}
+        <div className="mt-2 flex justify-center md:hidden">
+          <div className="w-[150px] h-1.5 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-[#21295A] transition-all duration-500 ease-out rounded-full"
+              style={{ width: `${((activeIndex + 1) / honors.length) * 100}%` }}
+            />
           </div>
         </div>
       </Container>

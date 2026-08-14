@@ -10,7 +10,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "../../../../common/Icons";
 
 import "swiper/css";
 
-const commentsPattern = "/assets/Shared/Patterns/Ecosystem-Pattern.png";
+const commentsPattern = "/public/assets/Pattern/layout-pattern.png";
 
 const comments = [
   {
@@ -87,7 +87,6 @@ const THEME_MAP = {
 };
 
 export default function Comments() {
-  // رفرنس برای گرفتن نمونه Swiper
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -101,8 +100,9 @@ export default function Comments() {
         }
         .comments-swiper .card-inner-wrap {
           transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
-          opacity: 0.35;
+          opacity: 0; /* تغییر اوپاسیتی به 0 تا کارت‌های اضافی دیده نشوند */
           transform: scale(0.62);
+          pointer-events: none;
         }
         .comments-swiper .swiper-slide-active {
           z-index: 30 !important;
@@ -111,6 +111,7 @@ export default function Comments() {
           transform: scale(1.3) translateX(0) translateY(-6px) rotate(0deg);
           opacity: 1;
           z-index: 30;
+          pointer-events: auto;
         }
         .comments-swiper .swiper-slide-prev {
           z-index: 10 !important;
@@ -119,6 +120,7 @@ export default function Comments() {
           transform: scale(0.92) translateX(calc(-103% + 190px)) translateY(8px) rotate(5deg);
           opacity: 0.72;
           z-index: 10;
+          pointer-events: auto;
         }
         .comments-swiper .swiper-slide-next {
           z-index: 10 !important;
@@ -127,6 +129,7 @@ export default function Comments() {
           transform: scale(0.92) translateX(calc(103% - 190px)) translateY(8px) rotate(-6deg);
           opacity: 0.72;
           z-index: 10;
+          pointer-events: auto;
         }
       `}</style>
 
@@ -138,14 +141,13 @@ export default function Comments() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          opacity: 0.3,
+          opacity: 100,
         }}
       ></div>
 
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}
-        {/* mb-0 شد تا فاصله فقط توسط pt کاروسل کنترل شود */}
-        <h2 className="font-black text-[22px] xs:text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.6] sm:leading-[1.5] text-[#292827] mb-0 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
+        <h2 className="font-black text-[22px] xs:text-[26px] sm:text-[34px] lg:text-[53px] leading-[1.6] sm:leading-[1.5] text-[#292827] mb-0 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
           <span className="inline-block -rotate-3">از</span>
           <span className="inline-block rotate-3">زبون</span>
           <span className="inline-block -rotate-3">کسایی</span>
@@ -155,22 +157,22 @@ export default function Comments() {
         </h2>
 
         {/* ── پکیج کاروسل و دکمه‌های ناوبری ── */}
-        {/* pt-[60px] برای فاصله دقیق 60px از تایتل */}
         <div className="relative w-full pt-[60px] pb-12 sm:pb-16 overflow-visible">
-          {/* دکمه سمت راست (اسلاید بعدی در RTL) — چسبیده به کارت وسط */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0">
-            <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px] [corner-shape:squircle]"></div>
+          {/* دکمه سمت راست (مخفی در موبایل و تبلت) */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0 hidden md:block">
+            <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle]"></div>
             <button
               type="button"
               aria-label="کامت بعدی"
               onClick={() => swiperRef.current?.slideNext()}
-              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 
-          <div className="w-full px-14 sm:px-20 md:px-24 lg:px-28 overflow-visible">
+          {/* اضافه شدن overflow-x-clip برای بریدن کارت‌های اضافی در لبه‌ها */}
+          <div className="w-full px-14 sm:px-20 md:px-24 lg:px-28  [overflow-x:clip] [overflow-y:visible]">
             <Swiper
               modules={[A11y, Autoplay]}
               centeredSlides={true}
@@ -208,12 +210,12 @@ export default function Comments() {
                           {/* لایه پشتی کارت */}
                           <div
                             aria-hidden="true"
-                            className={`absolute top-[2px] left-[3px] sm:top-[3px] sm:left-[5px] w-full h-full ${theme.solidColor} rounded-[0_14px_0_14px] sm:rounded-[0_18.06px_0_18.06px] [corner-shape:squircle]`}
+                            className={`absolute top-[2px] left-[2px] sm:top-[3px] sm:left-[4px] w-full h-full ${theme.solidColor} rounded-[0_22px_0_22px] sm:rounded-[40px_0_40px_0] [corner-shape:squircle]`}
                           ></div>
 
                           {/* کارت اصلی */}
                           <div
-                            className={`relative z-10 bg-white border-[1.5px] sm:border-[2.01px] ${theme.borderColor} rounded-[0_14px_0_14px] sm:rounded-[0_18.06px_0_18.06px] [corner-shape:squircle] p-4 sm:p-5 lg:p-6 min-h-[200px] sm:min-h-[230px] lg:min-h-[250px] flex flex-col`}
+                            className={`relative z-10 bg-white border-[1.5px] sm:border-[2.01px] ${theme.borderColor} rounded-[0_22px_0_22px] sm:rounded-[40px_0_40px_0] [corner-shape:squircle] p-4 sm:p-5 lg:p-6 min-h-[200px] sm:min-h-[230px] lg:min-h-[250px] flex flex-col`}
                           >
                             <span
                               className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}
@@ -230,11 +232,11 @@ export default function Comments() {
                             >
                               <div className="relative flex-shrink-0">
                                 {/* لایه پشتی آواتار */}
-                                <div className="absolute top-[1px] left-[2px] w-full h-full bg-[#292827] rounded-[5.83px_0_5.83px_0] [corner-shape:squircle]"></div>
+                                <div className="absolute top-[1px] left-[1px] w-full h-full bg-[#292827] rounded-[9.83px_0_9.83px_0] [corner-shape:squircle]"></div>
 
                                 {/* لایه اصلی آواتار */}
                                 <div
-                                  className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-[5.83px_0_5.83px_0] [corner-shape:squircle] border-[0.05px] border-[#292827] ${theme.solidColor} flex items-center justify-center`}
+                                  className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-[9.83px_0_9.83px_0] [corner-shape:squircle] border-[0.05px] border-[#292827] ${theme.solidColor} flex items-center justify-center`}
                                 >
                                   <span className="font-black text-[12px] sm:text-[14px] text-white">
                                     {getInitials(comment.name)}
@@ -263,14 +265,14 @@ export default function Comments() {
             </Swiper>
           </div>
 
-          {/* دکمه سمت چپ (اسلاید قبلی در RTL) — چسبیده به کارت وسط */}
-          <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0">
-            <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px] [corner-shape:squircle]"></div>
+          {/* دکمه سمت چپ (مخفی در موبایل و تبلت) */}
+          <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0 hidden md:block">
+            <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle]"></div>
             <button
               type="button"
               aria-label="کامت قبلی"
               onClick={() => swiperRef.current?.slidePrev()}
-              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_8.65px_0_8.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -280,4 +282,3 @@ export default function Comments() {
     </section>
   );
 }
-

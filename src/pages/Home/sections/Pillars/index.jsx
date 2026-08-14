@@ -42,7 +42,7 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section className="relative py-12 sm:py-14 lg:py-[88px] bg-white overflow-hidden">
+    <section className="relative py-12 sm:py-14 lg:h-[80vh] content-center lg:py-[88px] bg-white overflow-hidden">
       {/* ── Background Pattern Layer ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
@@ -55,7 +55,7 @@ export default function Pillars() {
 
       <Container className="relative z-10">
         {/* Title */}
-        <h2 className="text-right font-black text-[24px] xs:text-[28px] sm:text-[38px] lg:text-[46px] leading-[1.5] mb-4 sm:mb-5 flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3">
+        <h2 className="text-right font-black text-[24px] xs:text-[28px] sm:text-[38px] lg:text-[53px] leading-[1.5] mb-4 sm:mb-5 flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3">
           <span className="inline-block -rotate-3">چرا</span>
           <span className="inline-block rotate-2">خانواده‌ها</span>
           <span className="inline-block -rotate-3">به</span>

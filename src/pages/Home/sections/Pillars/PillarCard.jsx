@@ -41,7 +41,7 @@ export default function PillarCard({
   }
 
   // ── Light "paper" style (Pillars section) ──
-  const cornerRadius = "rounded-[0_48px_0_48px] [corner-shape:squircle]";
+  const cornerRadius = "rounded-[0_32px_0_32px] [corner-shape:squircle]";
   const iconRadius = "rounded-[10.98px_0_10.98px_0] [corner-shape:squircle]";
 
   return (

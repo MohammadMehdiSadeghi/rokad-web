@@ -7,6 +7,7 @@ import Container from "../../../../layout/Container";
 import "swiper/css";
 
 const blogImg = "/assets/Blogs/blog-card-cover.png";
+const patternBg = "/public/assets/Pattern/layout-pattern.png"; // مسیر عکس پترن خود را اینجا بگذارید
 
 const posts = [
   {
@@ -56,13 +57,13 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
       {/* لایه سایه‌ی مشکی پشت کارت */}
       <div
         aria-hidden="true"
-        className="absolute top-[4px] left-[4px] min-h-[410px] sm:top-[5px] sm:left-[5px] w-full h-full bg-[#292827] rounded-[0_20px_0_20px] sm:rounded-[0_24px_0_24px]"
+        className="absolute top-[4px] left-[4px] min-h-[410px] sm:top-[5px] sm:left-[5px] w-full h-full bg-[#292827] rounded-[30px_0_30px_0] [corner-shape:squircle]"
       />
 
       {/* کارت اصلی */}
       <article
         className="relative z-10 bg-white border-[1.5px] min-h-[410px]
-      sm:border-[2px] border-[#292827] rounded-[0_20px_0_20px] sm:rounded-[0_24px_0_24px]
+      sm:border-[2px] border-[#292827] rounded-[30px_0_30px_0] [corner-shape:squircle]
       overflow-hidden"
       >
         {/* تصویر */}
@@ -87,7 +88,7 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
             <span className="text-[12px] sm:text-[13px] font-bold text-ink/70">
               {date}
             </span>
-            <span className="inline-block bg-[#292827] text-white text-[11px] sm:text-[12px] font-bold px-3 py-1.5 rounded-[6px]">
+            <span className="inline-block bg-[#292827] text-white text-[11px] sm:text-[12px] font-bold px-3 py-1.5 rounded-[6px] [corner-shape:squircle]">
               {tag}
             </span>
           </div>
@@ -99,18 +100,27 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
 
 export default function Blogs() {
   const swiperRef = useRef(null);
-  // استیت برای نگهداری ایندکس اسلاید فعلی (برای نوار پیشرفت موبایل)
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="pt-[120px] pb-[98px] bg-white" dir="rtl">
-      <Container>
+    <section className="relative pt-[120px] pb-[98px] bg-white overflow-hidden" dir="rtl">
+      {/* ── لایه پترن پس‌زمینه ── */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <img
+          src={patternBg}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover opacity-100 rotate-180"
+        />
+      </div>
+
+      <Container className="relative z-10">
         <div className="w-full mx-auto">
           
-          {/* ── کانتینر تایتل و دکمه ── */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-[97px] mr-5">
+          {/* ── کانتینر تایتل و دکمه (حذف mr-5) ── */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-[97px]">
             <div>
-              <h2 className="text-right font-black text-[53.11px] leading-[1.3] text-ink flex flex-wrap justify-start items-center gap-x-2">
+              <h2 className="text-right font-black text-[20px] xs:text-[26px] sm:text-[34px] lg:text-[53px] leading-[1.3] text-ink flex flex-wrap justify-start items-center gap-x-2">
                 <span className="inline-block rotate-3 text-ink">تازه‌های</span>
                 <span className="inline-block -rotate-3 text-navy">اکوسیستم</span>
                 <span className="inline-block rotate-3 text-ink">و</span>
@@ -118,13 +128,17 @@ export default function Blogs() {
               </h2>
             </div>
 
-            <a 
-              href="#" 
-              className="relative overflow-hidden self-start md:self-auto bg-white border-[2px] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base px-6 py-3 rounded-[0_9.12px_0_9.12px] rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 whitespace-nowrap cursor-pointer flex-shrink-0
-              bg-[linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white"
-            >
-              همه مقالات
-            </a>
+            {/* دکمه همه مقالات */}
+            <div className="relative inline-flex items-center justify-center self-start md:self-auto rotate-[-1.55deg] hover:rotate-0 transition-all duration-300">
+              <div className="absolute top-[2px] left-[2px] w-full h-full rounded-[0_9.12px_0_9.12px] [corner-shape:squircle] bg-[#21295A]"></div>
+              <a 
+                href="#" 
+                className="relative z-10 bg-white border-[2px] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base px-6 py-3 rounded-[0_9.12px_0_9.12px] [corner-shape:squircle] whitespace-nowrap cursor-pointer flex-shrink-0
+                [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
+              >
+                همه مقالات
+              </a>
+            </div>
           </div>
 
           {/* ── پکیج کاروسل و دکمه‌های ناوبری ── */}
@@ -132,25 +146,24 @@ export default function Blogs() {
             
             {/* دکمه سمت راست (مخفی در موبایل) */}
             <div className="relative flex-shrink-0 z-30 hidden md:flex">
-              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px]"></div>
+              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_13.65px_0_13.65px] [corner-shape:squircle]"></div>
               <button
                 type="button"
                 aria-label="پست قبلی"
                 onClick={() => swiperRef.current?.slidePrev()}
-                className="relative w-12 h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-ink rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-12 h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-ink rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
                 <ChevronRightIcon className="w-5 h-5" />
               </button>
             </div>
 
-            {/* اسلایدر */}
-            <div className="flex-1 w-full overflow-hidden px-0 sm:px-8 py-6 sm:py-10">
+            {/* اسلایدر - اضافه شدن min-w-0 برای جلوگیری از شکستن عرض Container */}
+            <div className="flex-1 w-full min-w-0 [overflow-x:clip] [overflow-y:visible] px-4 sm:px-8 py-6 sm:py-10">
               <Swiper
                 modules={[A11y]}
                 onSwiper={(swiper) => {
                   swiperRef.current = swiper;
                 }}
-                // آپدیت استیت هنگام تغییر اسلاید برای نوار پیشرفت
                 onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                 dir="rtl"
                 spaceBetween={25}
@@ -178,12 +191,12 @@ export default function Blogs() {
 
             {/* دکمه سمت چپ (مخفی در موبایل) */}
             <div className="relative flex-shrink-0 z-30 hidden md:flex">
-              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_8.65px_0_8.65px]"></div>
+              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_13.65px_0_13.65px] [corner-shape:squircle]"></div>
               <button
                 type="button"
                 aria-label="پست بعدی"
                 onClick={() => swiperRef.current?.slideNext()}
-                className="relative w-12 h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-[#292827] rounded-[0_8.65px_0_8.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-12 h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-[#292827] rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
                 <ChevronLeftIcon className="w-5 h-5" />
               </button>
@@ -191,7 +204,6 @@ export default function Blogs() {
           </div>
 
           {/* ── نوار پیشرفت (فقط در موبایل و تبلت) ── */}
-          {/* md:hidden باعث میشه در دسکتاپ دیده نشه */}
           <div className="mt-2 flex justify-center md:hidden">
             <div className="w-[150px] h-1.5 bg-gray-200 rounded-full overflow-hidden">
               <div 

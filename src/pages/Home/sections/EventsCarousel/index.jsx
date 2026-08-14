@@ -81,12 +81,11 @@ export default function EventsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-      <section className="pt-12 sm:pt-14 lg:pt-[65px] pb-14 sm:pb-20 px-4 sm:px-6 relative overflow-hidden bg-white">
+      <section className="pt-12 sm:pt-14 lg:pt-[150px] pb-14 sm:pb-20 px-4 sm:px-6 relative overflow-hidden bg-white">
         {/* 1. لایه پترن پس‌زمینه */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <img
             src={patternBg}
-            alt=""
             aria-hidden="true"
             className="w-full h-full object-cover opacity-80"
           />
@@ -97,7 +96,7 @@ export default function EventsCarousel() {
           {/* ── هدر: تایتل و دکمه‌های ناوبری ── */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-8 lg:mb-[80px]">
             <div>
-              <h2 className="font-black text-[22px] xs:text-[24px] sm:text-[38px] lg:text-[42px] leading-[1.35] mb-3 sm:mb-4">
+              <h2 className="font-black text-[22px] xs:text-[24px] sm:text-[38px] lg:text-[53px] leading-[1.35] mb-3 sm:mb-4">
                 جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
               </h2>
               <p className="font-medium text-[#292827] text-[12px] xs:text-[13px] sm:text-[16px] leading-[1.9] max-w-xl mb-[64px]">
@@ -109,12 +108,12 @@ export default function EventsCarousel() {
             <div className="hidden lg:flex items-center gap-4 lg:gap-6 self-center lg:self-auto">
               {/* دکمه قبلی */}
               <div className="relative">
-                <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_24px_0_24px] [corner-shape:squircle]"></div>
+                <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_13.5px_0_13.5px] [corner-shape:squircle]"></div>
                 <button
                   type="button"
                   ref={prevRef}
                   aria-label="رویداد قبلی"
-                  className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_24px_0_24px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                  className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_13.5px_0_13.5px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
                 >
                   <ChevronRightIcon className="w-5 h-5" />
                 </button>
@@ -122,12 +121,12 @@ export default function EventsCarousel() {
             
               {/* دکمه بعدی */}
               <div className="relative">
-                <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_24px_0_24px] [corner-shape:squircle]"></div>
+                <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#21295A] rounded-[0_13.5px_0_13.5px] [corner-shape:squircle]"></div>
                 <button
                   type="button"
                   ref={nextRef}
                   aria-label="رویداد بعدی"
-                  className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_24px_0_24px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                  className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[2px] border-[#21295A] text-[#21295A] rounded-[0_13.5px_0_13.5px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
                 >
                   <ChevronLeftIcon className="w-5 h-5" />
                 </button>

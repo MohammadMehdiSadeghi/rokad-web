@@ -61,7 +61,7 @@ const FOOTER_EXP_SIZE = "text-[8px] sm:text-[9px] lg:text-[10px] 2xl:text-[11px]
 // under the existing mask instead of poking out past its fade edge. sm/md/2xl are
 // exactly as before.
 const STACK_OFFSET_VAR =
-  "[--stack-unit:16px] sm:[--stack-unit:18px] md:[--stack-unit:20px] lg:[--stack-unit:14px] 2xl:[--stack-unit:25px]";
+  "[--stack-unit:6px] sm:[--stack-unit:8px] md:[--stack-unit:10px] lg:[--stack-unit:4px] xl:[--stack-unit:8px] 2xl:[--stack-unit:12px]";
 
 function LinkedinIcon() {
   return (
@@ -237,7 +237,7 @@ export default function Rokadians() {
               {/* CARD ROW — below lg this is now a horizontal scroll-snap rail instead of
                   flex-wrap, so cards no longer break into an awkward 2-then-1 layout on
                   phones/tablets. At lg and up it's the same static flex row as before. */}
-              <div className="rokadians-rail relative z-[10] flex flex-nowrap lg:flex-nowrap justify-start lg:justify-start items-center gap-4 sm:gap-5 md:gap-6 lg:gap-[20px] xl:gap-[24px] 2xl:gap-[32px] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-3 sm:py-4 lg:py-0 -mx-3 px-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[10px] 2xl:pl-[16px]">
+              <div className="rokadians-rail relative z-[10] flex flex-nowrap lg:flex-nowrap justify-start lg:justify-start items-center gap-4 sm:gap-5 md:gap-6 lg:gap-[24px] xl:gap-[28px] 2xl:gap-[36px] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-3 sm:py-4 lg:py-0 -mx-3 px-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[10px] 2xl:pl-[16px]">
                 {students.map((student, index) => (
                   <StudentCard key={index} student={student} index={index} stacked={index === students.length - 1} />
                 ))}

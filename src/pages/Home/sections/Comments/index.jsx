@@ -91,7 +91,7 @@ export default function Comments() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full pt-[70px] pb-[70px] px-4 sm:px-6 bg-[#E4F4F2] overflow-x-clip">
+    <section className="relative w-full pt-[56px] sm:pt-[64px] md:pt-[72px] lg:pt-[80px] 2xl:pt-[96px] pb-12 sm:pb-16 lg:pb-20 2xl:pb-24 px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;
@@ -108,7 +108,7 @@ export default function Comments() {
           z-index: 30 !important;
         }
         .comments-swiper .swiper-slide-active .card-inner-wrap {
-          transform: scale(1.3) translateX(0) translateY(-6px) rotate(0deg);
+          transform: scale(1.3) translateY(-6px) rotate(0deg);
           opacity: 1;
           z-index: 30;
           pointer-events: auto;
@@ -117,7 +117,7 @@ export default function Comments() {
           z-index: 10 !important;
         }
         .comments-swiper .swiper-slide-prev .card-inner-wrap {
-          transform: scale(0.92) translateX(calc(-103% + 190px)) translateY(8px) rotate(5deg);
+          transform: scale(0.92) translateY(8px) rotate(5deg);
           opacity: 0.72;
           z-index: 10;
           pointer-events: auto;
@@ -126,12 +126,12 @@ export default function Comments() {
           z-index: 10 !important;
         }
         .comments-swiper .swiper-slide-next .card-inner-wrap {
-          transform: scale(0.92) translateX(calc(103% - 190px)) translateY(8px) rotate(-6deg);
+          transform: scale(0.92) translateY(8px) rotate(-6deg);
           opacity: 0.72;
           z-index: 10;
           pointer-events: auto;
         }
-        /* Mobile: no 3D transforms, just simple slide */
+        /* Mobile: simple cards, no 3D transforms */
         @media (max-width: 639px) {
           .comments-swiper .card-inner-wrap {
             opacity: 1 !important;
@@ -147,7 +147,7 @@ export default function Comments() {
         }
       `}</style>
 
-      {/* ── لایه پترن اصلاح شده با background-image ── */}
+      {/* ── لایه پترن ── */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
@@ -170,23 +170,23 @@ export default function Comments() {
           <span className="inline-block rotate-3 text-teal">کردن</span>
         </h2>
 
-        {/* ── پکیج کاروسل و دکمه‌های ناوبری ── */}
-        <div className="relative w-full pt-[48px] sm:pt-[52px] md:pt-[56px] lg:pt-[60px] pb-12 sm:pb-16 overflow-visible">
-          {/* دکمه سمت راست */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0">
+        {/* ── کاروسل ── */}
+        <div className="relative w-full pt-[40px] sm:pt-[48px] md:pt-[52px] lg:pt-[60px] pb-12 sm:pb-16 overflow-visible">
+          {/* دکمه راست */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0 hidden md:block">
             <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle]"></div>
             <button
               type="button"
               aria-label="کامت بعدی"
               onClick={() => swiperRef.current?.slideNext()}
-              className="relative w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
-              <ChevronLeftIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+              <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 
-          {/* کانتینر کاروسل */}
-          <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20  [overflow-x:clip] [overflow-y:visible]">
+          {/* کانتینر کاروسل — پدینگ ریسپانسیو */}
+          <div className="w-full  px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 [overflow-x:clip] [overflow-y:visible]">
             <Swiper
               modules={[A11y, Autoplay]}
               centeredSlides={true}
@@ -201,15 +201,17 @@ export default function Comments() {
               speed={500}
               breakpoints={{
                 320: { slidesPerView: 1.15, spaceBetween: 8 },
-                640: { slidesPerView: 2, spaceBetween: 16 },
-                1024: { slidesPerView: 3, spaceBetween: 20 },
+                640: { slidesPerView: 1.5, spaceBetween: 12 },
+                768: { slidesPerView: 2, spaceBetween: 16 },
+                1024: { slidesPerView: 2.5, spaceBetween: 20 },
+                1280: { slidesPerView: 3, spaceBetween: 24 },
               }}
               autoplay={{
                 delay: 3500,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
               }}
-              className="comments-swiper !pt-6 sm:!pt-8 lg:!pt-10 !pb-6 sm:!pb-8 lg:!pb-12"
+              className="comments-swiper !pt-6 sm:!pt-8 lg:!pt-10 !pb-4 sm:!pb-6 lg:!pb-8"
             >
               {comments.map((comment) => {
                 const theme = THEME_MAP[comment.theme];
@@ -219,9 +221,9 @@ export default function Comments() {
                     key={comment.id}
                     className="!h-auto overflow-visible"
                   >
-                    <div className="p-1.5 sm:p-2.5 lg:p-4 overflow-visible">
+                    <div className="p-1.5 sm:p-2 lg:p-3 overflow-visible">
                       <div className="card-inner-wrap">
-                        <div className="relative max-w-[280px] sm:max-w-[320px] lg:max-w-[450px] mx-auto">
+                        <div className="relative max-w-[260px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[400px] xl:max-w-[450px] mx-auto">
                           {/* لایه پشتی کارت */}
                           <div
                             aria-hidden="true"
@@ -230,12 +232,12 @@ export default function Comments() {
 
                           {/* کارت اصلی */}
                           <div
-                        className={`relative z-10 bg-white border-[1.5px] sm:border-[2px] ${theme.borderColor} rounded-[0_22px_0_22px] sm:rounded-[40px_0_40px_0] [corner-shape:squircle] p-4 sm:p-5 lg:p-6 min-h-[200px] sm:min-h-[230px] lg:min-h-[250px] flex flex-col`}
+                            className={`relative z-10 bg-white border-[1.5px] sm:border-[2px] ${theme.borderColor} rounded-[0_22px_0_22px] sm:rounded-[40px_0_40px_0] [corner-shape:squircle] p-4 sm:p-5 lg:p-6 min-h-[200px] sm:min-h-[220px] lg:min-h-[250px] flex flex-col`}
                           >
                             <span
                               className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}
                             >
-                              ”
+                              "
                             </span>
 
                             <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-6 sm:leading-7 text-[#292827] flex-grow">
@@ -280,17 +282,27 @@ export default function Comments() {
             </Swiper>
           </div>
 
-          {/* دکمه سمت چپ */}
-          <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0">
+          {/* دکمه چپ */}
+          <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0 hidden md:block">
             <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle]"></div>
             <button
               type="button"
               aria-label="کامت قبلی"
               onClick={() => swiperRef.current?.slidePrev()}
-              className="relative w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
-              <ChevronRightIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+              <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
+          </div>
+        </div>
+
+        {/* ── نوار پیشرفت (فقط در موبایل و تبلت) ── */}
+        <div className="mt-2 flex justify-center md:hidden">
+          <div className="w-[150px] h-1.5 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-[#292827] transition-all duration-500 ease-out rounded-full"
+              style={{ width: `${((activeIndex + 1) / comments.length) * 100}%` }}
+            />
           </div>
         </div>
       </Container>

@@ -91,7 +91,7 @@ export default function Comments() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full pt-[56px] sm:pt-[64px] md:pt-[72px] lg:pt-[80px] 2xl:pt-[96px] pb-12 sm:pb-16 lg:pb-20 2xl:pb-24 px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
+    <section className="relative w-full pt-[80px] sm:pt-[88px] md:pt-[96px] lg:pt-[104px] 2xl:pt-[112px] pb-12 sm:pb-16 lg:pb-20 2xl:pb-24 px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;

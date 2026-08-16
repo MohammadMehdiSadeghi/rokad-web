@@ -42,7 +42,7 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section className="relative py-12 sm:py-14 lg:h-[80vh] content-center lg:py-[88px] bg-white overflow-hidden">
+    <section className="relative py-[107px] sm:py-[110px] lg:py-[120px] bg-white overflow-hidden">
       {/* ── Background Pattern Layer ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img

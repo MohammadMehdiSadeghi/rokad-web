@@ -61,7 +61,7 @@ const FOOTER_EXP_SIZE = "text-[8px] sm:text-[9px] lg:text-[10px] 2xl:text-[11px]
 // under the existing mask instead of poking out past its fade edge. sm/md/2xl are
 // exactly as before.
 const STACK_OFFSET_VAR =
-  "[--stack-unit:6px] sm:[--stack-unit:8px] md:[--stack-unit:10px] lg:[--stack-unit:4px] xl:[--stack-unit:8px] 2xl:[--stack-unit:12px]";
+  "[--stack-unit:15px] sm:[--stack-unit:19px] md:[--stack-unit:23px] lg:[--stack-unit:15px] xl:[--stack-unit:21px] 2xl:[--stack-unit:27px]";
 
 function LinkedinIcon() {
   return (
@@ -188,7 +188,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-[#f2faf9] pt-[56px] sm:pt-[72px] md:pt-[84px] lg:pt-[90px] 2xl:pt-[100px] pb-14 sm:pb-20 md:pb-24 lg:pb-[100px] 2xl:pb-[112px] px-3 sm:px-6 lg:px-0"
+      className="relative overflow-hidden bg-[#f2faf9] pt-[106px] sm:pt-[112px] md:pt-[118px] lg:pt-[124px] 2xl:pt-[130px] pb-14 sm:pb-20 md:pb-24 lg:pb-[100px] 2xl:pb-[112px] px-3 sm:px-6 lg:px-0"
     >
       {/* hides the scrollbar on the mobile/tablet horizontal card rail */}
       <style>{`

@@ -84,7 +84,7 @@ export default function HonorsCarousel() {
   return (
     <section
       id="honors"
-      className="pt-[70px] sm:pt-[90px] md:pt-[110px] lg:pt-[132px] pb-10 sm:pb-16 md:pb-20 px-3 sm:px-6 relative bg-white overflow-x-clip"
+      className="pt-[100px] sm:pt-[106px] md:pt-[110px] lg:pt-[116px] pb-10 sm:pb-16 md:pb-20 px-3 sm:px-6 relative bg-white overflow-x-clip"
       dir="rtl"
     >
       {/* ── پس‌زمینه‌ی پترن (مثل Hero) ── */}

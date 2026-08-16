@@ -32,7 +32,7 @@ const pills = [
 
 export default function Story() {
   return (
-    <section id="about" className="pt-14 sm:pt-16 lg:pt-[116px] pb-14 sm:pb-20 lg:pb-[88px] w-full px-4 sm:px-6 bg-[#F6F6F6]">
+    <section id="about" className="pt-[80px] sm:pt-[84px] lg:pt-[90px] pb-14 sm:pb-20 lg:pb-[88px] w-full px-4 sm:px-6 bg-[#F6F6F6]">
       {/* تغییر lg به xl برای رفع باگ در سایز 1024px */}
       <Container className="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-16 xl:gap-40 items-center">
         {/* ── ستون راست: تصویر ── */}

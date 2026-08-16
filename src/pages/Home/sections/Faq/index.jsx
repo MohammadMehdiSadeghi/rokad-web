@@ -41,7 +41,7 @@ export default function Faq() {
   return (
     <section
           id="counseling"
-          className="relative overflow-hidden bg-[#E4F4F2] py-14 sm:py-20 px-4 sm:px-6"
+        className="relative overflow-hidden bg-[#E4F4F2] py-[100px] sm:py-[110px] px-4 sm:px-6"
           dir="rtl"
         >
       <div className="absolute inset-0 pointer-events-none z-0">

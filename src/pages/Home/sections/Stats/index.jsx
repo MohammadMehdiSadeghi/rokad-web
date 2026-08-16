@@ -41,7 +41,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative w-full px-4 sm:px-6 py-14 sm:py-20 overflow-hidden bg-white">
+    <section className="relative py-[96px] sm:py-[100px] lg:py-[110px] w-full px-4 sm:px-6 overflow-hidden bg-white">
       {/* ── لایه پترن پس‌زمینه ── */}
       <div
         className="absolute inset-0 w-full h-full z-0 pointer-events-none 

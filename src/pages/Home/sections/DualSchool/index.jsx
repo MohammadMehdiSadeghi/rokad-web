@@ -12,7 +12,7 @@ export default function DualSchool() {
   return (
     <section
       id="schools"
-      className="relative bg-white min-h-screen w-full snap-start pt-[90px] pb-[60px] px-4 sm:px-6 overflow-hidden flex flex-col justify-center"
+      className="relative bg-white min-h-screen w-full snap-start pt-[84px] pb-[60px] px-4 sm:px-6 overflow-hidden flex flex-col justify-center"
     >
       {/* ── Background Pattern Layer ── */}
       <div

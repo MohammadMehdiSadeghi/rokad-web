@@ -103,7 +103,7 @@ export default function Blogs() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative pt-[120px] pb-[98px] bg-white overflow-hidden" dir="rtl">
+    <section className="relative pt-[80px] pb-[98px] bg-white overflow-hidden" dir="rtl">
       {/* ── لایه پترن پس‌زمینه ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img

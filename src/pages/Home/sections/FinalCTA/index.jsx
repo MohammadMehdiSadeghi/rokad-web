@@ -9,7 +9,7 @@ export default function FinalCTA() {
   return (
     <section
       // حذف pb برای چسبیدن کامل کاراکترها به پایین
-      className="relative overflow-hidden bg-teal pt-[70px] pb-0 px-4 sm:px-6"
+      className="relative overflow-hidden bg-teal pt-[54px] pb-0 px-4 sm:px-6"
       dir="rtl"
     >
       {/* Background Pattern */}

@@ -1,4 +1,3 @@
-// SVG icon components — no external dependency needed
 function InstagramIcon({ className }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -28,89 +27,33 @@ function TelegramIcon({ className }) {
 
 function LinkedinIcon({ className }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M6.5 8.5H3V21h3.5V8.5ZM4.75 3C3.65 3 3 3.72 3 4.65S3.65 6.3 4.72 6.3h.03c1.1 0 1.75-.73 1.75-1.65C6.47 3.72 5.83 3 4.75 3ZM21 13.85c0-3.77-2.01-5.52-4.7-5.52-2.16 0-3.13 1.19-3.67 2.02V8.5H9.13V21h3.5v-6.97c0-1.84.35-3.62 2.63-3.62 2.25 0 2.28 2.1 2.28 3.74V21H21v-7.15Z" />
-    </svg>
-  );
-}
-
-function MapPinIcon({ className }) {
-  return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-      <circle cx="12" cy="10" r="3" />
-    </svg>
-  );
-}
-
-function PhoneIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-4.41-4.41 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-    </svg>
-  );
-}
-
-function MailIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-      <polyline points="22,6 12,13 2,6" />
-    </svg>
-  );
-}
-
-function SendIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="22" y1="2" x2="11" y2="13" />
-      <polygon points="22 2 15 22 11 13 2 9 22 2" />
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
     </svg>
   );
 }
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#21295A] text-white overflow-hidden" dir="rtl">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-        {/* ── بخش بالایی: لوگو + ستون‌ها ── */}
-        <div className="pt-[44px] sm:pt-[52px] lg:pt-[60px] pb-[28px] sm:pb-[36px] flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-0">
-          {/* لوگو + توضیح */}
-          <div className="lg:max-w-[340px] xl:max-w-[380px] flex flex-col items-start text-right">
-            {/* لوگوی سه‌کلمه‌ای: رکاد · مدارس · ارتباط */}
-            <div className="flex items-center gap-1.5 sm:gap-2 mb-4 flex-wrap justify-start">
-              <span className="font-black text-[17px] sm:text-[19px] lg:text-[20px] text-[#58BDAF] leading-none">
+    <footer className="relative bg-[#21295A] text-white overflow-hidden" dir="rtl">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        {/* ── ردیف بالایی: ستون‌ها + لوگو ── */}
+        <div className="pt-[54px] pb-8 lg:pt-[60px] lg:pb-10 flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-0">
+
+          {/* ── ستون‌های محتوا (۳ ستون) ── */}
+          <div className="flex flex-wrap gap-x-8 gap-y-8 lg:flex-nowrap justify-between w-full lg:w-auto">
+
+            {/* ستون ۱: درباره */}
+            <div className="flex-1 min-w-[120px]">
+              <h3 className="font-black text-[#58BDAF] text-[20px] leading-none mb-3">
                 رکاد
-              </span>
-              <span className="w-[3px] h-[3px] sm:w-[4px] sm:h-[4px] bg-[#58BDAF]/50 rounded-full shrink-0" />
-              <span className="font-black text-[17px] sm:text-[19px] lg:text-[20px] text-[#58BDAF] leading-none">
-                مدارس
-              </span>
-              <span className="w-[3px] h-[3px] sm:w-[4px] sm:h-[4px] bg-[#58BDAF]/50 rounded-full shrink-0" />
-              <span className="font-black text-[17px] sm:text-[19px] lg:text-[20px] text-[#58BDAF] leading-none">
-                ارتباط
-              </span>
-            </div>
-
-            <p className="text-[12px] sm:text-[13px] lg:text-[14px] text-white/80 leading-[2] font-normal">
-              مدرسه و هنرستان استارتاپی رکاد. جایی که مهارت واقعی، تجربه‌ی کسب‌وکار و آینده‌سازی زیر یک سقف جمع می‌شن.
-            </p>
-          </div>
-
-          {/* ستون‌های لینک */}
-          <div className="flex flex-wrap gap-x-6 gap-y-5 lg:gap-x-8 xl:gap-x-10">
-            {/* ستون درباره */}
-            <div className="flex flex-col gap-3">
-              <h4 className="font-black text-[17px] sm:text-[19px] lg:text-[20px] text-[#58BDAF] leading-none">
-                درباره
-              </h4>
-              <ul className="flex flex-col gap-2.5">
+              </h3>
+              <ul className="space-y-2">
                 {["درباره‌ی ما", "تیم ما", "اکوسیستم", "همکاری با ما"].map((link) => (
                   <li key={link}>
-                    <a
-                      href="#"
-                      className="text-[12px] sm:text-[13px] text-white/80 hover:text-white transition-colors duration-200 leading-6"
-                    >
+                    <a href="#" className="text-[13px] text-white/90 hover:text-[#58BDAF] transition-colors leading-7">
                       {link}
                     </a>
                   </li>
@@ -118,18 +61,15 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* ستون مدارس */}
-            <div className="flex flex-col gap-3">
-              <h4 className="font-black text-[17px] sm:text-[19px] lg:text-[20px] text-[#58BDAF] leading-none">
+            {/* ستون ۲: مدارس */}
+            <div className="flex-1 min-w-[120px]">
+              <h3 className="font-black text-[#58BDAF] text-[20px] leading-none mb-3">
                 مدارس
-              </h4>
-              <ul className="flex flex-col gap-2.5">
+              </h3>
+              <ul className="space-y-2">
                 {["هنرستان پسرانه", "هنرستان دخترانه", "پیش‌ثبت‌نام", "شرایط پذیرش"].map((link) => (
                   <li key={link}>
-                    <a
-                      href="#"
-                      className="text-[12px] sm:text-[13px] text-white/80 hover:text-white transition-colors duration-200 leading-6"
-                    >
+                    <a href="#" className="text-[13px] text-white/90 hover:text-[#58BDAF] transition-colors leading-7">
                       {link}
                     </a>
                   </li>
@@ -137,65 +77,37 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* ستون ارتباط */}
-            <div className="flex flex-col gap-3">
-              <h4 className="font-black text-[17px] sm:text-[19px] lg:text-[20px] text-[#58BDAF] leading-none">
+            {/* ستون ۳: ارتباط */}
+            <div className="flex-1 min-w-[140px]">
+              <h3 className="font-black text-[#58BDAF] text-[20px] leading-none mb-3">
                 ارتباط
-              </h4>
-              <ul className="flex flex-col gap-2.5">
+              </h3>
+              <ul className="space-y-2 text-[13px] text-white/90 leading-7">
+                <li>مشهد، فرامرز عباسی ۳۳</li>
+                <li>۰۲۱-۱۲۳۴۵۶۷۸</li>
+                <li>info@rokad.school</li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-[12px] sm:text-[13px] text-white/80 hover:text-white transition-colors duration-200 leading-6 flex items-center gap-1.5"
-                  >
-                    <MapPinIcon className="w-3 h-3 shrink-0" />
-                    مشهد، فرامرز عباسی ۳۳
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="tel:02112345678"
-                    className="text-[12px] sm:text-[13px] text-white/80 hover:text-white transition-colors duration-200 leading-6 flex items-center gap-1.5"
-                  >
-                    <PhoneIcon className="w-3 h-3 shrink-0" />
-                    ۰۲۱-۱۲۳۴۵۶۷۸
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:info@rokad.school"
-                    className="text-[12px] sm:text-[13px] text-white/80 hover:text-white transition-colors duration-200 leading-6 flex items-center gap-1.5"
-                  >
-                    <MailIcon className="w-3 h-3 shrink-0" />
-                    info@rokad.school
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-[12px] sm:text-[13px] text-white/80 hover:text-white transition-colors duration-200 leading-6 flex items-center gap-1.5"
-                  >
-                    <SendIcon className="w-3 h-3 shrink-0" />
-                    فرم تماس
-                  </a>
+                  <a href="#" className="hover:text-[#58BDAF] transition-colors">فرم تماس</a>
                 </li>
               </ul>
             </div>
+          </div>
+
+          {/* ── لوگو + توضیح (سمت راست) ── */}
+          <div className="w-full lg:w-[276px] flex-shrink-0 pt-4 lg:pt-0">
+            <p className="text-[13px] text-white/90 leading-[2]">
+              مدرسه و هنرستان استارتاپی رکاد. جایی که مهارت واقعی، تجربه‌ی کسب‌وکار و آینده‌سازی زیر یک سقف جمع می‌شن.
+            </p>
           </div>
         </div>
 
         {/* ── خط جداکننده ── */}
-        <div className="border-t border-white/15" />
+        <div className="h-px bg-white/10 my-6 lg:my-8" />
 
-        {/* ── بخش پایینی: کپی‌رایت + social ── */}
-        <div className="py-5 flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4">
-          {/* کپی‌رایت */}
-          <p className="text-[11px] sm:text-[12px] text-white/60 font-normal leading-6 text-center sm:text-right">
-            © ۱۴۰۵ هنرستان رکاد. همه‌ی حقوق محفوظ است.
-          </p>
-
-          {/* آیکون‌های social */}
-          <div className="flex items-center gap-2.5">
+        {/* ── ردیف پایینی: social icons + کپی‌رایت ── */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 lg:pb-10">
+          {/* آیکون‌های شبکه اجتماعی — ۴ مربع ۳۰×۳۰ */}
+          <div className="flex items-center gap-3">
             {[
               { icon: InstagramIcon, label: "اینستاگرام" },
               { icon: YoutubeIcon, label: "یوتیوب" },
@@ -205,12 +117,17 @@ export default function Footer() {
               <button
                 key={label}
                 aria-label={label}
-                className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-[6px] bg-white/10 hover:bg-white/20 transition-colors duration-200"
+                className="w-[30px] h-[30px] flex items-center justify-center bg-white rounded transition-colors duration-200 hover:bg-white/90"
               >
-                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/80" />
+                <Icon className="w-5 h-5 text-[#21295A]" />
               </button>
             ))}
           </div>
+
+          {/* کپی‌رایت */}
+          <p className="text-[11px] text-white/70 font-medium">
+            © ۱۴۰۵ هنرستان رکاد. همه‌ی حقوق محفوظ است.
+          </p>
         </div>
       </div>
     </footer>

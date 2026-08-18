@@ -18,16 +18,18 @@ export default function Header() {
 
   return (
     // موبایل: نوار ساده‌ی تمام‌عرض (فیگما Android Compact: h=45px، فقط لوگو + همبرگر)
-    // دسکتاپ: کارت منت گرد 1200px با pt-32px (top:32px در فیگما)
-    <header className="pt-0 sm:pt-4 lg:pt-6 xl:pt-8 px-3 sm:px-4 lg:px-0">
+    // دسکتاپ: کارت منو گرد با پس‌زمینه سبز کمرنگ + سایه خیلی ریز
+    <header className="fixed top-0 left-0 right-0 z-50 pt-0 sm:pt-4 lg:pt-6 xl:pt-8 px-3 sm:px-4 lg:px-0">
       <nav
         aria-label="ناوبری اصلی"
         className="relative w-full lg:w-[80%] mx-auto"
       >
         <div
-          className="flex items-center justify-between h-[45px] sm:h-[52px] lg:h-[95px]
-          rounded-none lg:rounded-[22px] bg-transparent lg:bg-bg-mint px-1 sm:px-2 lg:px-8"
-        >
+                                className="flex items-center justify-between h-[45px] sm:h-[52px] lg:h-[95px]
+                                rounded-none lg:rounded-[22px] bg-[#E6F5F3]
+                                shadow-[0_1px_2px_rgba(0,0,0,0.06),0_4px_8px_rgba(0,0,0,0.04),0_8px_16px_rgba(0,0,0,0.02)]
+                                px-1 sm:px-2 lg:px-8"
+                              >
           {/* ── سمت راست: لوگو ── */}
           <Link to="/" className="flex-shrink-0" aria-label="رکاد">
             <img
@@ -77,32 +79,32 @@ export default function Header() {
             </a>
 
             {/* دکمه همبرگری - فقط زیر lg (فیگما: آیکون List ساده 32×32 بدون پس‌زمینه) */}
-                        <button
-                          type="button"
-                          onClick={() => setOpen((v) => !v)}
-                          aria-expanded={open}
-                          aria-controls="mobile-nav-panel"
-                          aria-label={open ? "بستن منو" : "باز کردن منو"}
-                          className="lg:hidden relative w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center text-navy"
-                        >
-                          <span className="flex flex-col items-center justify-center gap-[4px] w-4">
-                            <span
-                              className={`block h-[2.5px] w-full bg-current rounded-full transition-transform duration-300 ${
-                                open ? "translate-y-[6.5px] rotate-45" : ""
-                              }`}
-                            />
-                            <span
-                              className={`block h-[2.5px] w-full bg-current rounded-full transition-opacity duration-300 ${
-                                open ? "opacity-0" : "opacity-100"
-                              }`}
-                            />
-                            <span
-                              className={`block h-[2.5px] w-full bg-current rounded-full transition-transform duration-300 ${
-                                open ? "-translate-y-[6.5px] -rotate-45" : ""
-                              }`}
-                            />
-                          </span>
-                        </button>
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobile-nav-panel"
+              aria-label={open ? "بستن منو" : "باز کردن منو"}
+              className="lg:hidden relative w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center text-navy"
+            >
+              <span className="flex flex-col items-center justify-center gap-[4px] w-4">
+                <span
+                  className={`block h-[2.5px] w-full bg-current rounded-full transition-transform duration-300 ${
+                    open ? "translate-y-[6.5px] rotate-45" : ""
+                  }`}
+                />
+                <span
+                  className={`block h-[2.5px] w-full bg-current rounded-full transition-opacity duration-300 ${
+                    open ? "opacity-0" : "opacity-100"
+                  }`}
+                />
+                <span
+                  className={`block h-[2.5px] w-full bg-current rounded-full transition-transform duration-300 ${
+                    open ? "-translate-y-[6.5px] -rotate-45" : ""
+                  }`}
+                />
+              </span>
+            </button>
           </div>
         </div>
 

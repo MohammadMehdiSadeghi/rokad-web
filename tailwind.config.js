@@ -24,6 +24,9 @@ export default {
                 "magenta-text": "#ce1754",
                 orange: "#f4971f",
                 "orange-alt": "#f9a21d",
+
+                purple: "#4F215A",
+
                 ink: "#292827",
                 "bg-mint": "#f2faf9",
                 "bg-blush": "#fefafb",

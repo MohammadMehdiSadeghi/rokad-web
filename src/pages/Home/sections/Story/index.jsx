@@ -14,9 +14,9 @@ const pills = [
   },
   {
     label: "بازار کار واقعی",
-    back: "bg-magenta",
-    border: "border-magenta",
-    text: "text-magenta",
+    back: "bg-purple",
+    border: "border-purple",
+    text: "text-purple",
     rotate: "rotate-[-2deg]",
     bg: "bg-[#FCE8EF]",
   },

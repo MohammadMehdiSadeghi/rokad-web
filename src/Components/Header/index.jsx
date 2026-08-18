@@ -19,16 +19,16 @@ export default function Header() {
   return (
     // موبایل: نوار ساده‌ی تمام‌عرض (فیگما Android Compact: h=45px، فقط لوگو + همبرگر)
     // دسکتاپ: کارت منو گرد با پس‌زمینه سبز کمرنگ + سایه خیلی ریز
-    <header className="fixed top-0 left-0 right-0 z-50 pt-0 sm:pt-4 lg:pt-6 xl:pt-8 px-3 sm:px-4 lg:px-0">
+    <header className="fixed top-0 left-0 right-0 z-50 pt-2 sm:pt-4 lg:pt-6 xl:pt-8 px-3 sm:px-4 lg:px-0">
       <nav
         aria-label="ناوبری اصلی"
         className="relative w-full lg:w-[80%] mx-auto"
       >
         <div
-                                className="flex items-center justify-between h-[2.8125rem] sm:h-[3.25rem] lg:h-[5.9375rem]
+                                className="flex items-center justify-between h-[2.5rem] sm:h-[3.25rem] lg:h-[5.9375rem]
                                 rounded-none lg:rounded-[1.375rem] bg-[#E6F5F3]
                                 shadow-[0_0.0625rem_0.125rem_rgba(0,0,0,0.06),0_0.25rem_0.5rem_rgba(0,0,0,0.04),0_0.5rem_1rem_rgba(0,0,0,0.02)]
-                                px-1 sm:px-2 lg:px-8"
+                                px-2 sm:px-2 lg:px-8"
                               >
           {/* ── سمت راست: لوگو ── */}
           <Link to="/" className="flex-shrink-0" aria-label="رکاد">

@@ -81,7 +81,7 @@ export default function EventsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-      <section className="pt-12 sm:pt-14 lg:pt-[9.375rem] pb-14 sm:pb-20 px-4 sm:px-6 relative overflow-hidden bg-white">
+      <section className="pt-[3rem] sm:pt-[4rem] lg:pt-[5rem] pb-[3rem] sm:pb-[4rem] lg:pb-[5rem] px-4 sm:px-6 relative overflow-hidden bg-white">
         {/* 1. لایه پترن پس‌زمینه */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <img
@@ -94,12 +94,12 @@ export default function EventsCarousel() {
         <Container className="relative z-10">
         
           {/* ── هدر: تایتل و دکمه‌های ناوبری ── */}
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-8 lg:mb-[5rem]">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-[2rem] sm:mb-[2.5rem] lg:mb-[3rem]">
             <div>
-              <h2 className="font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.375rem] lg:text-[3.3125rem] leading-[1.35] mb-3 sm:mb-4">
+              <h2 className="font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.35] mb-3 sm:mb-4">
                 جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
               </h2>
-              <p className="font-medium text-[#292827] text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] leading-[1.9] max-w-xl mb-[4rem]">
+              <p className="font-medium text-[#292827] text-[0.8125rem] sm:text-[1rem] leading-[1.9] max-w-xl mb-[2rem] sm:mb-[3rem] lg:mb-[4rem]">
                 رویدادهایی که دانش‌آموزها توش از ایده تا اجرا رو با دست خودشون طی می‌کنن.
               </p>
             </div>
@@ -167,7 +167,7 @@ export default function EventsCarousel() {
                     <div className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[43.75rem] lg:min-h-[35rem]`}>
                       
                       {/* کارت اطلاعات رویداد (سمت راست در دسکتاپ / پایین در موبایل) */}
-                      <div className={`relative ${theme.cardBg} p-6 sm:p-10 lg:p-12 flex flex-col justify-between flex-1 lg:flex-none overflow-hidden`}>
+                      <div className={`relative ${theme.cardBg} p-5 sm:p-8 lg:p-10 flex flex-col justify-between flex-1 lg:flex-none overflow-hidden`}>
                         
                         {/* بخش بالا: متون و بَج */}
                         <div className="relative z-10 flex flex-col gap-5 sm:gap-8">

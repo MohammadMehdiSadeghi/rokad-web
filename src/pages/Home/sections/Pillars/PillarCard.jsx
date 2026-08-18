@@ -54,7 +54,7 @@ export default function PillarCard({
 
       {/* Card - اضافه شدن h-full و flex flex-col */}
       <article
-        className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[0.125rem] border-[#292827] ${cornerRadius} px-4 sm:px-6 py-4 sm:py-7`}
+        className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[0.125rem] border-[#292827] ${cornerRadius} px-5 py-5 sm:px-6 sm:py-7 min-h-[10rem] sm:min-h-[12rem] lg:min-h-[14rem]`}
       >
         {/* Index */}
         {index && (
@@ -73,12 +73,12 @@ export default function PillarCard({
         </div>
 
         {/* Title */}
-        <h4 className="font-black text-[0.875rem] sm:text-[1.25rem] text-ink mb-1.5 sm:mb-3 leading-snug">
+        <h4 className="font-black text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-ink mb-2 sm:mb-3 leading-snug">
           {title}
         </h4>
         
         {/* Body */}
-        <p className="text-[0.875rem] sm:text-[0.875rem] leading-[1.8] text-ink/60">
+        <p className="text-[0.8125rem] sm:text-[0.875rem] leading-[1.8] text-ink/60">
           {body}
         </p>
       </article>

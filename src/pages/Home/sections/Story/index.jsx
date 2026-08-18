@@ -32,7 +32,7 @@ const pills = [
 
 export default function Story() {
   return (
-    <section id="about" className="pt-[5rem] sm:pt-[5.25rem] lg:pt-[5.625rem] pb-14 sm:pb-20 lg:pb-[5.5rem] w-full px-4 sm:px-6 bg-[#F6F6F6]">
+    <section id="about" className="pt-[3rem] sm:pt-[4rem] lg:pt-[5rem] pb-[3rem] sm:pb-[4rem] lg:pb-[5rem] w-full px-4 sm:px-6 bg-[#F6F6F6]">
       {/* تغییر lg به xl برای رفع باگ در سایز 1024px */}
       <Container className="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-16 xl:gap-40 items-center">
         {/* ── ستون راست: تصویر ── */}
@@ -57,7 +57,7 @@ export default function Story() {
 
         {/* ── ستون چپ: متن ── */}
         <div className="max-w-full xl:max-w-[31.25rem]">
-          <h2 className="font-black text-[1.5rem] xs:text-[1.625rem] sm:text-[2.5rem] lg:text-[2.875rem] leading-[1.4] sm:leading-[1.35] mb-4 sm:mb-5">
+          <h2 className="font-black text-[1.375rem] sm:text-[1.75rem] lg:text-[2.5rem] xl:text-[2.875rem] leading-[1.4] sm:leading-[1.35] mb-3 sm:mb-5">
             <span className="inline-block rotate-3">چرا</span>{" "}
             <span className="inline-block text-teal-wordmark -rotate-3">
               رکاد
@@ -67,7 +67,7 @@ export default function Story() {
             <span className="inline-block rotate-3">معمولی</span>{" "}
             <span className="inline-block -rotate-3">نیست؟</span>
           </h2>
-          <p className="text-[0.75rem] xs:text-[0.8125rem] sm:text-[0.9375rem] leading-[1.9] sm:leading-[2] text-navy/70 max-w-full xl:max-w-[28.75rem] mb-[1rem] sm:mb-[1.25rem]">
+          <p className="text-[0.875rem] sm:text-[0.9375rem] leading-[1.9] sm:leading-[2] text-navy/70 max-w-full xl:max-w-[28.75rem] mb-[1rem] sm:mb-[1.5rem]">
             ما هنرستان رو با اکوسیستم استارتاپی و بازار کار واقعی ترکیب کردیم.
             اینجا فقط کتاب نمی‌خونی؛ روی چالش‌های واقعی کار می‌کنی، با منتورهای
             متخصص همراهی می‌شی و توی محیطی امن، جرأت شکست خوردن و دوباره پاشدن

@@ -103,7 +103,7 @@ export default function Blogs() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative pt-[5rem] pb-[6.125rem] bg-white overflow-hidden" dir="rtl">
+    <section className="relative pt-[3rem] sm:pt-[4rem] lg:pt-[5rem] pb-[3rem] sm:pb-[4rem] lg:pb-[5rem] bg-white overflow-hidden" dir="rtl">
       {/* ── لایه پترن پس‌زمینه ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
@@ -118,9 +118,9 @@ export default function Blogs() {
         <div className="w-full mx-auto">
           
           {/* ── کانتینر تایتل و دکمه (حذف mr-5) ── */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-[6.0625rem]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-[2rem] sm:mb-[2.5rem] lg:mb-[3rem]">
             <div>
-              <h2 className="text-right font-black text-[1.25rem] xs:text-[1.625rem] sm:text-[2.125rem] lg:text-[3.3125rem] leading-[1.3] text-ink flex flex-wrap justify-start items-center gap-x-2">
+              <h2 className="text-right font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.3] text-ink flex flex-wrap justify-start items-center gap-x-2">
                 <span className="inline-block rotate-3 text-ink">تازه‌های</span>
                 <span className="inline-block -rotate-3 text-navy">اکوسیستم</span>
                 <span className="inline-block rotate-3 text-ink">و</span>

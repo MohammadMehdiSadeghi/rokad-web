@@ -188,7 +188,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-[#f2faf9] pt-[6.625rem] sm:pt-[7rem] md:pt-[7.375rem] lg:pt-[7.75rem] 2xl:pt-[8.125rem] pb-14 sm:pb-20 md:pb-24 lg:pb-[6.25rem] 2xl:pb-[7rem] px-3 sm:px-6 lg:px-0"
+      className="relative overflow-hidden bg-[#f2faf9] pt-[3rem] sm:pt-[4rem] lg:pt-[5rem] pb-[3rem] sm:pb-[4rem] lg:pb-[5rem] px-4 sm:px-6 lg:px-0"
     >
       {/* hides the scrollbar on the mobile/tablet horizontal card rail */}
       <style>{`
@@ -196,10 +196,10 @@ export default function Rokadians() {
         .rokadians-rail { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
 
-      <Container className="relative z-10">
-        <div className="w-full lg:w-[94%] lg:mx-auto 2xl:w-[86%] 2xl:max-w-[110rem]">
-          <div className="text-center max-w-[50rem] mx-auto mb-[2.5rem] sm:mb-[3.5rem] md:mb-[4.5rem] lg:mb-[5.9375rem] 2xl:mb-[6.875rem]">
-            <h2 className="flex flex-wrap justify-center items-center gap-x-[0.4375rem] gap-y-[0.25rem] font-black text-[1.375rem] sm:text-[1.75rem] md:text-[2.125rem] lg:text-[2.625rem] 2xl:text-[2.875rem] leading-[1.4] text-[#292827]">
+      <Container className="relative z-10 px-4 sm:px-6 lg:px-0">
+        <div className="w-full">
+          <div className="text-center max-w-[50rem] mx-auto mb-[1.5rem] sm:mb-[2rem] lg:mb-[3rem]">
+            <h2 className="flex flex-wrap justify-center items-center gap-x-[0.4375rem] gap-y-[0.25rem] font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.25rem] xl:text-[2.625rem] leading-[1.4] text-[#292827]">
               <span className="inline-block" style={{ transform: "rotate(-3deg)" }}>
                 ببین
               </span>
@@ -217,13 +217,13 @@ export default function Rokadians() {
               </span>
             </h2>
 
-            <p className="font-medium text-[#292827] text-[0.8125rem] sm:text-[0.9375rem] md:text-[1rem] lg:text-[1.125rem] leading-[1.9] sm:leading-[2] max-w-[32.5rem] sm:max-w-[36.25rem] lg:max-w-[38.75rem] mx-auto mt-4 sm:mt-5 lg:mt-6">
+            <p className="font-medium text-[#292827] text-[0.8125rem] sm:text-[0.9375rem] lg:text-[1.125rem] leading-[1.9] sm:leading-[2] max-w-[32.5rem] sm:max-w-[36.25rem] lg:max-w-[38.75rem] mx-auto mt-3 sm:mt-4 lg:mt-6">
               فارغ‌التحصیلان ما در بهترین تیم‌های فنی کشور و به‌عنوان بنیان‌گذار استارتاپ‌های خودشون فعال هستن.
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:items-center gap-8 sm:gap-10 md:gap-12 lg:gap-4">
-            <div className="relative w-full lg:w-[76%] xl:w-[78%] 2xl:w-[80%] order-1 overflow-visible">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-6 sm:gap-8 lg:gap-8">
+            <div className="relative w-full lg:w-[70%] order-1 overflow-visible">
               {/* MASK — untouched, exactly as original */}
               <div
                 aria-hidden="true"
@@ -244,7 +244,7 @@ export default function Rokadians() {
               </div>
             </div>
 
-            <div className="w-full lg:w-[24%] xl:w-[22%] 2xl:w-[20%] flex-shrink-0 flex flex-col justify-center text-center lg:text-right order-2 lg:pr-[1.5625rem] 2xl:pr-[2rem]">
+            <div className="w-full lg:w-[30%] flex-shrink-0 flex flex-col justify-center text-center lg:text-right order-2 lg:pt-8">
               <div className="rotate-[2deg] items-center justify-center flex flex-col mx-auto lg:mx-0">
                 <p className="font-black text-[2.75rem] sm:text-[3.25rem] md:text-[3.625rem] lg:text-[4rem] 2xl:text-[4.5rem] leading-[1] text-[#21295a]">
                   ۳۰۰+

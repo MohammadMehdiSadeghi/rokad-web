@@ -30,7 +30,7 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
     >
       {/* کارت اصلی */}
       <div
-        className={`relative ${t.bg} text-white p-6 sm:p-8 lg:p-10 overflow-hidden min-h-[13.75rem] sm:min-h-[16.25rem] lg:min-h-[20rem] flex flex-col border-2 border-white/10 rounded-[3.25rem] [corner-shape:squircle] transition-all duration-500 hover:shadow-2xl`}
+        className={`relative ${t.bg} text-white p-5 sm:p-8 lg:p-10 overflow-hidden min-h-[20rem] sm:min-h-[18rem] lg:min-h-[22rem] flex flex-col border-2 border-white/10 rounded-[1.5rem] sm:rounded-[2.75rem] lg:rounded-[3.25rem] [corner-shape:squircle] transition-all duration-500 hover:shadow-2xl`}
       >
         {/* ── Background Pattern ── */}
         {pattern && (
@@ -60,12 +60,12 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
           {/* ۱. گروه بالا: تایتل، متا، و چیپ‌ها */}
           <div>
             {/* Title */}
-            <h3 className="font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2rem] lg:text-[2.5rem] mb-1 sm:mb-1.5 leading-tight">
+            <h3 className="font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.5rem] mb-1 sm:mb-2 leading-tight">
               {title}
             </h3>
             
             {/* Meta */}
-            <p className="text-[0.6875rem] xs:text-[0.75rem] sm:text-sm opacity-80 mb-3 sm:mb-4">{meta}</p>
+            <p className="text-[0.8125rem] sm:text-sm opacity-80 mb-3 sm:mb-4">{meta}</p>
 
             {/* Chips */}
             <div className="flex flex-col items-start gap-1 sm:gap-1.5">

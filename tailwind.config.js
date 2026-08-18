@@ -57,6 +57,12 @@ export default {
                 "5xl2": "3.7125rem",
                 "6xl2": "4.40625rem",
             },
+            spacing: {
+                "section": "4rem",
+                "section-sm": "3rem",
+                "section-lg": "6rem",
+                "section-xl": "8rem",
+            },
             maxWidth: {
                 content: "75rem",
             },

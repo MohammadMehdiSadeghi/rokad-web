@@ -191,7 +191,7 @@ export default function Ecosystem() {
 
   return (
       <section
-        className="py-[6.25rem] sm:py-[6.875rem] lg:py-[8.125rem] px-4 sm:px-6 relative overflow-hidden"
+        className="py-[3rem] sm:py-[4rem] lg:py-[5rem] px-4 sm:px-6 relative overflow-hidden"
         style={{
           background:
             "radial-gradient(ellipse at 30% 20%, #1c2c60 0%, #0e1633 60%, #0b1228 100%)",
@@ -215,7 +215,7 @@ export default function Ecosystem() {
 
         <Container className="relative z-10">
           {/* Heading */}
-          <h2 className="text-center font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.375rem] lg:text-[2.875rem] leading-[1.3] text-white mb-3 sm:mb-4 flex flex-wrap justify-center items-center gap-x-2">
+          <h2 className="text-center font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.5rem] xl:text-[2.875rem] leading-[1.3] text-white mb-3 sm:mb-4 lg:mb-6 flex flex-wrap justify-center items-center gap-x-2">
             <span className="inline-block -rotate-[1.9deg]">یه</span>
             <span className="inline-block rotate-[1.9deg] text-teal">
               اکوسیستم
@@ -225,7 +225,7 @@ export default function Ecosystem() {
             <span className="inline-block -rotate-[1.9deg]">رشد</span>
           </h2>
 
-          <p className="text-center font-medium text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] leading-[1.9] text-white/60  mx-auto mb-6 sm:mb-16">
+          <p className="text-center font-medium text-[0.875rem] sm:text-[1rem] leading-[1.9] text-white/60 mx-auto mb-[1.5rem] sm:mb-[2rem] lg:mb-[3rem]">
             از استعدادسنجی تا اولین شغلت، تمام گام‌های مسیر با پشتیبانی متخصصان طی
             می‌شه.
           </p>

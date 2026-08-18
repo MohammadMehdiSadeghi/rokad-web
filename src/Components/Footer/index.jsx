@@ -47,7 +47,7 @@ export default function Footer() {
 
             {/* ستون ۱: درباره */}
             <div className="flex-1 min-w-[7.5rem]">
-              <h3 className="font-black text-[#58BDAF] text-[1.25rem] leading-none mb-3">
+              <h3 className="font-black text-[#58BDAF] text-[1.125rem] sm:text-[1.25rem] leading-none mb-3">
                 رکاد
               </h3>
               <ul className="space-y-2">
@@ -63,7 +63,7 @@ export default function Footer() {
 
             {/* ستون ۲: مدارس */}
             <div className="flex-1 min-w-[7.5rem]">
-              <h3 className="font-black text-[#58BDAF] text-[1.25rem] leading-none mb-3">
+              <h3 className="font-black text-[#58BDAF] text-[1.125rem] sm:text-[1.25rem] leading-none mb-3">
                 مدارس
               </h3>
               <ul className="space-y-2">
@@ -79,7 +79,7 @@ export default function Footer() {
 
             {/* ستون ۳: ارتباط */}
             <div className="flex-1 min-w-[8.75rem]">
-              <h3 className="font-black text-[#58BDAF] text-[1.25rem] leading-none mb-3">
+              <h3 className="font-black text-[#58BDAF] text-[1.125rem] sm:text-[1.25rem] leading-none mb-3">
                 ارتباط
               </h3>
               <ul className="space-y-2 text-[0.8125rem] text-white/90 leading-7">

@@ -84,7 +84,7 @@ export default function HonorsCarousel() {
   return (
     <section
       id="honors"
-      className="pt-[6.25rem] sm:pt-[6.625rem] md:pt-[6.875rem] lg:pt-[7.25rem] pb-10 sm:pb-16 md:pb-20 px-3 sm:px-6 relative bg-white overflow-x-clip"
+      className="pt-[3rem] sm:pt-[4rem] lg:pt-[5rem] pb-[3rem] sm:pb-[4rem] lg:pb-[5rem] px-4 sm:px-6 relative bg-white overflow-x-clip"
       dir="rtl"
     >
       {/* ── پس‌زمینه‌ی پترن (مثل Hero) ── */}
@@ -126,10 +126,10 @@ export default function HonorsCarousel() {
         {/* ── هدر ─ـ */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 mb-[2rem] text-right">
           <div className="max-w-[90%] sm:max-w-none">
-            <h2 className="font-black text-[1.25rem] xs:text-[1.625rem] sm:text-[2.125rem] lg:text-[3.3125rem] leading-[1.35] mb-[2.1875rem]">
+            <h2 className="font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.35] mb-3 sm:mb-4 lg:mb-5">
               افتخاراتی که <span className="text-[#21295A]">با هم</span> ساختیم
             </h2>
-            <p className="font-medium text-[#292827] text-[0.75rem] sm:text-[1rem] leading-[1.8] sm:leading-[1.9] max-w-sm sm:max-w-xl">
+            <p className="font-medium text-[#292827] text-[0.8125rem] sm:text-[1rem] leading-[1.8] sm:leading-[1.9] max-w-sm sm:max-w-xl">
               هر مدال اینجا یه اسم یه دانش‌آموزه که یه چیزی رو از صفر ساخت و تا
               آخرش ایستاد.
             </p>
@@ -149,7 +149,7 @@ export default function HonorsCarousel() {
         </div>
 
         {/* ── کاروسل ── */}
-        <div className="relative w-full pt-12 sm:pt-24 md:pt-32 lg:pt-40 xl:pt-48 pb-12 sm:pb-16 overflow-visible">
+        <div className="relative w-full pt-6 sm:pt-8 lg:pt-10 pb-6 sm:pb-8 overflow-visible">
           {/* دکمه بعدی (RTL: چپ) — رنگ مثل Blogs: #292827 */}
           <div className="honors-nav-btn absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0">
             <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.540625rem_0_0.540625rem] sm:rounded-[0_0.790625rem_0_0.790625rem] [corner-shape:squircle]"></div>
@@ -253,7 +253,7 @@ export default function HonorsCarousel() {
 
                           {/* بج مدال */}
                           <div
-                            className="absolute -top-8 sm:-top-12 left-1/2 w-12 h-12 sm:w-20 sm:h-20 z-30"
+                            className="absolute -top-4 sm:-top-6 lg:-top-8 left-1/2 w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 z-30"
                             style={{
                               transform: `translateX(-50%) rotate(${badgeRotation}deg)`,
                             }}

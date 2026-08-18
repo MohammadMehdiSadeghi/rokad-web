@@ -9,7 +9,7 @@ export default function FinalCTA() {
   return (
     <section
       // حذف pb برای چسبیدن کامل کاراکترها به پایین
-      className="relative overflow-hidden bg-teal pt-[3.375rem] pb-0 px-4 sm:px-6"
+      className="relative overflow-hidden bg-teal pt-[3rem] sm:pt-[4rem] pb-0 px-4 sm:px-6"
       dir="rtl"
     >
       {/* Background Pattern */}
@@ -25,18 +25,18 @@ export default function FinalCTA() {
       <Container className="relative z-20">
         <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-8 lg:gap-4">
           {/* Girl Image (سمت چپ در دسکتاپ) */}
-          <div className="hidden lg:flex shrink-0 pointer-events-none select-none w-[26%] justify-center">
+          <div className="hidden sm:flex shrink-0 pointer-events-none select-none sm:w-[20%] lg:w-[26%] justify-center">
             <img
               src={imgGirl}
               alt=""
               aria-hidden="true"
-              className="h-[25rem] xl:h-[31.25rem] w-auto object-contain object-bottom"
+              className="h-[12rem] sm:h-[16rem] lg:h-[25rem] xl:h-[31.25rem] w-auto object-contain object-bottom"
             />
           </div>
 
           {/* Text Content (وسط) */}
-          <div className="flex flex-col items-center text-center w-full lg:w-[48%] mb-10 lg:mb-12">
-            <h2 className="font-black text-[1.75rem] xs:text-[2.125rem] sm:text-[2.75rem] lg:text-[3.75rem] xl:text-[4.5rem] leading-[1.4] text-white mb-6 sm:mb-7 flex flex-wrap justify-center gap-x-2">
+          <div className="flex flex-col items-center text-center w-full sm:w-[60%] lg:w-[48%] mb-6 sm:mb-8 lg:mb-12">
+            <h2 className="font-black text-[1.375rem] sm:text-[2rem] lg:text-[3rem] xl:text-[4rem] leading-[1.4] text-white mb-5 sm:mb-7 flex flex-wrap justify-center gap-x-2">
               <span className="inline-block rotate-[3deg]">برای</span>
               <span className="inline-block rotate-[-3deg]">ساختن</span>
               <span className="inline-block rotate-[3deg]">آینده</span>
@@ -46,7 +46,7 @@ export default function FinalCTA() {
               <span className="inline-block rotate-[3deg]">کن</span>
             </h2>
 
-            <p className="text-[0.875rem] sm:text-[1.25rem] lg:text-[1.375rem] font-semibold leading-[1.9] text-white max-w-[33.75rem] mb-8 sm:mb-10">
+            <p className="text-[0.875rem] sm:text-[1.125rem] lg:text-[1.375rem] font-semibold leading-[1.9] text-white max-w-[33.75rem] mb-6 sm:mb-8 lg:mb-10">
               مصاحبه‌ی رایگان و تعیین سطح برای همه‌ی متقاضی‌ها. کافیه فرم رو پر
               کنی، بقیه‌ش با ماست.
             </p>
@@ -58,8 +58,8 @@ export default function FinalCTA() {
                 {/* خود دکمه */}
                 <a
                   href="#"
-                  className="relative z-10 inline-flex items-center justify-center w-full sm:w-auto min-w-[12.5rem] sm:min-w-[15rem] h-[3.5rem] sm:h-[4rem] 
-                  px-6 bg-[#292827] text-white font-extrabold text-[0.875rem] sm:text-[1.125rem] rounded-[1rem] [corner-shape:squircle]
+                  className="relative z-10 inline-flex items-center justify-center w-full sm:w-auto min-w-[11rem] sm:min-w-[15rem] h-[3rem] sm:h-[3.5rem] lg:h-[4rem] 
+                  px-5 sm:px-6 bg-[#292827] text-white font-extrabold text-[0.8125rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.75rem] sm:rounded-[1rem] [corner-shape:squircle]
                   hover:opacity-90 transition-opacity duration-300 cursor-pointer"
                 >
                   تکمیل فرم پیش‌ثبت‌نام
@@ -71,8 +71,8 @@ export default function FinalCTA() {
                 {/* لایه پشتی سرمه‌ای */}                {/* خود دکمه */}
                 <a
                   href="#"
-                  className="relative z-10 inline-flex items-center justify-center w-full sm:w-auto min-w-[12.5rem] sm:min-w-[15rem] h-[3.5rem] sm:h-[4rem] 
-                  px-6 bg-white text-[#292827] font-extrabold text-[0.875rem] sm:text-[1.125rem] rounded-[1rem] [corner-shape:squircle]
+                  className="relative z-10 inline-flex items-center justify-center w-full sm:w-auto min-w-[11rem] sm:min-w-[15rem] h-[3rem] sm:h-[3.5rem] lg:h-[4rem] 
+                  px-5 sm:px-6 bg-white text-[#292827] font-extrabold text-[0.8125rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.75rem] sm:rounded-[1rem] [corner-shape:squircle]
                   hover:opacity-90 transition-opacity duration-300 cursor-pointer"
                 >
                   RokadSchool.ir
@@ -82,12 +82,12 @@ export default function FinalCTA() {
           </div>
 
           {/* Boy Image (سمت راست در دسکتاپ) */}
-          <div className="hidden lg:flex shrink-0 pointer-events-none select-none w-[26%] justify-center">
+          <div className="hidden sm:flex shrink-0 pointer-events-none select-none sm:w-[20%] lg:w-[26%] justify-center">
             <img
               src={imgBoy}
               alt=""
               aria-hidden="true"
-              className="h-[25rem] xl:h-[31.25rem] w-auto object-contain object-bottom"
+              className="h-[12rem] sm:h-[16rem] lg:h-[25rem] xl:h-[31.25rem] w-auto object-contain object-bottom"
             />
           </div>
         </div>

@@ -31,7 +31,7 @@ export default function MainLayout() {
     <>
       <ScrollManager />
       <Header />
-      <main className="pt-[95px] lg:pt-[120px]">
+      <main className="pt-[5.9375rem] lg:pt-[7.5rem]">
         <Outlet />
       </main>
       <Footer />

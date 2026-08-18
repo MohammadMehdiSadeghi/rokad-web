@@ -41,7 +41,7 @@ export default function Faq() {
   return (
     <section
           id="counseling"
-        className="relative overflow-hidden bg-[#E4F4F2] py-[100px] sm:py-[110px] px-4 sm:px-6"
+        className="relative overflow-hidden bg-[#E4F4F2] py-[6.25rem] sm:py-[6.875rem] px-4 sm:px-6"
           dir="rtl"
         >
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -52,12 +52,12 @@ export default function Faq() {
         />
       </div>
 
-      <Container className="relative z-10 grid grid-cols-1 xl:grid-cols-2 gap-[60px] items-start">
+      <Container className="relative z-10 grid grid-cols-1 xl:grid-cols-2 gap-[3.75rem] items-start">
         
         {/* ۱. تایتل و متن */}
         <div className="order-1 xl:col-start-1 xl:row-start-1 xl:pt-4">
           {/* حذف <br/> و استفاده از flex flex-wrap برای ماندن در یک خط */}
-          <h2 className="font-black text-[24px] xs:text-[26px] sm:text-[44px] lg:text-[52px] leading-[1.5] sm:leading-[1.8] text-navy mb-5 sm:mb-[35px] flex flex-wrap items-center gap-x-2">
+          <h2 className="font-black text-[1.5rem] xs:text-[1.625rem] sm:text-[2.75rem] lg:text-[3.25rem] leading-[1.5] sm:leading-[1.8] text-navy mb-5 sm:mb-[2.1875rem] flex flex-wrap items-center gap-x-2">
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دغدغه‌ی</span>
             <span className="inline-block text-navy whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>آینده</span>
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>و</span>
@@ -67,7 +67,7 @@ export default function Faq() {
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دارید؟</span>
           </h2>
 
-          <p className="text-[13px] xs:text-[14px] sm:text-[18px] font-semibold leading-[1.8] sm:leading-[1.9] text-ink mb-6 sm:mb-0">
+          <p className="text-[0.8125rem] xs:text-[0.875rem] sm:text-[1.125rem] font-semibold leading-[1.8] sm:leading-[1.9] text-ink mb-6 sm:mb-0">
             انتخاب مدرسه یعنی انتخاب آینده. اینجا صادقانه، مستقیم و بدون تعارف،
             به سوالات بی‌نهایت شما درباره‌ی کنکور، مدرک رسمی و آینده‌ی شغلی پاسخ
             می‌دین؛ چون باور داریم راهِ درست، از شفافیت می‌گذره.
@@ -77,9 +77,9 @@ export default function Faq() {
         {/* ۲. باکس مشاوره (در موبایل و 1024px پایین تایتل، در دسکتاپ سمت راست) */}
         <div className="order-2 xl:order-none xl:col-start-1 xl:row-start-2 relative rotate-2 mt-4 xl:mt-0">
           {/* لایه پشتی باکس مشاوره */}
-          <div className="absolute top-2 left-2 w-full h-full rounded-tl-[40px] rounded-br-[40px] rounded-tr-none rounded-bl-none bg-ink [corner-shape:squircle]" />
+          <div className="absolute top-2 left-2 w-full h-full rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-ink [corner-shape:squircle]" />
           {/* لایه اصلی باکس مشاوره */}
-          <div className="relative z-10 border-[3.5px] border-ink rounded-tl-[40px] rounded-br-[40px] rounded-tr-none rounded-bl-none bg-teal p-4 sm:p-7 min-h-[140px] sm:min-h-[176px] overflow-hidden [corner-shape:squircle]">
+          <div className="relative z-10 border-[0.21875rem] border-ink rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-teal p-4 sm:p-7 min-h-[8.75rem] sm:min-h-[11rem] overflow-hidden [corner-shape:squircle]">
             <div className="absolute inset-0 pointer-events-none">
               <img
                 src={faqPatternBoxs}
@@ -90,11 +90,11 @@ export default function Faq() {
 
             <div className="relative z-10 max-w-full sm:max-w-[64%]">
               {/* اضافه شدن whitespace-nowrap برای ماندن تایتل در یک خط */}
-              <h3 className="font-black text-[18px] xs:text-[20px] sm:text-[32px] text-ink mb-1.5 sm:mb-2 whitespace-nowrap">
+              <h3 className="font-black text-[1.125rem] xs:text-[1.25rem] sm:text-[2rem] text-ink mb-1.5 sm:mb-2 whitespace-nowrap">
                 <span className="text-white">دریافت</span> کوچینگ{" "}
                 <span className="text-white">تخصصی</span>
               </h3>
-              <p className="text-[11px] xs:text-[12px] sm:text-[16px] font-medium leading-[1.7] sm:leading-[1.9] text-ink">
+              <p className="text-[0.6875rem] xs:text-[0.75rem] sm:text-[1rem] font-medium leading-[1.7] sm:leading-[1.9] text-ink">
                 می‌توانید یک جلسه‌ی مشاوره‌ی رایگان با تیم متخصصان ما رزرو
                 کنید و درباره‌ی مسیر فرزندتون بطور اختصاصی صحبت کنید.
               </p>
@@ -104,11 +104,11 @@ export default function Faq() {
             <div className="relative sm:absolute -rotate-3 hover:rotate-0 transition-transform duration-500 ease-out z-10 mt-4 sm:mt-0 sm:left-10 sm:bottom-6">
               <div className="relative group inline-flex items-center justify-center">
                 {/* لایه پشتی دکمه */}
-                <div className="absolute top-[2px] left-[2px] w-full h-full rounded-[15px] bg-white transition-colors duration-300 ease-out group-hover:bg-black [corner-shape:squircle]"></div>
+                <div className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0.9375rem] bg-white transition-colors duration-300 ease-out group-hover:bg-black [corner-shape:squircle]"></div>
                 {/* خود دکمه */}
                 <a
                   href="#"
-                  className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[12px] xs:text-[13px] sm:text-[16px] font-bold px-3.5 sm:px-5 py-2 sm:py-3 rounded-[15px] border-[2px] border-white group-hover:border-ink whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95 [corner-shape:squircle]"
+                  className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] font-bold px-3.5 sm:px-5 py-2 sm:py-3 rounded-[0.9375rem] border-[0.125rem] border-white group-hover:border-ink whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95 [corner-shape:squircle]"
                 >
                   رزرو جلسه‌ی مشاوره
                 </a>
@@ -124,11 +124,11 @@ export default function Faq() {
             return (
               <div key={item.question} className="relative transition-transform duration-300">
                 {/* لایه پشتی سوالات */}
-                <div className="absolute top-[5px] left-[5px] w-full h-full rounded-tl-none rounded-br-none rounded-tr-[22px] rounded-bl-[22px] bg-ink [corner-shape:squircle]" />
+                <div className="absolute top-[0.3125rem] left-[0.3125rem] w-full h-full rounded-tl-none rounded-br-none rounded-tr-[1.375rem] rounded-bl-[1.375rem] bg-ink [corner-shape:squircle]" />
 
                 {/* لایه اصلی سوالات */}
                 <div
-                  className={`relative z-10 rounded-tl-none rounded-br-none rounded-tr-[22px] rounded-bl-[22px] border-2 border-ink overflow-hidden transition-colors duration-300 ${isOpen ? "bg-teal text-ink" : "bg-white text-ink"} [corner-shape:squircle]`}
+                  className={`relative z-10 rounded-tl-none rounded-br-none rounded-tr-[1.375rem] rounded-bl-[1.375rem] border-2 border-ink overflow-hidden transition-colors duration-300 ${isOpen ? "bg-teal text-ink" : "bg-white text-ink"} [corner-shape:squircle]`}
                 >
                   {isOpen && (
                     <div className="absolute inset-0 pointer-events-none">
@@ -146,16 +146,16 @@ export default function Faq() {
                     aria-expanded={isOpen}
                     className="relative z-10 w-full flex items-center justify-between gap-3 sm:gap-4 px-3.5 sm:px-5 py-3 sm:py-4 text-right"
                   >
-                    <span className="font-extrabold text-[12px] xs:text-[13px] sm:text-[18px] leading-6 sm:leading-7">
+                    <span className="font-extrabold text-[0.75rem] xs:text-[0.8125rem] sm:text-[1.125rem] leading-6 sm:leading-7">
                       {item.question}
                     </span>
 
                     <div className="relative flex-shrink-0">
                       {/* لایه پشتی آیکون */}
-                      <div className="absolute top-[1.5px] left-[1.5px] rotate-1 w-full h-full bg-[#292827] rounded-[0_15.65px_0_15.65px] [corner-shape:squircle]"></div>
+                      <div className="absolute top-[0.09375rem] left-[0.09375rem] rotate-1 w-full h-full bg-[#292827] rounded-[0_0.978125rem_0_0.978125rem] [corner-shape:squircle]"></div>
                       {/* لایه اصلی آیکون */}
                       <div
-                        className={`relative w-8 h-8 sm:w-12 sm:h-12 flex rotate-1 items-center justify-center bg-[#3D3B3A] border-[2px] border-[#292827] text-white rounded-[0_15.65px_0_15.65px] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer ${isOpen ? "rotate-180" : "rotate-0"} [corner-shape:squircle]`}
+                        className={`relative w-8 h-8 sm:w-12 sm:h-12 flex rotate-1 items-center justify-center bg-[#3D3B3A] border-[0.125rem] border-[#292827] text-white rounded-[0_0.978125rem_0_0.978125rem] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer ${isOpen ? "rotate-180" : "rotate-0"} [corner-shape:squircle]`}
                       >
                         {isOpen ? (
                           <ChevronDownIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
@@ -173,7 +173,7 @@ export default function Faq() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="relative z-10 px-3.5 sm:px-5 pb-3.5 sm:pb-5 text-[11px] xs:text-[12px] sm:text-[16px] font-medium leading-6 sm:leading-7 text-ink/90">
+                      <p className="relative z-10 px-3.5 sm:px-5 pb-3.5 sm:pb-5 text-[0.6875rem] xs:text-[0.75rem] sm:text-[1rem] font-medium leading-6 sm:leading-7 text-ink/90">
                         {item.answer}
                       </p>
                     </div>

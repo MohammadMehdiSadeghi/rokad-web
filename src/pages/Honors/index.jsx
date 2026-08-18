@@ -9,10 +9,10 @@ export default function HonorsPage() {
     <>
       <section className="pt-14 sm:pt-20 pb-4 sm:pb-6 bg-white" dir="rtl">
         <Container className="text-center">
-          <h1 className="font-black text-[28px] sm:text-[42px] lg:text-[52px] leading-[1.35] text-ink mb-4">
+          <h1 className="font-black text-[1.75rem] sm:text-[2.625rem] lg:text-[3.25rem] leading-[1.35] text-ink mb-4">
             آرشیو <span className="text-navy-alt">افتخارات</span> رکاد
           </h1>
-          <p className="font-medium text-[14px] sm:text-[17px] leading-[1.9] text-ink/60 max-w-2xl mx-auto">
+          <p className="font-medium text-[0.875rem] sm:text-[1.0625rem] leading-[1.9] text-ink/60 max-w-2xl mx-auto">
             هر مدال روی این صفحه یعنی یه دانش‌آموز که از صفر شروع کرد و ایستاد
             تا آخرش. این‌جا مرور کاملی از مقام‌ها و جشنواره‌هایی هست که
             دانش‌آموزهای رکاد توش درخشیدن.

@@ -15,9 +15,9 @@
     /* اصلاح_focus_visible با CSS خالص برای جلوگیری از ارور تایلیند */
     a:focus-visible,
     button:focus-visible {
-        outline: 2px solid #58BDAF;
+        outline: 0.125rem solid #58BDAF;
         /* معادل outline-teal */
-        outline-offset: 2px;
+        outline-offset: 0.125rem;
         border-radius: 0.375rem;
         /* معادل rounded-md */
     }
@@ -37,17 +37,17 @@
 
 .shadow-card-back {
     position: absolute;
-    inset: 6px -6px -6px 6px;
+    inset: 0.375rem -0.375rem -0.375rem 0.375rem;
 }
 
 .hero-section-shape {
-    --r: 20px;
+    --r: 1.25rem;
     /* the radius */
-    --s: 30px;
+    --s: 1.875rem;
     /* size of inner curve */
-    --x: 20px;
+    --x: 1.25rem;
     /* horizontal offset (no percentane) */
-    --y: 10px;
+    --y: 0.625rem;
     /* vertical offset (no percentage) */
     aspect-ratio: 1;
     background: #3FB8AF;
@@ -80,7 +80,7 @@ html {
 /* کروم، اج، سافاری */
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 0.625rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -89,8 +89,8 @@ html {
 
 ::-webkit-scrollbar-thumb {
     background-color: #58BDAF;
-    border-radius: 10px;
-    border: 2px solid transparent;
+    border-radius: 0.625rem;
+    border: 0.125rem solid transparent;
     background-clip: content-box;
 }
 

@@ -20,7 +20,7 @@ export default function PillarCard({
     const bodyCls = featured ? "text-white/90" : "text-white/70";
     return (
       <article
-        className={`relative border rounded-[20px] p-6 sm:p-7 ${cardCls}`}
+        className={`relative border rounded-[1.25rem] p-6 sm:p-7 ${cardCls}`}
       >
         {index && (
           <span className="absolute top-5 left-5 font-extrabold text-2xl text-white/20">
@@ -32,7 +32,7 @@ export default function PillarCard({
         >
           <span className="w-6 h-6 text-white">{icon}</span>
         </div>
-        <h4 className={`font-extrabold text-[17px] mb-2.5 ${titleCls}`}>
+        <h4 className={`font-extrabold text-[1.0625rem] mb-2.5 ${titleCls}`}>
           {title}
         </h4>
         <p className={`text-sm leading-[1.8] ${bodyCls}`}>{body}</p>
@@ -41,31 +41,31 @@ export default function PillarCard({
   }
 
   // ── Light "paper" style (Pillars section) ──
-  const cornerRadius = "rounded-[0_32px_0_32px] [corner-shape:squircle]";
-  const iconRadius = "rounded-[10.98px_0_10.98px_0] [corner-shape:squircle]";
+  const cornerRadius = "rounded-[0_2rem_0_2rem] [corner-shape:squircle]";
+  const iconRadius = "rounded-[0.68625rem_0_0.68625rem_0] [corner-shape:squircle]";
 
   return (
     // اضافه شدن h-full برای پر کردن ارتفاع سطر گرید
     <div className="relative h-full" style={{ transform: `rotate(${rotation}deg)` }}>
       {/* Shadow / offset layer */}
       <div
-        className={`absolute top-[4.8px] left-[4.8px] w-full h-full bg-[#292827] ${cornerRadius}`}
+        className={`absolute top-[0.3rem] left-[0.3rem] w-full h-full bg-[#292827] ${cornerRadius}`}
       />
 
       {/* Card - اضافه شدن h-full و flex flex-col */}
       <article
-        className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[2px] border-[#292827] ${cornerRadius} px-4 sm:px-6 py-4 sm:py-7`}
+        className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[0.125rem] border-[#292827] ${cornerRadius} px-4 sm:px-6 py-4 sm:py-7`}
       >
         {/* Index */}
         {index && (
-          <span className="absolute top-3 sm:top-5 left-3 sm:left-5 font-black text-[14px] sm:text-[32px] text-[#0000001f] leading-none">
+          <span className="absolute top-3 sm:top-5 left-3 sm:left-5 font-black text-[0.875rem] sm:text-[2rem] text-[#0000001f] leading-none">
             {index}
           </span>
         )}
 
         {/* Icon box */}
         <div
-          className={`w-8 h-8 sm:w-11 sm:h-11 flex items-center justify-center mb-2 sm:mb-5 border-[1.5px] border-[#292827] ${iconRadius} p-[4px] sm:p-[7.2px] ${iconBg || "bg-[#292827]"} mt-0`}
+          className={`w-8 h-8 sm:w-11 sm:h-11 flex items-center justify-center mb-2 sm:mb-5 border-[0.09375rem] border-[#292827] ${iconRadius} p-[0.25rem] sm:p-[0.45rem] ${iconBg || "bg-[#292827]"} mt-0`}
         >
           <span className="w-full h-full text-white flex items-center justify-center">
             {icon}
@@ -73,12 +73,12 @@ export default function PillarCard({
         </div>
 
         {/* Title */}
-        <h4 className="font-black text-[14px] sm:text-[20px] text-ink mb-1.5 sm:mb-3 leading-snug">
+        <h4 className="font-black text-[0.875rem] sm:text-[1.25rem] text-ink mb-1.5 sm:mb-3 leading-snug">
           {title}
         </h4>
         
         {/* Body */}
-        <p className="text-[14px] sm:text-[14px] leading-[1.8] text-ink/60">
+        <p className="text-[0.875rem] sm:text-[0.875rem] leading-[1.8] text-ink/60">
           {body}
         </p>
       </article>

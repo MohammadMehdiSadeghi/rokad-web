@@ -91,7 +91,7 @@ export default function Comments() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full pt-[80px] sm:pt-[88px] md:pt-[96px] lg:pt-[104px] 2xl:pt-[112px] pb-12 sm:pb-16 lg:pb-20 2xl:pb-24 px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
+    <section className="relative w-full pt-[5rem] sm:pt-[5.5rem] md:pt-[6rem] lg:pt-[6.5rem] 2xl:pt-[7rem] pb-12 sm:pb-16 lg:pb-20 2xl:pb-24 px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;
@@ -161,7 +161,7 @@ export default function Comments() {
 
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}
-        <h2 className="font-black text-[22px] xs:text-[26px] sm:text-[34px] lg:text-[53px] leading-[1.6] sm:leading-[1.5] text-[#292827] mb-0 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
+        <h2 className="font-black text-[1.375rem] xs:text-[1.625rem] sm:text-[2.125rem] lg:text-[3.3125rem] leading-[1.6] sm:leading-[1.5] text-[#292827] mb-0 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
           <span className="inline-block -rotate-3">از</span>
           <span className="inline-block rotate-3">زبون</span>
           <span className="inline-block -rotate-3">کسایی</span>
@@ -171,15 +171,15 @@ export default function Comments() {
         </h2>
 
         {/* ── کاروسل ── */}
-        <div className="relative w-full pt-[40px] sm:pt-[48px] md:pt-[52px] lg:pt-[60px] pb-12 sm:pb-16 overflow-visible">
+        <div className="relative w-full pt-[2.5rem] sm:pt-[3rem] md:pt-[3.25rem] lg:pt-[3.75rem] pb-12 sm:pb-16 overflow-visible">
           {/* دکمه راست */}
           <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0 hidden md:block">
-            <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle]"></div>
+            <div className="absolute top-[0.09375rem] left-[0.125rem] sm:top-[0.125rem] sm:left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle]"></div>
             <button
               type="button"
               aria-label="کامت بعدی"
               onClick={() => swiperRef.current?.slideNext()}
-              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[0.09375rem] sm:border-[0.125rem] border-[#292827] text-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -223,16 +223,16 @@ export default function Comments() {
                   >
                     <div className="p-1.5 sm:p-2 lg:p-3 overflow-visible">
                       <div className="card-inner-wrap">
-                        <div className="relative max-w-[260px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[400px] xl:max-w-[450px] mx-auto">
+                        <div className="relative max-w-[16.25rem] sm:max-w-[18.75rem] md:max-w-[21.25rem] lg:max-w-[25rem] xl:max-w-[28.125rem] mx-auto">
                           {/* لایه پشتی کارت */}
                           <div
                             aria-hidden="true"
-                            className={`absolute top-[2px] left-[2px] sm:top-[3px] sm:left-[4px] w-full h-full ${theme.solidColor} rounded-[0_22px_0_22px] sm:rounded-[40px_0_40px_0] [corner-shape:squircle]`}
+                            className={`absolute top-[0.125rem] left-[0.125rem] sm:top-[0.1875rem] sm:left-[0.25rem] w-full h-full ${theme.solidColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle]`}
                           ></div>
 
                           {/* کارت اصلی */}
                           <div
-                            className={`relative z-10 bg-white border-[1.5px] sm:border-[2px] ${theme.borderColor} rounded-[0_22px_0_22px] sm:rounded-[40px_0_40px_0] [corner-shape:squircle] p-4 sm:p-5 lg:p-6 min-h-[200px] sm:min-h-[220px] lg:min-h-[250px] flex flex-col`}
+                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-4 sm:p-5 lg:p-6 min-h-[12.5rem] sm:min-h-[13.75rem] lg:min-h-[15.625rem] flex flex-col`}
                           >
                             <span
                               className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}
@@ -240,7 +240,7 @@ export default function Comments() {
                               "
                             </span>
 
-                            <p className="text-[13px] sm:text-[14px] lg:text-[15px] leading-6 sm:leading-7 text-[#292827] flex-grow">
+                            <p className="text-[0.8125rem] sm:text-[0.875rem] lg:text-[0.9375rem] leading-6 sm:leading-7 text-[#292827] flex-grow">
                               {comment.text}
                             </p>
 
@@ -249,13 +249,13 @@ export default function Comments() {
                             >
                               <div className="relative flex-shrink-0">
                                 {/* لایه پشتی آواتار */}
-                                <div className="absolute top-[1px] left-[1px] w-full h-full bg-[#292827] rounded-[9.83px_0_9.83px_0] [corner-shape:squircle]"></div>
+                                <div className="absolute top-[0.0625rem] left-[0.0625rem] w-full h-full bg-[#292827] rounded-[0.614375rem_0_0.614375rem_0] [corner-shape:squircle]"></div>
 
                                 {/* لایه اصلی آواتار */}
                                 <div
-                                  className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-[9.83px_0_9.83px_0] [corner-shape:squircle] border-[0.05px] border-[#292827] ${theme.solidColor} flex items-center justify-center`}
+                                  className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-[0.614375rem_0_0.614375rem_0] [corner-shape:squircle] border-[0.003125rem] border-[#292827] ${theme.solidColor} flex items-center justify-center`}
                                 >
-                                  <span className="font-black text-[12px] sm:text-[14px] text-white">
+                                  <span className="font-black text-[0.75rem] sm:text-[0.875rem] text-white">
                                     {getInitials(comment.name)}
                                   </span>
                                 </div>
@@ -263,11 +263,11 @@ export default function Comments() {
 
                               <div className="flex flex-col">
                                 <h4
-                                  className={`font-black text-[14px] sm:text-[16px] ${theme.nameColor}`}
+                                  className={`font-black text-[0.875rem] sm:text-[1rem] ${theme.nameColor}`}
                                 >
                                   {comment.name}
                                 </h4>
-                                <p className="text-[11px] sm:text-[12px] text-gray-500 mt-0.5 sm:mt-1">
+                                <p className="text-[0.6875rem] sm:text-[0.75rem] text-gray-500 mt-0.5 sm:mt-1">
                                   {comment.role}
                                 </p>
                               </div>
@@ -284,12 +284,12 @@ export default function Comments() {
 
           {/* دکمه چپ */}
           <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0 hidden md:block">
-            <div className="absolute top-[1.5px] left-[2px] sm:top-[2px] sm:left-[3px] w-full h-full bg-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle]"></div>
+            <div className="absolute top-[0.09375rem] left-[0.125rem] sm:top-[0.125rem] sm:left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle]"></div>
             <button
               type="button"
               aria-label="کامت قبلی"
               onClick={() => swiperRef.current?.slidePrev()}
-              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[1.5px] sm:border-[2px] border-[#292827] text-[#292827] rounded-[0_6px_0_6px] sm:rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[0.09375rem] sm:border-[0.125rem] border-[#292827] text-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -298,7 +298,7 @@ export default function Comments() {
 
         {/* ── نوار پیشرفت (فقط در موبایل و تبلت) ── */}
         <div className="mt-2 flex justify-center md:hidden">
-          <div className="w-[150px] h-1.5 bg-gray-200 rounded-full overflow-hidden">
+          <div className="w-[9.375rem] h-1.5 bg-gray-200 rounded-full overflow-hidden">
             <div
               className="h-full bg-[#292827] transition-all duration-500 ease-out rounded-full"
               style={{ width: `${((activeIndex + 1) / comments.length) * 100}%` }}

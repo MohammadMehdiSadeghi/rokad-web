@@ -141,8 +141,8 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
         hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
 
         bg-[#FFFFFF12] hover:bg-[#59BBAF]
-        border-[1.9px] border-[#59BBAF] hover:border-[#FFFFFF]
-        rounded-[0_30.54px_0_30.54px] [corner-shape:squircle]
+        border-[0.11875rem] border-[#59BBAF] hover:border-[#FFFFFF]
+        rounded-[0_1.90875rem_0_1.90875rem] [corner-shape:squircle]
 
         ${isActive ? "-translate-y-1.5 shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)] bg-[#59BBAF] border-[#FFFFFF] rotate-0" : ""}
       `}
@@ -152,7 +152,7 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
         className={`
           w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0
           transition-colors duration-500
-          rounded-[10.02px_0_10.02px_0] [corner-shape:squircle]
+          rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle]
           bg-[#58BDAF] group-hover:bg-[#202A5A]
           ${isActive ? "bg-[#202A5A]" : ""}
         `}
@@ -168,11 +168,11 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
 
       {/* Text */}
       <div>
-        <h4 className="font-black text-[12px] xs:text-[13px] sm:text-[18px] text-white mb-1 sm:mb-2 leading-snug transition-colors duration-300">
+        <h4 className="font-black text-[0.75rem] xs:text-[0.8125rem] sm:text-[1.125rem] text-white mb-1 sm:mb-2 leading-snug transition-colors duration-300">
           {title}
         </h4>
         <p
-          className={`text-[9px] xs:text-[10px] sm:text-[13px] leading-[1.7] sm:leading-[1.85] text-white/60 group-hover:text-white/90 transition-colors duration-300 line-clamp-3 sm:line-clamp-none ${
+          className={`text-[0.5625rem] xs:text-[0.625rem] sm:text-[0.8125rem] leading-[1.7] sm:leading-[1.85] text-white/60 group-hover:text-white/90 transition-colors duration-300 line-clamp-3 sm:line-clamp-none ${
             isActive ? "text-white/90" : ""
           }`}
         >
@@ -191,7 +191,7 @@ export default function Ecosystem() {
 
   return (
       <section
-        className="py-[100px] sm:py-[110px] lg:py-[130px] px-4 sm:px-6 relative overflow-hidden"
+        className="py-[6.25rem] sm:py-[6.875rem] lg:py-[8.125rem] px-4 sm:px-6 relative overflow-hidden"
         style={{
           background:
             "radial-gradient(ellipse at 30% 20%, #1c2c60 0%, #0e1633 60%, #0b1228 100%)",
@@ -209,13 +209,13 @@ export default function Ecosystem() {
 
         {/* Subtle decorative blobs */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
-          <div className="absolute -top-20 -right-20 w-[420px] h-[420px] rounded-full bg-teal/10 blur-[90px]" />
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-navy/40 blur-[70px]" />
+          <div className="absolute -top-20 -right-20 w-[26.25rem] h-[26.25rem] rounded-full bg-teal/10 blur-[5.625rem]" />
+          <div className="absolute bottom-0 left-0 w-[18.75rem] h-[18.75rem] rounded-full bg-navy/40 blur-[4.375rem]" />
         </div>
 
         <Container className="relative z-10">
           {/* Heading */}
-          <h2 className="text-center font-black text-[22px] xs:text-[24px] sm:text-[38px] lg:text-[46px] leading-[1.3] text-white mb-3 sm:mb-4 flex flex-wrap justify-center items-center gap-x-2">
+          <h2 className="text-center font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.375rem] lg:text-[2.875rem] leading-[1.3] text-white mb-3 sm:mb-4 flex flex-wrap justify-center items-center gap-x-2">
             <span className="inline-block -rotate-[1.9deg]">یه</span>
             <span className="inline-block rotate-[1.9deg] text-teal">
               اکوسیستم
@@ -225,7 +225,7 @@ export default function Ecosystem() {
             <span className="inline-block -rotate-[1.9deg]">رشد</span>
           </h2>
 
-          <p className="text-center font-medium text-[12px] xs:text-[13px] sm:text-[16px] leading-[1.9] text-white/60  mx-auto mb-6 sm:mb-16">
+          <p className="text-center font-medium text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] leading-[1.9] text-white/60  mx-auto mb-6 sm:mb-16">
             از استعدادسنجی تا اولین شغلت، تمام گام‌های مسیر با پشتیبانی متخصصان طی
             می‌شه.
           </p>

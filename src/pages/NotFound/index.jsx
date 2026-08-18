@@ -5,10 +5,10 @@ export default function NotFound() {
   return (
     <section className="py-24 sm:py-32 bg-white" dir="rtl">
       <Container className="text-center">
-        <h1 className="font-black text-[64px] sm:text-[96px] leading-none text-navy-alt mb-4">
+        <h1 className="font-black text-[4rem] sm:text-[6rem] leading-none text-navy-alt mb-4">
           ۴۰۴
         </h1>
-        <p className="font-semibold text-[16px] sm:text-[20px] text-ink/70 mb-8">
+        <p className="font-semibold text-[1rem] sm:text-[1.25rem] text-ink/70 mb-8">
           صفحه‌ای که دنبالش بودی پیدا نشد.
         </p>
         <Link

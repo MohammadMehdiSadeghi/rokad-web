@@ -38,22 +38,22 @@ function LinkedinIcon({ className }) {
 export default function Footer() {
   return (
     <footer className="relative bg-[#21295A] text-white overflow-hidden" dir="rtl">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[90rem] mx-auto px-6 lg:px-12">
         {/* ── ردیف بالایی: ستون‌ها + لوگو ── */}
-        <div className="pt-[54px] pb-8 lg:pt-[60px] lg:pb-10 flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-0">
+        <div className="pt-[3.375rem] pb-8 lg:pt-[3.75rem] lg:pb-10 flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-0">
 
           {/* ── ستون‌های محتوا (۳ ستون) ── */}
           <div className="flex flex-wrap gap-x-8 gap-y-8 lg:flex-nowrap justify-between w-full lg:w-auto">
 
             {/* ستون ۱: درباره */}
-            <div className="flex-1 min-w-[120px]">
-              <h3 className="font-black text-[#58BDAF] text-[20px] leading-none mb-3">
+            <div className="flex-1 min-w-[7.5rem]">
+              <h3 className="font-black text-[#58BDAF] text-[1.25rem] leading-none mb-3">
                 رکاد
               </h3>
               <ul className="space-y-2">
                 {["درباره‌ی ما", "تیم ما", "اکوسیستم", "همکاری با ما"].map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-[13px] text-white/90 hover:text-[#58BDAF] transition-colors leading-7">
+                    <a href="#" className="text-[0.8125rem] text-white/90 hover:text-[#58BDAF] transition-colors leading-7">
                       {link}
                     </a>
                   </li>
@@ -62,14 +62,14 @@ export default function Footer() {
             </div>
 
             {/* ستون ۲: مدارس */}
-            <div className="flex-1 min-w-[120px]">
-              <h3 className="font-black text-[#58BDAF] text-[20px] leading-none mb-3">
+            <div className="flex-1 min-w-[7.5rem]">
+              <h3 className="font-black text-[#58BDAF] text-[1.25rem] leading-none mb-3">
                 مدارس
               </h3>
               <ul className="space-y-2">
                 {["هنرستان پسرانه", "هنرستان دخترانه", "پیش‌ثبت‌نام", "شرایط پذیرش"].map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-[13px] text-white/90 hover:text-[#58BDAF] transition-colors leading-7">
+                    <a href="#" className="text-[0.8125rem] text-white/90 hover:text-[#58BDAF] transition-colors leading-7">
                       {link}
                     </a>
                   </li>
@@ -78,11 +78,11 @@ export default function Footer() {
             </div>
 
             {/* ستون ۳: ارتباط */}
-            <div className="flex-1 min-w-[140px]">
-              <h3 className="font-black text-[#58BDAF] text-[20px] leading-none mb-3">
+            <div className="flex-1 min-w-[8.75rem]">
+              <h3 className="font-black text-[#58BDAF] text-[1.25rem] leading-none mb-3">
                 ارتباط
               </h3>
-              <ul className="space-y-2 text-[13px] text-white/90 leading-7">
+              <ul className="space-y-2 text-[0.8125rem] text-white/90 leading-7">
                 <li>مشهد، فرامرز عباسی ۳۳</li>
                 <li>۰۲۱-۱۲۳۴۵۶۷۸</li>
                 <li>info@rokad.school</li>
@@ -94,8 +94,8 @@ export default function Footer() {
           </div>
 
           {/* ── لوگو + توضیح (سمت راست) ── */}
-          <div className="w-full lg:w-[276px] flex-shrink-0 pt-4 lg:pt-0">
-            <p className="text-[13px] text-white/90 leading-[2]">
+          <div className="w-full lg:w-[17.25rem] flex-shrink-0 pt-4 lg:pt-0">
+            <p className="text-[0.8125rem] text-white/90 leading-[2]">
               مدرسه و هنرستان استارتاپی رکاد. جایی که مهارت واقعی، تجربه‌ی کسب‌وکار و آینده‌سازی زیر یک سقف جمع می‌شن.
             </p>
           </div>
@@ -117,7 +117,7 @@ export default function Footer() {
               <button
                 key={label}
                 aria-label={label}
-                className="w-[30px] h-[30px] flex items-center justify-center bg-white rounded transition-colors duration-200 hover:bg-white/90"
+                className="w-[1.875rem] h-[1.875rem] flex items-center justify-center bg-white rounded transition-colors duration-200 hover:bg-white/90"
               >
                 <Icon className="w-5 h-5 text-[#21295A]" />
               </button>
@@ -125,7 +125,7 @@ export default function Footer() {
           </div>
 
           {/* کپی‌رایت */}
-          <p className="text-[11px] text-white/70 font-medium">
+          <p className="text-[0.6875rem] text-white/70 font-medium">
             © ۱۴۰۵ هنرستان رکاد. همه‌ی حقوق محفوظ است.
           </p>
         </div>

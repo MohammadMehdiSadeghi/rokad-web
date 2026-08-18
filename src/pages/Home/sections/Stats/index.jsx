@@ -41,7 +41,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative py-[96px] sm:py-[100px] lg:py-[110px] w-full px-4 sm:px-6 overflow-hidden bg-white">
+    <section className="relative py-[6rem] sm:py-[6.25rem] lg:py-[6.875rem] w-full px-4 sm:px-6 overflow-hidden bg-white">
       {/* ── لایه پترن پس‌زمینه ── */}
       <div
         className="absolute inset-0 w-full h-full z-0 pointer-events-none 
@@ -57,7 +57,7 @@ export default function Stats() {
       </div>
 
       {/* محتوای سکشن — موبایل: 20px (فیگما)، دسکتاپ 55px */}
-      <h2 className="relative z-10 mb-[65px] sm:mb-14 text-center text-[22px] xs:text-[24px] sm:text-[32px] lg:text-[55px] font-black">
+      <h2 className="relative z-10 mb-[4.0625rem] sm:mb-14 text-center text-[1.375rem] xs:text-[1.5rem] sm:text-[2rem] lg:text-[3.4375rem] font-black">
         <span className="inline-block rotate-1 text-black">
           {" "}
           رکاد در یک نگاه،{" "}

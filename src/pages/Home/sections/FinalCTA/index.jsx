@@ -9,7 +9,7 @@ export default function FinalCTA() {
   return (
     <section
       // حذف pb برای چسبیدن کامل کاراکترها به پایین
-      className="relative overflow-hidden bg-teal pt-[54px] pb-0 px-4 sm:px-6"
+      className="relative overflow-hidden bg-teal pt-[3.375rem] pb-0 px-4 sm:px-6"
       dir="rtl"
     >
       {/* Background Pattern */}
@@ -30,13 +30,13 @@ export default function FinalCTA() {
               src={imgGirl}
               alt=""
               aria-hidden="true"
-              className="h-[400px] xl:h-[500px] w-auto object-contain object-bottom"
+              className="h-[25rem] xl:h-[31.25rem] w-auto object-contain object-bottom"
             />
           </div>
 
           {/* Text Content (وسط) */}
           <div className="flex flex-col items-center text-center w-full lg:w-[48%] mb-10 lg:mb-12">
-            <h2 className="font-black text-[28px] xs:text-[34px] sm:text-[44px] lg:text-[60px] xl:text-[72px] leading-[1.4] text-white mb-6 sm:mb-7 flex flex-wrap justify-center gap-x-2">
+            <h2 className="font-black text-[1.75rem] xs:text-[2.125rem] sm:text-[2.75rem] lg:text-[3.75rem] xl:text-[4.5rem] leading-[1.4] text-white mb-6 sm:mb-7 flex flex-wrap justify-center gap-x-2">
               <span className="inline-block rotate-[3deg]">برای</span>
               <span className="inline-block rotate-[-3deg]">ساختن</span>
               <span className="inline-block rotate-[3deg]">آینده</span>
@@ -46,7 +46,7 @@ export default function FinalCTA() {
               <span className="inline-block rotate-[3deg]">کن</span>
             </h2>
 
-            <p className="text-[14px] sm:text-[20px] lg:text-[22px] font-semibold leading-[1.9] text-white max-w-[540px] mb-8 sm:mb-10">
+            <p className="text-[0.875rem] sm:text-[1.25rem] lg:text-[1.375rem] font-semibold leading-[1.9] text-white max-w-[33.75rem] mb-8 sm:mb-10">
               مصاحبه‌ی رایگان و تعیین سطح برای همه‌ی متقاضی‌ها. کافیه فرم رو پر
               کنی، بقیه‌ش با ماست.
             </p>
@@ -58,8 +58,8 @@ export default function FinalCTA() {
                 {/* خود دکمه */}
                 <a
                   href="#"
-                  className="relative z-10 inline-flex items-center justify-center w-full sm:w-auto min-w-[200px] sm:min-w-[240px] h-[56px] sm:h-[64px] 
-                  px-6 bg-[#292827] text-white font-extrabold text-[14px] sm:text-[18px] rounded-[16px] [corner-shape:squircle]
+                  className="relative z-10 inline-flex items-center justify-center w-full sm:w-auto min-w-[12.5rem] sm:min-w-[15rem] h-[3.5rem] sm:h-[4rem] 
+                  px-6 bg-[#292827] text-white font-extrabold text-[0.875rem] sm:text-[1.125rem] rounded-[1rem] [corner-shape:squircle]
                   hover:opacity-90 transition-opacity duration-300 cursor-pointer"
                 >
                   تکمیل فرم پیش‌ثبت‌نام
@@ -71,8 +71,8 @@ export default function FinalCTA() {
                 {/* لایه پشتی سرمه‌ای */}                {/* خود دکمه */}
                 <a
                   href="#"
-                  className="relative z-10 inline-flex items-center justify-center w-full sm:w-auto min-w-[200px] sm:min-w-[240px] h-[56px] sm:h-[64px] 
-                  px-6 bg-white text-[#292827] font-extrabold text-[14px] sm:text-[18px] rounded-[16px] [corner-shape:squircle]
+                  className="relative z-10 inline-flex items-center justify-center w-full sm:w-auto min-w-[12.5rem] sm:min-w-[15rem] h-[3.5rem] sm:h-[4rem] 
+                  px-6 bg-white text-[#292827] font-extrabold text-[0.875rem] sm:text-[1.125rem] rounded-[1rem] [corner-shape:squircle]
                   hover:opacity-90 transition-opacity duration-300 cursor-pointer"
                 >
                   RokadSchool.ir
@@ -87,7 +87,7 @@ export default function FinalCTA() {
               src={imgBoy}
               alt=""
               aria-hidden="true"
-              className="h-[400px] xl:h-[500px] w-auto object-contain object-bottom"
+              className="h-[25rem] xl:h-[31.25rem] w-auto object-contain object-bottom"
             />
           </div>
         </div>

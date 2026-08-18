@@ -25,9 +25,9 @@ export default function Header() {
         className="relative w-full lg:w-[80%] mx-auto"
       >
         <div
-                                className="flex items-center justify-between h-[45px] sm:h-[52px] lg:h-[95px]
-                                rounded-none lg:rounded-[22px] bg-[#E6F5F3]
-                                shadow-[0_1px_2px_rgba(0,0,0,0.06),0_4px_8px_rgba(0,0,0,0.04),0_8px_16px_rgba(0,0,0,0.02)]
+                                className="flex items-center justify-between h-[2.8125rem] sm:h-[3.25rem] lg:h-[5.9375rem]
+                                rounded-none lg:rounded-[1.375rem] bg-[#E6F5F3]
+                                shadow-[0_0.0625rem_0.125rem_rgba(0,0,0,0.06),0_0.25rem_0.5rem_rgba(0,0,0,0.04),0_0.5rem_1rem_rgba(0,0,0,0.02)]
                                 px-1 sm:px-2 lg:px-8"
                               >
           {/* ── سمت راست: لوگو ── */}
@@ -46,7 +46,7 @@ export default function Header() {
             {/* دکمه پیش‌ثبت‌نام (اولین آیتم در وسط) */}
             <a
               href="#"
-              className="whitespace-nowrap -rotate-3 rounded-pill-sm bg-navy px-[11px] py-[7px] text-base2 font-black text-white transition-transform
+              className="whitespace-nowrap -rotate-3 rounded-pill-sm bg-navy px-[0.6875rem] py-[0.4375rem] text-base2 font-black text-white transition-transform
                duration-200 hover:rotate-0 hover:scale-105"
             >
               پیش‌ثبت‌نام
@@ -61,7 +61,7 @@ export default function Header() {
                     className="whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group"
                   >
                     {link.label}
-                    <span className="absolute -bottom-1 right-0 w-0 h-[2px] bg-teal transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute -bottom-1 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                 </li>
               ))}
@@ -72,7 +72,7 @@ export default function Header() {
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             <a
               href="#"
-              className="hidden lg:inline-flex whitespace-nowrap rounded-pill-md bg-teal px-6 py-[9.4px] text-base2 font-extrabold
+              className="hidden lg:inline-flex whitespace-nowrap rounded-pill-md bg-teal px-6 py-[0.5875rem] text-base2 font-extrabold
                text-white transition-colors duration-300 hover:bg-white hover:text-teal border border-1 border-white hover:border-teal"
             >
               ورود / ثبت نام
@@ -87,20 +87,20 @@ export default function Header() {
               aria-label={open ? "بستن منو" : "باز کردن منو"}
               className="lg:hidden relative w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 flex items-center justify-center text-navy"
             >
-              <span className="flex flex-col items-center justify-center gap-[4px] w-4">
+              <span className="flex flex-col items-center justify-center gap-[0.25rem] w-4">
                 <span
-                  className={`block h-[2.5px] w-full bg-current rounded-full transition-transform duration-300 ${
-                    open ? "translate-y-[6.5px] rotate-45" : ""
+                  className={`block h-[0.15625rem] w-full bg-current rounded-full transition-transform duration-300 ${
+                    open ? "translate-y-[0.40625rem] rotate-45" : ""
                   }`}
                 />
                 <span
-                  className={`block h-[2.5px] w-full bg-current rounded-full transition-opacity duration-300 ${
+                  className={`block h-[0.15625rem] w-full bg-current rounded-full transition-opacity duration-300 ${
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 />
                 <span
-                  className={`block h-[2.5px] w-full bg-current rounded-full transition-transform duration-300 ${
-                    open ? "-translate-y-[6.5px] -rotate-45" : ""
+                  className={`block h-[0.15625rem] w-full bg-current rounded-full transition-transform duration-300 ${
+                    open ? "-translate-y-[0.40625rem] -rotate-45" : ""
                   }`}
                 />
               </span>
@@ -112,17 +112,17 @@ export default function Header() {
         <div
           id="mobile-nav-panel"
           className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
-            open ? "max-h-[520px] opacity-100 mt-3" : "max-h-0 opacity-0"
+            open ? "max-h-[32.5rem] opacity-100 mt-3" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="rounded-[22px] bg-bg-mint px-5 sm:px-7 py-5 flex flex-col gap-4">
+          <div className="rounded-[1.375rem] bg-bg-mint px-5 sm:px-7 py-5 flex flex-col gap-4">
             <ul className="flex flex-col gap-4 list-none m-0 p-0">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.to}
                     onClick={() => setOpen(false)}
-                    className="block text-[15px] font-semibold text-navy transition-colors duration-200 hover:text-teal"
+                    className="block text-[0.9375rem] font-semibold text-navy transition-colors duration-200 hover:text-teal"
                   >
                     {link.label}
                   </Link>

@@ -51,19 +51,19 @@ const posts = [
 function BlogCard({ tag, date, title, body, rotation = 0 }) {
   return (
     <div
-      className="relative w-full max-w-[360px] sm:max-w-[400px] mx-auto transition-transform duration-500 ease-out hover:rotate-0"
+      className="relative w-full max-w-[22.5rem] sm:max-w-[25rem] mx-auto transition-transform duration-500 ease-out hover:rotate-0"
       style={{ transform: `rotate(${rotation}deg)` }}
     >
       {/* لایه سایه‌ی مشکی پشت کارت */}
       <div
         aria-hidden="true"
-        className="absolute top-[4px] left-[4px] min-h-[410px] sm:top-[5px] sm:left-[5px] w-full h-full bg-[#292827] rounded-[30px_0_30px_0] [corner-shape:squircle]"
+        className="absolute top-[0.25rem] left-[0.25rem] min-h-[25.625rem] sm:top-[0.3125rem] sm:left-[0.3125rem] w-full h-full bg-[#292827] rounded-[1.875rem_0_1.875rem_0] [corner-shape:squircle]"
       />
 
       {/* کارت اصلی */}
       <article
-        className="relative z-10 bg-white border-[1.5px] min-h-[410px]
-      sm:border-[2px] border-[#292827] rounded-[30px_0_30px_0] [corner-shape:squircle]
+        className="relative z-10 bg-white border-[0.09375rem] min-h-[25.625rem]
+      sm:border-[0.125rem] border-[#292827] rounded-[1.875rem_0_1.875rem_0] [corner-shape:squircle]
       overflow-hidden"
       >
         {/* تصویر */}
@@ -71,24 +71,24 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
           src={blogImg}
           alt={title}
           loading="lazy"
-          className="w-full h-[170px] sm:h-[190px] object-cover border-b-[1.5px] sm:border-b-[2px] border-[#292827]"
+          className="w-full h-[10.625rem] sm:h-[11.875rem] object-cover border-b-[0.09375rem] sm:border-b-[0.125rem] border-[#292827]"
         />
 
         {/* متن */}
         <div className="p-5 sm:p-6">
-          <h4 className="font-black text-[16px] sm:text-[17px] text-ink mb-2.5 leading-snug">
+          <h4 className="font-black text-[1rem] sm:text-[1.0625rem] text-ink mb-2.5 leading-snug">
             {title}
           </h4>
-          <p className="text-[13px] leading-[1.85] text-ink/60 mb-4 line-clamp-2">
+          <p className="text-[0.8125rem] leading-[1.85] text-ink/60 mb-4 line-clamp-2">
             {body}
           </p>
 
           {/* خط جداکننده‌ی نقطه‌چین */}
           <div className="border-t border-dashed border-[#292827]/50 pt-3 flex items-center justify-between">
-            <span className="text-[12px] sm:text-[13px] font-bold text-ink/70">
+            <span className="text-[0.75rem] sm:text-[0.8125rem] font-bold text-ink/70">
               {date}
             </span>
-            <span className="inline-block bg-[#292827] text-white text-[11px] sm:text-[12px] font-bold px-3 py-1.5 rounded-[6px] [corner-shape:squircle]">
+            <span className="inline-block bg-[#292827] text-white text-[0.6875rem] sm:text-[0.75rem] font-bold px-3 py-1.5 rounded-[0.375rem] [corner-shape:squircle]">
               {tag}
             </span>
           </div>
@@ -103,7 +103,7 @@ export default function Blogs() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative pt-[80px] pb-[98px] bg-white overflow-hidden" dir="rtl">
+    <section className="relative pt-[5rem] pb-[6.125rem] bg-white overflow-hidden" dir="rtl">
       {/* ── لایه پترن پس‌زمینه ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
@@ -118,9 +118,9 @@ export default function Blogs() {
         <div className="w-full mx-auto">
           
           {/* ── کانتینر تایتل و دکمه (حذف mr-5) ── */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-[97px]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-[6.0625rem]">
             <div>
-              <h2 className="text-right font-black text-[20px] xs:text-[26px] sm:text-[34px] lg:text-[53px] leading-[1.3] text-ink flex flex-wrap justify-start items-center gap-x-2">
+              <h2 className="text-right font-black text-[1.25rem] xs:text-[1.625rem] sm:text-[2.125rem] lg:text-[3.3125rem] leading-[1.3] text-ink flex flex-wrap justify-start items-center gap-x-2">
                 <span className="inline-block rotate-3 text-ink">تازه‌های</span>
                 <span className="inline-block -rotate-3 text-navy">اکوسیستم</span>
                 <span className="inline-block rotate-3 text-ink">و</span>
@@ -130,10 +130,10 @@ export default function Blogs() {
 
             {/* دکمه همه مقالات */}
             <div className="relative inline-flex items-center justify-center self-start md:self-auto rotate-[-1.55deg] hover:rotate-0 transition-all duration-300">
-              <div className="absolute top-[2px] left-[2px] w-full h-full rounded-[0_9.12px_0_9.12px] [corner-shape:squircle] bg-[#21295A]"></div>
+              <div className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.57rem_0_0.57rem] [corner-shape:squircle] bg-[#21295A]"></div>
               <a 
                 href="#" 
-                className="relative z-10 bg-white border-[2px] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base px-6 py-3 rounded-[0_9.12px_0_9.12px] [corner-shape:squircle] whitespace-nowrap cursor-pointer flex-shrink-0
+                className="relative z-10 bg-white border-[0.125rem] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base px-6 py-3 rounded-[0_0.57rem_0_0.57rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer flex-shrink-0
                 [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
               >
                 همه مقالات
@@ -146,12 +146,12 @@ export default function Blogs() {
             
             {/* دکمه سمت راست (مخفی در موبایل) */}
             <div className="relative flex-shrink-0 z-30 hidden md:flex">
-              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_13.65px_0_13.65px] [corner-shape:squircle]"></div>
+              <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle]"></div>
               <button
                 type="button"
                 aria-label="پست قبلی"
                 onClick={() => swiperRef.current?.slidePrev()}
-                className="relative w-12 h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-ink rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-12 h-12 flex items-center justify-center bg-white border-[0.125rem] border-[#292827] text-ink rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
                 <ChevronRightIcon className="w-5 h-5" />
               </button>
@@ -191,12 +191,12 @@ export default function Blogs() {
 
             {/* دکمه سمت چپ (مخفی در موبایل) */}
             <div className="relative flex-shrink-0 z-30 hidden md:flex">
-              <div className="absolute top-[2px] left-[3px] w-full h-full bg-[#292827] rounded-[0_13.65px_0_13.65px] [corner-shape:squircle]"></div>
+              <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle]"></div>
               <button
                 type="button"
                 aria-label="پست بعدی"
                 onClick={() => swiperRef.current?.slideNext()}
-                className="relative w-12 h-12 flex items-center justify-center bg-white border-[2px] border-[#292827] text-[#292827] rounded-[0_13.65px_0_13.65px] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-12 h-12 flex items-center justify-center bg-white border-[0.125rem] border-[#292827] text-[#292827] rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
                 <ChevronLeftIcon className="w-5 h-5" />
               </button>
@@ -205,7 +205,7 @@ export default function Blogs() {
 
           {/* ── نوار پیشرفت (فقط در موبایل و تبلت) ── */}
           <div className="mt-2 flex justify-center md:hidden">
-            <div className="w-[150px] h-1.5 bg-gray-200 rounded-full overflow-hidden">
+            <div className="w-[9.375rem] h-1.5 bg-gray-200 rounded-full overflow-hidden">
               <div 
                 className="h-full bg-[#21295A] transition-all duration-500 ease-out rounded-full"
                 style={{ width: `${((activeIndex + 1) / posts.length) * 100}%` }}

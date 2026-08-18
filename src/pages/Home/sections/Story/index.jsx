@@ -32,12 +32,12 @@ const pills = [
 
 export default function Story() {
   return (
-    <section id="about" className="pt-[80px] sm:pt-[84px] lg:pt-[90px] pb-14 sm:pb-20 lg:pb-[88px] w-full px-4 sm:px-6 bg-[#F6F6F6]">
+    <section id="about" className="pt-[5rem] sm:pt-[5.25rem] lg:pt-[5.625rem] pb-14 sm:pb-20 lg:pb-[5.5rem] w-full px-4 sm:px-6 bg-[#F6F6F6]">
       {/* تغییر lg به xl برای رفع باگ در سایز 1024px */}
       <Container className="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-16 xl:gap-40 items-center">
         {/* ── ستون راست: تصویر ── */}
         <div className="relative flex items-start justify-center xl:justify-start -mt-2">
-          <div className="relative w-full max-w-[420px] sm:max-w-[480px] xl:max-w-[560px]">
+          <div className="relative w-full max-w-[26.25rem] sm:max-w-[30rem] xl:max-w-[35rem]">
             <img
               src={yarnIllustration}
               alt="تصویر چنگال با ماکارونی — نماد تفاوت رکاد"
@@ -47,8 +47,8 @@ export default function Story() {
 
             {/* برچسب شناور روی عکس (اضافه شدن squircle) */}
             <span
-              className="absolute bottom-[10%] right-[12%] sm:right-[20%] inline-block rotate-3 bg-[#FFD641] border-2 border-black font-bold text-[11px] sm:text-[14px] text-black rounded-tl-[10px]
-             rounded-tr-none rounded-br-[10px] rounded-bl-none [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2 shadow-[3px_3px_0_0_#000] max-w-[62%] sm:max-w-none text-center leading-snug"
+              className="absolute bottom-[10%] right-[12%] sm:right-[20%] inline-block rotate-3 bg-[#FFD641] border-2 border-black font-bold text-[0.6875rem] sm:text-[0.875rem] text-black rounded-tl-[0.625rem]
+             rounded-tr-none rounded-br-[0.625rem] rounded-bl-none [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2 shadow-[0.1875rem_0.1875rem_0_0_#000] max-w-[62%] sm:max-w-none text-center leading-snug"
             >
               رکاد یعنی متفاوت بودن...
             </span>
@@ -56,8 +56,8 @@ export default function Story() {
         </div>
 
         {/* ── ستون چپ: متن ── */}
-        <div className="max-w-full xl:max-w-[500px]">
-          <h2 className="font-black text-[24px] xs:text-[26px] sm:text-[40px] lg:text-[46px] leading-[1.4] sm:leading-[1.35] mb-4 sm:mb-5">
+        <div className="max-w-full xl:max-w-[31.25rem]">
+          <h2 className="font-black text-[1.5rem] xs:text-[1.625rem] sm:text-[2.5rem] lg:text-[2.875rem] leading-[1.4] sm:leading-[1.35] mb-4 sm:mb-5">
             <span className="inline-block rotate-3">چرا</span>{" "}
             <span className="inline-block text-teal-wordmark -rotate-3">
               رکاد
@@ -67,7 +67,7 @@ export default function Story() {
             <span className="inline-block rotate-3">معمولی</span>{" "}
             <span className="inline-block -rotate-3">نیست؟</span>
           </h2>
-          <p className="text-[12px] xs:text-[13px] sm:text-[15px] leading-[1.9] sm:leading-[2] text-navy/70 max-w-full xl:max-w-[460px] mb-[16px] sm:mb-[20px]">
+          <p className="text-[0.75rem] xs:text-[0.8125rem] sm:text-[0.9375rem] leading-[1.9] sm:leading-[2] text-navy/70 max-w-full xl:max-w-[28.75rem] mb-[1rem] sm:mb-[1.25rem]">
             ما هنرستان رو با اکوسیستم استارتاپی و بازار کار واقعی ترکیب کردیم.
             اینجا فقط کتاب نمی‌خونی؛ روی چالش‌های واقعی کار می‌کنی، با منتورهای
             متخصص همراهی می‌شی و توی محیطی امن، جرأت شکست خوردن و دوباره پاشدن
@@ -83,11 +83,11 @@ export default function Story() {
               >
                 {/* لایه سایه پشت استیکر (اضافه شدن squircle) */}
                 <span
-                  className={`absolute inset-0 translate-x-[3px] translate-y-[3px] rounded-[16px] [corner-shape:squircle] ${p.back}`}
+                  className={`absolute inset-0 translate-x-[0.1875rem] translate-y-[0.1875rem] rounded-[1rem] [corner-shape:squircle] ${p.back}`}
                 />
                 {/* لایه اصلی و متن استیکر (اضافه شدن squircle) */}
                 <span
-                  className={`relative block ${p.bg} border-2 rounded-[15px] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[11px] xs:text-[12px] sm:text-sm ${p.border} ${p.text}`}
+                  className={`relative block ${p.bg} border-2 rounded-[0.9375rem] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[0.6875rem] xs:text-[0.75rem] sm:text-sm ${p.border} ${p.text}`}
                 >
                   {p.label}
                 </span>
@@ -99,8 +99,8 @@ export default function Story() {
           <div className="flex justify-center xl:justify-center items-center w-full">
             <a
               href="#"
-              className="group inline-flex items-center justify-center gap-3 w-full max-w-[200px] sm:max-w-[170px] h-[42px] sm:h-[52px] bg-[#59BBAF] text-white font-extrabold text-[14px] sm:text-[18px]
-              rounded-tr-none rounded-bl-none rounded-tl-[10px] rounded-br-[10px] [corner-shape:squircle]
+              className="group inline-flex items-center justify-center gap-3 w-full max-w-[12.5rem] sm:max-w-[10.625rem] h-[2.625rem] sm:h-[3.25rem] bg-[#59BBAF] text-white font-extrabold text-[0.875rem] sm:text-[1.125rem]
+              rounded-tr-none rounded-bl-none rounded-tl-[0.625rem] rounded-br-[0.625rem] [corner-shape:squircle]
               border-2 border-[#D6EEEB]"
             >
               <span>ادامه داستان رکاد</span>

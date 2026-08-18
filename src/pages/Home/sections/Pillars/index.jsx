@@ -42,7 +42,7 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section className="relative py-[107px] sm:py-[110px] lg:py-[120px] bg-white overflow-hidden">
+    <section className="relative py-[6.6875rem] sm:py-[6.875rem] lg:py-[7.5rem] bg-white overflow-hidden">
       {/* ── Background Pattern Layer ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
@@ -55,7 +55,7 @@ export default function Pillars() {
 
       <Container className="relative z-10">
         {/* Title */}
-        <h2 className="text-right font-black text-[24px] xs:text-[28px] sm:text-[38px] lg:text-[53px] leading-[1.5] mb-4 sm:mb-5 flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3">
+        <h2 className="text-right font-black text-[1.5rem] xs:text-[1.75rem] sm:text-[2.375rem] lg:text-[3.3125rem] leading-[1.5] mb-4 sm:mb-5 flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3">
           <span className="inline-block -rotate-3">چرا</span>
           <span className="inline-block rotate-2">خانواده‌ها</span>
           <span className="inline-block -rotate-3">به</span>
@@ -69,7 +69,7 @@ export default function Pillars() {
         </h2>
 
         {/* Subtitle */}
-        <p className="text-right font-medium text-[14px] sm:text-[16px] leading-[1.9] text-navy/60 max-w-[620px] mb-[60px]">
+        <p className="text-right font-medium text-[0.875rem] sm:text-[1rem] leading-[1.9] text-navy/60 max-w-[38.75rem] mb-[3.75rem]">
           هر دانش‌آموز یه مسیر شخصی داره. سیستم آموزشی ما براساس چهار ستون طراحی
           شده تا هرفرد بهترین نسخه از خودش بشه
         </p>

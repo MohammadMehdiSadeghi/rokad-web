@@ -64,7 +64,7 @@ export default function StatCard({ theme, label, value, caption = {} }) {
   const { strong: captionStrong = "", rest: captionRest = "" } = caption;
 
   // کلاس ردیوس نامتقارن: چپ‌بالا و راست‌پایین 48px، بقیه صفر
-  const shapeClass = "rounded-tl-[32px] rounded-br-[32px] rounded-tr-none rounded-bl-none [corner-shape:squircle]";
+  const shapeClass = "rounded-tl-[2rem] rounded-br-[2rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]";
 
   return (
     <div className={`relative ${t.rotate} h-full`}>
@@ -74,8 +74,8 @@ export default function StatCard({ theme, label, value, caption = {} }) {
           absolute
           top-2
           left-2
-          -right-[4px]
-          -bottom-[4px]
+          -right-[0.25rem]
+          -bottom-[0.25rem]
           ${shapeClass}
           ${t.back}
         `}
@@ -91,7 +91,7 @@ export default function StatCard({ theme, label, value, caption = {} }) {
           flex-col
           items-center
           ${shapeClass}
-          border-[3px]
+          border-[0.1875rem]
           ${t.border}
           px-3
           xs:px-4
@@ -131,7 +131,7 @@ export default function StatCard({ theme, label, value, caption = {} }) {
               lg:-mt-2
               lg:mb-6
               bg-white
-              border-[1px]
+              border-[0.0625rem]
               rounded-xl
               [corner-shape:squircle]
               px-2
@@ -139,9 +139,9 @@ export default function StatCard({ theme, label, value, caption = {} }) {
               lg:px-4
               lg:py-1.5
               whitespace-nowrap
-              text-[9px]
-              xs:text-[10px]
-              lg:text-[16px]
+              text-[0.5625rem]
+              xs:text-[0.625rem]
+              lg:text-[1rem]
               font-extrabold
               shadow-sm
               ${t.badgeRotate}
@@ -160,9 +160,9 @@ export default function StatCard({ theme, label, value, caption = {} }) {
             mb-1.5
             xs:mb-2
             lg:mb-4
-            text-[34px]
-            xs:text-[38px]
-            lg:text-[72px]
+            text-[2.125rem]
+            xs:text-[2.375rem]
+            lg:text-[4.5rem]
             leading-none
             font-black
             ${t.text}
@@ -175,12 +175,12 @@ export default function StatCard({ theme, label, value, caption = {} }) {
         {(captionStrong || captionRest) && (
           <div className={`relative z-20 ${t.text} mt-auto`}>
             {captionStrong && (
-              <strong className="block mb-0.5 lg:mb-1 text-[10px] xs:text-[11px] lg:text-base font-black">
+              <strong className="block mb-0.5 lg:mb-1 text-[0.625rem] xs:text-[0.6875rem] lg:text-base font-black">
                 {captionStrong}
               </strong>
             )}
             {captionRest && (
-              <p className="text-[9px] xs:text-[10px] lg:text-sm leading-4 xs:leading-5 lg:leading-7 font-semibold">
+              <p className="text-[0.5625rem] xs:text-[0.625rem] lg:text-sm leading-4 xs:leading-5 lg:leading-7 font-semibold">
                 {captionRest}
               </p>
             )}

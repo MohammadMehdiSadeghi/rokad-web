@@ -21,38 +21,38 @@ const students = [
 // Card sizing per breakpoint. lg == the original/desired desktop design (unchanged).
 // base/sm/md scale it down for phones & tablets, 2xl scales it up for very large monitors.
 const CARD_SIZE =
-  "w-[152px] h-[216px] sm:w-[178px] sm:h-[253px] md:w-[200px] md:h-[284px] lg:w-[225px] lg:h-[320px] 2xl:w-[252px] 2xl:h-[358px]";
+  "w-[9.5rem] h-[13.5rem] sm:w-[11.125rem] sm:h-[15.8125rem] md:w-[12.5rem] md:h-[17.75rem] lg:w-[14.0625rem] lg:h-[20rem] 2xl:w-[15.75rem] 2xl:h-[22.375rem]";
 
 const HEADER_SIZE =
-  "h-[81px] sm:h-[95px] md:h-[106px] lg:h-[120px] 2xl:h-[134px]";
+  "h-[5.0625rem] sm:h-[5.9375rem] md:h-[6.625rem] lg:h-[7.5rem] 2xl:h-[8.375rem]";
 
 const HEADER_TOP =
-  "top-[81px] sm:top-[95px] md:top-[106px] lg:top-[120px] 2xl:top-[134px]";
+  "top-[5.0625rem] sm:top-[5.9375rem] md:top-[6.625rem] lg:top-[7.5rem] 2xl:top-[8.375rem]";
 
 const AVATAR_WRAP_POS =
-  "top-[40px] sm:top-[47px] md:top-[54px] lg:top-[60px] 2xl:top-[67px]";
+  "top-[2.5rem] sm:top-[2.9375rem] md:top-[3.375rem] lg:top-[3.75rem] 2xl:top-[4.1875rem]";
 
 const AVATAR_SIZE =
-  "w-[60px] h-[60px] sm:w-[71px] sm:h-[71px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] 2xl:w-[101px] 2xl:h-[101px]";
+  "w-[3.75rem] h-[3.75rem] sm:w-[4.4375rem] sm:h-[4.4375rem] md:w-[5rem] md:h-[5rem] lg:w-[5.625rem] lg:h-[5.625rem] 2xl:w-[6.3125rem] 2xl:h-[6.3125rem]";
 
-const AVATAR_BORDER_OFFSET = "top-[2px] left-[2px] lg:top-[3px] lg:left-[3px]";
+const AVATAR_BORDER_OFFSET = "top-[0.125rem] left-[0.125rem] lg:top-[0.1875rem] lg:left-[0.1875rem]";
 
 const CARD_CONTENT_PAD =
-  "px-3 pt-[38px] pb-3 sm:px-3.5 sm:pt-[45px] sm:pb-3.5 md:px-4 md:pt-[51px] lg:pt-[57px] lg:pb-4 2xl:pt-[64px]";
+  "px-3 pt-[2.375rem] pb-3 sm:px-3.5 sm:pt-[2.8125rem] sm:pb-3.5 md:px-4 md:pt-[3.1875rem] lg:pt-[3.5625rem] lg:pb-4 2xl:pt-[4rem]";
 
-const NAME_SIZE = "text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] 2xl:text-[18px]";
+const NAME_SIZE = "text-[0.8125rem] sm:text-[0.875rem] md:text-[0.9375rem] lg:text-[1rem] 2xl:text-[1.125rem]";
 
 const DESC_SIZE =
-  "text-[10px] sm:text-[11px] md:text-[11.5px] lg:text-[12px] 2xl:text-[13px] max-w-[135px] sm:max-w-[158px] md:max-w-[178px] lg:max-w-[190px] 2xl:max-w-[212px]";
+  "text-[0.625rem] sm:text-[0.6875rem] md:text-[0.71875rem] lg:text-[0.75rem] 2xl:text-[0.8125rem] max-w-[8.4375rem] sm:max-w-[9.875rem] md:max-w-[11.125rem] lg:max-w-[11.875rem] 2xl:max-w-[13.25rem]";
 
 const BADGE_SIZE =
-  "text-[8.5px] sm:text-[9px] md:text-[9.5px] lg:text-[10px] 2xl:text-[11px] px-[10px] py-[3px] sm:px-[11px] lg:px-[13px] lg:py-[4px]";
+  "text-[0.53125rem] sm:text-[0.5625rem] md:text-[0.59375rem] lg:text-[0.625rem] 2xl:text-[0.6875rem] px-[0.625rem] py-[0.1875rem] sm:px-[0.6875rem] lg:px-[0.8125rem] lg:py-[0.25rem]";
 
-const BADGE_OFFSET_POS = "top-[1.5px] left-[1.5px] lg:top-[2px] lg:left-[2px]";
+const BADGE_OFFSET_POS = "top-[0.09375rem] left-[0.09375rem] lg:top-[0.125rem] lg:left-[0.125rem]";
 
-const FOOTER_ICON_SIZE = "w-[16px] h-[16px] sm:w-[18px] sm:h-[18px] lg:w-[20px] lg:h-[20px]";
+const FOOTER_ICON_SIZE = "w-[1rem] h-[1rem] sm:w-[1.125rem] sm:h-[1.125rem] lg:w-[1.25rem] lg:h-[1.25rem]";
 
-const FOOTER_EXP_SIZE = "text-[8px] sm:text-[9px] lg:text-[10px] 2xl:text-[11px]";
+const FOOTER_EXP_SIZE = "text-[0.5rem] sm:text-[0.5625rem] lg:text-[0.625rem] 2xl:text-[0.6875rem]";
 
 // Cumulative left-shift for each stacked "ghost" card behind the last real card.
 // Only the lg value changed (22px -> 14px): the cards container is narrowest relative
@@ -61,12 +61,12 @@ const FOOTER_EXP_SIZE = "text-[8px] sm:text-[9px] lg:text-[10px] 2xl:text-[11px]
 // under the existing mask instead of poking out past its fade edge. sm/md/2xl are
 // exactly as before.
 const STACK_OFFSET_VAR =
-  "[--stack-unit:15px] sm:[--stack-unit:19px] md:[--stack-unit:23px] lg:[--stack-unit:15px] xl:[--stack-unit:21px] 2xl:[--stack-unit:27px]";
+  "[--stack-unit:0.9375rem] sm:[--stack-unit:1.1875rem] md:[--stack-unit:1.4375rem] lg:[--stack-unit:0.9375rem] xl:[--stack-unit:1.3125rem] 2xl:[--stack-unit:1.6875rem]";
 
 function LinkedinIcon() {
   return (
     <span
-      className={`inline-flex items-center justify-center ${FOOTER_ICON_SIZE} bg-[#eef7ff] border border-[#70b8e8] text-[#0a78b5] rounded-[2px] shrink-0`}
+      className={`inline-flex items-center justify-center ${FOOTER_ICON_SIZE} bg-[#eef7ff] border border-[#70b8e8] text-[#0a78b5] rounded-[0.125rem] shrink-0`}
     >
       <svg width="55%" height="55%" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M6.5 8.5H3V21h3.5V8.5ZM4.75 3C3.65 3 3 3.72 3 4.65S3.65 6.3 4.72 6.3h.03c1.1 0 1.75-.73 1.75-1.65C6.47 3.72 5.83 3 4.75 3ZM21 13.85c0-3.77-2.01-5.52-4.7-5.52-2.16 0-3.13 1.19-3.67 2.02V8.5H9.13V21h3.5v-6.97c0-1.84.35-3.62 2.63-3.62 2.25 0 2.28 2.1 2.28 3.74V21H21v-7.15Z" />
@@ -79,7 +79,7 @@ function StackCard({ layer, rotation }) {
   return (
     <div
       aria-hidden="true"
-      className={`absolute top-0 left-0 ${CARD_SIZE} ${STACK_OFFSET_VAR} bg-white border-[2px] border-[#292827] rounded-[0_14px_0_14px] overflow-hidden pointer-events-none`}
+      className={`absolute top-0 left-0 ${CARD_SIZE} ${STACK_OFFSET_VAR} bg-white border-[0.125rem] border-[#292827] rounded-[0_0.875rem_0_0.875rem] overflow-hidden pointer-events-none`}
       style={{
         transform: `translateX(calc(var(--stack-unit) * -${layer})) rotate(${rotation}deg)`,
         transformOrigin: "center center",
@@ -95,12 +95,12 @@ function StackCard({ layer, rotation }) {
       </div>
 
       <div className={`absolute ${HEADER_TOP} left-0 right-0 bottom-0 bg-white`} />
-      <div className="absolute left-[8px] right-[8px] sm:left-[10px] sm:right-[10px] bottom-[32px] sm:bottom-[38px] lg:bottom-[42px] border-t-[1.5px] border-dashed border-[#292827]/20" />
+      <div className="absolute left-[0.5rem] right-[0.5rem] sm:left-[0.625rem] sm:right-[0.625rem] bottom-[2rem] sm:bottom-[2.375rem] lg:bottom-[2.625rem] border-t-[0.09375rem] border-dashed border-[#292827]/20" />
 
-      <div className="absolute left-[8px] sm:left-[10px] bottom-[8px] sm:bottom-[10px] flex gap-[4px] sm:gap-[5px]">
-        <span className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[2px]`} />
-        <span className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[2px]`} />
-        <span className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[2px]`} />
+      <div className="absolute left-[0.5rem] sm:left-[0.625rem] bottom-[0.5rem] sm:bottom-[0.625rem] flex gap-[0.25rem] sm:gap-[0.3125rem]">
+        <span className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[0.125rem]`} />
+        <span className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[0.125rem]`} />
+        <span className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[0.125rem]`} />
       </div>
     </div>
   );
@@ -126,10 +126,10 @@ function StudentCard({ student, index, stacked }) {
 
       <div
         aria-hidden="true"
-        className="absolute top-[3px] left-[3px] sm:top-[4px] sm:left-[4px] lg:top-[5px] lg:left-[5px] w-full h-full bg-[#292827] rounded-[0_14px_0_14px] z-[5]"
+        className="absolute top-[0.1875rem] left-[0.1875rem] sm:top-[0.25rem] sm:left-[0.25rem] lg:top-[0.3125rem] lg:left-[0.3125rem] w-full h-full bg-[#292827] rounded-[0_0.875rem_0_0.875rem] z-[5]"
       />
 
-      <div className={`relative z-[10] w-full h-full bg-white rounded-[0_14px_0_14px] overflow-hidden border-[2px] border-[#292827] flex flex-col`}>
+      <div className={`relative z-[10] w-full h-full bg-white rounded-[0_0.875rem_0_0.875rem] overflow-hidden border-[0.125rem] border-[#292827] flex flex-col`}>
         <div className={`relative w-full ${HEADER_SIZE} shrink-0 overflow-hidden bg-gradient-to-l from-[#59bbaf] to-[#58bdaf]`}>
           <img
             src="/public/assets/Rokadians/Frame 1000006407.png"
@@ -145,7 +145,7 @@ function StudentCard({ student, index, stacked }) {
           <img
             src="/assets/Rokadians/Ellipse 83.png"
             alt={student.name}
-            className={`relative z-[10] ${AVATAR_SIZE} rounded-full object-cover border-[1.5px] border-[#292827]`}
+            className={`relative z-[10] ${AVATAR_SIZE} rounded-full object-cover border-[0.09375rem] border-[#292827]`}
           />
         </div>
 
@@ -156,18 +156,18 @@ function StudentCard({ student, index, stacked }) {
           </p>
 
           <div className="relative inline-flex items-center justify-center mt-2.5 sm:mt-3 lg:mt-4">
-            <div aria-hidden="true" className={`absolute ${BADGE_OFFSET_POS} w-full h-full bg-[#292827] rounded-[0_6px_0_6px]`} />
+            <div aria-hidden="true" className={`absolute ${BADGE_OFFSET_POS} w-full h-full bg-[#292827] rounded-[0_0.375rem_0_0.375rem]`} />
             <button
-              className={`relative z-10 ${BADGE_SIZE} bg-white border-[1.5px] border-[#292827] text-[#292827] font-bold rounded-[0_6px_0_6px] whitespace-nowrap hover:bg-[#292827] hover:text-white transition-colors`}
+              className={`relative z-10 ${BADGE_SIZE} bg-white border-[0.09375rem] border-[#292827] text-[#292827] font-bold rounded-[0_0.375rem_0_0.375rem] whitespace-nowrap hover:bg-[#292827] hover:text-white transition-colors`}
             >
               نسل پنجم رکاد
             </button>
           </div>
         </div>
 
-        <div className="mt-auto shrink-0 border-t-[1.5px] border-dashed border-[#292827]/35">
-          <div dir="ltr" className="flex items-center justify-between px-[8px] sm:px-[9px] lg:px-[10px] pt-[6px] sm:pt-[7px] lg:pt-[8px] pb-[7px] sm:pb-[8px] lg:pb-[9px]">
-            <div className="flex items-center gap-[4px] sm:gap-[5px]">
+        <div className="mt-auto shrink-0 border-t-[0.09375rem] border-dashed border-[#292827]/35">
+          <div dir="ltr" className="flex items-center justify-between px-[0.5rem] sm:px-[0.5625rem] lg:px-[0.625rem] pt-[0.375rem] sm:pt-[0.4375rem] lg:pt-[0.5rem] pb-[0.4375rem] sm:pb-[0.5rem] lg:pb-[0.5625rem]">
+            <div className="flex items-center gap-[0.25rem] sm:gap-[0.3125rem]">
               <LinkedinIcon />
               <LinkedinIcon />
               <LinkedinIcon />
@@ -188,7 +188,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-[#f2faf9] pt-[106px] sm:pt-[112px] md:pt-[118px] lg:pt-[124px] 2xl:pt-[130px] pb-14 sm:pb-20 md:pb-24 lg:pb-[100px] 2xl:pb-[112px] px-3 sm:px-6 lg:px-0"
+      className="relative overflow-hidden bg-[#f2faf9] pt-[6.625rem] sm:pt-[7rem] md:pt-[7.375rem] lg:pt-[7.75rem] 2xl:pt-[8.125rem] pb-14 sm:pb-20 md:pb-24 lg:pb-[6.25rem] 2xl:pb-[7rem] px-3 sm:px-6 lg:px-0"
     >
       {/* hides the scrollbar on the mobile/tablet horizontal card rail */}
       <style>{`
@@ -197,9 +197,9 @@ export default function Rokadians() {
       `}</style>
 
       <Container className="relative z-10">
-        <div className="w-full lg:w-[94%] lg:mx-auto 2xl:w-[86%] 2xl:max-w-[1760px]">
-          <div className="text-center max-w-[800px] mx-auto mb-[40px] sm:mb-[56px] md:mb-[72px] lg:mb-[95px] 2xl:mb-[110px]">
-            <h2 className="flex flex-wrap justify-center items-center gap-x-[7px] gap-y-[4px] font-black text-[22px] sm:text-[28px] md:text-[34px] lg:text-[42px] 2xl:text-[46px] leading-[1.4] text-[#292827]">
+        <div className="w-full lg:w-[94%] lg:mx-auto 2xl:w-[86%] 2xl:max-w-[110rem]">
+          <div className="text-center max-w-[50rem] mx-auto mb-[2.5rem] sm:mb-[3.5rem] md:mb-[4.5rem] lg:mb-[5.9375rem] 2xl:mb-[6.875rem]">
+            <h2 className="flex flex-wrap justify-center items-center gap-x-[0.4375rem] gap-y-[0.25rem] font-black text-[1.375rem] sm:text-[1.75rem] md:text-[2.125rem] lg:text-[2.625rem] 2xl:text-[2.875rem] leading-[1.4] text-[#292827]">
               <span className="inline-block" style={{ transform: "rotate(-3deg)" }}>
                 ببین
               </span>
@@ -217,7 +217,7 @@ export default function Rokadians() {
               </span>
             </h2>
 
-            <p className="font-medium text-[#292827] text-[13px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-[1.9] sm:leading-[2] max-w-[520px] sm:max-w-[580px] lg:max-w-[620px] mx-auto mt-4 sm:mt-5 lg:mt-6">
+            <p className="font-medium text-[#292827] text-[0.8125rem] sm:text-[0.9375rem] md:text-[1rem] lg:text-[1.125rem] leading-[1.9] sm:leading-[2] max-w-[32.5rem] sm:max-w-[36.25rem] lg:max-w-[38.75rem] mx-auto mt-4 sm:mt-5 lg:mt-6">
               فارغ‌التحصیلان ما در بهترین تیم‌های فنی کشور و به‌عنوان بنیان‌گذار استارتاپ‌های خودشون فعال هستن.
             </p>
           </div>
@@ -227,7 +227,7 @@ export default function Rokadians() {
               {/* MASK — untouched, exactly as original */}
               <div
                 aria-hidden="true"
-                className="hidden lg:block absolute -top-[25px] -bottom-[25px] left-0 w-full z-[30] pointer-events-none"
+                className="hidden lg:block absolute -top-[1.5625rem] -bottom-[1.5625rem] left-0 w-full z-[30] pointer-events-none"
                 style={{
                   background:
                     "linear-gradient(to right, #f2faf9 18%, rgba(242,250,249,0.92) 23%, rgba(242,250,249,0.58) 35%, rgba(242,250,249,0.25) 55%, rgba(242,250,249,0) 70%)",
@@ -237,28 +237,28 @@ export default function Rokadians() {
               {/* CARD ROW — below lg this is now a horizontal scroll-snap rail instead of
                   flex-wrap, so cards no longer break into an awkward 2-then-1 layout on
                   phones/tablets. At lg and up it's the same static flex row as before. */}
-              <div className="rokadians-rail relative z-[10] flex flex-nowrap lg:flex-nowrap justify-start lg:justify-start items-center gap-4 sm:gap-5 md:gap-6 lg:gap-[24px] xl:gap-[28px] 2xl:gap-[36px] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-3 sm:py-4 lg:py-0 -mx-3 px-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[10px] 2xl:pl-[16px]">
+              <div className="rokadians-rail relative z-[10] flex flex-nowrap lg:flex-nowrap justify-start lg:justify-start items-center gap-4 sm:gap-5 md:gap-6 lg:gap-[1.5rem] xl:gap-[1.75rem] 2xl:gap-[2.25rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-3 sm:py-4 lg:py-0 -mx-3 px-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[0.625rem] 2xl:pl-[1rem]">
                 {students.map((student, index) => (
                   <StudentCard key={index} student={student} index={index} stacked={index === students.length - 1} />
                 ))}
               </div>
             </div>
 
-            <div className="w-full lg:w-[24%] xl:w-[22%] 2xl:w-[20%] flex-shrink-0 flex flex-col justify-center text-center lg:text-right order-2 lg:pr-[25px] 2xl:pr-[32px]">
+            <div className="w-full lg:w-[24%] xl:w-[22%] 2xl:w-[20%] flex-shrink-0 flex flex-col justify-center text-center lg:text-right order-2 lg:pr-[1.5625rem] 2xl:pr-[2rem]">
               <div className="rotate-[2deg] items-center justify-center flex flex-col mx-auto lg:mx-0">
-                <p className="font-black text-[44px] sm:text-[52px] md:text-[58px] lg:text-[64px] 2xl:text-[72px] leading-[1] text-[#21295a]">
+                <p className="font-black text-[2.75rem] sm:text-[3.25rem] md:text-[3.625rem] lg:text-[4rem] 2xl:text-[4.5rem] leading-[1] text-[#21295a]">
                   ۳۰۰+
                 </p>
-                <p className="font-black text-[17px] sm:text-[19px] md:text-[22px] lg:text-[24px] 2xl:text-[27px] text-[#21295a] mt-[10px] sm:mt-[12px]">
+                <p className="font-black text-[1.0625rem] sm:text-[1.1875rem] md:text-[1.375rem] lg:text-[1.5rem] 2xl:text-[1.6875rem] text-[#21295a] mt-[0.625rem] sm:mt-[0.75rem]">
                   دانش‌آموز
                 </p>
-                <p className="font-bold text-[12px] sm:text-[13px] lg:text-[14px] 2xl:text-[15px] text-[#21295a]/80 mt-[7px] sm:mt-[8px]">
+                <p className="font-bold text-[0.75rem] sm:text-[0.8125rem] lg:text-[0.875rem] 2xl:text-[0.9375rem] text-[#21295a]/80 mt-[0.4375rem] sm:mt-[0.5rem]">
                   در مسیر ساخت آینده
                 </p>
 
                 <a
                   href="#"
-                  className="relative inline-flex items-center justify-center w-fit bg-white border-[2px] border-[#21295a] text-[#21295a] font-black text-[14px] sm:text-[16px] lg:text-[18px] 2xl:text-[20px] px-5 sm:px-7 py-2 sm:py-2.5 rounded-[0_10px_0_10px] hover:rotate-0 transition-transform duration-300 whitespace-nowrap mt-6 sm:mt-8"
+                  className="relative inline-flex items-center justify-center w-fit bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] 2xl:text-[1.25rem] px-5 sm:px-7 py-2 sm:py-2.5 rounded-[0_0.625rem_0_0.625rem] hover:rotate-0 transition-transform duration-300 whitespace-nowrap mt-6 sm:mt-8"
                 >
                   مشاهده همه
                 </a>

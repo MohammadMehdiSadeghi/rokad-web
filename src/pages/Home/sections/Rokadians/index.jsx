@@ -55,13 +55,11 @@ const FOOTER_ICON_SIZE = "w-[1rem] h-[1rem] sm:w-[1.125rem] sm:h-[1.125rem] lg:w
 const FOOTER_EXP_SIZE = "text-[0.5rem] sm:text-[0.5625rem] lg:text-[0.625rem] 2xl:text-[0.6875rem]";
 
 // Cumulative left-shift for each stacked "ghost" card behind the last real card.
-// Only the lg value changed (22px -> 14px): the cards container is narrowest relative
-// to viewport at lg (1024-1279px), so the untouched mask's fade zone covers less raw
-// pixel width there. A shorter tail at that breakpoint keeps every ghost layer tucked
-// under the existing mask instead of poking out past its fade edge. sm/md/2xl are
-// exactly as before.
+// Increased for visible gap at all breakpoints, especially xl/2xl where container is wider.
+// lg is tightest (Container 80% at 1024-1279px), so offset smallest there.
+// xl/2xl get progressively more offset since mask extends to 98%.
 const STACK_OFFSET_VAR =
-  "[--stack-unit:0.9375rem] sm:[--stack-unit:1.1875rem] md:[--stack-unit:1.4375rem] lg:[--stack-unit:0.9375rem] xl:[--stack-unit:1.3125rem] 2xl:[--stack-unit:1.6875rem]";
+  "[--stack-unit:0.375rem] sm:[--stack-unit:0.5rem] md:[--stack-unit:0.625rem] lg:[--stack-unit:0.375rem] xl:[--stack-unit:0.75rem] 2xl:[--stack-unit:1rem]";
 
 function LinkedinIcon() {
   return (
@@ -224,20 +222,20 @@ export default function Rokadians() {
 
           <div className="flex flex-col lg:flex-row lg:items-start gap-6 sm:gap-8 lg:gap-8">
             <div className="relative w-full lg:w-[70%] order-1 overflow-visible">
-              {/* MASK — untouched, exactly as original */}
-              <div
-                aria-hidden="true"
-                className="hidden lg:block absolute -top-[1.5625rem] -bottom-[1.5625rem] left-0 w-full z-[30] pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(to right, #f2faf9 18%, rgba(242,250,249,0.92) 23%, rgba(242,250,249,0.58) 35%, rgba(242,250,249,0.25) 55%, rgba(242,250,249,0) 70%)",
-                }}
-              />
+                          {/* MASK — extended leftwards to cover full stack tail */}
+                          <div
+                            aria-hidden="true"
+                            className="hidden lg:block absolute -top-[1.5625rem] -bottom-[1.5625rem] left-[-12%] w-[112%] z-[30] pointer-events-none"
+                            style={{
+                              background:
+                                "linear-gradient(to right, #f2faf9 0%, rgba(242,250,249,0.95) 5%, rgba(242,250,249,0.55) 20%, rgba(242,250,249,0.2) 45%, rgba(242,250,249,0.05) 70%, rgba(242,250,249,0) 95%)",
+                            }}
+                          />
 
               {/* CARD ROW — below lg this is now a horizontal scroll-snap rail instead of
                   flex-wrap, so cards no longer break into an awkward 2-then-1 layout on
                   phones/tablets. At lg and up it's the same static flex row as before. */}
-              <div className="rokadians-rail relative z-[10] flex flex-nowrap lg:flex-nowrap justify-start lg:justify-start items-center gap-4 sm:gap-5 md:gap-6 lg:gap-[1.5rem] xl:gap-[1.75rem] 2xl:gap-[2.25rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-3 sm:py-4 lg:py-0 -mx-3 px-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[0.625rem] 2xl:pl-[1rem]">
+              <div className="rokadians-rail relative z-[10] flex flex-nowrap lg:flex-nowrap justify-start lg:justify-start items-center gap-4 sm:gap-5 md:gap-6 lg:gap-[1.5rem] xl:gap-[1.75rem] 2xl:gap-[2.25rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-3 sm:py-4 lg:py-0 -mx-3 px-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[0.3125rem] 2xl:pl-[0.5rem] pr-16 lg:pr-0">
                 {students.map((student, index) => (
                   <StudentCard key={index} student={student} index={index} stacked={index === students.length - 1} />
                 ))}

@@ -1,247 +1,126 @@
-import { useEffect, useRef, useState } from "react";
 import Container from "../../../../layout/Container";
-import { UserIcon } from "../../../../common/Icons";
 
 const ecosystemPattern = "/assets/Shared/Patterns/Ecosystem-Pattern.png";
 
-const cards = [
-  {
-    title: "مسیر رشد شخصی‌سازی‌شده",
-    body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه به مسیر یکسان برای همه.",
-    tilt: -1.5,
-  },
-  {
-    title: "مسیر رشد شخصی‌سازی‌شده",
-    body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه به مسیر یکسان برای همه.",
-    featured: true,
-    tilt: 1.2,
-  },
-  {
-    title: "مسیر رشد شخصی‌سازی‌شده",
-    body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه به مسیر یکسان برای همه.",
-    tilt: -1,
-  },
-  {
-    title: "مسیر رشد شخصی‌سازی‌شده",
-    body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه به مسیر یکسان برای همه.",
-    tilt: 1.5,
-  },
-  {
-    title: "مسیر رشد شخصی‌سازی‌شده",
-    body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه به مسیر یکسان برای همه.",
-    tilt: 1,
-  },
-  {
-    title: "مسیر رشد شخصی‌سازی‌شده",
-    body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه به مسیر یکسان برای همه.",
-    tilt: -1.2,
-  },
-  {
-    title: "مسیر رشد شخصی‌سازی‌شده",
-    body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه به مسیر یکسان برای همه.",
-    tilt: 1.5,
-  },
-  {
-    title: "مسیر رشد شخصی‌سازی‌شده",
-    body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه به مسیر یکسان برای همه.",
-    tilt: -1,
-  },
-];
-
-/**
- * این هوک مشخص می‌کنه از بین یه لیست از عنصرها (refs)، کدوم یکی
- * از نظر «مرکز عنصر» به «مرکز صفحه (50vh)» نزدیک‌تره.
- * فقط زیر یک breakpoint خاص (پیش‌فرض 1024px = lg) فعال می‌شه،
- * چون تو دسکتاپ همون :hover واقعی کارو انجام می‌ده.
- */
-function useClosestToCenter(
-  count,
-  { minPercent = 30, maxPercent = 70, disableAboveWidth = 1024 } = {},
-) {
-  const itemRefs = useRef([]);
-  const [activeIndex, setActiveIndex] = useState(null);
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    const checkWidth = () => setEnabled(window.innerWidth < disableAboveWidth);
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
-    return () => window.removeEventListener("resize", checkWidth);
-  }, [disableAboveWidth]);
-
-  useEffect(() => {
-    if (!enabled) {
-      setActiveIndex(null);
-      return;
-    }
-
-    let rafId = null;
-
-    const compute = () => {
-      const vh = window.innerHeight;
-      const zoneTop = vh * (minPercent / 100);
-      const zoneBottom = vh * (maxPercent / 100);
-      const viewportCenter = vh / 2;
-
-      let bestIndex = null;
-      let bestDistance = Infinity;
-
-      itemRefs.current.forEach((node, i) => {
-        if (!node) return;
-        const rect = node.getBoundingClientRect();
-        const elCenter = rect.top + rect.height / 2;
-
-        if (elCenter < zoneTop || elCenter > zoneBottom) return;
-
-        const distance = Math.abs(elCenter - viewportCenter);
-        if (distance < bestDistance) {
-          bestDistance = distance;
-          bestIndex = i;
-        }
-      });
-
-      setActiveIndex(bestIndex);
-    };
-
-    const onScrollOrResize = () => {
-      if (rafId) return;
-      rafId = requestAnimationFrame(() => {
-        compute();
-        rafId = null;
-      });
-    };
-
-    compute();
-    window.addEventListener("scroll", onScrollOrResize, { passive: true });
-    window.addEventListener("resize", onScrollOrResize);
-    return () => {
-      window.removeEventListener("scroll", onScrollOrResize);
-      window.removeEventListener("resize", onScrollOrResize);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
-  }, [enabled, minPercent, maxPercent]);
-
-  const setRef = (index) => (node) => {
-    itemRefs.current[index] = node;
-  };
-
-  return { setRef, activeIndex };
-}
-
-function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
+export default function Ecosystem() {
   return (
-    <article
-      ref={cardRef}
-      style={{ "--tilt": `${tilt}deg` }}
-      data-active={isActive || undefined}
-      className={`
-        group p-3 xs:p-4 sm:p-6 flex flex-col gap-2 sm:gap-4
-        backdrop-blur-[19.06px] rotate-[var(--tilt)] hover:rotate-0
-        transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
-        hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
-
-        bg-[#FFFFFF12] hover:bg-[#59BBAF]
-        border-[0.11875rem] border-[#59BBAF] hover:border-[#FFFFFF]
-        rounded-[0_1.90875rem_0_1.90875rem] [corner-shape:squircle]
-
-        ${isActive ? "-translate-y-1.5 shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)] bg-[#59BBAF] border-[#FFFFFF] rotate-0" : ""}
-      `}
-    >
-      {/* Icon */}
-      <div
-        className={`
-          w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0
-          transition-colors duration-500
-          rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle]
-          bg-[#58BDAF] group-hover:bg-[#202A5A]
-          ${isActive ? "bg-[#202A5A]" : ""}
-        `}
-      >
-        <span
-          className={`w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
-            isActive ? "text-white" : ""
-          }`}
-        >
-          <UserIcon />
-        </span>
+    <section className="relative py-16 lg:py-24 bg-white" dir="rtl">
+      {/* Background pattern */}
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <img
+          src={ecosystemPattern}
+          alt=""
+          className="w-full h-full object-cover"
+        />
       </div>
 
-      {/* Text */}
-      <div>
-        <h4 className="font-black text-[0.75rem] xs:text-[0.8125rem] sm:text-[1.125rem] text-white mb-1 sm:mb-2 leading-snug transition-colors duration-300">
-          {title}
-        </h4>
-        <p
-          className={`text-[0.5625rem] xs:text-[0.625rem] sm:text-[0.8125rem] leading-[1.7] sm:leading-[1.85] text-white/60 group-hover:text-white/90 transition-colors duration-300 line-clamp-3 sm:line-clamp-none ${
-            isActive ? "text-white/90" : ""
-          }`}
-        >
-          {body}
-        </p>
-      </div>
-    </article>
+      <Container className="relative z-10">
+        {/* ── Header ── */}
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="font-black text-[#21295A] text-[28px] sm:text-[36px] lg:text-[48px] leading-[1.2] mb-4">
+            اکوسیستم رکاد
+          </h2>
+          <p className="text-[#21295A]/70 text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed max-w-2xl mx-auto">
+            اکوسیستم کامل ما برای حمایت از رشد، یادگیری و موفقیت دانش‌آموزان
+          </p>
+        </div>
+
+        {/* ── Central Icon + Cards ── */}
+        <div className="relative max-w-[600px] mx-auto">
+          {/* Connecting lines (dashed) */}
+          <svg className="absolute right-[50%] top-0 bottom-0 w-[2px] -translate-x-1/2 pointer-events-none" viewBox="0 0 2 100" preserveAspectRatio="none">
+            <line
+              x1="1"
+              y1="0"
+              x2="1"
+              y2="100%"
+              stroke="#58BDAF"
+              strokeWidth="2"
+              strokeDasharray="8 12"
+              strokeDashoffset="4"
+              opacity="0.4"
+            />
+          </svg>
+
+          {/* Central icon */}
+          <div className="relative flex justify-center mb-8 lg:mb-12">
+            <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-full bg-[#58BDAF] flex items-center justify-center shadow-[0_8px_24px_rgba(88,189,175,0.25)]">
+              <svg className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Cards - vertical stack */}
+          <div className="space-y-6">
+            {/* Card 1 - Orange */}
+            <div className="relative pr-10 lg:pr-14 before:absolute before:right-[50%] before:top-1/2 before:w-[24px] before:h-[2px] before:bg-[#58BDAF] before:opacity-40 before:-translate-y-1/2 before:translate-x-1/2">
+              <div className="bg-gradient-to-br from-[#FF8C42] to-[#FF6B2E] rounded-[24px] p-6 lg:p-8 shadow-[0_8px_24px_rgba(255,140,66,0.25)]">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-[10px] bg-white/20 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-black text-white text-[18px] sm:text-[20px] lg:text-[22px] leading-tight mb-2">
+                      مسیر رشد شخصی‌سازی‌شده
+                    </h3>
+                    <p className="text-white/90 text-[14px] sm:text-[15px] lg:text-[16px] leading-relaxed">
+                      استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه به مسیر یکسان برای همه.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 - Green (Featured) */}
+            <div className="relative pr-10 lg:pr-14 before:absolute before:right-[50%] before:top-1/2 before:w-[24px] before:h-[2px] before:bg-[#58BDAF] before:opacity-40 before:-translate-y-1/2 before:translate-x-1/2">
+              <div className="bg-gradient-to-br from-[#34D399] to-[#10B981] rounded-[24px] p-6 lg:p-8 shadow-[0_8px_24px_rgba(16,185,129,0.25)] ring-2 ring-white/30 ring-offset-2 ring-offset-white">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-[10px] bg-white/20 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-black text-white text-[18px] sm:text-[20px] lg:text-[22px] leading-tight mb-2">
+                      منторینگ و'accompagnement
+                    </h3>
+                    <p className="text-white/90 text-[14px] sm:text-[15px] lg:text-[16px] leading-relaxed">
+                      منتورهای مجرب کنار تو هستن؛ از انتخاب مسیر تا اولین پروژه‌ی واقعی.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 - Purple */}
+            <div className="relative pr-10 lg:pr-14 before:absolute before:right-[50%] before:top-1/2 before:w-[24px] before:h-[2px] before:bg-[#58BDAF] before:opacity-40 before:-translate-y-1/2 before:translate-x-1/2">
+              <div className="bg-gradient-to-br from-[#A78BFA] to-[#8B5CF6] rounded-[24px] p-6 lg:p-8 shadow-[0_8px_24px_rgba(139,92,246,0.25)]">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-[10px] bg-white/20 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-black text-white text-[18px] sm:text-[20px] lg:text-[22px] leading-tight mb-2">
+                      شبکه‌ی فرصت‌ها و همکاری
+                    </h3>
+                    <p className="text-white/90 text-[14px] sm:text-[15px] lg:text-[16px] leading-relaxed">
+                      اکوسیستم استارتاپی، ارتباط با سرمایه‌گذارها، و فرصت‌های واقعی کاری.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }
-
-export default function Ecosystem() {
-  const { setRef, activeIndex } = useClosestToCenter(cards.length, {
-    minPercent: 30,
-    maxPercent: 70,
-  });
-
-  return (
-      <section
-        className="py-[3rem] sm:py-[4rem] lg:py-[5rem] px-4 sm:px-6 relative overflow-hidden"
-        style={{
-          background:
-            "radial-gradient(ellipse at 30% 20%, #1c2c60 0%, #0e1633 60%, #0b1228 100%)",
-        }}
-      >
-        {/* ── Background Pattern Layer ── */}
-        <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-          <img
-            src={ecosystemPattern}
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover opacity-30"
-          />
-        </div>
-
-        {/* Subtle decorative blobs */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
-          <div className="absolute -top-20 -right-20 w-[26.25rem] h-[26.25rem] rounded-full bg-teal/10 blur-[5.625rem]" />
-          <div className="absolute bottom-0 left-0 w-[18.75rem] h-[18.75rem] rounded-full bg-navy/40 blur-[4.375rem]" />
-        </div>
-
-        <Container className="relative z-10">
-          {/* Heading */}
-          <h2 className="text-center font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.5rem] xl:text-[2.875rem] leading-[1.3] text-white mb-3 sm:mb-4 lg:mb-6 flex flex-wrap justify-center items-center gap-x-2">
-            <span className="inline-block -rotate-[1.9deg]">یه</span>
-            <span className="inline-block rotate-[1.9deg] text-teal">
-              اکوسیستم
-            </span>
-            <span className="inline-block -rotate-[1.9deg]">کامل</span>
-            <span className="inline-block rotate-[1.9deg]">برای</span>
-            <span className="inline-block -rotate-[1.9deg]">رشد</span>
-          </h2>
-
-          <p className="text-center font-medium text-[0.875rem] sm:text-[1rem] leading-[1.9] text-white/60 mx-auto mb-[1.5rem] sm:mb-[2rem] lg:mb-[3rem]">
-            از استعدادسنجی تا اولین شغلت، تمام گام‌های مسیر با پشتیبانی متخصصان طی
-            می‌شه.
-          </p>
-
-          {/* Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 xs:gap-3 sm:gap-5">
-            {cards.map((c, i) => (
-              <EcoCard
-                key={i}
-                {...c}
-                isActive={activeIndex === i}
-                cardRef={setRef(i)}
-              />
-            ))}
-          </div>
-        </Container>
-      </section>
-    );
-  }

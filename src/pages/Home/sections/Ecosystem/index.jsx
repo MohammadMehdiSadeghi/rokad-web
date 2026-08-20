@@ -1,124 +1,169 @@
 import Container from "../../../../layout/Container";
 
-const ecosystemPattern = "/assets/Shared/Patterns/Ecosystem-Pattern.png";
+const logo = "/assets/Shared/Logos/logo.png";
+
+const branches = [
+  {
+    id: "college",
+    href: "#college",
+    title: "کالج رکاد",
+    description:
+      "مسیر یادگیری ساختاریافته با اساتید مسلط و پروژه‌های واقعی — جایی که پایه‌های مهارت شکل می‌گیرد.",
+    brand: "amber",
+  },
+  {
+    id: "accelerator",
+    href: "#accelerator",
+    title: "شتاب‌دهنده رکاد",
+    description:
+      "از ایده تا محصول قابل عرضه؛ منتورشیپ تخصصی، سرمایه‌ی اولیه و دسترسی به شبکه‌ای از سرمایه‌گذاران رکاد.",
+    brand: "teal",
+  },
+  {
+    id: "cafe",
+    href: "#cafe",
+    title: "کافه کارآفرینی رکاد",
+    description:
+      "محل ملاقات ایده‌ها؛ رویدادها، گفت‌وگو با کارآفرینان و شبکه‌سازی روزمره در یک فضای گرم و پویا.",
+    brand: "violet",
+  },
+];
+
+// رنگ‌های هر برند به‌صورت مستقیم (بنفش هنوز توی tailwind.config.js
+// به‌صورت اسکیل تعریف نشده، برای همین از hex مستقیم استفاده شده تا
+// نیازی به دستکاری config نباشه)
+const BRAND_CONFIG = {
+  amber: {
+    border: "#F8A41D",
+    badgeBg: "#F8A41D",
+    text: "#E49007",
+    cardBg: "#FFFCF6",
+    line: "#F8A41D",
+  },
+  teal: {
+    border: "#347E75",
+    badgeBg: "#347E75",
+    text: "#347E75",
+    cardBg: "#FFFFFF",
+    line: "#347E75",
+  },
+  violet: {
+    border: "#5B3E9E",
+    badgeBg: "#7C4DBF",
+    text: "#5B3E9E",
+    cardBg: "#FBFAFE",
+    line: "#7C4DBF",
+  },
+};
+
+function BranchCard({ branch, compact = false }) {
+  const c = BRAND_CONFIG[branch.brand];
+  return (
+    <div
+      className={`rounded-2xl border-2 ${compact ? "px-6 py-5" : "px-8 py-6"}`}
+      style={{ borderColor: c.border, background: c.cardBg }}
+    >
+      <a
+        href={branch.href}
+        className="inline-block rounded-lg px-3.5 py-1.5 text-xs font-bold text-white mb-3 transition-opacity hover:opacity-90"
+        style={{ background: c.badgeBg }}
+      >
+        مشاهده بیشتر
+      </a>
+      <h3 className={`${compact ? "text-lg" : "text-xl lg:text-2xl"} font-black text-ink mb-2 leading-snug`}>
+        {branch.title}
+      </h3>
+      <p
+        className="text-sm font-medium leading-[1.8]"
+        style={{ color: c.text }}
+      >
+        {branch.description}
+      </p>
+    </div>
+  );
+}
 
 export default function Ecosystem() {
-  return (
-    <section className="relative py-16 lg:py-24 bg-white" dir="rtl">
-      {/* Background pattern */}
-      <div className="absolute inset-0 pointer-events-none opacity-40">
-        <img
-          src={ecosystemPattern}
-          alt=""
-          className="w-full h-full object-cover"
-        />
-      </div>
+  // درصد ارتفاع (روی ۰ تا ۱۰۰) هر کارت برای رسم خط‌های خط‌چین در حالت دسکتاپ
+  const yPositions = [16, 50, 84];
+  const hubY = 50;
 
+  return (
+    <section id="ecosystem" className="relative py-20 lg:py-28 bg-white overflow-hidden" dir="rtl">
       <Container className="relative z-10">
-        {/* ── Header ── */}
-        <div className="text-center mb-12 lg:mb-16">
-          <h2 className="font-black text-[#21295A] text-[28px] sm:text-[36px] lg:text-[48px] leading-[1.2] mb-4">
-            اکوسیستم رکاد
+        {/* Heading */}
+        <div className="text-center mb-16 lg:mb-20">
+          <h2 className="text-3xl lg:text-[42px] font-extrablack leading-[1.2] tracking-tight text-ink mb-4">
+            <span className="text-teal-600">اکوسیستم</span> رکاد
           </h2>
-          <p className="text-[#21295A]/70 text-[16px] sm:text-[18px] lg:text-[20px] leading-relaxed max-w-2xl mx-auto">
-            اکوسیستم کامل ما برای حمایت از رشد، یادگیری و موفقیت دانش‌آموزان
+          <p className="text-base lg:text-lg font-medium leading-relaxed text-ink-700 max-w-2xl mx-auto">
+            سه‌گانه‌ای که مسیر رشد را کامل می‌کند؛ از یادگیری تا کارآفرینی و تا
+            شتاب‌گرفتن ایده‌ها — همه در یک زیست‌بوم به‌هم‌پیوسته.
           </p>
         </div>
 
-        {/* ── Central Icon + Cards ── */}
-        <div className="relative max-w-[600px] mx-auto">
-          {/* Connecting lines (dashed) */}
-          <svg className="absolute right-[50%] top-0 bottom-0 w-[2px] -translate-x-1/2 pointer-events-none" viewBox="0 0 2 100" preserveAspectRatio="none">
-            <line
-              x1="1"
-              y1="0"
-              x2="1"
-              y2="100%"
-              stroke="#58BDAF"
-              strokeWidth="2"
-              strokeDasharray="8 12"
-              strokeDashoffset="4"
-              opacity="0.4"
-            />
+        {/* دسکتاپ: هاب + کارت‌ها + خط‌های اتصال */}
+        <div className="hidden lg:block relative max-w-[1180px] mx-auto min-h-[560px]">
+          {/* خط‌های خط‌چین */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            {branches.map((b, i) => {
+              const c = BRAND_CONFIG[b.brand];
+              const y = yPositions[i];
+              return (
+                <path
+                  key={b.id}
+                  d={`M 78 ${y} C 84 ${y}, 88 ${(y + hubY) / 2}, 92 ${hubY}`}
+                  stroke={c.line}
+                  strokeWidth="2"
+                  strokeDasharray="4 4"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                />
+              );
+            })}
           </svg>
 
-          {/* Central icon */}
-          <div className="relative flex justify-center mb-8 lg:mb-12">
-            <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] rounded-full bg-[#58BDAF] flex items-center justify-center shadow-[0_8px_24px_rgba(88,189,175,0.25)]">
-              <svg className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          {/* ستون کارت‌ها (سمت راست فضا برای هاب رزرو شده) */}
+          <div className="flex flex-col justify-between h-full gap-10 pr-[240px]">
+            {branches.map((branch) => (
+              <BranchCard key={branch.id} branch={branch} />
+            ))}
+          </div>
+
+          {/* هاب */}
+          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[200px] h-[200px]">
+            <div
+              className="w-full h-full rounded-full flex items-center justify-center shadow-[0_20px_45px_-15px_rgba(52,126,117,0.55)]"
+              style={{
+                background:
+                  "radial-gradient(circle at 30% 25%, #7ED3C6 0%, #58BDAF 45%, #347E75 100%)",
+              }}
+            >
+              <svg
+                viewBox="0 0 40 60"
+                className="w-16 h-24"
+                fill="none"
+                stroke="#fff"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M 24 4 L 6 34 L 18 34 L 14 56 L 34 24 L 20 24 Z" />
               </svg>
             </div>
           </div>
+        </div>
 
-          {/* Cards - vertical stack */}
-          <div className="space-y-6">
-            {/* Card 1 - Orange */}
-            <div className="relative pr-10 lg:pr-14 before:absolute before:right-[50%] before:top-1/2 before:w-[24px] before:h-[2px] before:bg-[#58BDAF] before:opacity-40 before:-translate-y-1/2 before:translate-x-1/2">
-              <div className="bg-gradient-to-br from-[#FF8C42] to-[#FF6B2E] rounded-[24px] p-6 lg:p-8 shadow-[0_8px_24px_rgba(255,140,66,0.25)]">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-[10px] bg-white/20 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-black text-white text-[18px] sm:text-[20px] lg:text-[22px] leading-tight mb-2">
-                      مسیر رشد شخصی‌سازی‌شده
-                    </h3>
-                    <p className="text-white/90 text-[14px] sm:text-[15px] lg:text-[16px] leading-relaxed">
-                      استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه به مسیر یکسان برای همه.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 - Green (Featured) */}
-            <div className="relative pr-10 lg:pr-14 before:absolute before:right-[50%] before:top-1/2 before:w-[24px] before:h-[2px] before:bg-[#58BDAF] before:opacity-40 before:-translate-y-1/2 before:translate-x-1/2">
-              <div className="bg-gradient-to-br from-[#34D399] to-[#10B981] rounded-[24px] p-6 lg:p-8 shadow-[0_8px_24px_rgba(16,185,129,0.25)] ring-2 ring-white/30 ring-offset-2 ring-offset-white">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-[10px] bg-white/20 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <polyline points="22 4 12 14.01 9 11.01" />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-black text-white text-[18px] sm:text-[20px] lg:text-[22px] leading-tight mb-2">
-                      منторینگ و'accompagnement
-                    </h3>
-                    <p className="text-white/90 text-[14px] sm:text-[15px] lg:text-[16px] leading-relaxed">
-                      منتورهای مجرب کنار تو هستن؛ از انتخاب مسیر تا اولین پروژه‌ی واقعی.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 - Purple */}
-            <div className="relative pr-10 lg:pr-14 before:absolute before:right-[50%] before:top-1/2 before:w-[24px] before:h-[2px] before:bg-[#58BDAF] before:opacity-40 before:-translate-y-1/2 before:translate-x-1/2">
-              <div className="bg-gradient-to-br from-[#A78BFA] to-[#8B5CF6] rounded-[24px] p-6 lg:p-8 shadow-[0_8px_24px_rgba(139,92,246,0.25)]">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-[10px] bg-white/20 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                      <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-black text-white text-[18px] sm:text-[20px] lg:text-[22px] leading-tight mb-2">
-                      شبکه‌ی فرصت‌ها و همکاری
-                    </h3>
-                    <p className="text-white/90 text-[14px] sm:text-[15px] lg:text-[16px] leading-relaxed">
-                      اکوسیستم استارتاپی، ارتباط با سرمایه‌گذارها، و فرصت‌های واقعی کاری.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* موبایل/تبلت: کارت‌های ساده زیر هم بدون هاب و خط‌ها */}
+        <div className="flex flex-col gap-6 lg:hidden">
+          {branches.map((branch) => (
+            <BranchCard key={branch.id} branch={branch} compact />
+          ))}
         </div>
       </Container>
     </section>

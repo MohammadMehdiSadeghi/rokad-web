@@ -7,6 +7,7 @@ export default function PillarCard({
   body,
   variant = "light",
   rotation = 0,
+  rotationLg = rotation,
 }) {
   const isDark = variant === "dark" || variant === "featured";
   const featured = variant === "featured";
@@ -45,17 +46,18 @@ export default function PillarCard({
   const iconRadius = "rounded-[0.68625rem_0_0.68625rem_0] [corner-shape:squircle]";
 
   return (
-    // اضافه شدن h-full برای پر کردن ارتفاع سطر گرید
-    <div className="relative h-full" style={{ transform: `rotate(${rotation}deg)` }}>
-      {/* Shadow / offset layer */}
-      <div
-        className={`absolute top-[0.3rem] left-[0.3rem] w-full h-full bg-[#292827] ${cornerRadius}`}
-      />
+          // اضافه شدن h-full برای پر کردن ارتفاع سطر گرید
+          <div className="relative h-full" style={{ transform: `rotate(${rotation}deg)`, '--rotation-lg': `${rotationLg}deg` }}>
+        {/* Shadow / offset layer */}
+        <div
+          className={`absolute top-[0.3rem] left-[0.3rem] w-full h-full bg-[#292827] ${cornerRadius}`}
+        />
 
-      {/* Card - اضافه شدن h-full و flex flex-col */}
-      <article
-        className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[0.125rem] border-[#292827] ${cornerRadius} px-5 py-5 sm:px-6 sm:py-7 min-h-[10rem] sm:min-h-[12rem] lg:min-h-[14rem]`}
-      >
+        {/* Card - اضافه شدن h-full و flex flex-col */}
+        <article
+                  className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[0.125rem] border-[#292827] ${cornerRadius} px-5 py-5 sm:px-6 sm:py-7 min-h-[10rem] sm:min-h-[12rem] lg:min-h-[14rem] lg:rotate-[var(--rotation-lg)]`}
+                  style={{ '--rotation-lg': `${rotationLg}deg` }}
+                >
         {/* Index */}
         {index && (
           <span className="absolute top-3 sm:top-5 left-3 sm:left-5 font-black text-[0.875rem] sm:text-[2rem] text-[#0000001f] leading-none">

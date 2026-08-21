@@ -75,12 +75,13 @@ export default function Pillars() {
         </p>
 
         {/* اضافه شدن [grid-auto-rows:1fr] برای هم‌تراز شدن ارتفاع کارت‌ها */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 [grid-auto-rows:1fr]">
-          {pillars.map((p, i) => {
-            const rotation = i % 2 === 0 ? -2 : 2;
-            return <PillarCard key={p.index} {...p} rotation={rotation} />;
-          })}
-        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[18px] sm:gap-6 lg:gap-8 [grid-auto-rows:1fr]">
+                  {pillars.map((p, i) => {
+                    const rotation = i % 2 === 0 ? -1 : 1;
+                    const rotationLg = i % 2 === 0 ? -2 : 2;
+                    return <PillarCard key={p.index} {...p} rotation={rotation} rotationLg={rotationLg} />;
+                  })}
+                </div>
       </Container>
     </section>
   );

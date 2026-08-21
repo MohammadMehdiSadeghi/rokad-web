@@ -45,17 +45,17 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
         )}
 
         {/* Illustration */}
-        {illustration && (
-          <img
-            src={illustration}
-            alt=""
-            aria-hidden="true"
-            className="pointer-events-none select-none absolute bottom-0 left-0 w-[48%] max-w-[9.375rem] sm:w-[55%] sm:max-w-[13.75rem] lg:max-w-[16.25rem] h-auto opacity-95 z-[1]"
-          />
-        )}
+                        {illustration && (
+                                  <img
+                                    src={illustration}
+                                    alt=""
+                                    aria-hidden="true"
+                                    className="pointer-events-none select-none absolute bottom-0 left-0 w-[85%] max-w-[14rem] sm:w-[55%] sm:max-w-[13.75rem] lg:max-w-[16.25rem] h-auto opacity-95 z-[1]"
+                                  />
+                                )}
 
-        {/* Text Container - تغییر h-full به flex-1 برای اشغال کامل ارتفاع کارت */}
-        <div className="relative z-10 flex flex-col justify-between flex-1 max-w-[70%] ml-auto">
+                        {/* Text Container - تغییر h-full به flex-1 برای اشغال کامل ارتفاع کارت */}
+                                        <div className="relative z-10 flex flex-col justify-between flex-1 max-w-full sm:max-w-[70%] ml-0 sm:ml-auto">
           
           {/* ۱. گروه بالا: تایتل، متا، و چیپ‌ها */}
           <div>

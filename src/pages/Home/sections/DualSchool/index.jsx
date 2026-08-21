@@ -46,27 +46,27 @@ export default function DualSchool() {
 
         {/* Grid - کاهش gap در سایز lg (1024px) به 8 و افزایش در xl (1280px) به 12 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 xl:gap-12">
-          <SchoolCard
-            theme="boys"
-            category="مدرسه پسرانه"
-            title="هنرستان‌پسرانه‌"
-            meta="مشهد | فرامرز عباسی ۳۳"
-            chips={["شبکه و نرم‌افزار"]}
-            ctaLabel="پیش‌ثبت‌نام"
-            illustration={boyIllustration}
-            pattern={boysCardPattern}
-          />
-          <SchoolCard
-            theme="girls"
-            category="مدرسه دخترانه"
-            title="هنرستان‌دخترانه‌"
-            meta="مشهد | فرامرز عباسی ۵۴"
-            chips={["شبکه و نرم‌افزار"]}
-            ctaLabel="پیش‌ثبت‌نام"
-            illustration={girlIllustration}
-            pattern={girlsCardPattern}
-          />
-        </div>
+                  <SchoolCard
+                    theme="boys"
+                    category="مدرسه پسرانه"
+                    title="هنرستان‌پسرانه‌"
+                    meta="مشهد | فرامرز عباسی ۳۳"
+                    chips={["شبکه و نرم‌افزار"]}
+                    ctaLabel="پیش‌ثبت‌نام"
+                    illustration={boyIllustration}
+                    pattern={boysCardPattern}
+                  />
+                  <SchoolCard
+                    theme="girls"
+                    category="مدرسه دخترانه"
+                    title="هنرستان‌دخترانه‌"
+                    meta="مشهد | فرامرز عباسی ۵۴"
+                    chips={["شبکه و نرم‌افزار"]}
+                    ctaLabel="پیش‌ثبت‌نام"
+                    illustration={girlIllustration}
+                    pattern={girlsCardPattern}
+                  />
+                </div>
       </Container>
     </section>
   );

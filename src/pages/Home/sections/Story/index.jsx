@@ -3,41 +3,7 @@ import Container from "../../../../layout/Container";
 const yarnIllustration = "/assets/Story/yarn-illustration.png";
 const vectorIcon = "/assets/Story/Vector.svg";
 
-const pills = [
-  {
-    label: "اکوسیستم استارتاپی",
-    back: "bg-navy-alt",
-    border: "border-navy-alt",
-    text: "text-navy-alt",
-    rotate: "rotate-[2deg]",
-    bg: "bg-[#F4F5FB]",
-  },
-  {
-    label: "بازار کار واقعی",
-    back: "bg-[#E49007]",
-    border: "border-[#E49007]",
-    text: "text-[#E49007]",
-    rotate: "rotate-[-2deg]",
-    bg: "bg-[#FEF7EC]",
-  },
-  {
-    label: "هنرستان رسمی",
-    back: "bg-teal-alt",
-    border: "border-teal",
-    text: "text-teal-text",
-    rotate: "rotate-[2deg]",
-    bg: "bg-[#E4F4F2]",
-  },
-  {
-    label: "ادامه داستان رکاد",
-    back: "bg-teal-alt",
-    border: "border-teal",
-    text: "text-teal-text",
-    rotate: "rotate-[-2deg]",
-    bg: "bg-[#E4F4F2]",
-    isButton: true,
-  },
-];
+
 
 export default function Story() {
   return (
@@ -83,45 +49,17 @@ export default function Story() {
             رو یاد می‌گیری.
           </p>
 
-          {/* Pills */}
-          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-4 mb-[1.5rem] sm:mb-[2rem]">
-            {pills.map((p) => (
-              <span
-                key={p.label}
-                className={`relative ${p.bg} inline-block ${p.rotate}`}
-              >
-                {/* لایه سایه پشت استیکر */}
-                <span
-                  className={`absolute inset-0 translate-x-[0.1875rem] translate-y-[0.1875rem] rounded-[1rem] [corner-shape:squircle] ${p.back}`}
-                />
-                {p.isButton ? (
-                  <a
-                    href="#"
-                    className={`group relative flex items-center gap-1.5 ${p.bg} border-2 rounded-[0.9375rem] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[0.9375rem] ${p.border} ${p.text} cursor-pointer transition-all duration-300 hover:shadow-md`
-                    }
-                  >
-                    <span>{p.label}</span>
-                    <svg
-                      className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M15 18l-6-6 6-6" />
-                    </svg>
-                  </a>
-                ) : (
-                  <span
-                    className={`relative block ${p.bg} border-2 rounded-[0.9375rem] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[0.9375rem] ${p.border} ${p.text}`}
-                  >
-                    {p.label}
-                  </span>
-                )}
+          {/* CTA Button */}
+          <div className="flex justify-start items-center w-full mb-[1.5rem] sm:mb-[2rem]">
+            <span className="relative inline-block rotate-[2deg]">
+              <span className="absolute inset-0 translate-x-[0.1875rem] translate-y-[0.1875rem] rounded-[1rem] [corner-shape:squircle] bg-teal-alt" />
+              <span className="relative flex items-center gap-1.5 bg-[#E4F4F2] border-2 border-teal rounded-[0.9375rem] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[0.9375rem] text-teal-text cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+                <span>ادامه داستان رکاد</span>
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
               </span>
-            ))}
+            </span>
           </div>
         </div>
       </Container>

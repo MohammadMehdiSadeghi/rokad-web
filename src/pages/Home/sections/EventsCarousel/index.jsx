@@ -115,7 +115,7 @@ export default function EventsCarousel() {
                   aria-label="رویداد قبلی"
                   className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[0.125rem] border-[#21295A] text-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <ChevronRightIcon className="w-5 h-5" />
+                  <ChevronRightIcon className="w-6 h-6" />
                 </button>
               </div>
             
@@ -128,7 +128,7 @@ export default function EventsCarousel() {
                   aria-label="رویداد بعدی"
                   className="relative w-12 h-12 flex items-center justify-center bg-[#F4F5FB] border-[0.125rem] border-[#21295A] text-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <ChevronLeftIcon className="w-5 h-5" />
+                  <ChevronLeftIcon className="w-6 h-6" />
                 </button>
               </div>
             </div>
@@ -164,7 +164,7 @@ export default function EventsCarousel() {
                     />
 
                     {/* کارت اصلی - افزایش شدید ارتفاع به 700px در موبایل و 560px در دسکتاپ */}
-                    <div className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[43.75rem] lg:min-h-[35rem]`}>
+                    <div className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[32rem] sm:min-h-[28rem] lg:min-h-[28rem]`}>
                       
                       {/* کارت اطلاعات رویداد (سمت راست در دسکتاپ / پایین در موبایل) */}
                       <div className={`relative ${theme.cardBg} p-5 sm:p-8 lg:p-10 flex flex-col justify-between flex-1 lg:flex-none overflow-hidden`}>
@@ -228,7 +228,7 @@ export default function EventsCarousel() {
 
                       {/* تصویر رویداد (سمت چپ در دسکتاپ / بالا در موبایل) */}
                       {/* افزایش ارتفاع عکس در موبایل برای هماهنگی با ارتفاع کل کارت */}
-                      <div className="relative w-full h-[23.75rem] sm:h-[28.125rem] lg:h-auto overflow-hidden bg-gray-100">
+                      <div className="relative w-full h-[20rem] sm:h-[22rem] lg:h-auto overflow-hidden bg-gray-100">
                         <img
                           src={event.image}
                           alt={event.title}

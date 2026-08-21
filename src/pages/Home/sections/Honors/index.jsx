@@ -357,7 +357,7 @@ export default function HonorsCarousel() {
               z-30
               flex-shrink-0
               hidden
-              sm:flex
+              lg:flex
             "
           >
             <div
@@ -401,7 +401,7 @@ export default function HonorsCarousel() {
                 cursor-pointer
               "
             >
-              <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+              <ChevronLeftIcon className="w-6 h-6" />
             </button>
           </div>
 
@@ -739,7 +739,7 @@ export default function HonorsCarousel() {
               z-30
               flex-shrink-0
               hidden
-              sm:flex
+              lg:flex
             "
           >
             <div
@@ -783,7 +783,7 @@ export default function HonorsCarousel() {
                 cursor-pointer
               "
             >
-              <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+              <ChevronRightIcon className="w-6 h-6" />
             </button>
           </div>
         </div>

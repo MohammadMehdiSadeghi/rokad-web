@@ -103,7 +103,7 @@ export default function Ecosystem() {
   const hubY = 50;
 
   return (
-    <section id="ecosystem" className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] bg-white overflow-hidden" dir="rtl">
+    <section id="ecosystem" className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8 bg-white overflow-hidden" dir="rtl">
       <Container className="relative z-10">
         {/* Heading */}
         <div className="text-center mb-[1.5rem] sm:mb-[2rem] lg:mb-[4rem]">

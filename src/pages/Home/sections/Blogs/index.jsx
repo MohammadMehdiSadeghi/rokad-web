@@ -54,8 +54,8 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
       className="
         relative
         w-full
-        max-w-[22.5rem]
-        sm:max-w-[25rem]
+        max-w-[36rem]
+        sm:max-w-[44rem]
         mx-auto
         transition-transform
         duration-500
@@ -73,11 +73,10 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
           absolute
           top-[0.25rem]
           left-[0.25rem]
-          min-h-[25.625rem]
+          h-[25.625rem]
           sm:top-[0.3125rem]
           sm:left-[0.3125rem]
           w-full
-          h-full
           bg-[#292827]
           rounded-[1.875rem_0_1.875rem_0]
           [corner-shape:squircle]
@@ -96,7 +95,9 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
           rounded-[1.875rem_0_1.875rem_0]
           [corner-shape:squircle]
           overflow-hidden
-          min-h-[25.625rem]
+          h-[25.625rem]
+          flex
+          flex-col
         "
       >
         {/* Image */}
@@ -116,7 +117,7 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
         />
 
         {/* Content */}
-        <div className="p-5 sm:p-6">
+        <div className="flex-1 flex flex-col justify-between p-5 sm:p-6 overflow-hidden">
           <h4
             className="
               font-black
@@ -149,6 +150,7 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
               border-dashed
               border-[#292827]/50
               pt-3
+              mt-auto
               flex
               items-center
               justify-between
@@ -205,6 +207,9 @@ export default function Blogs() {
         pb-[4rem]
         sm:pb-[5rem]
         lg:pb-[6rem]
+        px-4
+        sm:px-6
+        lg:px-8
         bg-white
         overflow-hidden
       "
@@ -409,7 +414,7 @@ export default function Blogs() {
                 flex-shrink-0
                 z-30
                 hidden
-                md:flex
+                lg:flex
               "
             >
               <div
@@ -449,7 +454,7 @@ export default function Blogs() {
                   cursor-pointer
                 "
               >
-                <ChevronRightIcon className="w-5 h-5" />
+                <ChevronRightIcon className="w-6 h-6" />
               </button>
             </div>
 
@@ -477,7 +482,7 @@ export default function Blogs() {
                   setActiveIndex(swiper.realIndex);
                 }}
                 dir="rtl"
-                spaceBetween={25}
+                spaceBetween={40}
                 slidesPerView={1}
                 loop={true}
                 breakpoints={{
@@ -485,6 +490,9 @@ export default function Blogs() {
                     slidesPerView: 2,
                   },
                   1024: {
+                    slidesPerView: 2,
+                  },
+                  1280: {
                     slidesPerView: 3,
                   },
                 }}
@@ -513,7 +521,7 @@ export default function Blogs() {
                 flex-shrink-0
                 z-30
                 hidden
-                md:flex
+                lg:flex
               "
             >
               <div
@@ -553,7 +561,7 @@ export default function Blogs() {
                   cursor-pointer
                 "
               >
-                <ChevronLeftIcon className="w-5 h-5" />
+                <ChevronLeftIcon className="w-6 h-6" />
               </button>
             </div>
           </div>
@@ -562,12 +570,12 @@ export default function Blogs() {
               MOBILE PROGRESS
           ================================================= */}
 
-          <div className="mt-2 flex justify-center md:hidden">
+          <div className="mt-2 flex justify-center lg:hidden">
             <div
               className="
                 w-[9.375rem]
                 h-1.5
-                bg-gray-200
+                bg-[#EDECEC]
                 rounded-full
                 overflow-hidden
               "
@@ -575,7 +583,7 @@ export default function Blogs() {
               <div
                 className="
                   h-full
-                  bg-[#21295A]
+                  bg-[#333230]
                   transition-all
                   duration-500
                   ease-out

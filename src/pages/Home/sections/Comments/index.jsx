@@ -131,6 +131,20 @@ export default function Comments() {
           z-index: 10;
           pointer-events: auto;
         }
+        /* Tablet (md): smaller scale so cards don't clip */
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .comments-swiper .swiper-slide-active .card-inner-wrap {
+            transform: scale(1.15) translateY(-4px) rotate(0deg);
+          }
+          .comments-swiper .swiper-slide-prev .card-inner-wrap {
+            transform: scale(0.85) translateY(6px) rotate(5deg);
+            opacity: 0.65;
+          }
+          .comments-swiper .swiper-slide-next .card-inner-wrap {
+            transform: scale(0.85) translateY(6px) rotate(-6deg);
+            opacity: 0.65;
+          }
+        }
         /* Mobile: simple cards, no 3D transforms */
         @media (max-width: 639px) {
           .comments-swiper .card-inner-wrap {
@@ -173,7 +187,7 @@ export default function Comments() {
         {/* ── کاروسل ── */}
         <div className="relative w-full pt-[2.5rem] sm:pt-[3rem] md:pt-[3.25rem] lg:pt-[3.75rem] pb-12 sm:pb-16 overflow-visible">
           {/* دکمه راست */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0 hidden md:block">
+          <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0 hidden lg:block">
             <div className="absolute top-[0.09375rem] left-[0.125rem] sm:top-[0.125rem] sm:left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle]"></div>
             <button
               type="button"
@@ -181,7 +195,7 @@ export default function Comments() {
               onClick={() => swiperRef.current?.slideNext()}
               className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[0.09375rem] sm:border-[0.125rem] border-[#292827] text-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
-              <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+              <ChevronLeftIcon className="w-6 h-6" />
             </button>
           </div>
 
@@ -202,7 +216,7 @@ export default function Comments() {
               breakpoints={{
                 320: { slidesPerView: 1.15, spaceBetween: 8 },
                 640: { slidesPerView: 1.5, spaceBetween: 12 },
-                768: { slidesPerView: 2, spaceBetween: 16 },
+                768: { slidesPerView: 2, spaceBetween: -10 },
                 1024: { slidesPerView: 2.5, spaceBetween: 20 },
                 1280: { slidesPerView: 3, spaceBetween: 24 },
               }}
@@ -222,8 +236,7 @@ export default function Comments() {
                     className="!h-auto overflow-visible"
                   >
                     <div className="p-1.5 sm:p-2 lg:p-3 overflow-visible">
-                      <div className="card-inner-wrap">
-                        <div className="relative max-w-[16.25rem] sm:max-w-[18.75rem] md:max-w-[21.25rem] lg:max-w-[25rem] xl:max-w-[28.125rem] mx-auto">
+                      <div className="card-inner-wrap">                          <div className="relative max-w-[16.25rem] sm:max-w-[18.75rem] md:max-w-[18.75rem] lg:max-w-[25rem] xl:max-w-[28.125rem] mx-auto">
                           {/* لایه پشتی کارت */}
                           <div
                             aria-hidden="true"
@@ -232,7 +245,7 @@ export default function Comments() {
 
                           {/* کارت اصلی */}
                           <div
-                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-4 sm:p-5 lg:p-6 min-h-[12.5rem] sm:min-h-[13.75rem] lg:min-h-[15.625rem] flex flex-col`}
+                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-4 sm:p-5 lg:p-6 min-h-[11rem] sm:min-h-[12rem] md:min-h-[11rem] lg:min-h-[15.625rem] flex flex-col`}
                           >
                             <span
                               className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}
@@ -283,7 +296,7 @@ export default function Comments() {
           </div>
 
           {/* دکمه چپ */}
-          <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0 hidden md:block">
+          <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0 hidden lg:block">
             <div className="absolute top-[0.09375rem] left-[0.125rem] sm:top-[0.125rem] sm:left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle]"></div>
             <button
               type="button"
@@ -291,7 +304,7 @@ export default function Comments() {
               onClick={() => swiperRef.current?.slidePrev()}
               className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[0.09375rem] sm:border-[0.125rem] border-[#292827] text-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
-              <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+              <ChevronRightIcon className="w-6 h-6" />
             </button>
           </div>
         </div>

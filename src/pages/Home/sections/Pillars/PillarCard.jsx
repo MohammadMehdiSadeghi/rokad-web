@@ -46,7 +46,7 @@ export default function PillarCard({
   return (
     // h-full برای پر کردن ارتفاع سطر گرید؛ روتیشن فقط روی دسکتاپ (lg+)
     <div
-      className="relative h-full lg:[transform:rotate(var(--rotation-lg))]"
+      className="relative h-full [transform:rotate(var(--rotation-lg))]"
       style={{ "--rotation-lg": `${rotationLg}deg` }}
     >
       {/* Shadow / offset layer */}
@@ -56,7 +56,7 @@ export default function PillarCard({
 
       {/* Card */}
       <article
-        className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[0.125rem] border-[#292827] ${cornerRadius} px-5 py-5 sm:px-6 sm:py-7 min-h-[10rem] sm:min-h-[12rem] lg:min-h-[14rem]`}
+        className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[0.125rem] border-[#292827] ${cornerRadius} px-4 py-4 sm:px-6 sm:py-6 lg:py-7 min-h-[8rem] sm:min-h-[10rem] lg:min-h-[12rem]`}
       >
         {/* Index */}
         {index && (
@@ -67,7 +67,7 @@ export default function PillarCard({
 
         {/* Icon box */}
         <div
-          className={`w-8 h-8 sm:w-11 sm:h-11 flex items-center justify-center mb-2 sm:mb-5 border-[0.09375rem] border-[#292827] ${iconRadius} p-[0.25rem] sm:p-[0.45rem] ${iconBg || "bg-[#292827]"} mt-0`}
+          className={`w-7 h-7 sm:w-9 sm:h-9 lg:w-11 lg:h-11 flex items-center justify-center mb-1.5 sm:mb-3 lg:mb-5 border-[0.09375rem] border-[#292827] ${iconRadius} p-[0.2rem] sm:p-[0.35rem] lg:p-[0.45rem] ${iconBg || "bg-[#292827]"} mt-0`}
         >
           <span className="w-full h-full text-white flex items-center justify-center">
             {icon}
@@ -75,12 +75,12 @@ export default function PillarCard({
         </div>
 
         {/* Title */}
-        <h4 className="font-black text-[1.125rem] sm:text-[1.375rem] lg:text-[1.5rem] text-ink mb-2 sm:mb-3 leading-snug">
+        <h4 className="font-black text-[0.875rem] sm:text-[1.125rem] lg:text-[1.375rem] text-ink mb-1.5 sm:mb-2 lg:mb-3 leading-snug">
           {title}
         </h4>
 
         {/* Body */}
-        <p className="text-[0.9375rem] sm:text-[1rem] leading-[1.7] text-ink/60">
+        <p className="text-[0.8125rem] sm:text-[0.9375rem] lg:text-[1rem] leading-[1.7] text-ink/60">
           {body}
         </p>
       </article>

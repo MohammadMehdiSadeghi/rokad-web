@@ -54,8 +54,8 @@ export default function FinalCTA() {
             <a
               href="#"
               className="inline-flex items-center justify-center w-full sm:w-auto min-w-[13rem] sm:min-w-[18rem] h-[3.5rem] sm:h-[4rem] lg:h-[4.5rem] 
-              px-8 sm:px-10 bg-[#292827] text-white font-extrabold text-[0.9375rem] sm:text-[1.125rem] lg:text-[1.25rem] rounded-[0.75rem] sm:rounded-[1rem] [corner-shape:squircle]
-              hover:opacity-90 transition-opacity duration-300 cursor-pointer"
+              px-8 sm:px-10 bg-[#21295A] text-white font-extrabold text-[0.9375rem] sm:text-[1.125rem] lg:text-[1.25rem] rounded-[0.75rem] sm:rounded-[1rem] [corner-shape:squircle]
+              hover:bg-[#1a2249] transition-colors duration-300 cursor-pointer"
             >
               تکمیل فرم پیش‌ثبت‌نام
             </a>

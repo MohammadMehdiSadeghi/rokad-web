@@ -8,7 +8,6 @@ const pattern = "/assets/unassigned/pattern-boxes.png";
 export default function FinalCTA() {
   return (
     <section
-      // حذف pb برای چسبیدن کامل کاراکترها به پایین
       className="relative overflow-hidden bg-teal pt-[3rem] sm:pt-[4rem] pb-0 px-4 sm:px-6"
       dir="rtl"
     >
@@ -51,34 +50,15 @@ export default function FinalCTA() {
               کنی، بقیه‌ش با ماست.
             </p>
 
-            {/* دو دکمه با استایل کارت و corner-shape */}
-            <div className="flex items-center justify-center flex-wrap gap-4 sm:gap-6 w-full">
-              {/* دکمه سمت راست (تکمیل فرم پیش‌ثبت‌نام) */}
-              <div className="relative inline-flex items-center justify-center rotate-[1.5deg] transition-all duration-300 hover:rotate-0">
-                {/* خود دکمه */}
-                <a
-                  href="#"
-                  className="relative z-10 inline-flex items-center justify-center w-full sm:w-auto min-w-[11rem] sm:min-w-[15rem] h-[3rem] sm:h-[3.5rem] lg:h-[4rem] 
-                  px-5 sm:px-6 bg-[#292827] text-white font-extrabold text-[0.8125rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.75rem] sm:rounded-[1rem] [corner-shape:squircle]
-                  hover:opacity-90 transition-opacity duration-300 cursor-pointer"
-                >
-                  تکمیل فرم پیش‌ثبت‌نام
-                </a>
-              </div>
-
-              {/* دکمه سمت چپ (RokadSchool.ir) */}
-              <div className="relative inline-flex items-center justify-center -rotate-[1.5deg] transition-all duration-300 hover:rotate-0">
-                {/* لایه پشتی سرمه‌ای */}                {/* خود دکمه */}
-                <a
-                  href="#"
-                  className="relative z-10 inline-flex items-center justify-center w-full sm:w-auto min-w-[11rem] sm:min-w-[15rem] h-[3rem] sm:h-[3.5rem] lg:h-[4rem] 
-                  px-5 sm:px-6 bg-white text-[#292827] font-extrabold text-[0.8125rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.75rem] sm:rounded-[1rem] [corner-shape:squircle]
-                  hover:opacity-90 transition-opacity duration-300 cursor-pointer"
-                >
-                  RokadSchool.ir
-                </a>
-              </div>
-            </div>
+            {/* دکمه */}
+            <a
+              href="#"
+              className="inline-flex items-center justify-center w-full sm:w-auto min-w-[13rem] sm:min-w-[18rem] h-[3.5rem] sm:h-[4rem] lg:h-[4.5rem] 
+              px-8 sm:px-10 bg-[#292827] text-white font-extrabold text-[0.9375rem] sm:text-[1.125rem] lg:text-[1.25rem] rounded-[0.75rem] sm:rounded-[1rem] [corner-shape:squircle]
+              hover:opacity-90 transition-opacity duration-300 cursor-pointer"
+            >
+              تکمیل فرم پیش‌ثبت‌نام
+            </a>
           </div>
 
           {/* Boy Image (سمت راست در دسکتاپ) */}

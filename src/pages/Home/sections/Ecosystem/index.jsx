@@ -7,24 +7,27 @@ const branches = [
     id: "college",
     href: "#college",
     title: "کالج رکاد",
-    description:
-      "مسیر یادگیری ساختاریافته با اساتید مسلط و پروژه‌های واقعی — جایی که پایه‌های مهارت شکل می‌گیرد.",
+    description: "مسیر یادگیری ساختاریافته با اساتید مسلط و پروژه‌های واقعی — جایی که پایه‌های مهارت شکل می‌گیرد.",
+    stat: "+۲۵۰",
+    statLabel: "دانش‌پذیر فعال",
     brand: "amber",
   },
   {
     id: "accelerator",
     href: "#accelerator",
     title: "شتاب‌دهنده رکاد",
-    description:
-      "از ایده تا محصول قابل عرضه؛ منتورشیپ تخصصی، سرمایه‌ی اولیه و دسترسی به شبکه‌ای از سرمایه‌گذاران رکاد.",
+    description: "از ایده تا محصول قابل عرضه؛ منتورشیپ تخصصی، سرمایه‌ی اولیه و دسترسی به شبکه‌ای از سرمایه‌گذاران رکاد.",
+    stat: "+۳۰",
+    statLabel: "تیم شتاب گرفته",
     brand: "teal",
   },
   {
     id: "cafe",
     href: "#cafe",
     title: "کافه کارآفرینی رکاد",
-    description:
-      "محل ملاقات ایده‌ها؛ رویدادها، گفت‌وگو با کارآفرینان و شبکه‌سازی روزمره در یک فضای گرم و پویا.",
+    description: "محل ملاقات ایده‌ها؛ رویدادها، گفت‌وگو با کارآفرینان و شبکه‌سازی روزمره در یک فضای گرم و پویا.",
+    stat: "+۱۲۰",
+    statLabel: "رویداد برگزار شده",
     brand: "violet",
   },
 ];
@@ -60,25 +63,36 @@ function BranchCard({ branch, compact = false }) {
   const c = BRAND_CONFIG[branch.brand];
   return (
     <div
-      className={`rounded-2xl border-2 ${compact ? "px-6 py-5" : "px-8 py-6"}`}
-      style={{ borderColor: c.border, background: c.cardBg }}
+      className={`border-2 relative ${compact ? "px-6 py-5" : "px-8 py-6"}`}
+      style={{ borderColor: c.border, background: c.cardBg, boxShadow: "6px 8px 0 0 var(--shadow-col)", "--shadow-col": c.border, borderRadius: "0 12px 0 12px" }}
     >
-      <a
-        href={branch.href}
-        className="inline-block rounded-lg px-3.5 py-1.5 text-xs font-bold text-white mb-3 transition-opacity hover:opacity-90"
+      {/* Badge */}
+      <span
+        className="inline-block px-3.5 py-1.5 text-xs font-bold text-white mb-3 rounded-md"
         style={{ background: c.badgeBg }}
       >
-        مشاهده بیشتر
-      </a>
+        {branch.title}
+      </span>
+      {/* Title */}
       <h3 className={`${compact ? "text-lg" : "text-xl lg:text-2xl"} font-black text-ink mb-2 leading-snug`}>
         {branch.title}
       </h3>
+      {/* Description */}
       <p
         className="text-sm font-medium leading-[1.8]"
         style={{ color: c.text }}
       >
         {branch.description}
       </p>
+      {/* Stat */}
+      {branch.stat && (
+        <div className="absolute left-6 bottom-4 flex items-baseline gap-2">
+          <span className="font-extrablack text-[26px] leading-none" style={{ color: c.border }}>
+            {branch.stat}
+          </span>
+          <span className="text-xs font-bold text-ink-500">{branch.statLabel}</span>
+        </div>
+      )}
     </div>
   );
 }
@@ -138,23 +152,18 @@ export default function Ecosystem() {
           {/* هاب */}
           <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[200px] h-[200px]">
             <div
-              className="w-full h-full rounded-full flex items-center justify-center shadow-[0_20px_45px_-15px_rgba(52,126,117,0.55)]"
+              className="w-full h-full rounded-full flex items-center justify-center overflow-hidden"
               style={{
-                background:
-                  "radial-gradient(circle at 30% 25%, #7ED3C6 0%, #58BDAF 45%, #347E75 100%)",
+                background: "radial-gradient(circle at 30% 25%, #7ED3C6 0%, #58BDAF 45%, #347E75 100%)",
+                boxShadow: "6px 8px 0 0 #347E75",
+                border: "3px solid #347E75",
               }}
             >
-              <svg
-                viewBox="0 0 40 60"
-                className="w-16 h-24"
-                fill="none"
-                stroke="#fff"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M 24 4 L 6 34 L 18 34 L 14 56 L 34 24 L 20 24 Z" />
-              </svg>
+              <img
+                src="/assets/Ecosystem/Group.png"
+                alt="اکوسیستم رکاد"
+                className="w-16 h-24 object-contain brightness-0 invert"
+              />
             </div>
           </div>
         </div>

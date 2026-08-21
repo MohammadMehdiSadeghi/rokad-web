@@ -2,7 +2,10 @@ import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay } from "swiper/modules";
 import Container from "../../../../layout/Container";
-import { ChevronLeftIcon, ChevronRightIcon } from "../../../../common/Icons";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "../../../../common/Icons";
 
 import "swiper/css";
 
@@ -15,7 +18,8 @@ const goldPattern = "/assets/Honors/yellowTexture.png";
 const silverPattern = "/assets/Honors/grayTexture.png";
 const bronzePattern = "/assets/Honors/BronzeTexture.png";
 const navyPattern = "/assets/Honors/blueTexture.png";
-const sectionPattern = "/public/assets/Pattern/layout-pattern.png";
+
+const sectionPattern = "/assets/Pattern/layout-pattern.png";
 
 const honors = [
   {
@@ -46,6 +50,7 @@ const honors = [
     meta: "نشان افتخار",
     ctaLabel: "مشاهده منتخبین",
   },
+
   // کپی‌ها برای لوپ نرم
   {
     rank: "district",
@@ -71,10 +76,29 @@ const honors = [
 ];
 
 const THEME_MAP = {
-  first: { accent: "#F8A41D", tint: "#FFFDFA", pattern: goldPattern },
-  second: { accent: "#525252", tint: "#F2F2F2", pattern: silverPattern },
-  third: { accent: "#A56216", tint: "#FEFDFA", pattern: bronzePattern },
-  district: { accent: "#21295A", tint: "#F4F5FB", pattern: navyPattern },
+  first: {
+    accent: "#F8A41D",
+    tint: "#FFFDFA",
+    pattern: goldPattern,
+  },
+
+  second: {
+    accent: "#525252",
+    tint: "#F2F2F2",
+    pattern: silverPattern,
+  },
+
+  third: {
+    accent: "#A56216",
+    tint: "#FEFDFA",
+    pattern: bronzePattern,
+  },
+
+  district: {
+    accent: "#21295A",
+    tint: "#F4F5FB",
+    pattern: navyPattern,
+  },
 };
 
 export default function HonorsCarousel() {
@@ -84,86 +108,306 @@ export default function HonorsCarousel() {
   return (
     <section
       id="honors"
-      className="pt-[3rem] sm:pt-[4rem] lg:pt-[5rem] pb-[3rem] sm:pb-[4rem] lg:pb-[5rem] px-4 sm:px-6 relative bg-white overflow-x-clip"
+      className="
+        relative
+        bg-white
+        overflow-x-clip
+        pt-[3rem]
+        sm:pt-[4rem]
+        lg:pt-[5rem]
+        pb-[3rem]
+        sm:pb-[4rem]
+        lg:pb-[5rem]
+        px-4
+        sm:px-6
+      "
       dir="rtl"
     >
-      {/* ── پس‌زمینه‌ی پترن (مثل Hero) ── */}
-      <div className="absolute inset-0 pointer-events-none opacity-60 rotate-180">
+      {/* =====================================================
+          BACKGROUND PATTERN
+      ====================================================== */}
+
+      <div
+        className="
+          absolute
+          inset-0
+          pointer-events-none
+          opacity-60
+          rotate-180
+        "
+      >
         <img
           src={sectionPattern}
           alt=""
+          aria-hidden="true"
           className="w-full h-full object-cover"
         />
       </div>
 
+      {/* =====================================================
+          SWIPER STYLES
+      ====================================================== */}
+
       <style>{`
-.honors-swiper .card-inner-wrap {
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  opacity: 0.85;
-  transform: scale(0.9);
-}
-.honors-swiper .swiper-slide-active {
-  z-index: 30 !important;
-}
-.honors-swiper .swiper-slide-active .card-inner-wrap {
-  transform: scale(1);
-  opacity: 1;
-  z-index: 30;
-}
-.honors-swiper .swiper-slide-prev,
-.honors-swiper .swiper-slide-next {
-  z-index: 10 !important;
-}
-.honors-swiper .swiper-slide-prev .card-inner-wrap,
-.honors-swiper .swiper-slide-next .card-inner-wrap {
-  transform: scale(0.9);
-  opacity: 0.85;
-  z-index: 10;
-}
+        .honors-swiper .card-inner-wrap {
+          transition:
+            transform 0.5s ease,
+            opacity 0.5s ease;
+          opacity: 0.85;
+          transform: scale(0.9);
+        }
+
+        .honors-swiper .swiper-slide-active {
+          z-index: 30 !important;
+        }
+
+        .honors-swiper .swiper-slide-active .card-inner-wrap {
+          transform: scale(1);
+          opacity: 1;
+          z-index: 30;
+        }
+
+        .honors-swiper .swiper-slide-prev,
+        .honors-swiper .swiper-slide-next {
+          z-index: 10 !important;
+        }
+
+        .honors-swiper .swiper-slide-prev .card-inner-wrap,
+        .honors-swiper .swiper-slide-next .card-inner-wrap {
+          transform: scale(0.9);
+          opacity: 0.85;
+          z-index: 10;
+        }
       `}</style>
 
       <Container className="relative z-10">
-        {/* ── هدر ─ـ */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 mb-[2rem] text-right">
-          <div className="max-w-[90%] sm:max-w-none">
-            <h2 className="font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.35] mb-3 sm:mb-4 lg:mb-5">
-              افتخاراتی که <span className="text-[#21295A]">با هم</span> ساختیم
+        {/* =================================================
+            HEADER
+        ================================================== */}
+
+        <div
+          className="
+            relative
+            w-full
+            flex
+            flex-col
+            items-center
+            justify-center
+            text-center
+            gap-5
+            sm:gap-6
+            mb-[2rem]
+            sm:mb-[2.5rem]
+            lg:mb-[3rem]
+          "
+        >
+          {/* Heading */}
+
+          <div className="w-full flex justify-center">
+            <h2
+              className="
+                w-full
+                font-black
+                text-center
+                text-[1.5rem]
+                sm:text-[1.9rem]
+                md:text-[2.25rem]
+                lg:text-[2.5rem]
+                xl:text-[3.3125rem]
+                leading-[1.35]
+              "
+            >
+              افتخاراتی که{" "}
+              <span className="text-[#21295A]">
+                با هم
+              </span>{" "}
+              ساختیم
             </h2>
-            <p className="font-medium text-[#292827] text-[0.8125rem] sm:text-[1rem] leading-[1.8] sm:leading-[1.9] max-w-sm sm:max-w-xl">
-              هر مدال اینجا یه اسم یه دانش‌آموزه که یه چیزی رو از صفر ساخت و تا
-              آخرش ایستاد.
+          </div>
+
+          {/* Description */}
+
+          <div className="w-full flex justify-center">
+            <p
+              className="
+                max-w-[20rem]
+                sm:max-w-[32rem]
+                lg:max-w-[40rem]
+                font-medium
+                text-[#292827]
+                text-[0.8125rem]
+                sm:text-[1rem]
+                leading-[1.8]
+                sm:leading-[1.9]
+                text-center
+              "
+            >
+              هر مدال اینجا یه اسم یه دانش‌آموزه که یه چیزی رو
+              از صفر ساخت و تا آخرش ایستاد.
             </p>
           </div>
 
-          {/* دکمه همه افتخارات */}
-          <div className="relative inline-flex items-center justify-center self-start md:self-auto rotate-[-1.55deg] hover:rotate-0 transition-all duration-300">
-            <div className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.82rem_0_0.82rem] [corner-shape:squircle] bg-[#21295A]"></div>
+          {/* All Honors Button */}
+
+          <div
+            className="
+              relative
+              inline-flex
+              items-center
+              justify-center
+              rotate-[-1.55deg]
+              hover:rotate-0
+              transition-all
+              duration-300
+            "
+          >
+            {/* Shadow */}
+
+            <div
+              aria-hidden="true"
+              className="
+                absolute
+                top-[0.125rem]
+                left-[0.125rem]
+                w-full
+                h-full
+                rounded-[0_0.82rem_0_0.82rem]
+                [corner-shape:squircle]
+                bg-[#21295A]
+              "
+            />
+
+            {/* Button */}
+
             <a
               href="#"
-              className="relative z-10 bg-white border-[0.125rem] border-[#21295A] text-[#21295A] font-extrabold text-sm sm:text-base px-6 py-3 rounded-[0_0.82rem_0_0.82rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer flex-shrink-0
-              [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
+              className="
+                relative
+                z-10
+                bg-white
+                border-[0.125rem]
+                border-[#21295A]
+                text-[#21295A]
+                font-extrabold
+                text-sm
+                sm:text-base
+                px-6
+                py-3
+                rounded-[0_0.82rem_0_0.82rem]
+                [corner-shape:squircle]
+                whitespace-nowrap
+                cursor-pointer
+                flex-shrink-0
+                [background-image:linear-gradient(to_right,#21295A,#21295A)]
+                bg-no-repeat
+                [background-size:0%_100%]
+                hover:[background-size:100%_100%]
+                hover:text-white
+                transition-all
+                duration-300
+                ease-out
+              "
             >
               همه افتخارات
             </a>
           </div>
         </div>
 
-        {/* ── کاروسل ── */}
-        <div className="relative w-full pt-6 sm:pt-8 lg:pt-10 pb-6 sm:pb-8 overflow-visible">
-          {/* دکمه بعدی (RTL: چپ) — رنگ مثل Blogs: #292827 */}
-          <div className="honors-nav-btn absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0">
-            <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.540625rem_0_0.540625rem] sm:rounded-[0_0.790625rem_0_0.790625rem] [corner-shape:squircle]"></div>
+        {/* =================================================
+            CAROUSEL
+        ================================================== */}
+
+        <div
+          className="
+            relative
+            w-full
+            pt-6
+            sm:pt-8
+            lg:pt-10
+            pb-6
+            sm:pb-8
+            overflow-visible
+          "
+        >
+          {/* =================================================
+              NEXT BUTTON - LEFT IN RTL
+          ================================================== */}
+
+          <div
+            className="
+              honors-nav-btn
+              absolute
+              top-1/2
+              -translate-y-1/2
+              left-2
+              sm:left-4
+              z-30
+              flex-shrink-0
+              hidden
+              sm:flex
+            "
+          >
+            <div
+              aria-hidden="true"
+              className="
+                absolute
+                top-[0.125rem]
+                left-[0.1875rem]
+                w-full
+                h-full
+                bg-[#292827]
+                rounded-[0_0.540625rem_0_0.540625rem]
+                sm:rounded-[0_0.790625rem_0_0.790625rem]
+                [corner-shape:squircle]
+              "
+            />
+
             <button
               type="button"
               aria-label="افتخار بعدی"
               onClick={() => swiperRef.current?.slideNext()}
-              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[0.125rem] border-[#292827] text-[#292827] rounded-[0_0.540625rem_0_0.540625rem] sm:rounded-[0_0.790625rem_0_0.790625rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="
+                relative
+                w-10
+                h-10
+                sm:w-12
+                sm:h-12
+                flex
+                items-center
+                justify-center
+                bg-white
+                border-[0.125rem]
+                border-[#292827]
+                text-[#292827]
+                rounded-[0_0.540625rem_0_0.540625rem]
+                sm:rounded-[0_0.790625rem_0_0.790625rem]
+                [corner-shape:squircle]
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                cursor-pointer
+              "
             >
               <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 
-          <div className="w-full px-14 sm:px-20 md:px-24 lg:px-40 xl:px-24 [overflow-x:clip] [overflow-y:visible]">
+          {/* =================================================
+              SWIPER
+          ================================================== */}
+
+          <div
+            className="
+              w-full
+              px-5
+              sm:px-14
+              md:px-20
+              lg:px-32
+              xl:px-24
+              [overflow-x:clip]
+              [overflow-y:visible]
+            "
+          >
             <Swiper
               modules={[A11y, Autoplay]}
               centeredSlides={true}
@@ -174,12 +418,19 @@ export default function HonorsCarousel() {
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
               }}
-              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+              onSlideChange={(swiper) => {
+                setActiveIndex(swiper.realIndex);
+              }}
               spaceBetween={16}
               speed={500}
               breakpoints={{
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
+                640: {
+                  slidesPerView: 2,
+                },
+
+                1024: {
+                  slidesPerView: 3,
+                },
               }}
               autoplay={{
                 delay: 3500,
@@ -190,60 +441,225 @@ export default function HonorsCarousel() {
             >
               {honors.map((honor, i) => {
                 const theme = THEME_MAP[honor.rank];
-                const badgeRotation = i % 2 === 0 ? -6 : 6;
+
+                const badgeRotation =
+                  i % 2 === 0 ? -6 : 6;
 
                 return (
-                  <SwiperSlide key={i} className="!h-auto overflow-visible">
-                    <div className="p-2 sm:p-3 lg:p-4 overflow-visible">
+                  <SwiperSlide
+                    key={i}
+                    className="!h-auto overflow-visible"
+                  >
+                    <div
+                      className="
+                        p-2
+                        sm:p-3
+                        lg:p-4
+                        overflow-visible
+                      "
+                    >
                       <div className="card-inner-wrap">
-                        <div className="relative max-w-[21.25rem] xs:max-w-[22.5rem] sm:max-w-[23.75rem] lg:max-w-[25rem] xl:max-w-[28.75rem] mx-auto">
-                          {/* لایه سایه */}
+
+                        {/* Card Container */}
+
+                        <div
+                          className="
+                            relative
+                            max-w-[21.25rem]
+                            xs:max-w-[22.5rem]
+                            sm:max-w-[23.75rem]
+                            lg:max-w-[25rem]
+                            xl:max-w-[28.75rem]
+                            mx-auto
+                          "
+                        >
+                          {/* Shadow */}
+
                           <div
                             aria-hidden="true"
-                            className="absolute top-[0.125rem] left-[0.125rem] sm:top-[0.1875rem] sm:left-[0.1875rem] w-full h-full rounded-[0_2rem_0_2rem] [corner-shape:squircle]"
-                            style={{ backgroundColor: theme.accent }}
+                            className="
+                              absolute
+                              top-[0.125rem]
+                              left-[0.125rem]
+                              sm:top-[0.1875rem]
+                              sm:left-[0.1875rem]
+                              w-full
+                              h-full
+                              rounded-[0_2rem_0_2rem]
+                              [corner-shape:squircle]
+                            "
+                            style={{
+                              backgroundColor: theme.accent,
+                            }}
                           />
 
-                          {/* کارت اصلی */}
+                          {/* Main Card */}
+
                           <div
-                            className="relative z-10 w-full bg-white border-[0.125rem] rounded-[0_2rem_0_2rem] [corner-shape:squircle] overflow-hidden"
-                            style={{ borderColor: theme.accent }}
+                            className="
+                              relative
+                              z-10
+                              w-full
+                              bg-white
+                              border-[0.125rem]
+                              rounded-[0_2rem_0_2rem]
+                              [corner-shape:squircle]
+                              overflow-hidden
+                            "
+                            style={{
+                              borderColor: theme.accent,
+                            }}
                           >
-                            <div className="absolute inset-0 pointer-events-none">
+                            {/* Background */}
+
+                            <div
+                              className="
+                                absolute
+                                inset-0
+                                pointer-events-none
+                              "
+                            >
                               <div
                                 className="absolute inset-0"
-                                style={{ backgroundColor: theme.tint }}
+                                style={{
+                                  backgroundColor: theme.tint,
+                                }}
                               />
+
                               <img
                                 src={theme.pattern}
                                 alt=""
                                 draggable={false}
-                                className="absolute inset-0 w-full h-full object-cover scale-125 select-none opacity-100"
+                                className="
+                                  absolute
+                                  inset-0
+                                  w-full
+                                  h-full
+                                  object-cover
+                                  scale-125
+                                  select-none
+                                  opacity-100
+                                "
                               />
                             </div>
 
-                            <div className="relative z-20 min-h-[12.5rem] flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-8 sm:py-10">
+                            {/* Card Content */}
+
+                            <div
+                              className="
+                                relative
+                                z-20
+                                min-h-[12.5rem]
+                                flex
+                                flex-col
+                                items-center
+                                justify-center
+                                text-center
+                                gap-1.5
+                                sm:gap-2
+                                px-4
+                                sm:px-5
+                                py-8
+                                sm:py-10
+                              "
+                            >
+                              {/* Meta */}
+
                               <p
-                                className="text-[0.5625rem] sm:text-[0.6875rem] lg:text-[0.75rem] leading-5 sm:leading-6 font-semibold"
-                                style={{ color: theme.accent, opacity: 0.7 }}
+                                className="
+                                  text-[0.5625rem]
+                                  sm:text-[0.6875rem]
+                                  lg:text-[0.75rem]
+                                  leading-5
+                                  sm:leading-6
+                                  font-semibold
+                                "
+                                style={{
+                                  color: theme.accent,
+                                  opacity: 0.7,
+                                }}
                               >
                                 {honor.meta}
                               </p>
 
+                              {/* Title */}
+
                               <h4
-                                className="font-black text-[0.75rem] sm:text-[1rem] lg:text-[1.125rem] xl:text-[1.25rem] leading-snug"
-                                style={{ color: theme.accent }}
+                                className="
+                                  font-black
+                                  text-[0.75rem]
+                                  sm:text-[1rem]
+                                  lg:text-[1.125rem]
+                                  xl:text-[1.25rem]
+                                  leading-snug
+                                "
+                                style={{
+                                  color: theme.accent,
+                                }}
                               >
                                 {honor.title}
                               </h4>
 
-                              {/* دکمه CTA */}
-                              <div className="relative inline-flex items-center justify-center mt-1 sm:mt-2 -rotate-1 hover:rotate-0 transition-transform duration-300">
-                                <div className="absolute top-[0.0625rem] left-[0.0625rem] sm:top-[0.0625rem] sm:left-[0.0625rem] w-full h-full rounded-[0.6875rem] sm:rounded-[0.75rem] [corner-shape:squircle] bg-black"></div>
+                              {/* CTA */}
+
+                              <div
+                                className="
+                                  relative
+                                  inline-flex
+                                  items-center
+                                  justify-center
+                                  mt-1
+                                  sm:mt-2
+                                  -rotate-1
+                                  hover:rotate-0
+                                  transition-transform
+                                  duration-300
+                                "
+                              >
+                                <div
+                                  aria-hidden="true"
+                                  className="
+                                    absolute
+                                    top-[0.0625rem]
+                                    left-[0.0625rem]
+                                    sm:top-[0.0625rem]
+                                    sm:left-[0.0625rem]
+                                    w-full
+                                    h-full
+                                    rounded-[0.6875rem]
+                                    sm:rounded-[0.75rem]
+                                    [corner-shape:squircle]
+                                    bg-black
+                                  "
+                                />
+
                                 <a
                                   href="#"
-                                  className="relative z-10 inline-flex items-center justify-center text-white text-[0.5625rem] sm:text-[0.75rem] lg:text-[0.8125rem] font-bold px-3 sm:px-4 py-1 sm:py-2 rounded-[0.6875rem] sm:rounded-[0.75rem] [corner-shape:squircle] border border-black whitespace-nowrap"
-                                  style={{ backgroundColor: theme.accent }}
+                                  className="
+                                    relative
+                                    z-10
+                                    inline-flex
+                                    items-center
+                                    justify-center
+                                    text-white
+                                    text-[0.5625rem]
+                                    sm:text-[0.75rem]
+                                    lg:text-[0.8125rem]
+                                    font-bold
+                                    px-3
+                                    sm:px-4
+                                    py-1
+                                    sm:py-2
+                                    rounded-[0.6875rem]
+                                    sm:rounded-[0.75rem]
+                                    [corner-shape:squircle]
+                                    border
+                                    border-black
+                                    whitespace-nowrap
+                                  "
+                                  style={{
+                                    backgroundColor: theme.accent,
+                                  }}
                                 >
                                   {honor.ctaLabel}
                                 </a>
@@ -251,9 +667,23 @@ export default function HonorsCarousel() {
                             </div>
                           </div>
 
-                          {/* بج مدال */}
+                          {/* Medal Badge */}
+
                           <div
-                            className="absolute -top-4 sm:-top-6 lg:-top-8 left-1/2 w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 z-30"
+                            className="
+                              absolute
+                              -top-4
+                              sm:-top-6
+                              lg:-top-8
+                              left-1/2
+                              w-10
+                              h-10
+                              sm:w-16
+                              sm:h-16
+                              lg:w-20
+                              lg:h-20
+                              z-30
+                            "
                             style={{
                               transform: `translateX(-50%) rotate(${badgeRotation}deg)`,
                             }}
@@ -262,7 +692,13 @@ export default function HonorsCarousel() {
                               src={honor.badge}
                               alt={honor.title}
                               draggable={false}
-                              className="w-full h-full object-contain drop-shadow-md select-none"
+                              className="
+                                w-full
+                                h-full
+                                object-contain
+                                drop-shadow-md
+                                select-none
+                              "
                             />
                           </div>
                         </div>
@@ -274,26 +710,96 @@ export default function HonorsCarousel() {
             </Swiper>
           </div>
 
-          {/* دکمه قبلی (RTL: راست) — رنگ مثل Blogs: #292827 */}
-          <div className="honors-nav-btn absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0">
-            <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.540625rem_0_0.540625rem] sm:rounded-[0_0.790625rem_0_0.790625rem] [corner-shape:squircle]"></div>
+          {/* =================================================
+              PREVIOUS BUTTON - RIGHT IN RTL
+          ================================================== */}
+
+          <div
+            className="
+              honors-nav-btn
+              absolute
+              top-1/2
+              -translate-y-1/2
+              right-2
+              sm:right-4
+              z-30
+              flex-shrink-0
+              hidden
+              sm:flex
+            "
+          >
+            <div
+              aria-hidden="true"
+              className="
+                absolute
+                top-[0.125rem]
+                left-[0.1875rem]
+                w-full
+                h-full
+                bg-[#292827]
+                rounded-[0_0.540625rem_0_0.540625rem]
+                sm:rounded-[0_0.790625rem_0_0.790625rem]
+                [corner-shape:squircle]
+              "
+            />
+
             <button
               type="button"
               aria-label="افتخار قبلی"
               onClick={() => swiperRef.current?.slidePrev()}
-              className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[0.125rem] border-[#292827] text-[#292827] rounded-[0_0.540625rem_0_0.540625rem] sm:rounded-[0_0.790625rem_0_0.790625rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+              className="
+                relative
+                w-10
+                h-10
+                sm:w-12
+                sm:h-12
+                flex
+                items-center
+                justify-center
+                bg-white
+                border-[0.125rem]
+                border-[#292827]
+                text-[#292827]
+                rounded-[0_0.540625rem_0_0.540625rem]
+                sm:rounded-[0_0.790625rem_0_0.790625rem]
+                [corner-shape:squircle]
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                cursor-pointer
+              "
             >
               <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
 
-        {/* ── نوار پیشرفت (فقط در موبایل و تبلت) ── */}
+        {/* =================================================
+            MOBILE PROGRESS
+        ================================================== */}
+
         <div className="mt-2 flex justify-center md:hidden">
-          <div className="w-[9.375rem] h-1.5 bg-gray-200 rounded-full overflow-hidden">
+          <div
+            className="
+              w-[9.375rem]
+              h-1.5
+              bg-gray-200
+              rounded-full
+              overflow-hidden
+            "
+          >
             <div
-              className="h-full bg-[#21295A] transition-all duration-500 ease-out rounded-full"
-              style={{ width: `${((activeIndex + 1) / honors.length) * 100}%` }}
+              className="
+                h-full
+                bg-[#21295A]
+                transition-all
+                duration-500
+                ease-out
+                rounded-full
+              "
+              style={{
+                width: `${((activeIndex + 1) / honors.length) * 100}%`,
+              }}
             />
           </div>
         </div>

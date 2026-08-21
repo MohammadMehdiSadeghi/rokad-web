@@ -2,10 +2,15 @@
 //
 // همه‌ی سکشن‌های صفحه باید عرض محتواشون رو از همین کامپوننت بگیرن.
 //
-// روی دسکتاپ (lg+): max-w-7xl = 80rem (1280px) که محتوا رو در وسط صفحه
-// با حاشیه‌ی مناسب نگه می‌داره. روی موبایل و تبلت از padding
-// بخش والد استفاده می‌شه و عرض ۱۰۰٪ رو حفظ می‌کنیم.
-const WIDTH_STEPS = "w-full max-w-7xl";
+// بر اساس دیزاین سیستم:
+//   layout.canvas = 1440px
+//   layout.container = 1200px
+//   layout.gutter-outer = 120px (هر طرف)
+//
+// روی دسکتاپ (xl+): max-w-[1200px]
+// روی lg: max-w-[1024px]
+// روی sm/md: max-w-full (پدینگ از section والد)
+const WIDTH_STEPS = "w-full max-w-[75rem]"; // 1200px
 
 export default function Container({
   as: Tag = "div",

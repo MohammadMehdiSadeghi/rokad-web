@@ -41,7 +41,7 @@ export default function Faq() {
   return (
     <section
           id="counseling"
-        className="relative overflow-hidden bg-[#E4F4F2] py-[3rem] sm:py-[4rem] lg:py-[5rem] px-4 sm:px-6"
+        className="relative overflow-hidden bg-[#E4F4F2] py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
           dir="rtl"
         >
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -57,7 +57,7 @@ export default function Faq() {
         {/* ۱. تایتل و متن */}
         <div className="order-1 xl:col-start-1 xl:row-start-1 xl:pt-4">
           {/* حذف <br/> و استفاده از flex flex-wrap برای ماندن در یک خط */}
-          <h2 className="font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.5rem] xl:text-[3.25rem] leading-[1.4] sm:leading-[1.5] text-navy mb-4 sm:mb-6 flex flex-wrap items-center gap-x-2">
+          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-[1.5rem] sm:mb-[2rem] flex flex-wrap items-center gap-x-2">
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دغدغه‌ی</span>
             <span className="inline-block text-navy whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>آینده</span>
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>و</span>
@@ -67,7 +67,7 @@ export default function Faq() {
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دارید؟</span>
           </h2>
 
-          <p className="text-[0.8125rem] sm:text-[1rem] lg:text-[1.125rem] font-semibold leading-[1.8] sm:leading-[1.9] text-ink mb-6 sm:mb-0">
+          <p className="text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.7] text-ink mb-[1.5rem] sm:mb-[2rem]">
             انتخاب مدرسه یعنی انتخاب آینده. اینجا صادقانه، مستقیم و بدون تعارف،
             به سوالات بی‌نهایت شما درباره‌ی کنکور، مدرک رسمی و آینده‌ی شغلی پاسخ
             می‌دین؛ چون باور داریم راهِ درست، از شفافیت می‌گذره.

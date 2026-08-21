@@ -118,11 +118,10 @@ export default function StatCard({ theme, label, value, caption = {} }) {
           />
         </div>
 
-        {/* Badge */}
+        {/* Badge - label/chip: 15px، bold، leading-1.35 (فونت‌سایز طبق design.md) */}
         {label && (
           <span
-            className={`
-              relative
+            className={`relative
               z-20
               inline-block
               -mt-1
@@ -134,15 +133,15 @@ export default function StatCard({ theme, label, value, caption = {} }) {
               border-[0.0625rem]
               rounded-xl
               [corner-shape:squircle]
-              px-2
+              px-1.5
               py-0.5
               lg:px-4
               lg:py-1.5
               whitespace-nowrap
-              text-[0.5625rem]
-              xs:text-[0.625rem]
-              lg:text-[1rem]
-              font-extrabold
+              text-[0.75rem]
+              xs:text-[0.8125rem]
+              lg:text-[0.9375rem]
+              font-bold
               shadow-sm
               ${t.badgeRotate}
               ${t.badge}
@@ -152,17 +151,16 @@ export default function StatCard({ theme, label, value, caption = {} }) {
           </span>
         )}
 
-        {/* Number */}
+        {/* Number - display/stat: 70px، extrablack، leading-1.0 */}
         <div
-          className={`
-            relative
+          className={`relative
             z-20
             mb-1.5
             xs:mb-2
             lg:mb-4
-            text-[2.125rem]
-            xs:text-[2.375rem]
-            lg:text-[4.5rem]
+            text-[2.75rem]
+            xs:text-[3rem]
+            lg:text-[4.375rem]
             leading-none
             font-black
             ${t.text}
@@ -171,16 +169,16 @@ export default function StatCard({ theme, label, value, caption = {} }) {
           {value}
         </div>
 
-        {/* Caption */}
+        {/* Caption - body: 16px، medium، normal */}
         {(captionStrong || captionRest) && (
           <div className={`relative z-20 ${t.text} mt-auto`}>
             {captionStrong && (
-              <strong className="block mb-0.5 lg:mb-1 text-[0.625rem] xs:text-[0.6875rem] lg:text-base font-black">
+              <strong className="block mb-0.5 lg:mb-1 text-[0.8125rem] xs:text-[0.875rem] lg:text-[1rem] font-black">
                 {captionStrong}
               </strong>
             )}
             {captionRest && (
-              <p className="text-[0.5625rem] xs:text-[0.625rem] lg:text-sm leading-4 xs:leading-5 lg:leading-7 font-semibold">
+              <p className="text-[0.6875rem] xs:text-[0.75rem] lg:text-[0.875rem] leading-[1.4] xs:leading-[1.5] lg:leading-[1.8] font-medium">
                 {captionRest}
               </p>
             )}

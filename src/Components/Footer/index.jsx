@@ -38,7 +38,7 @@ function LinkedinIcon({ className }) {
 export default function Footer() {
   return (
     <footer className="relative bg-[#21295A] text-white overflow-hidden" dir="rtl">
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-12">
+      <div className="max-w-[75rem] mx-auto px-6 lg:px-8">
         {/* ── ردیف بالایی: ستون‌ها + لوگو ── */}
         <div className="pt-[3.375rem] pb-8 lg:pt-[3.75rem] lg:pb-10 flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-0">
 

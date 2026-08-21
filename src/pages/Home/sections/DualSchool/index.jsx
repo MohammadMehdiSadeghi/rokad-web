@@ -12,7 +12,7 @@ export default function DualSchool() {
   return (
     <section
       id="schools"
-      className="relative bg-white w-full snap-start pt-[3rem] sm:pt-[4rem] lg:pt-[5rem] pb-[3rem] sm:pb-[4rem] px-4 sm:px-6 overflow-hidden flex flex-col justify-center"
+      className="relative bg-white w-full snap-start py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8 overflow-hidden flex flex-col justify-center"
     >
       {/* ── Background Pattern Layer ── */}
       <div
@@ -29,8 +29,8 @@ export default function DualSchool() {
       </div>
 
       <Container className="relative z-10">
-        {/* Title */}
-        <h2 className="text-center font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.75rem] xl:text-[3.3125rem] text-[#292827] mb-3 sm:mb-4 lg:mb-6 leading-[1.4] sm:leading-[1.5] flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3">
+        {/* Title - heading/section: 53px در دسکتاپ */}
+        <h2 className="text-center font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] text-[#292827] mb-[1.5rem] sm:mb-[2rem] lg:mb-[1.5rem] leading-[1.3] sm:leading-[1.4] flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3">
           <span className="text-magenta inline-block rotate-3">دخترونه</span>
           <span className="inline-block -rotate-3">یا</span>
           <span className="text-navy-alt inline-block rotate-3">پسرونه</span>
@@ -38,14 +38,14 @@ export default function DualSchool() {
           <span className="inline-block -rotate-3"> مسیرته</span>
         </h2>
 
-        {/* Subtitle - فاصله تا کارت‌ها دقیقاً 60px شد */}
-        <p className="text-center font-semibold text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] leading-[1.7] text-[#292827] max-w-[32.5rem] mx-auto mb-[2rem] sm:mb-[2.5rem] lg:mb-[3rem]">
+        {/* Subtitle - body/lead: 18px */}
+        <p className="text-center font-semibold text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] leading-[1.7] text-[#292827] max-w-[32.5rem] mx-auto mb-[4rem] sm:mb-[4rem] lg:mb-[4rem]">
           هر دو شعبه با محیطی امن، منتورهای مجرب و اکوسیستم اختصاصی. فقط کافیه
           مسیر خودت رو انتخاب کنی.
         </p>
 
-        {/* Grid - کاهش gap در سایز lg (1024px) به 8 و افزایش در xl (1280px) به 12 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 xl:gap-12">
+        {/* Grid - card-gap: 24px (space.6) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1.5rem]">
                   <SchoolCard
                     theme="boys"
                     category="مدرسه پسرانه"

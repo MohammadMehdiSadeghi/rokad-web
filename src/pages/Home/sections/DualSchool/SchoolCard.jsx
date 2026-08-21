@@ -60,31 +60,31 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
           {/* ۱. گروه بالا: تایتل، متا، و چیپ‌ها */}
           <div>
             {/* Title */}
-            <h3 className="font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.5rem] mb-1 sm:mb-2 leading-tight">
-              {title}
-            </h3>
+              <h3 className="font-black text-[1.5rem] sm:text-[2rem] lg:text-[2rem] mb-1 sm:mb-2 leading-tight">
+                {title}
+              </h3>
             
-            {/* Meta */}
-            <p className="text-[0.8125rem] sm:text-sm opacity-80 mb-3 sm:mb-4">{meta}</p>
+              {/* Meta */}
+              <p className="text-[0.9375rem] sm:text-[1rem] opacity-80 mb-3 sm:mb-4">{meta}</p>
 
-            {/* Chips */}
-            <div className="flex flex-col items-start gap-1 sm:gap-1.5">
-              {chips.map((chip) => (
-                <span
-                  key={chip}
-                  className="-rotate-2 flex items-center gap-2 bg-white/[0.15] font-semibold text-[0.625rem] xs:text-[0.6875rem] sm:text-[0.8125rem] rounded-chip px-2.5 py-1 sm:px-3.5 sm:py-2"
-                >
-                  <DotBullet />
-                  {chip}
-                </span>
-              ))}
-            </div>
+              {/* Chips */}
+              <div className="flex flex-col items-start gap-1 sm:gap-1.5">
+                {chips.map((chip) => (
+                  <span
+                    key={chip}
+                    className="-rotate-2 flex items-center gap-2 bg-white/[0.15] font-semibold text-[0.9375rem] xs:text-[0.9375rem] sm:text-[0.9375rem] rounded-chip px-2.5 py-1 sm:px-3.5 sm:py-2"
+                  >
+                    <DotBullet />
+                    {chip}
+                  </span>
+                ))}
+              </div>
           </div>
 
           {/* ۲. گروه پایین: دکمه (به پایین‌ترین نقطه کارت می‌رود) */}
           <a
             href="#"
-            className={`self-start rotate-[1.5deg] bg-white font-extrabold text-[0.8125rem] sm:text-[1rem] lg:text-[1.0625rem] rounded-[0.5rem] px-5 sm:px-7 py-2.5 sm:py-3 ${t.ctaText} transition-transform duration-300 hover:scale-105 hover:rotate-0`}
+            className={`self-start rotate-[1.5deg] bg-white font-extrabold text-[0.9375rem] sm:text-[0.9375rem] lg:text-[0.9375rem] rounded-[0.5rem] px-5 sm:px-7 py-2.5 sm:py-3 ${t.ctaText} transition-transform duration-300 hover:scale-105 hover:rotate-0`}
           >
             {ctaLabel}
           </a>

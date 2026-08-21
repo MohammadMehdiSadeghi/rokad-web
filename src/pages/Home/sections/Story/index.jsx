@@ -14,11 +14,11 @@ const pills = [
   },
   {
     label: "بازار کار واقعی",
-    back: "bg-purple",
-    border: "border-purple",
-    text: "text-purple",
+    back: "bg-[#E49007]",
+    border: "border-[#E49007]",
+    text: "text-[#E49007]",
     rotate: "rotate-[-2deg]",
-    bg: "bg-[#FCE8EF]",
+    bg: "bg-[#FEF7EC]",
   },
   {
     label: "هنرستان رسمی",
@@ -28,11 +28,20 @@ const pills = [
     rotate: "rotate-[2deg]",
     bg: "bg-[#E4F4F2]",
   },
+  {
+    label: "ادامه داستان رکاد",
+    back: "bg-teal-alt",
+    border: "border-teal",
+    text: "text-teal-text",
+    rotate: "rotate-[-2deg]",
+    bg: "bg-[#E4F4F2]",
+    isButton: true,
+  },
 ];
 
 export default function Story() {
   return (
-    <section id="about" className="pt-[3rem] sm:pt-[4rem] lg:pt-[5rem] pb-[3rem] sm:pb-[4rem] lg:pb-[5rem] w-full px-4 sm:px-6 bg-[#F6F6F6]">
+    <section id="about" className="py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-[#F6F6F6]">
       {/* تغییر lg به xl برای رفع باگ در سایز 1024px */}
       <Container className="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-16 xl:gap-40 items-center">
         {/* ── ستون راست: تصویر ── */}
@@ -57,7 +66,7 @@ export default function Story() {
 
         {/* ── ستون چپ: متن ── */}
         <div className="max-w-full xl:max-w-[31.25rem]">
-          <h2 className="font-black text-[1.375rem] sm:text-[1.75rem] lg:text-[2.5rem] xl:text-[2.875rem] leading-[1.4] sm:leading-[1.35] mb-3 sm:mb-5">
+          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.35] mb-[1.5rem] sm:mb-[2rem]">
             <span className="inline-block rotate-3">چرا</span>{" "}
             <span className="inline-block text-teal-wordmark -rotate-3">
               رکاد
@@ -67,44 +76,52 @@ export default function Story() {
             <span className="inline-block rotate-3">معمولی</span>{" "}
             <span className="inline-block -rotate-3">نیست؟</span>
           </h2>
-          <p className="text-[0.875rem] sm:text-[0.9375rem] leading-[1.9] sm:leading-[2] text-navy/70 max-w-full xl:max-w-[28.75rem] mb-[1rem] sm:mb-[1.5rem]">
+          <p className="text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] leading-[1.6] sm:leading-[1.7] text-navy/70 max-w-full xl:max-w-[28.75rem] mb-[1.5rem] sm:mb-[2rem]">
             ما هنرستان رو با اکوسیستم استارتاپی و بازار کار واقعی ترکیب کردیم.
             اینجا فقط کتاب نمی‌خونی؛ روی چالش‌های واقعی کار می‌کنی، با منتورهای
             متخصص همراهی می‌شی و توی محیطی امن، جرأت شکست خوردن و دوباره پاشدن
             رو یاد می‌گیری.
           </p>
 
-          {/* Pills با زاویه کج برای متن‌ها و سایه استیکری */}
-          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-4 mb-7 sm:mb-9">
+          {/* Pills */}
+          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-4 mb-[1.5rem] sm:mb-[2rem]">
             {pills.map((p) => (
               <span
                 key={p.label}
                 className={`relative ${p.bg} inline-block ${p.rotate}`}
               >
-                {/* لایه سایه پشت استیکر (اضافه شدن squircle) */}
+                {/* لایه سایه پشت استیکر */}
                 <span
                   className={`absolute inset-0 translate-x-[0.1875rem] translate-y-[0.1875rem] rounded-[1rem] [corner-shape:squircle] ${p.back}`}
                 />
-                {/* لایه اصلی و متن استیکر (اضافه شدن squircle) */}
-                <span
-                  className={`relative block ${p.bg} border-2 rounded-[0.9375rem] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[0.6875rem] xs:text-[0.75rem] sm:text-sm ${p.border} ${p.text}`}
-                >
-                  {p.label}
-                </span>
+                {p.isButton ? (
+                  <a
+                    href="#"
+                    className={`group relative flex items-center gap-1.5 ${p.bg} border-2 rounded-[0.9375rem] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[0.9375rem] ${p.border} ${p.text} cursor-pointer transition-all duration-300 hover:shadow-md`
+                    }
+                  >
+                    <span>{p.label}</span>
+                    <svg
+                      className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                  </a>
+                ) : (
+                  <span
+                    className={`relative block ${p.bg} border-2 rounded-[0.9375rem] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[0.9375rem] ${p.border} ${p.text}`}
+                  >
+                    {p.label}
+                  </span>
+                )}
               </span>
             ))}
-          </div>
-
-          {/* CTA (اضافه شدن squircle) */}
-          <div className="flex justify-center xl:justify-center items-center w-full">
-            <a
-              href="#"
-              className="group inline-flex items-center justify-center gap-3 w-full max-w-[12.5rem] sm:max-w-[10.625rem] h-[2.625rem] sm:h-[3.25rem] bg-[#59BBAF] text-white font-extrabold text-[0.875rem] sm:text-[1.125rem]
-              rounded-tr-none rounded-bl-none rounded-tl-[0.625rem] rounded-br-[0.625rem] [corner-shape:squircle]
-              border-2 border-[#D6EEEB]"
-            >
-              <span>ادامه داستان رکاد</span>
-            </a>
           </div>
         </div>
       </Container>

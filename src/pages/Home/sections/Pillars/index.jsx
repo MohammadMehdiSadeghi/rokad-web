@@ -42,7 +42,7 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section className="relative py-[3rem] sm:py-[4rem] lg:py-[5rem] px-4 sm:px-6 bg-white overflow-hidden">
+    <section className="relative py-[3rem] sm:py-[4rem] lg:py-[5rem] px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
       {/* ── Background Pattern Layer ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <img
@@ -55,7 +55,7 @@ export default function Pillars() {
 
       <Container className="relative z-10">
         {/* Title */}
-        <h2 className="text-right font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.75rem] xl:text-[3.3125rem] leading-[1.4] sm:leading-[1.5] mb-3 sm:mb-5 flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3">
+        <h2 className="text-right font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3">
           <span className="inline-block -rotate-3">چرا</span>
           <span className="inline-block rotate-2">خانواده‌ها</span>
           <span className="inline-block -rotate-3">به</span>
@@ -75,11 +75,13 @@ export default function Pillars() {
         </p>
 
         {/* اضافه شدن [grid-auto-rows:1fr] برای هم‌تراز شدن ارتفاع کارت‌ها */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[18px] sm:gap-6 lg:gap-8 [grid-auto-rows:1fr]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 xl:gap-8 [grid-auto-rows:1fr]">
                   {pillars.map((p, i) => {
-                    const rotation = i % 2 === 0 ? -1 : 1;
-                    const rotationLg = i % 2 === 0 ? -2 : 2;
-                    return <PillarCard key={p.index} {...p} rotation={rotation} rotationLg={rotationLg} />;
+                    // ترتیب روتیشن از چپ به راست: -2، 2، -2، 2
+                    // در RTL اولین آیتم آرایه (i=0) سمت راست نمایش داده میشه
+                    const fromLeft = pillars.length - 1 - i;
+                    const rotationLg = fromLeft % 2 === 0 ? -2 : 2;
+                    return <PillarCard key={p.index} {...p} rotationLg={rotationLg} />;
                   })}
                 </div>
       </Container>

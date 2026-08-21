@@ -22,7 +22,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 pt-2 sm:pt-4 lg:pt-6 xl:pt-8 px-3 sm:px-4 lg:px-0">
       <nav
         aria-label="ناوبری اصلی"
-        className="relative w-full lg:w-[80%] mx-auto"
+        className="relative w-full max-w-[75rem] mx-auto"
       >
         <div
                                 className="flex items-center justify-between h-[2.5rem] sm:h-[3.25rem] lg:h-[5.9375rem]

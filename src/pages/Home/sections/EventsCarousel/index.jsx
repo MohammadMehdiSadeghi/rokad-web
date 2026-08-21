@@ -81,7 +81,7 @@ export default function EventsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-      <section className="pt-[3rem] sm:pt-[4rem] lg:pt-[5rem] pb-[3rem] sm:pb-[4rem] lg:pb-[5rem] px-4 sm:px-6 relative overflow-hidden bg-white">
+      <section className="pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white">
         {/* 1. لایه پترن پس‌زمینه */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <img
@@ -96,10 +96,10 @@ export default function EventsCarousel() {
           {/* ── هدر: تایتل و دکمه‌های ناوبری ── */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-[2rem] sm:mb-[2.5rem] lg:mb-[3rem]">
             <div>
-              <h2 className="font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.35] mb-3 sm:mb-4">
+              <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-[1.5rem] sm:mb-[2rem]">
                 جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
               </h2>
-              <p className="font-medium text-[#292827] text-[0.8125rem] sm:text-[1rem] leading-[1.9] max-w-xl mb-[2rem] sm:mb-[3rem] lg:mb-[4rem]">
+              <p className="font-medium text-[#292827] text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] leading-[1.7] max-w-xl mb-[1.5rem] sm:mb-[2rem]">
                 رویدادهایی که دانش‌آموزها توش از ایده تا اجرا رو با دست خودشون طی می‌کنن.
               </p>
             </div>

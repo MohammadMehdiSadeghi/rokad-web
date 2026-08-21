@@ -62,9 +62,15 @@ export default {
                 "section-sm": "3rem",
                 "section-lg": "6rem",
                 "section-xl": "8rem",
+                "gutter": "3rem",
+                "gutter-md": "4rem",
+                "gutter-lg": "6rem",
+                "gutter-xl": "7.5rem",
             },
             maxWidth: {
                 content: "75rem",
+                canvas: "90rem",
+                container: "75rem",
             },
             boxShadow: {
                 soft: "0 1.25rem 3.75rem -1.25rem rgba(33,41,90,0.25)",

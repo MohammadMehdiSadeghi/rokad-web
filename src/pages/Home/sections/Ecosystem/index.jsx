@@ -103,21 +103,20 @@ export default function Ecosystem() {
   const hubY = 50;
 
   return (
-    <section id="ecosystem" className="relative py-20 lg:py-28 bg-white overflow-hidden" dir="rtl">
+    <section id="ecosystem" className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] bg-white overflow-hidden" dir="rtl">
       <Container className="relative z-10">
         {/* Heading */}
-        <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-3xl lg:text-[42px] font-extrablack leading-[1.2] tracking-tight text-ink mb-4">
+        <div className="text-center mb-[1.5rem] sm:mb-[2rem] lg:mb-[4rem]">
+          <h2 className="text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] font-extrablack leading-[1.3] sm:leading-[1.2] tracking-tight text-ink mb-[1.5rem]">
             <span className="text-teal-600">اکوسیستم</span> رکاد
           </h2>
-          <p className="text-base lg:text-lg font-medium leading-relaxed text-ink-700 max-w-2xl mx-auto">
+          <p className="text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-medium leading-[1.7] text-ink-700 max-w-2xl mx-auto">
             سه‌گانه‌ای که مسیر رشد را کامل می‌کند؛ از یادگیری تا کارآفرینی و تا
             شتاب‌گرفتن ایده‌ها — همه در یک زیست‌بوم به‌هم‌پیوسته.
           </p>
         </div>
 
-        {/* دسکتاپ: هاب + کارت‌ها + خط‌های اتصال */}
-        <div className="hidden lg:block relative max-w-[1180px] mx-auto min-h-[560px]">
+        {/* دسکتاپ: هاب + کارت‌ها + خط‌های اتصال */}          <div className="hidden lg:block relative max-w-[75rem] mx-auto min-h-[560px]">
           {/* خط‌های خط‌چین */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"

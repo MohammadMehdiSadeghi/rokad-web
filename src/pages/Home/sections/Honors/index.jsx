@@ -112,14 +112,15 @@ export default function HonorsCarousel() {
         relative
         bg-white
         overflow-x-clip
-        pt-[3rem]
-        sm:pt-[4rem]
-        lg:pt-[5rem]
-        pb-[3rem]
-        sm:pb-[4rem]
-        lg:pb-[5rem]
+        pt-[4rem]
+        sm:pt-[5rem]
+        lg:pt-[6rem]
+        pb-[4rem]
+        sm:pb-[5rem]
+        lg:pb-[6rem]
         px-4
         sm:px-6
+        lg:px-8
       "
       dir="rtl"
     >
@@ -151,10 +152,10 @@ export default function HonorsCarousel() {
       <style>{`
         .honors-swiper .card-inner-wrap {
           transition:
-            transform 0.5s ease,
+            transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
             opacity 0.5s ease;
-          opacity: 0.85;
-          transform: scale(0.9);
+          opacity: 0.55;
+          transform: scale(0.78);
         }
 
         .honors-swiper .swiper-slide-active {
@@ -162,7 +163,7 @@ export default function HonorsCarousel() {
         }
 
         .honors-swiper .swiper-slide-active .card-inner-wrap {
-          transform: scale(1);
+          transform: scale(1.08);
           opacity: 1;
           z-index: 30;
         }
@@ -174,8 +175,8 @@ export default function HonorsCarousel() {
 
         .honors-swiper .swiper-slide-prev .card-inner-wrap,
         .honors-swiper .swiper-slide-next .card-inner-wrap {
-          transform: scale(0.9);
-          opacity: 0.85;
+          transform: scale(0.78);
+          opacity: 0.55;
           z-index: 10;
         }
       `}</style>
@@ -201,66 +202,77 @@ export default function HonorsCarousel() {
             lg:mb-[3rem]
           "
         >
-          {/* Heading */}
-
-          <div className="w-full flex justify-center">
-            <h2
-              className="
-                w-full
-                font-black
-                text-center
-                text-[1.5rem]
-                sm:text-[1.9rem]
-                md:text-[2.25rem]
-                lg:text-[2.5rem]
-                xl:text-[3.3125rem]
-                leading-[1.35]
-              "
-            >
-              افتخاراتی که{" "}
-              <span className="text-[#21295A]">
-                با هم
-              </span>{" "}
-              ساختیم
-            </h2>
-          </div>
-
-          {/* Description */}
-
-          <div className="w-full flex justify-center">
-            <p
-              className="
-                max-w-[20rem]
-                sm:max-w-[32rem]
-                lg:max-w-[40rem]
-                font-medium
-                text-[#292827]
-                text-[0.8125rem]
-                sm:text-[1rem]
-                leading-[1.8]
-                sm:leading-[1.9]
-                text-center
-              "
-            >
-              هر مدال اینجا یه اسم یه دانش‌آموزه که یه چیزی رو
-              از صفر ساخت و تا آخرش ایستاد.
-            </p>
-          </div>
-
-          {/* All Honors Button */}
+          {/* Heading + Button Row */}
 
           <div
             className="
-              relative
-              inline-flex
+              w-full
+              flex
+              flex-col
+              sm:flex-row
               items-center
-              justify-center
-              rotate-[-1.55deg]
-              hover:rotate-0
-              transition-all
-              duration-300
+              justify-between
+              gap-4
+              sm:gap-6
             "
           >
+            {/* Left: Title + Subtitle */}
+            <div className="flex-1 flex flex-col items-center sm:items-start">
+              <h2
+                className="
+                  font-black
+                  text-center
+                  sm:text-right
+                  text-[1.5rem]
+                  sm:text-[2.25rem]
+                  lg:text-[3.3125rem]
+                  xl:text-[3.3125rem]
+                  leading-tight
+                "
+              >
+                افتخاراتی که{" "}
+                <span className="text-[#21295A]">
+                  با هم
+                </span>{" "}
+                ساختیم
+              </h2>
+
+              <p
+                className="
+                  mt-4
+                  max-w-[20rem]
+                  sm:max-w-[28rem]
+                  lg:max-w-[36rem]
+                  font-medium
+                  text-[#292827]
+                  text-[0.8125rem]
+                  sm:text-[1rem]
+                  lg:text-[1.125rem]
+                  leading-normal
+                  sm:leading-normal
+                  text-center
+                  sm:text-right
+                "
+              >
+                هر مدال اینجا یه اسم یه دانش‌آموزه که یه چیزی رو
+                از صفر ساخت و تا آخرش ایستاد.
+              </p>
+            </div>
+         {/* Right: Button */}
+
+            <div
+              className="
+                relative
+                inline-flex
+                items-center
+                justify-center
+                rotate-[-1.55deg]
+                hover:rotate-0
+                transition-all
+                duration-300
+                flex-shrink-0
+              "
+            >
             {/* Shadow */}
 
             <div
@@ -310,6 +322,7 @@ export default function HonorsCarousel() {
             >
               همه افتخارات
             </a>
+          </div>
           </div>
         </div>
 
@@ -421,14 +434,14 @@ export default function HonorsCarousel() {
               onSlideChange={(swiper) => {
                 setActiveIndex(swiper.realIndex);
               }}
-              spaceBetween={16}
+              spaceBetween={-20}
               speed={500}
               breakpoints={{
                 640: {
                   slidesPerView: 2,
                 },
 
-                1024: {
+                1280: {
                   slidesPerView: 3,
                 },
               }}
@@ -437,7 +450,7 @@ export default function HonorsCarousel() {
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
               }}
-              className="honors-swiper !pt-10 !pb-12"
+              className="honors-swiper !pt-16 sm:!pt-10 !pb-12"
             >
               {honors.map((honor, i) => {
                 const theme = THEME_MAP[honor.rank];
@@ -465,10 +478,9 @@ export default function HonorsCarousel() {
                         <div
                           className="
                             relative
-                            max-w-[21.25rem]
-                            xs:max-w-[22.5rem]
-                            sm:max-w-[23.75rem]
-                            lg:max-w-[25rem]
+                            max-w-[16rem]
+                            sm:max-w-[21.25rem]
+                            lg:max-w-[27rem]
                             xl:max-w-[28.75rem]
                             mx-auto
                           "
@@ -501,7 +513,7 @@ export default function HonorsCarousel() {
                               z-10
                               w-full
                               bg-white
-                              border-[0.125rem]
+                              border-[0.140625rem]
                               rounded-[0_2rem_0_2rem]
                               [corner-shape:squircle]
                               overflow-hidden
@@ -549,7 +561,8 @@ export default function HonorsCarousel() {
                               className="
                                 relative
                                 z-20
-                                min-h-[12.5rem]
+                                min-h-[10rem]
+                                sm:min-h-[12.5rem]
                                 flex
                                 flex-col
                                 items-center
@@ -557,17 +570,18 @@ export default function HonorsCarousel() {
                                 text-center
                                 gap-1.5
                                 sm:gap-2
-                                px-4
+                                px-3
                                 sm:px-5
-                                py-8
-                                sm:py-10
+                                py-5
+                                sm:py-8
+                                lg:py-10
                               "
                             >
                               {/* Meta */}
 
                               <p
                                 className="
-                                  text-[0.5625rem]
+                                  text-[0.625rem]
                                   sm:text-[0.6875rem]
                                   lg:text-[0.75rem]
                                   leading-5
@@ -587,7 +601,7 @@ export default function HonorsCarousel() {
                               <h4
                                 className="
                                   font-black
-                                  text-[0.75rem]
+                                  text-[0.8125rem]
                                   sm:text-[1rem]
                                   lg:text-[1.125rem]
                                   xl:text-[1.25rem]
@@ -642,7 +656,7 @@ export default function HonorsCarousel() {
                                     items-center
                                     justify-center
                                     text-white
-                                    text-[0.5625rem]
+                                    text-[0.6875rem]
                                     sm:text-[0.75rem]
                                     lg:text-[0.8125rem]
                                     font-bold
@@ -672,12 +686,12 @@ export default function HonorsCarousel() {
                           <div
                             className="
                               absolute
-                              -top-4
+                              -top-6
                               sm:-top-6
-                              lg:-top-8
+                              lg:-top-10
                               left-1/2
-                              w-10
-                              h-10
+                              w-14
+                              h-14
                               sm:w-16
                               sm:h-16
                               lg:w-20
@@ -783,7 +797,7 @@ export default function HonorsCarousel() {
             className="
               w-[9.375rem]
               h-1.5
-              bg-gray-200
+              bg-[#EDECEC]
               rounded-full
               overflow-hidden
             "
@@ -791,7 +805,7 @@ export default function HonorsCarousel() {
             <div
               className="
                 h-full
-                bg-[#21295A]
+                bg-[#333230]
                 transition-all
                 duration-500
                 ease-out

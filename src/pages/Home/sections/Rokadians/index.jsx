@@ -224,12 +224,12 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-[#f2faf9] pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-0"
+      className="relative overflow-hidden bg-[#f2faf9] pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-8"
     >
-      <Container className="relative z-10 px-4 sm:px-6 lg:px-0">
+      <Container className="relative z-10">
         <div className="w-full">
           <div className="text-center max-w-[50rem] mx-auto mb-6 sm:mb-8 lg:mb-12">
-            <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-xl sm:text-3xl lg:text-4xl xl:text-[2.625rem] leading-[1.4] text-[#292827]">
+            <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] xl:text-[3.3125rem] leading-[1.3] text-[#292827]">
               <span className="inline-block" style={{ transform: "rotate(-3deg)" }}>
                 ببین
               </span>
@@ -247,7 +247,7 @@ export default function Rokadians() {
               </span>
             </h2>
 
-            <p className="font-medium text-[#292827] text-sm sm:text-base lg:text-lg leading-loose max-w-md sm:max-w-xl lg:max-w-2xl mx-auto mt-3 sm:mt-4 lg:mt-6">
+            <p className="font-medium text-[#292827] text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] leading-[1.7] max-w-md sm:max-w-xl lg:max-w-2xl mx-auto mt-[1.5rem] sm:mt-[2rem]">
               فارغ‌التحصیلان ما در بهترین تیم‌های فنی کشور و به‌عنوان بنیان‌گذار استارتاپ‌های خودشون فعال هستن.
             </p>
           </div>

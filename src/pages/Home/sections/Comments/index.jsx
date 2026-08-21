@@ -91,7 +91,7 @@ export default function Comments() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full pt-[3rem] sm:pt-[4rem] lg:pt-[5rem] pb-[3rem] sm:pb-[4rem] lg:pb-[5rem] px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
+    <section className="relative w-full pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;
@@ -161,7 +161,7 @@ export default function Comments() {
 
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}
-        <h2 className="font-black text-[1.25rem] sm:text-[1.75rem] lg:text-[2.75rem] xl:text-[3.3125rem] leading-[1.4] sm:leading-[1.5] text-[#292827] mb-0 flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
+        <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-[#292827] mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
           <span className="inline-block -rotate-3">از</span>
           <span className="inline-block rotate-3">زبون</span>
           <span className="inline-block -rotate-3">کسایی</span>

@@ -199,12 +199,12 @@ export default function Blogs() {
     <section
       className="
         relative
-        pt-[3rem]
-        sm:pt-[4rem]
-        lg:pt-[5rem]
-        pb-[3rem]
-        sm:pb-[4rem]
-        lg:pb-[5rem]
+        pt-[4rem]
+        sm:pt-[5rem]
+        lg:pt-[6rem]
+        pb-[4rem]
+        sm:pb-[5rem]
+        lg:pb-[6rem]
         bg-white
         overflow-hidden
       "
@@ -249,9 +249,11 @@ export default function Blogs() {
               relative
               flex
               flex-col
+              sm:flex-row
               items-center
-              justify-center
-              gap-6
+              justify-between
+              gap-4
+              sm:gap-6
               mb-[2rem]
               sm:mb-[2.5rem]
               lg:mb-[3rem]
@@ -259,21 +261,23 @@ export default function Blogs() {
           >
             {/* Heading */}
 
-            <div className="w-full flex justify-center">
+            <div className="flex-1 flex sm:justify-start">
               <h2
                 className="
                   text-center
+                  sm:text-right
                   font-black
                   text-[1.5rem]
-                  sm:text-[1.9rem]
-                  md:text-[2.25rem]
-                  lg:text-[2.5rem]
-                  xl:text-[3.3125rem]
+                    sm:text-[2.25rem]
+                    md:text-[2.25rem]
+                    lg:text-[3.3125rem]
+                    xl:text-[3.3125rem]
                   leading-[1.3]
                   text-ink
                   flex
                   flex-wrap
                   justify-center
+                  sm:justify-start
                   items-center
                   gap-x-2
                   gap-y-1

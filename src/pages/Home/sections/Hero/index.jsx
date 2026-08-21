@@ -29,7 +29,7 @@ export default function Hero() {
         />
       </div>
 
-      <Container className="relative z-10 px-4 sm:px-6">
+      <Container className="relative z-10">
         {/* کارت اصلی */}
         <div className="relative overflow-hidden rounded-[0.875rem] sm:rounded-[1.25rem] lg:rounded-[2.25rem] bg-[#58BDAF] shadow-soft w-full aspect-[2.15] lg:aspect-[1200/510]">
           {/* پترن داخل کارت */}
@@ -52,14 +52,14 @@ export default function Hero() {
           <div className="absolute right-[3%] sm:right-[4%] lg:right-[3.9%] top-[4%] sm:top-[7%] lg:top-[12.7%] w-[70%] lg:w-[50%] z-20">
                       {/* خط اول: "آینده" rotate(2deg) */}
                       <div
-              className="font-black text-white text-[1.125rem] sm:text-[1.375rem] md:text-3xl lg:text-4xl xl:text-[3.7125rem] leading-[1.15] whitespace-nowrap"
+              className="font-black text-white text-[1.125rem] sm:text-[1.375rem] md:text-3xl lg:text-4xl xl:text-[4.8125rem] leading-[1.15] whitespace-nowrap"
                         style={{ transform: "rotate(2deg)" }}
                       >
                         آینده
                       </div>
                       {/* خط دوم: کلمات خطی، فاصله از خط اول در فیگما = 91px */}
                       <div
-              className="mt-[0.25rem] sm:mt-[1.125rem] lg:mt-[2.125rem] flex flex-wrap items-end gap-x-[0.2rem] sm:gap-x-[0.375rem] font-black text-white text-[0.875rem] sm:text-[1.0625rem] md:text-3xl lg:text-4xl xl:text-[3.7125rem] leading-[1.4] lg:leading-[1.53]"
+              className="mt-[0.25rem] sm:mt-[1.125rem] lg:mt-[2.125rem] flex flex-wrap items-end gap-x-[0.2rem] sm:gap-x-[0.375rem] font-black text-white text-[0.875rem] sm:text-[1.0625rem] md:text-3xl lg:text-4xl xl:text-[4.8125rem] leading-[1.4] lg:leading-[1.53]"
                       >
                         {headlineLine2.map((w) => (
                           <span

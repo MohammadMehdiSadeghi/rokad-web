@@ -8,7 +8,7 @@ const pattern = "/assets/unassigned/pattern-boxes.png";
 export default function FinalCTA() {
   return (
     <section
-      className="relative overflow-hidden bg-teal pt-[3rem] sm:pt-[4rem] pb-0 px-4 sm:px-6"
+      className="relative overflow-hidden bg-teal pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-0 px-4 sm:px-6 lg:px-8"
       dir="rtl"
     >
       {/* Background Pattern */}
@@ -35,7 +35,7 @@ export default function FinalCTA() {
 
           {/* Text Content (وسط) */}
           <div className="flex flex-col items-center text-center w-full sm:w-[60%] lg:w-[48%] mb-6 sm:mb-8 lg:mb-12">
-            <h2 className="font-black text-[1.375rem] sm:text-[2rem] lg:text-[3rem] xl:text-[4rem] leading-[1.4] text-white mb-5 sm:mb-7 flex flex-wrap justify-center gap-x-2">
+            <h2 className="font-black text-[2rem] sm:text-[3rem] lg:text-[4.8125rem] xl:text-[4.8125rem] leading-[1.2] text-white mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-center gap-x-2">
               <span className="inline-block rotate-[3deg]">برای</span>
               <span className="inline-block rotate-[-3deg]">ساختن</span>
               <span className="inline-block rotate-[3deg]">آینده</span>
@@ -45,7 +45,7 @@ export default function FinalCTA() {
               <span className="inline-block rotate-[3deg]">کن</span>
             </h2>
 
-            <p className="text-[0.875rem] sm:text-[1.125rem] lg:text-[1.375rem] font-semibold leading-[1.9] text-white max-w-[33.75rem] mb-6 sm:mb-8 lg:mb-10">
+            <p className="text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.7] text-white max-w-[33.75rem] mb-[1.5rem] sm:mb-[2rem] lg:mb-[2.5rem]">
               مصاحبه‌ی رایگان و تعیین سطح برای همه‌ی متقاضی‌ها. کافیه فرم رو پر
               کنی، بقیه‌ش با ماست.
             </p>

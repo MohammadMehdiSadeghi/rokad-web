@@ -6,11 +6,9 @@ export default function PillarCard({
   title,
   body,
   variant = "light",
-  rotation = 0,
-  rotationLg = rotation,
+  rotationLg = 0,
 }) {
   const isDark = variant === "dark" || variant === "featured";
-  const featured = variant === "featured";
 
   if (isDark) {
     const cardCls = featured
@@ -46,18 +44,20 @@ export default function PillarCard({
   const iconRadius = "rounded-[0.68625rem_0_0.68625rem_0] [corner-shape:squircle]";
 
   return (
-          // اضافه شدن h-full برای پر کردن ارتفاع سطر گرید
-          <div className="relative h-full" style={{ transform: `rotate(${rotation}deg)`, '--rotation-lg': `${rotationLg}deg` }}>
-        {/* Shadow / offset layer */}
-        <div
-          className={`absolute top-[0.3rem] left-[0.3rem] w-full h-full bg-[#292827] ${cornerRadius}`}
-        />
+    // h-full برای پر کردن ارتفاع سطر گرید؛ روتیشن فقط روی دسکتاپ (lg+)
+    <div
+      className="relative h-full lg:[transform:rotate(var(--rotation-lg))]"
+      style={{ "--rotation-lg": `${rotationLg}deg` }}
+    >
+      {/* Shadow / offset layer */}
+      <div
+        className={`absolute top-[0.3rem] left-[0.3rem] w-full h-full bg-[#292827] ${cornerRadius}`}
+      />
 
-        {/* Card - اضافه شدن h-full و flex flex-col */}
-        <article
-                  className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[0.125rem] border-[#292827] ${cornerRadius} px-5 py-5 sm:px-6 sm:py-7 min-h-[10rem] sm:min-h-[12rem] lg:min-h-[14rem] lg:rotate-[var(--rotation-lg)]`}
-                  style={{ '--rotation-lg': `${rotationLg}deg` }}
-                >
+      {/* Card */}
+      <article
+        className={`relative z-10 h-full flex flex-col bg-[#F6F6F6] border-[0.125rem] border-[#292827] ${cornerRadius} px-5 py-5 sm:px-6 sm:py-7 min-h-[10rem] sm:min-h-[12rem] lg:min-h-[14rem]`}
+      >
         {/* Index */}
         {index && (
           <span className="absolute top-3 sm:top-5 left-3 sm:left-5 font-black text-[0.875rem] sm:text-[2rem] text-[#0000001f] leading-none">
@@ -75,12 +75,12 @@ export default function PillarCard({
         </div>
 
         {/* Title */}
-        <h4 className="font-black text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-ink mb-2 sm:mb-3 leading-snug">
+        <h4 className="font-black text-[1.125rem] sm:text-[1.375rem] lg:text-[1.5rem] text-ink mb-2 sm:mb-3 leading-snug">
           {title}
         </h4>
-        
+
         {/* Body */}
-        <p className="text-[0.8125rem] sm:text-[0.875rem] leading-[1.8] text-ink/60">
+        <p className="text-[0.9375rem] sm:text-[1rem] leading-[1.7] text-ink/60">
           {body}
         </p>
       </article>

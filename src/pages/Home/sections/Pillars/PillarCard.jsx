@@ -44,10 +44,13 @@ export default function PillarCard({
   const iconRadius = "rounded-[0.68625rem_0_0.68625rem_0] [corner-shape:squircle]";
 
   return (
-    // h-full برای پر کردن ارتفاع سطر گرید؛ روتیشن فقط روی دسکتاپ (lg+)
+    // h-full برای پر کردن ارتفاع سطر گرید؛ روتیشن موبایل ربعِ دسکتاپه (۰.۵°)
     <div
-      className="relative h-full [transform:rotate(var(--rotation-lg))]"
-      style={{ "--rotation-lg": `${rotationLg}deg` }}
+      className="relative h-full [transform:rotate(var(--rotation-sm))] lg:[transform:rotate(var(--rotation-lg))]"
+      style={{
+        "--rotation-sm": `${rotationLg / 4}deg`,
+        "--rotation-lg": `${rotationLg}deg`,
+      }}
     >
       {/* Shadow / offset layer */}
       <div

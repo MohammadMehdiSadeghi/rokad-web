@@ -5,7 +5,8 @@ const greenTexture = "/public/assets/StatCard/green.png"; // عکس پترن ف�
 
 const THEMES = {
   orange: {
-    rotate: "rotate-[2.5deg]",
+    // موبایل ۱ درجه، دسکتاپ (lg+) مقدار کامل
+    rotate: "rotate-[1deg] lg:rotate-[2.5deg]",
     badgeRotate: "rotate-[3deg]",
     back: "bg-orange-alt",
     border: "border-orange-alt",
@@ -16,7 +17,7 @@ const THEMES = {
     opacity: 80,
   },
   navy: {
-    rotate: "-rotate-[2deg]",
+    rotate: "-rotate-[1deg] lg:-rotate-[2deg]",
     badgeRotate: "-rotate-[2.5deg]",
     back: "bg-navy-alt",
     border: "border-navy",
@@ -27,7 +28,7 @@ const THEMES = {
     opacity: 50,
   },
   magenta: {
-    rotate: "rotate-[2.5deg]",
+    rotate: "rotate-[1deg] lg:rotate-[2.5deg]",
     badgeRotate: "rotate-[3deg]",
     back: "bg-magenta",
     border: "border-magenta",
@@ -38,7 +39,7 @@ const THEMES = {
     opacity: 100, 
   },
   teal: {
-    rotate: "-rotate-[2deg]",
+    rotate: "-rotate-[1deg] lg:-rotate-[2deg]",
     badgeRotate: "-rotate-[2.5deg]",
     back: "bg-teal-alt",
     border: "border-teal",

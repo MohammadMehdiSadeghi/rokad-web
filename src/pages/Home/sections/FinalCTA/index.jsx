@@ -35,7 +35,7 @@ export default function FinalCTA() {
 
           {/* Text Content (وسط) */}
           <div className="flex flex-col items-center text-center w-full sm:w-[60%] lg:w-[48%] mb-6 sm:mb-8 lg:mb-12">
-            <h2 className="font-black text-[2rem] sm:text-[3rem] lg:text-[4.8125rem] xl:text-[4.8125rem] leading-[1.2] text-white mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-center gap-x-2">
+            <h2 className="font-black text-[2rem] sm:text-[3rem] lg:text-[4.8125rem] xl:text-[4.8125rem] leading-[1.7] sm:leading-[1.4] lg:leading-[1.2] text-white mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-center gap-x-2 gap-y-1 sm:gap-y-0">
               <span className="inline-block rotate-[3deg]">برای</span>
               <span className="inline-block rotate-[-3deg]">ساختن</span>
               <span className="inline-block rotate-[3deg]">آینده</span>

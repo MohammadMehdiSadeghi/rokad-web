@@ -185,7 +185,7 @@ export default function Comments() {
         </h2>
 
         {/* ── کاروسل ── */}
-        <div className="relative w-full pt-[2.5rem] sm:pt-[3rem] md:pt-[3.25rem] lg:pt-[3.75rem] pb-12 sm:pb-16 overflow-visible">
+        <div className="relative w-full pt-[1rem] sm:pt-[3rem] md:pt-[3.25rem] lg:pt-[3.75rem] pb-12 sm:pb-16 overflow-visible">
           {/* دکمه راست */}
           <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0 hidden lg:block">
             <div className="absolute top-[0.09375rem] left-[0.125rem] sm:top-[0.125rem] sm:left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle]"></div>
@@ -225,7 +225,7 @@ export default function Comments() {
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
               }}
-              className="comments-swiper !pt-6 sm:!pt-8 lg:!pt-10 !pb-4 sm:!pb-6 lg:!pb-8"
+              className="comments-swiper !pt-2 sm:!pt-8 lg:!pt-10 !pb-4 sm:!pb-6 lg:!pb-8"
             >
               {comments.map((comment) => {
                 const theme = THEME_MAP[comment.theme];

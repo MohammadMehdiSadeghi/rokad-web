@@ -42,11 +42,11 @@ export default function Footer() {
         {/* ── ردیف بالایی: ستون‌ها + لوگو ── */}
         <div className="pt-[3.375rem] pb-8 lg:pt-[3.75rem] lg:pb-10 flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-0">
 
-          {/* ── ستون‌های محتوا (۳ ستون) ── */}
-          <div className="flex flex-wrap gap-x-8 gap-y-8 lg:flex-nowrap justify-between w-full lg:w-auto">
+          {/* ── ستون‌های محتوا — موبایل/تبلت: گرید مرتب، دسکتاپ: flex مثل قبل ── */}
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 w-full lg:flex lg:flex-nowrap lg:justify-between lg:w-auto">
 
             {/* ستون ۱: درباره */}
-            <div className="flex-1 min-w-[7.5rem]">
+            <div className="min-w-0 lg:flex-1 lg:min-w-[7.5rem]">
               <h3 className="font-black text-[#58BDAF] text-[1.125rem] sm:text-[1.25rem] leading-none mb-3">
                 رکاد
               </h3>
@@ -62,7 +62,7 @@ export default function Footer() {
             </div>
 
             {/* ستون ۲: مدارس */}
-            <div className="flex-1 min-w-[7.5rem]">
+            <div className="min-w-0 lg:flex-1 lg:min-w-[7.5rem]">
               <h3 className="font-black text-[#58BDAF] text-[1.125rem] sm:text-[1.25rem] leading-none mb-3">
                 مدارس
               </h3>
@@ -77,8 +77,8 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* ستون ۳: ارتباط */}
-            <div className="flex-1 min-w-[8.75rem]">
+            {/* ستون ۳: ارتباط — در گرید ۲ستونه‌ی موبایل تمام‌عرض تا خونه‌ی خالی نمونه */}
+            <div className="col-span-2 sm:col-span-1 min-w-0 lg:flex-1 lg:min-w-[8.75rem]">
               <h3 className="font-black text-[#58BDAF] text-[1.125rem] sm:text-[1.25rem] leading-none mb-3">
                 ارتباط
               </h3>

@@ -56,14 +56,14 @@ export default function Pillars() {
       <Container className="relative z-10">
         {/* Title */}
         <h2 className="text-right font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3">
-          <span className="inline-block -rotate-3">چرا</span>
-          <span className="inline-block rotate-2">خانواده‌ها</span>
-          <span className="inline-block -rotate-3">به</span>
-          <span className="inline-block rotate-2">ما</span>
-          <span className="inline-block -rotate-3 text-teal-wordmark">
+          <span className="inline-block -rotate-[0.5deg] sm:-rotate-3">چرا</span>
+          <span className="inline-block rotate-[0.5deg] sm:rotate-2">خانواده‌ها</span>
+          <span className="inline-block -rotate-[0.5deg] sm:-rotate-3">به</span>
+          <span className="inline-block rotate-[0.5deg] sm:rotate-2">ما</span>
+          <span className="inline-block -rotate-[0.5deg] sm:-rotate-3 text-teal-wordmark">
             اعتماد
           </span>
-          <span className="inline-block rotate-2 text-teal-wordmark">
+          <span className="inline-block rotate-[0.5deg] sm:rotate-2 text-teal-wordmark">
             می‌کنن
           </span>
         </h2>

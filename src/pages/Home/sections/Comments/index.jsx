@@ -108,7 +108,7 @@ export default function Comments() {
           z-index: 30 !important;
         }
         .comments-swiper .swiper-slide-active .card-inner-wrap {
-          transform: scale(1.3) translateY(-6px) rotate(0deg);
+          transform: scale(1.4, 1.3) translateY(-6px) rotate(0deg);
           opacity: 1;
           z-index: 30;
           pointer-events: auto;
@@ -134,7 +134,7 @@ export default function Comments() {
         /* Tablet (md): smaller scale so cards don't clip */
         @media (min-width: 768px) and (max-width: 1023px) {
           .comments-swiper .swiper-slide-active .card-inner-wrap {
-            transform: scale(1.15) translateY(-4px) rotate(0deg);
+            transform: scale(1.22, 1.15) translateY(-4px) rotate(0deg);
           }
           .comments-swiper .swiper-slide-prev .card-inner-wrap {
             transform: scale(0.85) translateY(6px) rotate(5deg);
@@ -239,7 +239,7 @@ export default function Comments() {
                     className="!h-auto overflow-visible"
                   >
                     <div className="p-1.5 sm:p-2 lg:p-3 overflow-visible">
-                      <div className="card-inner-wrap">                          <div className="relative max-w-[19.5rem] sm:max-w-[20rem] md:max-w-[22rem] lg:max-w-[28rem] xl:max-w-[32rem] mx-auto">
+                      <div className="card-inner-wrap">                          <div className="relative max-w-[19.5rem] sm:max-w-[20rem] md:max-w-[22rem] lg:max-w-[25rem] xl:max-w-[28.125rem] mx-auto">
                           {/* لایه پشتی کارت */}
                           <div
                             aria-hidden="true"
@@ -248,7 +248,7 @@ export default function Comments() {
 
                           {/* کارت اصلی */}
                           <div
-                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-5 sm:p-6 lg:p-7 min-h-[13rem] sm:min-h-[14rem] md:min-h-[13rem] lg:min-h-[18rem] flex flex-col rotate-1`}
+                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-5 sm:p-6 lg:p-6 min-h-[13rem] sm:min-h-[14rem] md:min-h-[13rem] lg:min-h-[15.625rem] flex flex-col`}
                           >
                             <span
                               className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}
@@ -256,7 +256,7 @@ export default function Comments() {
                               "
                             </span>
 
-                            <p className="text-[0.9375rem] sm:text-[1rem] lg:text-[1.0625rem] leading-7 sm:leading-8 text-[#292827] flex-grow">
+                            <p className="text-[0.9375rem] sm:text-[1rem] lg:text-[0.9375rem] leading-7 sm:leading-7 text-[#292827] flex-grow">
                               {comment.text}
                             </p>
 

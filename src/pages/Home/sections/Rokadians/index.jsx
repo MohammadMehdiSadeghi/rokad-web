@@ -37,13 +37,13 @@ const AVATAR_SIZE =
   "w-[5.5rem] h-[5.5rem] sm:w-[6.25rem] sm:h-[6.25rem] md:w-[6.5rem] md:h-[6.5rem] lg:w-[5.625rem] lg:h-[5.625rem] 2xl:w-[6.3125rem] 2xl:h-[6.3125rem]";
 
 const CARD_CONTENT_PAD =
-  "px-5 pt-[3.25rem] pb-4 sm:px-6 sm:pt-[4rem] md:px-7 md:pt-[4.25rem] lg:px-3 lg:pt-[3.3125rem] lg:pb-4 2xl:pt-[3.75rem]";
+  "px-5 pt-[3.25rem] pb-4 sm:px-6 sm:pt-[4rem] md:px-7 md:pt-[4.25rem] lg:px-3 lg:pt-[3.5625rem] lg:pb-4 2xl:pt-[4rem]";
 
 const NAME_SIZE =
   "text-[1.05rem] sm:text-[1.1rem] md:text-[1.15rem] lg:text-[1rem] 2xl:text-[1.125rem]";
 
 const DESC_SIZE =
-  "text-[0.78rem] sm:text-[0.8rem] md:text-[0.82rem] lg:text-[0.75rem] 2xl:text-[0.8125rem] max-w-[16rem] sm:max-w-[17rem] md:max-w-[18rem]";
+  "text-[0.78rem] sm:text-[0.8rem] md:text-[0.82rem] lg:text-[0.75rem] 2xl:text-[0.8125rem] max-w-[16rem] sm:max-w-[17rem] md:max-w-[18rem] lg:max-w-[11.875rem] 2xl:max-w-[13.25rem]";
 
 const BADGE_SIZE =
   "text-[0.65rem] sm:text-[0.675rem] md:text-[0.7rem] lg:text-[0.625rem] 2xl:text-[0.6875rem] px-4 py-1.5 lg:px-[0.8125rem] lg:py-[0.25rem]";
@@ -199,13 +199,13 @@ function StudentCard({ student, index, stacked }) {
           </h4>
 
           <p
-            className={`${DESC_SIZE} text-[#777777] font-medium mt-2 lg:mt-[5px] leading-[1.7] flex-1 pb-3 lg:pb-2.5`}
+            className={`${DESC_SIZE} text-[#777777] font-medium mt-2 lg:mt-[5px] leading-[1.7]`}
           >
             {student.desc}
           </p>
 
           {/* Badge */}
-          <div className="relative inline-flex items-center justify-center shrink-0">
+          <div className="relative inline-flex items-center justify-center mt-5 lg:mt-4">
             <div
               aria-hidden="true"
               className="absolute top-[0.15rem] left-[0.15rem] w-full h-full bg-[#292827] rounded-[0_0.5rem_0_0.5rem]"
@@ -334,26 +334,31 @@ export default function Rokadians() {
               ================================================= */}
 
               <div className="lg:hidden flex flex-col items-center mb-9">
-                <div className="relative text-center rotate-[2deg]">
-                  {/* decorative shape */}
-                  <div className="absolute -inset-x-8 -inset-y-4 bg-[#dff4f0] rounded-[1.25rem] -z-10 rotate-[-3deg]" />
-
-                  <p className="font-black text-[3.75rem] sm:text-[4rem] leading-none text-[#21295a]">
-                    ۳۰۰+
+                {/* کارت آمار — همون زبان استیکری دکمه‌ی زیرش:
+                    سفید + بوردر سرمه‌ای + سایه‌ی آفست + چرخش مخالف دکمه */}
+                <div className="relative text-center rotate-[2deg] bg-white border-[0.125rem] border-[#21295a] rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] px-7 py-4 [corner-shape:squircle]">
+                  <p
+                    className="text-[2.5rem] sm:text-[2.75rem] leading-none text-[#21295a]"
+                    style={{ fontWeight: 950 }}
+                  >
+                    ۳۰۰<span className="text-teal">+</span>
                   </p>
 
-                  <p className="font-black text-[1.2rem] sm:text-[1.3rem] text-[#21295a] mt-2">
+                  <p
+                    className="text-[1rem] sm:text-[1.0625rem] text-[#21295a] mt-1.5"
+                    style={{ fontWeight: 950 }}
+                  >
                     دانش‌آموز
                   </p>
 
-                  <p className="font-bold text-[0.78rem] sm:text-[0.82rem] text-[#21295a]/70 mt-1">
+                  <p className="text-[0.75rem] sm:text-[0.8125rem] font-bold text-[#21295a]/60 mt-0.5">
                     در مسیر ساخت آینده
                   </p>
                 </div>
 
                 <a
                   href="#"
-                  className="mt-7 inline-flex items-center justify-center bg-[#4bb5a8] border-[0.125rem] border-[#21295a] text-white font-black text-[0.9rem] sm:text-[0.95rem] px-7 py-2.5 rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] transition-all"
+                  className="mt-4 relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[0.9rem] px-7 py-2.5 rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap [corner-shape:squircle]"
                 >
                   مشاهده همه رکادی‌ها
                 </a>
@@ -420,7 +425,7 @@ export default function Rokadians() {
 
                 <a
                   href="#"
-                  className="relative inline-flex items-center justify-center w-fit bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[1.125rem] 2xl:text-[1.25rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] whitespace-nowrap mt-6 cursor-pointer [background-image:linear-gradient(to_right,#21295a,#21295a)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
+                  className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[1.125rem] 2xl:text-[1.25rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap mt-6 [corner-shape:squircle]"
                 >
                   مشاهده همه
                 </a>

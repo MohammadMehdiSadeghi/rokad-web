@@ -6,6 +6,21 @@
   utilities map onto these directly (see tailwind.config.js fontWeight).
 */
 
+/*
+  Montserrat — self-hosted variable font (wght 100-900) برای همه‌ی
+  متن‌های انگلیسی/لاتین. چون Montserrat گلیف عربی/فارسی نداره، در
+  font-stack قبل از IRANSansX قرار می‌گیره: کاراکترهای لاتین از
+  Montserrat رندر می‌شن و فارسی خودکار به IRANSansX برمی‌گرده.
+*/
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("/fonts/Montserrat-VariableFont.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 @font-face {
     font-family: "IRANSansX";
     src: url("/fonts/IRANSansX-ThinD4.ttf") format("truetype");

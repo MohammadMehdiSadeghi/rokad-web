@@ -10,7 +10,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "../../../../common/Icons";
 
 import "swiper/css";
 
-const commentsPattern = "/public/assets/Pattern/layout-pattern.png";
+const commentsPattern = "/assets/Pattern/layout-pattern.png";
 
 const comments = [
   {
@@ -164,17 +164,21 @@ export default function Comments() {
         }
       `}</style>
 
-      {/* ── لایه پترن ── */}
+      {/* ── لایه پترن — همون ماسک گرادیانی هیرو/دوئال‌اسکول؛ روی
+          پس‌زمینه‌ی مینتی (#E4F4F2) می‌شینه و لبه‌ی بالا/پایین محو میشه ── */}
       <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          backgroundImage: `url(${commentsPattern})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          opacity: 1,
-        }}
-      ></div>
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none
+                [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
+                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+      >
+        <img
+          src={commentsPattern}
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+          className="w-full h-full object-cover opacity-70 select-none"
+        />
+      </div>
 
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}

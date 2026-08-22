@@ -10,7 +10,10 @@ export default {
         },
         extend: {
             fontFamily: {
-                sans: ["IRANSansX", "Tahoma", "sans-serif"],
+                // Montserrat اول می‌شینه تا هر گلیف لاتین با اون رندر بشه؛
+                // حروف فارسی در Montserrat وجود ندارن و به IRANSansX
+                // برمی‌گردن (fallback per-character توسط مرورگر)
+                sans: ["Montserrat", "IRANSansX", "Tahoma", "sans-serif"],
             },
             colors: {
                 navy: "#21295a",

@@ -31,7 +31,9 @@ export default function MainLayout() {
     <>
       <ScrollManager />
       <Header />
-      <main className="pt-[2.8125rem] sm:pt-[3.25rem] lg:pt-[5.9375rem] xl:pt-[7.5rem]">
+      {/* اسپیسر = فوت‌پرینت کامل هدر فیکس (پدینگ wrapper + ارتفاع نوار) تا
+          هیچ سکشنی زیر هدر نره؛ فاصله‌ی بصری خود سکشن‌ها با pt خودشون کنترل میشه */}
+      <main className="pt-12 sm:pt-[4.25rem] lg:pt-[7.4375rem] xl:pt-[7.9375rem]">
         <Outlet />
       </main>
       <Footer />

@@ -31,21 +31,58 @@ export default function Header() {
 
   return (
     <>
-      {/* موبایل: نوار ساده‌ی تمام‌عرض (فیگما Android Compact: h=45px، فقط لوگو + همبرگر)
-          دسکتاپ: کارت منو گرد با پس‌زمینه سبز کمرنگ + سایه خیلی ریز */}
-      <header className="fixed top-0 left-0 right-0 z-50 pt-2 sm:pt-4 lg:pt-6 xl:pt-8 px-3 sm:px-4 lg:px-0">
+      {/* موبایل: نوار ساده‌ی تمام‌عرض — همبرگری راست، لوگو وسط، اکشن‌ها چپ
+          دسکتاپ: کارت منو squircle با پس‌زمینه مینت و شدو نرم apple-style */}
+      <header className="fixed top-0 left-0 right-0 z-50 pt-2 sm:pt-4 lg:pt-6 xl:pt-8 px-3 sm:px-4 lg:px-6 xl:px-0">
         <nav
           aria-label="ناوبری اصلی"
           className="relative w-full max-w-[75rem] mx-auto"
         >
           <div
-            className="flex items-center justify-between h-[2.5rem] sm:h-[3.25rem] lg:h-[5.9375rem]
-            rounded-none lg:rounded-[1.375rem] bg-[#E6F5F3]
-            shadow-[0_0.0625rem_0.125rem_rgba(0,0,0,0.06),0_0.25rem_0.5rem_rgba(0,0,0,0.04),0_0.5rem_1rem_rgba(0,0,0,0.02)]
-            px-2 sm:px-2 lg:px-8"
+            className="relative flex items-center justify-between h-[2.5rem] sm:h-[3.25rem] lg:h-[5.9375rem]
+            rounded-[24px] lg:rounded-[38px] [corner-shape:squircle] bg-bg-mint
+            shadow-[0_0.0625rem_0.1875rem_rgba(0,0,0,0.04),0_0.5rem_1.25rem_rgba(33,41,90,0.05),0_1.25rem_2.5rem_-0.25rem_rgba(33,41,90,0.06)]
+            px-4 py-8 sm:px-4 lg:px-8"
           >
-            {/* ── سمت راست: لوگو ── */}
-            <Link to="/" className="flex-shrink-0" aria-label="رکاد">
+            {/* ── سمت راست: همبرگری موبایل ──
+                آیکون دوخطی مینیمال (استایل مدرن Apple/Linear): خط بالا
+                تمام‌عرض، خط پایین کوتاه‌تر که با هاور کش میاد؛ موقع باز شدن
+                هر دو خط به مرکز میان و ضربدر می‌سازن */}
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobile-nav-menu"
+              aria-label={open ? "بستن منو" : "باز کردن منو"}
+              className="lg:hidden group relative -mr-1.5 w-10 h-10 flex-shrink-0 flex items-center justify-center text-navy transition-colors duration-300 hover:text-teal-text active:scale-95"
+            >
+              <span
+                aria-hidden="true"
+                className="relative block w-[1.25rem] h-[0.75rem]"
+              >
+                <span
+                  className={`absolute right-0 top-1/2 h-[0.125rem] w-full rounded-full bg-current transition-all duration-300 ease-out ${
+                    open
+                      ? "translate-y-0 rotate-45"
+                      : "-translate-y-[0.28125rem]"
+                  }`}
+                />
+                <span
+                  className={`absolute right-0 top-1/2 h-[0.125rem] rounded-full bg-current transition-all duration-300 ease-out group-hover:w-full ${
+                    open
+                      ? "w-full translate-y-0 -rotate-45"
+                      : "w-[68%] translate-y-[0.28125rem]"
+                  }`}
+                />
+              </span>
+            </button>
+
+            {/* ── لوگو — موبایل: وسط نوار / دسکتاپ: راست ── */}
+            <Link
+              to="/"
+              aria-label="رکاد"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:top-auto lg:left-auto lg:translate-x-0 lg:translate-y-0 flex-shrink-0"
+            >
               <img
                 src={logo}
                 alt="رکاد"
@@ -56,16 +93,16 @@ export default function Header() {
             </Link>
 
             {/* ── وسط: دکمه پیش‌ثبت‌نام + لینک‌های ناوبری (فقط دسکتاپ) ── */}
-            <div className="hidden lg:flex flex-1 items-center justify-center gap-7">
+            <div className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-7">
               <a
                 href="#"
-                className="whitespace-nowrap -rotate-3 rounded-pill-sm bg-navy px-[0.6875rem] py-[0.4375rem] text-base2 font-black text-white transition-transform
+                className="whitespace-nowrap -rotate-3 rounded-[8px] [corner-shape:squircle] bg-navy px-[0.6875rem] py-[0.4375rem] text-base2 font-black text-white transition-transform
                  duration-200 hover:rotate-0 hover:scale-105"
               >
                 پیش‌ثبت‌نام
               </a>
 
-              <ul className="flex items-center gap-8  list-none m-0 p-0">
+              <ul className="flex items-center gap-4 xl:gap-8  list-none m-0 p-0">
                 {navLinks.map((link) => (
                   <li key={link.label}>
                     <Link
@@ -80,43 +117,35 @@ export default function Header() {
               </ul>
             </div>
 
-            {/* ── سمت چپ: دکمه ورود/ثبت‌نام (فقط دسکتاپ) + همبرگری موبایل ── */}
-            <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            {/* ── سمت چپ: پروفایل (موبایل) و ورود/ثبت‌نام (دسکتاپ) ── */}
+            <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 flex-shrink-0">
               <a
                 href="#"
-                className="hidden lg:inline-flex whitespace-nowrap rounded-pill-md bg-teal px-6 py-[0.5875rem] text-base2 font-extrabold
-                 text-white transition-colors duration-300 hover:bg-white hover:text-teal border border-1 border-white hover:border-teal"
+                aria-label="ورود / پروفایل"
+                className="lg:hidden relative w-9 h-9 flex items-center justify-center flex-shrink-0 rounded-[0_0.55rem_0_0.55rem] [corner-shape:squircle] bg-white border-[0.09375rem] border-navy/15 text-navy transition-colors duration-200 hover:border-navy/40 active:bg-navy/5"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  className="w-[1.125rem] h-[1.125rem]"
+                >
+                  <circle cx="12" cy="8.2" r="3.4" />
+                  <path d="M5 19.6c1.5-3.1 4-4.7 7-4.7s5.5 1.6 7 4.7" />
+                </svg>
+              </a>
+
+              <a
+                href="#"
+                className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold
+                 text-white transition-colors duration-300 hover:bg-white hover:text-teal"
               >
                 ورود / ثبت نام
               </a>
-
-              {/* دکمه همبرگری — تاچ‌تارگت ۴۰px، تبدیل نرم به ضربدر */}
-              <button
-                type="button"
-                onClick={() => setOpen((v) => !v)}
-                aria-expanded={open}
-                aria-controls="mobile-nav-menu"
-                aria-label={open ? "بستن منو" : "باز کردن منو"}
-                className="lg:hidden relative -mr-1.5 w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-lg text-navy transition-colors duration-200 hover:bg-navy/5 active:bg-navy/10"
-              >
-                <span className="flex flex-col items-center justify-center gap-[0.3125rem] w-5">
-                  <span
-                    className={`block h-[0.125rem] w-full bg-current rounded-full transition-transform duration-300 ${
-                      open ? "translate-y-[0.4375rem] rotate-45" : ""
-                    }`}
-                  />
-                  <span
-                    className={`block h-[0.125rem] w-full bg-current rounded-full transition-opacity duration-200 ${
-                      open ? "opacity-0" : "opacity-100"
-                    }`}
-                  />
-                  <span
-                    className={`block h-[0.125rem] w-full bg-current rounded-full transition-transform duration-300 ${
-                      open ? "-translate-y-[0.4375rem] -rotate-45" : ""
-                    }`}
-                  />
-                </span>
-              </button>
             </div>
           </div>
         </nav>
@@ -134,8 +163,8 @@ export default function Header() {
           transition-[clip-path] duration-[650ms] ease-[cubic-bezier(0.76,0,0.24,1)]
           ${
             open
-              ? "[clip-path:circle(142%_at_9%_5%)]"
-              : "[clip-path:circle(0%_at_9%_5%)] pointer-events-none"
+              ? "[clip-path:circle(142%_at_91%_5%)]"
+              : "[clip-path:circle(0%_at_91%_5%)] pointer-events-none"
           }`}
       >
         {/* واترمارک «رکاد» — همون موتیف پس‌زمینه‌ی خود سایت */}
@@ -148,18 +177,8 @@ export default function Header() {
         </span>
 
         <div className="relative h-full flex flex-col overflow-y-auto px-5 pt-[3.25rem] pb-7">
-          {/* ── ردیف بالا: لوگو (راست) + دکمه بستن دایره‌ای (چپ) ── */}
+          {/* ── ردیف بالا: دکمه بستن دایره‌ای (راست) + لوگو (چپ) ── */}
           <div className="flex items-center justify-between">
-            <Link to="/" onClick={close} aria-label="رکاد" className="flex-shrink-0">
-              <img
-                src={logo}
-                alt="رکاد"
-                width="71"
-                height="56"
-                className="h-9 w-auto brightness-0 invert"
-              />
-            </Link>
-
             <button
               type="button"
               onClick={close}
@@ -177,6 +196,21 @@ export default function Header() {
                 <path d="M18 6 6 18M6 6l12 12" />
               </svg>
             </button>
+
+            <Link
+              to="/"
+              onClick={close}
+              aria-label="رکاد"
+              className="flex-shrink-0"
+            >
+              <img
+                src={logo}
+                alt="رکاد"
+                width="71"
+                height="56"
+                className="h-9 w-auto brightness-0 invert"
+              />
+            </Link>
           </div>
 
           {/* ── لینک‌ها — بزرگ، شماره‌دار، با چرخش متناوب ── */}
@@ -224,7 +258,7 @@ export default function Header() {
               <a
                 href="#"
                 onClick={close}
-                className="inline-flex items-center justify-center px-6 py-2.5 -rotate-3 bg-white text-navy text-[0.95rem] font-black rounded-pill-sm transition-transform duration-200 hover:rotate-0 active:scale-[0.98]"
+                className="inline-flex items-center justify-center px-6 py-2.5 -rotate-3 bg-white text-navy text-[0.95rem] font-black rounded-[4px] [corner-shape:squircle] transition-transform duration-200 hover:rotate-0 active:scale-[0.98]"
                 style={{ fontWeight: 950 }}
               >
                 پیش‌ثبت‌نام
@@ -232,7 +266,7 @@ export default function Header() {
               <a
                 href="#"
                 onClick={close}
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-pill-md bg-teal text-white text-[0.95rem] font-extrabold transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-[8px] [corner-shape:squircle] bg-teal text-white text-[0.95rem] font-extrabold transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
               >
                 ورود / ثبت نام
               </a>

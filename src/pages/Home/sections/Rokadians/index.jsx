@@ -37,13 +37,13 @@ const AVATAR_SIZE =
   "w-[5.5rem] h-[5.5rem] sm:w-[6.25rem] sm:h-[6.25rem] md:w-[6.5rem] md:h-[6.5rem] lg:w-[5.625rem] lg:h-[5.625rem] 2xl:w-[6.3125rem] 2xl:h-[6.3125rem]";
 
 const CARD_CONTENT_PAD =
-  "px-5 pt-[3.25rem] pb-4 sm:px-6 sm:pt-[4rem] md:px-7 md:pt-[4.25rem] lg:px-3 lg:pt-[3.5625rem] lg:pb-4 2xl:pt-[4rem]";
+  "px-5 pt-[3.25rem] pb-4 sm:px-6 sm:pt-[4rem] md:px-7 md:pt-[4.25rem] lg:px-3 lg:pt-[3.3125rem] lg:pb-4 2xl:pt-[3.75rem]";
 
 const NAME_SIZE =
   "text-[1.05rem] sm:text-[1.1rem] md:text-[1.15rem] lg:text-[1rem] 2xl:text-[1.125rem]";
 
 const DESC_SIZE =
-  "text-[0.78rem] sm:text-[0.8rem] md:text-[0.82rem] lg:text-[0.75rem] 2xl:text-[0.8125rem] max-w-[16rem] sm:max-w-[17rem] md:max-w-[18rem] lg:max-w-[11.875rem] 2xl:max-w-[13.25rem]";
+  "text-[0.78rem] sm:text-[0.8rem] md:text-[0.82rem] lg:text-[0.75rem] 2xl:text-[0.8125rem] max-w-[16rem] sm:max-w-[17rem] md:max-w-[18rem]";
 
 const BADGE_SIZE =
   "text-[0.65rem] sm:text-[0.675rem] md:text-[0.7rem] lg:text-[0.625rem] 2xl:text-[0.6875rem] px-4 py-1.5 lg:px-[0.8125rem] lg:py-[0.25rem]";
@@ -199,13 +199,13 @@ function StudentCard({ student, index, stacked }) {
           </h4>
 
           <p
-            className={`${DESC_SIZE} text-[#777777] font-medium mt-2 lg:mt-[5px] leading-[1.7]`}
+            className={`${DESC_SIZE} text-[#777777] font-medium mt-2 lg:mt-[5px] leading-[1.7] flex-1 pb-3 lg:pb-2.5`}
           >
             {student.desc}
           </p>
 
           {/* Badge */}
-          <div className="relative inline-flex items-center justify-center mt-5 lg:mt-4">
+          <div className="relative inline-flex items-center justify-center shrink-0">
             <div
               aria-hidden="true"
               className="absolute top-[0.15rem] left-[0.15rem] w-full h-full bg-[#292827] rounded-[0_0.5rem_0_0.5rem]"
@@ -420,7 +420,7 @@ export default function Rokadians() {
 
                 <a
                   href="#"
-                  className="relative inline-flex items-center justify-center w-fit bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[1.125rem] 2xl:text-[1.25rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] hover:rotate-0 transition-transform duration-300 whitespace-nowrap mt-6"
+                  className="relative inline-flex items-center justify-center w-fit bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[1.125rem] 2xl:text-[1.25rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] whitespace-nowrap mt-6 cursor-pointer [background-image:linear-gradient(to_right,#21295a,#21295a)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
                 >
                   مشاهده همه
                 </a>

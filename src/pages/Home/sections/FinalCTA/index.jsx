@@ -11,8 +11,8 @@ export default function FinalCTA() {
       className="relative overflow-hidden bg-teal pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-0 px-4 sm:px-6 lg:px-8"
       dir="rtl"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+      {/* Background Pattern — فقط دسکتاپ؛ موبایل و تبلت هیچ عکسی ندارن */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-0">
         <img
           src={pattern}
           alt=""
@@ -23,18 +23,18 @@ export default function FinalCTA() {
 
       <Container className="relative z-20">
         <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-8 lg:gap-4">
-          {/* Girl Image (سمت چپ در دسکتاپ) */}
-          <div className="hidden sm:flex shrink-0 pointer-events-none select-none sm:w-[20%] lg:w-[26%] justify-center">
+          {/* Girl Image (فقط lg+ — زیر 1025 هیچ عکسی نمایش داده نمی‌شه) */}
+          <div className="hidden lg:flex shrink-0 pointer-events-none select-none lg:w-[26%] justify-center">
             <img
               src={imgGirl}
               alt=""
               aria-hidden="true"
-              className="h-[12rem] sm:h-[16rem] lg:h-[25rem] xl:h-[31.25rem] w-auto object-contain object-bottom"
+              className="w-full h-auto object-contain"
             />
           </div>
 
-          {/* Text Content (وسط) */}
-          <div className="flex flex-col items-center text-center w-full sm:w-[60%] lg:w-[48%] mb-6 sm:mb-8 lg:mb-12">
+          {/* Text Content (وسط) — زیر lg تمام‌عرض؛ مارجین پایین جای پدینگ سکشن */}
+          <div className="flex flex-col items-center text-center w-full lg:w-[48%] mb-[3.5rem] sm:mb-[4rem] lg:mb-12">
             <h2 className="font-black text-[2rem] sm:text-[3rem] lg:text-[4.8125rem] xl:text-[4.8125rem] leading-[1.7] sm:leading-[1.4] lg:leading-[1.2] text-white mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-center gap-x-2 gap-y-1 sm:gap-y-0">
               <span className="inline-block rotate-[3deg]">برای</span>
               <span className="inline-block rotate-[-3deg]">ساختن</span>
@@ -61,13 +61,13 @@ export default function FinalCTA() {
                         </a>
           </div>
 
-          {/* Boy Image (سمت راست در دسکتاپ) */}
-          <div className="hidden sm:flex shrink-0 pointer-events-none select-none sm:w-[20%] lg:w-[26%] justify-center">
+          {/* Boy Image (فقط lg+) */}
+          <div className="hidden lg:flex shrink-0 pointer-events-none select-none lg:w-[26%] justify-center">
             <img
               src={imgBoy}
               alt=""
               aria-hidden="true"
-              className="h-[12rem] sm:h-[16rem] lg:h-[25rem] xl:h-[31.25rem] w-auto object-contain object-bottom"
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>

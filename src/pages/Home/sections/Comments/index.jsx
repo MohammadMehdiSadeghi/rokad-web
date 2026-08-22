@@ -145,12 +145,15 @@ export default function Comments() {
             opacity: 0.65;
           }
         }
-        /* Mobile: simple cards, no 3D transforms */
+        /* Mobile: کارت‌های ساده با چرخش متناوب ملایم (زبان استیکری سایت) */
         @media (max-width: 639px) {
           .comments-swiper .card-inner-wrap {
             opacity: 1 !important;
-            transform: none !important;
+            transform: rotate(1.2deg) !important;
             pointer-events: auto !important;
+          }
+          .comments-swiper .swiper-slide:nth-child(even) .card-inner-wrap {
+            transform: rotate(-1.2deg) !important;
           }
           .comments-swiper .swiper-slide {
             z-index: 1 !important;
@@ -214,7 +217,7 @@ export default function Comments() {
               spaceBetween={16}
               speed={500}
               breakpoints={{
-                320: { slidesPerView: 1.15, spaceBetween: 8 },
+                320: { slidesPerView: 1.05, spaceBetween: 8 },
                 640: { slidesPerView: 1.5, spaceBetween: 12 },
                 768: { slidesPerView: 2, spaceBetween: -10 },
                 1024: { slidesPerView: 2.5, spaceBetween: 20 },
@@ -236,7 +239,7 @@ export default function Comments() {
                     className="!h-auto overflow-visible"
                   >
                     <div className="p-1.5 sm:p-2 lg:p-3 overflow-visible">
-                      <div className="card-inner-wrap">                          <div className="relative max-w-[16.25rem] sm:max-w-[18.75rem] md:max-w-[18.75rem] lg:max-w-[25rem] xl:max-w-[28.125rem] mx-auto">
+                      <div className="card-inner-wrap">                          <div className="relative max-w-[19.5rem] sm:max-w-[20rem] md:max-w-[22rem] lg:max-w-[28rem] xl:max-w-[32rem] mx-auto">
                           {/* لایه پشتی کارت */}
                           <div
                             aria-hidden="true"
@@ -245,7 +248,7 @@ export default function Comments() {
 
                           {/* کارت اصلی */}
                           <div
-                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-4 sm:p-5 lg:p-6 min-h-[11rem] sm:min-h-[12rem] md:min-h-[11rem] lg:min-h-[15.625rem] flex flex-col`}
+                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-5 sm:p-6 lg:p-7 min-h-[13rem] sm:min-h-[14rem] md:min-h-[13rem] lg:min-h-[18rem] flex flex-col rotate-1`}
                           >
                             <span
                               className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}
@@ -253,7 +256,7 @@ export default function Comments() {
                               "
                             </span>
 
-                            <p className="text-[0.8125rem] sm:text-[0.875rem] lg:text-[0.9375rem] leading-6 sm:leading-7 text-[#292827] flex-grow">
+                            <p className="text-[0.9375rem] sm:text-[1rem] lg:text-[1.0625rem] leading-7 sm:leading-8 text-[#292827] flex-grow">
                               {comment.text}
                             </p>
 
@@ -276,11 +279,11 @@ export default function Comments() {
 
                               <div className="flex flex-col">
                                 <h4
-                                  className={`font-black text-[0.875rem] sm:text-[1rem] ${theme.nameColor}`}
+                                  className={`font-black text-[0.9375rem] sm:text-[1rem] ${theme.nameColor}`}
                                 >
                                   {comment.name}
                                 </h4>
-                                <p className="text-[0.6875rem] sm:text-[0.75rem] text-gray-500 mt-0.5 sm:mt-1">
+                                <p className="text-[0.75rem] sm:text-[0.75rem] text-gray-500 mt-0.5 sm:mt-1">
                                   {comment.role}
                                 </p>
                               </div>

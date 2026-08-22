@@ -82,12 +82,18 @@ export default function EventsCarousel() {
 
   return (
       <section className="pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white">
-        {/* 1. لایه پترن پس‌زمینه */}
-        <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        {/* 1. لایه پترن پس‌زمینه — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
+            بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن */}
+        <div
+          className="absolute inset-0 w-full h-full z-0 pointer-events-none
+                  [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
+                  [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+        >
           <img
             src={patternBg}
             aria-hidden="true"
-            className="w-full h-full object-cover opacity-80"
+            draggable="false"
+            className="w-full h-full object-cover opacity-60 rotate-180 select-none"
           />
         </div>
 

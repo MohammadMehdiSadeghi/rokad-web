@@ -43,13 +43,19 @@ const pillars = [
 export default function Pillars() {
   return (
     <section className="relative py-[3rem] sm:py-[4rem] lg:py-[5rem] px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
-      {/* ── Background Pattern Layer ── */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+      {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
+          بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن ── */}
+      <div
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none
+                [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
+                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+      >
         <img
           src={pattern}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover opacity-60"
+          draggable="false"
+          className="w-full h-full object-cover opacity-60 select-none"
         />
       </div>
 

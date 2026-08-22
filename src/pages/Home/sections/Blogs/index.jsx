@@ -216,7 +216,8 @@ export default function Blogs() {
       dir="rtl"
     >
       {/* =====================================================
-          BACKGROUND PATTERN
+          BACKGROUND PATTERN — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
+          بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن
       ====================================================== */}
 
       <div
@@ -227,18 +228,22 @@ export default function Blogs() {
           h-full
           z-0
           pointer-events-none
+          [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
+          [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
         "
       >
         <img
           src={patternBg}
           alt=""
           aria-hidden="true"
+          draggable="false"
           className="
             w-full
             h-full
             object-cover
-            opacity-100
+            opacity-60
             rotate-180
+            select-none
           "
         />
       </div>

@@ -44,11 +44,18 @@ export default function Faq() {
         className="relative overflow-hidden bg-[#E4F4F2] py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
           dir="rtl"
         >
-      <div className="absolute inset-0 pointer-events-none z-0">
+      {/* ── لایه پترن — همون ماسک گرادیانی هیرو/دوئال‌اسکول؛ روی
+          پس‌زمینه‌ی مینتی (#E4F4F2) می‌شینه و لبه‌ی بالا/پایین محو میشه ── */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0
+                [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
+                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+      >
         <img
           src={faqPattern}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover scale-125 select-none opacity-30"
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover scale-125 select-none opacity-20"
         />
       </div>
 

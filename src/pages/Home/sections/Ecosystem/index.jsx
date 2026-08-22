@@ -1,6 +1,7 @@
 import Container from "../../../../layout/Container";
 
 const logo = "/assets/Shared/Logos/logo.png";
+const ecosystemPattern = "/assets/Pattern/layout-pattern.png";
 
 const branches = [
   {
@@ -125,6 +126,22 @@ export default function Ecosystem() {
       className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8 bg-white overflow-hidden"
       dir="rtl"
     >
+      {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
+          بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن ── */}
+      <div
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none
+                [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
+                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+      >
+        <img
+          src={ecosystemPattern}
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+          className="w-full h-full object-cover opacity-50 select-none"
+        />
+      </div>
+
       <Container className="relative z-10">
         {/* Heading — هر کلمه گره مستقل با چرخش خودش (زبان طراحی سایت)؛
             وزن واقعی 950 چون font-extrablack به‌صورت یتیلیتی وجود ندارد */}

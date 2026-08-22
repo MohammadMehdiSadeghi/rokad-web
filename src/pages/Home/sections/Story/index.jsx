@@ -51,9 +51,10 @@ export default function Story() {
 
           {/* CTA Button */}
           <div className="flex justify-start items-center w-full mb-[1.5rem] sm:mb-[2rem]">
-            <span className="relative inline-block rotate-[2deg]">
+            <span className="relative inline-block rotate-[2deg] hover:rotate-0 transition-transform duration-300">
               <span className="absolute inset-0 translate-x-[0.1875rem] translate-y-[0.1875rem] rounded-[1rem] [corner-shape:squircle] bg-teal-alt" />
-              <span className="relative flex items-center gap-1.5 bg-[#E4F4F2] border-2 border-teal rounded-[0.9375rem] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[0.9375rem] text-teal-text cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <span className="relative flex items-center gap-1.5 bg-[#E4F4F2] border-2 border-teal rounded-[0.9375rem] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[0.9375rem] text-teal-text cursor-pointer whitespace-nowrap
+                transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md">
                 <span>ادامه داستان رکاد</span>
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M15 18l-6-6 6-6" />

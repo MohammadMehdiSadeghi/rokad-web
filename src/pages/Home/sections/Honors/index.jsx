@@ -125,7 +125,8 @@ export default function HonorsCarousel() {
       dir="rtl"
     >
       {/* =====================================================
-          BACKGROUND PATTERN
+          BACKGROUND PATTERN — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
+          بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن
       ====================================================== */}
 
       <div
@@ -135,13 +136,16 @@ export default function HonorsCarousel() {
           pointer-events-none
           opacity-60
           rotate-180
+          [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
+          [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
         "
       >
         <img
           src={sectionPattern}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover"
+          draggable="false"
+          className="w-full h-full object-cover select-none"
         />
       </div>
 

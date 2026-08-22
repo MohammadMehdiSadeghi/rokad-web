@@ -1,5 +1,7 @@
 import Container from "../../../../layout/Container";
 
+const sectionPattern = "/assets/Pattern/layout-pattern.png";
+
 const students = [
   {
     name: "امیرعلی شفاهی",
@@ -254,8 +256,23 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-[#f2faf9] pt-10 sm:pt-14 md:pt-16 lg:pt-20 pb-10 sm:pb-14 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-0"
+      className="relative overflow-hidden bg-white pt-10 sm:pt-14 md:pt-16 lg:pt-20 pb-10 sm:pb-14 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-0"
     >
+      {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول ── */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60 rotate-180
+                [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
+                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+      >
+        <img
+          src={sectionPattern}
+          alt=""
+          draggable="false"
+          className="w-full h-full object-cover select-none"
+        />
+      </div>
+
       {/* Hide scrollbar */}
       <style>{`
         .rokadians-rail::-webkit-scrollbar {
@@ -365,7 +382,7 @@ export default function Rokadians() {
               </div>
 
               {/* =================================================
-                  MASK — محو شدن لبه‌ی ریل به رنگ پس‌زمینه؛ فقط دسکتاپ
+                  MASK — محو شدن لبه‌ی ریل به رنگ پس‌زمینه (سفید)؛ فقط دسکتاپ
               ================================================= */}
 
               <div
@@ -373,7 +390,7 @@ export default function Rokadians() {
                 className="hidden lg:block absolute -top-[1.5625rem] -bottom-[1.5625rem] left-[-12%] w-[112%] z-[30] pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(to right, #f2faf9 0%, rgba(242,250,249,0.95) 5%, rgba(242,250,249,0.55) 20%, rgba(242,250,249,0.2) 45%, rgba(242,250,249,0.05) 70%, rgba(242,250,249,0) 95%)",
+                    "linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.95) 5%, rgba(255,255,255,0.55) 20%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0.05) 70%, rgba(255,255,255,0) 95%)",
                 }}
               />
 

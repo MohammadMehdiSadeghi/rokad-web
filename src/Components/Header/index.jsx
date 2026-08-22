@@ -144,7 +144,7 @@ export default function Header() {
                 className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold
                  text-white transition-colors duration-300 hover:bg-white hover:text-teal"
               >
-                ورود / ثبت نام
+                ورود / ثبت‌نام
               </a>
             </div>
           </div>
@@ -268,7 +268,7 @@ export default function Header() {
                 onClick={close}
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-[8px] [corner-shape:squircle] bg-teal text-white text-[0.95rem] font-extrabold transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
               >
-                ورود / ثبت نام
+                ورود / ثبت‌نام
               </a>
             </div>
 

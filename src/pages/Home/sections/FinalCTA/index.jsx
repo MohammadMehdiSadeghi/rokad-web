@@ -51,14 +51,14 @@ export default function FinalCTA() {
             </p>
 
             {/* دکمه */}
-            <a
-              href="#"
-              className="inline-flex items-center justify-center w-full sm:w-auto min-w-[13rem] sm:min-w-[18rem] h-[3.5rem] sm:h-[4rem] lg:h-[4.5rem] 
-              px-8 sm:px-10 bg-[#21295A] text-white font-extrabold text-[0.9375rem] sm:text-[1.125rem] lg:text-[1.25rem] rounded-[0.75rem] sm:rounded-[1rem] [corner-shape:squircle]
-              hover:bg-[#1a2249] transition-colors duration-300 cursor-pointer"
-            >
-              تکمیل فرم پیش‌ثبت‌نام
-            </a>
+                        <a
+                          href="#"
+                          className="inline-flex items-center justify-center w-full sm:w-auto max-w-[90%] sm:max-w-none min-w-[10rem] sm:min-w-[14rem] lg:min-w-[16rem] h-[3rem] sm:h-[3.5rem] lg:h-[4rem]
+                          px-5 sm:px-7 lg:px-8 bg-[#21295A] text-white font-extrabold text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.625rem] sm:rounded-[0.75rem] lg:rounded-[1rem] [corner-shape:squircle]
+                          hover:bg-[#1a2249] transition-colors duration-300 cursor-pointer"
+                        >
+                          تکمیل فرم پیش‌ثبت‌نام
+                        </a>
           </div>
 
           {/* Boy Image (سمت راست در دسکتاپ) */}

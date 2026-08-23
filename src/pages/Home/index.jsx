@@ -4,6 +4,7 @@ import DualSchool from "./sections/DualSchool";
 import Story from "./sections/Story";
 import Pillars from "./sections/Pillars";
 import Ecosystem from "./sections/Ecosystem";
+import RokadHierarchy from "./sections/RokadHierarchy";
 import EventsCarousel from "./sections/EventsCarousel";
 import Faq from "./sections/Faq";
 import Honors from "./sections/Honors";
@@ -21,6 +22,7 @@ export default function Home() {
       <Story />
       <Pillars />
       <Ecosystem />
+      <RokadHierarchy />
       <EventsCarousel />
       <Faq />
       <Honors />

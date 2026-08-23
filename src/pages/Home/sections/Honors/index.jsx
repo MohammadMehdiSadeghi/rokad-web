@@ -115,9 +115,9 @@ export default function HonorsCarousel() {
         pt-[4rem]
         sm:pt-[5rem]
         lg:pt-[6rem]
-        pb-[4rem]
-        sm:pb-[5rem]
-        lg:pb-[6rem]
+        pb-[3rem]
+        sm:pb-[4rem]
+        lg:pb-[4rem]
         px-4
         sm:px-6
         lg:px-8

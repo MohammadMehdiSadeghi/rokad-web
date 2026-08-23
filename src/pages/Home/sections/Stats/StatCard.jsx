@@ -62,7 +62,7 @@ export default function StatCard({ theme, label, value, caption = {} }) {
     );
   }
 
-  const { strong: captionStrong = "", rest: captionRest = "" } = caption;
+  const { strong: captionStrong = "" } = caption;
 
   // کلاس ردیوس نامتقارن: چپ‌بالا و راست‌پایین 48px، بقیه صفر
   const shapeClass = "rounded-tl-[2rem] rounded-br-[2rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]";
@@ -170,19 +170,12 @@ export default function StatCard({ theme, label, value, caption = {} }) {
           {value}
         </div>
 
-        {/* Caption - body: 16px، medium، normal */}
-        {(captionStrong || captionRest) && (
+        {/* Caption - فقط خط اصلی؛ خط دوم حذف شده */}
+        {captionStrong && (
           <div className={`relative z-20 ${t.text} mt-auto`}>
-            {captionStrong && (
-              <strong className="block mb-0.5 lg:mb-1 text-[0.8125rem] xs:text-[0.875rem] lg:text-[1rem] font-black">
-                {captionStrong}
-              </strong>
-            )}
-            {captionRest && (
-              <p className="text-[0.6875rem] xs:text-[0.75rem] lg:text-[0.875rem] leading-[1.4] xs:leading-[1.5] lg:leading-[1.8] font-medium">
-                {captionRest}
-              </p>
-            )}
+            <strong className="block text-[0.8125rem] xs:text-[0.875rem] lg:text-[1rem] font-black">
+              {captionStrong}
+            </strong>
           </div>
         )}
       </div>

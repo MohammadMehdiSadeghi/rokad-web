@@ -20,13 +20,7 @@ export default function Story() {
               className="w-full h-auto object-contain drop-shadow-2xl -translate-x-[4%] -translate-y-[2%]"
             />
 
-            {/* برچسب شناور روی عکس (اضافه شدن squircle) */}
-            <span
-              className="absolute bottom-[10%] right-[12%] sm:right-[20%] inline-block rotate-3 bg-[#FFD641] border-2 border-black font-bold text-[0.6875rem] sm:text-[0.875rem] text-black rounded-tl-[0.625rem]
-             rounded-tr-none rounded-br-[0.625rem] rounded-bl-none [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2 shadow-[0.1875rem_0.1875rem_0_0_#000] max-w-[62%] sm:max-w-none text-center leading-snug"
-            >
-              رکاد یعنی متفاوت بودن...
-            </span>
+
           </div>
         </div>
 

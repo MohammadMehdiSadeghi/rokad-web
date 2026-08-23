@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const logo = "/assets/Shared/Logos/logo.png";
+const COMPACT_THRESHOLD_VH = 50;
 
-// هر لینک یا به یه انکر داخل صفحه‌ی اصلی می‌ره (schools/about/counseling)
-// یا به یه روت اختصاصی مثل /honors.
 const navLinks = [
   { label: "مدارس", to: "/#schools" },
   { label: "افتخارات", to: "/honors" },
@@ -13,11 +13,46 @@ const navLinks = [
   { label: "درخواست همکاری", to: "/#cooperation" },
 ];
 
+// تنظیمات فنری اپل‌گونه — نرم و لوکس
+const spring = {
+  type: "spring",
+  stiffness: 120,
+  damping: 28,
+  mass: 0.8,
+};
+
+const softSpring = {
+  type: "spring",
+  stiffness: 80,
+  damping: 20,
+  mass: 1,
+};
+
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [compact, setCompact] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const close = () => setOpen(false);
 
-  // وقتی منو بازه: Esc می‌بنده‌ش و اسکرول صفحه قفل می‌شه
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const threshold = (window.innerHeight * COMPACT_THRESHOLD_VH) / 100;
+      if (y <= 0) {
+        setCompact(false);
+        setHidden(false);
+      } else if (y < threshold) {
+        setCompact(false);
+        setHidden(true);
+      } else {
+        setCompact(true);
+        setHidden(false);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => e.key === "Escape" && close();
@@ -31,23 +66,72 @@ export default function Header() {
 
   return (
     <>
-      {/* موبایل: نوار ساده‌ی تمام‌عرض — همبرگری راست، لوگو وسط، اکشن‌ها چپ
-          دسکتاپ: کارت منو squircle با پس‌زمینه مینت و شدو نرم apple-style */}
-      <header className="fixed top-0 left-0 right-0 z-50 pt-2 sm:pt-4 lg:pt-6 xl:pt-8 px-3 sm:px-4 lg:px-6 xl:px-0">
+      <motion.header
+        initial={false}
+        animate={
+          hidden
+            ? { y: "-100%", opacity: 0, scale: 0.96, filter: "blur(4px)" }
+            : compact
+              ? {
+                  y: 0,
+                  opacity: 1,
+                  scale: 1,
+                  filter: "blur(0px)",
+                  paddingTop: 0,
+                  paddingBottom: 0,
+                  paddingLeft: 0,
+                  paddingRight: 0,
+                }
+              : {
+                  y: 0,
+                  opacity: 1,
+                  scale: 1,
+                  filter: "blur(0px)",
+                  paddingTop: "2rem",
+                  paddingBottom: 0,
+                  paddingLeft: "0.75rem",
+                  paddingRight: "0.75rem",
+                }
+        }
+        transition={spring}
+        style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
+        className="sm:!pt-4 lg:!pt-6 xl:!pt-8 sm:!px-4 lg:!px-6 xl:!px-0"
+      >
         <nav
           aria-label="ناوبری اصلی"
-          className="relative w-full max-w-[75rem] mx-auto"
+          className="relative w-full"
         >
-          <div
-            className="relative flex items-center justify-between h-[2.5rem] sm:h-[3.25rem] lg:h-[5.9375rem]
-            rounded-[24px] lg:rounded-[38px] [corner-shape:squircle] bg-bg-mint
-            shadow-[0_0.0625rem_0.1875rem_rgba(0,0,0,0.04),0_0.5rem_1.25rem_rgba(33,41,90,0.05),0_1.25rem_2.5rem_-0.25rem_rgba(33,41,90,0.06)]
-            px-4 py-8 sm:px-4 lg:px-8"
+          <motion.div
+            initial={false}
+            animate={
+              compact
+                ? {
+                    height: "3rem",
+                    borderRadius: 0,
+                    paddingLeft: "1rem",
+                    paddingRight: "1rem",
+                    paddingTop: 0,
+                    paddingBottom: 0,
+                  }
+                : {
+                    height: "5.9375rem",
+                    borderRadius: "38px",
+                    paddingLeft: "2rem",
+                    paddingRight: "2rem",
+                    paddingTop: "2rem",
+                    paddingBottom: "2rem",
+                  }
+            }
+            transition={spring}
+            className="relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden sm:!rounded-[38px] lg:!rounded-[38px] sm:!px-8 lg:!px-8"
+            style={{
+              boxShadow: compact
+                ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"
+                : "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.05), 0 1.25rem 2.5rem -0.25rem rgba(33,41,90,0.06)",
+              transition: "box-shadow 0.6s ease",
+            }}
           >
-            {/* ── سمت راست: همبرگری موبایل ──
-                آیکون دوخطی مینیمال (استایل مدرن Apple/Linear): خط بالا
-                تمام‌عرض، خط پایین کوتاه‌تر که با هاور کش میاد؛ موقع باز شدن
-                هر دو خط به مرکز میان و ضربدر می‌سازن */}
+            {/* ── همبرگری موبایل ── */}
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
@@ -77,7 +161,7 @@ export default function Header() {
               </span>
             </button>
 
-            {/* ── لوگو — موبایل: وسط نوار / دسکتاپ: راست ── */}
+            {/* ── لوگو ── */}
             <Link
               to="/"
               aria-label="رکاد"
@@ -92,33 +176,59 @@ export default function Header() {
               />
             </Link>
 
-            {/* ── وسط: دکمه پیش‌ثبت‌نام + لینک‌های ناوبری (فقط دسکتاپ) ── */}
-            <div className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-7">
-              <a
-                href="#"
-                className="whitespace-nowrap -rotate-3 rounded-[8px] [corner-shape:squircle] bg-navy px-[0.6875rem] py-[0.4375rem] text-base2 font-black text-white transition-transform
-                 duration-200 hover:rotate-0 hover:scale-105"
-              >
-                پیش‌ثبت‌نام
-              </a>
+            {/* ── وسط: پیش‌ثبت‌نام + لینک‌ها (دسکتاپ) ── */}
+            <AnimatePresence>
+              {!compact && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, y: -5 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: -5 }}
+                  transition={softSpring}
+                  className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-7"
+                >
+                  <a
+                    href="#"
+                    className="whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105"
+                  >
+                    پیش‌ثبت‌نام
+                  </a>
 
-              <ul className="flex items-center gap-4 xl:gap-8  list-none m-0 p-0">
-                {navLinks.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      to={link.to}
-                      className="whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group"
-                    >
-                      {link.label}
-                      <span className="absolute -bottom-1 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full"></span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                  <ul className="flex items-center gap-4 xl:gap-8 list-none m-0 p-0">
+                    {navLinks.map((link) => (
+                      <li key={link.label}>
+                        <Link
+                          to={link.to}
+                          className="whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group"
+                        >
+                          {link.label}
+                          <span className="absolute -bottom-1 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full" />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-            {/* ── سمت چپ: پروفایل (موبایل) و ورود/ثبت‌نام (دسکتاپ) ── */}
+            {/* ── سمت چپ: اکشن‌ها ── */}
             <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 flex-shrink-0">
+              {/* پیش‌ثبت‌نام — فقط وقتی کمپکت (دسکتاپ) */}
+              <AnimatePresence>
+                {compact && (
+                  <motion.a
+                    href="#"
+                    initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                    transition={softSpring}
+                    className="hidden lg:inline-flex whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white hover:rotate-0 hover:scale-105"
+                  >
+                    پیش‌ثبت‌نام
+                  </motion.a>
+                )}
+              </AnimatePresence>
+
+              {/* پروفایل موبایل */}
               <a
                 href="#"
                 aria-label="ورود / پروفایل"
@@ -139,35 +249,31 @@ export default function Header() {
                 </svg>
               </a>
 
+              {/* ورود به پلتفرم — همیشه نمایش (دسکتاپ) */}
               <a
                 href="#"
-                className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold
-                 text-white transition-colors duration-300 hover:bg-white hover:text-teal"
+                className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-colors duration-300 hover:bg-white hover:text-teal-text"
               >
-                ورود / ثبت‌نام
+                ورود به پلتفرم
               </a>
             </div>
-          </div>
+          </motion.div>
         </nav>
-      </header>
+      </motion.header>
 
-      {/* ── منوی تمام‌صفحه موبایل — ریویل دایره‌ای از سمت دکمه، لینک‌های
-          بزرگ با چرخش‌های اسکرپ‌بوک و ورود پله‌ای؛ زبان طراحی خود سایت ── */}
+      {/* ── منوی تمام‌صفحه موبایل ── */}
       <div
         id="mobile-nav-menu"
         role="dialog"
         aria-modal="true"
         aria-label="منوی موبایل"
         aria-hidden={!open}
-        className={`fixed inset-0 z-[60] lg:hidden bg-navy overflow-hidden
-          transition-[clip-path] duration-[650ms] ease-[cubic-bezier(0.76,0,0.24,1)]
-          ${
-            open
-              ? "[clip-path:circle(142%_at_91%_5%)]"
-              : "[clip-path:circle(0%_at_91%_5%)] pointer-events-none"
-          }`}
+        className={`fixed inset-0 z-[60] lg:hidden bg-navy overflow-hidden transition-[clip-path] duration-[650ms] ease-[cubic-bezier(0.76,0,0.24,1)] ${
+          open
+            ? "[clip-path:circle(142%_at_91%_5%)]"
+            : "[clip-path:circle(0%_at_91%_5%)] pointer-events-none"
+        }`}
       >
-        {/* واترمارک «رکاد» — همون موتیف پس‌زمینه‌ی خود سایت */}
         <span
           aria-hidden="true"
           className="absolute -bottom-[7rem] -left-[3rem] select-none pointer-events-none text-white/[0.045] -rotate-12 leading-none"
@@ -177,7 +283,6 @@ export default function Header() {
         </span>
 
         <div className="relative h-full flex flex-col overflow-y-auto px-5 pt-[3.25rem] pb-7">
-          {/* ── ردیف بالا: دکمه بستن دایره‌ای (راست) + لوگو (چپ) ── */}
           <div className="flex items-center justify-between">
             <button
               type="button"
@@ -213,7 +318,6 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* ── لینک‌ها — بزرگ، شماره‌دار، با چرخش متناوب ── */}
           <ul className="flex flex-col gap-0.5 mt-9 list-none m-0 p-0">
             {navLinks.map((link, i) => (
               <li
@@ -247,7 +351,6 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* ── اکشن‌ها — استیکر سفید + پیل فیروزه‌ای، پایین صفحه ── */}
           <div
             className={`mt-auto pt-8 transition-all duration-500 ease-out ${
               open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -258,8 +361,7 @@ export default function Header() {
               <a
                 href="#"
                 onClick={close}
-                className="inline-flex items-center justify-center px-6 py-2.5 -rotate-3 bg-white text-navy text-[0.95rem] font-black rounded-[4px] [corner-shape:squircle] transition-transform duration-200 hover:rotate-0 active:scale-[0.98]"
-                style={{ fontWeight: 950 }}
+                className="inline-flex items-center justify-center px-6 py-2.5 -rotate-3 bg-white text-navy text-[0.95rem] font-extrabold rounded-[8px] [corner-shape:squircle] transition-transform duration-200 hover:rotate-0 active:scale-[0.98]"
               >
                 پیش‌ثبت‌نام
               </a>
@@ -268,7 +370,7 @@ export default function Header() {
                 onClick={close}
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-[8px] [corner-shape:squircle] bg-teal text-white text-[0.95rem] font-extrabold transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
               >
-                ورود / ثبت‌نام
+                ورود به پلتفرم
               </a>
             </div>
 

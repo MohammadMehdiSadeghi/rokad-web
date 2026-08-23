@@ -21,16 +21,16 @@ function DotBullet() {
   );
 }
 
-export default function SchoolCard({ theme, category, title, meta, chips, ctaLabel, illustration, pattern }) {
+export default function SchoolCard({ theme, category, title, meta, chips, ctaLabel, illustration, pattern, seoText }) {
   const t = THEMES[theme];
 
   return (
     <div
-      className={`${t.rotate} relative transition-all duration-500 ease-out hover:rotate-0 hover:-translate-y-1.5`}
+      className={`${t.rotate} relative h-full transition-all duration-500 ease-out hover:rotate-0 hover:-translate-y-1.5`}
     >
-      {/* کارت اصلی */}
+      {/* کارت اصلی — h-full تا دو کارت هم‌ارتفاع بمونن و فضای خالی هم‌تراز بشه */}
       <div
-        className={`relative ${t.bg} text-white p-5 sm:p-8 lg:p-10 overflow-hidden min-h-[20rem] sm:min-h-[18rem] lg:min-h-[22rem] flex flex-col border-2 border-white/10 rounded-[1.5rem] sm:rounded-[2.75rem] lg:rounded-[3.25rem] [corner-shape:squircle] transition-all duration-500 hover:shadow-2xl`}
+        className={`relative ${t.bg} text-white p-5 sm:p-8 lg:p-10 overflow-hidden h-full min-h-[20rem] sm:min-h-[18rem] lg:min-h-[22rem] flex flex-col border-2 border-white/10 rounded-[1.5rem] sm:rounded-[2.75rem] lg:rounded-[3.25rem] [corner-shape:squircle] transition-all duration-500 hover:shadow-2xl`}
       >
         {/* ── Background Pattern ── */}
         {pattern && (
@@ -54,34 +54,34 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
                                   />
                                 )}
 
-                        {/* Text Container - تغییر h-full به flex-1 برای اشغال کامل ارتفاع کارت */}
+                        {/* Text Container — توزیع مساوی فضا بین همه‌ی آیتم‌ها:
+                            تایتل بالا، دکمه پایین، متا و بج وسط با فاصله‌ی یکسان */}
                                         <div className="relative z-10 flex flex-col justify-between flex-1 max-w-full sm:max-w-[70%] ml-0 sm:ml-auto">
-          
-          {/* ۱. گروه بالا: تایتل، متا، و چیپ‌ها */}
-          <div>
-            {/* Title */}
-              <h3 className="font-black text-[1.5rem] sm:text-[2rem] lg:text-[2rem] mb-1 sm:mb-2 leading-tight">
-                {title}
-              </h3>
-            
-              {/* Meta */}
-              <p className="text-[0.9375rem] sm:text-[1rem] opacity-80 mb-3 sm:mb-4">{meta}</p>
+          {/* Title — سر جاش، بالای کارت */}
+          <h3 className="font-black text-[1.625rem] sm:text-[2.125rem] lg:text-[2.25rem] leading-tight">
+            {title}
+          </h3>
 
-              {/* Chips */}
-              <div className="flex flex-col items-start gap-1 sm:gap-1.5">
+          {/* Chips — رشته، بالای آدرس */}
+          <div className="flex flex-col items-start gap-1 sm:gap-1.5">
                 {chips.map((chip) => (
                   <span
                     key={chip}
-                    className="-rotate-2 flex items-center gap-2 bg-white/[0.15] font-semibold text-[0.9375rem] xs:text-[0.9375rem] sm:text-[0.9375rem] rounded-chip px-2.5 py-1 sm:px-3.5 sm:py-2"
+                    className="-rotate-2 flex items-center gap-2 bg-white/[0.15] font-semibold text-[1rem] sm:text-[1.0625rem] rounded-chip px-2.5 py-1 sm:px-3.5 sm:py-2"
                   >
                     <DotBullet />
                     {chip}
                   </span>
                 ))}
               </div>
-          </div>
 
-          {/* ۲. گروه پایین: دکمه (به پایین‌ترین نقطه کارت می‌رود) */}
+          {/* Meta — زیر بج رشته */}
+          <p className="text-[1rem] sm:text-[1.0625rem] opacity-80">{meta}</p>
+
+          {/* متن توضیح برای سئو — از نظر بصری کاملاً مخفی (sr-only) */}
+          {seoText && <p className="sr-only">{seoText}</p>}
+
+          {/* دکمه — چسبیده به پایین کارت، مثل قبل */}
           <a
             href="#"
             className={`self-start rotate-[1.5deg] bg-white font-extrabold text-[0.9375rem] sm:text-[0.9375rem] lg:text-[0.9375rem] rounded-[0.5rem] px-5 sm:px-7 py-2.5 sm:py-3 ${t.ctaText} transition-transform duration-300 hover:scale-105 hover:rotate-0`}

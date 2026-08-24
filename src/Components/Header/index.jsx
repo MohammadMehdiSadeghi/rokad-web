@@ -31,23 +31,11 @@ const softSpring = {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const close = () => setOpen(false);
 
   useEffect(() => {
     const onScroll = () => {
-      const y = window.scrollY;
-      const threshold = (window.innerHeight * COMPACT_THRESHOLD_VH) / 100;
-      if (y <= 0) {
-        setCompact(false);
-        setHidden(false);
-      } else if (y < threshold) {
-        setCompact(false);
-        setHidden(true);
-      } else {
-        setCompact(true);
-        setHidden(false);
-      }
+      setCompact(window.scrollY > 10);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -68,34 +56,14 @@ export default function Header() {
     <>
       <motion.header
         initial={false}
-        animate={
-          hidden
-            ? { y: "-100%", opacity: 0, scale: 0.96, filter: "blur(4px)" }
-            : compact
-              ? {
-                  y: 0,
-                  opacity: 1,
-                  scale: 1,
-                  filter: "blur(0px)",
-                  paddingTop: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 0,
-                  paddingRight: 0,
-                }
-              : {
-                  y: 0,
-                  opacity: 1,
-                  scale: 1,
-                  filter: "blur(0px)",
-                  paddingTop: "2rem",
-                  paddingBottom: 0,
-                  paddingLeft: "0.75rem",
-                  paddingRight: "0.75rem",
-                }
-        }
+        animate={{ y: 0, opacity: 1 }}
         transition={spring}
         style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
-        className="sm:!pt-4 lg:!pt-6 xl:!pt-8 sm:!px-4 lg:!px-6 xl:!px-0"
+        className={`transition-[padding] duration-300 ease-out ${
+          compact
+            ? "pt-0 pb-0 px-0"
+            : "pt-8 px-3 sm:pt-4 lg:pt-6 xl:pt-8 sm:px-4 lg:px-6 xl:px-0"
+        }`}
       >
         <nav
           aria-label="ناوبری اصلی"
@@ -103,27 +71,13 @@ export default function Header() {
         >
           <motion.div
             initial={false}
-            animate={
-              compact
-                ? {
-                    height: "3rem",
-                    borderRadius: 0,
-                    paddingLeft: "1rem",
-                    paddingRight: "1rem",
-                    paddingTop: 0,
-                    paddingBottom: 0,
-                  }
-                : {
-                    height: "5.9375rem",
-                    borderRadius: "38px",
-                    paddingLeft: "2rem",
-                    paddingRight: "2rem",
-                    paddingTop: "2rem",
-                    paddingBottom: "2rem",
-                  }
-            }
+            animate={{ height: compact ? "3rem" : "5.9375rem" }}
             transition={spring}
-            className="relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden sm:!rounded-[38px] lg:!rounded-[38px] sm:!px-8 lg:!px-8"
+            className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden ${
+              compact
+                ? "rounded-none py-0 px-4"
+                : "rounded-[38px] py-8 px-8"
+            }`}
             style={{
               boxShadow: compact
                 ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"

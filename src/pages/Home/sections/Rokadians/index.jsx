@@ -24,31 +24,31 @@ const students = [
    CARD
 ========================================================= */
 
-// موبایل: عرض با ~۱۲٪ peek تا لبه‌ی کارت بعدی از پرده بیرون بزنه و
-// اسکرول‌پذیر بودن ریل حس بشه؛ ارتفاع هم برای همین کمی جمع‌تر شده.
+// موبایل: همون نسبت پرتره‌ی دسکتاپ (عرض/ارتفاع ≈ 0.70) با مقیاس کمی
+// بزرگ‌تر — ۱۵×۲۱.۲۵rem؛ اجزای داخلی هم به همان نسبت تنظیم شده‌اند.
 const CARD_SIZE =
-  "w-[calc(100vw-5.5rem)] min-w-[calc(100vw-5.5rem)] h-[21rem] sm:w-[21rem] sm:min-w-[21rem] sm:h-[24rem] md:w-[23rem] md:min-w-[23rem] md:h-[25rem] lg:w-[14.0625rem] lg:min-w-0 lg:h-[20rem] 2xl:w-[15.75rem] 2xl:h-[22.375rem]";
+  "w-[15rem] min-w-[15rem] h-[21.25rem] sm:w-[21rem] sm:min-w-[21rem] sm:h-[24rem] md:w-[23rem] md:min-w-[23rem] md:h-[25rem] lg:w-[14.0625rem] lg:min-w-0 lg:h-[20rem] 2xl:w-[15.75rem] 2xl:h-[22.375rem]";
 
 const HEADER_SIZE =
-  "h-[6.75rem] sm:h-[7.75rem] md:h-[8rem] lg:h-[7.5rem] 2xl:h-[8.375rem]";
+  "h-[7.875rem] sm:h-[7.75rem] md:h-[8rem] lg:h-[7.5rem] 2xl:h-[8.375rem]";
 
 const AVATAR_WRAP_POS =
-  "top-[3.75rem] sm:top-[4.45rem] md:top-[4.6rem] lg:top-[3.75rem] 2xl:top-[4.1875rem]";
+  "top-[4.875rem] sm:top-[4.45rem] md:top-[4.6rem] lg:top-[3.75rem] 2xl:top-[4.1875rem]";
 
 const AVATAR_SIZE =
-  "w-[5.5rem] h-[5.5rem] sm:w-[6.25rem] sm:h-[6.25rem] md:w-[6.5rem] md:h-[6.5rem] lg:w-[5.625rem] lg:h-[5.625rem] 2xl:w-[6.3125rem] 2xl:h-[6.3125rem]";
+  "w-[6rem] h-[6rem] sm:w-[6.25rem] sm:h-[6.25rem] md:w-[6.5rem] md:h-[6.5rem] lg:w-[5.625rem] lg:h-[5.625rem] 2xl:w-[6.3125rem] 2xl:h-[6.3125rem]";
 
 const CARD_CONTENT_PAD =
-  "px-5 pt-[3.25rem] pb-4 sm:px-6 sm:pt-[4rem] md:px-7 md:pt-[4.25rem] lg:px-3 lg:pt-[3.3125rem] lg:pb-4 2xl:pt-[3.75rem]";
+  "px-4 pt-[3.5rem] pb-4 sm:px-6 sm:pt-[4rem] md:px-7 md:pt-[4.25rem] lg:px-3 lg:pt-[3.3125rem] lg:pb-4 2xl:pt-[3.75rem]";
 
 const NAME_SIZE =
-  "text-[1.05rem] sm:text-[1.1rem] md:text-[1.15rem] lg:text-[1rem] 2xl:text-[1.125rem]";
+  "text-[1rem] sm:text-[1.1rem] md:text-[1.15rem] lg:text-[1rem] 2xl:text-[1.125rem]";
 
 const DESC_SIZE =
-  "text-[0.78rem] sm:text-[0.8rem] md:text-[0.82rem] lg:text-[0.75rem] 2xl:text-[0.8125rem] max-w-[16rem] sm:max-w-[17rem] md:max-w-[18rem]";
+  "text-[0.75rem] sm:text-[0.8rem] md:text-[0.82rem] lg:text-[0.75rem] 2xl:text-[0.8125rem] max-w-[12.5rem] sm:max-w-[17rem] md:max-w-[18rem]";
 
 const BADGE_SIZE =
-  "text-[0.65rem] sm:text-[0.675rem] md:text-[0.7rem] lg:text-[0.625rem] 2xl:text-[0.6875rem] px-4 py-1.5 lg:px-[0.8125rem] lg:py-[0.25rem]";
+  "text-[0.625rem] sm:text-[0.675rem] md:text-[0.7rem] lg:text-[0.625rem] 2xl:text-[0.6875rem] px-[0.875rem] py-[0.3125rem] lg:px-[0.8125rem] lg:py-[0.25rem]";
 
 const FOOTER_ICON_SIZE =
   "w-[1.2rem] h-[1.2rem] sm:w-[1.25rem] sm:h-[1.25rem] lg:w-[1.25rem] lg:h-[1.25rem]";
@@ -256,7 +256,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-10 sm:pt-14 md:pt-16 lg:pt-20 pb-10 sm:pb-14 md:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-0"
+      className="relative overflow-hidden bg-white pt-10 sm:pt-12 md:pt-14 lg:pt-16 pb-10 sm:pb-12 md:pb-14 lg:pb-16 px-4 sm:px-6 lg:px-0"
     >
       {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول ── */}
       <div
@@ -375,7 +375,7 @@ export default function Rokadians() {
 
                 <a
                   href="#"
-                  className="mt-4 relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[0.9rem] px-7 py-2.5 rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap [corner-shape:squircle]"
+                  className="mt-4 relative inline-flex items-center justify-center -rotate-1 hover:rotate-0 hover:-translate-y-1 hover:shadow-[6px_7px_0_#21295a] transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[0.9rem] px-7 py-2.5 rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap [corner-shape:squircle]"
                 >
                   مشاهده همه رکادی‌ها
                 </a>
@@ -442,7 +442,7 @@ export default function Rokadians() {
 
                 <a
                   href="#"
-                  className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[1.125rem] 2xl:text-[1.25rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap mt-6 [corner-shape:squircle]"
+                  className="relative inline-flex items-center justify-center -rotate-1 hover:rotate-0 hover:-translate-y-1 hover:shadow-[6px_7px_0_#21295a] transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[1.125rem] 2xl:text-[1.25rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap mt-6 [corner-shape:squircle]"
                 >
                   مشاهده همه
                 </a>

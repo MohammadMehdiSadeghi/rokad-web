@@ -91,7 +91,7 @@ export default function Comments() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
+    <section className="relative w-full pt-[8rem] sm:pt-[10rem] lg:pt-[12rem] pb-[8rem] sm:pb-[10rem] lg:pb-[12rem] px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;
@@ -119,6 +119,7 @@ export default function Comments() {
         .comments-swiper .swiper-slide-prev .card-inner-wrap {
           transform: scale(0.92) translateY(8px) rotate(5deg);
           opacity: 0.72;
+          filter: blur(3px);
           z-index: 10;
           pointer-events: auto;
         }
@@ -128,6 +129,7 @@ export default function Comments() {
         .comments-swiper .swiper-slide-next .card-inner-wrap {
           transform: scale(0.92) translateY(8px) rotate(-6deg);
           opacity: 0.72;
+          filter: blur(3px);
           z-index: 10;
           pointer-events: auto;
         }
@@ -139,10 +141,12 @@ export default function Comments() {
           .comments-swiper .swiper-slide-prev .card-inner-wrap {
             transform: scale(0.85) translateY(6px) rotate(5deg);
             opacity: 0.65;
+            filter: blur(2px);
           }
           .comments-swiper .swiper-slide-next .card-inner-wrap {
             transform: scale(0.85) translateY(6px) rotate(-6deg);
             opacity: 0.65;
+            filter: blur(2px);
           }
         }
         /* Mobile: کارت‌های ساده با چرخش متناوب ملایم (زبان استیکری سایت) */

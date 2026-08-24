@@ -1,4 +1,10 @@
 import defaultTheme from "tailwindcss/defaultTheme";
+// توکن‌های دیزاین‌سیستم (منبع: DESIGN.md) — به‌صورت افزودنی مرج می‌شن
+// تا کلاس‌های موجود (bg-navy، text-teal و…) نشکنن؛ توکن‌های معنایی جدید
+// (primary/secondary/accent + تایپوگرافی نقش‌محور) در کنارشون اضافه می‌شن
+import mdTheme from "./tailwind.theme.json";
+
+const md = mdTheme.theme.extend;
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -14,6 +20,7 @@ export default {
                 // حروف فارسی در Montserrat وجود ندارن و به IRANSansX
                 // برمی‌گردن (fallback per-character توسط مرورگر)
                 sans: ["Montserrat", "IRANSansX", "Tahoma", "sans-serif"],
+                ...md.fontFamily,
             },
             colors: {
                 navy: "#21295a",
@@ -35,6 +42,7 @@ export default {
                 "bg-blush": "#fefafb",
                 "bg-lavender": "#f4f5fb",
                 "bg-neutral": "#f6f6f6",
+                ...md.colors,
             },
             borderRadius: {
                 "pill-sm": "0.1875rem",
@@ -45,6 +53,7 @@ export default {
                 "card-sm": "0.8375rem",
                 "card-lg": "2.5625rem",
                 navbar: "1.375rem",
+                ...md.borderRadius,
             },
             fontSize: {
                 "2xs": "0.81875rem",
@@ -59,6 +68,7 @@ export default {
                 "4xl2": "3.325rem",
                 "5xl2": "3.7125rem",
                 "6xl2": "4.40625rem",
+                ...md.fontSize,
             },
             spacing: {
                 "section": "4rem",
@@ -69,6 +79,7 @@ export default {
                 "gutter-md": "4rem",
                 "gutter-lg": "6rem",
                 "gutter-xl": "7.5rem",
+                ...md.spacing,
             },
             maxWidth: {
                 content: "75rem",

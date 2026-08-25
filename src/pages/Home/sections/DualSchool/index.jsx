@@ -40,9 +40,9 @@ export default function DualSchool() {
             <SchoolCard
               theme="boys"
               category="مدرسه پسرانه"
-              title="هنرستان‌پسرانه‌"
+              title="هنرستان‌ پسرانه‌"
               meta="مشهد | فرامرز عباسی ۳۳"
-              chips={["شبکه و نرم‌افزار رایانه"]}
+              chips={["شبکه و نرم افزار رایانه"]}
               ctaLabel="پیش‌ثبت‌نام"
               illustration={boyIllustration}
               pattern={boysCardPattern}
@@ -53,9 +53,9 @@ export default function DualSchool() {
             <SchoolCard
               theme="girls"
               category="مدرسه دخترانه"
-              title="هنرستان‌دخترانه‌"
+              title="هنرستان‌ دخترانه‌"
               meta="مشهد | فرامرز عباسی ۵۴"
-              chips={["شبکه و نرم‌افزار رایانه"]}
+              chips={["شبکه و نرم افزار رایانه"]}
               ctaLabel="پیش‌ثبت‌نام"
               illustration={girlIllustration}
               pattern={girlsCardPattern}

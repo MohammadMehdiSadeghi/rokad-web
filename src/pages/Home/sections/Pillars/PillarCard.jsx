@@ -83,7 +83,7 @@ export default function PillarCard({
         </h4>
 
         {/* Body */}
-        <p className="text-[0.8125rem] sm:text-[0.9375rem] lg:text-[1rem] leading-[1.7] text-ink/60">
+        <p className="text-[0.6875rem] sm:text-[0.75rem] lg:text-[0.8125rem] leading-[1.7] text-ink/60 line-clamp-1 overflow-hidden text-ellipsis">
           {body}
         </p>
       </article>

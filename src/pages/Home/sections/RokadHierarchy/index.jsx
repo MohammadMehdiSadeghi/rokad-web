@@ -1,6 +1,7 @@
 import Container from "../../../../layout/Container";
 
 const ecosystemPattern = "/assets/Pattern/layout-pattern.png";
+const hubImage = "/assets/Ecosystem/Group.png";
 
 const branches = [
   {
@@ -59,7 +60,7 @@ const BRAND_CONFIG = {
   },
 };
 
-function BranchCard({ branch }) {
+function BranchCard({ branch, rotation = 0 }) {
   const c = BRAND_CONFIG[branch.brand];
   const ctaButton = (
     <a
@@ -76,8 +77,9 @@ function BranchCard({ branch }) {
 
   return (
     <div
-      className="border-2 relative h-full px-5 py-5 sm:px-8 sm:py-6"
+      className="border-2 relative h-full px-5 py-5 sm:px-8 sm:py-6 lg:max-w-[527px] transition-transform duration-300 hover:rotate-0"
       style={{
+        transform: `rotate(${rotation}deg)`,
         borderColor: c.border,
         background: c.cardBg,
         boxShadow: "6px 8px 0 0 var(--shadow-col)",
@@ -87,15 +89,15 @@ function BranchCard({ branch }) {
     >
       <div className="flex items-start justify-between gap-4">
         <h3
-          className="text-lg sm:text-xl lg:text-2xl leading-snug"
-          style={{ color: c.border, fontWeight: 950 }}
+          className="font-black text-[1rem] sm:text-[1.25rem] lg:text-[1.5rem] leading-snug"
+          style={{ color: c.border }}
         >
           {branch.title}
         </h3>
         {ctaButton}
       </div>
       <p
-        className="mt-2 sm:mt-3 text-sm font-medium leading-[1.8] text-right"
+        className="mt-2 sm:mt-3 text-[0.875rem] sm:text-[0.9375rem] font-medium leading-[1.8] text-right"
         style={{ color: c.border }}
       >
         {branch.description}
@@ -127,6 +129,23 @@ export default function RokadHierarchy() {
       </div>
 
       <Container className="relative z-10">
+        {/* ── Section Title ── */}
+        <h2
+          className="text-right font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3"
+        >
+          <span className="inline-block -rotate-[0.5deg] sm:-rotate-3">
+            اکوسیستم
+          </span>
+          <span className="inline-block rotate-[0.5deg] sm:rotate-2 text-teal-wordmark">
+            رکاد
+          </span>
+        </h2>
+
+        {/* ── Subtitle ── */}
+        <p className="text-right font-medium text-[0.875rem] sm:text-[1rem] leading-[1.9] text-navy/60 max-w-[38.75rem] mb-[1.5rem] sm:mb-[2rem] lg:mb-[2.5rem]">
+          از کالج آموزش تا شتاب‌دهی استارتاپی و فضای کارآفرینی، همه زیر یک سقف
+        </p>
+
         {/* دسکتاپ: چارت سازمانی — دایره بالا وسط، سه کارت کنار هم پایین،
             شاخه‌های خط‌چین از دایره به هر کارت */}
         <div className="hidden lg:block">
@@ -141,12 +160,12 @@ export default function RokadHierarchy() {
                 border: "3px solid #347E75",
               }}
             >
-              <span
-                className="font-black text-center text-white text-[1.375rem] leading-[1.4] px-5"
-                style={{ fontFamily: "'IRANSansX', Tahoma, sans-serif", fontWeight: 950 }}
-              >
-                اکوسیستم رکاد
-              </span>
+              <img
+                src={hubImage}
+                alt=""
+                aria-hidden="true"
+                className="w-16 h-24 object-contain brightness-0 invert"
+              />
             </div>
           </div>
 
@@ -171,15 +190,16 @@ export default function RokadHierarchy() {
                   strokeLinecap="round"
                   fill="none"
                   vectorEffect="non-scaling-stroke"
+                  className="animate-marching-ants"
                 />
               );
             })}
           </svg>
 
           {/* کارت‌ها — سه‌تا کنار هم */}
-          <div className="grid grid-cols-3 gap-[2rem] items-stretch">
-            {branches.map((branch) => (
-              <BranchCard key={branch.id} branch={branch} />
+          <div className="grid grid-cols-3 gap-[2rem] items-stretch justify-items-center">
+            {branches.map((branch, i) => (
+              <BranchCard key={branch.id} branch={branch} rotation={i % 2 === 0 ? -3 : 3} />
             ))}
           </div>
         </div>

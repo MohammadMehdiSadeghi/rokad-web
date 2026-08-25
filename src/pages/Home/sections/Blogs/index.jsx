@@ -334,67 +334,6 @@ export default function Blogs() {
                 </span>
               </h2>
             </div>
-
-            {/* All Articles Button */}
-
-            <div
-              className="
-                relative
-                inline-flex
-                items-center
-                justify-center
-                rotate-[-1.55deg]
-                hover:rotate-0
-                transition-all
-                duration-300
-              "
-            >
-              <div
-                aria-hidden="true"
-                className="
-                  absolute
-                  top-[0.125rem]
-                  left-[0.125rem]
-                  w-full
-                  h-full
-                  rounded-[0_0.57rem_0_0.57rem]
-                  [corner-shape:squircle]
-                  bg-[#21295A]
-                "
-              />
-
-              <a
-                href="#"
-                className="
-                  relative
-                  z-10
-                  bg-white
-                  border-[0.125rem]
-                  border-[#21295A]
-                  text-[#21295A]
-                  font-extrabold
-                  text-sm
-                  sm:text-base
-                  px-6
-                  py-3
-                  rounded-[0_0.57rem_0_0.57rem]
-                  [corner-shape:squircle]
-                  whitespace-nowrap
-                  cursor-pointer
-                  flex-shrink-0
-                  [background-image:linear-gradient(to_right,#21295A,#21295A)]
-                  bg-no-repeat
-                  [background-size:0%_100%]
-                  hover:[background-size:100%_100%]
-                  hover:text-white
-                  transition-all
-                  duration-300
-                  ease-out
-                "
-              >
-                همه مقالات
-              </a>
-            </div>
           </div>
 
           {/* =================================================
@@ -516,6 +455,67 @@ export default function Blogs() {
                   );
                 })}
               </Swiper>
+
+              {/* ── دکمه مشاهده همه — تراز با آخرین کارت ── */}
+              <div className="hidden xl:flex justify-start mt-6">
+                <div
+                  className="
+                    relative
+                    inline-flex
+                    items-center
+                    justify-center
+                    rotate-[-1.55deg]
+                    hover:rotate-0
+                    transition-all
+                    duration-300
+                  "
+                >
+                  <div
+                    aria-hidden="true"
+                    className="
+                      absolute
+                      top-[0.125rem]
+                      left-[0.125rem]
+                      w-full
+                      h-full
+                      rounded-[0_0.57rem_0_0.57rem]
+                      [corner-shape:squircle]
+                      bg-[#21295A]
+                    "
+                  />
+                  <a
+                    href="#"
+                    className="
+                      relative
+                      z-10
+                      bg-white
+                      border-[0.125rem]
+                      border-[#21295A]
+                      text-[#21295A]
+                      font-extrabold
+                      text-sm
+                      sm:text-base
+                      px-6
+                      py-3
+                      rounded-[0_0.57rem_0_0.57rem]
+                      [corner-shape:squircle]
+                      whitespace-nowrap
+                      cursor-pointer
+                      flex-shrink-0
+                      [background-image:linear-gradient(to_right,#21295A,#21295A)]
+                      bg-no-repeat
+                      [background-size:0%_100%]
+                      hover:[background-size:100%_100%]
+                      hover:text-white
+                      transition-all
+                      duration-300
+                      ease-out
+                    "
+                  >
+                    مشاهده همه بلاگ‌ها
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Next */}
@@ -598,6 +598,67 @@ export default function Blogs() {
                   width: `${((activeIndex + 1) / posts.length) * 100}%`,
                 }}
               />
+            </div>
+          </div>
+
+          {/* ── دکمه مشاهده همه — موبایل و تبلت ── */}
+          <div className="flex xl:hidden justify-center mt-6">
+            <div
+              className="
+                relative
+                inline-flex
+                items-center
+                justify-center
+                rotate-[-1.55deg]
+                hover:rotate-0
+                transition-all
+                duration-300
+              "
+            >
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  top-[0.125rem]
+                  left-[0.125rem]
+                  w-full
+                  h-full
+                  rounded-[0_0.57rem_0_0.57rem]
+                  [corner-shape:squircle]
+                  bg-[#21295A]
+                "
+              />
+              <a
+                href="#"
+                className="
+                  relative
+                  z-10
+                  bg-white
+                  border-[0.125rem]
+                  border-[#21295A]
+                  text-[#21295A]
+                  font-extrabold
+                  text-sm
+                  sm:text-base
+                  px-6
+                  py-3
+                  rounded-[0_0.57rem_0_0.57rem]
+                  [corner-shape:squircle]
+                  whitespace-nowrap
+                  cursor-pointer
+                  flex-shrink-0
+                  [background-image:linear-gradient(to_right,#21295A,#21295A)]
+                  bg-no-repeat
+                  [background-size:0%_100%]
+                  hover:[background-size:100%_100%]
+                  hover:text-white
+                  transition-all
+                  duration-300
+                  ease-out
+                "
+              >
+                مشاهده همه بلاگ‌ها
+              </a>
             </div>
           </div>
         </div>

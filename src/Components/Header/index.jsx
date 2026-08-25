@@ -31,11 +31,14 @@ const softSpring = {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
+  const [tabsHidden, setTabsHidden] = useState(false);
   const close = () => setOpen(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setCompact(window.scrollY > 10);
+      const y = window.scrollY;
+      setTabsHidden(y > 4);
+      setCompact(y > 10);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -71,11 +74,11 @@ export default function Header() {
         >
           <motion.div
             initial={false}
-            animate={{ height: compact ? "3rem" : "5.9375rem" }}
+            animate={{ height: compact ? "4.25rem" : "5.9375rem" }}
             transition={spring}
             className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden ${
               compact
-                ? "rounded-none py-0 px-4"
+                ? "rounded-none py-3.5 px-4"
                 : "rounded-[38px] py-8 px-8"
             }`}
             style={{
@@ -132,7 +135,7 @@ export default function Header() {
 
             {/* ── وسط: پیش‌ثبت‌نام + لینک‌ها (دسکتاپ) ── */}
             <AnimatePresence>
-              {!compact && (
+              {!tabsHidden && (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9, y: -5 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}

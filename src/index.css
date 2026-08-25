@@ -70,6 +70,17 @@
 /* ========================================== */
 
 
+/* ── SVG marching-ants animation (RokadHierarchy connecting paths) ── */
+@keyframes marching-ants {
+    to {
+        stroke-dashoffset: -18;
+    }
+}
+.animate-marching-ants {
+    animation: marching-ants 1.2s linear infinite;
+}
+
+
 /* ── کدهای اسکرول‌بار مرورگر ── */
 
 

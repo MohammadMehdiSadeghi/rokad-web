@@ -115,9 +115,10 @@ export default function EventsCarousel() {
             modules={[Navigation, A11y]}
             slidesPerView={1}
             spaceBetween={20}
+            centeredSlides={true}
             breakpoints={{
-              // تبلت: کارت جمع‌تر میشه که بخشی از کارت بعدی دیده بشه
-              768: { slidesPerView: 1.25, spaceBetween: 40 },
+              // تبلت: کارت کوچیک‌تر و وسط‌چین
+              768: { slidesPerView: 1.15, spaceBetween: 24 },
               1024: { slidesPerView: 1, spaceBetween: 50 },
             }}
             dir="rtl"
@@ -144,7 +145,7 @@ export default function EventsCarousel() {
                     />
 
                     {/* کارت اصلی - افزایش شدید ارتفاع به 700px در موبایل و 560px در دسکتاپ */}
-                    <div className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[32rem] sm:min-h-[28rem] lg:min-h-[24rem] xl:min-h-[28rem]`}>
+                    <div className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[32rem] sm:min-h-[28rem] md:min-h-[22rem] lg:min-h-[24rem] xl:min-h-[28rem]`}>
                       
                       {/* کارت اطلاعات رویداد (سمت راست در دسکتاپ / پایین در موبایل) */}
                       <div className={`relative ${theme.cardBg} p-4 sm:p-6 md:p-5 lg:p-6 xl:p-10 flex flex-col justify-between flex-1 lg:flex-none overflow-hidden`}>

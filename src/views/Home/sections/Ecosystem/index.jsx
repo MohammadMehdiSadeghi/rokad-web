@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import Container from "../../../../layout/Container";
 import { UserIcon } from "../../../../common/Icons";

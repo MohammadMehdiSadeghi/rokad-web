@@ -1,5 +1,6 @@
+"use client";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const logo = "/assets/Shared/Logos/logo.png";
@@ -120,7 +121,7 @@ export default function Header() {
 
             {/* ── لوگو ── */}
             <Link
-              to="/"
+              href="/"
               aria-label="رکاد"
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:top-auto lg:left-auto lg:translate-x-0 lg:translate-y-0 flex-shrink-0"
             >
@@ -154,7 +155,7 @@ export default function Header() {
                     {navLinks.map((link) => (
                       <li key={link.label}>
                         <Link
-                          to={link.to}
+                          href={link.to}
                           className="whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group"
                         >
                           {link.label}
@@ -260,7 +261,7 @@ export default function Header() {
             </button>
 
             <Link
-              to="/"
+              href="/"
               onClick={close}
               aria-label="رکاد"
               className="flex-shrink-0"
@@ -287,7 +288,7 @@ export default function Header() {
                 style={{ transitionDelay: open ? `${200 + i * 70}ms` : "0ms" }}
               >
                 <Link
-                  to={link.to}
+                  href={link.to}
                   onClick={close}
                   className="group flex items-baseline gap-3.5 py-2.5"
                 >

@@ -1,4 +1,5 @@
-﻿import { useState, useRef } from "react";
+"use client";
+import { useState, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -133,7 +134,7 @@ export default function Comments() {
           z-index: 10;
           pointer-events: auto;
         }
-        /* Tablet (md): smaller scale so cards don't clip */
+        /* Tablet (md): smaller scale so cards do not clip */
         @media (min-width: 768px) and (max-width: 1023px) {
           .comments-swiper .swiper-slide-active .card-inner-wrap {
             transform: scale(1.22, 1.15) translateY(-4px) rotate(0deg);

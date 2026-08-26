@@ -3,3 +3,4 @@ dist/
 .vite/
 .freebuff/
 *.log
+.next/

@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import Container from "../../../../layout/Container";
 import { ChevronDownIcon, PlusIcon, ArrowIcon, SwirlArrowIcon } from "../../../../common/Icons";

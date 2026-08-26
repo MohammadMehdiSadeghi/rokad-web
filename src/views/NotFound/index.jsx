@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Container from "../../layout/Container";
 
 export default function NotFound() {
@@ -12,7 +12,7 @@ export default function NotFound() {
           صفحه‌ای که دنبالش بودی پیدا نشد.
         </p>
         <Link
-          to="/"
+          href="/"
           className="inline-flex items-center justify-center rounded-pill-md bg-teal px-6 py-3 text-base2 font-extrabold text-white transition-colors duration-300 hover:bg-teal-dark"
         >
           بازگشت به صفحه‌ی اصلی

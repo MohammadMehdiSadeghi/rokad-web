@@ -87,14 +87,12 @@ export default function Faq() {
           {/* لایه پشتی باکس مشاوره */}
           <div className="absolute top-2 left-2 w-full h-full rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-ink [corner-shape:squircle]" />
           {/* لایه اصلی باکس مشاوره */}
-          <div className="relative z-10 border-[0.21875rem] border-ink rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-orange-alt p-4 sm:p-7 min-h-[8.75rem] sm:min-h-[11rem] overflow-hidden [corner-shape:squircle]">
-            {/* پترن تصویری — مثل کارت‌های مدرسه */}
-            <div className="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden">
+          <div className="relative z-10 border-[0.21875rem] border-ink rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-teal p-4 sm:p-7 min-h-[8.75rem] sm:min-h-[11rem] overflow-hidden [corner-shape:squircle]">
+            <div className="absolute inset-0 pointer-events-none">
               <img
-                src={coachingPattern}
+                src={faqPatternBoxs}
                 alt=""
-                aria-hidden="true"
-                className="w-full h-full object-cover scale-125 select-none opacity-100 mix-blend-multiply"
+                className="absolute inset-0 w-full h-full object-cover scale-125 select-none opacity-100"
               />
             </div>
 
@@ -110,19 +108,20 @@ export default function Faq() {
               </p>
             </div>
 
-          </div>
-        </div>
-
-        {/* ۳. دکمه مشاوره — تراز با آخرین کارت FAQ */}
-        <div className="order-3 xl:order-none xl:col-start-1 xl:row-start-3 mt-4 xl:mt-2">
-          <div className="relative inline-flex -rotate-3 hover:rotate-0 transition-transform duration-500 ease-out">
-            <div className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0.9375rem] bg-white transition-colors duration-300 ease-out group-hover:bg-black [corner-shape:squircle]" />
-            <a
-              href="#"
-              className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] font-bold px-3.5 sm:px-5 py-2 sm:py-3 rounded-[0.9375rem] border-[0.125rem] border-white group-hover:border-ink whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95 [corner-shape:squircle]"
-            >
-              مشاوره و هدایت تحصیلی
-            </a>
+            {/* دکمه با استایل جدید — کمی بیشتر به سمت راست */}
+            <div className="relative sm:absolute -rotate-3 hover:rotate-0 transition-transform duration-500 ease-out z-10 mt-4 sm:mt-0 sm:left-16 sm:bottom-6">
+              <div className="relative group inline-flex items-center justify-center">
+                {/* لایه پشتی دکمه */}
+                <div className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0.9375rem] bg-white transition-colors duration-300 ease-out group-hover:bg-black [corner-shape:squircle]"></div>
+                {/* خود دکمه */}
+                <a
+                  href="#"
+                  className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] font-bold px-3.5 sm:px-5 py-2 sm:py-3 rounded-[0.9375rem] border-[0.125rem] border-white group-hover:border-ink whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95 [corner-shape:squircle]"
+                >
+                  رزرو جلسه‌ی مشاوره
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 

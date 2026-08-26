@@ -398,7 +398,7 @@ export default function Rokadians() {
                   CARD RAIL
               ================================================= */}
 
-              <div className="rokadians-rail relative z-[10] flex flex-nowrap items-center justify-start gap-4 sm:gap-5 md:gap-6 lg:gap-[1.5rem] xl:gap-[1.75rem] 2xl:gap-[2.25rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-5 sm:py-6 lg:py-0 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[0.3125rem] 2xl:pl-[0.5rem] pr-8 lg:pr-0">
+              <div className="rokadians-rail relative z-[10] flex flex-nowrap items-center justify-start gap-5 sm:gap-6 md:gap-8 lg:gap-[2.25rem] xl:gap-[2.5rem] 2xl:gap-[3rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-5 sm:py-6 lg:py-0 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[0.3125rem] 2xl:pl-[0.5rem] pr-8 lg:pr-0">
                 {students.map((student, index) => (
                   <StudentCard
                     key={index}

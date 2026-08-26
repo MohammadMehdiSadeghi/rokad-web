@@ -236,7 +236,7 @@ export default function Comments() {
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
               }}
-              className="comments-swiper !pt-2 sm:!pt-8 lg:!pt-10 !pb-4 sm:!pb-6 lg:!pb-8"
+              className="comments-swiper !pt-4 sm:!pt-10 lg:!pt-12 !pb-4 sm:!pb-6 lg:!pb-8"
             >
               {comments.map((comment) => {
                 const theme = THEME_MAP[comment.theme];
@@ -247,7 +247,9 @@ export default function Comments() {
                     className="!h-auto overflow-visible"
                   >
                     <div className="p-1.5 sm:p-2 lg:p-3 overflow-visible">
-                      <div className="card-inner-wrap">                          <div className="relative max-w-[19.5rem] sm:max-w-[20rem] md:max-w-[22rem] lg:max-w-[25rem] xl:max-w-[28.125rem] mx-auto">
+                      <div className="card-inner-wrap">
+                        {" "}
+                        <div className="relative max-w-[19.5rem] sm:max-w-[20rem] md:max-w-[22rem] lg:max-w-[25rem] xl:max-w-[28.125rem] mx-auto">
                           {/* لایه پشتی کارت */}
                           <div
                             aria-hidden="true"
@@ -325,7 +327,9 @@ export default function Comments() {
           <div className="w-[9.375rem] h-1.5 bg-gray-200 rounded-full overflow-hidden">
             <div
               className="h-full bg-[#292827] transition-all duration-500 ease-out rounded-full"
-              style={{ width: `${((activeIndex + 1) / comments.length) * 100}%` }}
+              style={{
+                width: `${((activeIndex + 1) / comments.length) * 100}%`,
+              }}
             />
           </div>
         </div>

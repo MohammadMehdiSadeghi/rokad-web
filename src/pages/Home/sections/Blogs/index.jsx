@@ -261,6 +261,7 @@ export default function Blogs() {
               flex-col
               sm:flex-row
               items-center
+              sm:items-start
               justify-between
               gap-4
               sm:gap-6
@@ -347,6 +348,9 @@ export default function Blogs() {
                 transition-all
                 duration-300
                 flex-shrink-0
+                ml-4
+                sm:ml-8
+                lg:ml-[6.5rem]
               "
             >
               <div

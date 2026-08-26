@@ -4,7 +4,6 @@ import { ChevronDownIcon, PlusIcon, ArrowIcon, SwirlArrowIcon } from "../../../.
 
 const faqPattern = "/assets/Shared/Patterns/Ecosystem-Pattern.png";
 const faqPatternBoxs = "/assets/unassigned/pattern-boxes.png";
-const coachingPattern = "/assets/Faq/layout-pattern.png";
 
 const faqs = [
   {
@@ -83,11 +82,11 @@ export default function Faq() {
         </div>
 
         {/* ۲. باکس مشاوره (در موبایل و 1024px پایین تایتل، در دسکتاپ سمت راست) */}
-        <div className="order-2 xl:order-none xl:col-start-1 xl:row-start-2 relative rotate-2 mt-4 xl:mt-0">
+        <div className="order-2 xl:order-none xl:col-start-1 xl:row-start-2 relative rotate-2 -mt-4 xl:mt-0">
           {/* لایه پشتی باکس مشاوره */}
           <div className="absolute top-2 left-2 w-full h-full rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-ink [corner-shape:squircle]" />
           {/* لایه اصلی باکس مشاوره */}
-          <div className="relative z-10 border-[0.21875rem] border-ink rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-teal p-4 sm:p-7 min-h-[8.75rem] sm:min-h-[11rem] overflow-hidden [corner-shape:squircle]">
+          <div className="relative z-10 border-[0.21875rem] border-ink rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-[#F8A41D] p-4 sm:p-7 min-h-[8.75rem] sm:min-h-[11rem] overflow-hidden [corner-shape:squircle]">
             <div className="absolute inset-0 pointer-events-none">
               <img
                 src={faqPatternBoxs}
@@ -98,8 +97,8 @@ export default function Faq() {
 
             <div className="relative z-10 max-w-full sm:max-w-[64%]">
               {/* اضافه شدن whitespace-nowrap برای ماندن تایتل در یک خط */}
-              <h3 className="font-black text-[1.125rem] xs:text-[1.25rem] sm:text-[2rem] text-ink mb-1.5 sm:mb-2 whitespace-nowrap">
-                <span className="text-white">دریافت</span> کوچینگ{" "}
+              <h3 className="font-black text-[1.0625rem] xs:text-[1.1875rem] sm:text-[1.6875rem] text-ink mb-1.5 sm:mb-2 whitespace-nowrap">
+                <span className="text-white">دریافت</span> مشاوره و هدایت تحصیلی{" "}
                 <span className="text-white">تخصصی</span>
               </h3>
               <p className="text-[0.6875rem] xs:text-[0.75rem] sm:text-[1rem] font-medium leading-[1.7] sm:leading-[1.9] text-ink">
@@ -108,8 +107,8 @@ export default function Faq() {
               </p>
             </div>
 
-            {/* دکمه با استایل جدید — کمی بیشتر به سمت راست */}
-            <div className="relative sm:absolute -rotate-3 hover:rotate-0 transition-transform duration-500 ease-out z-10 mt-4 sm:mt-0 sm:left-16 sm:bottom-6">
+            {/* دکمه با استایل جدید */}
+            <div className="relative sm:absolute -rotate-3 hover:rotate-0 transition-transform duration-500 ease-out z-10 mt-4 sm:mt-0 sm:left-4 sm:bottom-6">
               <div className="relative group inline-flex items-center justify-center">
                 {/* لایه پشتی دکمه */}
                 <div className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0.9375rem] bg-white transition-colors duration-300 ease-out group-hover:bg-black [corner-shape:squircle]"></div>
@@ -118,7 +117,7 @@ export default function Faq() {
                   href="#"
                   className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] font-bold px-3.5 sm:px-5 py-2 sm:py-3 rounded-[0.9375rem] border-[0.125rem] border-white group-hover:border-ink whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95 [corner-shape:squircle]"
                 >
-                  رزرو جلسه‌ی مشاوره
+                  رزرو تایم مشاوره
                 </a>
               </div>
             </div>

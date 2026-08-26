@@ -5,6 +5,7 @@ import { ChevronDownIcon, PlusIcon, ArrowIcon, SwirlArrowIcon } from "../../../.
 
 const faqPattern = "/assets/Shared/Patterns/Ecosystem-Pattern.png";
 const faqPatternBoxs = "/assets/unassigned/pattern-boxes.png";
+const faqPatternBoxStrong = "/assets/unassigned/pattern-boxes-strong.png";
 
 const faqs = [
   {
@@ -90,9 +91,9 @@ export default function Faq() {
           <div className="relative z-10 border-[0.21875rem] border-ink rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-[#F8A41D] p-4 sm:p-7 min-h-[8.75rem] sm:min-h-[11rem] overflow-hidden [corner-shape:squircle]">
             <div className="absolute inset-0 pointer-events-none">
               <img
-                src={faqPatternBoxs}
+                src={faqPatternBoxStrong}
                 alt=""
-                className="absolute inset-0 w-full h-full object-cover scale-125 select-none opacity-100"
+                className="absolute inset-0 w-full h-full object-cover scale-125 select-none opacity-40"
               />
             </div>
 

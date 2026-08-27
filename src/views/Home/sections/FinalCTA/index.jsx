@@ -29,7 +29,7 @@ export default function FinalCTA() {
               src={imgGirl}
               alt=""
               aria-hidden="true"
-              className="w-full h-[28rem] object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
 
@@ -70,7 +70,7 @@ export default function FinalCTA() {
               src={imgBoy}
               alt=""
               aria-hidden="true"
-              className="w-full h-[28rem] object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>

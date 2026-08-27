@@ -31,13 +31,18 @@ const softSpring = {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [compact, setCompact] = useState(false);
   const close = () => setOpen(false);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setCompact(y > 10);
+      const vh = window.innerHeight;
+      // هدر مخفی: بین 0 تا 50vh
+      // هدر ظاهر: در حالت عادی (y <= 0) یا بعد از 50vh
+      setVisible(y <= 0 || y >= vh * 0.5);
+      setCompact(y >= vh * 0.5);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -58,7 +63,10 @@ export default function Header() {
           <>
             <motion.header
               initial={false}
-              animate={{ y: 0, opacity: 1 }}
+              animate={{
+                y: visible ? 0 : -100,
+                opacity: visible ? 1 : 0,
+              }}
               transition={spring}
               style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
               className={`transition-[padding,box-shadow] duration-300 ease-out ${
@@ -76,10 +84,10 @@ export default function Header() {
                   animate={{ height: compact ? "3.5rem" : "5rem" }}
                   transition={spring}
                   className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden px-4 sm:px-6 lg:px-8 ${
-                                      compact
-                                        ? "py-2"
-                                        : "py-4 rounded-[38px]"
-                                    }`}
+                    compact
+                      ? "py-2"
+                      : "py-4 rounded-[38px]"
+                  }`}
                 style={{
                   boxShadow: compact
                     ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"

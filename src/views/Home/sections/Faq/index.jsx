@@ -43,7 +43,7 @@ export default function Faq() {
   return (
     <section
           id="counseling"
-        className="relative overflow-hidden bg-[#E4F4F2] py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
+        className="relative overflow-hidden bg-ecosystem-light py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
           dir="rtl"
         >
       {/* ── لایه پترن — همون ماسک گرادیانی هیرو/دوئال‌اسکول؛ روی
@@ -86,9 +86,9 @@ export default function Faq() {
         {/* ۲. باکس مشاوره (در موبایل و 1024px پایین تایتل، در دسکتاپ سمت راست) */}
         <div className="order-2 xl:order-none xl:col-start-1 xl:row-start-2 relative rotate-2 -mt-4 xl:mt-0">
           {/* لایه پشتی باکس مشاوره */}
-          <div className="absolute top-2 left-2 w-full h-full rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-ink [corner-shape:squircle]" />
+          <div className="absolute top-2 left-2 w-full h-full rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-male-normal [corner-shape:squircle]" />
           {/* لایه اصلی باکس مشاوره */}
-          <div className="relative z-10 border-[0.21875rem] border-ink rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-[#F8A41D] p-4 sm:p-7 min-h-[8.75rem] sm:min-h-[11rem] overflow-hidden [corner-shape:squircle]">
+          <div className="relative z-10 border-[0.21875rem] border-ink rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-college-normal p-4 sm:p-7 min-h-[8.75rem] sm:min-h-[11rem] overflow-hidden [corner-shape:squircle]">
             <div className="absolute inset-0 pointer-events-none">
               <img
                 src={faqPatternBoxStrong}
@@ -113,11 +113,11 @@ export default function Faq() {
             <div className="relative sm:absolute -rotate-3 hover:rotate-0 transition-transform duration-500 ease-out z-10 mt-4 sm:mt-0 sm:left-4 sm:bottom-6">
               <div className="relative group inline-flex items-center justify-center">
                 {/* لایه پشتی دکمه */}
-                <div className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0.9375rem] bg-white transition-colors duration-300 ease-out group-hover:bg-black [corner-shape:squircle]"></div>
+                <div className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0.9375rem] bg-white transition-colors duration-300 ease-out group-hover:bg-ink-darker [corner-shape:squircle]"></div>
                 {/* خود دکمه */}
                 <a
                   href="#"
-                  className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] font-bold px-3.5 sm:px-5 py-2 sm:py-3 rounded-[0.9375rem] border-[0.125rem] border-white group-hover:border-ink whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95 [corner-shape:squircle]"
+                  className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] font-bold px-3.5 sm:px-5 py-2 sm:py-3 rounded-[0.9375rem] border-[0.125rem] border-white group-hover:border-ink whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-ink group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95 [corner-shape:squircle]"
                 >
                   رزرو تایم مشاوره
                 </a>
@@ -133,7 +133,7 @@ export default function Faq() {
             return (
               <div key={item.question} className="relative transition-transform duration-300">
                 {/* لایه پشتی سوالات */}
-                <div className="absolute top-[0.3125rem] left-[0.3125rem] w-full h-full rounded-tl-none rounded-br-none rounded-tr-[1.375rem] rounded-bl-[1.375rem] bg-ink [corner-shape:squircle]" />
+                <div className="absolute top-[0.3125rem] left-[0.3125rem] w-full h-full rounded-tl-none rounded-br-none rounded-tr-[1.375rem] rounded-bl-[1.375rem] bg-male-normal [corner-shape:squircle]" />
 
                 {/* لایه اصلی سوالات */}
                 <div
@@ -161,10 +161,10 @@ export default function Faq() {
 
                     <div className="relative flex-shrink-0">
                       {/* لایه پشتی آیکون */}
-                      <div className="absolute top-[0.09375rem] left-[0.09375rem] rotate-1 w-full h-full bg-[#292827] rounded-[0_0.978125rem_0_0.978125rem] [corner-shape:squircle]"></div>
+                      <div className="absolute top-[0.09375rem] left-[0.09375rem] rotate-1 w-full h-full bg-ink rounded-[0_0.978125rem_0_0.978125rem] [corner-shape:squircle]"></div>
                       {/* لایه اصلی آیکون */}
                       <div
-                        className={`relative w-8 h-8 sm:w-12 sm:h-12 flex rotate-1 items-center justify-center bg-[#3D3B3A] border-[0.125rem] border-[#292827] text-white rounded-[0_0.978125rem_0_0.978125rem] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer ${isOpen ? "rotate-180" : "rotate-0"} [corner-shape:squircle]`}
+                        className={`relative w-8 h-8 sm:w-12 sm:h-12 flex rotate-1 items-center justify-center bg-ink-dark border-[0.125rem] border-ink text-white rounded-[0_0.978125rem_0_0.978125rem] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer ${isOpen ? "rotate-180" : "rotate-0"} [corner-shape:squircle]`}
                       >
                         {isOpen ? (
                           <ChevronDownIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />

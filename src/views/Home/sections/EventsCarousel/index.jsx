@@ -45,34 +45,34 @@ const events = [
 
 const THEME_MAP = {
   boys: {
-    cardBg: "bg-[#F4F5FB]",
-    accentText: "text-[#21295A]",
-    metaColor: "text-[#21295A]/50",
-    btnBg: "bg-[#21295A] hover:bg-[#15244a]",
-    solidColor: "bg-[#21295A]",
-    borderColor: "border-[#21295A]",
+    cardBg: "bg-bg-lavender",
+    accentText: "text-navy",
+    metaColor: "text-navy/50",
+    btnBg: "bg-navy hover:bg-[#15244a]",
+    solidColor: "bg-navy",
+    borderColor: "border-navy",
     indexColor: "text-[#D7DBF1]",
-    titleColor: "text-[#202A5A]",
-    bodyColor: "text-[#202A5A]/70",
-    badgeBg: "bg-[#F4F5FB]",
-    badgeBorder: "border-[#202A5A]",
-    badgeText: "text-[#202A5A]",
+    titleColor: "text-navy-alt",
+    bodyColor: "text-navy-alt/70",
+    badgeBg: "bg-bg-lavender",
+    badgeBorder: "border-navy-alt",
+    badgeText: "text-navy-alt",
     badgeOffset: "bg-[#202A5A]",
   },
   girls: {
-    cardBg: "bg-[#FEFAFB]",
-    accentText: "text-[#E0195B]",
-    metaColor: "text-[#E0195B]/50",
-    btnBg: "bg-[#E0195B] hover:bg-[#c0154d]",
-    solidColor: "bg-[#E0195B]",
+    cardBg: "bg-bg-blush",
+    accentText: "text-magenta",
+    metaColor: "text-magenta/50",
+    btnBg: "bg-magenta hover:bg-[#c0154d]",
+    solidColor: "bg-magenta",
     borderColor: "border-[#E0195B]",
     indexColor: "text-[#FAD9E4]",
-    titleColor: "text-[#E0195B]",
-    bodyColor: "text-[#E0195B]/70",
-    badgeBg: "bg-[#FEFAFB]",
+    titleColor: "text-magenta",
+    bodyColor: "text-magenta/70",
+    badgeBg: "bg-bg-blush",
     badgeBorder: "border-[#E0195B]",
-    badgeText: "text-[#E0195B]",
-    badgeOffset: "bg-[#E0195B]",
+    badgeText: "text-magenta",
+    badgeOffset: "bg-magenta",
   },
 };
 
@@ -230,9 +230,9 @@ export default function EventsCarousel() {
 
           {/* نوار پیشرفت — همیشه وسط */}
           <div className="flex items-center justify-center h-8 sm:h-10 lg:h-12">
-            <div className="w-[7.5rem] h-1.5 bg-[#EDECEC] rounded-full overflow-hidden">
+            <div className="w-[7.5rem] h-1.5 bg-ink-light rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#333230] transition-all duration-500 ease-out rounded-full"
+                className="h-full bg-ink transition-all duration-500 ease-out rounded-full"
                 style={{ width: `${((activeIndex + 1) / events.length) * 100}%` }}
               />
             </div>
@@ -242,12 +242,12 @@ export default function EventsCarousel() {
           <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-3 sm:gap-4">
             {/* دکمه قبلی */}
             <div className="relative">
-              <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle]"></div>
+              <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-navy rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle]"></div>
               <button
                 type="button"
                 ref={prevRef}
                 aria-label="رویداد قبلی"
-                className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#F4F5FB] border-[0.125rem] border-[#21295A] text-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-bg-lavender border-[0.125rem] border-navy text-navy rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
                 <ChevronRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
@@ -255,12 +255,12 @@ export default function EventsCarousel() {
 
             {/* دکمه بعدی */}
             <div className="relative">
-              <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle]"></div>
+              <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-navy rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle]"></div>
               <button
                 type="button"
                 ref={nextRef}
                 aria-label="رویداد بعدی"
-                className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#F4F5FB] border-[0.125rem] border-[#21295A] text-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-bg-lavender border-[0.125rem] border-navy text-navy rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
                 <ChevronLeftIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>

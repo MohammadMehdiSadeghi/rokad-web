@@ -68,22 +68,22 @@ const getInitials = (name) => {
 
 const THEME_MAP = {
   navy: {
-    borderColor: "border-[#21295A]",
-    solidColor: "bg-[#21295A]",
-    nameColor: "text-[#21295A]",
-    quoteColor: "text-[#21295A]",
+    borderColor: "border-navy",
+    solidColor: "bg-navy",
+    nameColor: "text-navy",
+    quoteColor: "text-navy",
   },
   pink: {
-    borderColor: "border-[#E0195B]",
-    solidColor: "bg-[#E0195B]",
-    nameColor: "text-[#E0195B]",
-    quoteColor: "text-[#E0195B]",
+    borderColor: "border-magenta",
+    solidColor: "bg-magenta",
+    nameColor: "text-magenta",
+    quoteColor: "text-magenta",
   },
   teal: {
-    borderColor: "border-[#58BDAF]",
-    solidColor: "bg-[#58BDAF]",
-    nameColor: "text-[#58BDAF]",
-    quoteColor: "text-[#58BDAF]",
+    borderColor: "border-teal",
+    solidColor: "bg-teal",
+    nameColor: "text-teal",
+    quoteColor: "text-teal",
   },
 };
 
@@ -92,7 +92,7 @@ export default function Comments() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full pt-[5rem] sm:pt-[6rem] lg:pt-[8rem] pb-[5rem] sm:pb-[6rem] lg:pb-[8rem] px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
+    <section className="relative w-full pt-[5rem] sm:pt-[6rem] lg:pt-[8rem] pb-[5rem] sm:pb-[6rem] lg:pb-[8rem] px-4 sm:px-6 lg:px-8 bg-ecosystem-light overflow-hidden">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;

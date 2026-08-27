@@ -12,28 +12,28 @@ const pattern = "/assets/Pillars/WhyUs-Pattern.png";
 const pillars = [
   {
     index: "۱",
-    iconBg: "bg-[#e0195b]",
+    iconBg: "bg-female-normal",
     icon: <UserIcon />,
     title: "مسیر رشد شخصی",
     body: "استعدادسنجی دقیق و طراحی نقشه‌ی راهی که فقط مال توئه؛ نه یه مسیر یکسان برای همه.",
   },
   {
     index: "۲",
-    iconBg: "bg-[#58bdaf]",
+    iconBg: "bg-teal",
     icon: <ProblemIcon />,
     title: "یادگیری مسئله‌محور",
     body: "به‌جای تئوری خشک، روی چالش‌های واقعی دنیای کسب و کار کار می‌کنی و تجربه‌ی زنده می‌گیری.",
   },
   {
     index: "۳",
-    iconBg: "bg-[#21295a]",
+    iconBg: "bg-navy",
     icon: <TeamIcon />,
     title: "یادگیری مشارکتی",
     body: "کار تیمی روی پروژه‌های واقعی. یاد می‌گیری چطور با دیگران بسازی، رهبری کنی و اعتماد سازی.",
   },
   {
     index: "۴",
-    iconBg: "bg-[#f4971f]",
+    iconBg: "bg-orange",
     icon: <DocumentIcon />,
     title: "آموزش پروژه‌محور",
     body: "خروجی هر دوره یه نمونه‌کار واقعی می‌شه که توی رزومه‌ی حرفه‌ای‌ت می‌درخشه.",

@@ -82,8 +82,7 @@ function BranchCard({ branch, rotation = 0 }) {
         transform: `rotate(${rotation}deg)`,
         borderColor: c.border,
         background: c.cardBg,
-        boxShadow: "6px 8px 0 0 var(--shadow-col)",
-        "--shadow-col": c.border,
+        boxShadow: `6px 8px 0 0 ${c.border}`,
         borderRadius: "0 12px 0 12px",
       }}
     >

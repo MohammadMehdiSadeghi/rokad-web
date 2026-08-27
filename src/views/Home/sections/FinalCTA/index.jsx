@@ -29,7 +29,7 @@ export default function FinalCTA() {
               src={imgGirl}
               alt=""
               aria-hidden="true"
-              className="w-full h-auto object-contain"
+              className="w-full h-[28rem] object-contain"
             />
           </div>
 
@@ -48,7 +48,7 @@ export default function FinalCTA() {
               <span className="inline-block rotate-[3deg]">کن</span>
             </h2>
 
-            <p className="text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.6] text-white max-w-[33.75rem] mb-[1.5rem] sm:mb-[2rem] lg:mb-[2.5rem]">
+            <p className="text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.8] text-white/90 max-w-[36rem] mb-[1.5rem] sm:mb-[2rem] lg:mb-[2.5rem]">
               مصاحبه‌ی رایگان و تعیین سطح برای همه‌ی متقاضی‌ها. کافیه فرم رو پر
               کنی، بقیه‌ش با ماست.
             </p>
@@ -70,7 +70,7 @@ export default function FinalCTA() {
               src={imgBoy}
               alt=""
               aria-hidden="true"
-              className="w-full h-auto object-contain"
+              className="w-full h-[28rem] object-contain"
             />
           </div>
         </div>

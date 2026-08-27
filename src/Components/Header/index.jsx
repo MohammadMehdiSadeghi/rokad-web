@@ -78,10 +78,10 @@ export default function Header() {
                   animate={{ height: compact ? "3.5rem" : "5rem" }}
                   transition={spring}
                   className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden px-4 sm:px-6 lg:px-8 ${
-                    compact
-                      ? "py-2"
-                      : "py-4"
-                  }`}
+                                      compact
+                                        ? "py-2"
+                                        : "py-4 rounded-[38px]"
+                                    }`}
                 style={{
                   boxShadow: compact
                     ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"

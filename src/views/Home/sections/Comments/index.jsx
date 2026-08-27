@@ -92,7 +92,7 @@ export default function Comments() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full pt-[8rem] sm:pt-[10rem] lg:pt-[12rem] pb-[8rem] sm:pb-[10rem] lg:pb-[12rem] px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
+    <section className="relative w-full pt-[5rem] sm:pt-[6rem] lg:pt-[8rem] pb-[5rem] sm:pb-[6rem] lg:pb-[8rem] px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;
@@ -259,7 +259,7 @@ export default function Comments() {
 
                           {/* کارت اصلی */}
                           <div
-                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-5 sm:p-6 lg:p-6 min-h-[13rem] sm:min-h-[14rem] md:min-h-[13rem] lg:min-h-[15.625rem] flex flex-col`}
+                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-5 sm:p-6 lg:p-6 min-h-[8rem] sm:min-h-[9rem] md:min-h-[8rem] lg:min-h-[10rem] flex flex-col`}>
                           >
                             <span
                               className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}

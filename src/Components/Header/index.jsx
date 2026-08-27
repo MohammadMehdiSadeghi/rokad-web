@@ -68,7 +68,7 @@ export default function Header() {
                 opacity: visible ? 1 : 0,
               }}
               transition={spring}
-              style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
+              style={{ position: "sticky", top: 0, left: 0, right: 0, zIndex: 50 }}
               className={`transition-[padding,box-shadow] duration-300 ease-out ${
                 compact
                   ? "pt-0 pb-0"
@@ -83,17 +83,9 @@ export default function Header() {
                   initial={false}
                   animate={{ height: compact ? "3.5rem" : "5rem" }}
                   transition={spring}
-                  className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden px-4 sm:px-6 lg:px-8 ${
-                    compact
-                      ? "py-2"
-                      : "py-4 rounded-[38px]"
-                  }`}
-                style={{
-                  boxShadow: compact
-                    ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"
-                    : "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.05)",
-                  transition: "box-shadow 0.6s ease",
-                }}
+                  className={`relative flex items-center justify-between overflow-hidden px-4 sm:px-6 lg:px-8
+                    ${compact ? "py-2 bg-white/70 backdrop-blur-xl rounded-none" : "py-4 bg-white/85 backdrop-blur-lg rounded-[38px]"}
+                    border border-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.06),0_1px_4px_rgba(0,0,0,0.04)]`}
               >
             {/* ── همبرگری موبایل ── */}
             <button

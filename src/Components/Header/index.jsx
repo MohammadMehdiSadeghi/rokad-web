@@ -205,14 +205,6 @@ export default function Header() {
                   <path d="M5 19.6c1.5-3.1 4-4.7 7-4.7s5.5 1.6 7 4.7" />
                 </svg>
               </a>
-
-              {/* ورود به پلتفرم — همیشه نمایش (دسکتاپ) */}
-              <a
-                href="#"
-                className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-colors duration-300 hover:bg-white hover:text-teal-text"
-              >
-                ورود به پلتفرم
-              </a>
             </div>
           </motion.div>
         </nav>

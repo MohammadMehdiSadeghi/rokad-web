@@ -239,7 +239,7 @@ export default function EventsCarousel() {
           </div>
 
           {/* دکمه‌های ناوبری — راست (فقط lg به بالا) */}
-          <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-3 sm:gap-4">
+          <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 items-center gap-3 sm:gap-4">
             {/* دکمه قبلی */}
             <div className="relative">
               <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-navy rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle]"></div>

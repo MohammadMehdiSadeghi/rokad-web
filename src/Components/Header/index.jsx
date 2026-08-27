@@ -132,42 +132,59 @@ export default function Header() {
               />
             </Link>
 
-            {/* ── وسط: پیش‌ثبت‌نام + لینک‌ها (دسکتاپ) ── */}
-            <AnimatePresence>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: -5 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: -5 }}
-                transition={softSpring}
-                className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-7"
-              >
-                  <a
-                    href="#"
-                    className="whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105"
-                  >
-                    پیش‌ثبت‌نام
-                  </a>
-
-                  {!compact && (
-                    <ul className="flex items-center gap-4 xl:gap-8 list-none m-0 p-0">
-                      {navLinks.map((link) => (
-                        <li key={link.label}>
-                          <Link
-                            href={link.to}
-                            className="whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group"
-                          >
-                            {link.label}
-                            <span className="absolute -bottom-1 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full" />
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+            {/* ── وسط: لینک‌ها (دسکتاپ) ── */}
+            <AnimatePresence mode="wait">
+              {!compact && (
+                <motion.div
+                  key="nav-links"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={softSpring}
+                  className="hidden lg:flex flex-1 items-center justify-center"
+                >
+                  <ul className="flex items-center gap-4 xl:gap-8 list-none m-0 p-0">
+                    {navLinks.map((link) => (
+                      <li key={link.label}>
+                        <Link
+                          href={link.to}
+                          className="whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group"
+                        >
+                          {link.label}
+                          <span className="absolute -bottom-1 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full" />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </motion.div>
+              )}
             </AnimatePresence>
 
-            {/* ── سمت چپ: اکشن‌ها ── */}
+            {/* ── سمت چپ: دکمه‌ها ── */}
             <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 flex-shrink-0">
+              {/* پیش‌ثبت‌نام — همیشه نمایش (دسکتاپ) */}
+              <AnimatePresence>
+                <motion.a
+                  key="cta"
+                  href="#"
+                  initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                  transition={softSpring}
+                  className="hidden lg:inline-flex whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white hover:rotate-0 hover:scale-105 transition-all duration-300"
+                >
+                  پیش‌ثبت‌نام
+                </motion.a>
+              </AnimatePresence>
+
+              {/* ورود به پلتفرم — همیشه نمایش (دسکتاپ) */}
+              <a
+                href="#"
+                className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-colors duration-300 hover:bg-white hover:text-teal-text"
+              >
+                ورود به پلتفرم
+              </a>
+
               {/* پروفایل موبایل */}
               <a
                 href="#"

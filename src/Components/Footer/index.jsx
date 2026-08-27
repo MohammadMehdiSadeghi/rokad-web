@@ -93,7 +93,7 @@ function ContactRow({ icon: Icon, img, circleClass, children, alt }) {
 
 export default function Footer() {
   return (
-    <footer className="relative bg-male-darker text-white overflow-hidden" dir="rtl">
+    <footer className="relative bg-male-normal text-white overflow-hidden" dir="rtl">
       <div className="max-w-[75rem] mx-auto px-6 lg:px-8">
         {/* ── ردیف بالایی ── */}
         <div className="pt-[3rem] lg:pt-[3.75rem] pb-8 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">

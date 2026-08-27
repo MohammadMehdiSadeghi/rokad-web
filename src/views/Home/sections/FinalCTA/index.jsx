@@ -8,7 +8,7 @@ const pattern = "/assets/unassigned/pattern-boxes.png";
 export default function FinalCTA() {
   return (
     <section
-      className="relative overflow-hidden bg-teal pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-0 px-4 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-teal pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-0 px-4 sm:px-6 lg:px-8 max-h-[calc(100vh-2rem)]"
       dir="rtl"
     >
       {/* Background Pattern — فقط دسکتاپ؛ موبایل و تبلت هیچ عکسی ندارن */}

@@ -197,7 +197,7 @@ export default function Comments() {
         </h2>
 
         {/* ── کاروسل ── */}
-        <div className="relative w-full pt-[1rem] sm:pt-[3rem] md:pt-[3.25rem] lg:pt-[3.75rem] pb-12 sm:pb-16 overflow-visible">
+        <div className="relative w-full pt-[1rem] sm:pt-[3rem] md:pt-[3.25rem] lg:pt-[3.75rem] pb-12 sm:pb-16 overflow-visible max-h-[calc(100vh-12rem)]">
           {/* دکمه راست */}
           <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0 hidden lg:block">
             <div className="absolute top-[0.09375rem] left-[0.125rem] sm:top-[0.125rem] sm:left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle]"></div>

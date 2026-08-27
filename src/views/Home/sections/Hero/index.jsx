@@ -31,7 +31,7 @@ export default function Hero() {
 
       <Container className="relative z-10">
         {/* کارت اصلی */}
-        <div className="relative overflow-hidden rounded-[0.875rem] sm:rounded-[1.25rem] lg:rounded-[2.25rem] bg-teal shadow-soft w-full aspect-[2.15] lg:aspect-[1200/510]">
+        <div className="relative overflow-hidden rounded-[0.875rem] sm:rounded-[1.25rem] lg:rounded-[2.25rem] bg-teal shadow-soft w-full aspect-[2.15] lg:aspect-[1200/510] max-h-[calc(100vh-6rem)]">
           {/* پترن داخل کارت */}
           <img
             src={patternBg}

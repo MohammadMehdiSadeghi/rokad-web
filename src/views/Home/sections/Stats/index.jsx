@@ -32,7 +32,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
+    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 overflow-hidden bg-white max-h-[calc(100vh-2rem)]">
       {/* لایه پترن پس‌زمینه */}
       <div
         className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"

@@ -185,7 +185,7 @@ export default function Ecosystem() {
 
   return (
       <section
-        className="py-[6.25rem] sm:py-[6.875rem] lg:py-[8.125rem] px-4 sm:px-6 relative overflow-hidden"
+        className="py-[6.25rem] sm:py-[6.875rem] lg:py-[8.125rem] px-4 sm:px-6 relative overflow-hidden max-h-[calc(100vh-2rem)]"
         style={{
           background:
             "radial-gradient(ellipse at 30% 20%, #1c2c60 0%, #0e1633 60%, #0b1228 100%)",

@@ -66,22 +66,23 @@ export default function Header() {
         className={`transition-[padding] duration-300 ease-out ${
           compact
             ? "pt-0 pb-0 px-0"
-            : "pt-8 px-3 sm:pt-4 lg:pt-6 xl:pt-8 sm:px-4 lg:px-6 xl:px-0"
+            : "pt-8 px-0 sm:pt-4 sm:px-0 lg:pt-6 xl:pt-8"
         }`}
       >
-        <nav
-          aria-label="ناوبری اصلی"
-          className="relative w-full"
-        >
-          <motion.div
-            initial={false}
-            animate={{ height: compact ? "4.25rem" : "5.9375rem" }}
-            transition={spring}
-            className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden ${
-              compact
-                ? "rounded-none py-3.5 px-4"
-                : "rounded-[38px] py-8 px-8"
-            }`}
+        <div className="w-full max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <nav
+            aria-label="ناوبری اصلی"
+            className="relative"
+          >
+            <motion.div
+              initial={false}
+              animate={{ height: compact ? "4.25rem" : "5.9375rem" }}
+              transition={spring}
+              className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden ${
+                compact
+                  ? "rounded-xl py-3.5 px-4"
+                  : "rounded-[38px] py-8 px-8"
+              }`}
             style={{
               boxShadow: compact
                 ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"
@@ -217,6 +218,7 @@ export default function Header() {
             </div>
           </motion.div>
         </nav>
+        </div>
       </motion.header>
 
       {/* ── منوی تمام‌صفحه موبایل ── */}

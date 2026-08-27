@@ -1,7 +1,12 @@
 "use client";
 import { useState } from "react";
 import Container from "../../../../layout/Container";
-import { ChevronDownIcon, PlusIcon, ArrowIcon, SwirlArrowIcon } from "../../../../common/Icons";
+import {
+  ChevronDownIcon,
+  PlusIcon,
+  ArrowIcon,
+  SwirlArrowIcon,
+} from "../../../../common/Icons";
 
 const faqPattern = "/assets/Shared/Patterns/Ecosystem-Pattern.png";
 const faqPatternBoxs = "/assets/unassigned/pattern-boxes.png";
@@ -42,10 +47,10 @@ export default function Faq() {
 
   return (
     <section
-          id="counseling"
-        className="relative overflow-hidden bg-ecosystem-light py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
-          dir="rtl"
-        >
+      id="counseling"
+      className="relative overflow-hidden bg-ecosystem-light py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
+      dir="rtl"
+    >
       {/* ── لایه پترن — همون ماسک گرادیانی هیرو/دوئال‌اسکول؛ روی
           پس‌زمینه‌ی مینتی (#E4F4F2) می‌شینه و لبه‌ی بالا/پایین محو میشه ── */}
       <div
@@ -62,18 +67,52 @@ export default function Faq() {
       </div>
 
       <Container className="relative z-10 grid grid-cols-1 xl:grid-cols-2 gap-[3.75rem] items-start">
-        
         {/* ۱. تایتل و متن */}
         <div className="order-1 xl:col-start-1 xl:row-start-1 xl:pt-4">
           {/* حذف <br/> و استفاده از flex flex-wrap برای ماندن در یک خط */}
           <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-[1.5rem] sm:mb-[2rem] flex flex-wrap items-center gap-x-2">
-            <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دغدغه‌ی</span>
-            <span className="inline-block text-navy whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>آینده</span>
-            <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>و</span>
-            <span className="inline-block text-magenta whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>شغل</span>
-            <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>فرزندتون</span>
-            <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>رو</span>
-            <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دارید؟</span>
+            <span
+              className="inline-block text-ink whitespace-nowrap"
+              style={{ transform: "rotate(3deg)" }}
+            >
+              دغدغه‌ی
+            </span>
+            <span
+              className="inline-block text-navy whitespace-nowrap"
+              style={{ transform: "rotate(-3deg)" }}
+            >
+              آینده
+            </span>
+            <span
+              className="inline-block text-ink whitespace-nowrap"
+              style={{ transform: "rotate(-3deg)" }}
+            >
+              و
+            </span>
+            <span
+              className="inline-block text-magenta whitespace-nowrap"
+              style={{ transform: "rotate(-3deg)" }}
+            >
+              شغل
+            </span>
+            <span
+              className="inline-block text-ink whitespace-nowrap"
+              style={{ transform: "rotate(3deg)" }}
+            >
+              فرزندتون
+            </span>
+            <span
+              className="inline-block text-ink whitespace-nowrap"
+              style={{ transform: "rotate(-3deg)" }}
+            >
+              رو
+            </span>
+            <span
+              className="inline-block text-ink whitespace-nowrap"
+              style={{ transform: "rotate(3deg)" }}
+            >
+              دارید؟
+            </span>
           </h2>
 
           <p className="text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.7] text-ink mb-[1.5rem] sm:mb-[2rem]">
@@ -104,8 +143,8 @@ export default function Faq() {
                 <span className="text-white">تخصصی</span>
               </h3>
               <p className="text-[0.6875rem] xs:text-[0.75rem] sm:text-[1rem] font-medium leading-[1.7] sm:leading-[1.9] text-ink">
-                می‌توانید یک جلسه‌ی مشاوره‌ی رایگان با تیم متخصصان ما رزرو
-                کنید و درباره‌ی مسیر فرزندتون بطور اختصاصی صحبت کنید.
+                می‌توانید یک جلسه‌ی مشاوره‌ی رایگان با تیم متخصصان ما رزرو کنید
+                و درباره‌ی مسیر فرزندتون بطور اختصاصی صحبت کنید.
               </p>
             </div>
 
@@ -131,7 +170,10 @@ export default function Faq() {
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (
-              <div key={item.question} className="relative transition-transform duration-300">
+              <div
+                key={item.question}
+                className="relative transition-transform duration-300"
+              >
                 {/* لایه پشتی سوالات */}
                 <div className="absolute top-[0.3125rem] left-[0.3125rem] w-full h-full rounded-tl-none rounded-br-none rounded-tr-[1.375rem] rounded-bl-[1.375rem] bg-male-normal [corner-shape:squircle]" />
 
@@ -178,7 +220,9 @@ export default function Faq() {
                   {/* انیمیشن نرم باز شدن با CSS Grid */}
                   <div
                     className={`grid transition-all duration-500 ease-in-out ${
-                      isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      isOpen
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
                     }`}
                   >
                     <div className="overflow-hidden">

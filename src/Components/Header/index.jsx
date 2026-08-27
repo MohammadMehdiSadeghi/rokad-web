@@ -32,13 +32,11 @@ const softSpring = {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
-  const [tabsHidden, setTabsHidden] = useState(false);
   const close = () => setOpen(false);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setTabsHidden(y > 4);
       setCompact(y > 10);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -136,14 +134,13 @@ export default function Header() {
 
             {/* ── وسط: پیش‌ثبت‌نام + لینک‌ها (دسکتاپ) ── */}
             <AnimatePresence>
-              {!tabsHidden && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9, y: -5 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9, y: -5 }}
-                  transition={softSpring}
-                  className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-7"
-                >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: -5 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: -5 }}
+                transition={softSpring}
+                className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-7"
+              >
                   <a
                     href="#"
                     className="whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105"
@@ -165,7 +162,6 @@ export default function Header() {
                     ))}
                   </ul>
                 </motion.div>
-              )}
             </AnimatePresence>
 
             {/* ── سمت چپ: اکشن‌ها ── */}

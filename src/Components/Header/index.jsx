@@ -57,38 +57,38 @@ export default function Header() {
   }, [open]);
 
   return (
-        <>
-          <motion.header
-            initial={false}
-            animate={{ y: 0, opacity: 1 }}
-            transition={spring}
-            style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
-            className={`transition-[padding,box-shadow] duration-300 ease-out ${
-              compact
-                ? "pt-0 pb-0"
-                : "pt-4 sm:pt-6"
-            }`}
-          >
-            <nav
-              aria-label="ناوبری اصلی"
-              className="relative w-full"
+          <>
+            <motion.header
+              initial={false}
+              animate={{ y: 0, opacity: 1 }}
+              transition={spring}
+              style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
+              className={`transition-[padding,box-shadow] duration-300 ease-out ${
+                compact
+                  ? "pt-0 pb-0"
+                  : "pt-4 sm:pt-6"
+              }`}
             >
-              <motion.div
-                initial={false}
-                animate={{ height: compact ? "3.5rem" : "5rem" }}
-                transition={spring}
-                className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden px-4 sm:px-6 lg:px-8 ${
-                  compact
-                    ? "py-2"
-                    : "py-4"
-                }`}
-              style={{
-                boxShadow: compact
-                  ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"
-                  : "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.05)",
-                transition: "box-shadow 0.6s ease",
-              }}
-            >
+              <nav
+                aria-label="ناوبری اصلی"
+                className={`relative ${compact ? "w-full" : "max-w-[75rem] mx-auto"}`}
+              >
+                <motion.div
+                  initial={false}
+                  animate={{ height: compact ? "3.5rem" : "5rem" }}
+                  transition={spring}
+                  className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden px-4 sm:px-6 lg:px-8 ${
+                    compact
+                      ? "py-2"
+                      : "py-4"
+                  }`}
+                style={{
+                  boxShadow: compact
+                    ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"
+                    : "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.05)",
+                  transition: "box-shadow 0.6s ease",
+                }}
+              >
             {/* ── همبرگری موبایل ── */}
             <button
               type="button"

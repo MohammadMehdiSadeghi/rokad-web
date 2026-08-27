@@ -83,8 +83,8 @@ export default function Header() {
                   initial={false}
                   animate={{ height: compact ? "3.5rem" : "5rem" }}
                   transition={spring}
-                  className={`relative flex items-center justify-between overflow-hidden px-4 sm:px-6 lg:px-8
-                    ${compact ? "py-3 bg-[#EDF7F3]/30 backdrop-blur-2xl rounded-none" : "py-5 bg-[#EDF7F3]/50 backdrop-blur-2xl rounded-[24px]"}
+                  className={`relative flex items-center justify-between overflow-hidden px-6 sm:px-8 lg:px-12
+                    ${compact ? "py-3 bg-[#EDF7F3]/30 backdrop-blur-xl rounded-none" : "py-5 bg-[#EDF7F3]/50 backdrop-blur-lg rounded-[24px]"}
                     border border-white/60 shadow-[0_8px_32px_rgba(31,38,135,0.10),0_1px_3px_rgba(31,38,135,0.06)]`}
               >
             {/* ── همبرگری موبایل ── */}

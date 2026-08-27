@@ -39,6 +39,17 @@
   }
 }
 
+/* ── marching ants animation for dotted paths ── */
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+.animate-marching-ants {
+  animation: marching-ants 1.2s linear infinite;
+}
+
 html {
   scrollbar-width: thin;
   scrollbar-color: #59BBAF transparent;

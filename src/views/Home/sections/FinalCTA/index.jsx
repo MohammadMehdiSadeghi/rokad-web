@@ -22,7 +22,7 @@ export default function FinalCTA() {
       </div>
 
       <Container className="relative z-20">
-        <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-8 lg:gap-4">
+        <div className="flex flex-col lg:flex-row items-end justify-between gap-8 lg:gap-4">
           {/* Girl Image (فقط lg+ — زیر 1025 هیچ عکسی نمایش داده نمی‌شه) */}
           <div className="hidden lg:flex shrink-0 pointer-events-none select-none lg:w-[26%] justify-center">
             <img
@@ -33,8 +33,8 @@ export default function FinalCTA() {
             />
           </div>
 
-          {/* Text Content (وسط) — زیر lg تمام‌عرض؛ مارجین پایین جای پدینگ سکشن */}
-          <div className="flex flex-col items-center text-center w-full lg:w-[48%] mb-[3.5rem] sm:mb-[4rem] lg:mb-12">
+          {/* Text Content (وسط) — زیر lg تمام‌عرض */}
+          <div className="flex flex-col items-center text-center w-full lg:w-[48%]">
             <h2
               className="text-[2rem] sm:text-[3rem] lg:text-[4.8125rem] xl:text-[4.8125rem] leading-[2] sm:leading-[1.7] lg:leading-[1.5] text-white mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-center gap-x-2 gap-y-3 sm:gap-y-2"
               style={{ fontWeight: 950 }}

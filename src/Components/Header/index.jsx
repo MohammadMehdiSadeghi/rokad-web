@@ -84,8 +84,8 @@ export default function Header() {
                   animate={{ height: compact ? "3.5rem" : "5rem" }}
                   transition={spring}
                   className={`relative flex items-center justify-between overflow-hidden px-4 sm:px-6 lg:px-8
-                    ${compact ? "py-2 bg-white/70 backdrop-blur-xl rounded-none" : "py-4 bg-white/85 backdrop-blur-lg rounded-[38px]"}
-                    border border-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.06),0_1px_4px_rgba(0,0,0,0.04)]`}
+                    ${compact ? "py-2 bg-white/40 backdrop-blur-2xl rounded-none" : "py-4 bg-white/60 backdrop-blur-2xl rounded-[38px]"}
+                    border border-white/60 shadow-[0_8px_32px_rgba(31,38,135,0.12),0_1px_3px_rgba(31,38,135,0.08)]`}
               >
             {/* ── همبرگری موبایل ── */}
             <button

@@ -72,7 +72,7 @@ export default function Header() {
               className={`transition-[padding,box-shadow] duration-300 ease-out ${
                 compact
                   ? "pt-0 pb-0"
-                  : "pt-4 sm:pt-6"
+                  : "pt-6 sm:pt-8"
               }`}
             >
               <nav

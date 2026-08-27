@@ -14,7 +14,7 @@ const headlineLine2 = [
 
 export default function Hero() {
   return (
-    <section className="pt-[5.5rem] sm:pt-8 lg:pt-10 pb-10 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8 relative" dir="rtl">
+    <section className="pt-[4rem] sm:pt-6 lg:pt-8 pb-10 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8 relative" dir="rtl">
       {/* پترن پس‌زمینه کل سکشن */}
       <div
         className="absolute inset-0 w-full h-full z-0 pointer-events-none

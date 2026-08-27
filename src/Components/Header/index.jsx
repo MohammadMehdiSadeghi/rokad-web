@@ -148,40 +148,26 @@ export default function Header() {
                     پیش‌ثبت‌نام
                   </a>
 
-                  <ul className="flex items-center gap-4 xl:gap-8 list-none m-0 p-0">
-                    {navLinks.map((link) => (
-                      <li key={link.label}>
-                        <Link
-                          href={link.to}
-                          className="whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group"
-                        >
-                          {link.label}
-                          <span className="absolute -bottom-1 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full" />
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  {!compact && (
+                    <ul className="flex items-center gap-4 xl:gap-8 list-none m-0 p-0">
+                      {navLinks.map((link) => (
+                        <li key={link.label}>
+                          <Link
+                            href={link.to}
+                            className="whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group"
+                          >
+                            {link.label}
+                            <span className="absolute -bottom-1 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full" />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </motion.div>
             </AnimatePresence>
 
             {/* ── سمت چپ: اکشن‌ها ── */}
             <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 flex-shrink-0">
-              {/* پیش‌ثبت‌نام — فقط وقتی کمپکت (دسکتاپ) */}
-              <AnimatePresence>
-                {compact && (
-                  <motion.a
-                    href="#"
-                    initial={{ opacity: 0, x: 20, scale: 0.9 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                    transition={softSpring}
-                    className="hidden lg:inline-flex whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white hover:rotate-0 hover:scale-105"
-                  >
-                    پیش‌ثبت‌نام
-                  </motion.a>
-                )}
-              </AnimatePresence>
-
               {/* پروفایل موبایل */}
               <a
                 href="#"

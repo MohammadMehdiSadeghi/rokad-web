@@ -72,7 +72,7 @@ export default function Header() {
               className={`transition-[padding,box-shadow] duration-300 ease-out ${
                 compact
                   ? "pt-0 pb-0"
-                  : "pt-6 sm:pt-8"
+                  : "pt-8 sm:pt-10"
               }`}
             >
               <nav
@@ -84,7 +84,7 @@ export default function Header() {
                   animate={{ height: compact ? "3.5rem" : "5rem" }}
                   transition={spring}
                   className={`relative flex items-center justify-between overflow-hidden px-4 sm:px-6 lg:px-8
-                    ${compact ? "py-2 bg-[#EDF7F3]/30 backdrop-blur-2xl rounded-none" : "py-4 bg-[#EDF7F3]/50 backdrop-blur-2xl rounded-[38px]"}
+                    ${compact ? "py-3 bg-[#EDF7F3]/30 backdrop-blur-2xl rounded-none" : "py-5 bg-[#EDF7F3]/50 backdrop-blur-2xl rounded-[24px]"}
                     border border-white/60 shadow-[0_8px_32px_rgba(31,38,135,0.10),0_1px_3px_rgba(31,38,135,0.06)]`}
               >
             {/* ── همبرگری موبایل ── */}

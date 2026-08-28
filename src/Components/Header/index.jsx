@@ -38,10 +38,11 @@ export default function Header() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      // هدر شیشه‌ای: با اسکرول بیشتر از 50px محو می‌شه
-      const opacity = y < 50 ? 1 : Math.max(0, 1 - (y - 50) / 80);
-      setVisible(opacity > 0.01);
-      setCompact(y >= 200);
+      const vh = window.innerHeight;
+      // هدر مخفی: بین 0 تا 50vh
+      // هدر ظاهر: در حالت عادی (y <= 0) یا بعد از 50vh
+      setVisible(y <= 0 || y >= vh * 0.5);
+      setCompact(y >= vh * 0.5);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -63,8 +64,8 @@ export default function Header() {
             <motion.header
               initial={false}
               animate={{
-                opacity: visible ? 1 : 0,
                 y: visible ? 0 : -100,
+                opacity: visible ? 1 : 0,
               }}
               transition={spring}
               style={{ position: "sticky", top: 0, left: 0, right: 0, zIndex: 50 }}

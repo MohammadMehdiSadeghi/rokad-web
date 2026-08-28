@@ -64,11 +64,10 @@ export default function Header() {
             <motion.header
               initial={false}
               animate={{
-                y: visible ? 0 : -100,
                 opacity: visible ? 1 : 0,
               }}
               transition={spring}
-              style={{ position: "sticky", top: 0, left: 0, right: 0, zIndex: 50 }}
+              style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
               className={`transition-[padding,box-shadow] duration-300 ease-out w-full ${
                 compact
                   ? "pt-0 pb-0"

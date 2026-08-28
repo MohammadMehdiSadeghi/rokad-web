@@ -63,7 +63,7 @@ const FOOTER_EXP_SIZE =
 function LinkedinIcon() {
   return (
     <span
-      className={`inline-flex items-center justify-center ${FOOTER_ICON_SIZE} bg-[#eef7ff] border border-[#70b8e8] text-[#0a78b5] rounded-[0.2rem] shrink-0`}
+      className={`inline-flex items-center justify-center ${FOOTER_ICON_SIZE} bg-blue-50 border border-blue-300 text-blue-600 rounded-[0.2rem] shrink-0`}
     >
       <svg
         width="55%"
@@ -86,7 +86,7 @@ function StackCard({ layer, rotation }) {
   return (
     <div
       aria-hidden="true"
-      className={`absolute top-0 left-0 ${CARD_SIZE} bg-white border-[0.125rem] border-[#292827] rounded-[0_0.875rem_0_0.875rem] overflow-hidden pointer-events-none`}
+      className={`absolute top-0 left-0 ${CARD_SIZE} bg-white border-[0.125rem] border-ink rounded-[0_0.875rem_0_0.875rem] overflow-hidden pointer-events-none`}
       style={{
         transform: `translateX(-${layer * 0.55}rem) rotate(${rotation}deg)`,
         transformOrigin: "center center",
@@ -103,17 +103,17 @@ function StackCard({ layer, rotation }) {
         />
       </div>
 
-      <div className="absolute left-2 right-2 bottom-10 border-t border-dashed border-[#292827]/20" />
+      <div className="absolute left-2 right-2 bottom-10 border-t border-dashed border-ink/20" />
 
       <div className="absolute left-2.5 bottom-2.5 flex gap-1">
         <span
-          className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[0.125rem]`}
+          className={`${FOOTER_ICON_SIZE} border border-blue-300/40 rounded-[0.125rem]`}
         />
         <span
-          className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[0.125rem]`}
+          className={`${FOOTER_ICON_SIZE} border border-blue-300/40 rounded-[0.125rem]`}
         />
         <span
-          className={`${FOOTER_ICON_SIZE} border border-[#70b8e8]/40 rounded-[0.125rem]`}
+          className={`${FOOTER_ICON_SIZE} border border-blue-300/40 rounded-[0.125rem]`}
         />
       </div>
     </div>
@@ -152,11 +152,11 @@ function StudentCard({ student, index, stacked }) {
       {/* Shadow */}
       <div
         aria-hidden="true"
-        className="absolute top-[0.3rem] left-[0.3rem] lg:top-[0.3125rem] lg:left-[0.3125rem] w-full h-full bg-[#292827] rounded-[0_1.25rem_0_1.25rem] lg:rounded-[0_0.875rem_0_0.875rem] z-[5]"
+        className="absolute top-[0.3rem] left-[0.3rem] lg:top-[0.3125rem] lg:left-[0.3125rem] w-full h-full bg-ink rounded-[0_1.25rem_0_1.25rem] lg:rounded-[0_0.875rem_0_0.875rem] z-[5]"
       />
 
       {/* Main Card */}
-      <div className="relative z-[10] w-full h-full bg-white rounded-[0_1.25rem_0_1.25rem] lg:rounded-[0_0.875rem_0_0.875rem] overflow-hidden border-[0.125rem] border-[#292827] flex flex-col">
+      <div className="relative z-[10] w-full h-full bg-white rounded-[0_1.25rem_0_1.25rem] lg:rounded-[0_0.875rem_0_0.875rem] overflow-hidden border-[0.125rem] border-ink flex flex-col">
         {/* Header */}
         <div
           className={`relative w-full ${HEADER_SIZE} shrink-0 overflow-hidden bg-gradient-to-l from-[#59bbaf] to-[#58bdaf]`}
@@ -180,13 +180,13 @@ function StudentCard({ student, index, stacked }) {
           {/* avatar shadow */}
           <div
             aria-hidden="true"
-            className={`absolute top-[0.18rem] left-[0.18rem] ${AVATAR_SIZE} bg-[#292827] rounded-full`}
+            className={`absolute top-[0.18rem] left-[0.18rem] ${AVATAR_SIZE} bg-ink rounded-full`}
           />
 
           <img
             src="/assets/Rokadians/Ellipse 83.png"
             alt={student.name}
-            className={`relative z-[10] ${AVATAR_SIZE} rounded-full object-cover border-[0.12rem] border-[#292827] bg-white`}
+            className={`relative z-[10] ${AVATAR_SIZE} rounded-full object-cover border-[0.12rem] border-ink bg-white`}
           />
         </div>
 
@@ -195,13 +195,13 @@ function StudentCard({ student, index, stacked }) {
           className={`flex-1 min-h-0 flex flex-col items-center ${CARD_CONTENT_PAD} text-center`}
         >
           <h4
-            className={`font-black ${NAME_SIZE} leading-[1.3] text-[#292827] whitespace-nowrap`}
+            className={`font-black ${NAME_SIZE} leading-[1.3] text-ink whitespace-nowrap`}
           >
             {student.name}
           </h4>
 
           <p
-            className={`${DESC_SIZE} text-[#777777] font-medium mt-2 lg:mt-[5px] leading-[1.7] flex-1 pb-3 lg:pb-2.5`}
+            className={`${DESC_SIZE} text-ink/45 font-medium mt-2 lg:mt-[5px] leading-[1.7] flex-1 pb-3 lg:pb-2.5`}
           >
             {student.desc}
           </p>
@@ -210,12 +210,12 @@ function StudentCard({ student, index, stacked }) {
           <div className="relative inline-flex items-center justify-center shrink-0">
             <div
               aria-hidden="true"
-              className="absolute top-[0.15rem] left-[0.15rem] w-full h-full bg-[#292827] rounded-[0_0.5rem_0_0.5rem]"
+              className="absolute top-[0.15rem] left-[0.15rem] w-full h-full bg-ink rounded-[0_0.5rem_0_0.5rem]"
             />
 
             <button
               type="button"
-              className={`relative z-10 ${BADGE_SIZE} bg-white border-[0.09375rem] border-[#292827] text-[#292827] font-bold rounded-[0_0.5rem_0_0.5rem] whitespace-nowrap hover:bg-[#292827] hover:text-white transition-colors`}
+              className={`relative z-10 ${BADGE_SIZE} bg-white border-[0.09375rem] border-ink text-ink font-bold rounded-[0_0.5rem_0_0.5rem] whitespace-nowrap hover:bg-ink hover:text-white transition-colors`}
             >
               نسل پنجم رکاد
             </button>
@@ -223,7 +223,7 @@ function StudentCard({ student, index, stacked }) {
         </div>
 
         {/* Footer */}
-        <div className="mt-auto shrink-0 border-t-[0.09375rem] border-dashed border-[#292827]/35">
+        <div className="mt-auto shrink-0 border-t-[0.09375rem] border-dashed border-ink/35">
           <div
             dir="ltr"
             className="flex items-center justify-between px-3 sm:px-4 lg:px-[0.625rem] pt-2.5 lg:pt-[0.5rem] pb-2.5 lg:pb-[0.5625rem]"
@@ -236,7 +236,7 @@ function StudentCard({ student, index, stacked }) {
 
             <span
               dir="rtl"
-              className={`${FOOTER_EXP_SIZE} text-[#292827]/45 font-medium whitespace-nowrap`}
+              className={`${FOOTER_EXP_SIZE} text-ink/45 font-medium whitespace-nowrap`}
             >
               {student.experience}
             </span>
@@ -293,7 +293,7 @@ export default function Rokadians() {
           ================================================= */}
 
           <div className="text-center max-w-[50rem] mx-auto mb-8 sm:mb-10 lg:mb-12">
-            <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] lg:text-[2.25rem] xl:text-[2.625rem] leading-[1.4] text-[#292827]">
+            <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] lg:text-[2.25rem] xl:text-[2.625rem] leading-[1.4] text-ink">
               <span
                 className="inline-block"
                 style={{ transform: "rotate(-3deg)" }}
@@ -330,7 +330,7 @@ export default function Rokadians() {
               </span>
             </h2>
 
-            <p className="font-medium text-[#292827] text-[0.875rem] sm:text-[0.9375rem] lg:text-[1.125rem] leading-[1.9] sm:leading-[2] max-w-[32rem] sm:max-w-[36rem] lg:max-w-[38.75rem] mx-auto mt-4 lg:mt-6">
+            <p className="font-medium text-ink text-[0.875rem] sm:text-[0.9375rem] lg:text-[1.125rem] leading-[1.9] sm:leading-[2] max-w-[32rem] sm:max-w-[36rem] lg:max-w-[38.75rem] mx-auto mt-4 lg:mt-6">
               فارغ‌التحصیلان ما در بهترین تیم‌های فنی کشور و به‌عنوان بنیان‌گذار
               استارتاپ‌های خودشون فعال هستن.
             </p>
@@ -353,29 +353,29 @@ export default function Rokadians() {
               <div className="lg:hidden flex flex-col items-center mb-9">
                 {/* کارت آمار — همون زبان استیکری دکمه‌ی زیرش:
                     سفید + بوردر سرمه‌ای + سایه‌ی آفست + چرخش مخالف دکمه */}
-                <div className="relative text-center rotate-[2deg] bg-white border-[0.125rem] border-[#21295a] rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] px-7 py-4 [corner-shape:squircle]">
+                <div className="relative text-center rotate-[2deg] bg-white border-[0.125rem] border-navy rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] px-7 py-4 [corner-shape:squircle]">
                   <p
-                    className="text-[2.5rem] sm:text-[2.75rem] leading-none text-[#21295a]"
+                    className="text-[2.5rem] sm:text-[2.75rem] leading-none text-navy"
                     style={{ fontWeight: 950 }}
                   >
                     ۳۰۰<span className="text-teal">+</span>
                   </p>
 
                   <p
-                    className="text-[1rem] sm:text-[1.0625rem] text-[#21295a] mt-1.5"
+                    className="text-[1rem] sm:text-[1.0625rem] text-navy mt-1.5"
                     style={{ fontWeight: 950 }}
                   >
                     دانش‌آموز
                   </p>
 
-                  <p className="text-[0.75rem] sm:text-[0.8125rem] font-bold text-[#21295a]/60 mt-0.5">
+                  <p className="text-[0.75rem] sm:text-[0.8125rem] font-bold text-navy/60 mt-0.5">
                     در مسیر ساخت آینده
                   </p>
                 </div>
 
                 <a
                   href="#"
-                  className="mt-4 relative inline-flex items-center justify-center -rotate-1 hover:rotate-0 hover:-translate-y-1 hover:shadow-[6px_7px_0_#21295a] transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[0.9rem] px-7 py-2.5 rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap [corner-shape:squircle]"
+                  className="mt-4 relative inline-flex items-center justify-center -rotate-1 hover:rotate-0 hover:-translate-y-1 hover:shadow-[6px_7px_0_#21295a] transition-all duration-300 bg-white border-[0.125rem] border-navy text-navy font-black text-[0.9rem] px-7 py-2.5 rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap [corner-shape:squircle]"
                 >
                   مشاهده همه رکادی‌ها
                 </a>
@@ -414,7 +414,7 @@ export default function Rokadians() {
               ================================================= */}
 
               <div className="lg:hidden flex items-center justify-center gap-2 mt-4">
-                <span className="text-[0.7rem] sm:text-[0.75rem] font-bold text-[#292827]/45">
+                <span className="text-[0.7rem] sm:text-[0.75rem] font-bold text-ink/45">
                   برای دیدن رکادی‌های بعدی بکش
                 </span>
 
@@ -428,21 +428,21 @@ export default function Rokadians() {
 
             <div className="hidden lg:flex w-full lg:w-[30%] flex-shrink-0 flex-col justify-center text-center lg:text-right order-2 lg:pt-8">
               <div className="rotate-[2deg] items-center justify-center flex flex-col mx-auto lg:mx-0">
-                <p className="font-black text-[4rem] 2xl:text-[4.5rem] leading-[1] text-[#21295a]">
+                <p className="font-black text-[4rem] 2xl:text-[4.5rem] leading-[1] text-navy">
                   ۳۰۰+
                 </p>
 
-                <p className="font-black text-[1.5rem] 2xl:text-[1.6875rem] text-[#21295a] mt-2.5">
+                <p className="font-black text-[1.5rem] 2xl:text-[1.6875rem] text-navy mt-2.5">
                   دانش‌آموز
                 </p>
 
-                <p className="font-bold text-[0.875rem] 2xl:text-[0.9375rem] text-[#21295a]/80 mt-2">
+                <p className="font-bold text-[0.875rem] 2xl:text-[0.9375rem] text-navy/80 mt-2">
                   در مسیر ساخت آینده
                 </p>
 
                 <a
                   href="#"
-                  className="relative inline-flex items-center justify-center -rotate-1 hover:rotate-0 hover:-translate-y-1 hover:shadow-[6px_7px_0_#21295a] transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[1.125rem] 2xl:text-[1.25rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap mt-6 [corner-shape:squircle]"
+                  className="relative inline-flex items-center justify-center -rotate-1 hover:rotate-0 hover:-translate-y-1 hover:shadow-[6px_7px_0_#21295a] transition-all duration-300 bg-white border-[0.125rem] border-navy text-navy font-black text-[1.125rem] 2xl:text-[1.25rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap mt-6 [corner-shape:squircle]"
                 >
                   مشاهده همه
                 </a>

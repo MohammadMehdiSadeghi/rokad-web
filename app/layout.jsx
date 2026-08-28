@@ -11,10 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="font-iransans">
+      <body className="font-sans">
         <ScrollToHash />
         <Header />
-        <main className="pt-12 sm:pt-[4.25rem] lg:pt-[7.4375rem] xl:pt-[7.9375rem]">
+        <main className="pt-4 sm:pt-5 lg:pt-6 xl:pt-6">
           {children}
         </main>
         <Footer />

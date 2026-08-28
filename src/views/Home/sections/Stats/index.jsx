@@ -32,7 +32,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
+    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 overflow-hidden bg-white max-h-[calc(100vh-2rem)]">
       {/* لایه پترن پس‌زمینه */}
       <div
         className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
@@ -51,7 +51,7 @@ export default function Stats() {
         className="relative z-10 mb-[1.5rem] sm:mb-[2rem] text-center text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.25] lg:leading-[1.2]"
         style={{ fontWeight: 950 }}
       >
-        <span className="inline-block rotate-1 text-black">{" "}رکاد در یک نگاه،{" "}</span>
+        <span className="inline-block rotate-1 text-ink">{" "}رکاد در یک نگاه،{" "}</span>
         <span className="inline-block -rotate-3 text-teal">با اعتماد</span>
       </h2>
 

@@ -78,7 +78,7 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
           sm:top-[0.3125rem]
           sm:left-[0.3125rem]
           w-full
-          bg-[#292827]
+          bg-ink
           rounded-[1.875rem_0_1.875rem_0]
           [corner-shape:squircle]
         "
@@ -92,7 +92,7 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
           bg-white
           border-[0.09375rem]
           sm:border-[0.125rem]
-          border-[#292827]
+          border-ink
           rounded-[1.875rem_0_1.875rem_0]
           [corner-shape:squircle]
           overflow-hidden
@@ -113,7 +113,7 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
             object-cover
             border-b-[0.09375rem]
             sm:border-b-[0.125rem]
-            border-[#292827]
+            border-ink
           "
         />
 

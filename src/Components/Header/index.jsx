@@ -63,13 +63,13 @@ export default function Header() {
           animate={{ y: 0, opacity: 1 }}
           transition={spring}
           style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
-          className={`transition-[padding] duration-300 ease-out px-4 sm:px-6 lg:px-8 ${
+          className={`transition-[padding] duration-300 ease-out ${
             compact
               ? "pt-0 pb-0"
               : "pt-8"
           }`}
-          >
-          <div className="w-full max-w-[75rem] mx-auto">
+        >
+          <div className="w-full max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8">
             <nav
               aria-label="ناوبری اصلی"
               className="relative"

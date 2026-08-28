@@ -69,7 +69,7 @@ export default function Header() {
               }}
               transition={spring}
               style={{ position: "sticky", top: 0, left: 0, right: 0, zIndex: 50 }}
-              className={`transition-[padding,box-shadow] duration-300 ease-out ${
+              className={`transition-[padding,box-shadow] duration-300 ease-out w-full ${
                 compact
                   ? "pt-0 pb-0"
                   : "pt-8 sm:pt-10"
@@ -77,7 +77,7 @@ export default function Header() {
             >
               <nav
                 aria-label="ناوبری اصلی"
-                className={`relative ${compact ? "w-full" : "max-w-[75rem] mx-auto"}`}
+                className="relative w-full"
               >
                 <motion.div
                   initial={false}

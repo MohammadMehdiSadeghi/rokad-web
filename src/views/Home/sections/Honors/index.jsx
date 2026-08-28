@@ -236,7 +236,7 @@ export default function HonorsCarousel() {
                 "
               >
                 افتخاراتی که{" "}
-                <span className="text-navy">
+                <span className="text-[#21295A]">
                   با هم
                 </span>{" "}
                 ساختیم
@@ -249,7 +249,7 @@ export default function HonorsCarousel() {
                   sm:max-w-[28rem]
                   lg:max-w-[36rem]
                   font-medium
-                  text-ink
+                  text-[#292827]
                   text-[0.8125rem]
                   sm:text-[1rem]
                   lg:text-[1.125rem]
@@ -290,7 +290,7 @@ export default function HonorsCarousel() {
                 h-full
                 rounded-[0_0.82rem_0_0.82rem]
                 [corner-shape:squircle]
-                bg-navy
+                bg-[#21295A]
               "
             />
 
@@ -303,8 +303,8 @@ export default function HonorsCarousel() {
                 z-10
                 bg-white
                 border-[0.125rem]
-                border-navy
-                text-navy
+                border-[#21295A]
+                text-[#21295A]
                 font-extrabold
                 text-sm
                 sm:text-base
@@ -373,7 +373,7 @@ export default function HonorsCarousel() {
                 left-[0.1875rem]
                 w-full
                 h-full
-                bg-ink
+                bg-[#292827]
                 rounded-[0_0.540625rem_0_0.540625rem]
                 sm:rounded-[0_0.790625rem_0_0.790625rem]
                 [corner-shape:squircle]
@@ -395,8 +395,8 @@ export default function HonorsCarousel() {
                 justify-center
                 bg-white
                 border-[0.125rem]
-                border-ink
-                text-ink
+                border-[#292827]
+                text-[#292827]
                 rounded-[0_0.540625rem_0_0.540625rem]
                 sm:rounded-[0_0.790625rem_0_0.790625rem]
                 [corner-shape:squircle]
@@ -648,7 +648,7 @@ export default function HonorsCarousel() {
                                     rounded-[0.6875rem]
                                     sm:rounded-[0.75rem]
                                     [corner-shape:squircle]
-                                    bg-ink
+                                    bg-black
                                   "
                                 />
 
@@ -755,7 +755,7 @@ export default function HonorsCarousel() {
                 left-[0.1875rem]
                 w-full
                 h-full
-                bg-ink
+                bg-[#292827]
                 rounded-[0_0.540625rem_0_0.540625rem]
                 sm:rounded-[0_0.790625rem_0_0.790625rem]
                 [corner-shape:squircle]
@@ -777,8 +777,8 @@ export default function HonorsCarousel() {
                 justify-center
                 bg-white
                 border-[0.125rem]
-                border-ink
-                text-ink
+                border-[#292827]
+                text-[#292827]
                 rounded-[0_0.540625rem_0_0.540625rem]
                 sm:rounded-[0_0.790625rem_0_0.790625rem]
                 [corner-shape:squircle]
@@ -802,7 +802,7 @@ export default function HonorsCarousel() {
             className="
               w-[9.375rem]
               h-1.5
-              bg-ink-light
+              bg-[#EDECEC]
               rounded-full
               overflow-hidden
             "
@@ -810,7 +810,7 @@ export default function HonorsCarousel() {
             <div
               className="
                 h-full
-                bg-ink
+                bg-[#333230]
                 transition-all
                 duration-500
                 ease-out

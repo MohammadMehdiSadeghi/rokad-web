@@ -14,7 +14,7 @@ const headlineLine2 = [
 
 export default function Hero() {
   return (
-    <section className="pt-1 sm:pt-2 lg:pt-2 pb-10 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8 relative" dir="rtl">
+    <section className="pt-[4.5rem] sm:pt-6 lg:pt-9 pb-10 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8 relative" dir="rtl">
       {/* پترن پس‌زمینه کل سکشن */}
       <div
         className="absolute inset-0 w-full h-full z-0 pointer-events-none
@@ -31,7 +31,7 @@ export default function Hero() {
 
       <Container className="relative z-10">
         {/* کارت اصلی */}
-        <div className="relative overflow-hidden rounded-[0.875rem] sm:rounded-[1.25rem] lg:rounded-[2.25rem] bg-teal shadow-soft w-full aspect-[2.15] lg:aspect-[1200/510] max-h-[calc(100vh-6rem)]">
+        <div className="relative overflow-hidden rounded-[0.875rem] sm:rounded-[1.25rem] lg:rounded-[2.25rem] bg-[#58BDAF] shadow-soft w-full aspect-[2.15] lg:aspect-[1200/510]">
           {/* پترن داخل کارت */}
           <img
             src={patternBg}
@@ -76,13 +76,13 @@ export default function Hero() {
                     {/* ── دکمه‌ها: موبایل پایین کارت (فیگما y≈206)، دسکتاپ top-[54.3%] ── */}
           <div className="absolute right-[3%] sm:right-[4%] lg:right-[3.9%] bottom-[6%] sm:bottom-[7%] lg:bottom-auto lg:top-[54.3%] z-20 flex flex-wrap items-center gap-1.5 sm:gap-3 lg:gap-4">
                       <button
-              className="h-[2rem] sm:h-[2.875rem] lg:h-[4.375rem] px-2.5 sm:px-5 lg:w-[12.4375rem] lg:px-0 bg-white text-navy font-extrabold text-[0.625rem] sm:text-xs lg:text-xl2 rounded-[0.5rem] lg:rounded-[0.625rem] cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center"
+              className="h-[2rem] sm:h-[2.875rem] lg:h-[4.375rem] px-2.5 sm:px-5 lg:w-[12.4375rem] lg:px-0 bg-white text-[#21295A] font-extrabold text-[0.625rem] sm:text-xs lg:text-xl2 rounded-[0.5rem] lg:rounded-[0.625rem] cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center"
                         style={{ transform: "rotate(1.5deg)" }}
                       >
                         درخواست مشاوره
                       </button>
                       <button
-              className="h-[2rem] sm:h-[2.875rem] lg:h-[4.4375rem] px-2.5 sm:px-5 lg:w-[14.4375rem] lg:px-0 bg-navy text-white font-extrabold text-[0.625rem] sm:text-xs lg:text-xl2 rounded-[0.5rem] lg:rounded-[0.625rem] cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center"
+              className="h-[2rem] sm:h-[2.875rem] lg:h-[4.4375rem] px-2.5 sm:px-5 lg:w-[14.4375rem] lg:px-0 bg-[#21295A] text-white font-extrabold text-[0.625rem] sm:text-xs lg:text-xl2 rounded-[0.5rem] lg:rounded-[0.625rem] cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center"
                         style={{ transform: "rotate(-1.5deg)" }}
                       >
                         ثبت‌نام و رزرو مصاحبه
@@ -91,15 +91,15 @@ export default function Hero() {
 
           {/* ── پنل اعتماد: ribbon ── */}
                     <div className="absolute bottom-[3%] lg:bottom-[1%] right-[2%] lg:right-[0.6%] top-[38%] lg:top-auto z-10 w-[52%] lg:w-[53%]">
-                      <div className="absolute translate-x-[0.25rem] translate-y-[0.1875rem] lg:translate-x-[0.375rem] lg:translate-y-[0.3125rem] right-0 top-0 w-full h-full rounded-br-[0.875rem] sm:rounded-br-[1.25rem] lg:rounded-br-[2.25rem] bg-teal-alt" />
-                      <div className="relative rounded-br-[0.875rem] sm:rounded-br-[1.25rem] lg:rounded-br-[2.25rem] bg-ecosystem-light overflow-hidden">
+                      <div className="absolute translate-x-[0.25rem] translate-y-[0.1875rem] lg:translate-x-[0.375rem] lg:translate-y-[0.3125rem] right-0 top-0 w-full h-full rounded-br-[0.875rem] sm:rounded-br-[1.25rem] lg:rounded-br-[2.25rem] bg-[#4EB9AB]" />
+                      <div className="relative rounded-br-[0.875rem] sm:rounded-br-[1.25rem] lg:rounded-br-[2.25rem] bg-[#E9F6F4] overflow-hidden">
                         <img
                           src={patternBg}
                           alt=""
                           aria-hidden="true"
                           className="absolute inset-0 w-full h-full object-cover opacity-15"
                         />
-              <p className="relative font-black text-navy lg:text-teal-wordmark text-[0.5rem] sm:text-[0.6875rem] sm:text-lg lg:text-[1.875rem] xl:text-[2.375rem] leading-[1.5] lg:leading-[1.35] whitespace-nowrap px-2 sm:px-5 lg:px-8 py-1 sm:py-3 lg:py-6">
+              <p className="relative font-black text-[#21295A] lg:text-[#4AB7AA] text-[0.5rem] sm:text-[0.6875rem] sm:text-lg lg:text-[1.875rem] xl:text-[2.375rem] leading-[1.5] lg:leading-[1.35] whitespace-nowrap px-2 sm:px-5 lg:px-8 py-1 sm:py-3 lg:py-6">
                           اولین هنرستان استارتاپی ایران ...
                         </p>
                       </div>

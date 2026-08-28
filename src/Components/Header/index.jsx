@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const logo = "/assets/Shared/Logos/logo.png";
+const COMPACT_THRESHOLD_VH = 50;
 
 const navLinks = [
   { label: "مدارس", to: "/#schools" },
@@ -30,18 +31,15 @@ const softSpring = {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
   const [compact, setCompact] = useState(false);
+  const [tabsHidden, setTabsHidden] = useState(false);
   const close = () => setOpen(false);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      const vh = window.innerHeight;
-      // هدر مخفی: بین 0 تا 50vh
-      // هدر ظاهر: در حالت عادی (y <= 0) یا بعد از 50vh
-      setVisible(y <= 0 || y >= vh * 0.5);
-      setCompact(y >= vh * 0.5);
+      setTabsHidden(y > 4);
+      setCompact(y > 10);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -62,35 +60,32 @@ export default function Header() {
     <>
       <motion.header
         initial={false}
-        animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
-        }}
+        animate={{ y: 0, opacity: 1 }}
         transition={spring}
         style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
-        className={`transition-[padding] duration-300 ease-out w-full ${
-          compact ? "pt-0 pb-0" : "pt-4 sm:pt-6"
+        className={`transition-[padding] duration-300 ease-out ${
+          compact
+            ? "pt-0 pb-0 px-0"
+            : "pt-8 px-3 sm:pt-4 lg:pt-6 xl:pt-8 sm:px-4 lg:px-6 xl:px-0"
         }`}
       >
         <nav
           aria-label="ناوبری اصلی"
-          className={`relative w-full ${
-            compact ? "" : "max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8"
-          }`}
+          className="relative w-full"
         >
           <motion.div
             initial={false}
-            animate={{ height: compact ? "3.5rem" : "5rem" }}
+            animate={{ height: compact ? "4.25rem" : "5.9375rem" }}
             transition={spring}
             className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden ${
               compact
-                ? "py-2"
-                : "py-4 rounded-[38px]"
+                ? "rounded-none py-3.5 px-4"
+                : "rounded-[38px] py-8 px-8"
             }`}
             style={{
               boxShadow: compact
                 ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"
-                : "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.05)",
+                : "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.05), 0 1.25rem 2.5rem -0.25rem rgba(33,41,90,0.06)",
               transition: "box-shadow 0.6s ease",
             }}
           >
@@ -139,17 +134,23 @@ export default function Header() {
               />
             </Link>
 
-            {/* ── وسط: لینک‌ها (دسکتاپ) ── */}
-            <AnimatePresence mode="wait">
-              {!compact && (
+            {/* ── وسط: پیش‌ثبت‌نام + لینک‌ها (دسکتاپ) ── */}
+            <AnimatePresence>
+              {!tabsHidden && (
                 <motion.div
-                  key="nav-links"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, scale: 0.9, y: -5 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: -5 }}
                   transition={softSpring}
-                  className="hidden lg:flex flex-1 items-center justify-center"
+                  className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-7"
                 >
+                  <a
+                    href="#"
+                    className="whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105"
+                  >
+                    پیش‌ثبت‌نام
+                  </a>
+
                   <ul className="flex items-center gap-4 xl:gap-8 list-none m-0 p-0">
                     {navLinks.map((link) => (
                       <li key={link.label}>
@@ -167,30 +168,23 @@ export default function Header() {
               )}
             </AnimatePresence>
 
-            {/* ── سمت چپ: دکمه‌ها ── */}
+            {/* ── سمت چپ: اکشن‌ها ── */}
             <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 flex-shrink-0">
-              {/* پیش‌ثبت‌نام — همیشه نمایش (دسکتاپ) */}
+              {/* پیش‌ثبت‌نام — فقط وقتی کمپکت (دسکتاپ) */}
               <AnimatePresence>
-                <motion.a
-                  key="cta"
-                  href="#"
-                  initial={{ opacity: 0, x: 20, scale: 0.9 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                  transition={softSpring}
-                  className="hidden lg:inline-flex whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white hover:rotate-0 hover:scale-105 transition-all duration-300"
-                >
-                  پیش‌ثبت‌نام
-                </motion.a>
+                {compact && (
+                  <motion.a
+                    href="#"
+                    initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                    transition={softSpring}
+                    className="hidden lg:inline-flex whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white hover:rotate-0 hover:scale-105"
+                  >
+                    پیش‌ثبت‌نام
+                  </motion.a>
+                )}
               </AnimatePresence>
-
-              {/* ورود به پلتفرم — همیشه نمایش (دسکتاپ) */}
-              <a
-                href="#"
-                className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-colors duration-300 hover:bg-white hover:text-teal-text"
-              >
-                ورود به پلتفرم
-              </a>
 
               {/* پروفایل موبایل */}
               <a
@@ -211,6 +205,14 @@ export default function Header() {
                   <circle cx="12" cy="8.2" r="3.4" />
                   <path d="M5 19.6c1.5-3.1 4-4.7 7-4.7s5.5 1.6 7 4.7" />
                 </svg>
+              </a>
+
+              {/* ورود به پلتفرم — همیشه نمایش (دسکتاپ) */}
+              <a
+                href="#"
+                className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-colors duration-300 hover:bg-white hover:text-teal-text"
+              >
+                ورود به پلتفرم
               </a>
             </div>
           </motion.div>
@@ -257,6 +259,7 @@ export default function Header() {
                 <path d="M18 6 6 18M6 6l12 12" />
               </svg>
             </button>
+
             <Link
               href="/"
               onClick={close}
@@ -273,23 +276,38 @@ export default function Header() {
             </Link>
           </div>
 
-          <div className="mt-12 flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
+          <ul className="flex flex-col gap-0.5 mt-9 list-none m-0 p-0">
+            {navLinks.map((link, i) => (
+              <li
                 key={link.label}
-                href={link.to}
-                onClick={close}
-                className="group relative inline-block py-3 text-lg font-semibold text-white/80 transition-colors hover:text-white"
+                className={`transition-all duration-500 ease-out ${
+                  open
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: open ? `${200 + i * 70}ms` : "0ms" }}
               >
-                <span
-                  className="inline-block transition-transform duration-300 group-hover:translate-x-1"
-                  style={{ transform: `rotate(${Math.random() * 2 - 1}deg)` }}
+                <Link
+                  href={link.to}
+                  onClick={close}
+                  className="group flex items-baseline gap-3.5 py-2.5"
                 >
-                  {link.label}
-                </span>
-              </Link>
+                  <span className="text-teal text-[0.8125rem] font-black tabular-nums transition-transform duration-300 group-hover:-translate-y-0.5">
+                    ۰{i + 1}
+                  </span>
+                  <span
+                    className="inline-block text-white leading-[1.3] text-[1.55rem] sm:text-[1.9rem] transition-all duration-300 group-hover:text-teal group-hover:-rotate-1"
+                    style={{
+                      fontWeight: 950,
+                      transform: `rotate(${i % 2 === 0 ? -1.5 : 1.5}deg)`,
+                    }}
+                  >
+                    {link.label}
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
           <div
             className={`mt-auto pt-8 transition-all duration-500 ease-out ${

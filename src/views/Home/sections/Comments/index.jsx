@@ -260,6 +260,7 @@ export default function Comments() {
                           {/* کارت اصلی */}
                           <div
                             className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-5 sm:p-6 lg:p-6 min-h-[8rem] sm:min-h-[9rem] md:min-h-[8rem] lg:min-h-[10rem] flex flex-col`}>
+                          >
                             <span
                               className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}
                             >

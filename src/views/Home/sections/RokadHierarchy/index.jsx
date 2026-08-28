@@ -129,9 +129,7 @@ export default function RokadHierarchy() {
 
       <Container className="relative z-10">
         {/* ── Section Title ── */}
-        <h2
-          className="text-right font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3"
-        >
+        <h2 className="text-right font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3">
           <span className="inline-block -rotate-[0.5deg] sm:-rotate-3">
             اکوسیستم
           </span>
@@ -198,7 +196,11 @@ export default function RokadHierarchy() {
           {/* کارت‌ها — سه‌تا کنار هم */}
           <div className="grid grid-cols-3 gap-[2rem] items-stretch justify-items-center">
             {branches.map((branch, i) => (
-              <BranchCard key={branch.id} branch={branch} rotation={i % 2 === 0 ? -3 : 3} />
+              <BranchCard
+                key={branch.id}
+                branch={branch}
+                rotation={i % 2 === 0 ? -3 : 3}
+              />
             ))}
           </div>
         </div>

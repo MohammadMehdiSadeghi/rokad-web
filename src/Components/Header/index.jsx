@@ -71,7 +71,7 @@ export default function Header() {
       >
         <nav
           aria-label="ناوبری اصلی"
-          className={`relative w-full ${compact ? "" : "max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8"}`}
+          className={`relative w-full ${compact ? "px-4 sm:px-6 lg:px-8" : "max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8"}`}
         >
           <motion.div
             initial={false}

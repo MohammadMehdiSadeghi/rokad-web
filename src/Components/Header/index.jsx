@@ -66,11 +66,19 @@ export default function Header() {
           className={`transition-[padding] duration-300 ease-out ${
             compact
 <<<<<<< HEAD
+<<<<<<< HEAD
               ? "pt-0 pb-0"
               : "pt-8"
           }`}
         >
           <div className="w-full max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8">
+=======
+              ? "pt-0 pb-0 px-0"
+              : "pt-8 px-0 sm:pt-4 sm:px-0 lg:pt-6 xl:pt-8"
+          }`}
+        >
+          <div className="w-full max-w-[75rem] mx-auto">
+>>>>>>> parent of 0e4630e (revert Header to original state (pre-px-width fix))
 =======
               ? "pt-0 pb-0 px-0"
               : "pt-8 px-0 sm:pt-4 sm:px-0 lg:pt-6 xl:pt-8"
@@ -87,7 +95,11 @@ export default function Header() {
                 animate={{ height: compact ? "4.25rem" : "5.9375rem" }}
                 transition={spring}
 <<<<<<< HEAD
+<<<<<<< HEAD
                 className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden ${
+=======
+                className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden px-4 sm:px-6 lg:px-8 ${
+>>>>>>> parent of 0e4630e (revert Header to original state (pre-px-width fix))
 =======
                 className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden px-4 sm:px-6 lg:px-8 ${
 >>>>>>> parent of 0e4630e (revert Header to original state (pre-px-width fix))

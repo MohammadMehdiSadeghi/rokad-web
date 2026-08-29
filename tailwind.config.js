@@ -29,6 +29,10 @@ module.exports = {
                 purple: "#4F215A",
 
                 ink: "#292827",
+                "ink-dark": "#1F1E1D",
+                "ink-darker": "#0E0E0E",
+                "ink-faq": "#3d3b3a",
+                "ink-soft": "#333230",
                 "bg-mint": "#f2faf9",
                 "bg-blush": "#fefafb",
                 "bg-lavender": "#f4f5fb",

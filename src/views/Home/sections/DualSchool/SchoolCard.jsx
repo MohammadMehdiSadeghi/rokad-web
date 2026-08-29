@@ -50,7 +50,7 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
                                     src={illustration}
                                     alt=""
                                     aria-hidden="true"
-                                    className="pointer-events-none select-none absolute bottom-0 left-0 w-[85%] max-w-[14rem] sm:w-[55%] sm:max-w-[13.75rem] lg:max-w-[16.25rem] h-auto opacity-95 z-[1]"
+                                    className="pointer-events-none select-none absolute bottom-0 left-0 h-[16rem] sm:h-[15rem] lg:h-[17rem] w-auto opacity-95 z-[1]"
                                   />
                                 )}
 

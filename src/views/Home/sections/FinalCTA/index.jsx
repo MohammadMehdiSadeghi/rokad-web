@@ -8,7 +8,7 @@ const pattern = "/assets/unassigned/pattern-boxes.png";
 export default function FinalCTA() {
   return (
     <section
-      className="relative overflow-hidden bg-teal pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-0 px-4 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-teal pt-[1rem] sm:pt-[1.5rem] lg:pt-[1.5rem] pb-0 px-4 sm:px-6 lg:px-8"
       dir="rtl"
     >
       {/* Background Pattern — فقط دسکتاپ؛ موبایل و تبلت هیچ عکسی ندارن */}
@@ -34,9 +34,9 @@ export default function FinalCTA() {
           </div>
 
           {/* Text Content (وسط) — زیر lg تمام‌عرض؛ مارجین پایین جای پدینگ سکشن */}
-          <div className="flex flex-col items-center text-center w-full lg:w-[48%] mb-[3.5rem] sm:mb-[4rem] lg:mb-12">
+          <div className="flex flex-col items-center text-center w-full lg:w-[48%] mb-[2rem] sm:mb-[2.5rem] lg:mb-10">
             <h2
-              className="text-[2rem] sm:text-[3rem] lg:text-[4.8125rem] xl:text-[4.8125rem] leading-[2] sm:leading-[1.7] lg:leading-[1.5] text-white mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-center gap-x-2 gap-y-3 sm:gap-y-2"
+              className="text-[2rem] sm:text-[3rem] lg:text-[4.8125rem] xl:text-[4.8125rem] leading-[1.5] sm:leading-[1.5] lg:leading-[1.6] text-white mb-[0.5rem] sm:mb-[0.75rem] flex flex-wrap justify-center gap-x-2 gap-y-3 sm:gap-y-2"
               style={{ fontWeight: 950 }}
             >
               <span className="inline-block rotate-[3deg]">برای</span>
@@ -48,7 +48,7 @@ export default function FinalCTA() {
               <span className="inline-block rotate-[3deg]">کن</span>
             </h2>
 
-            <p className="text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.6] text-white max-w-[33.75rem] mb-[1.5rem] sm:mb-[2rem] lg:mb-[2.5rem]">
+            <p className="hidden text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.6] text-white max-w-[33.75rem] mb-[1.5rem] sm:mb-[2rem] lg:mb-[2.5rem]">
               مصاحبه‌ی رایگان و تعیین سطح برای همه‌ی متقاضی‌ها. کافیه فرم رو پر
               کنی، بقیه‌ش با ماست.
             </p>
@@ -57,8 +57,8 @@ export default function FinalCTA() {
             <a
               href="#"
               className="inline-flex items-center justify-center w-full sm:w-auto max-w-[90%] sm:max-w-none min-w-[10rem] sm:min-w-[14rem] lg:min-w-[16rem] h-[3rem] sm:h-[3.5rem] lg:h-[4rem]
-                          px-5 sm:px-7 lg:px-8 bg-[#21295A] text-white font-extrabold text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.625rem] sm:rounded-[0.75rem] lg:rounded-[1rem] [corner-shape:squircle]
-                          hover:bg-[#1a2249] transition-colors duration-300 cursor-pointer"
+                          px-5 sm:px-7 lg:px-8 bg-ink text-white font-extrabold text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.625rem] sm:rounded-[0.75rem] lg:rounded-[1rem] [corner-shape:squircle]
+                          hover:bg-ink-faq transition-colors duration-300 cursor-pointer"
             >
               تکمیل فرم پیش‌ثبت‌نام
             </a>

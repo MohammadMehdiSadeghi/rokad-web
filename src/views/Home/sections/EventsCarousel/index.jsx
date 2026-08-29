@@ -82,7 +82,7 @@ export default function EventsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-      <section className="pt-[4rem] sm:pt-[5rem] lg:pt-[3rem] xl:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[2rem] xl:pb-[6rem] px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white">
+      <section className="pt-[2rem] sm:pt-[3rem] lg:pt-[2rem] xl:pt-[3rem] pb-[2rem] sm:pb-[3rem] lg:pb-[2rem] xl:pb-[3rem] px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white">
         {/* 1. لایه پترن پس‌زمینه — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
             بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن */}
         <div
@@ -146,7 +146,7 @@ export default function EventsCarousel() {
                     />
 
                     {/* کارت اصلی - افزایش شدید ارتفاع به 700px در موبایل و 560px در دسکتاپ */}
-                    <div className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[24rem] sm:min-h-[22rem] md:min-h-[20rem] lg:min-h-[22rem] xl:min-h-[24rem]`}>
+                    <div className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[16rem] sm:min-h-[16rem] md:min-h-[14rem] lg:min-h-[18rem] xl:min-h-[20rem]`}>
                       
                       {/* کارت اطلاعات رویداد (سمت راست در دسکتاپ / پایین در موبایل) */}
                       <div className={`relative ${theme.cardBg} p-4 sm:p-6 md:p-5 lg:p-6 xl:p-10 flex flex-col justify-between flex-1 lg:flex-none overflow-hidden`}>
@@ -210,7 +210,7 @@ export default function EventsCarousel() {
 
                       {/* تصویر رویداد (سمت چپ در دسکتاپ / بالا در موبایل) */}
                       {/* افزایش ارتفاع عکس در موبایل برای هماهنگی با ارتفاع کل کارت */}
-                      <div className="relative w-full h-[20rem] sm:h-[22rem] md:h-[16rem] lg:h-auto overflow-hidden bg-gray-100">
+                      <div className="relative w-full h-[10rem] sm:h-[11rem] md:h-[10rem] lg:h-auto overflow-hidden bg-gray-100">
                         <img
                           src={event.image}
                           alt={event.title}
@@ -239,7 +239,7 @@ export default function EventsCarousel() {
           </div>
 
           {/* دکمه‌های ناوبری — راست (فقط lg به بالا) */}
-          <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-3 sm:gap-4">
+          <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 items-center gap-3 sm:gap-4">
             {/* دکمه قبلی */}
             <div className="relative">
               <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle]"></div>

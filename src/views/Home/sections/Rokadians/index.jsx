@@ -256,7 +256,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-10 sm:pt-12 md:pt-14 lg:pt-16 pb-10 sm:pb-12 md:pb-14 lg:pb-16 px-4 sm:px-6 lg:px-0"
+      className="relative overflow-hidden bg-white pt-4 sm:pt-6 md:pt-8 lg:pt-10 pb-4 sm:pb-6 md:pb-8 lg:pb-10 px-4 sm:px-6 lg:px-0"
     >
       {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول ── */}
       <div
@@ -292,7 +292,7 @@ export default function Rokadians() {
               TITLE
           ================================================= */}
 
-          <div className="text-center max-w-[50rem] mx-auto mb-8 sm:mb-10 lg:mb-12">
+          <div className="text-center max-w-[50rem] mx-auto mb-4 sm:mb-6 lg:mb-8">
             <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] lg:text-[2.25rem] xl:text-[2.625rem] leading-[1.4] text-[#292827]">
               <span
                 className="inline-block"
@@ -398,7 +398,7 @@ export default function Rokadians() {
                   CARD RAIL
               ================================================= */}
 
-              <div className="rokadians-rail relative z-[10] flex flex-nowrap items-center justify-start gap-5 sm:gap-6 md:gap-8 lg:gap-[2.25rem] xl:gap-[2.5rem] 2xl:gap-[3rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-5 sm:py-6 lg:py-0 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[0.3125rem] 2xl:pl-[0.5rem] pr-8 lg:pr-0">
+              <div className="rokadians-rail relative z-[10] flex flex-nowrap items-center justify-start gap-5 sm:gap-6 md:gap-8 lg:gap-[2.25rem] xl:gap-[2.5rem] 2xl:gap-[3rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-2 sm:py-3 lg:py-0 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[0.3125rem] 2xl:pl-[0.5rem] pr-8 lg:pr-0">
                 {students.map((student, index) => (
                   <StudentCard
                     key={index}

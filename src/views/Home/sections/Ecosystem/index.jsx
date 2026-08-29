@@ -166,7 +166,7 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
               <h4 className="font-black text-[0.75rem] xs:text-[0.8125rem] sm:text-[1.125rem] text-white mb-1 sm:mb-2 leading-snug transition-colors duration-300">
                 {title}
               </h4>
-              <p className="font-medium text-[0.6875rem] xs:text-[0.75rem] sm:text-[0.9375rem] text-white/70 leading-relaxed transition-colors duration-300">
+              <p className="hidden font-medium text-[0.6875rem] xs:text-[0.75rem] sm:text-[0.9375rem] text-white/70 leading-relaxed transition-colors duration-300">
                 {body}
               </p>
             </div>
@@ -182,7 +182,7 @@ export default function Ecosystem() {
 
   return (
       <section
-        className="py-[6.25rem] sm:py-[6.875rem] lg:py-[8.125rem] px-4 sm:px-6 relative overflow-hidden"
+        className="py-[3rem] sm:py-[3.5rem] lg:py-[4rem] px-4 sm:px-6 relative overflow-hidden"
         style={{
           background:
             "radial-gradient(ellipse at 30% 20%, #1c2c60 0%, #0e1633 60%, #0b1228 100%)",
@@ -206,7 +206,7 @@ export default function Ecosystem() {
 
         <Container className="relative z-10">
           {/* Heading */}
-          <h2 className="text-center font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.375rem] lg:text-[2.875rem] leading-[1.3] text-white mb-3 sm:mb-4 flex flex-wrap justify-center items-center gap-x-2">
+          <h2 className="text-center font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.375rem] lg:text-[2.875rem] leading-[1.3] text-white mb-8 sm:mb-10 lg:mb-12 flex flex-wrap justify-center items-center gap-x-2">
             <span className="inline-block -rotate-[1.9deg]">یه</span>
             <span className="inline-block rotate-[1.9deg] text-teal">
               اکوسیستم

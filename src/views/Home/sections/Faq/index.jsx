@@ -43,7 +43,7 @@ export default function Faq() {
   return (
     <section
           id="counseling"
-        className="relative overflow-hidden bg-[#E4F4F2] py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
+        className="relative overflow-hidden bg-[#E4F4F2] py-[1.5rem] sm:py-[2.5rem] lg:py-[4rem] px-4 sm:px-6 lg:px-8"
           dir="rtl"
         >
       {/* ── لایه پترن — همون ماسک گرادیانی هیرو/دوئال‌اسکول؛ روی
@@ -61,12 +61,12 @@ export default function Faq() {
         />
       </div>
 
-      <Container className="relative z-10 grid grid-cols-1 xl:grid-cols-2 gap-[3.75rem] items-start">
+      <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-[1rem] lg:gap-[2rem] items-start">
         
         {/* ۱. تایتل و متن */}
-        <div className="order-1 xl:col-start-1 xl:row-start-1 xl:pt-4">
+        <div className="order-1 lg:col-start-1 lg:row-start-1 lg:pt-2">
           {/* حذف <br/> و استفاده از flex flex-wrap برای ماندن در یک خط */}
-          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-[1.5rem] sm:mb-[2rem] flex flex-wrap items-center gap-x-2">
+          <h2 className="font-black text-[1.25rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-[1rem] sm:mb-[2rem] flex flex-wrap items-center gap-x-2">
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دغدغه‌ی</span>
             <span className="inline-block text-navy whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>آینده</span>
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>و</span>
@@ -76,7 +76,7 @@ export default function Faq() {
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دارید؟</span>
           </h2>
 
-          <p className="text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.7] text-ink mb-[1.5rem] sm:mb-[2rem]">
+          <p className="text-[0.875rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.7] text-ink mb-[0.5rem] sm:mb-[1.5rem] lg:mb-[2rem]">
             انتخاب مدرسه یعنی انتخاب آینده. اینجا صادقانه، مستقیم و بدون تعارف،
             به سوالات بی‌نهایت شما درباره‌ی کنکور، مدرک رسمی و آینده‌ی شغلی پاسخ
             می‌دین؛ چون باور داریم راهِ درست، از شفافیت می‌گذره.
@@ -84,11 +84,11 @@ export default function Faq() {
         </div>
 
         {/* ۲. باکس مشاوره (در موبایل و 1024px پایین تایتل، در دسکتاپ سمت راست) */}
-        <div className="order-2 xl:order-none xl:col-start-1 xl:row-start-2 relative rotate-2 -mt-4 xl:mt-0">
+        <div className="order-2 lg:order-none lg:col-start-1 lg:row-start-2 relative rotate-2 -mt-4 lg:mt-0">
           {/* لایه پشتی باکس مشاوره */}
           <div className="absolute top-2 left-2 w-full h-full rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-ink [corner-shape:squircle]" />
           {/* لایه اصلی باکس مشاوره */}
-          <div className="relative z-10 border-[0.21875rem] border-ink rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-[#F8A41D] p-4 sm:p-7 min-h-[8.75rem] sm:min-h-[11rem] overflow-hidden [corner-shape:squircle]">
+          <div className="relative z-10 border-[0.21875rem] border-ink rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-[#F8A41D] p-3 sm:p-7 min-h-[6.5rem] sm:min-h-[8rem] overflow-hidden [corner-shape:squircle]">
             <div className="absolute inset-0 pointer-events-none">
               <img
                 src={faqPatternBoxStrong}
@@ -127,7 +127,7 @@ export default function Faq() {
         </div>
 
         {/* ۳. سوالات متداول (در موبایل و 1024px زیر کارت مشاوره، در دسکتاپ سمت چپ) */}
-        <div className="order-3 xl:order-none xl:col-start-2 xl:row-start-1 xl:row-span-2 space-y-4 sm:space-y-5 mt-4 xl:mt-0 xl:pt-4">
+        <div className="order-3 lg:order-none lg:col-start-2 lg:row-start-1 lg:row-span-2 space-y-2 sm:space-y-3 mt-2 lg:mt-0 lg:pt-2">
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (
@@ -153,7 +153,7 @@ export default function Faq() {
                     type="button"
                     onClick={() => toggle(i)}
                     aria-expanded={isOpen}
-                    className="relative z-10 w-full flex items-center justify-between gap-3 sm:gap-4 px-3.5 sm:px-5 py-3 sm:py-4 text-right"
+                    className="relative z-10 w-full flex items-center justify-between gap-2 sm:gap-4 px-3 sm:px-5 py-2 sm:py-3 text-right"
                   >
                     <span className="font-extrabold text-[0.75rem] xs:text-[0.8125rem] sm:text-[1.125rem] leading-6 sm:leading-7">
                       {item.question}
@@ -182,7 +182,7 @@ export default function Faq() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="relative z-10 px-3.5 sm:px-5 pb-3.5 sm:pb-5 text-[0.6875rem] xs:text-[0.75rem] sm:text-[1rem] font-medium leading-6 sm:leading-7 text-ink/90">
+                      <p className="relative z-10 px-3 sm:px-5 pb-2.5 sm:pb-4 text-[0.6875rem] xs:text-[0.75rem] sm:text-[1rem] font-medium leading-6 sm:leading-7 text-ink/90">
                         {item.answer}
                       </p>
                     </div>

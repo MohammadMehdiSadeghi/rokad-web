@@ -42,7 +42,7 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section className="relative py-[3rem] sm:py-[4rem] lg:py-[5rem] px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+    <section className="relative py-[2.5rem] sm:py-[3.5rem] lg:py-[4rem] px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
       {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
           بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن ── */}
       <div

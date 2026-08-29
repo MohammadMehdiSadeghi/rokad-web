@@ -10,7 +10,7 @@ const navLinks = [
   { label: "مدارس", to: "/#schools" },
   { label: "افتخارات", to: "/honors" },
   { label: "مشاوره هدایت تحصیلی و شغلی", to: "/#counseling" },
-  { label: "درباره ما", to: "/#about" },
+  { label: "درباره ما", to: "/about" },
   { label: "درخواست همکاری", to: "/#cooperation" },
 ];
 

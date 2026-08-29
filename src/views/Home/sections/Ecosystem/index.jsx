@@ -216,10 +216,10 @@ export default function Ecosystem() {
             <span className="inline-block -rotate-[1.9deg]">رشد</span>
           </h2>
 
-          <p className="text-center font-medium text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] leading-[1.9] text-white/60  mx-auto mb-6 sm:mb-16">
-            از استعدادسنجی تا اولین شغلت، تمام گام‌های مسیر با پشتیبانی متخصصان طی
-            می‌شه.
-          </p>
+          <p className="hidden text-center font-medium text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] leading-[1.9] text-white/60  mx-auto mb-6 sm:mb-16">
+                      از استعدادسنجی تا اولین شغلت، تمام گام‌های مسیر با پشتیبانی متخصصان طی
+                      می‌شه.
+                    </p>
 
           {/* Grid */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 xs:gap-3 sm:gap-5">

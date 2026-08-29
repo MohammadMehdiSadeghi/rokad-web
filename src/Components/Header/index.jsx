@@ -68,9 +68,9 @@ export default function Header() {
         }`}
       >
               <nav
-                aria-label="ناوبری اصلی"
-                className="relative w-full max-w-[75rem] mx-auto"
-              >
+                              aria-label="ناوبری اصلی"
+                              className={`relative w-full ${compact ? "px-0" : "max-w-[75rem] mx-auto"}`}
+                            >
                 <motion.div
                   initial={false}
                   animate={{ height: compact ? "4.25rem" : "5.9375rem" }}

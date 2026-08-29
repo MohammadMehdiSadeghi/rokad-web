@@ -67,17 +67,17 @@ export default function Header() {
           compact ? "pt-0 pb-0" : "pt-4 sm:pt-5"
         }`}
       >
-              <nav
-                              aria-label="ناوبری اصلی"
-                              className={`relative w-full ${compact ? "px-0" : "max-w-[75rem] mx-auto"}`}
-                            >
-                <motion.div
-                  initial={false}
-                  animate={{ height: compact ? "4.25rem" : "5.9375rem" }}
-                  transition={spring}
-                  className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden px-4 sm:px-6 lg:px-8 ${
-                    compact ? "rounded-none py-3.5" : "rounded-[38px] py-8"
-                  }`}
+        <nav
+          aria-label="ناوبری اصلی"
+          className={`relative w-full ${compact ? "px-0" : "max-w-[75rem] mx-auto"}`}
+        >
+          <motion.div
+            initial={false}
+            animate={{ height: compact ? "4.25rem" : "5.9375rem" }}
+            transition={spring}
+            className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden px-4 sm:px-6 lg:px-8 ${
+              compact ? "rounded-none py-3.5" : "rounded-[38px] py-8"
+            }`}
             style={{
               boxShadow: compact
                 ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"

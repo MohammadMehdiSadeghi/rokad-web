@@ -31,7 +31,7 @@ export default function Hero() {
 
       <Container className="relative z-10">
         {/* کارت اصلی */}
-        <div className="relative overflow-hidden rounded-[0.875rem] sm:rounded-[1.25rem] lg:rounded-[2.25rem] bg-[#58BDAF] shadow-soft w-full aspect-[2.15] lg:aspect-[1200/510]">
+        <div className="relative overflow-hidden rounded-[1.5rem_0_1.5rem_0] sm:rounded-[2rem_0_2rem_0] lg:rounded-[2.5rem_0_2.5rem_0] bg-[#59BBAF] shadow-[4px_4px_0_#292827] w-full aspect-[2.15] lg:aspect-[1200/510] [corner-shape:squircle]">
           {/* پترن داخل کارت */}
           <img
             src={patternBg}
@@ -91,8 +91,8 @@ export default function Hero() {
 
           {/* ── پنل اعتماد: ribbon ── */}
                     <div className="absolute bottom-[3%] lg:bottom-[1%] right-[2%] lg:right-[0.6%] top-[38%] lg:top-auto z-10 w-[52%] lg:w-[53%]">
-                      <div className="absolute translate-x-[0.25rem] translate-y-[0.1875rem] lg:translate-x-[0.375rem] lg:translate-y-[0.3125rem] right-0 top-0 w-full h-full rounded-br-[0.875rem] sm:rounded-br-[1.25rem] lg:rounded-br-[2.25rem] bg-[#4EB9AB]" />
-                      <div className="relative rounded-br-[0.875rem] sm:rounded-br-[1.25rem] lg:rounded-br-[2.25rem] bg-[#E9F6F4] overflow-hidden">
+                      <div className="absolute translate-x-[0.25rem] translate-y-[0.1875rem] lg:translate-x-[0.375rem] lg:translate-y-[0.3125rem] right-0 top-0 w-full h-full rounded-br-[1.5rem] sm:rounded-br-[2rem] lg:rounded-br-[2.5rem] bg-[#4EB9AB]" />
+                      <div className="relative rounded-br-[1.5rem] sm:rounded-br-[2rem] lg:rounded-br-[2.5rem] bg-[#E9F6F4] overflow-hidden">
                         <img
                           src={patternBg}
                           alt=""

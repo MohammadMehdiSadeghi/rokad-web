@@ -136,27 +136,21 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
       style={{ "--tilt": `${tilt}deg` }}
       data-active={isActive || undefined}
       className={`
-        group p-3 xs:p-4 sm:p-6 flex flex-col gap-2 sm:gap-4 min-h-[8rem] sm:min-h-[10rem]
-        backdrop-blur-[19.06px] rotate-[var(--tilt)] hover:rotate-0
-        transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
-        hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
+      group p-3 xs:p-4 sm:p-6 flex flex-col gap-2 sm:gap-4 min-h-[8rem] sm:min-h-[10rem] items-center text-center
+      backdrop-blur-[19.06px] rotate-[var(--tilt)] hover:rotate-0
+      transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
+      hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
 
-        bg-[#FFFFFF12] hover:bg-[#59BBAF]
-        border-[0.11875rem] border-[#59BBAF] hover:border-[#FFFFFF]
-        rounded-[0_1.90875rem_0_1.90875rem] [corner-shape:squircle]
+      bg-[#FFFFFF12] hover:bg-[#59BBAF]
+      border-[0.11875rem] border-[#59BBAF] hover:border-[#FFFFFF]
+      rounded-[0_1.90875rem_0_1.90875rem] [corner-shape:squircle]
 
-        ${isActive ? "-translate-y-1.5 shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)] bg-[#59BBAF] border-[#FFFFFF] rotate-0" : ""}
+      ${isActive ? "-translate-y-1.5 shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)] bg-[#59BBAF] border-[#FFFFFF] rotate-0" : ""}
       `}
     >
       {/* Icon */}
       <div
-        className={`
-          w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0
-          transition-colors duration-500
-          rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle]
-          bg-[#58BDAF] group-hover:bg-[#202A5A]
-          ${isActive ? "bg-[#202A5A]" : ""}
-        `}
+        className={`w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0 mx-auto transition-colors duration-500 rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${isActive ? "bg-[#202A5A]" : ""}`}
       >
         <span
           className={`w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
@@ -168,11 +162,14 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
       </div>
 
       {/* Text */}
-      <div>
-        <h4 className="font-black text-[0.75rem] xs:text-[0.8125rem] sm:text-[1.125rem] text-white mb-1 sm:mb-2 leading-snug transition-colors duration-300">
-          {title}
-        </h4>
-      </div>
+            <div className="flex flex-col items-center text-center">
+              <h4 className="font-black text-[0.75rem] xs:text-[0.8125rem] sm:text-[1.125rem] text-white mb-1 sm:mb-2 leading-snug transition-colors duration-300">
+                {title}
+              </h4>
+              <p className="font-medium text-[0.6875rem] xs:text-[0.75rem] sm:text-[0.9375rem] text-white/70 leading-relaxed transition-colors duration-300">
+                {body}
+              </p>
+            </div>
     </article>
   );
 }

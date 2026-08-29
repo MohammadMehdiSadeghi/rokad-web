@@ -1,21 +1,24 @@
 import Container from "../../../../layout/Container";
 
-const patternBg = "/assets/Hero/Hero-Pattern.png";
+const patternBg = "/assets/DualSchool/Schools-Pattern.png";
 const characterImg = "/assets/Hero/hero-character.png";
 
-/* کلمات خط دوم تیتر با چرخش دقیق از فیگما (درجه) */
+/* کلمات خط دوم با چرخش جزئی — امضای بصری برند */
 const headlineLine2 = [
   { text: "از", deg: 3 },
-  { text: "اینجا", deg: 3 },
-  { text: "شروع", deg: -2 },
-  { text: "میشه", deg: 2 },
+  { text: "اینجا", deg: -2 },
+  { text: "شروع", deg: 2 },
+  { text: "میشه", deg: -3 },
   { text: "!", deg: 4 },
 ];
 
 export default function Hero() {
   return (
-    <section className="pt-[4.5rem] sm:pt-6 lg:pt-9 pb-10 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8 relative" dir="rtl">
-      {/* پترن پس‌زمینه کل سکشن */}
+    <section
+      className="relative overflow-hidden pt-20 pb-14 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24 bg-white"
+      dir="rtl"
+    >
+      {/* ── Background Pattern Layer ── */}
       <div
         className="absolute inset-0 w-full h-full z-0 pointer-events-none
                 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
@@ -25,85 +28,94 @@ export default function Hero() {
           src={patternBg}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover opacity-60 rotate-180"
+          className="w-full h-full object-cover opacity-60"
         />
       </div>
 
       <Container className="relative z-10">
-        {/* کارت اصلی */}
-        <div className="relative overflow-hidden rounded-[1.5rem_0_1.5rem_0] sm:rounded-[2rem_0_2rem_0] lg:rounded-[2.5rem_0_2.5rem_0] bg-[#59BBAF] shadow-[4px_4px_0_#292827] w-full aspect-[2.15] lg:aspect-[1200/510] [corner-shape:squircle]">
-          {/* پترن داخل کارت */}
-          <img
-            src={patternBg}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover opacity-25"
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16">
+          
+          {/* ── ستون متن ── */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-right order-2 lg:order-1">
+            
+            {/* تیتر اصلی */}
+            <h1 className="font-black text-[#292827] leading-[1.25] max-w-2xl">
+              <span className="block text-[2.5rem] sm:text-[3.5rem] lg:text-[4.75rem]">
+                آینده
+              </span>
+              <span className="mt-1 flex flex-wrap items-end justify-center lg:justify-start gap-x-2 text-[1.875rem] sm:text-[2.625rem] lg:text-[3.75rem] text-[#59BBAF]">
+                {headlineLine2.map((w) => (
+                  <span
+                    key={w.text}
+                    className="inline-block transition-transform duration-300 hover:scale-110"
+                    style={{ transform: `rotate(${w.deg}deg)` }}
+                  >
+                    {w.text}
+                  </span>
+                ))}
+              </span>
+            </h1>
 
-          {/* ── شخصیت (موبایل: نشسته، تمام‌قد چپ؛ دسکتاپ: 500×781 با h:153%) ── */}
-          <img
-            src={characterImg}
-            alt="منتور رکاد"
-            className="absolute left-[-4%] sm:left-[0%] lg:left-[4.2%] top-[2%] lg:top-[8.2%] h-[96%] sm:h-[104%] lg:h-[153%] w-auto select-none pointer-events-none"
-            style={{ maxWidth: "none" }}
-          />
+            {/* بج: اولین مدرسه استارتاپی ایران */}
+            <div
+              className="mt-6 inline-flex items-center gap-2 bg-white text-[#292827] font-bold text-lg sm:text-xl lg:text-2xl px-6 py-3.5 sm:px-7 sm:py-4 rounded-tl-none rounded-tr-[17px] rounded-br-none rounded-bl-[17px] border border-[#EAEAEA] transition-transform duration-200 hover:-translate-y-0.5"
+              style={{ boxShadow: "2.75px 2.75px 0 #000000" }}
+            >
+              اولین مدرسه استارتاپی ایران
+            </div>
 
-          {/* ── تیتر: خط اول / خط دوم با کلمات کج (موبایل ~20px فیگما، دسکتاپ 59px) ── */}
-          <div className="absolute right-[3%] sm:right-[4%] lg:right-[3.9%] top-[4%] sm:top-[7%] lg:top-[12.7%] w-[70%] lg:w-[50%] z-20">
-                      {/* خط اول: "آینده" rotate(2deg) */}
-                      <div
-              className="font-black text-white text-[1.125rem] sm:text-[1.375rem] md:text-3xl lg:text-4xl xl:text-[4.8125rem] leading-[1.15] whitespace-nowrap"
-                        style={{ transform: "rotate(2deg)" }}
-                      >
-                        آینده
-                      </div>
-                      {/* خط دوم: کلمات خطی، فاصله از خط اول در فیگما = 91px */}
-                      <div
-              className="mt-[0.25rem] sm:mt-[1.125rem] lg:mt-[2.125rem] flex flex-wrap items-end gap-x-[0.2rem] sm:gap-x-[0.375rem] font-black text-white text-[0.875rem] sm:text-[1.0625rem] md:text-3xl lg:text-4xl xl:text-[4.8125rem] leading-[1.4] lg:leading-[1.53]"
-                      >
-                        {headlineLine2.map((w) => (
-                          <span
-                            key={w.text}
-                            className="inline-block whitespace-nowrap"
-                            style={{ transform: `rotate(${w.deg}deg)` }}
-                          >
-                            {w.text}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+            {/* دکمه‌ها */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-8">
+              {/* دکمه اصلی */}
+              <button className="h-12 sm:h-[3.375rem] px-7 sm:px-8 bg-[#202A5A] text-white font-bold text-sm sm:text-base rounded-[12px] transition-all duration-200 hover:bg-[#1D2651] active:scale-95 active:bg-[#1A2248]"
+                style={{ boxShadow: "0 4px 12px rgba(32, 42, 90, 0.25)" }}
+              >
+                ثبت‌نام و رزرو مصاحبه
+              </button>
+              
+              {/* دکمه ثانویه (رفع باگ خوانایی و تغییر به حالت Outline) */}
+              <button className="h-12 sm:h-[3.375rem] px-7 sm:px-8 border-2 border-ink text-ink font-bold text-sm sm:text-base rounded-[12px] transition-all duration-200 hover:bg-[#E6F5F3] hover:border-[#E6F5F3] active:scale-95 active:bg-[#CCEAE6]">
+                درخواست مشاوره
+              </button>
+            </div>
+          </div>
 
-                    {/* ── دکمه‌ها: موبایل پایین کارت (فیگما y≈206)، دسکتاپ top-[54.3%] ── */}
-          <div className="absolute right-[3%] sm:right-[4%] lg:right-[3.9%] bottom-[6%] sm:bottom-[7%] lg:bottom-auto lg:top-[54.3%] z-20 flex flex-wrap items-center gap-1.5 sm:gap-3 lg:gap-4">
-                      <button
-              className="h-[2rem] sm:h-[2.875rem] lg:h-[4.375rem] px-2.5 sm:px-5 lg:w-[12.4375rem] lg:px-0 bg-white text-[#21295A] font-extrabold text-[0.625rem] sm:text-xs lg:text-xl2 rounded-[0.5rem] lg:rounded-[0.625rem] cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center"
-                        style={{ transform: "rotate(1.5deg)" }}
-                      >
-                        درخواست مشاوره
-                      </button>
-                      <button
-              className="h-[2rem] sm:h-[2.875rem] lg:h-[4.4375rem] px-2.5 sm:px-5 lg:w-[14.4375rem] lg:px-0 bg-[#21295A] text-white font-extrabold text-[0.625rem] sm:text-xs lg:text-xl2 rounded-[0.5rem] lg:rounded-[0.625rem] cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center"
-                        style={{ transform: "rotate(-1.5deg)" }}
-                      >
-                        ثبت‌نام و رزرو مصاحبه
-                      </button>
-                    </div>
+          {/* ── ستون تصویر ── */}
+          <div className="relative order-1 lg:order-2 flex justify-center">
+            {/* باکس پس‌زمینه فیروزه‌ای چرخیده */}
+            <div
+              className="absolute inset-0 m-auto w-[82%] h-[82%] bg-[#59BBAF] rounded-[34px] rotate-3 transition-transform duration-300 hover:rotate-[5deg]"
+              style={{ boxShadow: "6px 6px 0 #202A5A" }}
+            />
 
-          {/* ── پنل اعتماد: ribbon ── */}
-                    <div className="absolute bottom-[3%] lg:bottom-[1%] right-[2%] lg:right-[0.6%] top-[38%] lg:top-auto z-10 w-[52%] lg:w-[53%]">
-                      <div className="absolute translate-x-[0.25rem] translate-y-[0.1875rem] lg:translate-x-[0.375rem] lg:translate-y-[0.3125rem] right-0 top-0 w-full h-full rounded-br-[1.5rem] sm:rounded-br-[2rem] lg:rounded-br-[2.5rem] bg-[#4EB9AB]" />
-                      <div className="relative rounded-br-[1.5rem] sm:rounded-br-[2rem] lg:rounded-br-[2.5rem] bg-[#E9F6F4] overflow-hidden">
-                        <img
-                          src={patternBg}
-                          alt=""
-                          aria-hidden="true"
-                          className="absolute inset-0 w-full h-full object-cover opacity-15"
-                        />
-              <p className="relative font-black text-[#21295A] lg:text-[#4AB7AA] text-[0.5rem] sm:text-[0.6875rem] sm:text-lg lg:text-[1.875rem] xl:text-[2.375rem] leading-[1.5] lg:leading-[1.35] whitespace-nowrap px-2 sm:px-5 lg:px-8 py-1 sm:py-3 lg:py-6">
-                          اولین هنرستان استارتاپی ایران ...
-                        </p>
-                      </div>
-                    </div>
+            <div className="relative w-[72%] sm:w-[62%] lg:w-full max-w-md">
+              {/* تصویر کاراکتر با افکت هاور */}
+              <img
+                src={characterImg}
+                alt="منتور رکاد"
+                className="relative z-10 w-full h-auto select-none pointer-events-none transition-transform duration-500 ease-out hover:scale-[1.03]"
+              />
+
+              {/* بج شناور */}
+              <div
+                className="absolute -bottom-3 -left-3 sm:-bottom-5 sm:-left-5 z-20 bg-white rounded-[17px] px-4 py-3 sm:px-5 sm:py-3.5 flex items-center gap-3 border border-[#EAEAEA] transition-transform duration-300 hover:scale-105"
+                style={{ boxShadow: "2.75px 2.75px 0 #292827" }}
+              >
+                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#EEF8F7] flex items-center justify-center text-base shrink-0">
+                  🚀
+                </span>
+                <div>
+                  <div className="font-bold text-[#292827] text-xs sm:text-sm whitespace-nowrap">
+                    مسیر یادگیری فعال
+                  </div>
+                  <div className="text-[#292827]/60 text-[0.65rem] sm:text-xs font-bold">
+                    همین امروز شروع کن
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </Container>
     </section>

@@ -8,55 +8,13 @@ import { A11y, Autoplay } from "swiper/modules";
 import Container from "../../../../layout/Container";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "../../../../common/Icons";
+import useRokadData from "../../../../lib/useRokadData";
+import { fetchComments } from "../../../../lib/api";
+import fallbackComments from "../../../../lib/fallback/comments";
 
 import "swiper/css";
 
 const commentsPattern = "/assets/Pattern/layout-pattern.png";
-
-const comments = [
-  {
-    id: 1,
-    theme: "navy",
-    text: "این یک متن تستی برای کامنت اول است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
-    name: "آرتین امیری",
-    role: "جپ",
-  },
-  {
-    id: 2,
-    theme: "pink",
-    text: "این یک متن تستی برای کامنت دوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
-    name: "سارا رضایی",
-    role: "جپ",
-  },
-  {
-    id: 3,
-    theme: "teal",
-    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
-    name: "محمد کریمی",
-    role: "جپ",
-  },
-  {
-    id: 4,
-    theme: "navy",
-    text: "این یک متن تستی برای کامنت اول است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
-    name: "آرتین امیری",
-    role: "جپ",
-  },
-  {
-    id: 5,
-    theme: "pink",
-    text: "این یک متن تستی برای کامنت دوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
-    name: "سارا رضایی",
-    role: "جپ",
-  },
-  {
-    id: 6,
-    theme: "teal",
-    text: "این یک متن تستی برای کامنت سوم است. ساختار کارت‌ها در اینجا قرار می‌گیرد تا بررسی کنیم.",
-    name: "محمد کریمی",
-    role: "جپ",
-  },
-];
 
 const getInitials = (name) => {
   const parts = name.trim().split(/\s+/);
@@ -90,6 +48,9 @@ const THEME_MAP = {
 export default function Comments() {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // دیتای داینامیک از بک‌اند؛ اگه API در دسترس نبود، fallback نمایش داده می‌شه
+  const comments = useRokadData(fetchComments, fallbackComments);
 
   return (
     <section className="relative w-full pt-[5rem] sm:pt-[6rem] lg:pt-[8rem] pb-[5rem] sm:pb-[6rem] lg:pb-[8rem] px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">

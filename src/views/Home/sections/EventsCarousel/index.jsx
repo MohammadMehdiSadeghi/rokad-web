@@ -1,47 +1,17 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import Container from "../../../../layout/Container";
 import { ChevronLeftIcon, ChevronRightIcon, ArrowIcon } from "../../../../common/Icons";
+import useRokadData from "../../../../lib/useRokadData";
+import { fetchEvents } from "../../../../lib/api";
+import fallbackEvents from "../../../../lib/fallback/events";
 
 import "swiper/css";
 
 const patternBg = "/assets/Events/Event-Pattern.png";
-const eventPic = "/assets/Events/event-pic.png";
 
-const events = [
-  {
-    index: "۰۱",
-    theme: "boys",
-    category: "استارتاپ ویکند",
-    title: "دوئل استارتاپی پاییزه",
-    meta: "مشهد | ۱۴۰۲/۱۲/۰۳",
-    body: "اینجا ایده‌های خام رو با طراحی، دلایل و افکار اولویت‌بندی‌شده تا محصولی که به بازار می‌رسونیم تبدیل می‌کنیم.",
-    ctaLabel: "داستان رویداد رو ببین",
-    image: eventPic,
-  },
-  {
-    index: "۰۲",
-    theme: "girls",
-    category: "رویداد استارتاپی",
-    title: "عنوان رویداد بعدی",
-    meta: "مشهد | تاریخ رویداد",
-    body: "توضیحات این رویداد رو اینجا جایگزین کن.",
-    ctaLabel: "داستان رویداد رو ببین",
-    image: eventPic,
-  },
-  {
-    index: "۰۳",
-    theme: "boys",
-    category: "رویداد استارتاپی",
-    title: "عنوان رویداد بعدی",
-    meta: "مشهد | تاریخ رویداد",
-    body: "توضیحات این رویداد رو اینجا جایگزین کن.",
-    ctaLabel: "داستان رویداد رو ببین",
-    image: eventPic,
-  },
-];
 
 const THEME_MAP = {
   boys: {
@@ -80,6 +50,30 @@ export default function EventsCarousel() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // دیتای داینامیک از بک‌اند؛ اگه API در دسترس نبود، fallback نمایش داده می‌شه
+  const events = useRokadData(fetchEvents, fallbackEvents);
+
+  // ── هم‌ارتفاع‌سازی کارت‌ها ──
+  const cardRefs = useRef([]);
+  const [cardHeight, setCardHeight] = useState(0);
+
+  useEffect(() => {
+    const measure = () => {
+      const heights = cardRefs.current.map((el) => el?.offsetHeight || 0);
+      const max = Math.max(...heights, 0);
+      if (max > 0) setCardHeight(max);
+    };
+    const t = setTimeout(measure, 150);
+    const onLoad = () => setTimeout(measure, 0);
+    window.addEventListener("load", onLoad);
+    window.addEventListener("resize", measure);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("load", onLoad);
+      window.removeEventListener("resize", measure);
+    };
+  }, [events]);
 
   return (
       <section className="pt-[2rem] sm:pt-[3rem] lg:pt-[2rem] xl:pt-[3rem] pb-[2rem] sm:pb-[3rem] lg:pb-[2rem] xl:pb-[3rem] px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white">
@@ -145,14 +139,18 @@ export default function EventsCarousel() {
                       className={`absolute top-[0.25rem] left-[0.4375rem] w-full h-full ${theme.solidColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle]`} 
                     />
 
-                    {/* کارت اصلی - افزایش شدید ارتفاع به 700px در موبایل و 560px در دسکتاپ */}
-                    <div className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[16rem] sm:min-h-[16rem] md:min-h-[14rem] lg:min-h-[18rem] xl:min-h-[20rem]`}>
+                    {/* کارت اصلی */}
+                    <div
+                      ref={(el) => (cardRefs.current[i] = el)}
+                      className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[16rem] sm:min-h-[16rem] md:min-h-[14rem] lg:min-h-[16.75rem] xl:min-h-[20rem]`}
+                      style={{ minHeight: cardHeight || undefined }}
+                    >
                       
                       {/* کارت اطلاعات رویداد (سمت راست در دسکتاپ / پایین در موبایل) */}
                       <div className={`relative ${theme.cardBg} p-4 sm:p-6 md:p-5 lg:p-6 xl:p-10 flex flex-col justify-between flex-1 lg:flex-none overflow-hidden`}>
                         
                         {/* بخش بالا: متون و بَج */}
-                        <div className="relative z-10 flex flex-col gap-5 sm:gap-8 lg:gap-4 xl:gap-8">
+                        <div className="relative z-10 flex flex-col gap-5 sm:gap-8 lg:gap-3 xl:gap-8">
                           {/* ردیف اول: عنوان/تاریخ و عدد */}
                           <div className="flex justify-between items-start w-full">
                             <div className="flex flex-col items-start">
@@ -197,7 +195,7 @@ export default function EventsCarousel() {
                         </div>
 
                         {/* بخش پایین: دکمه (همیشه در پایین کارت) */}
-                        <div className="relative z-10 flex justify-center mt-6 lg:mt-4">
+                        <div className="relative z-10 flex justify-center mt-6 lg:mt-2">
                           <a
                             href="#"
                             className={`inline-flex items-center gap-2 ${theme.btnBg} text-white text-[0.8125rem] sm:text-base font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-[0.875rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-x-1`}

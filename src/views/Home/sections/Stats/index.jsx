@@ -1,9 +1,14 @@
+"use client";
+
 import Container from "../../../../layout/Container";
 import StatCard from "./StatCard";
+import useRokadData from "../../../../lib/useRokadData";
+import { fetchStats } from "../../../../lib/api";
 
 const patternBg = "/assets/StatCard/TrustSection-Pattern.png";
 
-const stats = [
+// آمار fallback (اعداد ثابت قبلی وقتی API در دسترس نیست)
+const fallbackStats = [
   {
     theme: "teal",
     label: "نرخ اشتغال",
@@ -31,6 +36,8 @@ const stats = [
 ];
 
 export default function Stats() {
+  const stats = useRokadData(fetchStats, fallbackStats);
+
   return (
     <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
       {/* لایه پترن پس‌زمینه */}

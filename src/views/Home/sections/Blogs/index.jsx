@@ -4,52 +4,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y } from "swiper/modules";
 import { ChevronLeftIcon, ChevronRightIcon } from "../../../../common/Icons";
 import Container from "../../../../layout/Container";
+import useRokadData from "../../../../lib/useRokadData";
+import { fetchBlogs } from "../../../../lib/api";
+import fallbackBlogs from "../../../../lib/fallback/blog";
 
 import "swiper/css";
 
-const blogImg = "/assets/Blogs/blog-card-cover.png";
 const patternBg = "/assets/Pattern/layout-pattern.png";
 
-const posts = [
-  {
-    tag: "همه دانش‌آموزان",
-    date: "تابستان ۱۴۰۵",
-    title: "چطور برای فرزندمون رشته‌ی هنرستان رو انتخاب کنیم؟",
-    body: "یه راهنمای عملی برای والدین که می‌خوان بهترین تصمیم رو برای آینده‌ی تحصیلی فرزندشون بگیرن.",
-  },
-  {
-    tag: "دانش‌آموزان هنرستان",
-    date: "تابستان ۱۴۰۵",
-    title: "چطور برای اولین‌بار وارد بازار کار شی؟",
-    body: "قدم‌به‌قدم با تجربه‌ی فارغ‌التحصیلای رکاد که رزومه‌شون رو ساختن و اولین قرارداد کاریشون رو گرفتن.",
-  },
-  {
-    tag: "خانواده‌ها",
-    date: "بهار ۱۴۰۵",
-    title: "استعدادسنجی؛ اولین قدم مسیر شخصی‌سازی‌شده",
-    body: "چرا رکاد قبل از شروع هر چیزی، اول می‌شینه پای حرفت تا مسیر رشدت رو دقیق طراحی کنه.",
-  },
-  {
-    tag: "دانش‌آموزان هنرستان",
-    date: "بهار ۱۴۰۵",
-    title: "ساخت پروژه‌ی اول؛ از ایده تا اجرا",
-    body: "چطور یه پروژه‌ی واقعی رو از صفر شروع کنیم و تا انتها با انگیزه پیش ببریمش.",
-  },
-  {
-    tag: "خانواده‌ها",
-    date: "زمستان ۱۴۰۴",
-    title: "نقش والدین در انتخاب مسیر شغلی فرزند",
-    body: "چه‌جوری بدون فشار زیاد، کنار فرزندمون باشیم تا خودش مسیرش رو پیدا کنه.",
-  },
-  {
-    tag: "همه دانش‌آموزان",
-    date: "زمستان ۱۴۰۴",
-    title: "مهارت‌هایی که هر هنرجو باید قبل از فارغ‌التحصیلی یاد بگیره",
-    body: "لیستی از مهارت‌های عملی که تفاوت رزومه‌ی قوی و ضعیف رو مشخص می‌کنه.",
-  },
-];
-
-function BlogCard({ tag, date, title, body, rotation = 0 }) {
+function BlogCard({ image, date, title, body, rotation = 0 }) {
   return (
     <div
       className="
@@ -103,7 +66,7 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
       >
         {/* Image */}
         <img
-          src={blogImg}
+          src={image || "/assets/Blogs/blog-card-cover.png"}
           alt={title}
           loading="lazy"
           className="
@@ -172,7 +135,9 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
 
             <span
               className="
-                inline-block
+                inline-flex
+                items-center
+                gap-1.5
                 bg-[#292827]
                 text-white
                 text-[0.6875rem]
@@ -183,9 +148,24 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
                 rounded-[0.375rem]
                 [corner-shape:squircle]
                 whitespace-nowrap
+                cursor-pointer
+                hover:bg-[#1a1a1a]
+                transition-colors
               "
             >
-              {tag}
+              خواندن مقاله
+              {/* فلش سمت چپ — در RTL جهت «جلو» سمت چپه */}
+              <svg
+                className="w-3.5 h-3.5 rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </span>
           </div>
         </div>
@@ -197,6 +177,9 @@ function BlogCard({ tag, date, title, body, rotation = 0 }) {
 export default function Blogs() {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // دیتای داینامیک از بک‌اند؛ اگه API در دسترس نبود، fallback نمایش داده می‌شه
+  const posts = useRokadData(fetchBlogs, fallbackBlogs);
 
   return (
     <section

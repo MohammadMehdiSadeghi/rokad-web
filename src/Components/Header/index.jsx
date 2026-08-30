@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useEnrollment } from "../../lib/EnrollmentContext";
 
 const logo = "/assets/Shared/Logos/logo.png";
 const COMPACT_THRESHOLD_VH = 50;
@@ -33,6 +34,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
   const [tabsHidden, setTabsHidden] = useState(false);
+  const { openEnrollment } = useEnrollment();
   const close = () => setOpen(false);
 
   useEffect(() => {
@@ -140,12 +142,13 @@ export default function Header() {
                   transition={softSpring}
                   className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-7"
                 >
-                  <a
-                    href="#"
-                    className="whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105"
+                  <button
+                    type="button"
+                    onClick={openEnrollment}
+                    className="whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105 cursor-pointer"
                   >
                     پیش‌ثبت‌نام
-                  </a>
+                  </button>
 
                   <ul className="flex items-center gap-4 xl:gap-8 list-none m-0 p-0">
                     {navLinks.map((link) => (
@@ -169,16 +172,17 @@ export default function Header() {
               {/* پیش‌ثبت‌نام — فقط وقتی کمپکت (دسکتاپ) */}
               <AnimatePresence>
                 {compact && (
-                  <motion.a
-                    href="#"
+                  <motion.button
+                    type="button"
+                    onClick={openEnrollment}
                     initial={{ opacity: 0, x: 20, scale: 0.9 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     exit={{ opacity: 0, x: 20, scale: 0.9 }}
                     transition={softSpring}
-                    className="hidden lg:inline-flex whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white hover:rotate-0 hover:scale-105"
+                    className="hidden lg:inline-flex whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white hover:rotate-0 hover:scale-105 cursor-pointer"
                   >
                     پیش‌ثبت‌نام
-                  </motion.a>
+                  </motion.button>
                 )}
               </AnimatePresence>
 
@@ -312,13 +316,16 @@ export default function Header() {
             style={{ transitionDelay: open ? "580ms" : "0ms" }}
           >
             <div className="flex items-center gap-3.5 flex-wrap">
-              <a
-                href="#"
-                onClick={close}
-                className="inline-flex items-center justify-center px-6 py-2.5 -rotate-3 bg-white text-navy text-[0.95rem] font-extrabold rounded-[8px] [corner-shape:squircle] transition-transform duration-200 hover:rotate-0 active:scale-[0.98]"
+              <button
+                type="button"
+                onClick={() => {
+                  close();
+                  openEnrollment();
+                }}
+                className="inline-flex items-center justify-center px-6 py-2.5 -rotate-3 bg-white text-navy text-[0.95rem] font-extrabold rounded-[8px] [corner-shape:squircle] transition-transform duration-200 hover:rotate-0 active:scale-[0.98] cursor-pointer"
               >
                 پیش‌ثبت‌نام
-              </a>
+              </button>
               <a
                 href="#"
                 onClick={close}

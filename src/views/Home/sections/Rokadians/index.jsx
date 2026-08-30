@@ -1,24 +1,11 @@
+"use client";
+
 import Container from "../../../../layout/Container";
+import useRokadData from "../../../../lib/useRokadData";
+import { fetchStudents } from "../../../../lib/api";
+import fallbackStudents from "../../../../lib/fallback/students";
 
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
-
-const students = [
-  {
-    name: "امیرعلی شفاهی",
-    desc: "فریلنسر و برنامه‌نویس گریپ‌وب",
-    experience: "+۴ سال تجربه تخصصی",
-  },
-  {
-    name: "امیرعلی شفاهی",
-    desc: "فریلنسر و برنامه‌نویس گریپ‌وب",
-    experience: "+۴ سال تجربه تخصصی",
-  },
-  {
-    name: "امیرعلی شفاهی",
-    desc: "طراح و توسعه‌دهنده‌ی محصولات دیجیتال",
-    experience: "+۴ سال تجربه تخصصی",
-  },
-];
 
 /* =========================================================
    CARD
@@ -184,7 +171,7 @@ function StudentCard({ student, index, stacked }) {
           />
 
           <img
-            src="/assets/Rokadians/Ellipse 83.png"
+            src={student.avatar || "/assets/Rokadians/Ellipse 83.png"}
             alt={student.name}
             className={`relative z-[10] ${AVATAR_SIZE} rounded-full object-cover border-[0.12rem] border-[#292827] bg-white`}
           />
@@ -217,7 +204,7 @@ function StudentCard({ student, index, stacked }) {
               type="button"
               className={`relative z-10 ${BADGE_SIZE} bg-white border-[0.09375rem] border-[#292827] text-[#292827] font-bold rounded-[0_0.5rem_0_0.5rem] whitespace-nowrap hover:bg-[#292827] hover:text-white transition-colors`}
             >
-              نسل پنجم رکاد
+              {student.experience || "نسل رکاد"}
             </button>
           </div>
         </div>
@@ -229,9 +216,22 @@ function StudentCard({ student, index, stacked }) {
             className="flex items-center justify-between px-3 sm:px-4 lg:px-[0.625rem] pt-2.5 lg:pt-[0.5rem] pb-2.5 lg:pb-[0.5625rem]"
           >
             <div className="flex items-center gap-1">
-              <LinkedinIcon />
-              <LinkedinIcon />
-              <LinkedinIcon />
+              {(Array.isArray(student.socials) && student.socials.length
+                ? student.socials
+                : [{ type: "", link: "#" }]
+              )
+                .slice(0, 3)
+                .map((social, si) => (
+                  <a
+                    key={si}
+                    href={social.link || "#"}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={social.type || "شبکه اجتماعی"}
+                  >
+                    <LinkedinIcon />
+                  </a>
+                ))}
             </div>
 
             <span
@@ -252,6 +252,12 @@ function StudentCard({ student, index, stacked }) {
 ========================================================= */
 
 export default function Rokadians() {
+  // دیتای داینامیک از بک‌اند؛ api.js آیتم‌های بدون تصویر رو فیلتر می‌کنه
+  // و اگه API آفلاینه fallback (۳ کارت با تصویر) برمی‌گرده
+  const allStudents = useRokadData(fetchStudents, fallbackStudents);
+  // فقط ۳ کارت — کارت سوم state استک‌شده داره (مثل دیزاین اصلی)
+  const students = allStudents.slice(0, 3);
+
   return (
     <section
       id="rokadians"

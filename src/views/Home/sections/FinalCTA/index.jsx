@@ -1,4 +1,7 @@
+"use client";
+
 import Container from "../../../../layout/Container";
+import { useEnrollment } from "../../../../lib/EnrollmentContext";
 
 // اصلاح مسیر عکس‌ها (حذف کلمه public)
 const imgBoy = "/assets/finalCTA/Cta-Boys-Vector.png";
@@ -6,6 +9,8 @@ const imgGirl = "/assets/finalCTA/Cta-Girls-Vector.png";
 const pattern = "/assets/unassigned/pattern-boxes.png";
 
 export default function FinalCTA() {
+  const { openEnrollment } = useEnrollment();
+
   return (
     <section
       className="relative overflow-hidden bg-teal pt-[1rem] sm:pt-[1.5rem] lg:pt-[1.5rem] pb-0 px-4 sm:px-6 lg:px-8"
@@ -24,14 +29,14 @@ export default function FinalCTA() {
       <Container className="relative z-20">
         <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-8 lg:gap-4">
           {/* Girl Image (فقط lg+ — زیر 1025 هیچ عکسی نمایش داده نمی‌شه) */}
-          <div className="hidden lg:flex shrink-0 pointer-events-none select-none lg:w-[26%] justify-center">
-            <img
-              src={imgGirl}
-              alt=""
-              aria-hidden="true"
-              className="w-full h-auto object-contain"
-            />
-          </div>
+                    <div className="hidden lg:flex shrink-0 pointer-events-none select-none lg:w-[26%] justify-center items-center">
+                      <img
+                        src={imgGirl}
+                        alt=""
+                        aria-hidden="true"
+                        className="h-[18rem] lg:h-[20rem] xl:h-[24rem] w-auto object-contain"
+                      />
+                    </div>
 
           {/* Text Content (وسط) — زیر lg تمام‌عرض؛ مارجین پایین جای پدینگ سکشن */}
           <div className="flex flex-col items-center text-center w-full lg:w-[48%] mb-[2rem] sm:mb-[2.5rem] lg:mb-10">
@@ -54,25 +59,26 @@ export default function FinalCTA() {
             </p>
 
             {/* دکمه */}
-            <a
-              href="#"
-              className="inline-flex items-center justify-center w-full sm:w-auto max-w-[90%] sm:max-w-none min-w-[10rem] sm:min-w-[14rem] lg:min-w-[16rem] h-[3rem] sm:h-[3.5rem] lg:h-[4rem]
-                          px-5 sm:px-7 lg:px-8 bg-ink text-white font-extrabold text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.625rem] sm:rounded-[0.75rem] lg:rounded-[1rem] [corner-shape:squircle]
-                          hover:bg-ink-faq transition-colors duration-300 cursor-pointer"
-            >
-              تکمیل فرم پیش‌ثبت‌نام
-            </a>
+                        <button
+                          type="button"
+                          onClick={openEnrollment}
+                          className="inline-flex items-center justify-center w-full sm:w-auto max-w-[90%] sm:max-w-none min-w-[10rem] sm:min-w-[14rem] lg:min-w-[16rem] h-[3rem] sm:h-[3.5rem] lg:h-[4rem]
+                                      px-5 sm:px-7 lg:px-8 bg-ink text-white font-extrabold text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.625rem] sm:rounded-[0.75rem] lg:rounded-[1rem] [corner-shape:squircle]
+                                      hover:bg-ink-faq transition-colors duration-300 cursor-pointer"
+                        >
+                          تکمیل فرم پیش‌ثبت‌نام
+                        </button>
           </div>
 
           {/* Boy Image (فقط lg+) */}
-          <div className="hidden lg:flex shrink-0 pointer-events-none select-none lg:w-[26%] justify-center">
-            <img
-              src={imgBoy}
-              alt=""
-              aria-hidden="true"
-              className="w-full h-auto object-contain"
-            />
-          </div>
+                    <div className="hidden lg:flex shrink-0 pointer-events-none select-none lg:w-[26%] justify-center items-center">
+                      <img
+                        src={imgBoy}
+                        alt=""
+                        aria-hidden="true"
+                        className="h-[18rem] lg:h-[20rem] xl:h-[24rem] w-auto object-contain"
+                      />
+                    </div>
         </div>
       </Container>
     </section>

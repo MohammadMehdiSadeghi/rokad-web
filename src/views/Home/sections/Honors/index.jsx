@@ -8,12 +8,11 @@ import {
   ChevronRightIcon,
 } from "../../../../common/Icons";
 
-import "swiper/css";
+import useRokadData from "../../../../lib/useRokadData";
+import { fetchAwards } from "../../../../lib/api";
+import fallbackAwards from "../../../../lib/fallback/awards";
 
-const firstPerson = "/assets/Honors/f1.png";
-const secondPerson = "/assets/Honors/s2.png";
-const thirdPerson = "/assets/Honors/t3.png";
-const districtOfficial = "/assets/Honors/district-honor-badge.png";
+import "swiper/css";
 
 const goldPattern = "/assets/Honors/yellowTexture.png";
 const silverPattern = "/assets/Honors/grayTexture.png";
@@ -21,60 +20,6 @@ const bronzePattern = "/assets/Honors/BronzeTexture.png";
 const navyPattern = "/assets/Honors/blueTexture.png";
 
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
-
-const honors = [
-  {
-    rank: "first",
-    badge: firstPerson,
-    title: "مقام اول جشنواره‌ی فردa",
-    meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
-    ctaLabel: "مشاهده منتخبین",
-  },
-  {
-    rank: "second",
-    badge: secondPerson,
-    title: "مقام برتر جشنواره‌ی خوارزمی",
-    meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
-    ctaLabel: "مشاهده منتخبین",
-  },
-  {
-    rank: "third",
-    badge: thirdPerson,
-    title: "مقام برتر جشنواره‌ی خوارزمی",
-    meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
-    ctaLabel: "مشاهده منتخبین",
-  },
-  {
-    rank: "district",
-    badge: districtOfficial,
-    title: "مقام برتر جشنواره",
-    meta: "نشان افتخار",
-    ctaLabel: "مشاهده منتخبین",
-  },
-
-  // کپی‌ها برای لوپ نرم
-  {
-    rank: "district",
-    badge: districtOfficial,
-    title: "مقام برتر جشنواره",
-    meta: "نشان افتخار",
-    ctaLabel: "مشاهده منتخبین",
-  },
-  {
-    rank: "first",
-    badge: firstPerson,
-    title: "مقام اول جشنواره‌ی فردa",
-    meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
-    ctaLabel: "مشاهده منتخبین",
-  },
-  {
-    rank: "second",
-    badge: secondPerson,
-    title: "مقام برتر جشنواره‌ی خوارزمی",
-    meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
-    ctaLabel: "مشاهده منتخبین",
-  },
-];
 
 const THEME_MAP = {
   first: {
@@ -105,6 +50,15 @@ const THEME_MAP = {
 export default function HonorsCarousel() {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // دیتای داینامیک از بک‌اند؛ اگه API در دسترس نبود، fallback نمایش داده می‌شه
+  const allHonors = useRokadData(fetchAwards, fallbackAwards);
+  // سوییپر با loop:true و slidesPerView:3 برای لوپ نرم حداقل ۷-۸ اسلاید نیاز داره
+  // (مثل دیزاین اصلی که ۷ تا داشت). اگه کمتر از ۶ تا باشه، کپی می‌کنیم
+  const honors =
+    allHonors.length < 6
+      ? [...allHonors, ...allHonors, ...allHonors].slice(0, 8)
+      : allHonors;
 
   return (
     <section
@@ -561,7 +515,10 @@ export default function HonorsCarousel() {
                             </div>
 
                             {/* Card Content */}
-
+                            {/* بج از بالا بیرون زده، پس:
+                                - pt بالا فضای بج رو جبران می‌کنه
+                                - pb پایین کمتر از قبل تا آخرین المان به حاشیه نچسبه
+                                - gap داخلی بیشتر تا محتوا به‌هم نچسبه */}
                             <div
                               className="
                                 relative
@@ -573,13 +530,15 @@ export default function HonorsCarousel() {
                                 items-center
                                 justify-center
                                 text-center
-                                gap-1.5
-                                sm:gap-2
+                                gap-2.5
+                                sm:gap-3
                                 px-3
                                 sm:px-5
-                                py-5
-                                sm:py-8
-                                lg:py-10
+                                pt-8
+                                sm:pt-10
+                                lg:pt-12
+                                pb-4
+                                sm:pb-5
                               "
                             >
                               {/* Meta */}

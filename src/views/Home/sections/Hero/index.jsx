@@ -1,123 +1,167 @@
-import Container from "../../../../layout/Container";
+"use client";
 
-const patternBg = "/assets/DualSchool/Schools-Pattern.png";
-const characterImg = "/assets/Hero/hero-character.png";
+import { useEffect, useRef } from "react";
 
-/* کلمات خط دوم با چرخش جزئی — امضای بصری برند */
-const headlineLine2 = [
-  { text: "از", deg: 3 },
-  { text: "اینجا", deg: -2 },
-  { text: "شروع", deg: 2 },
-  { text: "میشه", deg: -3 },
-  { text: "!", deg: 4 },
+const HEADING = [
+  { word: "آینــده", pos: { left: 979.5, top: 60 } },
+  { word: "از ", pos: { left: 1099, top: 151 } },
+  { word: "اینجا", pos: { left: 959, top: 149 } },
+  { word: " شروع", pos: { left: 799, top: 150 } },
+  { word: "میشه", pos: { left: 647, top: 150 } },
 ];
 
-export default function Hero() {
-  return (
-    <section
-      className="relative overflow-hidden pt-20 pb-14 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24 bg-white"
-      dir="rtl"
-    >
-      {/* ── Background Pattern Layer ── */}
-      <div
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none
-                [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
-                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
-      >
-        <img
-          src={patternBg}
-          alt=""
-          aria-hidden="true"
-          className="w-full h-full object-cover opacity-60"
-        />
-      </div>
+const SUBTITLE_TEXT = "اولین هنرستان استارتاپی ایران";
 
-      <Container className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16">
-          
-          {/* ── ستون متن ── */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-right order-2 lg:order-1">
-            
-            {/* تیتر اصلی */}
-            <h1 className="font-black text-[#292827] leading-[1.25] max-w-2xl">
-              <span className="block text-[2.5rem] sm:text-[3.5rem] lg:text-[4.75rem]">
-                آینده
-              </span>
-              <span className="mt-1 flex flex-wrap items-end justify-center lg:justify-start gap-x-2 text-[1.875rem] sm:text-[2.625rem] lg:text-[3.75rem] text-[#59BBAF]">
-                {headlineLine2.map((w) => (
-                  <span
-                    key={w.text}
-                    className="inline-block transition-transform duration-300 hover:scale-110"
-                    style={{ transform: `rotate(${w.deg}deg)` }}
-                  >
-                    {w.text}
-                  </span>
-                ))}
+/* عرض طراحی: کارت ۱۲۰۰px (مثل Container پروژه) داخل بوم ۱۴۴۰px */
+const DESIGN_CARD = 1200;
+
+export default function Hero() {
+  const vpRef = useRef(null);
+  const canvasRef = useRef(null);
+  const subtitleRef = useRef(null);
+
+  /* اسکیل تناسبی: کارت هیرو هم‌عرض Container بقیه سکشن‌ها */
+  useEffect(() => {
+    const vp = vpRef.current;
+    const cv = canvasRef.current;
+    if (!vp || !cv) return;
+    function apply() {
+      const w = vp.clientWidth; // = عرض Container (max 1200)
+      const scale = w / DESIGN_CARD;
+      cv.style.transform = `scale(${scale})`;
+      vp.style.height = `${578 * scale}px`;
+    }
+    apply();
+    window.addEventListener("resize", apply);
+    return () => window.removeEventListener("resize", apply);
+  }, []);
+
+  /* موشن تایپ زیرعنوان */
+  useEffect(() => {
+    const el = subtitleRef.current;
+    if (!el) return;
+    let i = 0;
+    let timer = null;
+    function type() {
+      if (i < SUBTITLE_TEXT.length) {
+        el.textContent = SUBTITLE_TEXT.substring(0, i + 1);
+        i++;
+        timer = setTimeout(type, 60 + Math.random() * 40);
+      }
+    }
+    const start = setTimeout(type, 1200);
+    return () => {
+      clearTimeout(start);
+      if (timer) clearTimeout(timer);
+    };
+  }, []);
+
+  return (
+    /* مثل بقیه سکشن‌ها: padding + حداکثر ۱۲۰۰px وسط‌چین */
+    <section className="relative w-full px-4 sm:px-6 lg:px-8">
+      <div ref={vpRef} className="hero-vp">
+        <div ref={canvasRef} className="hero-canvas">
+          <div
+            className="absolute left-[120px] top-[36px] w-[1200px] h-[510px] rounded-[36px] overflow-hidden"
+            style={{
+              backgroundColor: "#58BDAF",
+              backgroundImage: "url('/assets/Hero/pattern.png')",
+              backgroundSize: "100% 100%",
+            }}
+          >
+            <img
+              src="/assets/Hero/character.png"
+              alt=""
+              className="absolute left-[50px] top-[42px] w-[500px] pointer-events-none"
+              draggable={false}
+            />
+
+            <h1 dir="rtl" className="absolute inset-0 m-0">
+              {HEADING.map((item, idx) => (
+                <span
+                  key={idx}
+                  className="absolute text-white whitespace-nowrap text-right"
+                  style={{
+                    left: item.pos.left,
+                    top: item.pos.top,
+                    fontFamily: "'IRANSansX', sans-serif",
+                    fontWeight: 950,
+                    fontSize: "59.45px",
+                  }}
+                >
+                  {item.word}
+                </span>
+              ))}
+              <span
+                className="absolute text-white"
+                style={{
+                  left: 580,
+                  top: 152,
+                  fontFamily: "'IRANSansX', sans-serif",
+                  fontWeight: 950,
+                  fontSize: "59.45px",
+                }}
+              >
+                <span
+                  className="inline-block"
+                  style={{ direction: "ltr", unicodeBidi: "isolate" }}
+                >
+                  {[0, 1, 2].map((i) => (
+                    <span
+                      key={i}
+                      className="inline-block opacity-0"
+                      style={{
+                        animation: `dotIn 0.35s steps(1,end) forwards ${
+                          0.2 + i * 0.3
+                        }s`,
+                      }}
+                    >
+                      .
+                    </span>
+                  ))}
+                </span>
               </span>
             </h1>
 
-            {/* بج: اولین مدرسه استارتاپی ایران */}
-            <div
-              className="mt-6 inline-flex items-center gap-2 bg-white text-[#292827] font-bold text-lg sm:text-xl lg:text-2xl px-6 py-3.5 sm:px-7 sm:py-4 rounded-tl-none rounded-tr-[17px] rounded-br-none rounded-bl-[17px] border border-[#EAEAEA] transition-transform duration-200 hover:-translate-y-0.5"
-              style={{ boxShadow: "2.75px 2.75px 0 #000000" }}
-            >
-              اولین مدرسه استارتاپی ایران
-            </div>
-
-            {/* دکمه‌ها */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-8">
-              {/* دکمه اصلی */}
-              <button className="h-12 sm:h-[3.375rem] px-7 sm:px-8 bg-[#202A5A] text-white font-bold text-sm sm:text-base rounded-[12px] transition-all duration-200 hover:bg-[#1D2651] active:scale-95 active:bg-[#1A2248]"
-                style={{ boxShadow: "0 4px 12px rgba(32, 42, 90, 0.25)" }}
-              >
-                ثبت‌نام و رزرو مصاحبه
-              </button>
-              
-              {/* دکمه ثانویه (رفع باگ خوانایی و تغییر به حالت Outline) */}
-              <button className="h-12 sm:h-[3.375rem] px-7 sm:px-8 border-2 border-ink text-ink font-bold text-sm sm:text-base rounded-[12px] transition-all duration-200 hover:bg-[#E6F5F3] hover:border-[#E6F5F3] active:scale-95 active:bg-[#CCEAE6]">
-                درخواست مشاوره
-              </button>
-            </div>
-          </div>
-
-          {/* ── ستون تصویر ── */}
-          <div className="relative order-1 lg:order-2 flex justify-center">
-            {/* باکس پس‌زمینه فیروزه‌ای چرخیده */}
-            <div
-              className="absolute inset-0 m-auto w-[82%] h-[82%] bg-[#59BBAF] rounded-[34px] rotate-3 transition-transform duration-300 hover:rotate-[5deg]"
-              style={{ boxShadow: "6px 6px 0 #202A5A" }}
+            <span
+              ref={subtitleRef}
+              dir="rtl"
+              className="absolute left-[622px] top-[273px] w-[524px] whitespace-nowrap text-right"
+              style={{
+                color: "#202A5A",
+                fontFamily: "'IRANSansX', sans-serif",
+                fontWeight: 900,
+                fontSize: "38.96px",
+              }}
             />
 
-            <div className="relative w-[72%] sm:w-[62%] lg:w-full max-w-md">
-              {/* تصویر کاراکتر با افکت هاور */}
+            <a
+              href="#"
+              className="absolute block no-underline cursor-pointer z-[2]"
+              style={{ left: 830, top: 372, width: 370, height: 138 }}
+            >
               <img
-                src={characterImg}
-                alt="منتور رکاد"
-                className="relative z-10 w-full h-auto select-none pointer-events-none transition-transform duration-500 ease-out hover:scale-[1.03]"
+                src="/assets/Hero/pill-navy.png"
+                alt="ثبت‌نام و رزرو مصاحبه"
+                className="absolute left-0 top-0 block pointer-events-none z-[1] w-[370px] h-[138px]"
+                draggable={false}
               />
-
-              {/* بج شناور */}
-              <div
-                className="absolute -bottom-3 -left-3 sm:-bottom-5 sm:-left-5 z-20 bg-white rounded-[17px] px-4 py-3 sm:px-5 sm:py-3.5 flex items-center gap-3 border border-[#EAEAEA] transition-transform duration-300 hover:scale-105"
-                style={{ boxShadow: "2.75px 2.75px 0 #292827" }}
-              >
-                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#EEF8F7] flex items-center justify-center text-base shrink-0">
-                  🚀
-                </span>
-                <div>
-                  <div className="font-bold text-[#292827] text-xs sm:text-sm whitespace-nowrap">
-                    مسیر یادگیری فعال
-                  </div>
-                  <div className="text-[#292827]/60 text-[0.65rem] sm:text-xs font-bold">
-                    همین امروز شروع کن
-                  </div>
-                </div>
-              </div>
-            </div>
+            </a>
+            <a
+              href="#"
+              className="absolute block no-underline cursor-pointer z-[2]"
+              style={{ left: 581, top: 418, width: 389, height: 92 }}
+            >
+              <img
+                src="/assets/Hero/pill-white.png"
+                alt="درخواست مشاوره"
+                className="absolute left-0 top-0 block pointer-events-none z-[1] w-[389px] h-[92px]"
+                draggable={false}
+              />
+            </a>
           </div>
-          
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

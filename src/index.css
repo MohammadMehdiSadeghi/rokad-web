@@ -116,3 +116,39 @@ html {
     background-color: #4AB7AA;
     background-clip: content-box;
 }
+/* ===== Hero: typing dots animation ===== */
+@keyframes dotIn {
+  to { opacity: 1; }
+}
+
+/* ===== Hero: fixed canvas, proportional scale (هم‌عرض Container پروژه) ===== */
+.hero-vp {
+  width: 100%;
+  max-width: 75rem; /* 1200px — مثل Container */
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  height: 578px;
+}
+.hero-canvas {
+  flex: 0 0 auto;
+  transform-origin: top center;
+  position: relative;
+  width: 1440px;
+  height: 578px;
+  overflow: hidden;
+  background: transparent;
+}
+/* fallback قبل از اجرای JS — دقیقاً مثل فرمول JS (w/1200) */
+@media (max-width: 1200px) {
+  .hero-vp { height: calc(100dvw * 578 / 1200); }
+  .hero-canvas { transform: scale(calc(100dvw / 1200px)); }
+}
+/* جبران هدر fixed: هیرو دقیقاً زیر هدر شروع شود */
+@media (max-width: 639px) {
+  .hero-vp { margin-top: 63px; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero-vp { margin-top: 43px; }
+}

@@ -49,6 +49,9 @@ const cards = [
   },
 ];
 
+// تعداد کارت در هر «صفحه» در دسکتاپ
+const CARDS_PER_PAGE = 4;
+
 /**
  * این هوک مشخص می‌کنه از بین یه لیست از عنصرها (refs)، کدوم یکی
  * از نظر «مرکز عنصر» به «مرکز صفحه (50vh)» نزدیک‌تره.
@@ -136,7 +139,7 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
       style={{ "--tilt": `${tilt}deg` }}
       data-active={isActive || undefined}
       className={`
-      group p-3 xs:p-4 sm:p-6 flex flex-col gap-2 sm:gap-4 min-h-[8rem] sm:min-h-[10rem] items-center text-center
+      group p-4 xs:p-5 sm:p-6 flex flex-col justify-center gap-2.5 sm:gap-4 min-h-[8rem] sm:min-h-[10rem] items-center text-center
       backdrop-blur-[19.06px] rotate-[var(--tilt)] hover:rotate-0
       transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
       hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
@@ -150,10 +153,10 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
     >
       {/* Icon */}
       <div
-        className={`w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0 mx-auto transition-colors duration-500 rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${isActive ? "bg-[#202A5A]" : ""}`}
+        className={`w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0 mx-auto transition-colors duration-500 rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${isActive ? "bg-[#202A5A]" : ""}`}
       >
         <span
-          className={`w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
+          className={`w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
             isActive ? "text-white" : ""
           }`}
         >
@@ -180,8 +183,104 @@ export default function Ecosystem() {
     maxPercent: 70,
   });
 
+  // ── اسکرول لاک دسکتاپ ──
+  // وقتی کاربر به سکشن می‌رسه: ۴ کارت کنار هم. یک اسکرول به پایین →
+  // کارت‌های بعدی از سمت راست میان و جایگزین می‌شن. یک اسکرول به بالا →
+  // کارت‌های قبلی از سمت چپ میان و جایگزین می‌شن. بعد از جابجایی بین
+  // دو صفحه، قفل باز میشه و اسکرول به سکشن بعدی می‌ره.
+  const sectionRef = useRef(null);
+  const pageRef = useRef(0);
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || typeof window === "undefined") return;
+
+    let lockActive = window.innerWidth >= 1024;
+    // وقتی قفل فعاله، موقعیت اسکرول رو به‌خاطر می‌سپاریم تا با نوار اسکرول
+    // یا هر وسیله‌ی دیگه نتونه از محدوده خارج بشه
+    let lockedScrollY = null;
+    let lockTimer = null;
+
+    const onResize = () => {
+      lockActive = window.innerWidth >= 1024;
+    };
+    window.addEventListener("resize", onResize);
+
+    // آیا مرکز سکشن نزدیکِ مرکز صفحه است؟
+    const isSectionCentered = () => {
+      const rect = section.getBoundingClientRect();
+      const mid = window.innerHeight / 2;
+      return rect.top < mid && rect.bottom > mid;
+    };
+
+    const goPage = (next) => {
+      if (next < 0 || next >= totalPages) return false;
+      setPage(next);
+      return true;
+    };
+
+    // ── اسکرول با موس / تاچ‌پد ──
+    const onWheel = (e) => {
+      if (!lockActive) return;
+      // فقط وقتی مرکز سکشن نزدیکِ مرکز صفحه‌ست، رفتار قفل رو فعال کن
+      if (!isSectionCentered()) return;
+
+      const delta = e.deltaY;
+      if (Math.abs(delta) < 8) return;
+
+      const goingDown = delta > 0;
+      const target = pageRef.current + (goingDown ? 1 : -1);
+
+      // اگه به لبه رسیدیم → قفل رو آزاد کن و بذار صفحه عادی اسکرول شه
+      if (target < 0 || target >= totalPages) {
+        lockedScrollY = null;
+        return;
+      }
+
+      e.preventDefault();
+      goPage(target);
+      // قفل کوتاه فقط برای جلوگیری از پریدن صفحه وسطِ انیمیشن؛
+      // به محض اینکه اسکرول به لبه رسید یا سکشن از وسط خارج شد، آزاد می‌شه
+      lockedScrollY = window.scrollY;
+      clearTimeout(lockTimer);
+      lockTimer = setTimeout(() => {
+        lockedScrollY = null;
+      }, 300);
+    };
+
+    // ── نوار اسکرول / کیبورد / هر اسکرول دیگه ──
+    const onScroll = () => {
+      if (!lockActive || lockedScrollY === null) return;
+      // اگه سکشن از وسط دیدگاه خارج شد → قفل رو رها کن (کاربر داره می‌ره)
+      if (!isSectionCentered()) {
+        lockedScrollY = null;
+        return;
+      }
+      // فقط تا پایان انیمیشن، اسکرول رو سر جای قفل نگه دار
+      if (Math.abs(window.scrollY - lockedScrollY) > 2) {
+        window.scrollTo(0, lockedScrollY);
+      }
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      if (lockTimer) clearTimeout(lockTimer);
+    };
+  }, [totalPages]);
+
+  // همیشه pageRef رو با page به‌روز نگه می‌داریم
+  pageRef.current = page;
+
   return (
       <section
+        ref={sectionRef}
         className="py-[3rem] sm:py-[3.5rem] lg:py-[4rem] px-4 sm:px-6 relative overflow-hidden"
         style={{
           background:
@@ -216,8 +315,8 @@ export default function Ecosystem() {
             <span className="inline-block -rotate-[1.9deg]">رشد</span>
           </h2>
 
-          {/* Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 xs:gap-3 sm:gap-5">
+          {/* ── موبایل/تبلت: grid معمولی (همه‌ی کارت‌ها) ── */}
+          <div className="lg:hidden grid grid-cols-2 gap-2.5 xs:gap-3 sm:gap-5">
             {cards.map((c, i) => (
               <EcoCard
                 key={i}
@@ -226,6 +325,48 @@ export default function Ecosystem() {
                 cardRef={setRef(i)}
               />
             ))}
+          </div>
+
+          {/* ── دسکتاپ: صفحات ۴تایی با اسکرول لاک ── */}
+          <div className="hidden lg:block relative" dir="rtl">
+            {/* بدون overflow-hidden — وگرنه لبه‌ی کارت‌های چرخیده (rotate) بریده می‌شن */}
+            <div className="relative min-h-[10rem] sm:min-h-[11rem]">
+              {Array.from({ length: totalPages }).map((_, pg) => {
+                const group = cards.slice(pg * CARDS_PER_PAGE, (pg + 1) * CARDS_PER_PAGE);
+                const isCurrent = pg === page;
+                // موقعیت هر صفحه نسبت به صفحه‌ی فعلی — این خودش جهت اسلاید رو می‌سازه:
+                // صفحه‌ی بعدی از راست (+30%) میاد وسط، صفحه‌ی قبلی به چپ (-30%) می‌ره
+                const slideX = isCurrent
+                  ? "translate-x-0 opacity-100"
+                  : pg < page
+                    ? "-translate-x-[30%] opacity-0"
+                    : "translate-x-[30%] opacity-0";
+                return (
+                  <div
+                    key={pg}
+                    className={`grid grid-cols-4 gap-5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] absolute inset-0 ${slideX}`}
+                    aria-hidden={!isCurrent}
+                    style={{ pointerEvents: isCurrent ? "auto" : "none" }}
+                  >
+                    {group.map((c, i) => (
+                      <EcoCard key={i} {...c} isActive={false} />
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* نشانگر صفحه */}
+            <div className="flex items-center justify-center gap-2 mt-8">
+              {Array.from({ length: totalPages }).map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === page ? "w-6 bg-[#59BBAF]" : "w-1.5 bg-white/25"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </Container>
       </section>

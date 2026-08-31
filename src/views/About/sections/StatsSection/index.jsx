@@ -56,7 +56,7 @@ export default function AboutStats() {
         <span className="inline-block rotate-1 text-ink">۹ سال تلاش،</span>{" "}
         <span className="inline-block -rotate-3 text-teal">در یه نگاه</span>
       </h2>
-      <p className="relative z-10 text-center text-[0.875rem] sm:text-[1rem] text-ink/50 mb-8 sm:mb-10 max-w-lg mx-auto">ادnumbers همه چیز رو نمی‌گن، ولی این‌ها رو باید بدونی:</p>
+      <p className="relative z-10 text-center text-[0.875rem] sm:text-[1rem] text-ink/50 mb-8 sm:mb-10 max-w-lg mx-auto">اعداد همه چیز رو نمی‌گن، ولی این‌ها رو باید بدونی:</p>
       <Container className="relative z-10 grid grid-cols-2 xl:grid-cols-4 gap-[1.25rem] sm:gap-[2rem] [grid-auto-rows:1fr]">
         {stats.map((s) => (
           <div key={s.label} className="h-full"><StatCard {...s} /></div>

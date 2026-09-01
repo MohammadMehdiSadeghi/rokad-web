@@ -13,9 +13,9 @@ const headlineWords = [
 ];
 
 const badges = [
-  { label: "اولین هنرستان استارتاپی ایران", color: "bg-teal" },
-  { label: "۲۲۰۰+ رکادی", color: "bg-magenta" },
-  { label: "٪۷۵ نرخ اشتغال", color: "bg-orange" },
+  { label: "اولین هنرستان استارتاپی ایران", color: "bg-teal/10", border: "border-teal", textColor: "text-teal" },
+  { label: "۲۲۰۰+ رکادی", color: "bg-magenta/10", border: "border-magenta", textColor: "text-magenta" },
+  { label: "٪۷۵ نرخ اشتغال", color: "bg-orange/10", border: "border-orange", textColor: "text-orange" },
 ];
 
 export default function AboutHero() {
@@ -54,20 +54,20 @@ export default function AboutHero() {
             </p>
 
             <div className="flex flex-wrap gap-4 sm:gap-5">
-              {/* پیش‌ثبت‌نام کن — بوردر و سایه سخت تیل، ردیوس یکی‌درمیون */}
-                            <a
-                              href="#"
-                              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white border-[0.1875rem] border-teal text-teal font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] shadow-[4px_5px_0_0_rgba(88,189,175,0.9)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_3px_0_0_rgba(88,189,175,0.9)]"
-                            >
-                              پیش‌ثبت‌نام کن
-                            </a>
-                            {/* داستانمون رو بخون — بوردر و سایه سخت سرمه‌ای، ردیوس یکی‌درمیون */}
-                            <a
-                              href="#story"
-                              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white border-[0.1875rem] border-[#21295A] text-[#21295A] font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] shadow-[4px_5px_0_0_rgba(33,41,90,0.9)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_3px_0_0_rgba(33,41,90,0.9)]"
-                            >
-                              داستانمون رو بخون
-                            </a>
+              {/* پیش‌ثبت‌نام کن */}
+              <a
+                href="#"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-teal/10 border-[0.1875rem] border-teal text-teal font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0.84375rem_0_0.84375rem_0] [corner-shape:squircle] shadow-[2px_3px_0_0_rgba(88,189,175,0.9)] transition-all duration-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_2px_0_0_rgba(88,189,175,0.9)]"
+              >
+                پیش‌ثبت‌نام کن
+              </a>
+              {/* داستانمون رو بخون */}
+              <a
+                href="#story"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-[#21295A]/10 border-[0.1875rem] border-[#21295A] text-[#21295A] font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0.84375rem_0_0.84375rem_0] [corner-shape:squircle] shadow-[2px_3px_0_0_rgba(33,41,90,0.9)] transition-all duration-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_2px_0_0_rgba(33,41,90,0.9)]"
+              >
+                داستانمون رو بخون
+              </a>
             </div>
           </div>
 
@@ -77,16 +77,20 @@ export default function AboutHero() {
               <img src={characterImg} alt="کاراکترهای رکاد" className="w-full h-auto object-contain select-none pointer-events-none" />
             </div>
 
-            {/* بج‌های آمار — قرصی شکل رنگی با سایه */}
+            {/* بج‌های آمار — شبیه دکمه‌ها: رنگی با طیف کم + ردیوس همه‌گرد + روتیت یکی‌درمیون + شدو مشکی */}
             <div className="flex flex-wrap justify-center gap-3">
-              {badges.map((b) => (
-                <span
-                  key={b.label}
-                  className={`${b.color} text-white text-[0.8125rem] sm:text-[0.875rem] font-semibold px-4 py-2 rounded-full shadow-[0_3px_8px_rgba(0,0,0,0.12)]`}
-                >
-                  {b.label}
-                </span>
-              ))}
+              {badges.map((b, i) => {
+                const rot = i % 2 === 0 ? 1 : -1;
+                return (
+                  <span
+                    key={b.label}
+                    className={`${b.color} ${b.border} border-[0.1875rem] ${b.textColor} text-[0.8125rem] sm:text-[0.875rem] font-semibold px-4 py-2 rounded-full shadow-[2px_3px_0_0_rgba(0,0,0,0.9)]`}
+                    style={{ transform: `rotate(${rot}deg)` }}
+                  >
+                    {b.label}
+                  </span>
+                );
+              })}
             </div>
           </div>
         </div>

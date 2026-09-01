@@ -1,6 +1,6 @@
 import Container from "../../../../layout/Container";
 
-const cardPattern = "/assets/about/Hero/Hero-Pattern.png";
+const cardPattern = "/assets/about/StatsSection/TrustSection-Pattern.png";
 
 const missions = [
   {
@@ -51,7 +51,7 @@ export default function AboutMission() {
                 <div className={`relative z-10 ${t.bg} border-2 border-black ${squircle} p-6 sm:p-8 lg:p-10 min-h-[16rem] sm:min-h-[18rem] lg:min-h-[20rem] flex flex-col justify-between overflow-hidden`}>
                   {/* پترن */}
                   <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                    <img src={cardPattern} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-20 mix-blend-overlay" />
+                    <img src={cardPattern} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-100 select-none" />
                   </div>
                   <div className="relative z-10 flex flex-col gap-4 sm:gap-5">
                     <h3 className="font-black text-[1.25rem] sm:text-[1.625rem] lg:text-[1.875rem] leading-[1.3] text-white">{m.title}</h3>

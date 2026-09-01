@@ -3,11 +3,11 @@ import Container from "../../../../layout/Container";
 const patternBg = "/assets/Pattern/layout-pattern.png";
 
 const awards = [
-  { num: "۱", color: "bg-[#E0195B]", text: "برگزاری لیگ ملی کسب‌وکار نوجوانان ایران با حمایت اتاق بازرگانی ایران | بهمن ۱۳۹۸" },
-  { num: "۲", color: "bg-[#58BDAF]", text: "طراحی و برگزاری دو دوره فرهنگستان نوآوری و کارآفرینی نوجوانان در اتاق بازرگانی استان" },
-  { num: "۳", color: "bg-[#202A5A]", text: "انتخاب رکاد به‌عنوان سفیر کارآفرینی توسط اداره کل تعاون، کار و رفاه اجتماعی استان" },
-  { num: "۴", color: "bg-[#F5A623]", text: "تقدیر شده در هفته جهانی کارآفرینی از سوی استانداری خراسان رضوی | آبان ۱۳۹۷" },
-  { num: "۵", color: "bg-[#58BDAF]", text: "تأسیس اولین هنرستان استارتاپی پسرانه ایران در مشهد | ۱۳۹۸" },
+  { num: "۱", color: "#E0195B", text: "برگزاری لیگ ملی کسب‌وکار نوجوانان ایران با حمایت اتاق بازرگانی ایران | بهمن ۱۳۹۸" },
+  { num: "۲", color: "#58BDAF", text: "طراحی و برگزاری دو دوره فرهنگستان نوآوری و کارآفرینی نوجوانان در اتاق بازرگانی استان" },
+  { num: "۳", color: "#202A5A", text: "انتخاب رکاد به‌عنوان سفیر کارآفرینی توسط اداره کل تعاون، کار و رفاه اجتماعی استان" },
+  { num: "۴", color: "#F5A623", text: "تقدیر شده در هفته جهانی کارآفرینی از سوی استانداری خراسان رضوی | آبان ۱۳۹۷" },
+  { num: "۵", color: "#58BDAF", text: "تأسیس اولین هنرستان استارتاپی پسرانه ایران در مشهد | ۱۳۹۸" },
 ];
 
 export default function AboutAwards() {
@@ -27,17 +27,40 @@ export default function AboutAwards() {
           </h2>
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-16 gap-y-4 sm:gap-y-5 max-w-4xl mx-auto">
-          {awards.map((a) => (
-            <div key={a.num} className="flex items-start gap-3 sm:gap-4">
-              <span className={`flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full ${a.color} text-white text-[0.8125rem] sm:text-[0.9375rem] font-bold`}>
-                {a.num}
-              </span>
-              <p className="text-[0.8125rem] sm:text-[0.9375rem] text-[#292827] leading-[1.7] text-right">
-                {a.text}
-              </p>
-            </div>
-          ))}
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-20 gap-y-5 sm:gap-y-6 max-w-5xl mx-auto">
+          {/* ستون راست — آیتم‌های ۱ تا ۵ */}
+          <div className="flex flex-col gap-5 sm:gap-6">
+            {awards.map((a) => (
+              <div key={`r-${a.num}`} className="flex items-start gap-3 sm:gap-4">
+                <span
+                  className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full text-white text-[0.8125rem] sm:text-[0.9375rem] font-bold"
+                  style={{ backgroundColor: a.color }}
+                >
+                  {a.num}
+                </span>
+                <p className="text-[0.8125rem] sm:text-[0.9375rem] text-[#292827] leading-[1.7] text-right">
+                  {a.text}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* ستون چپ — آیتم‌های ۱ تا ۵ */}
+          <div className="flex flex-col gap-5 sm:gap-6">
+            {awards.map((a) => (
+              <div key={`l-${a.num}`} className="flex items-start gap-3 sm:gap-4">
+                <span
+                  className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full text-white text-[0.8125rem] sm:text-[0.9375rem] font-bold"
+                  style={{ backgroundColor: a.color }}
+                >
+                  {a.num}
+                </span>
+                <p className="text-[0.8125rem] sm:text-[0.9375rem] text-[#292827] leading-[1.7] text-right">
+                  {a.text}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

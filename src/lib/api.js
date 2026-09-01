@@ -100,17 +100,19 @@ import fallbackStudents from "./fallback/students";
 import fallbackAwards from "./fallback/awards";
 
 // ==================================================================
-//  تابع اجرای کلی با fallback — هر سکشن فقط یک خط برای دیتای خودش
+//  تابع اجرای کلی — دیتا مستقیم از بک‌اند
+//  اگه API در دسترس نباشه یا دیتابیس خالی باشه، [] برمی‌گرده
+//  تا سکشن خالی بمونه (هیچ محتوای fallback نشون داده نمی‌شه)
 // ==================================================================
 async function withFallback(fetcher, fallback, mapper) {
   try {
     const data = await fetcher();
     const list = Array.isArray(data) ? data : [];
-    if (!list.length) return fallback;
+    if (!list.length) return [];
     return mapper ? list.map(mapper) : list;
   } catch {
-    // API در دسترس نیست → محتوای قبلی سایت
-    return fallback;
+    // API در دسترس نیست → خالی (نه fallback)
+    return [];
   }
 }
 
@@ -268,9 +270,9 @@ export const fetchStats = async () => {
         },
       ];
     }
-    return fallbackStats;
+    return [];
   } catch {
-    return fallbackStats;
+    return [];
   }
 };
 

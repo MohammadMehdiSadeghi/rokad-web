@@ -211,8 +211,8 @@ export default function TeamTeaser() {
         {/* ── هدر ── */}
         <div className="max-w-[50rem] mb-10 lg:mb-12">
           <h2 className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 font-black text-[1.75rem] sm:text-[2.25rem] lg:text-[2.625rem] leading-[1.3] text-[#292827]">
-            <span className="inline-block -rotate-3">آدم‌های</span>
-            <span className="inline-block rotate-3 text-[#e0195b]">رُکاد</span>
+            <span className="inline-block -rotate-3">عوامل</span>
+                        <span className="inline-block rotate-3 text-[#e0195b]">رکاد</span>
           </h2>
           <p className="font-semibold text-[#777777] text-[0.875rem] sm:text-[0.9375rem] lg:text-[1.0625rem] leading-[1.9] mt-3 max-w-[34rem]">
             هر پروژه یک قصه داره، پشت هر قصه یک تیم — امروز با چهار نفر از این
@@ -225,7 +225,7 @@ export default function TeamTeaser() {
           {/* ════ Featured — بنیان‌گذار (راست در RTL) ════ */}
           <div className="relative order-1">
             <div className="absolute -top-4 -right-3 sm:-right-4 z-20 bg-[#ffd641] text-[#292827] border-2 border-[#292827] rounded-[0_0.75rem_0_0.75rem] px-3 py-1.5 font-black text-[0.75rem] rotate-3 shadow-[3px_3px_0_#292827] whitespace-nowrap">
-              امضای رُکاد
+              امضای رکاد
             </div>
 
             <div className="relative -rotate-1">
@@ -310,7 +310,7 @@ export default function TeamTeaser() {
             href="#"
             className="relative inline-flex items-center justify-center gap-2 -rotate-1 hover:rotate-0 hover:-translate-y-1 transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[0.9375rem] sm:text-[1rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] [corner-shape:squircle] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] hover:shadow-[6px_6px_0_#21295a] whitespace-nowrap"
           >
-            مشاهده همه عوامل
+            مشاهده همه
             <ChevronLeftIcon className="w-4 h-4" />
           </a>
         </div>

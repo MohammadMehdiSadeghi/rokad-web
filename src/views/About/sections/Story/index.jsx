@@ -73,12 +73,6 @@ export default function AboutStory() {
 
         {/* ── تایم‌لاین ۳ ستونه: سال | خطچین | متن ── */}
                 <div className="relative max-w-[60rem] mx-auto">
-                  {/* خط پیوسته پس‌زمینه — تمام قد */}
-                  <div className="absolute top-0 bottom-0 right-[6.5rem] sm:right-[9.5rem] lg:right-[11.5rem] w-[0.125rem] hidden lg:block"
-                    style={{
-                      backgroundImage: "repeating-linear-gradient(to bottom, #E5E7EB 0 6px, transparent 6px 12px)",
-                    }}
-                  />
                   {milestones.map((m, i) => (
                     <div key={m.year} className="relative grid grid-cols-[auto_auto_1fr] items-start gap-4 sm:gap-6 lg:gap-8 pb-12 sm:pb-16 lg:pb-20">
 
@@ -92,14 +86,14 @@ export default function AboutStory() {
                         </span>
                       </div>
 
-                      {/* ستون ۲: دایره توخالی + خطچین رنگی — وسط */}
+                      {/* ستون ۲: دایره توخالی بالا + خطچین رنگی زیرش — وسط */}
                       <div className="flex flex-col items-center flex-shrink-0 w-6 sm:w-8 self-stretch">
-                        <div className="w-[0.125rem] flex-1 min-h-[6rem]"
+                        <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[0.1875rem] ${m.dotColor} z-10`} />
+                        <div className="w-[0.125rem] flex-1"
                           style={{
                             backgroundImage: `repeating-linear-gradient(to bottom, ${m.lineColor} 0 6px, transparent 6px 12px)`,
                           }}
                         />
-                        <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[0.1875rem] ${m.dotColor} -mt-2`} />
                       </div>
 
                       {/* ستون ۳: محتوای متنی — سمت چپ */}

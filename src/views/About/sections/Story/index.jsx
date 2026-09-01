@@ -89,7 +89,7 @@ export default function AboutStory() {
                       {/* ستون ۲: دایره + خطچین پیوسته تا انتهای ردیف — وسط */}
                       <div className="flex flex-col items-center flex-shrink-0 w-6 sm:w-8 self-stretch">
                         <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[0.1875rem] ${m.dotColor} z-10`} />
-                        <div className={`w-[0.125rem] flex-1 ${i === milestones.length - 1 ? "max-h-[21rem]" : ""}`}
+                        <div className={`w-[0.125rem] flex-1 ${i === milestones.length - 1 ? "max-h-[18rem]" : ""}`}
                                                   style={{
                             backgroundImage: `repeating-linear-gradient(to bottom, ${m.lineColor} 0 12px, transparent 12px 20px)`,
                           }}

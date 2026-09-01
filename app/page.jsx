@@ -14,6 +14,7 @@ const Faq = dynamic(() => import("../src/views/Home/sections/Faq"));
 const Honors = dynamic(() => import("../src/views/Home/sections/Honors"));
 const Rokadians = dynamic(() => import("../src/views/Home/sections/Rokadians"));
 const Comments = dynamic(() => import("../src/views/Home/sections/Comments"));
+const TeamTeaser = dynamic(() => import("../src/views/Home/sections/TeamTeaser"));
 const Blogs = dynamic(() => import("../src/views/Home/sections/Blogs"));
 const FinalCTA = dynamic(() => import("../src/views/Home/sections/FinalCTA"));
 
@@ -32,6 +33,7 @@ export default function Home() {
       <Honors />
       <Rokadians />
       <Comments />
+      <TeamTeaser />
       <Blogs />
       <FinalCTA />
     </>

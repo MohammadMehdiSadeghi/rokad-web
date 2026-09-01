@@ -10,6 +10,7 @@ import Faq from "./sections/Faq";
 import Honors from "./sections/Honors";
 import Rokadians from "./sections/Rokadians";
 import Comments from "./sections/Comments";
+import TeamTeaser from "./sections/TeamTeaser";
 import Blogs from "./sections/Blogs";
 import FinalCTA from "./sections/FinalCTA";
 
@@ -28,6 +29,7 @@ export default function Home() {
       <Honors />
       <Rokadians />
       <Comments />
+      <TeamTeaser />
       <Blogs />
       <FinalCTA />
     </>

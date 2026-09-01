@@ -86,7 +86,7 @@ function CtaBtn({ label, color }) {
 ========================================================= */
 
 function BranchCard({ branch, index }) {
-  const rots = [-1, 1, 1.5];
+  const rots = [-3, 3, -3];
   const rotate = rots[index % rots.length];
 
   return (
@@ -100,7 +100,7 @@ function BranchCard({ branch, index }) {
         className="absolute inset-0 rounded-[0_2rem_0_2rem] [corner-shape:squircle]"
         style={{
           background: branch.color,
-          transform: "translate(-6px, 6px)",
+          transform: "translate(0.3125rem, 0.3125rem)",
         }}
       />
       {/* کارت جلو */}
@@ -237,11 +237,8 @@ export default function RokadHierarchy() {
 
           {/* زیرنویس */}
           <p className="mt-5 sm:mt-6 text-[0.9375rem] sm:text-[1.0625rem] font-medium leading-[1.85] text-[#292827] max-w-[48rem]">
-            یک <i className="font-bold">رکادین</i> در سه فضای زنده به‌صورت
-            هم‌زمان حضور دارد:
-            <b style={{ color: "#F8A41D" }}> کالج</b>،
-            <b style={{ color: "#59BBAF" }}> شتاب‌دهنده</b> و
-            <b style={{ color: "#652D90" }}> کافه</b>.
+            یک رکادین در سه فضای زنده به‌صورت هم‌زمان حضور دارد:
+            کالج، شتاب‌دهنده و کافه.
             سه لایهٔ همزمان از یک زندگی — نه سه مرحلهٔ جدا.
           </p>
         </div>

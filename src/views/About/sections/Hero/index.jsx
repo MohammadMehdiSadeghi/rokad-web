@@ -54,20 +54,20 @@ export default function AboutHero() {
             </p>
 
             <div className="flex flex-wrap gap-4 sm:gap-5">
-              {/* پیش‌ثبت‌نام کن — بوردر و سایه سخت تیل */}
-              <a
-                href="#"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white border-[0.1875rem] border-teal text-teal font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0.625rem] shadow-[4px_5px_0_0_rgba(88,189,175,0.9)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_3px_0_0_rgba(88,189,175,0.9)]"
-              >
-                پیش‌ثبت‌نام کن
-              </a>
-              {/* داستانمون رو بخون — بوردر و سایه سخت سرمه‌ای */}
-              <a
-                href="#story"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white border-[0.1875rem] border-[#21295A] text-[#21295A] font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0.625rem] shadow-[4px_5px_0_0_rgba(33,41,90,0.9)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_3px_0_0_rgba(33,41,90,0.9)]"
-              >
-                داستانمون رو بخون
-              </a>
+              {/* پیش‌ثبت‌نام کن — بوردر و سایه سخت تیل، ردیوس یکی‌درمیون */}
+                            <a
+                              href="#"
+                              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white border-[0.1875rem] border-teal text-teal font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] shadow-[4px_5px_0_0_rgba(88,189,175,0.9)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_3px_0_0_rgba(88,189,175,0.9)]"
+                            >
+                              پیش‌ثبت‌نام کن
+                            </a>
+                            {/* داستانمون رو بخون — بوردر و سایه سخت سرمه‌ای، ردیوس یکی‌درمیون */}
+                            <a
+                              href="#story"
+                              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white border-[0.1875rem] border-[#21295A] text-[#21295A] font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] shadow-[4px_5px_0_0_rgba(33,41,90,0.9)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_3px_0_0_rgba(33,41,90,0.9)]"
+                            >
+                              داستانمون رو بخون
+                            </a>
             </div>
           </div>
 

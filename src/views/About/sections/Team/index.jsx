@@ -50,7 +50,9 @@ function TeamCard({ member, index }) {
             <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top" />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <img src={patternBg} alt="" className="w-full h-full object-cover opacity-30" />
+              <span className="text-white font-black text-[4rem] leading-none select-none">
+                {member.name.charAt(0)}
+              </span>
             </div>
           )}
         </div>

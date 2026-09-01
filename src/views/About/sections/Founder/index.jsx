@@ -33,12 +33,8 @@ function ShieldCheckIcon({ className }) {
 export default function AboutFounder() {
   return (
     <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
-        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-100" />
-      </div>
 
-      <Container className="relative z-10">
+          <Container className="relative z-10">
         <div className="relative mx-auto max-w-6xl">
           {/* شدو سرمهای سخت 8px مطابق فیگما */}
           <div className="absolute top-[0.5rem] left-[0.5rem] w-full h-full bg-[#202A5A] rounded-tl-[2.1875rem] rounded-br-[2.1875rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]" />
@@ -47,7 +43,7 @@ export default function AboutFounder() {
           <div className="relative z-10 bg-[#E9EAEF] border-[0.125rem] border-[#202A5A] rounded-tl-[2.1875rem] rounded-br-[2.1875rem] rounded-tr-none rounded-bl-none [corner-shape:squircle] overflow-hidden">
             {/* Pattern overlay */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-10" />
+              <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-100" />
             </div>
 
             {/* Content: flex row (RTL) */}

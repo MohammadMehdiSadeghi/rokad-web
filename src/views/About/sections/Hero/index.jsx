@@ -13,9 +13,9 @@ const headlineWords = [
 ];
 
 const badges = [
-  { label: "اولین هنرستان استارتاپی ایران", color: "bg-teal/10", border: "border-teal", textColor: "text-teal" },
-  { label: "۲۲۰۰+ رکادی", color: "bg-magenta/10", border: "border-magenta", textColor: "text-magenta" },
-  { label: "٪۷۵ نرخ اشتغال", color: "bg-orange/10", border: "border-orange", textColor: "text-orange" },
+  { label: "اولین هنرستان استارتاپی ایران", color: "bg-teal" },
+  { label: "۲۲۰۰+ رکادی", color: "bg-magenta" },
+  { label: "٪۷۵ نرخ اشتغال", color: "bg-orange" },
 ];
 
 export default function AboutHero() {
@@ -77,14 +77,14 @@ export default function AboutHero() {
               <img src={characterImg} alt="کاراکترهای رکاد" className="w-full h-auto object-contain select-none pointer-events-none" />
             </div>
 
-            {/* بج‌های آمار — شبیه دکمه‌ها: رنگی با طیف کم + ردیوس همه‌گرد + روتیت یکی‌درمیون + شدو مشکی */}
+            {/* بج‌های آمار — بوردر مشکی + پس‌زمینه رنگ تیره‌تر + ردیوس +۱px */}
             <div className="flex flex-wrap justify-center gap-3">
               {badges.map((b, i) => {
                 const rot = i % 2 === 0 ? 1 : -1;
                 return (
                   <span
                     key={b.label}
-                    className={`${b.color} ${b.border} border-[0.1875rem] ${b.textColor} text-[0.8125rem] sm:text-[0.875rem] font-semibold px-4 py-2 rounded-[0.375rem] shadow-[2px_3px_0_0_rgba(0,0,0,0.9)]`}
+                    className={`${b.color} border-[0.1875rem] border-black text-white text-[0.8125rem] sm:text-[0.875rem] font-semibold px-4 py-2 rounded-[0.4375rem] shadow-[2px_3px_0_0_rgba(0,0,0,0.9)]`}
                     style={{ transform: `rotate(${rot}deg)` }}
                   >
                     {b.label}

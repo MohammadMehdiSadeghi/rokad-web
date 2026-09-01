@@ -101,14 +101,15 @@ import fallbackAwards from "./fallback/awards";
 
 // ==================================================================
 //  تابع اجرای کلی — دیتا مستقیم از بک‌اند
-//  اگه API در دسترس نباشه یا دیتابیس خالی باشه، [] برمی‌گرده
-//  تا سکشن خالی بمونه (هیچ محتوای fallback نشون داده نمی‌شه)
+//  - اگه API در دسترس نباشه (خطای اتصال) → خالی
+//  - اگه API وصل باشه ولی دیتابیس خالی باشه → fallback (همون محتوای قبلی)
+//  - اگه API وصل باشه و دیتا داشته باشه → دیتای واقعی
 // ==================================================================
 async function withFallback(fetcher, fallback, mapper) {
   try {
     const data = await fetcher();
     const list = Array.isArray(data) ? data : [];
-    if (!list.length) return [];
+    if (!list.length) return fallback;
     return mapper ? list.map(mapper) : list;
   } catch {
     // API در دسترس نیست → خالی (نه fallback)
@@ -270,7 +271,7 @@ export const fetchStats = async () => {
         },
       ];
     }
-    return [];
+    return fallbackStats;
   } catch {
     return [];
   }

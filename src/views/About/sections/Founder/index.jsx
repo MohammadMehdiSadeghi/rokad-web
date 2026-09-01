@@ -65,12 +65,11 @@ export default function AboutFounder() {
                                   {credentials.map((cred, i) => (
                                     <div
                                       key={i}
-                                      className="flex items-center gap-2.5 bg-[#E8E6F5] rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 w-full"
+                                      className="flex items-center gap-2.5 bg-[#E6E4F2] rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 w-full"
                                     >
-                                      <span className="flex-shrink-0 w-5 h-5 sm:w-5 sm:h-5 text-[#21295A]">
-                                        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-                                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor" opacity="0.3" />
-                                          <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                      <span className="flex-shrink-0 w-5 h-5 sm:w-5 sm:h-5 rounded-[0.3rem] bg-[#21295A] flex items-center justify-center">
+                                        <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3 sm:w-3 sm:h-3 text-white">
+                                          <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                       </span>
                                       <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#21295A] font-medium leading-[1.6]">{cred}</span>

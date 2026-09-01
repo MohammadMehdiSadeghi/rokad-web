@@ -41,9 +41,18 @@ export default function AboutFounder() {
               <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-10" />
             </div>
 
-            {/* Content: flex row */}
-            <div className="relative z-10 flex flex-col-reverse lg:flex-row">
-              {/* Right: credentials + social */}
+            {/* Content: flex row (RTL - first child = right side) */}
+            <div className="relative z-10 flex flex-col lg:flex-row">
+              {/* Right (RTL): photo */}
+              <div className="relative w-full lg:w-[38%] min-h-[250px] sm:min-h-[300px] lg:min-h-[400px]">
+                <img
+                  src={founderPhoto}
+                  alt="مدیرعامل رکاد"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                />
+              </div>
+
+              {/* Left (RTL): credentials + social */}
               <div className="flex-1 p-5 sm:p-7 lg:p-9">
                 {/* Title */}
                 <h3 className="font-black text-[1.125rem] sm:text-[1.375rem] lg:text-[1.75rem] text-[#21295A] leading-[1.4] mb-6 sm:mb-8">
@@ -80,15 +89,6 @@ export default function AboutFounder() {
                     </a>
                   ))}
                 </div>
-              </div>
-
-              {/* Left: photo */}
-              <div className="relative w-full lg:w-[38%] min-h-[250px] sm:min-h-[300px] lg:min-h-[400px]">
-                <img
-                  src={founderPhoto}
-                  alt="مدیرعامل رکاد"
-                  className="absolute inset-0 w-full h-full object-cover object-top"
-                />
               </div>
             </div>
           </div>

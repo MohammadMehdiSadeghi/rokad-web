@@ -21,6 +21,15 @@ const socialLinks = [
   { label: "وبسایت", href: "#" },
 ];
 
+function ShieldCheckIcon({ className }) {
+  return (
+    <svg viewBox="0 0 21 21" fill="none" className={className}>
+      <path d="M10.5 2.625l2.7 5.475 6.037.879-4.368 4.256 1.03 6.012L10.5 16.2l-5.399 2.837 1.03-6.012L1.763 8.98l6.037-.879L10.5 2.625z" fill="#21295A" />
+      <path d="M7.875 10.5l1.75 1.75 3.5-3.5" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export default function AboutFounder() {
   return (
     <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
@@ -30,62 +39,53 @@ export default function AboutFounder() {
       </div>
 
       <Container className="relative z-10">
-        {/* Card */}
         <div className="relative mx-auto max-w-6xl">
-          {/* Shadow / offset */}
-          <div className="absolute top-[0.375rem] left-[0.375rem] w-full h-full bg-[#21295A] rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.5rem] [corner-shape:squircle]" />
+          {/* شدو سرمهای سخت 8px مطابق فیگما */}
+          <div className="absolute top-[0.5rem] left-[0.5rem] w-full h-full bg-[#202A5A] rounded-tl-[2.1875rem] rounded-br-[2.1875rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]" />
 
-          {/* Main card */}
-          <div className="relative z-10 bg-[#F0F1F8] border-[0.125rem] border-[#21295A] rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.5rem] [corner-shape:squircle] overflow-hidden">
+          {/* کارت اصلی — bg #E9EAEF از فیگما */}
+          <div className="relative z-10 bg-[#E9EAEF] border-[0.125rem] border-[#202A5A] rounded-tl-[2.1875rem] rounded-br-[2.1875rem] rounded-tr-none rounded-bl-none [corner-shape:squircle] overflow-hidden">
             {/* Pattern overlay */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
               <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-10" />
             </div>
 
-            {/* Content: flex row (RTL - first child = right side) */}
+            {/* Content: flex row (RTL) */}
             <div className="relative z-10 flex flex-col lg:flex-row">
-              {/* Right (RTL): photo */}
+              {/* Right: photo */}
               <div className="relative w-full lg:w-[38%] min-h-[250px] sm:min-h-[300px] lg:min-h-[400px]">
-                <img
-                  src={founderPhoto}
-                  alt="مدیرعامل رکاد"
-                  className="absolute inset-0 w-full h-full object-cover object-top"
-                />
+                <img src={founderPhoto} alt="مدیرعامل رکاد" className="absolute inset-0 w-full h-full object-cover object-top" />
               </div>
 
-              {/* Left (RTL): credentials + social */}
+              {/* Left: credentials + social */}
               <div className="flex-1 p-5 sm:p-7 lg:p-9">
                 {/* Title */}
-                <h3 className="font-black text-[1.125rem] sm:text-[1.375rem] lg:text-[1.75rem] text-[#21295A] leading-[1.4] mb-6 sm:mb-8">
+                <h3 className="font-black text-[1.5rem] sm:text-[2rem] lg:text-[2.4375rem] text-[#202A5A] leading-[1.4] mb-6 sm:mb-8">
                   مدیرعامل مؤسسه آموزشی و شتاب‌دهی رکاد
                 </h3>
 
                 {/* Credentials grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                                  {credentials.map((cred, i) => (
-                                    <div
-                                      key={i}
-                                      className="flex items-center gap-2.5 bg-[#E8E6F5] rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 w-full"
-                                    >
-                                      <span className="flex-shrink-0 w-5 h-5 sm:w-5 sm:h-5 text-[#21295A]">
-                                        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-                                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor" opacity="0.3" />
-                                          <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                      </span>
-                                      <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#21295A] font-medium leading-[1.6]">{cred}</span>
-                                    </div>
-                                  ))}
-                                </div>
+                  {credentials.map((cred, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2.5 rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 w-full"
+                      style={{ backgroundColor: "#BABDCC", borderRadius: "7.3px" }}
+                    >
+                      <ShieldCheckIcon className="w-5 h-5 sm:w-[1.3125rem] sm:h-[1.3125rem] flex-shrink-0" />
+                      <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#202A5A] font-semibold leading-[1.6]">{cred}</span>
+                    </div>
+                  ))}
+                </div>
 
-                {/* Social links - centered */}
+                {/* Social links */}
                 <div className="flex justify-center gap-3 mt-6 sm:mt-8">
                   {socialLinks.map((link, i) => (
                     <a
                       key={i}
                       href={link.href}
                       aria-label={link.label}
-                      className="w-10 h-10 sm:w-11 sm:h-11 bg-[#21295A] rounded-[0.5rem] [corner-shape:squircle] flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                      className="w-10 h-10 sm:w-11 sm:h-11 bg-[#202A5A] rounded-[0.5rem] [corner-shape:squircle] flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                     >
                       <span className="text-white text-[0.7rem] font-bold">&nbsp;</span>
                     </a>

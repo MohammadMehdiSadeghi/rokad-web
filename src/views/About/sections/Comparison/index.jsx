@@ -1,20 +1,16 @@
 import Container from "../../../../layout/Container";
 
-// ── پترن هندسی بسیار کم‌رنگ پس‌زمینه — سطوح چندضلعی بزرگ ──
+// ── پترن هندسی کم‌رنگ پس‌زمینه (دقیقاً از فیگما) ──
 function BackgroundPattern() {
   return (
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full pointer-events-none select-none">
-      {/* چندضلعی‌های بزرگ کم‌رنگ */}
       <path d="M-40 80 L260 -60 L520 40 L360 300 L-60 260 Z" fill="#1F2937" opacity="0.04" />
       <path d="M1100 -100 L1420 40 L1280 320 L980 220 L1020 40 Z" fill="#1F2937" opacity="0.04" />
       <path d="M240 560 L520 440 L720 640 L560 860 L180 780 Z" fill="#1F2937" opacity="0.035" />
       <path d="M980 520 L1280 420 L1450 620 L1320 840 L900 760 Z" fill="#1F2937" opacity="0.03" />
       <path d="M60 480 L300 380 L400 560 L220 720 Z" fill="#55BDB5" opacity="0.05" />
       <path d="M1080 180 L1340 100 L1400 300 L1200 400 Z" fill="#E9145A" opacity="0.04" />
-      {/* خطوط مورب */}
       <line x1="720" y1="-20" x2="860" y2="900" stroke="#1F2937" strokeWidth="2" opacity="0.04" />
-      <line x1="60" y1="140" x2="380" y2="180" stroke="#1F2937" strokeWidth="2" opacity="0.04" />
-      <line x1="1180" y1="700" x2="1500" y2="660" stroke="#1F2937" strokeWidth="2" opacity="0.04" />
     </svg>
   );
 }
@@ -39,100 +35,99 @@ function CrossIcon({ className, style }) {
 
 // ── داده کارت راست (مدارس معمولی — Accent/صورتی) ──
 const regularItems = [
-  "مهارت‌های نرم فقط اسمی — نه به شکل تمرینی",
+  "مهارت‌های نرم فقط اسمی | نه به شکل تمرینی",
   "آموزش تئوری، بدون تجربه واقعی از دنیای کار",
   "یادگیری انفرادی و رقابتی",
   "ارتباط با صنعت و بازار کار: صفر",
 ];
-const regularOutcome = "دیپلم، بدون پروژه واقعی";
+const regularOutcome = "خروجی: دیپلم، بدون پروژه واقعی";
 
 // ── داده کارت چپ (هنرستان استارتاپی رکاد — Primary/تیل) ──
 const rokadItems = [
-  "پروژه‌های واقعی از روز اول — یادگیری با انجام‌دادن",
-  "یادگیری تیمی و مبتنی بر جامعه — بچه‌ها با هم بزرگ می‌شن",
+  "پروژه‌های واقعی از روز اول | یادگیری با انجام‌دادن",
+  "یادگیری تیمی و مبتنی بر جامعه | بچه‌ها با هم بزرگ می‌شن",
   "مهارت‌های نرم توی رویداد، بوت‌کمپ و کوچینگ واقعی",
   "ارتباط مستقیم با اکوسیستم استارتاپی و منتورهای مجرب",
 ];
-const rokadOutcome = "دیپلم + مسیر شغلی روشن + پورتفولیو";
+const rokadOutcome = "خروجی: دیپلم + مسیر شغلی روشن + پورتفولیو";
 
-const TEAL = { main: "#55BDB5", deep: "#3A9E96", bg: "#EEF9F8", itemBg: "#E3F4F2", dark: "#1F4E4A" };
-const PINK = { main: "#E9145A", deep: "#C60036", bg: "#FCE8EF", itemBg: "#FADCE7", dark: "#8A0E38" };
+// رنگ‌های دقیق فیگما
+const TEAL = { main: "#59BBAF", bg: "#EEF8F7", itemBg: "#CCEAE6", deep: "#50A89E" };
+const PINK = { main: "#E0195B", bg: "#FCE8EF", itemBg: "#F5B8CC", deep: "#E40141" };
 
 function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt }) {
   return (
     <div className={`relative h-full ${tilt}`}>
-      {/* لایه دوم باریک (Offset Border) — حس Depth بدون شدو سنگین */}
+      {/* شدو همرنگ کارت (DROP 5px سخت از فیگما) */}
       <div
         aria-hidden="true"
-        className="absolute inset-0"
-        style={{
-          border: "2px solid",
-          borderColor: color.main,
-          borderRadius: "0 2.5rem 0.875rem 0.875rem",
-          transform: "translate(6px, 6px)",
-          opacity: 0.35,
-        }}
+        className="absolute top-[0.3125rem] left-[0.3125rem] w-full h-full"
+        style={{ backgroundColor: color.main, borderRadius: "3px 0 30px 0" }}
       />
-      {/* خود کارت */}
+      {/* خود کارت — پس‌زمینه تینت رنگی (نه سفید) */}
       <div
-        className="relative z-10 h-full flex flex-col overflow-visible bg-white"
+        className="relative z-10 h-full flex flex-col overflow-visible p-6 sm:p-8 lg:p-9"
         style={{
+          backgroundColor: color.bg,
           border: "3px solid",
           borderColor: color.main,
-          borderRadius: "0 2.5rem 0.875rem 0.875rem",
+          borderRadius: "3px 0 30px 0",
         }}
       >
-        {/* هدر — بج مستطیلی با گوشه گرد + عنوان */}
-        <div className="relative px-5 sm:px-7 pt-7 sm:pt-9 pb-5 sm:pb-6">
-          {/* بج در گوشه بالا-راست — روی لبه کارت Overlap */}
-          <div className="absolute -top-3.5 right-4 sm:right-6">
+        {/* هدر — بج pill + عنوان */}
+        <div className="relative pb-4 sm:pb-5">
+          {/* بج در گوشه بالا-راست — overlap روی لبه */}
+          <div className="absolute -top-8 right-0">
             <span
-              className="inline-flex items-center px-4 sm:px-5 py-1.5 sm:py-2 rounded-[0.75rem] text-white font-bold text-[0.75rem] sm:text-[0.8125rem] whitespace-nowrap"
+              className="inline-flex items-center whitespace-nowrap text-white font-bold text-[0.875rem] sm:text-[1rem]"
               style={{
                 backgroundColor: color.main,
                 border: "2px solid #292827",
+                borderRadius: "9px",
+                padding: "3px 12px",
+                boxShadow: "2px 2px 0 0 rgba(41,40,39,0.9)",
               }}
             >
               {badge}
             </span>
           </div>
-          <h3 className="font-black text-[1.25rem] sm:text-[1.5rem] lg:text-[1.75rem] leading-[1.35] mt-3 sm:mt-4 text-right">
+          <h3 className="font-black text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] leading-[1.35] text-right pt-5">
             <span className="text-[#292827]">{title}</span>{" "}
             <span style={{ color: color.main }}>{titleAccent}</span>
           </h3>
         </div>
 
         {/* لیست آیتم‌ها */}
-        <div className="px-4 sm:px-6 pb-6 sm:pb-8 flex flex-col gap-2.5 sm:gap-3 flex-1">
+        <div className="flex flex-col gap-2.5 sm:gap-3 flex-1">
           {items.map((text, i) => (
             <div
               key={i}
-              className="flex items-start gap-3 rounded-[0.875rem] px-3.5 sm:px-4 py-3 sm:py-3.5"
-              style={{ backgroundColor: color.itemBg }}
+              className="flex items-start gap-2.5 sm:gap-3 py-1.5 sm:py-2 px-2.5 sm:px-3"
+              style={{ backgroundColor: color.itemBg, borderRadius: "7.3px" }}
             >
               {color === PINK ? (
-                <CrossIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" style={{ color: color.main }} />
+                <CrossIcon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" style={{ color: color.deep }} />
               ) : (
-                <CheckIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" style={{ color: color.main }} />
+                <CheckIcon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" style={{ color: color.deep }} />
               )}
-              <span className="text-[0.875rem] sm:text-[0.9375rem] leading-[1.7] font-medium" style={{ color: "#3F3F3F" }}>
+              <span className="text-[0.8125rem] sm:text-[0.9rem] leading-[1.6] font-semibold text-[#292827]">
                 {text}
               </span>
             </div>
           ))}
           {/* ردیف خروجی */}
           <div
-            className="flex items-start gap-3 rounded-[0.875rem] px-3.5 sm:px-4 py-3 sm:py-3.5"
-            style={{ backgroundColor: color.itemBg, border: "2px solid", borderColor: color.main }}
+            className="flex items-start gap-2.5 sm:gap-3 py-1.5 sm:py-2 px-2.5 sm:px-3"
+            style={{ backgroundColor: color.itemBg, borderRadius: "7.3px" }}
           >
             {color === PINK ? (
-              <CrossIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" style={{ color: color.main }} />
+              <CrossIcon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" style={{ color: color.deep }} />
             ) : (
-              <CheckIcon className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" style={{ color: color.main }} />
+              <CheckIcon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" style={{ color: color.deep }} />
             )}
-            <span className="text-[0.875rem] sm:text-[0.9375rem] leading-[1.7]" style={{ color: "#3F3F3F" }}>
-              <strong className="font-extrabold" style={{ color: color.dark }}>خروجی: </strong>
-              {outcome}
+            <span className="text-[0.8125rem] sm:text-[0.9rem] leading-[1.6] text-[#292827]">
+              <strong className="font-extrabold">خروجی: </strong>
+              {outcome.replace("خروجی: ", "")}
             </span>
           </div>
         </div>
@@ -143,7 +138,7 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
 
 export default function AboutComparison() {
   return (
-    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-[#FAFAFA] overflow-hidden">
+    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
       {/* پترن هندسی کم‌رنگ — پشت همه */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <BackgroundPattern />
@@ -151,15 +146,15 @@ export default function AboutComparison() {
 
       <Container className="relative z-10">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-4 sm:mb-5 text-[#292827]">
-            <span className="text-[#55BDB5]">تفاوت</span>{" "}
-            <span className="text-[#E9145A]">رکاد</span>{" "}
+          <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.8125rem] leading-[1.2] mb-4 sm:mb-5 text-[#292827]">
+            <span className="text-[#59BBAF]">تفاوت</span>{" "}
+            <span>رکاد</span>{" "}
             <span>با</span>{" "}
-            <span>بقیه</span>{" "}
+            <span className="text-[#E0195B]">بقیه</span>{" "}
             <span>دقیقاً</span>{" "}
             <span>چیه؟</span>
           </h2>
-          <p className="text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] text-[#6B7280] max-w-xl mx-auto leading-[1.8]">
+          <p className="text-[0.875rem] sm:text-[1rem] text-black max-w-xl mx-auto leading-[1.8]">
             اگه دو تا مدرسه از بیرون شبیه هم به نظر برسن، معنیش این نیست که شبیه هم کار می‌کنن.
           </p>
         </div>
@@ -167,7 +162,7 @@ export default function AboutComparison() {
         {/* در RTL: اولی (راست) = مدارس معمولی، دومی (چپ) = رکاد */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 max-w-5xl mx-auto">
           <ComparisonCard
-            badge="مدرسه معمولی"
+            badge="مدارس معمولی"
             title="تمرکز روی"
             titleAccent="کنکور و درس"
             items={regularItems}

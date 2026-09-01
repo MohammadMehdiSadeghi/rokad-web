@@ -18,7 +18,7 @@ export default function AboutAwards() {
       </div>
       <Container>
         <div className="relative z-10 text-center mb-[2.5rem] sm:mb-[3rem]">
-          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3rem] leading-[1.3] mb-4">
+          <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.8125rem] leading-[1.2] mb-4">
             <span className="inline-block">۹</span>{" "}
             <span className="inline-block">سال</span>{" "}
             <span className="inline-block text-[rgb(223,148,26)]">رد</span>{" "}

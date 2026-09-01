@@ -5,11 +5,11 @@ import { ChevronLeftIcon, LinkedInIcon, InstagramIcon, TwitterIcon, GlobeIcon } 
 
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
 
-// پترن‌های رنگی (مطابق Stats)
-const patternBlue = "/assets/home/StatCard/blue.png";
-const patternGreen = "/assets/home/StatCard/green.png";
-const patternPink = "/assets/home/StatCard/pink.png";
-const patternYellow = "/assets/home/StatCard/yellow.png";
+// پترن‌های رنگی (نسخه کالج — برای سکشن تیم، جدا از Stats)
+const patternBlue = "/assets/home/TeamTeaser/blue.png";
+const patternGreen = "/assets/home/TeamTeaser/green.png";
+const patternPink = "/assets/home/TeamTeaser/pink.png";
+const patternYellow = "/assets/home/TeamTeaser/yellow.png";
 
 /* =========================================================
    TEAM DATA — تصاویر واقعی عوامل از about/Team
@@ -31,6 +31,7 @@ const MEMBERS = [
     badge: "مدیرعامل",
     image: "/assets/about/Team/azizpoor.png",
     theme: "teal",
+    zoom: true,
   },
   {
     name: "مبینا فلاح",
@@ -38,6 +39,7 @@ const MEMBERS = [
     badge: "معاون",
     image: "/assets/about/Team/fallah.png",
     theme: "magenta",
+    zoom: true,
   },
   {
     name: "امیرحسین امیریان",
@@ -137,14 +139,16 @@ function MiniCard({ member }) {
             src={theme.pattern}
             alt=""
             draggable="false"
-            className="absolute inset-0 w-full h-full object-cover select-none opacity-50"
+            className="absolute inset-0 w-full h-full object-cover select-none opacity-40"
           />
           <img
             src={member.image}
             alt={member.name}
             loading="lazy"
             draggable="false"
-            className="absolute inset-x-0 bottom-0 z-10 w-full h-full object-contain object-bottom"
+            className={`absolute inset-x-0 bottom-0 z-10 w-full h-full object-contain object-bottom ${
+              member.zoom ? "translate-y-[0.9375rem] scale-[1.12]" : "translate-y-[0.375rem]"
+            }`}
           />
         </div>
 
@@ -237,14 +241,14 @@ export default function TeamTeaser() {
                                     src={patternGreen}
                                     alt=""
                                     draggable="false"
-                                    className="absolute inset-0 w-full h-full object-cover select-none opacity-50"
+                                    className="absolute inset-0 w-full h-full object-cover select-none opacity-40"
                                   />
                                   <img
                                     src={FEATURED.image}
                                     alt={FEATURED.name}
                                     loading="lazy"
                                     draggable="false"
-                                    className="absolute inset-x-0 bottom-0 z-10 w-full h-full object-contain object-bottom"
+                                    className="absolute inset-x-0 bottom-0 z-10 w-full h-full object-contain object-bottom translate-y-[0.5rem]"
                                   />
                                 </div>
 

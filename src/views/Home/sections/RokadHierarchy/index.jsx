@@ -105,8 +105,8 @@ function BranchCard({ branch, index }) {
       />
       {/* کارت جلو */}
       <div
-        className="relative z-10 h-full border-2 border-[#292827] rounded-[0_2rem_0_2rem] [corner-shape:squircle] flex flex-col"
-        style={{ background: branch.tint }}
+        className="relative z-10 h-full border-[0.1875rem] rounded-[0_2rem_0_2rem] [corner-shape:squircle] flex flex-col"
+        style={{ background: branch.tint, borderColor: branch.color }}
       >
         <div className="p-5 sm:p-6 flex flex-col h-full">
           {/* هدر: Label + شماره */}

@@ -22,11 +22,12 @@ const baseStats = [
   { theme: "navy", value: "۳۱", label: "استارتاپ ویکند" },
 ];
 
-// ۳ ردیف: هر ردیف تکرار همون ۴ آمار با چرخش رنگ مورب
+// ۳ ردیف: هر ردیف رنگ‌ها یک پله به جلو شیفت می‌شن (الگوی مورب)
+const shift = (arr, n) => arr.map((_, i) => arr[(i + n) % arr.length]);
 const stats = [
-  ...baseStats.map((s, i) => ({ ...s, key: `r1-${i}` })),
-  ...baseStats.map((s, i) => ({ ...s, key: `r2-${i}` })),
-  ...baseStats.map((s, i) => ({ ...s, key: `r3-${i}` })),
+  ...shift(baseStats, 0).map((s, i) => ({ ...s, key: `r1-${i}` })),
+  ...shift(baseStats, 1).map((s, i) => ({ ...s, key: `r2-${i}` })),
+  ...shift(baseStats, 2).map((s, i) => ({ ...s, key: `r3-${i}` })),
 ];
 
 const shapeClass = "rounded-tl-[2rem] rounded-br-[2rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]";

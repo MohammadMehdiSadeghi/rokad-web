@@ -5,7 +5,7 @@ const fallbackStudents = [
     name: "امیرعلی شفاهی",
     desc: "فریلنسر و برنامه‌نویس گریپ‌وب",
     experience: "+۴ سال تجربه تخصصی",
-    avatar: "/assets/Rokadians/Ellipse 83.png",
+    avatar: "/assets/home/Rokadians/Ellipse 83.png",
     socials: [],
   },
   {
@@ -13,7 +13,7 @@ const fallbackStudents = [
     name: "سارا مرادی",
     desc: "طراح تجربه کاربری",
     experience: "+۴ سال تجربه تخصصی",
-    avatar: "/assets/Rokadians/Ellipse 83.png",
+    avatar: "/assets/home/Rokadians/Ellipse 83.png",
     socials: [],
   },
   {
@@ -21,7 +21,7 @@ const fallbackStudents = [
     name: "محمد رضایی",
     desc: "توسعه‌دهنده فول‌استک",
     experience: "+۴ سال تجربه تخصصی",
-    avatar: "/assets/Rokadians/Ellipse 83.png",
+    avatar: "/assets/home/Rokadians/Ellipse 83.png",
     socials: [],
   },
 ];

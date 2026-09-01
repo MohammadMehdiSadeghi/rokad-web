@@ -196,9 +196,9 @@ export const fetchStudents = () =>
 const RANK_MAP = { 1: "first", 2: "second", 3: "third" };
 // مدال هر رتبه — تصویر طبق رتبه‌ای که بک‌اند می‌فرسته (rank: 1|2|3)
 const RANK_BADGE_FALLBACK = {
-  first: "/assets/Honors/f1.png", // مقام اول — طلا
-  second: "/assets/Honors/s2.png", // مقام دوم — نقره
-  third: "/assets/Honors/t3.png", // مقام سوم — برنز
+  first: "/assets/home/Honors/f1.png", // مقام اول — طلا
+  second: "/assets/home/Honors/s2.png", // مقام دوم — نقره
+  third: "/assets/home/Honors/t3.png", // مقام سوم — برنز
 };
 const awardMapper = (a, i) => ({
   id: a._id,

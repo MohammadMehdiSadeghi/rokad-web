@@ -105,8 +105,8 @@ function TeamCard({ member, index }) {
 export default function AboutTeam() {
   return (
     <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-30 select-none" />
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
+        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-60 bg-center select-none" />
       </div>
 
       <Container className="relative z-10">

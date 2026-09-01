@@ -6,6 +6,13 @@ import { ChevronLeftIcon } from "../../../../common/Icons";
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
 
 /* =========================================================
+   HELPERS
+========================================================= */
+function toFa(n) {
+  return String(n).replace(/[0-9]/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
+}
+
+/* =========================================================
    DATA — سه شاخهٔ اکوسیستم
 ========================================================= */
 
@@ -63,21 +70,14 @@ const branches = [
 
 function CtaBtn({ label, color }) {
   return (
-    <div className="relative inline-block -rotate-2">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[#292827] rounded-[0.625rem] [corner-shape:squircle]"
-        style={{ transform: "translate(-3px, 3px)" }}
-      />
-      <button
-        type="button"
-        className="relative z-10 inline-flex items-center gap-1.5 px-[1.125rem] py-[0.5rem] border-2 border-[#292827] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer hover:-translate-y-0.5 transition-transform"
-        style={{ background: color, color: "#ffffff" }}
-      >
-        <span>{label}</span>
-        <ChevronLeftIcon className="w-3 h-3" />
-      </button>
-    </div>
+    <button
+      type="button"
+      className="inline-flex items-center gap-1.5 px-[1.125rem] py-[0.5rem] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer -rotate-2 hover:rotate-0 hover:-translate-y-0.5 transition-transform"
+      style={{ background: color, color: "#ffffff" }}
+    >
+      <span>{label}</span>
+      <ChevronLeftIcon className="w-3 h-3" />
+    </button>
   );
 }
 
@@ -86,7 +86,7 @@ function CtaBtn({ label, color }) {
 ========================================================= */
 
 function BranchCard({ branch, index }) {
-  const rots = [-1, 1, 1.5];
+  const rots = [1, -1, 1];
   const rotate = rots[index % rots.length];
 
   return (
@@ -100,13 +100,13 @@ function BranchCard({ branch, index }) {
         className="absolute inset-0 rounded-[0_2rem_0_2rem] [corner-shape:squircle]"
         style={{
           background: branch.color,
-          transform: "translate(-6px, 6px)",
+          transform: "translate(0.3125rem, 0.3125rem)",
         }}
       />
       {/* کارت جلو */}
       <div
-        className="relative z-10 h-full border-2 border-[#292827] rounded-[0_2rem_0_2rem] [corner-shape:squircle] flex flex-col"
-        style={{ background: branch.tint }}
+        className="relative z-10 h-full border-[0.1875rem] rounded-[0_2rem_0_2rem] [corner-shape:squircle] flex flex-col"
+        style={{ background: branch.tint, borderColor: branch.color }}
       >
         <div className="p-5 sm:p-6 flex flex-col h-full">
           {/* هدر: Label + شماره */}
@@ -126,7 +126,7 @@ function BranchCard({ branch, index }) {
               className="text-[2.375rem] font-black leading-none"
               style={{ color: branch.color, opacity: 0.4 }}
             >
-              {`۰${index + 1}`}
+              {`۰${toFa(index + 1)}`}
             </span>
           </div>
 
@@ -185,7 +185,7 @@ function BranchCard({ branch, index }) {
           </div>
 
           {/* CTA */}
-          <div>
+          <div className="text-left">
             <CtaBtn label="ورود" color={branch.color} />
           </div>
         </div>
@@ -237,17 +237,14 @@ export default function RokadHierarchy() {
 
           {/* زیرنویس */}
           <p className="mt-5 sm:mt-6 text-[0.9375rem] sm:text-[1.0625rem] font-medium leading-[1.85] text-[#292827] max-w-[48rem]">
-            یک <i className="font-bold">رکادین</i> در سه فضای زنده به‌صورت
-            هم‌زمان حضور دارد:
-            <b style={{ color: "#F8A41D" }}> کالج</b>،
-            <b style={{ color: "#59BBAF" }}> شتاب‌دهنده</b> و
-            <b style={{ color: "#652D90" }}> کافه</b>.
+            یک رکادین در سه فضای زنده به‌صورت هم‌زمان حضور دارد:
+            کالج، شتاب‌دهنده و کافه.
             سه لایهٔ همزمان از یک زندگی — نه سه مرحلهٔ جدا.
           </p>
         </div>
 
         {/* ════ GRID 3-COLUMN ════ */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 items-stretch">
           {branches.map((branch, i) => (
             <BranchCard key={i} branch={branch} index={i} />
           ))}

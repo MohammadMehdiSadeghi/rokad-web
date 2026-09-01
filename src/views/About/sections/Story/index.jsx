@@ -15,7 +15,7 @@ const milestones = [
   },
   {
     year: "۱۳۹۸",
-    label: "سال تأسیس",
+    label: "سال تأسیس هنرستان",
     title: "تأسیس اولین هنرستان استارتاپی ایران",
     body: "نقطه‌ی عطف رکاد بود: تأسیس اولین هنرستان استارتاپی ایران در مشهد. اما این فقط یه اسم نبود؛ یه تعهد بود. تعهد به اینکه دانش‌آموز رکاد نه فقط به دیپلم، بلکه به مسیر شغلی روشن برسه. امروز با گذشت ۶ سال، این مدرسه نرخ اشتغال بیش از ۷۵٪ رو بین دانش‌آموختگانش ثبت کرده. از مهر ۱۴۰۱ هم دبیرستان دخترانه رکاد در مشهد راه‌اندازی شد و دخترها هم به این اکوسیستم اضافه شدن. حالا هر دو هنرستان دخترانه و پسرانه، به صورت موازی، همین مسیر رو ادامه می‌دن.",
     textColor: "text-magenta",
@@ -39,7 +39,7 @@ export default function AboutStory() {
   return (
     <section
       id="story"
-      className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-[#F6F6F6] overflow-hidden"
+      className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-white overflow-hidden"
     >
       {/* ── Background Pattern ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">

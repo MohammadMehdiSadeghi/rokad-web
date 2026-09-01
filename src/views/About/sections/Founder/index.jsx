@@ -30,7 +30,7 @@ export default function AboutFounder() {
 
       <Container className="relative z-10">
         {/* Card */}
-        <div className="relative mx-auto max-w-5xl">
+        <div className="relative mx-auto max-w-6xl">
           {/* Shadow / offset */}
           <div className="absolute top-[0.375rem] left-[0.375rem] w-full h-full bg-[#21295A] rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.5rem] [corner-shape:squircle]" />
 
@@ -42,9 +42,9 @@ export default function AboutFounder() {
             </div>
 
             {/* Content: flex row */}
-            <div className="relative z-10 flex flex-col lg:flex-row">
-              {/* Left: credentials + social */}
-              <div className="flex-1 p-5 sm:p-7 lg:p-9 order-2 lg:order-1">
+            <div className="relative z-10 flex flex-col-reverse lg:flex-row">
+              {/* Right: credentials + social */}
+              <div className="flex-1 p-5 sm:p-7 lg:p-9">
                 {/* Title */}
                 <h3 className="font-black text-[1.125rem] sm:text-[1.375rem] lg:text-[1.75rem] text-[#21295A] leading-[1.4] mb-6 sm:mb-8">
                   مدیرعامل مؤسسه آموزشی و شتاب‌دهی رکاد
@@ -55,14 +55,14 @@ export default function AboutFounder() {
                   {credentials.map((cred, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-2.5 bg-[#E2E3EE]/70 rounded-full px-4 py-2.5 sm:px-5 sm:py-3"
+                      className="flex items-center gap-2.5 bg-[#E2E3EE]/70 rounded-full px-4 py-2.5 sm:px-6 sm:py-3 w-full"
                     >
                       <span className="flex-shrink-0 w-5 h-5 sm:w-[1.25rem] sm:h-[1.25rem] rounded-full bg-[#21295A] flex items-center justify-center">
                         <svg viewBox="0 0 24 24" fill="none" className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white">
                           <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </span>
-                      <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#21295A]/90 leading-[1.6] whitespace-nowrap">{cred}</span>
+                      <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#21295A]/90 leading-[1.6]">{cred}</span>
                     </div>
                   ))}
                 </div>
@@ -82,8 +82,8 @@ export default function AboutFounder() {
                 </div>
               </div>
 
-              {/* Right: photo */}
-              <div className="relative w-full lg:w-[38%] min-h-[250px] sm:min-h-[300px] lg:min-h-[400px] order-1 lg:order-2">
+              {/* Left: photo */}
+              <div className="relative w-full lg:w-[38%] min-h-[250px] sm:min-h-[300px] lg:min-h-[400px]">
                 <img
                   src={founderPhoto}
                   alt="مدیرعامل رکاد"

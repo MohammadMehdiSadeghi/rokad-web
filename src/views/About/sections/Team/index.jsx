@@ -1,100 +1,149 @@
 import Container from "../../../../layout/Container";
 
-const patternBg = "/assets/Pattern/layout-pattern.webp";
+const patternBg = "/assets/Pattern/layout-pattern.png";
 const imgDir = "/assets/about/Team";
 
-// ۸ عضو تیم — عکس از فیگما (محمد کمالی عکس نداشت → آواتار)
+// ۸ عضو تیم — رنگ پس‌زمینه بالای هر کارت طبق فیگما
 const teamMembers = [
-  { name: "حامد آرون", role: "مدیرعامل و بنیانگذار رکاد", badge: "بنیانگذار", img: `${imgDir}/hamed.webp`, blob: "#44C0B2", badgeBg: "#D9F2EE", badgeText: "#1F7A72" },
-  { name: "علیرضا عزیزپور", role: "راهبر ارشد / مدیرعامل رکاد", badge: "مدیرعامل", img: `${imgDir}/alireza.webp`, blob: "#4CB6AA", badgeBg: "#D9F2EE", badgeText: "#1F7A72" },
-  { name: "امیرحسین امیریان", role: "راهبر هنرستان پسرانه رکاد", badge: "راهبر", img: `${imgDir}/amirhossein.webp`, blob: "#293660", badgeBg: "#E4E7F0", badgeText: "#293660" },
-  { name: "سعید افضلی", role: "دستیار اجرایی مدارس رکاد", badge: "دستیار اجرایی", img: `${imgDir}/saied.webp`, blob: "#202A5A", badgeBg: "#E4E7F0", badgeText: "#293660" },
-  { name: "عماد پورحسنی", role: "معاون هنرستان پسرانه رکاد", badge: "معاون", img: `${imgDir}/emad.webp`, blob: "#202A5A", badgeBg: "#E4E7F0", badgeText: "#293660" },
-  { name: "محمد کمالی", role: "راهبر هنرستان دخترانه رکاد", badge: "راهبر", img: null, blob: "#DE1D5D", badgeBg: "#FADCE7", badgeText: "#B0134A" },
-  { name: "رویا دولت‌آبادی", role: "معاون هنرستان دخترانه رکاد", badge: "معاون", img: `${imgDir}/roya.webp`, blob: "#E0195B", badgeBg: "#FADCE7", badgeText: "#B0134A" },
-  { name: "مبینا فلاح", role: "مدیرعامل و بنیانگذار", badge: "بنیانگذار", img: `${imgDir}/mobina.webp`, blob: "#44C0B2", badgeBg: "#D9F2EE", badgeText: "#1F7A72" },
+  {
+    name: "حامد آرون",
+    role: "مدیرعامل و بنیان‌گذار رکاد",
+    badge: "بنیان‌گذار",
+    img: `${imgDir}/hamed.webp`,
+    bg: "bg-[#44C0B2]", // تیل
+  },
+  {
+    name: "علیرضا عزیزپور",
+    role: "راهبر ارشد / مدیرعامل رکاد",
+    badge: "مدیرعامل",
+    img: `${imgDir}/alireza.webp`,
+    bg: "bg-[#44C0B2]", // تیل
+  },
+  {
+    name: "امیرحسین امیریان",
+    role: "راهبر هنرستان پسرانه رکاد",
+    badge: "راهبر",
+    img: `${imgDir}/amirhossein.webp`,
+    bg: "bg-[#202A5A]", // سرمه‌ای
+  },
+  {
+    name: "سعید افضلی",
+    role: "دستیار اجرایی مدارس رکاد",
+    badge: "دستیار اجرایی",
+    img: `${imgDir}/saied.webp`,
+    bg: "bg-[#202A5A]", // سرمه‌ای
+  },
+  {
+    name: "عماد پورحسنی",
+    role: "معاون هنرستان پسرانه رکاد",
+    badge: "معاون",
+    img: `${imgDir}/emad.webp`,
+    bg: "bg-[#202A5A]", // سرمه‌ای
+  },
+  {
+    name: "محمد کمالی",
+    role: "مدیرعامل و بنیان‌گذار",
+    badge: "بنیان‌گذار",
+    img: null,
+    bg: "bg-[#E0195B]", // صورتی
+  },
+  {
+    name: "رویا دولت‌آبادی",
+    role: "راهبر هنرستان دخترانه رکاد",
+    badge: "راهبر",
+    img: `${imgDir}/roya.webp`,
+    bg: "bg-[#E0195B]", // صورتی
+  },
+  {
+    name: "مبینا فلاح",
+    role: "معاون هنرستان دخترانه رکاد",
+    badge: "معاون",
+    img: `${imgDir}/mobina.webp`,
+    bg: "bg-[#E0195B]", // صورتی
+  },
 ];
 
-const squircle = "rounded-tl-[1.5rem] rounded-br-[1.5rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]";
+// ۳ آیکون شبکه اجتماعی — مربع کوچک
+const socialIcons = ["in", "be", "ig"];
 
 export default function AboutTeam() {
   return (
-    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-[#F6F6F6] overflow-hidden">
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
-        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-50" />
+    <section className="relative w-full py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8 bg-[#F8FAF9] overflow-hidden">
+      {/* پترن پس‌زمینه */}
+      <div className="absolute inset-0 z-0">
+        <img src={patternBg} alt="" aria-hidden="true" draggable="false" className="w-full h-full object-cover opacity-40 select-none" />
       </div>
 
-      <Container className="relative z-10">
-        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
-          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-4 sm:mb-6 text-[#292827]">
+      <Container>
+        <div className="relative z-10 text-center mb-[2.5rem] sm:mb-[3rem]">
+          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3rem] leading-[1.3] mb-4">
             <span className="inline-block rotate-1">آدم‌هایی</span>{" "}
-            <span className="inline-block -rotate-1 text-navy-alt">که</span>{" "}
+            <span className="inline-block -rotate-1 text-[#202A5A]">که</span>{" "}
             <span className="inline-block rotate-1">هر روز</span>{" "}
             <span className="inline-block -rotate-1 text-teal">رکاد</span>{" "}
             <span className="inline-block rotate-1">رو</span>{" "}
-            <span className="inline-block -rotate-1 text-magenta">می‌سازن</span>
+            <span className="inline-block -rotate-1 text-[#E0195B]">می‌سازن</span>
           </h2>
-          <p className="text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] text-[#6B7280] max-w-2xl mx-auto leading-[1.8]">
+          <p className="text-[0.9375rem] sm:text-[1.0625rem] text-[#6B7280] leading-[1.8] max-w-xl mx-auto">
             پشت هر رویداد، هر جلسه و هر پروژه، یه تیم پرانرژی هست. با چند نفر از این آدم‌ها آشنا شو.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-7 lg:gap-8">
+        <div className="relative z-10 grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {teamMembers.map((m, i) => (
-            <div key={m.name} className="relative">
-              {/* شدو تیره — استیکری */}
-              <div
-                aria-hidden="true"
-                className={`absolute top-[5px] left-[5px] w-full h-full bg-[#292827] ${squircle}`}
-              />
-              {/* کارت */}
-              <div
-                className={`relative z-10 h-full ${squircle} bg-white border-2 border-[#292827] flex flex-col items-center text-center px-3 sm:px-4 pt-6 sm:pt-8 pb-5 sm:pb-6 overflow-hidden`}
-              >
-                {/* عکس با بلاپ رنگی پشتش */}
-                <div className="relative mb-4 sm:mb-5">
-                  {/* بلاپ رنگی */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute top-2 left-1/2 -translate-x-1/2 w-[5.5rem] h-[5.5rem] sm:w-[6.5rem] sm:h-[6.5rem] lg:w-[7rem] lg:h-[7rem] rounded-[2rem] [corner-shape:squircle] rotate-12"
-                    style={{ backgroundColor: m.blob, opacity: 0.25 }}
+            <div
+              key={m.name}
+              className="group relative flex flex-col bg-white border-2 border-[#292827] [corner-shape:squircle] rounded-[0_1.25rem_0_1.25rem] shadow-[5px_5px_0_0_#292827] overflow-hidden transition-transform duration-300 hover:-translate-y-1"
+            >
+              {/* بخش بالایی: پس‌زمینه رنگی + عکس */}
+              <div className={`relative w-full aspect-[4/3] ${m.bg} flex items-end justify-center overflow-hidden`}>
+                {m.img ? (
+                  <img
+                    src={m.img}
+                    alt={m.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top select-none"
                   />
-                  {/* عکس یا آواتار */}
-                  {m.img ? (
-                    <img
-                      src={m.img}
-                      alt={m.name}
-                      loading="lazy"
-                      draggable={false}
-                      className="relative z-10 w-[4.5rem] h-[4.5rem] sm:w-[5.25rem] sm:h-[5.25rem] lg:w-[5.75rem] lg:h-[5.75rem] rounded-full object-cover border-2 border-[#292827] select-none"
-                    />
-                  ) : (
-                    <div className="relative z-10 w-[4.5rem] h-[4.5rem] sm:w-[5.25rem] sm:h-[5.25rem] lg:w-[5.75rem] lg:h-[5.75rem] rounded-full bg-[#E8EAF2] border-2 border-[#292827] flex items-center justify-center">
-                      <span className="font-black text-[1.5rem] sm:text-[1.75rem] text-[#6B7280]">
-                        {m.name.charAt(0)}
-                      </span>
-                    </div>
-                  )}
-                </div>
+                ) : (
+                  /* پترن هندسی صورتی برای کسی که عکس نداره */
+                  <div className="absolute inset-0 opacity-30">
+                    <svg viewBox="0 0 200 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+                      <polygon points="0,0 90,10 60,80 10,60" fill="white" />
+                      <polygon points="120,0 200,30 180,100 100,70" fill="white" />
+                      <polygon points="30,120 120,100 140,180 40,200" fill="white" />
+                      <polygon points="150,140 200,130 200,200 130,200" fill="white" />
+                    </svg>
+                  </div>
+                )}
+              </div>
 
-                <h3 className="font-black text-[0.9375rem] sm:text-[1.0625rem] lg:text-[1.125rem] text-[#292827] leading-snug mb-1">
+              {/* بخش پایینی: باکس سفید */}
+              <div className="flex flex-col flex-1 p-3 sm:p-4 bg-white">
+                <h3 className="font-black text-[0.9375rem] sm:text-[1.0625rem] text-[#21295A] leading-[1.3] text-right">
                   {m.name}
                 </h3>
-                <p className="text-[0.75rem] sm:text-[0.8125rem] text-[#6B7280] leading-snug mb-3 sm:mb-4">
+                <p className="mt-1 text-[0.75rem] sm:text-[0.8125rem] text-[#9CA3AF] leading-[1.6] text-right">
                   {m.role}
                 </p>
 
-                {/* بج */}
-                <span
-                  className="inline-block px-3 py-1 text-[0.6875rem] sm:text-[0.75rem] font-extrabold rounded-[0.5rem] [corner-shape:squircle] border"
-                  style={{
-                    backgroundColor: m.badgeBg,
-                    color: m.badgeText,
-                    borderColor: m.badgeText,
-                  }}
-                >
-                  {m.badge}
-                </span>
+                {/* ردیف پایین: آیکون‌ها + دکمه سمت */}
+                <div className="mt-3 pt-3 border-t border-[#EDEDED] flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1.5">
+                    {socialIcons.map((ic) => (
+                      <span
+                        key={ic}
+                        className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center bg-white border border-[#D1D1D1] rounded-[0.25rem] text-[0.5rem] text-[#9CA3AF] font-bold cursor-pointer hover:border-[#292827] hover:text-[#292827] transition-colors"
+                      >
+                        {ic === "in" ? "in" : ic === "be" ? "B" : "◈"}
+                      </span>
+                    ))}
+                  </div>
+                  <span
+                    className={`text-[0.6875rem] sm:text-[0.75rem] font-bold text-white px-2.5 py-1 rounded-[0_0.375rem_0_0.375rem] ${m.bg}`}
+                  >
+                    {m.badge}
+                  </span>
+                </div>
               </div>
             </div>
           ))}

@@ -1,7 +1,6 @@
 import Container from "../../../../layout/Container";
 
-const patternBg = "/assets/about/StatsSection/TrustSection-Pattern.png";
-const cardPattern = "/assets/about/StatsSection/TrustSection-Pattern.png";
+const cardPattern = "/assets/about/Hero/Hero-Pattern.png";
 
 const missions = [
   {
@@ -28,10 +27,6 @@ const squircle = "rounded-tr-[2rem] rounded-bl-[2rem] rounded-tl-none rounded-br
 export default function AboutMission() {
   return (
     <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
-        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-50" />
-      </div>
-
       <Container className="relative z-10">
         <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-4 sm:mb-6">

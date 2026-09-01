@@ -70,21 +70,14 @@ const branches = [
 
 function CtaBtn({ label, color }) {
   return (
-    <div className="relative inline-block -rotate-2">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[#292827] rounded-[0.625rem] [corner-shape:squircle]"
-        style={{ transform: "translate(2px, 2px)" }}
-      />
-      <button
-        type="button"
-        className="relative z-10 inline-flex items-center gap-1.5 px-[1.125rem] py-[0.5rem] border-2 border-[#292827] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer hover:-translate-y-0.5 transition-transform"
-        style={{ background: color, color: "#ffffff" }}
-      >
-        <span>{label}</span>
-        <ChevronLeftIcon className="w-3 h-3" />
-      </button>
-    </div>
+    <button
+      type="button"
+      className="inline-flex items-center gap-1.5 px-[1.125rem] py-[0.5rem] border-2 border-[#292827] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer -rotate-2 hover:rotate-0 hover:-translate-y-0.5 transition-transform"
+      style={{ background: color, color: "#ffffff" }}
+    >
+      <span>{label}</span>
+      <ChevronLeftIcon className="w-3 h-3" />
+    </button>
   );
 }
 

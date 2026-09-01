@@ -75,10 +75,10 @@ const icons = [PuzzleIcon, UsersIcon, BrainIcon, HeartIcon];
 
 export default function AboutPillars() {
   return (
-    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8 bg-[#F6F6F6] overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
-        <img src={patternBg} alt="" aria-hidden="true" draggable="false" className="w-full h-full object-cover opacity-60 select-none" />
+        <img src={patternBg} alt="" aria-hidden="true" draggable="false" className="w-full h-full object-cover opacity-30 select-none" />
       </div>
 
       <Container className="relative z-10">

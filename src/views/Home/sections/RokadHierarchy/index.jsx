@@ -6,6 +6,13 @@ import { ChevronLeftIcon } from "../../../../common/Icons";
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
 
 /* =========================================================
+   HELPERS
+========================================================= */
+function toFa(n) {
+  return String(n).replace(/[0-9]/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
+}
+
+/* =========================================================
    DATA — سه شاخهٔ اکوسیستم
 ========================================================= */
 
@@ -67,7 +74,7 @@ function CtaBtn({ label, color }) {
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-[#292827] rounded-[0.625rem] [corner-shape:squircle]"
-        style={{ transform: "translate(-3px, 3px)" }}
+        style={{ transform: "translate(2px, 2px)" }}
       />
       <button
         type="button"
@@ -126,7 +133,7 @@ function BranchCard({ branch, index }) {
               className="text-[2.375rem] font-black leading-none"
               style={{ color: branch.color, opacity: 0.4 }}
             >
-              {`۰${index + 1}`}
+              {`۰${toFa(index + 1)}`}
             </span>
           </div>
 
@@ -185,7 +192,7 @@ function BranchCard({ branch, index }) {
           </div>
 
           {/* CTA */}
-          <div>
+          <div className="text-left">
             <CtaBtn label="ورود" color={branch.color} />
           </div>
         </div>

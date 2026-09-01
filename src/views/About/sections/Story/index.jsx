@@ -71,47 +71,53 @@ export default function AboutStory() {
           دبیرستان صبر کنن تا با دنیای واقعی روبه‌رو بشن؟
         </p>
 
-        {/* ── تایم‌لاین عمودی RTL: متن راست، سال و نقطه چپ ── */}
-        <div className="relative max-w-[60rem] mx-auto">
-          {milestones.map((m, i) => (
-            <div key={m.year} className="relative flex items-start gap-6 sm:gap-10 lg:gap-14">
-              {/* ستون سال — سمت چپ */}
-              <div className="relative flex flex-col items-center flex-shrink-0 w-24 sm:w-32 lg:w-40 pb-12 sm:pb-16 lg:pb-20">
-                {/* خط‌چین عمودی رنگی — زیر نقطه */}
-                <div
-                  className="absolute top-1/2 bottom-0 w-[0.125rem]"
-                  style={{
-                    backgroundImage: `repeating-linear-gradient(to bottom, ${m.lineColor} 0 6px, transparent 6px 12px)`,
-                  }}
-                />
-                {/* دایره توخالی روی خط */}
-                <div className={`relative z-10 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[0.1875rem] ${m.dotColor} mb-4 sm:mb-5`} />
-                {/* عدد سال بزرگ */}
-                <span className={`relative z-10 text-[2.5rem] sm:text-[4rem] lg:text-[5rem] leading-none font-black ${m.textColor}`}>
-                  {m.year}
-                </span>
-                {/* بج توضیح سال */}
-                <span className={`relative z-10 mt-3 sm:mt-4 inline-block px-3 sm:px-4 py-1.5 rounded-[0.625rem] [corner-shape:squircle] ${m.lightBg} ${m.textColor} text-[0.75rem] sm:text-[0.875rem] font-bold whitespace-nowrap`}>
-                  {m.label}
-                </span>
-              </div>
+        {/* ── تایم‌لاین ۳ ستونه: سال | خطچین | متن ── */}
+                <div className="relative max-w-[60rem] mx-auto">
+                  {/* خط پیوسته پس‌زمینه — تمام قد */}
+                  <div className="absolute top-0 bottom-0 right-[6.5rem] sm:right-[9.5rem] lg:right-[11.5rem] w-[0.125rem] hidden lg:block"
+                    style={{
+                      backgroundImage: "repeating-linear-gradient(to bottom, #E5E7EB 0 6px, transparent 6px 12px)",
+                    }}
+                  />
+                  {milestones.map((m, i) => (
+                    <div key={m.year} className="relative grid grid-cols-[auto_auto_1fr] items-start gap-4 sm:gap-6 lg:gap-8 pb-12 sm:pb-16 lg:pb-20">
 
-              {/* محتوای متنی — سمت راست */}
-              <div className="flex-1 pb-12 sm:pb-16 lg:pb-20 pt-1">
-                <h3 className="font-black text-[1.375rem] sm:text-[1.875rem] lg:text-[2.125rem] leading-[1.3] mb-3 sm:mb-4 text-[#21295A]">
-                  {m.titleParts.map((p, i) => (
-                    <span key={i} className={p.color}>
-                      {p.text}
-                    </span>
+                      {/* ستون ۱: عدد سال + بج — سمت راست */}
+                      <div className="flex flex-col items-center flex-shrink-0 w-20 sm:w-28 lg:w-36">
+                        <span className="text-[2.5rem] sm:text-[4rem] lg:text-[5rem] leading-none font-black whitespace-nowrap">
+                          <span className={m.textColor}>{m.year}</span>
+                        </span>
+                        <span className={`mt-3 sm:mt-4 inline-block px-3 sm:px-4 py-1.5 rounded-[0.625rem] [corner-shape:squircle] ${m.lightBg} ${m.textColor} text-[0.75rem] sm:text-[0.875rem] font-bold whitespace-nowrap`}>
+                          {m.label}
+                        </span>
+                      </div>
+
+                      {/* ستون ۲: دایره توخالی + خطچین رنگی — وسط */}
+                      <div className="flex flex-col items-center flex-shrink-0 w-6 sm:w-8 self-stretch">
+                        <div className="w-[0.125rem] flex-1 min-h-[6rem]"
+                          style={{
+                            backgroundImage: `repeating-linear-gradient(to bottom, ${m.lineColor} 0 6px, transparent 6px 12px)`,
+                          }}
+                        />
+                        <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[0.1875rem] ${m.dotColor} -mt-2`} />
+                      </div>
+
+                      {/* ستون ۳: محتوای متنی — سمت چپ */}
+                      <div className="pt-2">
+                        <h3 className="font-black text-[1.375rem] sm:text-[1.875rem] lg:text-[2.125rem] leading-[1.3] mb-3 sm:mb-4 text-[#21295A]">
+                          {m.titleParts.map((p, i) => (
+                            <span key={i} className={p.color}>
+                              {p.text}
+                            </span>
+                          ))}
+                        </h3>
+                        <p className="text-[0.875rem] sm:text-[1rem] leading-[1.9] text-ink/70 max-w-xl">
+                          {m.body}
+                        </p>
+                      </div>
+                    </div>
                   ))}
-                </h3>
-                <p className="text-[0.875rem] sm:text-[1rem] leading-[1.9] text-ink/70 max-w-xl">
-                  {m.body}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+                </div>
       </Container>
     </section>
   );

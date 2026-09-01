@@ -1,6 +1,6 @@
 import Container from "../../../../layout/Container";
 
-const patternBg = "/assets/Pattern/layout-pattern.png";
+const patternBg = "/assets/about/StatsSection/TrustSection-Pattern.png";
 const founderPhoto = "/assets/about/Founder/founder.png";
 
 const credentials = [
@@ -35,7 +35,7 @@ export default function AboutFounder() {
     <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
-        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-40 mix-blend-multiply" />
+        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-100" />
       </div>
 
       <Container className="relative z-10">

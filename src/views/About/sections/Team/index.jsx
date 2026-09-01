@@ -1,18 +1,18 @@
 import Container from "../../../../layout/Container";
 
-const patternBg = "/assets/Pattern/layout-pattern.png";
+const patternBg = "/assets/Pattern/layout-pattern.webp";
 const imgDir = "/assets/about/Team";
 
 // ۸ عضو تیم — عکس از فیگما (محمد کمالی عکس نداشت → آواتار)
 const teamMembers = [
-  { name: "حامد آرون", role: "مدیرعامل و بنیانگذار رکاد", badge: "بنیانگذار", img: `${imgDir}/hamed.png`, blob: "#44C0B2", badgeBg: "#D9F2EE", badgeText: "#1F7A72" },
-  { name: "علیرضا عزیزپور", role: "راهبر ارشد / مدیرعامل رکاد", badge: "مدیرعامل", img: `${imgDir}/alireza.png`, blob: "#4CB6AA", badgeBg: "#D9F2EE", badgeText: "#1F7A72" },
-  { name: "امیرحسین امیریان", role: "راهبر هنرستان پسرانه رکاد", badge: "راهبر", img: `${imgDir}/amirhossein.png`, blob: "#293660", badgeBg: "#E4E7F0", badgeText: "#293660" },
-  { name: "سعید افضلی", role: "دستیار اجرایی مدارس رکاد", badge: "دستیار اجرایی", img: `${imgDir}/saied.png`, blob: "#202A5A", badgeBg: "#E4E7F0", badgeText: "#293660" },
-  { name: "عماد پورحسنی", role: "معاون هنرستان پسرانه رکاد", badge: "معاون", img: `${imgDir}/emad.png`, blob: "#202A5A", badgeBg: "#E4E7F0", badgeText: "#293660" },
+  { name: "حامد آرون", role: "مدیرعامل و بنیانگذار رکاد", badge: "بنیانگذار", img: `${imgDir}/hamed.webp`, blob: "#44C0B2", badgeBg: "#D9F2EE", badgeText: "#1F7A72" },
+  { name: "علیرضا عزیزپور", role: "راهبر ارشد / مدیرعامل رکاد", badge: "مدیرعامل", img: `${imgDir}/alireza.webp`, blob: "#4CB6AA", badgeBg: "#D9F2EE", badgeText: "#1F7A72" },
+  { name: "امیرحسین امیریان", role: "راهبر هنرستان پسرانه رکاد", badge: "راهبر", img: `${imgDir}/amirhossein.webp`, blob: "#293660", badgeBg: "#E4E7F0", badgeText: "#293660" },
+  { name: "سعید افضلی", role: "دستیار اجرایی مدارس رکاد", badge: "دستیار اجرایی", img: `${imgDir}/saied.webp`, blob: "#202A5A", badgeBg: "#E4E7F0", badgeText: "#293660" },
+  { name: "عماد پورحسنی", role: "معاون هنرستان پسرانه رکاد", badge: "معاون", img: `${imgDir}/emad.webp`, blob: "#202A5A", badgeBg: "#E4E7F0", badgeText: "#293660" },
   { name: "محمد کمالی", role: "راهبر هنرستان دخترانه رکاد", badge: "راهبر", img: null, blob: "#DE1D5D", badgeBg: "#FADCE7", badgeText: "#B0134A" },
-  { name: "رویا دولت‌آبادی", role: "معاون هنرستان دخترانه رکاد", badge: "معاون", img: `${imgDir}/roya.png`, blob: "#E0195B", badgeBg: "#FADCE7", badgeText: "#B0134A" },
-  { name: "مبینا فلاح", role: "مدیرعامل و بنیانگذار", badge: "بنیانگذار", img: `${imgDir}/mobina.png`, blob: "#44C0B2", badgeBg: "#D9F2EE", badgeText: "#1F7A72" },
+  { name: "رویا دولت‌آبادی", role: "معاون هنرستان دخترانه رکاد", badge: "معاون", img: `${imgDir}/roya.webp`, blob: "#E0195B", badgeBg: "#FADCE7", badgeText: "#B0134A" },
+  { name: "مبینا فلاح", role: "مدیرعامل و بنیانگذار", badge: "بنیانگذار", img: `${imgDir}/mobina.webp`, blob: "#44C0B2", badgeBg: "#D9F2EE", badgeText: "#1F7A72" },
 ];
 
 const squircle = "rounded-tl-[1.5rem] rounded-br-[1.5rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]";

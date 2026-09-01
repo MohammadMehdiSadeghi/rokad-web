@@ -1,38 +1,30 @@
 // src/lib/useRokadData.js
 // ============================================================
-// هوک دیتای سکشن‌ها — حالت عادی (static/fallback)
+// هوک دیتای سکشن‌ها — فقط از بک‌اند
 // ------------------------------------------------------------
-// - سایت همیشه با دیتای fallback (محتوای هاردکد) رندر می‌شه.
-// - هیچ درخواستی به بک‌اند زده نمی‌شه؛ سایت همیشه محتوا داره و
-//   هیچ اروری هم توی کنسول نمی‌افته.
-// - هر وقت بخوای با بک‌اند کار کنی، خودت سرور رو روشن می‌کنی و
-//   خط «اتصال خودکار به API» رو از کامنت دربیار (پایین).
+// - خالی شروع می‌شه (بدون fallback)
+// - اگه بک‌اند روشن باشه و جواب بده، دیتا رو می‌گیره
+// - اگه بک‌اند خاموش باشه، محتوا خالی میمونه
 // ============================================================
+"use client";
+
+import { useEffect, useState } from "react";
 
 export default function useRokadData(fetcher, fallback) {
-  // ─────────────────────────────────────────────────────────
-  // حالت عادی: فقط fallback برمی‌گرده — بدون fetch به بک‌اند
-  // ─────────────────────────────────────────────────────────
-  return fallback;
-
-  // ─────────────────────────────────────────────────────────
-  // [غیرفعال] اتصال خودکار به API — اگه خواستی بک‌اند لایو باشه،
-  // این بخش رو فعال کن:
-  // ─────────────────────────────────────────────────────────
-  /*
-  "use client";
-  const { useEffect, useState } = require("react");
-
-  const [data, setData] = useState(fallback);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     let active = true;
 
-    fetcher().then((result) => {
-      if (active && Array.isArray(result) && result.length) {
-        setData(result);
-      }
-    });
+    fetcher()
+      .then((result) => {
+        if (active && Array.isArray(result) && result.length) {
+          setData(result);
+        }
+      })
+      .catch(() => {
+        // بک‌اند در دسترس نیست — محتوا خالی میمونه
+      });
 
     return () => {
       active = false;
@@ -40,5 +32,4 @@ export default function useRokadData(fetcher, fallback) {
   }, [fetcher]);
 
   return data;
-  */
 }

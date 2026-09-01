@@ -28,22 +28,22 @@ export default function FinalCTA() {
           </div>
 
           {/* Girl Image — چسبیده به لبه پایین سکشن (فقط دسکتاپ) */}
-                    <div className="hidden lg:block absolute bottom-0 right-[8%] pointer-events-none select-none z-10">
+                    <div className="hidden lg:block absolute bottom-0 right-[12%] pointer-events-none select-none z-10">
             <img
               src={imgGirl}
               alt=""
               aria-hidden="true"
-              className="h-[20rem] lg:h-[26rem] xl:h-[30rem] w-auto object-contain"
+              className="h-[22rem] lg:h-[28rem] xl:h-[32rem] w-auto object-contain"
             />
           </div>
 
           {/* Boy Image — چسبیده به لبه پایین سکشن (فقط دسکتاپ) */}
-                    <div className="hidden lg:block absolute bottom-0 left-[8%] pointer-events-none select-none z-10">
+                    <div className="hidden lg:block absolute bottom-0 left-[12%] pointer-events-none select-none z-10">
             <img
               src={imgBoy}
               alt=""
               aria-hidden="true"
-              className="h-[20rem] lg:h-[26rem] xl:h-[30rem] w-auto object-contain"
+              className="h-[22rem] lg:h-[28rem] xl:h-[32rem] w-auto object-contain"
             />
           </div>
 
@@ -53,7 +53,7 @@ export default function FinalCTA() {
               src={mobileHero}
               alt=""
               aria-hidden="true"
-              className="h-[19rem] sm:h-[23rem] w-auto object-contain"
+              className="h-[21rem] sm:h-[25rem] w-auto object-contain"
             />
           </div>
 

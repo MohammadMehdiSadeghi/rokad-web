@@ -91,7 +91,7 @@ export default function AboutStory() {
                         <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[0.1875rem] ${m.dotColor} z-10`} />
                         <div className="w-[0.125rem] flex-1"
                           style={{
-                            backgroundImage: `repeating-linear-gradient(to bottom, ${m.lineColor} 0 6px, transparent 6px 12px)`,
+                            backgroundImage: `repeating-linear-gradient(to bottom, ${m.lineColor} 0 12px, transparent 12px 20px)`,
                           }}
                         />
                       </div>

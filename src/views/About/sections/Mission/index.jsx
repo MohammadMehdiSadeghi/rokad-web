@@ -29,7 +29,7 @@ export default function AboutMission() {
     <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
       <Container className="relative z-10">
         <div className="text-center mb-10 sm:mb-14 lg:mb-16">
-          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-4 sm:mb-6">
+          <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.8125rem] leading-[1.2] mb-4 sm:mb-6">
             <span className="inline-block rotate-1 text-teal">ماموریت</span>{" "}
             <span className="inline-block -rotate-1 text-ink">و</span>{" "}
             <span className="inline-block rotate-1 text-magenta">چشم‌انداز</span>{" "}

@@ -1,6 +1,6 @@
 import Container from "../../../../layout/Container";
 
-const patternBg = "/assets/Pattern/layout-pattern.png";
+const patternBg = "/assets/about/StatsSection/TrustSection-Pattern.png";
 const cardPattern = "/assets/about/StatsSection/TrustSection-Pattern.png";
 
 const missions = [

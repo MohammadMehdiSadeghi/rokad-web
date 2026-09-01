@@ -87,9 +87,14 @@ export default function AboutStory() {
 
               {/* محتوای متنی — سمت راست */}
               <div className="flex-1 pb-12 sm:pb-16 lg:pb-20 pt-1">
-                <h3 className="font-black text-[1.125rem] sm:text-[1.5rem] lg:text-[1.75rem] leading-[1.3] mb-3 sm:mb-4 text-[#21295A]">
-                                  {m.title}
-                                </h3>
+                <h3 className="font-black text-[1.375rem] sm:text-[1.875rem] lg:text-[2.125rem] leading-[1.3] mb-3 sm:mb-4 text-[#21295A]">
+                  {m.title.split("رکاد").map((part, i, arr) => (
+                    <span key={i}>
+                      {part}
+                      {i < arr.length - 1 && <span className="text-teal">رکاد</span>}
+                    </span>
+                  ))}
+                </h3>
                 <p className="text-[0.875rem] sm:text-[1rem] leading-[1.9] text-ink/70 max-w-xl">
                   {m.body}
                 </p>

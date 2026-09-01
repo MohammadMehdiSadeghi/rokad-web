@@ -14,7 +14,7 @@ const THEMES = {
     badge: "border-orange text-orange",
     bg: "#FEF7EC",  
     src: yellowTexture,
-    opacity: 80,
+    opacity: 100,
   },
   navy: {
     rotate: "-rotate-[1deg] lg:-rotate-[2deg]",
@@ -25,7 +25,7 @@ const THEMES = {
     badge: "border-navy-alt text-navy-alt",
     bg: "#F4F5FB",
     src: blueTexture,
-    opacity: 50,
+    opacity: 100,
   },
   magenta: {
     rotate: "rotate-[1deg] lg:rotate-[2.5deg]",
@@ -47,7 +47,7 @@ const THEMES = {
     badge: "border-teal-text text-teal-text",
     bg: "#F2FAF9",
     src: greenTexture,
-    opacity: 150, 
+    opacity: 100, 
   },
 };
 

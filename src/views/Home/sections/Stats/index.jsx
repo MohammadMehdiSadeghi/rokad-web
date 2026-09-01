@@ -48,7 +48,7 @@ export default function Stats() {
           src={patternBg}
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover opacity-60 bg-center"
+          className="w-full h-full object-cover opacity-40 bg-center"
         />
       </div>
 

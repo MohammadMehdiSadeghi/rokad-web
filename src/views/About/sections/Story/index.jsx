@@ -74,7 +74,7 @@ export default function AboutStory() {
         {/* ── تایم‌لاین ۳ ستونه: سال | خطچین | متن ── */}
                 <div className="relative max-w-[60rem] mx-auto">
                   {milestones.map((m, i) => (
-                    <div key={m.year} className="relative grid grid-cols-[auto_auto_1fr] items-start gap-4 sm:gap-6 lg:gap-8">
+                    <div key={m.year} className="relative grid grid-cols-[auto_auto_1fr] items-start gap-8 sm:gap-10 lg:gap-12">
 
                       {/* ستون ۱: عدد سال + متن — سمت راست */}
                       <div className="flex flex-col items-start flex-shrink-0 w-20 sm:w-28 lg:w-36 text-left">

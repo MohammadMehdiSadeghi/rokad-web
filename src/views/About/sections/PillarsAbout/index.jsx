@@ -1,11 +1,13 @@
 import Container from "../../../../layout/Container";
 
+const cardPattern = "/assets/about/StatsSection/TrustSection-Pattern.png";
+
 // پالت سکشن — دقیقاً طبق توضیحات
 const THEMES = {
-  teal: { main: "#55BDB5", text: "text-white" },
-  navy: { main: "#293660", text: "text-white" },
-  orange: { main: "#FFA91B", text: "text-white" },
-  magenta: { main: "#EA145A", text: "text-white" },
+  teal: { main: "#55BDB5" },
+  navy: { main: "#293660" },
+  orange: { main: "#FFA91B" },
+  magenta: { main: "#EA145A" },
 };
 
 const pillars = [
@@ -14,81 +16,26 @@ const pillars = [
     title: "یادگیری با انجام‌دادن",
     body: "نظریه یه جایی داره، ولی توی رکاد بچه‌ها روی پروژه‌های واقعی کار می‌کنن و توی فرایند حل مسئله، مفاهیم رو به‌صورت عملی یاد می‌گیرن.",
     theme: "teal",
-    rotation: "-rotate-[1.5deg]",
-    variant: 0,
   },
   {
     index: "۰۲",
     title: "کار تیمی واقعی",
     body: "دانش‌آموز به‌عنوان یه تیم در جهت حل مسئله و پیشرفت در یادگیری همکاری می‌کنه؛ نه به‌صورت انفرادی و رقابتی.",
     theme: "navy",
-    rotation: "rotate-[1.5deg]",
-    variant: 1,
   },
   {
     index: "۰۳",
     title: "مهارت‌های نرم و سخت",
     body: "نه فقط برنامه‌نویسی و طراحی، بلکه خودشناسی، تفکر انتقادی و کار تیمی — همه‌ی مهارت‌های نرمی که فردا لازمشون داره.",
     theme: "orange",
-    rotation: "-rotate-[1.5deg]",
-    variant: 2,
   },
   {
     index: "۰۴",
     title: "همراهی با کوچینگ",
     body: "دانش‌آموز توی مسیر توسعه فردی با ابزار کوچینگ و تجربه‌نگاری به‌صورت مستمر همراهی می‌شه؛ نه یه بار در سال.",
     theme: "magenta",
-    rotation: "rotate-[1.5deg]",
-    variant: 3,
   },
 ];
-
-// ── پترن هندسی پلیگونی — Flat/Vector، هر کارت چینش متفاوت ──
-function PolyPattern({ color, variant }) {
-  const shapes = [
-    // variant 0 — مثلث‌های پراکنده بالا
-    [
-      "M-10,-20 L80,-10 L40,30 Z",
-      "M340,-40 L420,-10 L380,40 Z",
-      "M160,-60 L230,-30 L190,10 Z",
-    ],
-    // variant 1 — لوزی‌ها و ذوزنقه وسط
-    [
-      "M-20,120 L60,90 L100,160 L20,190 Z",
-      "M320,90 L400,60 L440,130 L360,160 Z",
-      "M150,200 L210,170 L240,230 L180,260 Z",
-    ],
-    // variant 2 — خطوط شکسته پایین
-    [
-      "M-30,280 L70,240 L120,300 L30,340 Z",
-      "M300,240 L380,200 L420,260 L340,300 Z",
-      "M130,320 L190,290 L220,350 L160,380 Z",
-    ],
-    // variant 3 — پلی‌گون‌های پراکنده چپ/راست
-    [
-      "M-40,60 L30,20 L70,80 L0,120 Z",
-      "M360,180 L440,140 L480,200 L400,240 Z",
-      "M-20,220 L60,190 L90,250 L10,280 Z",
-    ],
-  ][variant];
-
-  return (
-    <svg
-      viewBox="0 0 420 320"
-      preserveAspectRatio="xMidYMid slice"
-      className="absolute inset-0 w-full h-full pointer-events-none select-none"
-    >
-      {shapes.map((d, i) => (
-        <path
-          key={i}
-          d={d}
-          fill={color}
-          opacity={i === 0 ? 0.18 : i === 1 ? 0.12 : 0.08}
-        />
-      ))}
-    </svg>
-  );
-}
 
 // ── آیکون‌ها — ساده، متناسب با رنگ کارت ──
 function Icon({ theme, className }) {
@@ -160,10 +107,7 @@ export default function AboutPillars() {
           {pillars.map((p) => {
             const theme = THEMES[p.theme];
             return (
-              <div
-                key={p.index}
-                className={`relative w-full h-full transition-transform duration-300 hover:rotate-0 hover:-translate-y-1 ${p.rotation}`}
-              >
+              <div key={p.index} className="relative w-full h-full">
                 {/* لایه شدو تیره — حالت استیکری */}
                 <div
                   aria-hidden="true"
@@ -171,23 +115,25 @@ export default function AboutPillars() {
                 />
                 {/* خود کارت */}
                 <div
-                  className={`relative z-10 w-full h-full ${squircle} flex flex-col items-center text-center p-6 sm:p-7 min-h-[15rem] sm:min-h-[17rem] lg:min-h-[19rem] overflow-hidden`}
+                  className={`relative z-10 w-full h-full ${squircle} flex flex-col items-start justify-start text-right p-6 sm:p-7 min-h-[15rem] sm:min-h-[17rem] lg:min-h-[19rem] overflow-hidden`}
                   style={{
                     backgroundColor: theme.main,
                     border: "3px solid #292827",
                   }}
                 >
-                  {/* پترن پلیگونی — در پس‌زمینه */}
-                  <div className="absolute inset-0 pointer-events-none opacity-90">
-                    <PolyPattern color={theme.main} variant={p.variant} />
+                  {/* پترن — همون دو سکشن بالا (TrustSection-Pattern) */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    <img
+                      src={cardPattern}
+                      alt=""
+                      aria-hidden="true"
+                      className="w-full h-full object-cover opacity-20 mix-blend-overlay select-none"
+                    />
                   </div>
 
-                  {/* ردیف بالا: شماره (راست) + آیکون (چپ) */}
+                  {/* ردیف بالا: آیکون (راست) + شماره (چپ) */}
                   <div className="relative z-10 flex items-start justify-between w-full mb-5 sm:mb-6">
-                    <span className="font-black text-[1.25rem] sm:text-[1.5rem] text-white/70 leading-none">
-                      {p.index}
-                    </span>
-                    {/* باکس آیکون — سفید/بسیار روشن + بوردر تیره + شدو کوچک */}
+                    {/* باکس آیکون — سفید + بوردر تیره + شدو کوچک */}
                     <div
                       className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-[0.625rem] bg-white"
                       style={{
@@ -197,6 +143,9 @@ export default function AboutPillars() {
                     >
                       <Icon theme={p.theme} className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
+                    <span className="font-black text-[1.25rem] sm:text-[1.5rem] text-white/70 leading-none">
+                      {p.index}
+                    </span>
                   </div>
 
                   {/* تایتل */}
@@ -205,7 +154,7 @@ export default function AboutPillars() {
                   </h4>
 
                   {/* بدنه */}
-                  <p className="relative z-10 text-[0.8125rem] sm:text-[0.875rem] leading-[1.8] text-white/90 mt-auto">
+                  <p className="relative z-10 text-[0.8125rem] sm:text-[0.875rem] leading-[1.8] text-white/90">
                     {p.body}
                   </p>
                 </div>

@@ -1,7 +1,6 @@
 # رکاد (Rokad) Landing Page — React + Tailwind
 
-Vite + React 18 + Tailwind CSS build of the Figma frame "Wireframe - 6",
-based on the `DESIGN.md` reverse-engineering doc.
+Vite + React 18 + Tailwind CSS build of the Figma frame "Wireframe - 6".
 
 ## Run it
 

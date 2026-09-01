@@ -91,7 +91,7 @@ function BranchCard({ branch, index }) {
 
   return (
     <div
-      className="relative"
+      className="relative h-full"
       style={{ transform: `rotate(${rotate}deg)`, transition: "transform 500ms ease-out" }}
     >
       {/* سایه پشتی */}
@@ -105,7 +105,7 @@ function BranchCard({ branch, index }) {
       />
       {/* کارت جلو */}
       <div
-        className="relative z-10 border-2 border-[#292827] rounded-[0_2rem_0_2rem] [corner-shape:squircle] flex flex-col"
+        className="relative z-10 h-full border-2 border-[#292827] rounded-[0_2rem_0_2rem] [corner-shape:squircle] flex flex-col"
         style={{ background: branch.tint }}
       >
         <div className="p-5 sm:p-6 flex flex-col h-full">

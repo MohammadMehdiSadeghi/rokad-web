@@ -74,7 +74,7 @@ export default function AboutStory() {
         {/* ── تایم‌لاین ۳ ستونه: سال | خطچین | متن ── */}
                 <div className="relative max-w-[60rem] mx-auto">
                   {milestones.map((m, i) => (
-                    <div key={m.year} className="relative grid grid-cols-[auto_auto_1fr] items-start gap-4 sm:gap-6 lg:gap-8 pb-12 sm:pb-16 lg:pb-20">
+                    <div key={m.year} className="relative grid grid-cols-[auto_auto_1fr] items-start gap-4 sm:gap-6 lg:gap-8">
 
                       {/* ستون ۱: عدد سال + بج — سمت راست */}
                       <div className="flex flex-col items-center flex-shrink-0 w-20 sm:w-28 lg:w-36">
@@ -86,7 +86,7 @@ export default function AboutStory() {
                         </span>
                       </div>
 
-                      {/* ستون ۲: دایره توخالی بالا + خطچین رنگی زیرش — وسط */}
+                      {/* ستون ۲: دایره + خطچین پیوسته تا انتهای ردیف — وسط */}
                       <div className="flex flex-col items-center flex-shrink-0 w-6 sm:w-8 self-stretch">
                         <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[0.1875rem] ${m.dotColor} z-10`} />
                         <div className="w-[0.125rem] flex-1"
@@ -96,8 +96,8 @@ export default function AboutStory() {
                         />
                       </div>
 
-                      {/* ستون ۳: محتوای متنی — سمت چپ */}
-                      <div className="pt-2">
+                      {/* ستون ۳: محتوای متنی — سمت چپ (پدینگ پایین اینجا تا خط وصل بمونه) */}
+                      <div className="pt-2 pb-12 sm:pb-16 lg:pb-20">
                         <h3 className="font-black text-[1.375rem] sm:text-[1.875rem] lg:text-[2.125rem] leading-[1.3] mb-3 sm:mb-4 text-[#21295A]">
                           {m.titleParts.map((p, i) => (
                             <span key={i} className={p.color}>

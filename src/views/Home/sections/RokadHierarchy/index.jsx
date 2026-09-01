@@ -1,200 +1,268 @@
-import Container from "../../../../layout/Container";
+"use client";
 
-const ecosystemPattern = "/assets/Pattern/layout-pattern.png";
-const hubImage = "/assets/home/Ecosystem/Group.png";
+import Container from "../../../../layout/Container";
+import { ChevronLeftIcon } from "../../../../common/Icons";
+
+const sectionPattern = "/assets/Pattern/layout-pattern.png";
+
+/* =========================================================
+   DATA — سه شاخهٔ اکوسیستم
+========================================================= */
 
 const branches = [
   {
-    id: "college",
-    href: "#college",
+    label: "EDUCATION",
     title: "کالج رکاد",
-    description:
-      "مسیر یادگیری ساختاریافته با اساتید مسلط و پروژه‌های واقعی — جایی که پایه‌های مهارت شکل می‌گیرد.",
-    stat: "+۲۵۰",
-    statLabel: "دانش‌پذیر فعال",
-    brand: "amber",
+    role: "یاد می‌گیری",
+    body: "مسیر یادگیری ساختاریافته، اساتید مسلط و پروژه‌های واقعی — پایه‌های مهارت اینجا شکل می‌گیرد.",
+    stats: [
+      { v: "۸۰۰+", l: "دانش‌آموخته" },
+      { v: "۴۵+", l: "دوره" },
+      { v: "۹۴٪", l: "رضایت" },
+    ],
+    color: "#F8A41D",
+    dark: "#BA7B16",
+    tint: "#FEF6E8",
+    darker: "#57390A",
   },
   {
-    id: "accelerator",
-    href: "#accelerator",
-    title: "شتاب‌دهنده رکاد",
-    description:
-      "از ایده تا محصول قابل عرضه; منتورشیپ تخصصی, سرمایه‌ی اولیه و دسترسی به شبکه‌ای از سرمایه‌گذاران رکاد.",
-    stat: "+۳۰",
-    statLabel: "تیم شتاب گرفته",
-    brand: "teal",
+    label: "GROWTH",
+    title: "شتاب‌دهندهٔ رکاد",
+    role: "می‌سازی",
+    body: "از ایده تا محصول قابل عرضه؛ منتورشیپ تخصصی، سرمایه اولیه و شبکه‌ای از سرمایه‌گذاران رکاد.",
+    stats: [
+      { v: "۴۰+", l: "تیم" },
+      { v: "$۲.۵M", l: "سرمایه" },
+      { v: "۶ ماه", l: "دوره" },
+    ],
+    color: "#59BBAF",
+    dark: "#438C83",
+    tint: "#EEF8F7",
+    darker: "#1F413D",
   },
   {
-    id: "cafe",
-    href: "#cafe",
-    title: "کافه کارآفرینی رکاد",
-    description:
-      "محل ملاقات ایده‌ها; رویدادها, گفت‌وگو با کارآفرینان و شبکه‌سازی روزمره در یک فضای گرم و پویا.",
-    stat: "+۱۲۰",
-    statLabel: "رویداد برگزار شده",
-    brand: "violet",
+    label: "COMMUNITY",
+    title: "کافه کارآفرینی",
+    role: "زندگی می‌کنی",
+    body: "محل ملاقات ایده‌ها، رویدادها و شبکه‌سازی روزمره در فضایی گرم و پویا.",
+    stats: [
+      { v: "۱۲۰+", l: "رویداد" },
+      { v: "۵K+", l: "عضو" },
+      { v: "۷/۷", l: "باز" },
+    ],
+    color: "#652D90",
+    dark: "#4C226C",
+    tint: "#F0EAF4",
+    darker: "#231032",
   },
 ];
 
-const BRAND_CONFIG = {
-  amber: {
-    border: "#F8A41D",
-    badgeBg: "#F8A41D",
-    text: "#E49007",
-    cardBg: "#FFFCF6",
-    line: "#F8A41D",
-  },
-  teal: {
-    border: "#347E75",
-    badgeBg: "#347E75",
-    text: "#347E75",
-    cardBg: "#FFFFFF",
-    line: "#347E75",
-  },
-  violet: {
-    border: "#5B3E9E",
-    badgeBg: "#7C4DBF",
-    text: "#5B3E9E",
-    cardBg: "#FBFAFE",
-    line: "#7C4DBF",
-  },
-};
+/* =========================================================
+   CTA BUTTON — دو لایهٔ رکادی
+========================================================= */
 
-function BranchCard({ branch, rotation = 0 }) {
-  const c = BRAND_CONFIG[branch.brand];
-  const ctaButton = (
-    <a
-      href={branch.href}
-      className="inline-flex h-10 flex-shrink-0 items-center justify-center rounded-xl px-6 text-sm font-medium text-white
-                 transition-[box-shadow,filter] duration-200
-                 hover:brightness-110 hover:shadow-[0_1px_2px_rgba(0,0,0,0.3),0_1px_3px_1px_rgba(0,0,0,0.15)]
-                 focus-visible:outline-none focus-visible:shadow-[0_1px_2px_rgba(0,0,0,0.3),0_1px_3px_1px_rgba(0,0,0,0.15)]"
-      style={{ background: c.badgeBg }}
-    >
-      بیشتر بدانید
-    </a>
-  );
-
+function CtaBtn({ label, color }) {
   return (
-    <div
-      className="border-2 relative h-full px-5 py-5 sm:px-8 sm:py-6 lg:max-w-[527px] transition-transform duration-300 hover:rotate-0"
-      style={{
-        transform: `rotate(${rotation}deg)`,
-        borderColor: c.border,
-        background: c.cardBg,
-        boxShadow: "6px 8px 0 0 var(--shadow-col)",
-        "--shadow-col": c.border,
-        borderRadius: "0 12px 0 12px",
-      }}
-    >
-      <div className="flex items-start justify-between gap-4">
-        <h3
-          className="font-black text-[1rem] sm:text-[1.25rem] lg:text-[1.5rem] leading-snug"
-          style={{ color: c.border }}
-        >
-          {branch.title}
-        </h3>
-        {ctaButton}
-      </div>
-      <p
-        className="mt-2 sm:mt-3 text-[0.875rem] sm:text-[0.9375rem] font-medium leading-[1.8] text-right"
-        style={{ color: c.border }}
+    <div className="relative inline-block -rotate-2">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[#292827] rounded-[0.625rem] [corner-shape:squircle]"
+        style={{ transform: "translate(-3px, 3px)" }}
+      />
+      <button
+        type="button"
+        className="relative z-10 inline-flex items-center gap-1.5 px-[1.125rem] py-[0.5rem] border-2 border-[#292827] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer hover:-translate-y-0.5 transition-transform"
+        style={{ background: color, color: "#ffffff" }}
       >
-        {branch.description}
-      </p>
+        <span>{label}</span>
+        <ChevronLeftIcon className="w-3 h-3" />
+      </button>
     </div>
   );
 }
+
+/* =========================================================
+   BRANCH CARD — کارت دو لایهٔ شاخه
+========================================================= */
+
+function BranchCard({ branch, index }) {
+  const rots = [-1, 1, 1.5];
+  const rotate = rots[index % rots.length];
+
+  return (
+    <div
+      className="relative"
+      style={{ transform: `rotate(${rotate}deg)`, transition: "transform 500ms ease-out" }}
+    >
+      {/* سایه پشتی */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 rounded-[0_2rem_0_2rem] [corner-shape:squircle]"
+        style={{
+          background: branch.color,
+          transform: "translate(-6px, 6px)",
+        }}
+      />
+      {/* کارت جلو */}
+      <div
+        className="relative z-10 border-2 border-[#292827] rounded-[0_2rem_0_2rem] [corner-shape:squircle] flex flex-col"
+        style={{ background: branch.tint }}
+      >
+        <div className="p-5 sm:p-6 flex flex-col h-full">
+          {/* هدر: Label + شماره */}
+          <div className="flex items-center justify-between mb-3">
+            <span
+              className="inline-block px-3 py-1 rounded-[0.75rem] [corner-shape:squircle] text-[0.8125rem] font-bold border"
+              style={{
+                borderColor: branch.color,
+                color: branch.color,
+                background: "#ffffff",
+                transform: "rotate(-2deg)",
+              }}
+            >
+              {branch.label}
+            </span>
+            <span
+              className="text-[2.375rem] font-black leading-none"
+              style={{ color: branch.color, opacity: 0.4 }}
+            >
+              {`۰${index + 1}`}
+            </span>
+          </div>
+
+          {/* Role verb */}
+          <div className="text-right mb-1">
+            <span
+              className="inline-block text-[1.75rem] sm:text-[2rem] font-black leading-[1.15]"
+              style={{
+                color: branch.darker,
+                transform: `rotate(${index === 1 ? -1 : 1}deg)`,
+              }}
+            >
+              اینجا {branch.role}
+            </span>
+          </div>
+
+          {/* عنوان شاخه */}
+          <div className="text-right mb-2.5">
+            <span
+              className="text-[0.9375rem] font-bold"
+              style={{ color: branch.color }}
+            >
+              → {branch.title}
+            </span>
+          </div>
+
+          {/* بدنه */}
+          <p
+            className="text-[0.8125rem] font-medium leading-[1.75] text-right flex-1 mb-3"
+            style={{ color: "#777777" }}
+          >
+            {branch.body}
+          </p>
+
+          {/* آمار افقی */}
+          <div
+            className="flex justify-between gap-2 pt-3.5 mb-3.5 border-t border-dashed"
+            style={{ borderColor: `${branch.color}55` }}
+          >
+            {branch.stats.map((s, si) => (
+              <div key={si} className="text-center flex-1">
+                <div
+                  className="font-black text-[1.375rem] leading-none"
+                  style={{ color: branch.darker }}
+                >
+                  {s.v}
+                </div>
+                <div
+                  className="text-[0.625rem] font-medium mt-1"
+                  style={{ color: "#777777" }}
+                >
+                  {s.l}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div>
+            <CtaBtn label="ورود" color={branch.color} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* =========================================================
+   MAIN SECTION — V4: Manifesto Grid
+========================================================= */
 
 export default function RokadHierarchy() {
   return (
     <section
       id="rokad-hierarchy"
-      className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8 bg-white overflow-hidden"
       dir="rtl"
+      className="relative overflow-hidden bg-white pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-8"
     >
       {/* ── Background Pattern Layer ── */}
       <div
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60
                 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
                 [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
       >
         <img
-          src={ecosystemPattern}
+          src={sectionPattern}
           alt=""
-          aria-hidden="true"
           draggable="false"
-          className="w-full h-full object-cover opacity-50 select-none"
+          className="w-full h-full object-cover select-none"
         />
       </div>
 
       <Container className="relative z-10">
-        {/* دسکتاپ: چارت سازمانی — دایره بالا وسط، سه کارت کنار هم پایین،
-            شاخه‌های خط‌چین از دایره به هر کارت */}
-        <div className="hidden lg:block">
-          {/* هاب — بالا وسط؛ z-10 تا سرِ خط‌ها زیر دایره پنهان بشن */}
-          <div className="relative z-10 flex justify-center">
-            <div
-              className="w-[12.5rem] h-[12.5rem] rounded-full flex items-center justify-center overflow-hidden"
-              style={{
-                background:
-                  "radial-gradient(circle at 30% 25%, #7ED3C6 0%, #58BDAF 45%, #347E75 100%)",
-                boxShadow: "6px 8px 0 0 #347E75",
-                border: "3px solid #347E75",
-              }}
-            >
-              <img
-                src={hubImage}
-                alt=""
-                aria-hidden="true"
-                className="w-16 h-24 object-contain brightness-0 invert"
-              />
-            </div>
-          </div>
-
-          {/* باند اتصال — قوس‌های نرمِ خط‌چین از پایین دایره تا سرِ هر کارت
-              (مرکز کارت‌ها در گرید ۳ستونی: راست ۸۳.۳٪ / وسط ۵۰٪ / چپ ۱۶.۷٪) */}
-          <svg
-            className="block w-full h-[7rem] -mt-6"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
+        {/* ════ MANIFESTO HEADER ════ */}
+        <div className="text-right mb-10 lg:mb-12">
+          {/* Label pill */}
+          <span
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[0.75rem] [corner-shape:squircle] text-[0.8125rem] font-bold bg-white border border-[#59BBAF] text-[#59BBAF] -rotate-2 mb-5"
           >
-            {branches.map((b, i) => {
-              const c = BRAND_CONFIG[b.brand];
-              const x = [83.333, 50, 16.666][i];
-              return (
-                <path
-                  key={b.id}
-                  d={`M 50 0 C ${x} 25, ${x} 70, ${x} 100`}
-                  stroke={c.line}
-                  strokeWidth="2"
-                  strokeDasharray="10 8"
-                  strokeLinecap="round"
-                  fill="none"
-                  vectorEffect="non-scaling-stroke"
-                  className="animate-marching-ants"
-                />
-              );
-            })}
-          </svg>
+            <span className="w-2 h-2 rounded-full bg-[#59BBAF]" />
+            مانیفست اکوسیستم
+          </span>
 
-          {/* کارت‌ها — سه‌تا کنار هم */}
-          <div className="grid grid-cols-3 gap-[2rem] items-stretch justify-items-center">
-            {branches.map((branch, i) => (
-              <BranchCard
-                key={branch.id}
-                branch={branch}
-                rotation={i % 2 === 0 ? -3 : 3}
-              />
-            ))}
-          </div>
+          {/* تیتر بزرگ */}
+          <h2
+            className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.875rem] leading-[1.2] tracking-tight text-right"
+          >
+            <span className="inline-block -rotate-1 ml-1">رکاد،</span>
+            <span
+              className="inline-block rotate-[1.5deg] ml-1 px-3 sm:px-4 rounded-[0.875rem] [corner-shape:squircle] text-white"
+              style={{ background: "#59BBAF" }}
+            >
+              فراتر
+            </span>
+            <span className="inline-block -rotate-[0.5deg] ml-1">از یک</span>
+            <span className="inline-block rotate-2 text-[#E0195B]">
+              مدرسه.
+            </span>
+          </h2>
+
+          {/* زیرنویس */}
+          <p className="mt-5 sm:mt-6 text-[0.9375rem] sm:text-[1.0625rem] font-medium leading-[1.85] text-[#292827] max-w-[48rem]">
+            یک <i className="font-bold">Rokadian</i> در سه فضای زنده به‌صورت
+            هم‌زمان حضور دارد:
+            <b style={{ color: "#F8A41D" }}> کالج</b>،
+            <b style={{ color: "#59BBAF" }}> شتاب‌دهنده</b> و
+            <b style={{ color: "#652D90" }}> کافه</b>.
+            سه لایهٔ همزمان از یک زندگی — نه سه مرحلهٔ جدا.
+          </p>
         </div>
 
-        {/* موبایل/تبلت */}
-        <div className="flex flex-col gap-4 lg:hidden">
-          {branches.map((branch) => (
-            <BranchCard key={branch.id} branch={branch} />
+        {/* ════ GRID 3-COLUMN ════ */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 items-stretch">
+          {branches.map((branch, i) => (
+            <BranchCard key={i} branch={branch} index={i} />
           ))}
         </div>
       </Container>

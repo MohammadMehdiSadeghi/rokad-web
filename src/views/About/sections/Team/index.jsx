@@ -1,6 +1,6 @@
 import Container from "../../../../layout/Container";
 
-const patternBg = "/assets/Pattern/layout-pattern.png";
+const patternBg = "/assets/about/StatsSection/TrustSection-Pattern.png";
 const imgDir = "/assets/about/Team";
 
 // ۸ عضو تیم — رنگ بالای کارت (Frame 1000006467) دقیقاً از فیگما

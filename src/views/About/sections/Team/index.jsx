@@ -34,14 +34,18 @@ function TeamCard({ member, index }) {
         style={{ backgroundColor: "#292827", borderRadius: "25px 0 25px 0" }}
       />
       {/* خود کارت — bg #EAEAE9 از فیگما */}
-      <div
-        className="relative z-10 flex flex-col overflow-hidden bg-[#EAEAE9]"
-        style={{
-          border: "2px solid #292827",
-          borderRadius: "25px 0 25px 0",
-        }}
-      >
-        {/* بالای کارت — پس‌زمینه رنگی + عکس */}
+            <div
+              className="relative z-10 flex flex-col overflow-hidden bg-[#EAEAE9]"
+              style={{
+                border: "2px solid #292827",
+                borderRadius: "25px 0 25px 0",
+              }}
+            >
+              {/* پترن پسزمینه کارت */}
+              <div className="absolute inset-0 z-0 pointer-events-none">
+                <img src={patternBg} alt="" className="w-full h-full object-cover opacity-100 select-none" />
+              </div>
+              {/* بالای کارت — پسزمینه رنگی + عکس */}
         <div
           className="relative w-full aspect-[281/250] overflow-hidden"
           style={{ backgroundColor: member.color, borderBottom: "2px solid #292827" }}

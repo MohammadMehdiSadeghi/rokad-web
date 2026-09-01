@@ -24,8 +24,9 @@ const socialLinks = [
 export default function AboutFounder() {
   return (
     <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
-        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-60" />
+      {/* Background pattern */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
+        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-40 mix-blend-multiply" />
       </div>
 
       <Container className="relative z-10">
@@ -60,11 +61,11 @@ export default function AboutFounder() {
                 </h3>
 
                 {/* Credentials grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {credentials.map((cred, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-2.5 bg-[#E2E3EE]/70 rounded-full px-4 py-2.5 sm:px-6 sm:py-3 w-full"
+                      className="flex items-center gap-2 bg-[#C5D0E6] rounded-full px-3 py-1.5 sm:px-4 sm:py-2 w-full"
                     >
                       <span className="flex-shrink-0 w-5 h-5 sm:w-[1.25rem] sm:h-[1.25rem] rounded-full bg-[#21295A] flex items-center justify-center">
                         <svg viewBox="0 0 24 24" fill="none" className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white">

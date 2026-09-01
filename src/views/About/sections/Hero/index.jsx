@@ -57,14 +57,14 @@ export default function AboutHero() {
               {/* پیش‌ثبت‌نام کن */}
               <a
                 href="#"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-teal/10 border-[0.1875rem] border-teal text-teal font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0.84375rem_0_0.84375rem_0] [corner-shape:squircle] shadow-[2px_3px_0_0_rgba(88,189,175,0.9)] transition-all duration-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_2px_0_0_rgba(88,189,175,0.9)]"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-teal/10 border-[0.1875rem] border-teal text-teal font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] shadow-[2px_3px_0_0_rgba(88,189,175,0.9)] transition-all duration-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_2px_0_0_rgba(88,189,175,0.9)]"
               >
                 پیش‌ثبت‌نام کن
               </a>
               {/* داستانمون رو بخون */}
               <a
                 href="#story"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-[#21295A]/10 border-[0.1875rem] border-[#21295A] text-[#21295A] font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0.84375rem_0_0.84375rem_0] [corner-shape:squircle] shadow-[2px_3px_0_0_rgba(33,41,90,0.9)] transition-all duration-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_2px_0_0_rgba(33,41,90,0.9)]"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-[#21295A]/10 border-[0.1875rem] border-[#21295A] text-[#21295A] font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] shadow-[2px_3px_0_0_rgba(33,41,90,0.9)] transition-all duration-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_2px_0_0_rgba(33,41,90,0.9)]"
               >
                 داستانمون رو بخون
               </a>

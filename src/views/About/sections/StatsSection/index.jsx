@@ -7,18 +7,26 @@ const PINK_TEXTURE = "/assets/about/StatCard/pink.png";
 const GREEN_TEXTURE = "/assets/about/StatCard/green.png";
 
 const THEMES = {
-  orange: { rotate: "rotate-[1deg] lg:rotate-[2.5deg]", back: "bg-orange-alt", border: "border-orange", text: "text-orange", bg: "#FEF7EC", src: YELLOW_TEXTURE, opacity: 80 },
-  navy: { rotate: "-rotate-[1deg] lg:-rotate-[2deg]", back: "bg-navy-alt", border: "border-navy", text: "text-navy-alt", bg: "#F4F5FB", src: BLUE_TEXTURE, opacity: 50 },
-  magenta: { rotate: "rotate-[1deg] lg:rotate-[2.5deg]", back: "bg-magenta", border: "border-magenta", text: "text-magenta-text", bg: "#FEFAFB", src: PINK_TEXTURE, opacity: 100 },
-  teal: { rotate: "-rotate-[1deg] lg:-rotate-[2deg]", back: "bg-teal-alt", border: "border-teal", text: "text-teal-text", bg: "#F2FAF9", src: GREEN_TEXTURE, opacity: 150 },
+  orange: { back: "bg-orange-alt", border: "border-orange", text: "text-orange", bg: "#FEF7EC", src: YELLOW_TEXTURE, opacity: 80 },
+  navy: { back: "bg-navy-alt", border: "border-navy", text: "text-navy-alt", bg: "#F4F5FB", src: BLUE_TEXTURE, opacity: 50 },
+  magenta: { back: "bg-magenta", border: "border-magenta", text: "text-magenta-text", bg: "#FEFAFB", src: PINK_TEXTURE, opacity: 100 },
+  teal: { back: "bg-teal-alt", border: "border-teal", text: "text-teal-text", bg: "#F2FAF9", src: GREEN_TEXTURE, opacity: 150 },
 };
 
 // ترتیب دقیق فیگما (RTL): +۲۲۰۰ تیل، +۱۵۰ مگنتا، ٪۷۵ نارنجی، ۳۱ سرمه‌ای
-const stats = [
+// ۳ ردیف × ۴ ستون = ۱۲ کارت
+const baseStats = [
   { theme: "teal", value: "۲۲۰۰+", label: "نوجوان رکادی در سراسر کشور" },
   { theme: "magenta", value: "۱۵۰+", label: "دانش‌آموز دختر و پسر" },
   { theme: "orange", value: "٪۷۵", label: "نرخ اشتغال فارغ‌التحصیلان" },
   { theme: "navy", value: "۳۱", label: "استارتاپ ویکند" },
+];
+
+// ۳ ردیف: هر ردیف تکرار همون ۴ آمار با چرخش رنگ مورب
+const stats = [
+  ...baseStats.map((s, i) => ({ ...s, key: `r1-${i}` })),
+  ...baseStats.map((s, i) => ({ ...s, key: `r2-${i}` })),
+  ...baseStats.map((s, i) => ({ ...s, key: `r3-${i}` })),
 ];
 
 const shapeClass = "rounded-tl-[2rem] rounded-br-[2rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]";
@@ -26,7 +34,7 @@ const shapeClass = "rounded-tl-[2rem] rounded-br-[2rem] rounded-tr-none rounded-
 function StatCard({ theme, value, label }) {
   const t = THEMES[theme] ?? THEMES.teal;
   return (
-    <div className={`relative ${t.rotate} h-full`}>
+    <div className="relative h-full">
       <div className={`absolute top-2 left-2 -right-[0.25rem] -bottom-[0.25rem] ${shapeClass} ${t.back}`} />
       <div className={`relative z-10 h-full flex flex-col items-center justify-center ${shapeClass} border-[0.1875rem] ${t.border} px-3 xs:px-4 pt-3 xs:pt-5 pb-3 xs:pb-5 lg:px-5 lg:pt-6 lg:pb-6 text-center overflow-visible`} style={{ backgroundColor: t.bg }}>
         <div className={`absolute inset-0 ${shapeClass} overflow-hidden pointer-events-none`}>
@@ -57,7 +65,7 @@ export default function AboutStats() {
       <p className="relative z-10 text-center text-[0.875rem] sm:text-[1rem] text-ink/50 mb-8 sm:mb-10 max-w-lg mx-auto">اعداد همه چیز رو نمی‌گن، ولی این‌ها رو باید بدونی:</p>
       <Container className="relative z-10 grid grid-cols-2 xl:grid-cols-4 gap-[1.25rem] sm:gap-[2rem] [grid-auto-rows:1fr]">
         {stats.map((s) => (
-          <div key={s.label} className="h-full"><StatCard {...s} /></div>
+          <div key={s.key} className="h-full"><StatCard {...s} /></div>
         ))}
       </Container>
     </section>

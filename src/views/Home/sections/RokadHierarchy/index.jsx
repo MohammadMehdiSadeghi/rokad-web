@@ -72,7 +72,7 @@ function CtaBtn({ label, color }) {
   return (
     <button
       type="button"
-      className="inline-flex items-center gap-1.5 px-[1.125rem] py-[0.5rem] border-2 border-[#292827] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer -rotate-2 hover:rotate-0 hover:-translate-y-0.5 transition-transform"
+      className="inline-flex items-center gap-1.5 px-[1.125rem] py-[0.5rem] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer -rotate-2 hover:rotate-0 hover:-translate-y-0.5 transition-transform"
       style={{ background: color, color: "#ffffff" }}
     >
       <span>{label}</span>

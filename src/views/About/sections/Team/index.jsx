@@ -25,11 +25,11 @@ export default function AboutTeam() {
         <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-4 sm:mb-6">
             <span className="inline-block rotate-1">آدم‌هایی</span>{" "}
-            <span className="inline-block -rotate-1">که</span>{" "}
-            <span className="inline-block rotate-1 text-teal">هر روز</span>{" "}
-            <span className="inline-block -rotate-1 text-magenta">رکاد</span>{" "}
+            <span className="inline-block -rotate-1 text-navy-alt">که</span>{" "}
+            <span className="inline-block rotate-1">هر روز</span>{" "}
+            <span className="inline-block -rotate-1 text-teal">رکاد</span>{" "}
             <span className="inline-block rotate-1">رو</span>{" "}
-            <span className="inline-block -rotate-1">می‌سازن</span>
+            <span className="inline-block -rotate-1 text-magenta">می‌سازن</span>
           </h2>
           <p className="text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] text-ink/60 max-w-2xl mx-auto leading-[1.8]">
             پشت هر رویداد، هر جلسه و هر پروژه، یه تیم پرانرژی هست. با چند نفر از این آدم‌ها آشنا شو.

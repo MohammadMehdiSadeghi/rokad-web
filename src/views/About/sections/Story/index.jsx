@@ -24,15 +24,15 @@ const milestones = [
     lineColor: "#E0195B",
   },
   {
-    year: "امروز",
-    label: "سال ادامه‌دار",
-    title: "یه اکوسیستم، نه فقط یه مدرسه",
-    body: "امروز رکاد یه اکوسیستم زنده‌ست که توش استارتاپ ویکندها، کالج تابستانه، فرهنگستان نوآوری و استودیو نوآوری دیجیتال کنار هم کار می‌کنن. +۲۲۰۰ نوجوان رکادی، ۳۱ استارتاپ ویکند، +۵۶ رویداد و همایش کارآفرینانه، و ۵ شهر میزبان — همه‌ی این‌ها بخشی از تصویره که هر روز داره کامل‌تر می‌شه. هدف ما ساده‌ست: نوجوان با دیپلم عادی از دبیرستان بیرون نیاد، بلکه با چند پروژه‌ی واقعی، تجربه‌ی کار تیمی، و ذهنیت استارتاپی.",
-    textColor: "text-orange",
-    lightBg: "bg-orange/10",
-    dotColor: "border-orange",
-    lineColor: "#F5A623",
-  },
+      year: "امروز",
+      label: "سالی که ادامه‌داره",
+      title: "یه اکوسیستم، نه فقط یه مدرسه",
+      body: "امروز رکاد یه اکوسیستم زنده‌ست که توش استارتاپ ویکندها، کالج تابستانه، فرهنگستان نوآوری و استودیو نوآوری دیجیتال کنار هم کار می‌کنن. +۲۲۰۰ نوجوان رکادی، ۳۱ استارتاپ ویکند، +۵۶ رویداد و همایش کارآفرینانه، و ۵ شهر میزبان — همه‌ی این‌ها بخشی از تصویره که هر روز داره کامل‌تر می‌شه. هدف ما ساده‌ست: نوجوان با دیپلم عادی از دبیرستان بیرون نیاد، بلکه با چند پروژه‌ی واقعی، تجربه‌ی کار تیمی، و ذهنیت استارتاپی.",
+      textColor: "text-orange",
+      lightBg: "bg-orange/10",
+      dotColor: "border-orange",
+      lineColor: "#F5A623",
+    },
 ];
 
 export default function AboutStory() {
@@ -49,11 +49,11 @@ export default function AboutStory() {
       <Container className="relative z-10">
         {/* ── تیتر: از ۱۳۹۵ تا امروز ── */}
         <h2 className="text-center font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-4 sm:mb-6">
-          <span className="inline-block rotate-1">از</span>{" "}
-          <span className="inline-block text-teal -rotate-1">۱۳۹۵</span>{" "}
-          <span className="inline-block rotate-1">تا</span>{" "}
-          <span className="inline-block text-orange -rotate-1">امروز</span>
-        </h2>
+                  <span className="inline-block rotate-1">از</span>{" "}
+                  <span className="inline-block text-teal -rotate-1">۱۳۹۵</span>{" "}
+                  <span className="inline-block rotate-1">تا</span>{" "}
+                  <span className="inline-block text-magenta -rotate-1">امروز</span>
+                </h2>
 
         <p className="text-center text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] text-ink/60 max-w-2xl mx-auto leading-[1.8] mb-12 sm:mb-16 lg:mb-20">
           داستانی که با یه سؤال ساده شروع شد: چرا نوجوونا باید تا آخر
@@ -87,9 +87,9 @@ export default function AboutStory() {
 
               {/* محتوای متنی — سمت راست */}
               <div className="flex-1 pb-12 sm:pb-16 lg:pb-20 pt-1">
-                <h3 className="font-black text-[1.125rem] sm:text-[1.5rem] lg:text-[1.75rem] leading-[1.3] mb-3 sm:mb-4 text-ink">
-                  {m.title}
-                </h3>
+                <h3 className="font-black text-[1.125rem] sm:text-[1.5rem] lg:text-[1.75rem] leading-[1.3] mb-3 sm:mb-4 text-[#21295A]">
+                                  {m.title}
+                                </h3>
                 <p className="text-[0.875rem] sm:text-[1rem] leading-[1.9] text-ink/70 max-w-xl">
                   {m.body}
                 </p>

@@ -24,7 +24,7 @@ export default function AboutSchools() {
             <span className="inline-block -rotate-1">رو</span>{" "}
             <span className="inline-block rotate-1">از</span>{" "}
             <span className="inline-block -rotate-1 text-magenta">نزدیک</span>{" "}
-            <span className="inline-block rotate-1">ببینی؟</span>
+            <span className="inline-block rotate-1 text-navy-alt">ببینی؟</span>
           </h2>
         </div>
 

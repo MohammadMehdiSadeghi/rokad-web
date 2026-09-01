@@ -32,13 +32,13 @@ export default function AboutMission() {
       <Container className="relative z-10">
         <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-4 sm:mb-6">
-            <span className="inline-block rotate-1">مأموریت</span>{" "}
+            <span className="inline-block rotate-1 text-teal">ماموریت</span>{" "}
             <span className="inline-block -rotate-1 text-ink">و</span>{" "}
-            <span className="inline-block rotate-1 text-teal">چشم‌انداز</span>{" "}
-            <span className="inline-block -rotate-1 text-magenta">رکاد</span>
+            <span className="inline-block rotate-1 text-magenta">چشم‌انداز</span>{" "}
+            <span className="inline-block -rotate-1 text-ink">رکاد</span>
           </h2>
           <p className="text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] text-ink/60 max-w-xl mx-auto leading-[1.8]">
-            دوتا جمله که پشت هر تصمیم توی رکاده.
+            دوتا جمله که پشت هر تصمیم توی رکاده، اگه اینا رو بفهمی، رکاد رو فهمیدی.
           </p>
         </div>
 

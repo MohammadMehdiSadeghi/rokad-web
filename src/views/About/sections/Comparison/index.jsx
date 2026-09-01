@@ -67,8 +67,8 @@ export default function AboutComparison() {
       <Container className="relative z-10">
         <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-4 sm:mb-6">
-            <span className="inline-block rotate-1">تفاوت</span>{" "}
-            <span className="inline-block -rotate-1 text-teal">رکاد</span>{" "}
+            <span className="inline-block rotate-1 text-teal">تفاوت</span>{" "}
+            <span className="inline-block -rotate-1">رکاد</span>{" "}
             <span className="inline-block rotate-1">با</span>{" "}
             <span className="inline-block -rotate-1 text-magenta">بقیه</span>{" "}
             <span className="inline-block rotate-1">دقیقاً</span>{" "}

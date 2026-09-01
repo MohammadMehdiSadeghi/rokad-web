@@ -35,9 +35,10 @@ export default function AboutAwards() {
       <Container className="relative z-10">
         <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-4 sm:mb-6">
-            <span className="inline-block rotate-1 text-teal">۹ سال</span>{" "}
-            <span className="inline-block -rotate-1">رد پای</span>{" "}
-            <span className="inline-block rotate-1 text-magenta">رکاد</span>
+            <span className="inline-block rotate-1">۹ سال</span>{" "}
+            <span className="inline-block -rotate-1 text-orange">رد</span>{" "}
+            <span className="inline-block rotate-1">پای</span>{" "}
+            <span className="inline-block -rotate-1 text-teal">رکاد</span>
           </h2>
         </div>
 

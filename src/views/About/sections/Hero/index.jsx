@@ -4,8 +4,8 @@ const patternBg = "/assets/about/Hero/Hero-Pattern.png";
 const characterImg = "/assets/about/Hero/hero-character.png";
 
 const headlineWords = [
-  { text: "جایی", deg: 2, color: "text-teal" },
-  { text: "که", deg: -1.5, color: "text-teal" },
+  { text: "جایی", deg: 2, color: "text-ink" },
+  { text: "که", deg: -1.5, color: "text-ink" },
   { text: "نوجوون", deg: 1.5, color: "text-teal" },
   { text: "فقط", deg: -2, color: "text-ink" },
   { text: "یاد", deg: 3, color: "text-ink" },

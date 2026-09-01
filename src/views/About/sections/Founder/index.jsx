@@ -90,21 +90,21 @@ export default function AboutFounder() {
                 <SwiperSlide key={f.id} className="!h-auto">
                   <div className="p-2 sm:p-3">
                     <div className="absolute top-[0.25rem] left-[0.25rem] w-full h-full bg-[#21295A] rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3rem] [corner-shape:squircle]" />
-                    <div className="relative z-10 bg-[#21295A] border-[0.125rem] border-white/10 rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3rem] [corner-shape:squircle] overflow-hidden">
+                                        <div className="relative z-10 bg-[#F4F5FB] border-[0.125rem] border-[#21295A] rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3rem] [corner-shape:squircle] overflow-hidden">
                       <div className="absolute inset-0 pointer-events-none overflow-hidden">
                         <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-10" />
                       </div>
                       <div className="relative z-10 p-6 sm:p-8 lg:p-10">
-                        <h3 className="font-black text-[1.25rem] sm:text-[1.5rem] lg:text-[1.875rem] text-white leading-[1.3] mb-6 sm:mb-8">{f.name}</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                          {f.credentials.map((cred, i) => (
-                            <div key={i} className="flex items-start gap-2 sm:gap-3">
-                              <span className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/15 flex items-center justify-center mt-0.5">
-                                <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-teal"><path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                              </span>
-                              <span className="text-[0.8125rem] sm:text-[0.875rem] lg:text-[0.9375rem] text-white/80 leading-[1.7]">{cred}</span>
-                            </div>
-                          ))}
+                        <h3 className="font-black text-[1.25rem] sm:text-[1.5rem] lg:text-[1.875rem] text-[#21295A] leading-[1.3] mb-6 sm:mb-8">{f.name}</h3>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                                  {f.credentials.map((cred, i) => (
+                                                    <div key={i} className="flex items-start gap-2 sm:gap-3">
+                                                      <span className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#21295A]/10 flex items-center justify-center mt-0.5">
+                                                        <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-teal"><path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                                      </span>
+                                                      <span className="text-[0.8125rem] sm:text-[0.875rem] lg:text-[0.9375rem] text-[#21295A]/80 leading-[1.7]">{cred}</span>
+                                                    </div>
+                                                  ))}
                         </div>
                       </div>
                     </div>

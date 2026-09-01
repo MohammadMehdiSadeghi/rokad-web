@@ -81,7 +81,7 @@ export default function AboutStory() {
                         <span className="text-[2.5rem] sm:text-[4rem] lg:text-[5rem] leading-none font-black whitespace-nowrap">
                           <span className={m.textColor}>{m.year}</span>
                         </span>
-                        <span className={`mt-2 sm:mt-3 text-[0.875rem] sm:text-[1rem] font-bold text-[#292827]`}>
+                        <span className={`mt-2 sm:mt-3 text-[0.875rem] sm:text-[1rem] font-bold ${m.textColor}`}>
                           {m.label}
                         </span>
                       </div>

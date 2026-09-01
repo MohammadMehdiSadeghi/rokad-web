@@ -47,6 +47,7 @@ const MEMBERS = [
     badge: "راهبر",
     image: "/assets/about/Team/amirian.png",
     theme: "navy",
+    patternOpacity: "opacity-10",
   },
   {
     name: "رویا دولت‌آبادی",
@@ -139,7 +140,7 @@ function MiniCard({ member }) {
             src={theme.pattern}
             alt=""
             draggable="false"
-            className="absolute inset-0 w-full h-full object-cover select-none opacity-40"
+            className={`absolute inset-0 w-full h-full object-cover select-none ${member.patternOpacity ?? "opacity-40"}`}
           />
           <img
             src={member.image}

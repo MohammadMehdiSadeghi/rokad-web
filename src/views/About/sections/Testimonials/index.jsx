@@ -149,13 +149,15 @@ export default function AboutTestimonials() {
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}
         <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-[#292827] mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
-          <span className="inline-block -rotate-3">از</span>
-          <span className="inline-block rotate-3">زبون</span>
-          <span className="inline-block -rotate-3">کسایی</span>
-          <span className="inline-block rotate-3">که</span>
-          <span className="inline-block -rotate-3 text-teal">تجربه</span>
-          <span className="inline-block rotate-3 text-teal">کردن</span>
-        </h2>
+                  <span className="inline-block -rotate-3">چیزی</span>
+                  <span className="inline-block rotate-3">که</span>
+                  <span className="inline-block -rotate-3 text-teal">خودشون</span>
+                  <span className="inline-block rotate-3">می‌گن</span>
+                </h2>
+
+        <p className="text-[0.9375rem] sm:text-[1.0625rem] text-ink/60 max-w-2xl mx-auto leading-[1.8] text-center mb-[1.5rem] sm:mb-[2rem]">
+          دانش‌آموزها، خانواده‌ها و منتورها هرکدوم از یه زاویه دیگه درکاد
+        </p>
 
         {/* ── کاروسل ── */}
         <div className="relative w-full pt-[1rem] sm:pt-[3rem] md:pt-[3.25rem] lg:pt-[3.75rem] pb-12 sm:pb-16 overflow-visible">

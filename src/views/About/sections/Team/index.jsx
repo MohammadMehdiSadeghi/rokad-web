@@ -90,13 +90,13 @@ export default function AboutTeam() {
         </div>
 
         <div className="relative z-10 grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-          {teamMembers.map((m, i) => (
+          {teamMembers.map((m) => (
             <div
               key={m.name}
               className="group relative flex flex-col bg-white border-2 border-[#292827] [corner-shape:squircle] rounded-[0_1.25rem_0_1.25rem] shadow-[5px_5px_0_0_#292827] overflow-hidden transition-transform duration-300 hover:-translate-y-1"
             >
               {/* بخش بالایی: پس‌زمینه رنگی + عکس */}
-              <div className={`relative w-full aspect-[4/3] ${m.bg} flex items-end justify-center overflow-hidden`}>
+              <div className={`relative w-full aspect-[6/5] ${m.bg} flex items-end justify-center overflow-hidden`}>
                 {m.img ? (
                   <img
                     src={m.img}
@@ -105,7 +105,7 @@ export default function AboutTeam() {
                     className="w-full h-full object-cover object-top select-none"
                   />
                 ) : (
-                  /* پترن هندسی صورتی برای کسی که عکس نداره */
+                  /* پترن هندسی برای کسی که عکس نداره */
                   <div className="absolute inset-0 opacity-30">
                     <svg viewBox="0 0 200 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
                       <polygon points="0,0 90,10 60,80 10,60" fill="white" />
@@ -126,9 +126,14 @@ export default function AboutTeam() {
                   {m.role}
                 </p>
 
-                {/* ردیف پایین: آیکون‌ها + دکمه سمت */}
-                <div className="mt-3 pt-3 border-t border-[#EDEDED] flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1.5">
+                {/* ردیف پایین: بج سمت راست + آیکون‌ها سمت چپ (طبق طرح) */}
+                <div className="mt-3 pt-3 border-t border-dashed border-[#D1D1D1] flex items-center justify-between gap-2">
+                  <span
+                    className={`order-2 text-[0.6875rem] sm:text-[0.75rem] font-bold text-white px-2.5 py-1 rounded-[0_0.375rem_0_0.375rem] ${m.bg}`}
+                  >
+                    {m.badge}
+                  </span>
+                  <div className="order-1 flex items-center gap-1.5">
                     {socialIcons.map((ic) => (
                       <span
                         key={ic}
@@ -138,11 +143,6 @@ export default function AboutTeam() {
                       </span>
                     ))}
                   </div>
-                  <span
-                    className={`text-[0.6875rem] sm:text-[0.75rem] font-bold text-white px-2.5 py-1 rounded-[0_0.375rem_0_0.375rem] ${m.bg}`}
-                  >
-                    {m.badge}
-                  </span>
                 </div>
               </div>
             </div>

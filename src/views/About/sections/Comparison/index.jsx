@@ -52,8 +52,8 @@ const rokadItems = [
 const rokadOutcome = "خروجی: دیپلم + مسیر شغلی روشن + پورتفولیو";
 
 // رنگ‌های دقیق فیگما
-const TEAL = { main: "#59BBAF", bg: "#EEF8F7", itemBg: "#CCEAE6", deep: "#50A89E" };
-const PINK = { main: "#E0195B", bg: "#FCE8EF", itemBg: "#F5B8CC", deep: "#E40141" };
+const TEAL = { main: "#59BBAF", bg: "#EEF8F7", itemBg: "#CCEAE6", deep: "#50A89E", badgeText: "#EEF8F7" };
+const PINK = { main: "#E0195B", bg: "#FCE8EF", itemBg: "#F5B8CC", deep: "#E40141", badgeText: "#FCE8EF" };
 
 function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt }) {
   return (
@@ -66,7 +66,7 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
       />
       {/* خود کارت — پس‌زمینه تینت رنگی (نه سفید) */}
       <div
-        className="relative z-10 h-full flex flex-col overflow-visible p-6 sm:p-8 lg:p-9"
+        className="relative z-10 h-full flex flex-col overflow-visible p-[34px]"
         style={{
           backgroundColor: color.bg,
           border: "3px solid",
@@ -79,9 +79,10 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
           {/* بج در گوشه بالا-راست — overlap روی لبه */}
           <div className="absolute -top-8 right-0">
             <span
-              className="inline-flex items-center whitespace-nowrap text-white font-bold text-[0.875rem] sm:text-[1rem]"
+              className="inline-flex items-center whitespace-nowrap font-bold text-[1.25rem]"
               style={{
                 backgroundColor: color.main,
+                color: color.badgeText,
                 border: "2px solid #292827",
                 borderRadius: "9px",
                 padding: "3px 12px",
@@ -91,7 +92,7 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
               {badge}
             </span>
           </div>
-          <h3 className="font-black text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] leading-[1.35] text-right pt-5">
+          <h3 className="font-black text-[2rem] sm:text-[2.4375rem] leading-[1.3] text-right pt-5">
             <span className="text-[#292827]">{title}</span>{" "}
             <span style={{ color: color.main }}>{titleAccent}</span>
           </h3>
@@ -102,7 +103,7 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
           {items.map((text, i) => (
             <div
               key={i}
-              className="flex items-start gap-2.5 sm:gap-3 py-1.5 sm:py-2 px-2.5 sm:px-3"
+              className="flex items-start gap-2.5 sm:gap-3 py-[7px] px-2.5 sm:px-3"
               style={{ backgroundColor: color.itemBg, borderRadius: "7.3px" }}
             >
               {color === PINK ? (
@@ -110,14 +111,14 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
               ) : (
                 <CheckIcon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" style={{ color: color.deep }} />
               )}
-              <span className="text-[0.8125rem] sm:text-[0.9rem] leading-[1.6] font-semibold text-[#292827]">
+              <span className="text-[0.9375rem] sm:text-[1.14rem] leading-[1.6] font-semibold text-[#292827]">
                 {text}
               </span>
             </div>
           ))}
           {/* ردیف خروجی */}
           <div
-            className="flex items-start gap-2.5 sm:gap-3 py-1.5 sm:py-2 px-2.5 sm:px-3"
+            className="flex items-start gap-2.5 sm:gap-3 py-[7px] px-2.5 sm:px-3"
             style={{ backgroundColor: color.itemBg, borderRadius: "7.3px" }}
           >
             {color === PINK ? (
@@ -125,7 +126,7 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
             ) : (
               <CheckIcon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" style={{ color: color.deep }} />
             )}
-            <span className="text-[0.8125rem] sm:text-[0.9rem] leading-[1.6] text-[#292827]">
+            <span className="text-[0.9375rem] sm:text-[1.14rem] leading-[1.6] text-[#292827]">
               <strong className="font-extrabold">خروجی: </strong>
               {outcome.replace("خروجی: ", "")}
             </span>

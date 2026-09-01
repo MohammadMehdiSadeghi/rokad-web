@@ -54,13 +54,13 @@ export default function AboutMission() {
                 <div className={`absolute top-[0.25rem] left-[0.25rem] w-full h-full ${t.shadowBg} ${squircle} opacity-100`} />
                 {/* خود کارت */}
                 <div className={`relative z-10 ${t.bg} border-2 border-black ${squircle} p-6 sm:p-8 lg:p-10 min-h-[16rem] sm:min-h-[18rem] lg:min-h-[20rem] flex flex-col justify-between overflow-hidden`}>
-                  {/* پترن مثل دیوهای سکشن بالا */}
+                  {/* پترن */}
                   <div className="absolute inset-0 pointer-events-none overflow-hidden">
                     <img src={cardPattern} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-20 mix-blend-overlay" />
                   </div>
                   <div className="relative z-10 flex flex-col gap-4 sm:gap-5">
-                    <h3 className={`font-black text-[1.25rem] sm:text-[1.625rem] lg:text-[1.875rem] leading-[1.3] text-white`}>{m.title}</h3>
-                    <p className={`text-[0.875rem] sm:text-[1rem] leading-[1.8] text-white/85`}>{m.body}</p>
+                    <h3 className="font-black text-[1.25rem] sm:text-[1.625rem] lg:text-[1.875rem] leading-[1.3] text-white">{m.title}</h3>
+                    <p className="text-[0.875rem] sm:text-[1rem] leading-[1.8] text-white/85">{m.body}</p>
                   </div>
                 </div>
               </div>

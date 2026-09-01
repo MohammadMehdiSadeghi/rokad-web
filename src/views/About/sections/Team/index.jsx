@@ -50,7 +50,9 @@ function TeamCard({ member, index }) {
             <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top" />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <img src={patternBg} alt="" className="w-full h-full object-cover opacity-30" />
+              <span className="text-white font-black text-[4rem] leading-none select-none">
+                {member.name.charAt(0)}
+              </span>
             </div>
           )}
         </div>
@@ -106,7 +108,7 @@ export default function AboutTeam() {
   return (
     <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
-        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-60 bg-center select-none" />
+        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-100 bg-center select-none" />
       </div>
 
       <Container className="relative z-10">

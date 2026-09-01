@@ -62,8 +62,8 @@ const regularChecks = [
   { text: "خروجی: دیپلم، بدون پروژه واقعی", cross: true, highlight: true },
 ];
 
-const TEAL = { main: "#55BDB5", deep: "#3A9E96", bg: "#EEF9F8", itemBg: "#E0F4F2", dark: "#1F4E4A" };
-const PINK = { main: "#E9145A", deep: "#C60036", bg: "#FCE8EF", itemBg: "#FADCE7", dark: "#8A0E38" };
+const TEAL = { main: "#55BDB5", deep: "#3A9E96", bg: "#EEF9F8", itemBg: "#D4EDEA", dark: "#1F4E4A" };
+const PINK = { main: "#E9145A", deep: "#C60036", bg: "#FCE8EF", itemBg: "#F5CDDB", dark: "#8A0E38" };
 
 const squircle = "rounded-tl-[2rem] rounded-br-[2rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]";
 
@@ -78,7 +78,7 @@ function ComparisonCard({ title, subtitle, items, color }) {
       {/* خود کارت */}
       <div
         className={`relative z-10 h-full ${squircle} overflow-hidden flex flex-col`}
-        style={{ backgroundColor: color.bg, border: "3px solid #292827" }}
+        style={{ backgroundColor: color.bg, border: "3px solid", borderColor: color.main }}
       >
         {/* هدر کارت — بج + تیتر */}
         <div className="px-5 sm:px-8 pt-6 sm:pt-8 pb-4 sm:pb-5">
@@ -163,13 +163,13 @@ export default function AboutComparison() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
-          <div className="md:rotate-[-0.5deg]">
-            <ComparisonCard title="تمرکز روی مسیر شغلی و مهارت" subtitle="هنرستان استارتاپی رکاد" items={rokadChecks} color={TEAL} />
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-5xl mx-auto">
           <div className="md:rotate-[0.5deg]">
-            <ComparisonCard title="تمرکز روی کنکور و درس" subtitle="مدرسه معمولی" items={regularChecks} color={PINK} />
-          </div>
+                      <ComparisonCard title="تمرکز روی مسیر شغلی و مهارت" subtitle="هنرستان استارتاپی رکاد" items={rokadChecks} color={TEAL} />
+                    </div>
+                    <div className="md:rotate-[-0.5deg]">
+                      <ComparisonCard title="تمرکز روی کنکور و درس" subtitle="مدرسه معمولی" items={regularChecks} color={PINK} />
+                    </div>
         </div>
       </Container>
     </section>

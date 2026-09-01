@@ -12,6 +12,7 @@ const founders = [
   {
     id: 1,
     name: "مدیرعامل مؤسسه آموزشی و شتاب‌دهی رکاد",
+    photo: "/assets/about/Founder/founder.png",
     credentials: [
       "کارشناسی ارشد کارآفرینی",
       "مشاور مدیرکل آموزش و پرورش خراسان رضوی",
@@ -22,10 +23,17 @@ const founders = [
       "پیشکسوت رویدادهای استارتاپی نوجوانان",
       "مدرس مهارت‌های نرم برای نوجوانان",
     ],
+    socialLinks: [
+      { label: "لینکدین", href: "#" },
+      { label: "اینستاگرام", href: "#" },
+      { label: "توییتر", href: "#" },
+      { label: "وبسایت", href: "#" },
+    ],
   },
   {
     id: 2,
     name: "مشاور آموزشی و برنامه‌ریزی",
+    photo: "/assets/about/Founder/founder.png",
     credentials: [
       "کارشناسی ارشد آموزش کارآفرینی",
       "معاون آموزش متوسطه ناحیه ۲ مشهد",
@@ -33,6 +41,12 @@ const founders = [
       "مدرس دانشگاه فردوسی مشهد",
       "پیشنهاددهنده رویدادهای استارتاپی نوجوونان",
       "همکار مؤسس رکاد از ابتدا",
+    ],
+    socialLinks: [
+      { label: "لینکدین", href: "#" },
+      { label: "اینستاگرام", href: "#" },
+      { label: "توییتر", href: "#" },
+      { label: "وبسایت", href: "#" },
     ],
   },
 ];
@@ -90,21 +104,38 @@ export default function AboutFounder() {
                 <SwiperSlide key={f.id} className="!h-auto">
                   <div className="p-2 sm:p-3">
                     <div className="absolute top-[0.25rem] left-[0.25rem] w-full h-full bg-[#21295A] rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3rem] [corner-shape:squircle]" />
-                                        <div className="relative z-10 bg-[#F4F5FB] border-[0.125rem] border-[#21295A] rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3rem] [corner-shape:squircle] overflow-hidden">
+                    <div className="relative z-10 bg-[#F4F5FB] border-[0.125rem] border-[#21295A] rounded-[1.5rem] sm:rounded-[2.5rem] lg:rounded-[3rem] [corner-shape:squircle] overflow-hidden">
                       <div className="absolute inset-0 pointer-events-none overflow-hidden">
                         <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-10" />
                       </div>
-                      <div className="relative z-10 p-6 sm:p-8 lg:p-10">
-                        <h3 className="font-black text-[1.25rem] sm:text-[1.5rem] lg:text-[1.875rem] text-[#21295A] leading-[1.3] mb-6 sm:mb-8">{f.name}</h3>
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                                                  {f.credentials.map((cred, i) => (
-                                                    <div key={i} className="flex items-start gap-2 sm:gap-3">
-                                                      <span className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#21295A]/10 flex items-center justify-center mt-0.5">
-                                                        <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-teal"><path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                                                      </span>
-                                                      <span className="text-[0.8125rem] sm:text-[0.875rem] lg:text-[0.9375rem] text-[#21295A]/80 leading-[1.7]">{cred}</span>
-                                                    </div>
-                                                  ))}
+                      <div className="relative z-10 flex flex-col lg:flex-row">
+                        {/* Credentials side */}
+                        <div className="flex-1 p-6 sm:p-8 lg:p-10 order-2 lg:order-1">
+                          <h3 className="font-black text-[1.25rem] sm:text-[1.5rem] lg:text-[1.875rem] text-[#21295A] leading-[1.3] mb-6 sm:mb-8">{f.name}</h3>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                            {f.credentials.map((cred, i) => (
+                              <div key={i} className="flex items-start gap-2 sm:gap-3">
+                                <span className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#21295A]/10 flex items-center justify-center mt-0.5">
+                                  <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-teal"><path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                </span>
+                                <span className="text-[0.8125rem] sm:text-[0.875rem] lg:text-[0.9375rem] text-[#21295A]/80 leading-[1.7]">{cred}</span>
+                              </div>
+                            ))}
+                          </div>
+                          {/* Social links */}
+                          {f.socialLinks && (
+                            <div className="flex gap-3 mt-6 sm:mt-8">
+                              {f.socialLinks.map((link, i) => (
+                                <a key={i} href={link.href} aria-label={link.label} className="w-10 h-10 sm:w-12 sm:h-12 bg-[#21295A] rounded-[0.625rem] [corner-shape:squircle] flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+                                  <span className="text-white text-[0.75rem] font-bold">{link.label.charAt(0)}</span>
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                        {/* Photo side */}
+                        <div className="relative w-full lg:w-[40%] min-h-[250px] sm:min-h-[300px] lg:min-h-[400px] order-1 lg:order-2">
+                          <img src={f.photo} alt={f.name} className="w-full h-full object-cover object-top" />
                         </div>
                       </div>
                     </div>

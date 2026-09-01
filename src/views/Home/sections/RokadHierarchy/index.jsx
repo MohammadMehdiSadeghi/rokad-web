@@ -244,7 +244,7 @@ export default function RokadHierarchy() {
         </div>
 
         {/* ════ GRID 3-COLUMN ════ */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 items-stretch">
           {branches.map((branch, i) => (
             <BranchCard key={i} branch={branch} index={i} />
           ))}

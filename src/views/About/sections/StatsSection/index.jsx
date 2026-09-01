@@ -37,11 +37,11 @@ function StatCard({ theme, value, label }) {
   return (
     <div className="relative h-full">
       <div className={`absolute top-2 left-2 -right-[0.25rem] -bottom-[0.25rem] ${shapeClass} ${t.back}`} />
-      <div className={`relative z-10 h-full flex flex-col items-center justify-center ${shapeClass} border-[0.1875rem] ${t.border} px-3 xs:px-4 pt-[1.0625rem] xs:pt-[1.4375rem] pb-[1.0625rem] xs:pb-[1.4375rem] lg:px-5 lg:pt-[1.75rem] lg:pb-[1.75rem] text-center overflow-visible`} style={{ backgroundColor: t.bg }}>
+      <div className={`relative z-10 h-full flex flex-col items-center justify-center ${shapeClass} border-[0.1875rem] ${t.border} px-3 xs:px-4 pt-3 xs:pt-5 pb-3 xs:pb-5 lg:px-5 lg:pt-6 lg:pb-6 text-center overflow-visible`} style={{ backgroundColor: t.bg }}>
         <div className={`absolute inset-0 ${shapeClass} overflow-hidden pointer-events-none`}>
           <img src={t.src} alt="" draggable={false} className="absolute inset-0 w-full h-full object-cover scale-125 select-none" style={{ opacity: t.opacity / 100 }} />
         </div>
-        <div className={`relative z-20 mb-2 xs:mb-3 lg:mb-4 text-[2.6875rem] xs:text-[2.9375rem] lg:text-[4.3125rem] leading-none font-black ${t.text}`}>{value}</div>
+        <div className={`relative z-20 mb-2 xs:mb-3 lg:mb-4 text-[2.75rem] xs:text-[3rem] lg:text-[4.375rem] leading-none font-black ${t.text}`}>{value}</div>
         <div className={`relative z-20 ${t.text}`}>
           <strong className="block text-[0.8125rem] xs:text-[0.875rem] lg:text-[1rem] font-black">{label}</strong>
         </div>

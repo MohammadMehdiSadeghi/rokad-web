@@ -1,9 +1,15 @@
 "use client";
 
 import Container from "../../../../layout/Container";
-import { ChevronLeftIcon } from "../../../../common/Icons";
+import { ChevronLeftIcon, LinkedInIcon, InstagramIcon, TwitterIcon, GlobeIcon } from "../../../../common/Icons";
 
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
+
+// پترن‌های رنگی (مطابق Stats)
+const patternBlue = "/assets/home/StatCard/blue.png";
+const patternGreen = "/assets/home/StatCard/green.png";
+const patternPink = "/assets/home/StatCard/pink.png";
+const patternYellow = "/assets/home/StatCard/yellow.png";
 
 /* =========================================================
    TEAM DATA — تصاویر واقعی عوامل از about/Team
@@ -56,6 +62,7 @@ const MEMBERS = [
 const THEMES = {
   navy: {
     photoBg: "bg-[#21295a]",
+    pattern: patternBlue,
     badgeBg: "bg-[#21295a]",
     badgeText: "text-white",
     nameColor: "text-[#292827]",
@@ -66,6 +73,7 @@ const THEMES = {
   },
   teal: {
     photoBg: "bg-[#58bdaf]",
+    pattern: patternGreen,
     badgeBg: "bg-[#347e75]",
     badgeText: "text-white",
     nameColor: "text-[#292827]",
@@ -76,6 +84,7 @@ const THEMES = {
   },
   magenta: {
     photoBg: "bg-[#e0195b]",
+    pattern: patternPink,
     badgeBg: "bg-[#e0195b]",
     badgeText: "text-white",
     nameColor: "text-[#292827]",
@@ -86,6 +95,7 @@ const THEMES = {
   },
   orange: {
     photoBg: "bg-[#f4971f]",
+    pattern: patternYellow,
     badgeBg: "bg-[#ba7b16]",
     badgeText: "text-white",
     nameColor: "text-[#292827]",
@@ -95,6 +105,17 @@ const THEMES = {
     pill3: "bg-[#fef6e8] border border-[#f4971f]",
   },
 };
+
+/* =========================================================
+   SOCIAL ICONS — آیکون‌های شبکه‌های اجتماعی
+========================================================= */
+
+const socialLinks = [
+  { label: "لینکدین", href: "#", Icon: LinkedInIcon, bg: "bg-[#eef7ff]", border: "border-[#70b8e8]", fg: "text-[#0a78b5]" },
+  { label: "اینستاگرام", href: "#", Icon: InstagramIcon, bg: "bg-[#fdf1f6]", border: "border-[#e77cb0]", fg: "text-[#d62976]" },
+  { label: "توییتر", href: "#", Icon: TwitterIcon, bg: "bg-[#eef8fd]", border: "border-[#77c8f0]", fg: "text-[#1da1f2]" },
+  { label: "وبسایت", href: "#", Icon: GlobeIcon, bg: "bg-[#eef1f8]", border: "border-[#9aa4c8]", fg: "text-[#21295a]" },
+];
 
 /* =========================================================
    MINI CARD — کارت کوچک (پرسنل توی گرید ۲×۲)
@@ -110,16 +131,21 @@ function MiniCard({ member }) {
         className="absolute top-[0.3125rem] left-[0.3125rem] w-full h-full bg-[#292827] rounded-[0_1.25rem_0_1.25rem] [corner-shape:squircle]"
       />
       <div className="relative z-10 bg-white border-[0.125rem] border-[#292827] rounded-[0_1.25rem_0_1.25rem] [corner-shape:squircle] overflow-hidden">
-        {/* عکس */}
+        {/* عکس — پترن رنگی پشت، عکس متناسب با ابعاد خودش */}
         <div className={`relative h-[11.5rem] sm:h-[13rem] overflow-hidden ${theme.photoBg}`}>
+          <img
+            src={theme.pattern}
+            alt=""
+            draggable="false"
+            className="absolute inset-0 w-full h-full object-cover select-none opacity-50"
+          />
           <img
             src={member.image}
             alt={member.name}
             loading="lazy"
             draggable="false"
-            className="w-full h-full object-cover object-top"
+            className="absolute inset-x-0 bottom-0 z-10 w-full h-full object-contain object-bottom"
           />
-          <div className="absolute inset-0 bg-black/5" />
         </div>
 
         {/* اطلاعات */}
@@ -131,17 +157,19 @@ function MiniCard({ member }) {
             {member.role}
           </p>
 
-          <div className="flex justify-between items-center pt-2.5 border-t-[0.125rem] border-dashed border-[#292827]/20">
-            <div className="flex gap-1">
-              <span className={`w-3.5 h-2.5 rounded-[2px_4px_2px_4px] ${theme.pill1}`} />
-              <span className={`w-3.5 h-2.5 rounded-[2px_4px_2px_4px] ${theme.pill2}`} />
-              <span className={`w-3.5 h-2.5 rounded-[2px_4px_2px_4px] ${theme.pill3}`} />
-            </div>
-            <span
-              className={`px-2.5 py-1 rounded-full text-[0.625rem] font-extrabold ${theme.badgeBg} ${theme.badgeText}`}
-            >
-              {member.badge}
-            </span>
+          <div className="flex justify-start gap-1.5 pt-2.5 border-t-[0.125rem] border-dashed border-[#292827]/20">
+            {socialLinks.slice(0, 3).map(({ label, href, Icon, bg, border, fg }, i) => (
+              <a
+                key={i}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noreferrer"
+                className={`inline-flex items-center justify-center w-[1.2rem] h-[1.2rem] sm:w-[1.25rem] sm:h-[1.25rem] ${bg} border ${border} ${fg} rounded-[0.2rem] shrink-0 transition-transform hover:-translate-y-0.5`}
+              >
+                <Icon className="w-[55%] h-[55%]" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
@@ -160,7 +188,7 @@ export default function TeamTeaser() {
       dir="rtl"
       className="relative overflow-hidden bg-white pt-[4rem] sm:pt-[5rem] lg:pt-[6.5rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6.5rem] px-4 sm:px-6 lg:px-8"
     >
-      {/* ── Background Pattern Layer — همون ماسک گرادیانی بقیه‌ی سکشن‌ها ── */}
+      {/* ── Background Pattern Layer ── */}
       <div
         aria-hidden="true"
         className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60 rotate-180
@@ -189,7 +217,7 @@ export default function TeamTeaser() {
         </div>
 
         {/* ── گرید اصلی: Featured + Mini Grid ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_2fr] gap-8 lg:gap-10 items-start lg:items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1.6fr] gap-8 lg:gap-10 items-start">
           {/* ════ Featured — بنیان‌گذار (راست در RTL) ════ */}
           <div className="relative order-1">
             <div className="absolute -top-4 -right-3 sm:-right-4 z-20 bg-[#ffd641] text-[#292827] border-2 border-[#292827] rounded-[0_0.75rem_0_0.75rem] px-3 py-1.5 font-black text-[0.75rem] rotate-3 shadow-[3px_3px_0_#292827] whitespace-nowrap">
@@ -202,22 +230,27 @@ export default function TeamTeaser() {
                 aria-hidden="true"
                 className="absolute top-[0.375rem] left-[0.375rem] w-full h-full bg-[#292827] rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle]"
               />
-              <div className="relative z-10 bg-[#21295a] border-[0.15625rem] border-[#292827] rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] overflow-hidden">
-                {/* عکس بزرگ */}
-                <div className="relative h-[17rem] sm:h-[19rem] lg:h-[21.25rem] overflow-hidden">
-                  <img
-                    src={FEATURED.image}
-                    alt={FEATURED.name}
-                    loading="lazy"
-                    draggable="false"
-                    className="w-full h-full object-cover object-top"
-                  />
-                  <div className="absolute inset-0 bg-[#21295a]/10" />
-                </div>
+              <div className="relative z-10 bg-[#58bdaf] border-[0.15625rem] border-[#292827] rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] overflow-hidden">
+                {/* عکس بزرگ — پترن فیروزه‌ای پشت، عکس متناسب با ابعاد خودش */}
+                <div className="relative h-[19.8125rem] sm:h-[25.8125rem] lg:h-[30.8125rem] overflow-hidden">
+                                  <img
+                                    src={patternGreen}
+                                    alt=""
+                                    draggable="false"
+                                    className="absolute inset-0 w-full h-full object-cover select-none opacity-50"
+                                  />
+                                  <img
+                                    src={FEATURED.image}
+                                    alt={FEATURED.name}
+                                    loading="lazy"
+                                    draggable="false"
+                                    className="absolute inset-x-0 bottom-0 z-10 w-full h-full object-contain object-bottom"
+                                  />
+                                </div>
 
                 {/* اطلاعات */}
                 <div className="p-5 sm:p-6 bg-white">
-                  <span className="inline-block bg-[#21295a] text-white px-3.5 py-1 rounded-full text-[0.6875rem] font-extrabold mb-2.5">
+                  <span className="inline-block bg-[#347e75] text-white px-3.5 py-1 rounded-full text-[0.6875rem] font-extrabold mb-2.5">
                     {FEATURED.role}
                   </span>
                   <h3 className="text-[1.375rem] sm:text-[1.625rem] font-black text-[#292827] leading-[1.3] mb-1">
@@ -226,17 +259,21 @@ export default function TeamTeaser() {
                   <p className="text-[0.8125rem] font-semibold text-[#777777] leading-[1.75]">
                     {FEATURED.desc}
                   </p>
-                  <div className="flex justify-between items-center gap-3 mt-4 pt-3.5 border-t-[0.125rem] border-dashed border-[#292827]/20">
-                    <span className="text-[0.8125rem] font-bold text-[#21295a] italic">
-                      {FEATURED.quote}
-                    </span>
-                    <a
-                      href="#"
-                      className="inline-flex items-center gap-1.5 text-[0.8125rem] font-black text-[#21295a] shrink-0 hover:opacity-70 transition-opacity"
-                    >
-                      بیوگرافی
-                      <ChevronLeftIcon className="w-4 h-4" />
-                    </a>
+
+                  {/* شبکه‌های اجتماعی — پایین کارت، راست */}
+                  <div className="flex justify-start gap-2 mt-4 pt-3.5 border-t-[0.125rem] border-dashed border-[#292827]/20">
+                    {socialLinks.map(({ label, href, Icon, bg, border, fg }, i) => (
+                      <a
+                        key={i}
+                        href={href}
+                        aria-label={label}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`inline-flex items-center justify-center w-[1.5rem] h-[1.5rem] sm:w-[1.6rem] sm:h-[1.6rem] ${bg} border ${border} ${fg} rounded-[0.25rem] shrink-0 transition-transform hover:-translate-y-0.5`}
+                      >
+                        <Icon className="w-[55%] h-[55%]" />
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -245,7 +282,7 @@ export default function TeamTeaser() {
 
           {/* ════ Mini Grid — ۲×۲ ════ */}
           <div className="order-2">
-            <div className="grid grid-cols-2 gap-4 sm:gap-5">
+            <div className="grid grid-cols-2 gap-8 sm:gap-10">
               {MEMBERS.map((member, i) => (
                 <div
                   key={member.name}
@@ -260,18 +297,18 @@ export default function TeamTeaser() {
                 </div>
               ))}
             </div>
-
-            {/* CTA */}
-            <div className="mt-8 lg:mt-10 text-center">
-              <a
-                href="#"
-                className="relative inline-flex items-center justify-center gap-2.5 -rotate-1 hover:rotate-0 hover:-translate-y-1 transition-all duration-300 bg-[#21295a] text-white border-[0.125rem] border-[#292827] font-black text-[0.9375rem] sm:text-[1rem] px-7 py-3 rounded-[0_0.625rem_0_0.625rem] [corner-shape:squircle] shadow-[4px_4px_0_#292827] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#292827]"
-              >
-                دیدن ۲۸ نفر تیم
-                <ChevronLeftIcon className="w-4.5 h-4.5" />
-              </a>
-            </div>
           </div>
+        </div>
+
+        {/* CTA — مشاهده همه عوامل (وسط‌چین، هم‌اندازه متن) */}
+        <div className="mt-8 lg:mt-10 text-center">
+          <a
+            href="#"
+            className="relative inline-flex items-center justify-center gap-2 -rotate-1 hover:rotate-0 hover:-translate-y-1 transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[0.9375rem] sm:text-[1rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] [corner-shape:squircle] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] hover:shadow-[6px_6px_0_#21295a] whitespace-nowrap"
+          >
+            مشاهده همه عوامل
+            <ChevronLeftIcon className="w-4 h-4" />
+          </a>
         </div>
       </Container>
     </section>

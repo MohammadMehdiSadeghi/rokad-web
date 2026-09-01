@@ -53,18 +53,18 @@ export default function AboutHero() {
               استارتاپی ایرانیم و از سال ۱۳۹۵، همراه با ۲۲۰۰+ نوجوان کارآفرین.
             </p>
 
-            <div className="flex flex-wrap gap-3 sm:gap-4">
+            <div className="flex flex-wrap gap-4 sm:gap-5">
+              {/* پیش‌ثبت‌نام کن — بوردر و سایه سخت تیل */}
               <a
                 href="#"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white border-2 border-teal text-teal font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0.625rem] shadow-[0_2px_6px_rgba(88,189,175,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                style={{ transform: "rotate(-1.5deg)" }}
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white border-[0.1875rem] border-teal text-teal font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0.625rem] shadow-[4px_5px_0_0_rgba(88,189,175,0.9)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_3px_0_0_rgba(88,189,175,0.9)]"
               >
                 پیش‌ثبت‌نام کن
               </a>
+              {/* داستانمون رو بخون — بوردر و سایه سخت سرمه‌ای */}
               <a
                 href="#story"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white border-2 border-[#21295A] text-[#21295A] font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0.625rem] shadow-[0_2px_6px_rgba(33,41,90,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                style={{ transform: "rotate(1.5deg)" }}
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white border-[0.1875rem] border-[#21295A] text-[#21295A] font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0.625rem] shadow-[4px_5px_0_0_rgba(33,41,90,0.9)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_3px_0_0_rgba(33,41,90,0.9)]"
               >
                 داستانمون رو بخون
               </a>

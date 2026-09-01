@@ -14,7 +14,7 @@ export default function FinalCTA() {
 
   return (
     <section
-          className="relative overflow-hidden bg-teal min-h-[80vh] flex items-center px-4 sm:px-6 lg:px-8"
+          className="relative overflow-hidden bg-teal min-h-[74vh] flex items-start lg:items-center px-4 sm:px-6 lg:px-8 pt-[4.5rem] sm:pt-[5rem] lg:pt-0 pb-[12rem] sm:pb-[14rem] lg:pb-0"
           dir="rtl"
         >
           {/* Background Pattern — همه سایزها */}
@@ -48,12 +48,12 @@ export default function FinalCTA() {
           </div>
 
           {/* Mobile Hero Image — فقط زیر lg (موبایل و تبلت) */}
-          <div className="lg:hidden absolute bottom-0 inset-x-0 flex justify-center pointer-events-none select-none z-10">
+          <div className="lg:hidden absolute bottom-0 inset-x-0 flex justify-center pointer-events-none select-none z-10 translate-y-[0.625rem]">
             <img
               src={mobileHero}
               alt=""
               aria-hidden="true"
-              className="h-[7rem] sm:h-[10rem] w-auto object-contain"
+              className="h-[19rem] sm:h-[23rem] w-auto object-contain"
             />
           </div>
 

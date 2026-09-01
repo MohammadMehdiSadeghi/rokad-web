@@ -52,94 +52,14 @@ const cards = [
 // تعداد کارت در هر «صفحه» در دسکتاپ
 const CARDS_PER_PAGE = 4;
 
-/**
- * این هوک مشخص می‌کنه از بین یه لیست از عنصرها (refs)، کدوم یکی
- * از نظر «مرکز عنصر» به «مرکز صفحه (50vh)» نزدیک‌تره.
- * فقط زیر یک breakpoint خاص (پیش‌فرض 1024px = lg) فعال می‌شه،
- * چون تو دسکتاپ همون :hover واقعی کارو انجام می‌ده.
- */
-function useClosestToCenter(
-  count,
-  { minPercent = 30, maxPercent = 70, disableAboveWidth = 1024 } = {},
-) {
-  const itemRefs = useRef([]);
-  const [activeIndex, setActiveIndex] = useState(null);
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    const checkWidth = () => setEnabled(window.innerWidth < disableAboveWidth);
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
-    return () => window.removeEventListener("resize", checkWidth);
-  }, [disableAboveWidth]);
-
-  useEffect(() => {
-    if (!enabled) {
-      setActiveIndex(null);
-      return;
-    }
-
-    let rafId = null;
-
-    const compute = () => {
-      const vh = window.innerHeight;
-      const zoneTop = vh * (minPercent / 100);
-      const zoneBottom = vh * (maxPercent / 100);
-      const viewportCenter = vh / 2;
-
-      let bestIndex = null;
-      let bestDistance = Infinity;
-
-      itemRefs.current.forEach((node, i) => {
-        if (!node) return;
-        const rect = node.getBoundingClientRect();
-        const elCenter = rect.top + rect.height / 2;
-
-        if (elCenter < zoneTop || elCenter > zoneBottom) return;
-
-        const distance = Math.abs(elCenter - viewportCenter);
-        if (distance < bestDistance) {
-          bestDistance = distance;
-          bestIndex = i;
-        }
-      });
-
-      setActiveIndex(bestIndex);
-    };
-
-    const onScrollOrResize = () => {
-      if (rafId) return;
-      rafId = requestAnimationFrame(() => {
-        compute();
-        rafId = null;
-      });
-    };
-
-    compute();
-    window.addEventListener("scroll", onScrollOrResize, { passive: true });
-    window.addEventListener("resize", onScrollOrResize);
-    return () => {
-      window.removeEventListener("scroll", onScrollOrResize);
-      window.removeEventListener("resize", onScrollOrResize);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
-  }, [enabled, minPercent, maxPercent]);
-
-  const setRef = (index) => (node) => {
-    itemRefs.current[index] = node;
-  };
-
-  return { setRef, activeIndex };
-}
-
-function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
+function EcoCard({ title, body, featured, tilt, isActive, cardRef, className = "" }) {
   return (
     <article
       ref={cardRef}
       style={{ "--tilt": `${tilt}deg` }}
       data-active={isActive || undefined}
       className={`
-      group p-4 xs:p-5 sm:p-6 flex flex-col justify-center gap-4 sm:gap-6 min-h-[8rem] sm:min-h-[10rem] items-center text-center
+      group p-4 xs:p-5 sm:p-6 flex flex-col justify-center gap-4 sm:gap-6 min-h-[9rem] xs:min-h-[10rem] sm:min-h-[11.5rem] items-center text-center
       backdrop-blur-[19.06px] rotate-[var(--tilt)] hover:rotate-0
       transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
       hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
@@ -149,14 +69,15 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
       rounded-[0_1.90875rem_0_1.90875rem] [corner-shape:squircle]
 
       ${isActive ? "-translate-y-1.5 shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)] bg-[#59BBAF] border-[#FFFFFF] rotate-0" : ""}
+      ${className}
       `}
     >
       {/* Icon */}
       <div
-        className={`w-11 h-11 xs:w-12 xs:h-12 sm:w-14 sm:h-14 flex items-center justify-center flex-shrink-0 mx-auto transition-colors duration-500 rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${isActive ? "bg-[#202A5A]" : ""}`}
+        className={`w-12 h-12 xs:w-13 xs:h-13 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 mx-auto transition-colors duration-500 rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${isActive ? "bg-[#202A5A]" : ""}`}
       >
         <span
-          className={`w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
+          className={`w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
             isActive ? "text-white" : ""
           }`}
         >
@@ -166,7 +87,7 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
 
       {/* Text */}
             <div className="flex flex-col items-center text-center">
-              <h4 className="font-black text-[0.75rem] xs:text-[0.8125rem] sm:text-[1.125rem] text-white mb-1 sm:mb-2 leading-snug transition-colors duration-300">
+              <h4 className="font-black text-[0.8125rem] xs:text-[0.9375rem] sm:text-[1.125rem] text-white mb-1 sm:mb-2 leading-snug transition-colors duration-300">
                 {title}
               </h4>
               <p className="hidden font-medium text-[0.6875rem] xs:text-[0.75rem] sm:text-[0.9375rem] text-white/70 leading-relaxed transition-colors duration-300">
@@ -178,11 +99,6 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef }) {
 }
 
 export default function Ecosystem() {
-  const { setRef, activeIndex } = useClosestToCenter(cards.length, {
-    minPercent: 30,
-    maxPercent: 70,
-  });
-
   // ── اسکرول لاک دسکتاپ ──
   // وقتی کاربر به سکشن می‌رسه: ۴ کارت کنار هم. یک اسکرول به پایین →
   // کارت‌های بعدی از سمت راست میان و جایگزین می‌شن. یک اسکرول به بالا →
@@ -192,6 +108,30 @@ export default function Ecosystem() {
   const pageRef = useRef(0);
   const [page, setPage] = useState(0);
   const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
+
+  // ── تغییر صفحه (بین دسکتاپ و موبایل مشترک) ──
+  const goPage = (next) => {
+    if (next < 0 || next >= totalPages) return false;
+    setPage(next);
+    return true;
+  };
+
+  // ── سوایپ موبایل ──
+  const touchStartX = useRef(null);
+
+  const onTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(dx) < 40) return;
+    // در RTL: کشیدن انگشت از چپ به راست → اسلاید بعدی، به چپ → اسلاید قبلی
+    const next = dx > 0 ? pageRef.current + 1 : pageRef.current - 1;
+    goPage(next);
+  };
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -213,12 +153,6 @@ export default function Ecosystem() {
       const rect = section.getBoundingClientRect();
       const mid = window.innerHeight / 2;
       return rect.top < mid && rect.bottom > mid;
-    };
-
-    const goPage = (next) => {
-      if (next < 0 || next >= totalPages) return false;
-      setPage(next);
-      return true;
     };
 
     // ── اسکرول با موس / تاچ‌پد ──
@@ -281,13 +215,13 @@ export default function Ecosystem() {
   return (
       <section
         ref={sectionRef}
-        className="py-[3rem] sm:py-[3.5rem] lg:py-[4rem] px-4 sm:px-6 relative overflow-hidden"
+        className="py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 relative overflow-hidden"
         style={{
           background:
             "radial-gradient(ellipse at 30% 20%, #1c2c60 0%, #0e1633 60%, #0b1228 100%)",
         }}
       >
-        {/* ── Background Pattern Layer ── */}
+              {/* ── Background Pattern Layer ── */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <img
             src={ecosystemPattern}
@@ -315,22 +249,55 @@ export default function Ecosystem() {
             <span className="inline-block -rotate-[1.9deg]">رشد</span>
           </h2>
 
-          {/* ── موبایل/تبلت: grid معمولی (همه‌ی کارت‌ها) ── */}
-          <div className="lg:hidden grid grid-cols-2 gap-2.5 xs:gap-3 sm:gap-5">
-            {cards.map((c, i) => (
-              <EcoCard
-                key={i}
-                {...c}
-                isActive={activeIndex === i}
-                cardRef={setRef(i)}
-              />
-            ))}
-          </div>
+          {/* ── موبایل/تبلت: اسلایدر ۴تایی (۲×۲) با سوایپ ── */}
+                    <div
+                      className="lg:hidden"
+                      dir="rtl"
+                      onTouchStart={onTouchStart}
+                      onTouchEnd={onTouchEnd}
+                    >
+                      <div className="relative min-h-[19.5rem] xs:min-h-[21.5rem] sm:min-h-[25rem]">
+                        {Array.from({ length: totalPages }).map((_, pg) => {
+                          const group = cards.slice(pg * CARDS_PER_PAGE, (pg + 1) * CARDS_PER_PAGE);
+                          const isCurrent = pg === page;
+                          // صفحه‌ی بعدی از راست (+30%) میاد وسط، صفحه‌ی قبلی به چپ (-30%) می‌ره
+                          const slideX = isCurrent
+                            ? "translate-x-0 opacity-100"
+                            : pg < page
+                              ? "-translate-x-[30%] opacity-0"
+                              : "translate-x-[30%] opacity-0";
+                          return (
+                            <div
+                              key={pg}
+                              className={`grid grid-cols-2 gap-2.5 xs:gap-3 sm:gap-5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] absolute inset-0 ${slideX}`}
+                              aria-hidden={!isCurrent}
+                              style={{ pointerEvents: isCurrent ? "auto" : "none" }}
+                            >
+                              {group.map((c, i) => (
+                                <EcoCard key={i} {...c} isActive={false} />
+                              ))}
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* نشانگر صفحه */}
+                      <div className="flex items-center justify-center gap-2 mt-6 lg:mt-8">
+                        {Array.from({ length: totalPages }).map((_, i) => (
+                          <span
+                            key={i}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${
+                              i === page ? "w-6 bg-[#59BBAF]" : "w-1.5 bg-white/25"
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
 
           {/* ── دسکتاپ: صفحات ۴تایی با اسکرول لاک ── */}
           <div className="hidden lg:block relative" dir="rtl">
             {/* بدون overflow-hidden — وگرنه لبه‌ی کارت‌های چرخیده (rotate) بریده می‌شن */}
-            <div className="relative min-h-[10rem] sm:min-h-[11rem]">
+            <div className="relative min-h-[11.5rem] sm:min-h-[12.5rem]">
               {Array.from({ length: totalPages }).map((_, pg) => {
                 const group = cards.slice(pg * CARDS_PER_PAGE, (pg + 1) * CARDS_PER_PAGE);
                 const isCurrent = pg === page;

@@ -84,7 +84,7 @@ export default function AboutHero() {
                 return (
                   <span
                     key={b.label}
-                    className={`${b.color} ${b.border} border-[0.1875rem] ${b.textColor} text-[0.8125rem] sm:text-[0.875rem] font-semibold px-4 py-2 rounded-full shadow-[2px_3px_0_0_rgba(0,0,0,0.9)]`}
+                    className={`${b.color} ${b.border} border-[0.1875rem] ${b.textColor} text-[0.8125rem] sm:text-[0.875rem] font-semibold px-4 py-2 rounded-[0.375rem] shadow-[2px_3px_0_0_rgba(0,0,0,0.9)]`}
                     style={{ transform: `rotate(${rot}deg)` }}
                   >
                     {b.label}

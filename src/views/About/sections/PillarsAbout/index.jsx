@@ -85,16 +85,16 @@ export default function AboutPillars() {
         {/* ── Header: تیتر + زیرتیتر ── */}
         <h2 className="text-center font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.325rem] leading-[1.2] mb-[1rem] sm:mb-[1.5rem] flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3">
           <span className="inline-block" style={{ transform: "rotate(-1.5deg)" }}>چهار</span>
-          <span className="inline-block text-teal" style={{ transform: "rotate(0deg)" }}>ستون</span>
-          <span className="inline-block" style={{ transform: "rotate(1.5deg)" }}>که</span>
-          <span className="inline-block" style={{ transform: "rotate(2deg)" }}>رکاد</span>
-          <span className="inline-block" style={{ transform: "rotate(-1.5deg)" }}>روش</span>
-          <span className="inline-block" style={{ transform: "rotate(2deg)" }}>بنا</span>
-          <span className="inline-block" style={{ transform: "rotate(0deg)" }}>شده</span>
+                    <span className="inline-block text-teal" style={{ transform: "rotate(0deg)" }}>ستون</span>
+                    <span className="inline-block" style={{ transform: "rotate(1.5deg)" }}>که</span>
+                    <span className="inline-block text-navy-alt" style={{ transform: "rotate(2deg)" }}>رکاد</span>
+                    <span className="inline-block" style={{ transform: "rotate(-1.5deg)" }}>روش</span>
+                    <span className="inline-block" style={{ transform: "rotate(2deg)" }}>بنا</span>
+                    <span className="inline-block" style={{ transform: "rotate(0deg)" }}>شده</span>
         </h2>
 
         <p className="text-center font-semibold text-[0.875rem] sm:text-[1rem] lg:text-[1.09375rem] leading-[1.7] text-[#777777] max-w-[42rem] mx-auto mb-[2rem] sm:mb-[2.5rem] lg:mb-[3rem]">
-          این چهار ارزش پشت هر تصمیم و هر برنامه رکاده — از انتخاب معلم تا طراحی روبیاد.
+          این چهار ارزش پشت هر تصمیم و هر برنامه رکاده — از انتخاب معلم تا طراحی رویداد.
         </p>
 
         {/* ── گرید کارت‌ها ── */}

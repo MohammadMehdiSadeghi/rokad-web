@@ -1,7 +1,7 @@
 "use client";
 
 import Container from "../../../../layout/Container";
-import { ChevronLeftIcon } from "../../../../common/Icons";
+import { ChevronLeftIcon, LinkedInIcon, InstagramIcon, TwitterIcon, GlobeIcon } from "../../../../common/Icons";
 
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
 
@@ -111,10 +111,10 @@ const THEMES = {
 ========================================================= */
 
 const socialLinks = [
-  { label: "لینکدین", href: "#" },
-  { label: "اینستاگرام", href: "#" },
-  { label: "توییتر", href: "#" },
-  { label: "وبسایت", href: "#" },
+  { label: "لینکدین", href: "#", Icon: LinkedInIcon, bg: "bg-[#eef7ff]", border: "border-[#70b8e8]", fg: "text-[#0a78b5]" },
+  { label: "اینستاگرام", href: "#", Icon: InstagramIcon, bg: "bg-[#fdf1f6]", border: "border-[#e77cb0]", fg: "text-[#d62976]" },
+  { label: "توییتر", href: "#", Icon: TwitterIcon, bg: "bg-[#eef8fd]", border: "border-[#77c8f0]", fg: "text-[#1da1f2]" },
+  { label: "وبسایت", href: "#", Icon: GlobeIcon, bg: "bg-[#eef1f8]", border: "border-[#9aa4c8]", fg: "text-[#21295a]" },
 ];
 
 /* =========================================================
@@ -137,16 +137,15 @@ function MiniCard({ member }) {
             src={theme.pattern}
             alt=""
             draggable="false"
-            className="absolute inset-0 w-full h-full object-cover select-none"
+            className="absolute inset-0 w-full h-full object-cover select-none opacity-50"
           />
           <img
             src={member.image}
             alt={member.name}
             loading="lazy"
             draggable="false"
-            className="relative z-10 w-full h-full object-contain object-top"
+            className="absolute inset-x-0 bottom-0 z-10 w-full h-full object-contain object-bottom"
           />
-          <div className="absolute inset-0 bg-black/5" />
         </div>
 
         {/* اطلاعات */}
@@ -158,17 +157,19 @@ function MiniCard({ member }) {
             {member.role}
           </p>
 
-          <div className="flex justify-between items-center pt-2.5 border-t-[0.125rem] border-dashed border-[#292827]/20">
-            <div className="flex gap-1">
-              <span className={`w-3.5 h-2.5 rounded-[2px_4px_2px_4px] ${theme.pill1}`} />
-              <span className={`w-3.5 h-2.5 rounded-[2px_4px_2px_4px] ${theme.pill2}`} />
-              <span className={`w-3.5 h-2.5 rounded-[2px_4px_2px_4px] ${theme.pill3}`} />
-            </div>
-            <span
-              className={`px-2.5 py-1 rounded-full text-[0.625rem] font-extrabold ${theme.badgeBg} ${theme.badgeText}`}
-            >
-              {member.badge}
-            </span>
+          <div className="flex justify-start gap-1.5 pt-2.5 border-t-[0.125rem] border-dashed border-[#292827]/20">
+            {socialLinks.slice(0, 3).map(({ label, href, Icon, bg, border, fg }, i) => (
+              <a
+                key={i}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noreferrer"
+                className={`inline-flex items-center justify-center w-[1.2rem] h-[1.2rem] sm:w-[1.25rem] sm:h-[1.25rem] ${bg} border ${border} ${fg} rounded-[0.2rem] shrink-0 transition-transform hover:-translate-y-0.5`}
+              >
+                <Icon className="w-[55%] h-[55%]" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
@@ -216,7 +217,7 @@ export default function TeamTeaser() {
         </div>
 
         {/* ── گرید اصلی: Featured + Mini Grid ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1.4fr] gap-8 lg:gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1.6fr] gap-8 lg:gap-10 items-start">
           {/* ════ Featured — بنیان‌گذار (راست در RTL) ════ */}
           <div className="relative order-1">
             <div className="absolute -top-4 -right-3 sm:-right-4 z-20 bg-[#ffd641] text-[#292827] border-2 border-[#292827] rounded-[0_0.75rem_0_0.75rem] px-3 py-1.5 font-black text-[0.75rem] rotate-3 shadow-[3px_3px_0_#292827] whitespace-nowrap">
@@ -231,22 +232,21 @@ export default function TeamTeaser() {
               />
               <div className="relative z-10 bg-[#58bdaf] border-[0.15625rem] border-[#292827] rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] overflow-hidden">
                 {/* عکس بزرگ — پترن فیروزه‌ای پشت، عکس متناسب با ابعاد خودش */}
-                <div className="relative h-[17rem] sm:h-[19rem] lg:h-[21.25rem] overflow-hidden">
-                  <img
-                    src={patternGreen}
-                    alt=""
-                    draggable="false"
-                    className="absolute inset-0 w-full h-full object-cover select-none"
-                  />
-                  <img
-                    src={FEATURED.image}
-                    alt={FEATURED.name}
-                    loading="lazy"
-                    draggable="false"
-                    className="relative z-10 w-full h-full object-contain object-top"
-                  />
-                  <div className="absolute inset-0 bg-[#58bdaf]/10" />
-                </div>
+                <div className="relative h-[19.8125rem] sm:h-[25.8125rem] lg:h-[30.8125rem] overflow-hidden">
+                                  <img
+                                    src={patternGreen}
+                                    alt=""
+                                    draggable="false"
+                                    className="absolute inset-0 w-full h-full object-cover select-none opacity-50"
+                                  />
+                                  <img
+                                    src={FEATURED.image}
+                                    alt={FEATURED.name}
+                                    loading="lazy"
+                                    draggable="false"
+                                    className="absolute inset-x-0 bottom-0 z-10 w-full h-full object-contain object-bottom"
+                                  />
+                                </div>
 
                 {/* اطلاعات */}
                 <div className="p-5 sm:p-6 bg-white">
@@ -260,16 +260,18 @@ export default function TeamTeaser() {
                     {FEATURED.desc}
                   </p>
 
-                  {/* شبکه‌های اجتماعی — پایین راست کارت */}
-                  <div className="flex justify-end gap-2 mt-4 pt-3.5 border-t-[0.125rem] border-dashed border-[#292827]/20">
-                    {socialLinks.map((link, i) => (
+                  {/* شبکه‌های اجتماعی — پایین کارت، راست */}
+                  <div className="flex justify-start gap-2 mt-4 pt-3.5 border-t-[0.125rem] border-dashed border-[#292827]/20">
+                    {socialLinks.map(({ label, href, Icon, bg, border, fg }, i) => (
                       <a
                         key={i}
-                        href={link.href}
-                        aria-label={link.label}
-                        className="w-8 h-8 sm:w-9 sm:h-9 bg-[#347e75] rounded-[0.4rem] [corner-shape:squircle] flex items-center justify-center transition-all hover:-translate-y-0.5"
+                        href={href}
+                        aria-label={label}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`inline-flex items-center justify-center w-[1.5rem] h-[1.5rem] sm:w-[1.6rem] sm:h-[1.6rem] ${bg} border ${border} ${fg} rounded-[0.25rem] shrink-0 transition-transform hover:-translate-y-0.5`}
                       >
-                        <span className="text-white text-[0.5rem] font-bold">{link.label.charAt(0)}</span>
+                        <Icon className="w-[55%] h-[55%]" />
                       </a>
                     ))}
                   </div>
@@ -280,7 +282,7 @@ export default function TeamTeaser() {
 
           {/* ════ Mini Grid — ۲×۲ ════ */}
           <div className="order-2">
-            <div className="grid grid-cols-2 gap-6 sm:gap-7">
+            <div className="grid grid-cols-2 gap-8 sm:gap-10">
               {MEMBERS.map((member, i) => (
                 <div
                   key={member.name}

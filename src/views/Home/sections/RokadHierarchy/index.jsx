@@ -11,7 +11,7 @@ const sectionPattern = "/assets/Pattern/layout-pattern.png";
 
 const branches = [
   {
-    label: "EDUCATION",
+    label: "آموزش",
     title: "کالج رکاد",
     role: "یاد می‌گیری",
     body: "مسیر یادگیری ساختاریافته، اساتید مسلط و پروژه‌های واقعی — پایه‌های مهارت اینجا شکل می‌گیرد.",
@@ -26,13 +26,13 @@ const branches = [
     darker: "#57390A",
   },
   {
-    label: "GROWTH",
+    label: "رشد",
     title: "شتاب‌دهندهٔ رکاد",
     role: "می‌سازی",
     body: "از ایده تا محصول قابل عرضه؛ منتورشیپ تخصصی، سرمایه اولیه و شبکه‌ای از سرمایه‌گذاران رکاد.",
     stats: [
       { v: "۴۰+", l: "تیم" },
-      { v: "$۲.۵M", l: "سرمایه" },
+      { v: "۲.۵ میلیون دلار", l: "سرمایه" },
       { v: "۶ ماه", l: "دوره" },
     ],
     color: "#59BBAF",
@@ -41,13 +41,13 @@ const branches = [
     darker: "#1F413D",
   },
   {
-    label: "COMMUNITY",
+    label: "جامعه",
     title: "کافه کارآفرینی",
     role: "زندگی می‌کنی",
     body: "محل ملاقات ایده‌ها، رویدادها و شبکه‌سازی روزمره در فضایی گرم و پویا.",
     stats: [
       { v: "۱۲۰+", l: "رویداد" },
-      { v: "۵K+", l: "عضو" },
+      { v: "۵۰۰۰+", l: "عضو" },
       { v: "۷/۷", l: "باز" },
     ],
     color: "#652D90",
@@ -223,34 +223,21 @@ export default function RokadHierarchy() {
       <Container className="relative z-10">
         {/* ════ MANIFESTO HEADER ════ */}
         <div className="text-right mb-10 lg:mb-12">
-          {/* Label pill */}
-          <span
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[0.75rem] [corner-shape:squircle] text-[0.8125rem] font-bold bg-white border border-[#59BBAF] text-[#59BBAF] -rotate-2 mb-5"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#59BBAF]" />
-            مانیفست اکوسیستم
-          </span>
-
           {/* تیتر بزرگ */}
           <h2
             className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.875rem] leading-[1.2] tracking-tight text-right"
           >
-            <span className="inline-block -rotate-1 ml-1">رکاد،</span>
-            <span
-              className="inline-block rotate-[1.5deg] ml-1 px-3 sm:px-4 rounded-[0.875rem] [corner-shape:squircle] text-white"
-              style={{ background: "#59BBAF" }}
-            >
-              فراتر
-            </span>
-            <span className="inline-block -rotate-[0.5deg] ml-1">از یک</span>
-            <span className="inline-block rotate-2 text-[#E0195B]">
+            <span className="inline-block ml-1">رکاد،</span>
+            <span className="inline-block ml-1">فراتر</span>
+            <span className="inline-block ml-1">از یک</span>
+            <span className="inline-block text-[#E0195B]">
               مدرسه.
             </span>
           </h2>
 
           {/* زیرنویس */}
           <p className="mt-5 sm:mt-6 text-[0.9375rem] sm:text-[1.0625rem] font-medium leading-[1.85] text-[#292827] max-w-[48rem]">
-            یک <i className="font-bold">Rokadian</i> در سه فضای زنده به‌صورت
+            یک <i className="font-bold">رکادین</i> در سه فضای زنده به‌صورت
             هم‌زمان حضور دارد:
             <b style={{ color: "#F8A41D" }}> کالج</b>،
             <b style={{ color: "#59BBAF" }}> شتاب‌دهنده</b> و

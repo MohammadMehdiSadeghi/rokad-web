@@ -65,12 +65,12 @@ export default function Hero() {
             className="absolute left-[120px] top-[36px] w-[1200px] h-[510px] rounded-[36px] overflow-hidden"
             style={{
               backgroundColor: "#58BDAF",
-              backgroundImage: "url('/assets/Hero/pattern.png')",
+              backgroundImage: "url('/assets/home/Hero/pattern.png')",
               backgroundSize: "100% 100%",
             }}
           >
             <img
-              src="/assets/Hero/character.png"
+              src="/assets/home/Hero/character.png"
               alt=""
               className="absolute left-[50px] top-[42px] w-[500px] pointer-events-none"
               draggable={false}
@@ -141,7 +141,7 @@ export default function Hero() {
               style={{ left: 830, top: 372, width: 370, height: 138 }}
             >
               <img
-                src="/assets/Hero/pill-navy.png"
+                src="/assets/home/Hero/pill-navy.png"
                 alt="ثبت‌نام و رزرو مصاحبه"
                 className="absolute left-0 top-0 block pointer-events-none z-[1] w-[370px] h-[138px]"
                 draggable={false}
@@ -153,7 +153,7 @@ export default function Hero() {
               style={{ left: 581, top: 418, width: 389, height: 92 }}
             >
               <img
-                src="/assets/Hero/pill-white.png"
+                src="/assets/home/Hero/pill-white.png"
                 alt="درخواست مشاوره"
                 className="absolute left-0 top-0 block pointer-events-none z-[1] w-[389px] h-[92px]"
                 draggable={false}

@@ -2,11 +2,11 @@
 import Container from "../../../../layout/Container";
 import SchoolCard from "./SchoolCard";
 
-const boyIllustration = "/assets/DualSchool/boy-illustration.png";
-const girlIllustration = "/assets/DualSchool/girl-illustration.svg";
-const boysCardPattern = "/assets/DualSchool/SchoolSelection-Boys.png";
-const girlsCardPattern = "/assets/DualSchool/SchoolSelection-Girls.png";
-const patternBg = "/assets/DualSchool/Schools-Pattern.png";
+const boyIllustration = "/assets/about/Schools/boy-illustration.png";
+const girlIllustration = "/assets/about/Schools/girl-illustration.svg";
+const boysCardPattern = "/assets/about/Schools/SchoolSelection-Boys.png";
+const girlsCardPattern = "/assets/about/Schools/SchoolSelection-Girls.png";
+const patternBg = "/assets/about/Schools/Schools-Pattern.png";
 
 export default function AboutSchools() {
   return (

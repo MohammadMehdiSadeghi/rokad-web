@@ -10,7 +10,7 @@ import fallbackEvents from "../../../../lib/fallback/events";
 
 import "swiper/css";
 
-const patternBg = "/assets/Events/Event-Pattern.png";
+const patternBg = "/assets/home/Events/Event-Pattern.png";
 
 
 const THEME_MAP = {

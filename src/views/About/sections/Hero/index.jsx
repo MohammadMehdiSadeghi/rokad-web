@@ -1,7 +1,7 @@
 import Container from "../../../../layout/Container";
 
-const patternBg = "/assets/Hero/Hero-Pattern.png";
-const characterImg = "/assets/Hero/hero-character.png";
+const patternBg = "/assets/about/Hero/Hero-Pattern.png";
+const characterImg = "/assets/about/Hero/hero-character.png";
 
 const headlineWords = [
   { text: "جایی", deg: 2, color: "text-teal" },

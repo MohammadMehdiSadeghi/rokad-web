@@ -1,10 +1,10 @@
 import Container from "../../../../layout/Container";
 
-const patternBg = "/assets/Hero/TrustSection-Pattern.png";
-const YELLOW_TEXTURE = "/assets/StatCard/yellow.png";
-const BLUE_TEXTURE = "/assets/StatCard/blue.png";
-const PINK_TEXTURE = "/assets/StatCard/pink.png";
-const GREEN_TEXTURE = "/assets/StatCard/green.png";
+const patternBg = "/assets/about/StatsSection/TrustSection-Pattern.png";
+const YELLOW_TEXTURE = "/assets/about/StatCard/yellow.png";
+const BLUE_TEXTURE = "/assets/about/StatCard/blue.png";
+const PINK_TEXTURE = "/assets/about/StatCard/pink.png";
+const GREEN_TEXTURE = "/assets/about/StatCard/green.png";
 
 const THEMES = {
   orange: { rotate: "rotate-[1deg] lg:rotate-[2.5deg]", badgeRotate: "rotate-[3deg]", back: "bg-orange-alt", border: "border-orange-alt", text: "text-orange", badge: "border-orange text-orange", bg: "#FEF7EC", src: YELLOW_TEXTURE, opacity: 80 },

@@ -83,7 +83,7 @@ function StackCard({ layer, rotation }) {
         className={`relative w-full ${HEADER_SIZE} bg-gradient-to-l from-[#59bbaf] to-[#58bdaf] overflow-hidden`}
       >
         <img
-          src="/assets/Rokadians/Frame 1000006407.png"
+          src="/assets/home/Rokadians/Frame 1000006407.png"
           alt=""
           draggable="false"
           className="absolute inset-0 w-full h-full object-cover"
@@ -149,7 +149,7 @@ function StudentCard({ student, index, stacked }) {
           className={`relative w-full ${HEADER_SIZE} shrink-0 overflow-hidden bg-gradient-to-l from-[#59bbaf] to-[#58bdaf]`}
         >
           <img
-            src="/assets/Rokadians/Frame 1000006407.png"
+            src="/assets/home/Rokadians/Frame 1000006407.png"
             alt=""
             aria-hidden="true"
             draggable="false"
@@ -171,7 +171,7 @@ function StudentCard({ student, index, stacked }) {
           />
 
           <img
-            src={student.avatar || "/assets/Rokadians/Ellipse 83.png"}
+            src={student.avatar || "/assets/home/Rokadians/Ellipse 83.png"}
             alt={student.name}
             className={`relative z-[10] ${AVATAR_SIZE} rounded-full object-cover border-[0.12rem] border-[#292827] bg-white`}
           />

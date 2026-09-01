@@ -7,7 +7,7 @@ import {
   DocumentIcon,
 } from "../../../../common/Icons";
 
-const pattern = "/assets/Pillars/WhyUs-Pattern.png";
+const pattern = "/assets/home/Pillars/WhyUs-Pattern.png";
 
 const pillars = [
   {

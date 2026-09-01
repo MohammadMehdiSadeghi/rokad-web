@@ -1,7 +1,7 @@
 import Container from "../../../../layout/Container";
 
 const ecosystemPattern = "/assets/Pattern/layout-pattern.png";
-const hubImage = "/assets/Ecosystem/Group.png";
+const hubImage = "/assets/home/Ecosystem/Group.png";
 
 const branches = [
   {

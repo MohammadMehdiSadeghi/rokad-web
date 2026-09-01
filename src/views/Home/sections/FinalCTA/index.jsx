@@ -4,8 +4,8 @@ import Container from "../../../../layout/Container";
 import { useEnrollment } from "../../../../lib/EnrollmentContext";
 
 // اصلاح مسیر عکس‌ها (حذف کلمه public)
-const imgBoy = "/assets/finalCTA/Cta-Boys-Vector.png";
-const imgGirl = "/assets/finalCTA/Cta-Girls-Vector.png";
+const imgBoy = "/assets/home/finalCTA/Cta-Boys-Vector.png";
+const imgGirl = "/assets/home/finalCTA/Cta-Girls-Vector.png";
 const pattern = "/assets/unassigned/pattern-boxes.png";
 
 export default function FinalCTA() {

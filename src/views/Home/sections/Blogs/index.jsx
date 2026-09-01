@@ -66,7 +66,7 @@ function BlogCard({ image, date, title, body, rotation = 0 }) {
       >
         {/* Image */}
         <img
-          src={image || "/assets/Blogs/blog-card-cover.png"}
+          src={image || "/assets/home/Blogs/blog-card-cover.png"}
           alt={title}
           loading="lazy"
           className="

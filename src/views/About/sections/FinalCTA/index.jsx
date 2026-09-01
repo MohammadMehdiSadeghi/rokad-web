@@ -3,8 +3,8 @@
 import Container from "../../../../layout/Container";
 import { useEnrollment } from "../../../../lib/EnrollmentContext";
 
-const imgBoy = "/assets/finalCTA/Cta-Boys-Vector.png";
-const imgGirl = "/assets/finalCTA/Cta-Girls-Vector.png";
+const imgBoy = "/assets/about/FinalCTA/Cta-Boys-Vector.png";
+const imgGirl = "/assets/about/FinalCTA/Cta-Girls-Vector.png";
 const pattern = "/assets/unassigned/pattern-boxes.png";
 
 export default function AboutFinalCTA() {

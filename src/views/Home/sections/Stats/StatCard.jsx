@@ -1,7 +1,7 @@
-const yellowTexture = "/assets/StatCard/yellow.png";
-const blueTexture = "/assets/StatCard/blue.png";
-const pinkTexture = "/assets/StatCard/pink.png"; // عکس پترن قرمز/مژنتایی را اینجا بگذارید
-const greenTexture = "/assets/StatCard/green.png"; // عکس پترن فیروزه‌ای/سبز را اینجا بگذارید
+const yellowTexture = "/assets/home/StatCard/yellow.png";
+const blueTexture = "/assets/home/StatCard/blue.png";
+const pinkTexture = "/assets/home/StatCard/pink.png"; // عکس پترن قرمز/مژنتایی را اینجا بگذارید
+const greenTexture = "/assets/home/StatCard/green.png"; // عکس پترن فیروزه‌ای/سبز را اینجا بگذارید
 
 const THEMES = {
   orange: {

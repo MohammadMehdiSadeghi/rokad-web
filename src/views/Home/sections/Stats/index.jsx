@@ -5,7 +5,7 @@ import StatCard from "./StatCard";
 import useRokadData from "../../../../lib/useRokadData";
 import { fetchStats } from "../../../../lib/api";
 
-const patternBg = "/assets/StatCard/TrustSection-Pattern.png";
+const patternBg = "/assets/home/StatCard/TrustSection-Pattern.png";
 
 // آمار fallback (اعداد ثابت قبلی وقتی API در دسترس نیست)
 const fallbackStats = [

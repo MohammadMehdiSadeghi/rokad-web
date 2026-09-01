@@ -14,10 +14,10 @@ import fallbackAwards from "../../../../lib/fallback/awards";
 
 import "swiper/css";
 
-const goldPattern = "/assets/Honors/yellowTexture.png";
-const silverPattern = "/assets/Honors/grayTexture.png";
-const bronzePattern = "/assets/Honors/BronzeTexture.png";
-const navyPattern = "/assets/Honors/blueTexture.png";
+const goldPattern = "/assets/home/Honors/yellowTexture.png";
+const silverPattern = "/assets/home/Honors/grayTexture.png";
+const bronzePattern = "/assets/home/Honors/BronzeTexture.png";
+const navyPattern = "/assets/home/Honors/blueTexture.png";
 
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
 

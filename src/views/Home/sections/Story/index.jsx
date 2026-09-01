@@ -1,7 +1,7 @@
 import Container from "../../../../layout/Container";
 
-const yarnIllustration = "/assets/Story/yarn-illustration.png";
-const vectorIcon = "/assets/Story/Vector.svg";
+const yarnIllustration = "/assets/home/Story/yarn-illustration.png";
+const vectorIcon = "/assets/home/Story/Vector.svg";
 
 
 

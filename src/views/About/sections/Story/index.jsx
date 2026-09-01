@@ -76,12 +76,12 @@ export default function AboutStory() {
                   {milestones.map((m, i) => (
                     <div key={m.year} className="relative grid grid-cols-[auto_auto_1fr] items-start gap-4 sm:gap-6 lg:gap-8">
 
-                      {/* ستون ۱: عدد سال + بج — سمت راست */}
-                      <div className="flex flex-col items-center flex-shrink-0 w-20 sm:w-28 lg:w-36">
+                      {/* ستون ۱: عدد سال + متن — سمت راست */}
+                      <div className="flex flex-col items-end flex-shrink-0 w-20 sm:w-28 lg:w-36 text-left">
                         <span className="text-[2.5rem] sm:text-[4rem] lg:text-[5rem] leading-none font-black whitespace-nowrap">
                           <span className={m.textColor}>{m.year}</span>
                         </span>
-                        <span className={`mt-3 sm:mt-4 inline-block px-3 sm:px-4 py-1.5 rounded-[0.625rem] [corner-shape:squircle] ${m.lightBg} ${m.textColor} text-[0.75rem] sm:text-[0.875rem] font-bold whitespace-nowrap`}>
+                        <span className={`mt-2 sm:mt-3 text-[0.875rem] sm:text-[1rem] font-bold text-[#292827]`}>
                           {m.label}
                         </span>
                       </div>

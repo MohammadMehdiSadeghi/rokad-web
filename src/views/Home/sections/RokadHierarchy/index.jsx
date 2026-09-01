@@ -86,7 +86,7 @@ function CtaBtn({ label, color }) {
 ========================================================= */
 
 function BranchCard({ branch, index }) {
-  const rots = [-3, 3, -3];
+  const rots = [2, -2, 2];
   const rotate = rots[index % rots.length];
 
   return (

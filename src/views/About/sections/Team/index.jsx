@@ -3,6 +3,11 @@ import Container from "../../../../layout/Container";
 const patternBg = "/assets/Pattern/layout-pattern.png";
 const imgDir = "/assets/about/Team";
 
+// پترن‌های تکسچر — همون‌هایی که توی AboutStats استفاده شدن
+const GREEN_TEXTURE = "/assets/about/StatCard/green.png";
+const BLUE_TEXTURE = "/assets/about/StatCard/blue.png";
+const PINK_TEXTURE = "/assets/about/StatCard/pink.png";
+
 // ۸ عضو تیم — رنگ پس‌زمینه بالای هر کارت طبق فیگما
 const teamMembers = [
   {
@@ -11,6 +16,7 @@ const teamMembers = [
     badge: "بنیان‌گذار",
     img: `${imgDir}/hamed.webp`,
     bg: "bg-[#44C0B2]", // تیل
+    texture: GREEN_TEXTURE,
   },
   {
     name: "علیرضا عزیزپور",
@@ -18,6 +24,7 @@ const teamMembers = [
     badge: "مدیرعامل",
     img: `${imgDir}/alireza.webp`,
     bg: "bg-[#44C0B2]", // تیل
+    texture: GREEN_TEXTURE,
   },
   {
     name: "امیرحسین امیریان",
@@ -25,6 +32,7 @@ const teamMembers = [
     badge: "راهبر",
     img: `${imgDir}/amirhossein.webp`,
     bg: "bg-[#202A5A]", // سرمه‌ای
+    texture: BLUE_TEXTURE,
   },
   {
     name: "سعید افضلی",
@@ -32,6 +40,7 @@ const teamMembers = [
     badge: "دستیار اجرایی",
     img: `${imgDir}/saied.webp`,
     bg: "bg-[#202A5A]", // سرمه‌ای
+    texture: BLUE_TEXTURE,
   },
   {
     name: "عماد پورحسنی",
@@ -39,6 +48,7 @@ const teamMembers = [
     badge: "معاون",
     img: `${imgDir}/emad.webp`,
     bg: "bg-[#202A5A]", // سرمه‌ای
+    texture: BLUE_TEXTURE,
   },
   {
     name: "محمد کمالی",
@@ -46,6 +56,7 @@ const teamMembers = [
     badge: "بنیان‌گذار",
     img: null,
     bg: "bg-[#E0195B]", // صورتی
+    texture: PINK_TEXTURE,
   },
   {
     name: "رویا دولت‌آبادی",
@@ -53,6 +64,7 @@ const teamMembers = [
     badge: "راهبر",
     img: `${imgDir}/roya.webp`,
     bg: "bg-[#E0195B]", // صورتی
+    texture: PINK_TEXTURE,
   },
   {
     name: "مبینا فلاح",
@@ -60,6 +72,7 @@ const teamMembers = [
     badge: "معاون",
     img: `${imgDir}/mobina.webp`,
     bg: "bg-[#E0195B]", // صورتی
+    texture: PINK_TEXTURE,
   },
 ];
 
@@ -95,14 +108,23 @@ export default function AboutTeam() {
               key={m.name}
               className="group relative flex flex-col bg-white border-2 border-[#292827] [corner-shape:squircle] rounded-[0_1.25rem_0_1.25rem] shadow-[5px_5px_0_0_#292827] overflow-hidden transition-transform duration-300 hover:-translate-y-1"
             >
-              {/* بخش بالایی: پس‌زمینه رنگی + عکس */}
+              {/* بخش بالایی: پس‌زمینه رنگی + تکسچر + عکس */}
               <div className={`relative w-full aspect-[6/5] ${m.bg} flex items-end justify-center overflow-hidden`}>
+                {/* لایه تکسچر پترن پشت عکس */}
+                <img
+                  src={m.texture}
+                  alt=""
+                  aria-hidden="true"
+                  draggable="false"
+                  className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-overlay select-none pointer-events-none"
+                />
+
                 {m.img ? (
                   <img
                     src={m.img}
                     alt={m.name}
                     loading="lazy"
-                    className="w-full h-full object-cover object-top select-none"
+                    className="relative z-10 w-full h-full object-cover object-top select-none"
                   />
                 ) : (
                   /* پترن هندسی برای کسی که عکس نداره */
@@ -126,7 +148,7 @@ export default function AboutTeam() {
                   {m.role}
                 </p>
 
-                {/* ردیف پایین: بج سمت راست + آیکون‌ها سمت چپ (طبق طرح) */}
+                {/* ردیف پایین: بج سمت راست + آیکون‌ها سمت چپ */}
                 <div className="mt-3 pt-3 border-t border-dashed border-[#D1D1D1] flex items-center justify-between gap-2">
                   <span
                     className={`order-2 text-[0.6875rem] sm:text-[0.75rem] font-bold text-white px-2.5 py-1 rounded-[0_0.375rem_0_0.375rem] ${m.bg}`}

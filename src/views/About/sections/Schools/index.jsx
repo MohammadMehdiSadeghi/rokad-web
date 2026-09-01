@@ -20,10 +20,11 @@ export default function AboutSchools() {
         {/* ── تیتر سکشن ── */}
         <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-4 sm:mb-6">
-            <span className="inline-block rotate-1 text-teal">رکاد</span>{" "}
-            <span className="inline-block -rotate-1">رو</span>{" "}
+            <span className="inline-block -rotate-2 text-navy-alt">می‌خوای</span>{" "}
             <span className="inline-block rotate-1">از</span>{" "}
-            <span className="inline-block -rotate-1 text-magenta">نزدیک</span>{" "}
+            <span className="inline-block -rotate-1">نزدیک</span>{" "}
+            <span className="inline-block rotate-2 text-teal">رکاد</span>{" "}
+            <span className="inline-block -rotate-1">رو</span>{" "}
             <span className="inline-block rotate-1 text-navy-alt">ببینی؟</span>
           </h2>
         </div>

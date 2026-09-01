@@ -34,28 +34,29 @@ function TeamCard({ member, index }) {
         style={{ backgroundColor: "#292827", borderRadius: "25px 0 25px 0" }}
       />
       {/* خود کارت — bg #EAEAE9 از فیگما */}
-      <div
-        className="relative z-10 flex flex-col overflow-hidden bg-[#EAEAE9]"
-        style={{
-          border: "2px solid #292827",
-          borderRadius: "25px 0 25px 0",
-        }}
-      >
-        {/* بالای کارت — پس‌زمینه رنگی + عکس */}
-        <div
-          className="relative w-full aspect-[281/250] overflow-hidden"
-          style={{ backgroundColor: member.color, borderBottom: "2px solid #292827" }}
-        >
-          {member.img ? (
-            <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top" />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <span className="text-white font-black text-[4rem] leading-none select-none">
-                {member.name.charAt(0)}
-              </span>
-            </div>
-          )}
-        </div>
+            <div
+              className="relative z-10 flex flex-col overflow-hidden bg-[#EAEAE9]"
+              style={{
+                border: "2px solid #292827",
+                borderRadius: "25px 0 25px 0",
+              }}
+            >
+              {/* بالای کارت — پسزمینه رنگی + پترن + عکس */}
+              <div
+                className="relative w-full aspect-[281/250] overflow-hidden"
+                style={{ backgroundColor: member.color, borderBottom: "2px solid #292827" }}
+              >
+                <img src={patternBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-100 select-none" />
+                {member.img ? (
+                  <img src={member.img} alt={member.name} className="relative z-10 w-full h-full object-cover object-top" />
+                ) : (
+                  <div className="relative z-10 w-full h-full flex items-center justify-center">
+                    <span className="text-white font-black text-[4rem] leading-none select-none">
+                      {member.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
+              </div>
 
         {/* پایین کارت */}
         <div className="p-4 sm:p-5 flex flex-col gap-1.5">

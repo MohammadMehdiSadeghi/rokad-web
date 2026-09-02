@@ -92,7 +92,10 @@ function BranchCard({ branch, index }) {
   return (
     <div
       className="relative h-full"
-      style={{ transform: `rotate(${rotate}deg)`, transition: "transform 500ms ease-out" }}
+      style={{
+        transform: `rotate(${rotate}deg)`,
+        transition: "transform 500ms ease-out",
+      }}
     >
       {/* سایه پشتی */}
       <div
@@ -224,22 +227,17 @@ export default function RokadHierarchy() {
         {/* ════ MANIFESTO HEADER ════ */}
         <div className="text-right mb-10 lg:mb-12">
           {/* تیتر بزرگ */}
-          <h2
-            className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.875rem] leading-[1.2] tracking-tight text-right"
-          >
+          <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.875rem] leading-[1.2] tracking-tight text-right">
             <span className="inline-block ml-1">رکاد،</span>
             <span className="inline-block ml-1">فراتر</span>
             <span className="inline-block ml-1">از یک</span>
-            <span className="inline-block text-[#E0195B]">
-              مدرسه.
-            </span>
+            <span className="inline-block text-[#E0195B]">مدرسه </span>
           </h2>
 
           {/* زیرنویس */}
           <p className="mt-5 sm:mt-6 text-[0.9375rem] sm:text-[1.0625rem] font-medium leading-[1.85] text-[#292827] max-w-[48rem]">
-            یک رکادین در سه فضای زنده به‌صورت هم‌زمان حضور دارد:
-            کالج، شتاب‌دهنده و کافه.
-            سه لایهٔ همزمان از یک زندگی — نه سه مرحلهٔ جدا.
+            یک رکادین در سه فضای زنده به‌صورت هم‌زمان حضور دارد: کالج،
+            شتاب‌دهنده و کافه. سه لایهٔ همزمان از یک زندگی — نه سه مرحلهٔ جدا.
           </p>
         </div>
 

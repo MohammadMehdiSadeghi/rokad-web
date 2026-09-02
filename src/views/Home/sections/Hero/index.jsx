@@ -59,18 +59,18 @@ export default function Hero() {
   return (
     <>
       {/* ── نسخه موبایل (زیر lg) ── */}
-      <section className="relative w-full px-4 sm:px-6 lg:hidden">
+      <section className="relative w-full px-4 sm:px-6 lg:hidden pt-[6.5rem] sm:pt-[7rem]">
         <div className="relative mx-auto w-full max-w-[27.5rem]">
           {/* کارت اصلی — عکس داخل کادر، نیمه پایینش با overflow-hidden کات می‌شود */}
           <div
-            className="relative overflow-hidden rounded-[2rem] pb-[10rem] sm:pb-[11rem]"
+            className="relative overflow-hidden rounded-[2rem]"
             style={{
               backgroundColor: "#58BDAF",
               backgroundImage: "url('/assets/home/Hero/pattern.png')",
               backgroundSize: "100% 100%",
             }}
           >
-            <div className="relative z-[1] px-5 pt-9 flex flex-col items-center text-center">
+            <div className="relative z-[1] px-5 pt-9 pb-[16rem] sm:pb-[17rem] flex flex-col items-center text-center">
               {/* تیتر */}
               <h1 dir="rtl" className="text-white font-black leading-[1.15] text-[1.625rem] sm:text-[1.875rem]">
                 آینده از اینجا شروع میشود
@@ -81,13 +81,13 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* عکس کارکتر — داخل کارت، نیمه پایین با overflow کات می‌شود */}
+            {/* عکس کارکتر — absolute پایین کارت، جدا از متن، نیمه پایین با overflow کات می‌شود */}
             <img
               src="/assets/home/Hero/character.png"
               alt=""
               aria-hidden="true"
               draggable={false}
-              className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 w-[19rem] sm:w-[21rem] h-auto z-[1] select-none pointer-events-none"
+              className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 w-[14.5rem] sm:w-[16rem] h-auto z-[1] select-none pointer-events-none"
             />
 
             {/* هاله/سایه کادر پایین */}

@@ -36,7 +36,7 @@ export default function Hero() {
     return () => window.removeEventListener("resize", apply);
   }, []);
 
-  /* موشن تایپ زیرعنوان */
+  /* موشن تایپ زیرعنوان (نسخه دسکتاپ) */
   useEffect(() => {
     const el = subtitleRef.current;
     if (!el) return;
@@ -57,111 +57,169 @@ export default function Hero() {
   }, []);
 
   return (
-    /* مثل بقیه سکشن‌ها: padding + حداکثر ۱۲۰۰px وسط‌چین */
-    <section className="relative w-full px-4 sm:px-6 lg:px-8">
-      <div ref={vpRef} className="hero-vp">
-        <div ref={canvasRef} className="hero-canvas">
+    <>
+      {/* ── نسخه موبایل (زیر lg) ── */}
+      <section className="relative w-full px-4 sm:px-6 lg:hidden">
+        <div className="relative mx-auto w-full max-w-[27.5rem]">
+          {/* کارت اصلی */}
           <div
-            className="absolute left-[120px] top-[36px] w-[1200px] h-[510px] rounded-[36px] overflow-hidden"
+            className="relative overflow-hidden rounded-[2rem]"
             style={{
               backgroundColor: "#58BDAF",
               backgroundImage: "url('/assets/home/Hero/pattern.png')",
               backgroundSize: "100% 100%",
             }}
           >
-            <img
-              src="/assets/home/Hero/character.png"
-              alt=""
-              className="absolute left-[50px] top-[42px] w-[500px] pointer-events-none"
-              draggable={false}
-            />
+            <div className="relative z-[1] px-5 pt-9 pb-0 flex flex-col items-center text-center">
+              {/* تیتر */}
+              <h1 dir="rtl" className="text-white font-black leading-[1.15] text-[1.625rem] sm:text-[1.875rem]">
+                آینده از اینجا شروع میشود
+              </h1>
+              {/* زیرعنوان */}
+              <p dir="rtl" className="mt-3 text-[#202A5A] font-black text-[1rem] sm:text-[1.0625rem] leading-relaxed">
+                {SUBTITLE_TEXT}
+              </p>
+            </div>
 
-            <h1 dir="rtl" className="absolute inset-0 m-0">
-              {HEADING.map((item, idx) => (
+            {/* عکس کارکتر زیر متن */}
+            <div className="relative z-[1] flex justify-center -mb-0">
+              <img
+                src="/assets/home/Hero/character.png"
+                alt=""
+                aria-hidden="true"
+                draggable={false}
+                className="w-[19rem] sm:w-[22rem] h-auto select-none pointer-events-none"
+              />
+            </div>
+
+            {/* هاله/سایه کادر پایین */}
+            <div className="pointer-events-none absolute inset-0 z-[0] bg-gradient-to-t from-[#0e1633]/10 to-transparent" />
+          </div>
+
+          {/* دکمه‌ها — پایین، بیرون از کادر، مستطیل */}
+          <div className="mt-6 flex flex-col gap-3">
+            <a
+              href="#"
+              className="block w-full text-center no-underline bg-[#202A5A] text-white font-black text-[0.9375rem] py-3 rounded-xl transition-colors duration-300 hover:bg-[#2a3a7a]"
+            >
+              ثبت‌نام و رزرو مصاحبه
+            </a>
+            <a
+              href="#"
+              className="block w-full text-center no-underline bg-white text-[#202A5A] font-black text-[0.9375rem] py-3 rounded-xl transition-colors duration-300 hover:bg-[#f2f2f2]"
+            >
+              درخواست مشاوره
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── نسخه دسکتاپ (lg به بالا) ── */}
+      <section className="relative w-full px-4 sm:px-6 lg:px-8 hidden lg:block">
+        <div ref={vpRef} className="hero-vp">
+          <div ref={canvasRef} className="hero-canvas">
+            <div
+              className="absolute left-[120px] top-[36px] w-[1200px] h-[510px] rounded-[36px] overflow-hidden"
+              style={{
+                backgroundColor: "#58BDAF",
+                backgroundImage: "url('/assets/home/Hero/pattern.png')",
+                backgroundSize: "100% 100%",
+              }}
+            >
+              <img
+                src="/assets/home/Hero/character.png"
+                alt=""
+                className="absolute left-[50px] top-[42px] w-[500px] pointer-events-none"
+                draggable={false}
+              />
+
+              <h1 dir="rtl" className="absolute inset-0 m-0">
+                {HEADING.map((item, idx) => (
+                  <span
+                    key={idx}
+                    className="absolute text-white whitespace-nowrap text-right"
+                    style={{
+                      left: item.pos.left,
+                      top: item.pos.top,
+                      fontFamily: "'IRANSansX', sans-serif",
+                      fontWeight: 950,
+                      fontSize: "59.45px",
+                    }}
+                  >
+                    {item.word}
+                  </span>
+                ))}
                 <span
-                  key={idx}
-                  className="absolute text-white whitespace-nowrap text-right"
+                  className="absolute text-white"
                   style={{
-                    left: item.pos.left,
-                    top: item.pos.top,
+                    left: 580,
+                    top: 152,
                     fontFamily: "'IRANSansX', sans-serif",
                     fontWeight: 950,
                     fontSize: "59.45px",
                   }}
                 >
-                  {item.word}
+                  <span
+                    className="inline-block"
+                    style={{ direction: "ltr", unicodeBidi: "isolate" }}
+                  >
+                    {[0, 1, 2].map((i) => (
+                      <span
+                        key={i}
+                        className="inline-block opacity-0"
+                        style={{
+                          animation: `dotIn 0.35s steps(1,end) forwards ${
+                            0.2 + i * 0.3
+                          }s`,
+                        }}
+                      >
+                        .
+                      </span>
+                    ))}
+                  </span>
                 </span>
-              ))}
+              </h1>
+
               <span
-                className="absolute text-white"
+                ref={subtitleRef}
+                dir="rtl"
+                className="absolute left-[622px] top-[273px] w-[524px] whitespace-nowrap text-right"
                 style={{
-                  left: 580,
-                  top: 152,
+                  color: "#202A5A",
                   fontFamily: "'IRANSansX', sans-serif",
-                  fontWeight: 950,
-                  fontSize: "59.45px",
+                  fontWeight: 900,
+                  fontSize: "38.96px",
                 }}
+              />
+
+              <a
+                href="#"
+                className="absolute block no-underline cursor-pointer z-[2]"
+                style={{ left: 830, top: 372, width: 370, height: 138 }}
               >
-                <span
-                  className="inline-block"
-                  style={{ direction: "ltr", unicodeBidi: "isolate" }}
-                >
-                  {[0, 1, 2].map((i) => (
-                    <span
-                      key={i}
-                      className="inline-block opacity-0"
-                      style={{
-                        animation: `dotIn 0.35s steps(1,end) forwards ${
-                          0.2 + i * 0.3
-                        }s`,
-                      }}
-                    >
-                      .
-                    </span>
-                  ))}
-                </span>
-              </span>
-            </h1>
-
-            <span
-              ref={subtitleRef}
-              dir="rtl"
-              className="absolute left-[622px] top-[273px] w-[524px] whitespace-nowrap text-right"
-              style={{
-                color: "#202A5A",
-                fontFamily: "'IRANSansX', sans-serif",
-                fontWeight: 900,
-                fontSize: "38.96px",
-              }}
-            />
-
-            <a
-              href="#"
-              className="absolute block no-underline cursor-pointer z-[2]"
-              style={{ left: 830, top: 372, width: 370, height: 138 }}
-            >
-              <img
-                src="/assets/home/Hero/pill-navy.png"
-                alt="ثبت‌نام و رزرو مصاحبه"
-                className="absolute left-0 top-0 block pointer-events-none z-[1] w-[370px] h-[138px]"
-                draggable={false}
-              />
-            </a>
-            <a
-              href="#"
-              className="absolute block no-underline cursor-pointer z-[2]"
-              style={{ left: 581, top: 418, width: 389, height: 92 }}
-            >
-              <img
-                src="/assets/home/Hero/pill-white.png"
-                alt="درخواست مشاوره"
-                className="absolute left-0 top-0 block pointer-events-none z-[1] w-[389px] h-[92px]"
-                draggable={false}
-              />
-            </a>
+                <img
+                  src="/assets/home/Hero/pill-navy.png"
+                  alt="ثبت‌نام و رزرو مصاحبه"
+                  className="absolute left-0 top-0 block pointer-events-none z-[1] w-[370px] h-[138px]"
+                  draggable={false}
+                />
+              </a>
+              <a
+                href="#"
+                className="absolute block no-underline cursor-pointer z-[2]"
+                style={{ left: 581, top: 418, width: 389, height: 92 }}
+              >
+                <img
+                  src="/assets/home/Hero/pill-white.png"
+                  alt="درخواست مشاوره"
+                  className="absolute left-0 top-0 block pointer-events-none z-[1] w-[389px] h-[92px]"
+                  draggable={false}
+                />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

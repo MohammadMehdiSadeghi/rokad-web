@@ -61,16 +61,16 @@ export default function Hero() {
       {/* ── نسخه موبایل (زیر lg) ── */}
       <section className="relative w-full px-4 sm:px-6 lg:hidden">
         <div className="relative mx-auto w-full max-w-[27.5rem]">
-          {/* کارت اصلی */}
+          {/* کارت اصلی — عکس داخل کادر، نیمه پایینش با overflow-hidden کات می‌شود */}
           <div
-            className="relative overflow-hidden rounded-[2rem]"
+            className="relative overflow-hidden rounded-[2rem] pb-[10rem] sm:pb-[11rem]"
             style={{
               backgroundColor: "#58BDAF",
               backgroundImage: "url('/assets/home/Hero/pattern.png')",
               backgroundSize: "100% 100%",
             }}
           >
-            <div className="relative z-[1] px-5 pt-9 pb-0 flex flex-col items-center text-center">
+            <div className="relative z-[1] px-5 pt-9 flex flex-col items-center text-center">
               {/* تیتر */}
               <h1 dir="rtl" className="text-white font-black leading-[1.15] text-[1.625rem] sm:text-[1.875rem]">
                 آینده از اینجا شروع میشود
@@ -81,19 +81,17 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* هاله/سایه کادر پایین */}
-            <div className="pointer-events-none absolute inset-0 z-[0] bg-gradient-to-t from-[#0e1633]/10 to-transparent" />
-          </div>
-
-          {/* عکس کارکتر — نصفش از لبه پایین کارت بیرون می‌زند */}
-          <div className="relative z-[1] flex justify-center -mt-12 sm:-mt-14">
+            {/* عکس کارکتر — داخل کارت، نیمه پایین با overflow کات می‌شود */}
             <img
               src="/assets/home/Hero/character.png"
               alt=""
               aria-hidden="true"
               draggable={false}
-              className="w-[19rem] sm:w-[22rem] h-auto select-none pointer-events-none"
+              className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 w-[19rem] sm:w-[21rem] h-auto z-[1] select-none pointer-events-none"
             />
+
+            {/* هاله/سایه کادر پایین */}
+            <div className="pointer-events-none absolute inset-0 z-[0] bg-gradient-to-t from-[#0e1633]/10 to-transparent" />
           </div>
 
           {/* دکمه‌ها — کنار هم، بیرون از کادر، مستطیل */}

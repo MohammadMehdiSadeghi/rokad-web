@@ -69,7 +69,7 @@ export default function AboutFounder() {
                                       style={{ backgroundColor: "#BABDCC", borderRadius: "7.3px" }}
                     >
                       <ShieldCheckIcon className="w-5 h-5 sm:w-[1.3125rem] sm:h-[1.3125rem] flex-shrink-0" />
-                      <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#202A5A] font-semibold leading-[1.6]">{cred}</span>
+                      <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#202A5A] font-semibold leading-[1.6] whitespace-nowrap">{cred}</span>
                     </div>
                   ))}
                 </div>
@@ -81,7 +81,7 @@ export default function AboutFounder() {
                       key={i}
                       href={link.href}
                       aria-label={link.label}
-                      className="w-10 h-10 sm:w-11 sm:h-11 bg-[#202A5A] rounded-[0.5rem] [corner-shape:squircle] flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                      className="w-10 h-10 sm:w-11 sm:h-11 bg-[#202A5A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                     >
                       <span className="text-white text-[0.7rem] font-bold">&nbsp;</span>
                     </a>

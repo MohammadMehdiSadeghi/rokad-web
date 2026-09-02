@@ -32,7 +32,7 @@ const awards = [
   { color: "#58BDAF", shadow: "#3A9E96", text: "تأسیس اولین هنرستان استارتاپی پسرانه ایران در مشهد | ۱۳۹۸" },
 ];
 
-export default function AboutAwardsSection() {
+export default function AboutAwards() {
   return (
     <section className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
       <div className="absolute inset-0 pointer-events-none select-none">

@@ -169,7 +169,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={openEnrollment}
-                    className="whitespace-nowrap rotate-1 rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.525rem] text-base2 font-extrabold text-navy shadow-[0.1875rem_0.1875rem_0_0_#202A5A] transition-transform duration-200 hover:rotate-0 hover:scale-105 cursor-pointer"
+                    className="whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-navy transition-colors duration-300 hover:bg-teal hover:text-white hover:border-teal cursor-pointer"
                   >
                     پیش‌ثبت‌نام
                   </button>
@@ -212,7 +212,7 @@ export default function Header() {
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     exit={{ opacity: 0, x: 20, scale: 0.9 }}
                     transition={softSpring}
-                    className="hidden lg:inline-flex whitespace-nowrap rotate-1 rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-navy shadow-[0.1875rem_0.1875rem_0_0_#202A5A] hover:rotate-0 hover:scale-105 cursor-pointer"
+                    className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-navy transition-colors duration-300 hover:bg-teal hover:text-white hover:border-teal cursor-pointer"
                   >
                     پیش‌ثبت‌نام
                   </motion.button>

@@ -109,36 +109,41 @@ export default function HonorsCarousel() {
       ====================================================== */}
 
       <style>{`
-        .honors-swiper .card-inner-wrap {
-          transition:
-            transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-            opacity 0.5s ease;
-          opacity: 0.55;
-          transform: scale(0.78);
-        }
+              .honors-swiper .card-inner-wrap {
+                transition:
+                  transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                  opacity 0.5s ease;
+                opacity: 0.55;
+                transform: scale(0.78);
+              }
 
-        .honors-swiper .swiper-slide-active {
-          z-index: 30 !important;
-        }
+              .honors-swiper .swiper-slide-active {
+                z-index: 30 !important;
+              }
 
-        .honors-swiper .swiper-slide-active .card-inner-wrap {
-          transform: scale(1.08);
-          opacity: 1;
-          z-index: 30;
-        }
+              .honors-swiper .swiper-slide-active .card-inner-wrap {
+                transform: scale(1.08);
+                opacity: 1;
+                z-index: 30;
+              }
 
-        .honors-swiper .swiper-slide-prev,
-        .honors-swiper .swiper-slide-next {
-          z-index: 10 !important;
-        }
+              .honors-swiper .swiper-slide-prev,
+              .honors-swiper .swiper-slide-next {
+                z-index: 10 !important;
+              }
 
-        .honors-swiper .swiper-slide-prev .card-inner-wrap,
-        .honors-swiper .swiper-slide-next .card-inner-wrap {
-          transform: scale(0.78);
-          opacity: 0.55;
-          z-index: 10;
-        }
-      `}</style>
+              .honors-swiper .swiper-slide-prev .card-inner-wrap {
+                transform: scale(0.78) rotate(5deg);
+                opacity: 0.55;
+                z-index: 10;
+              }
+
+              .honors-swiper .swiper-slide-next .card-inner-wrap {
+                transform: scale(0.78) rotate(-6deg);
+                opacity: 0.55;
+                z-index: 10;
+              }
+            `}</style>
 
       <Container className="relative z-10">
         {/* =================================================
@@ -386,14 +391,14 @@ export default function HonorsCarousel() {
               loop={true}
               dir="rtl"
               initialSlide={2}
-              slidesPerView={1}
+              slidesPerView={1.5}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
               }}
               onSlideChange={(swiper) => {
                 setActiveIndex(swiper.realIndex);
               }}
-              spaceBetween={-20}
+              spaceBetween={8}
               speed={500}
               breakpoints={{
                 640: {

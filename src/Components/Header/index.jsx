@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEnrollment } from "../../lib/EnrollmentContext";
 
@@ -35,7 +36,14 @@ export default function Header() {
   const [compact, setCompact] = useState(false);
   const [tabsHidden, setTabsHidden] = useState(false);
   const { openEnrollment } = useEnrollment();
+  const pathname = usePathname();
   const close = () => setOpen(false);
+
+  const isActive = (to) => {
+    const [path, hash] = to.split("#");
+    if (hash) return pathname === path && window.location.hash === `#${hash}`;
+    return pathname === to;
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -77,8 +85,10 @@ export default function Header() {
             initial={false}
             animate={{ height: compact ? "4.25rem" : "5.9375rem" }}
             transition={spring}
-            className={`relative flex items-center justify-between bg-bg-mint/95 backdrop-blur-md overflow-hidden px-4 sm:px-6 lg:px-8 ${
-              compact ? "rounded-none py-3.5" : "rounded-[38px] py-8"
+            className={`relative flex items-center justify-between overflow-hidden px-4 sm:px-6 lg:px-8 ${
+              compact
+                ? "rounded-none py-3.5 bg-white/60 backdrop-blur-xl border-b border-white/40"
+                : "rounded-[38px] py-8 bg-bg-mint/95 backdrop-blur-md"
             }`}
             style={{
               boxShadow: compact
@@ -145,23 +155,32 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={openEnrollment}
-                    className="whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105 cursor-pointer"
+                    className="whitespace-nowrap rotate-1 rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-navy shadow-[0.1875rem_0.1875rem_0_0_#202A5A] transition-transform duration-200 hover:rotate-0 hover:scale-105 cursor-pointer"
                   >
                     پیش‌ثبت‌نام
                   </button>
 
                   <ul className="flex items-center gap-4 xl:gap-8 list-none m-0 p-0">
-                    {navLinks.map((link) => (
-                      <li key={link.label}>
-                        <Link
-                          href={link.to}
-                          className="whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group"
-                        >
-                          {link.label}
-                          <span className="absolute -bottom-1 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full" />
-                        </Link>
-                      </li>
-                    ))}
+                    {navLinks.map((link) => {
+                      const active = isActive(link.to);
+                      return (
+                        <li key={link.label}>
+                          <Link
+                            href={link.to}
+                            className={
+                              active
+                                ? "whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white shadow-[0.25rem_0.25rem_0_0_rgba(32,42,90,0.25)] transition-transform duration-200 hover:rotate-0 hover:scale-105 inline-block"
+                                : "whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group inline-block"
+                            }
+                          >
+                            {link.label}
+                            {!active && (
+                              <span className="absolute -bottom-1 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full" />
+                            )}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </motion.div>
               )}
@@ -179,7 +198,7 @@ export default function Header() {
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     exit={{ opacity: 0, x: 20, scale: 0.9 }}
                     transition={softSpring}
-                    className="hidden lg:inline-flex whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white hover:rotate-0 hover:scale-105 cursor-pointer"
+                    className="hidden lg:inline-flex whitespace-nowrap rotate-1 rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-navy shadow-[0.1875rem_0.1875rem_0_0_#202A5A] hover:rotate-0 hover:scale-105 cursor-pointer"
                   >
                     پیش‌ثبت‌نام
                   </motion.button>

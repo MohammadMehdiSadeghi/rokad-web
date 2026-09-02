@@ -9,6 +9,7 @@ const logo = "/assets/Shared/Logos/logo.png";
 const COMPACT_THRESHOLD_VH = 50;
 
 const navLinks = [
+  { label: "صفحه اصلی", to: "/" },
   { label: "مدارس", to: "/#schools" },
   { label: "افتخارات", to: "/honors" },
   { label: "مشاوره هدایت تحصیلی و شغلی", to: "/#counseling" },
@@ -156,7 +157,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={openEnrollment}
-                    className="whitespace-nowrap rotate-1 rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-navy shadow-[0.1875rem_0.1875rem_0_0_#202A5A] transition-transform duration-200 hover:rotate-0 hover:scale-105 cursor-pointer"
+                    className="whitespace-nowrap rotate-1 rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.525rem] text-base2 font-extrabold text-navy shadow-[0.1875rem_0.1875rem_0_0_#202A5A] transition-transform duration-200 hover:rotate-0 hover:scale-105 cursor-pointer"
                   >
                     پیش‌ثبت‌نام
                   </button>
@@ -170,7 +171,7 @@ export default function Header() {
                             href={link.to}
                             className={
                               active
-                                ? "whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white shadow-[0.25rem_0.25rem_0_0_rgba(32,42,90,0.25)] transition-transform duration-200 hover:rotate-0 hover:scale-105 inline-block"
+                                ? "whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105 inline-block"
                                 : "whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group inline-block"
                             }
                           >

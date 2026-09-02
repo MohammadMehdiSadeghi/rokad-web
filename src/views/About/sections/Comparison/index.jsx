@@ -140,26 +140,25 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
           {items.map((text, i) => (
             <div
               key={i}
-              className="inline-flex items-center self-start"
+              className="flex items-center"
               style={{
-                backgroundColor: "#BABDCC",
+                backgroundColor: color.itemBg,
                 borderRadius: "7.3px",
-                gap: "8px",
-                padding: "4px 10px",
-                whiteSpace: "nowrap",
+                gap: isPink ? "12px" : "10px",
+                padding: isPink ? "7px 10px" : "7px 12px",
               }}
             >
               {isPink ? (
                 <CrossIcon style={{ color: color.deep, width: "12px", height: "12px" }} />
               ) : (
-                <CheckIcon style={{ color: color.deep, width: "14px", height: "14px" }} />
+                <CheckIcon style={{ color: color.deep, width: "16px", height: "20px" }} />
               )}
               <span
-                className="text-[12px] sm:text-[13px] lg:text-[14px]"
+                className="text-[14px] sm:text-[16px] lg:text-[18.26px]"
                 style={{
                   fontWeight: 600,
-                  lineHeight: "1.6",
-                  color: "#202A5A",
+                  lineHeight: "1.86",
+                  color: "#292827",
                   fontFamily: "IRANSansX, sans-serif",
                 }}
               >

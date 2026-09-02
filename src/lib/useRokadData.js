@@ -1,17 +1,17 @@
 // src/lib/useRokadData.js
 // ============================================================
-// هوک دیتای سکشن‌ها — فقط از بک‌اند
+// هوک دیتای سکشن‌ها — با fallback امن
 // ------------------------------------------------------------
-// - خالی شروع می‌شه (بدون fallback)
-// - اگه بک‌اند روشن باشه و جواب بده، دیتا رو می‌گیره
-// - اگه بک‌اند خاموش باشه، محتوا خالی میمونه
+// - خالی شروع می‌شه و اول fallback رو نشون می‌ده
+// - اگه بک‌اند پاسخ بده و دیتای واقعی داشته باشه، جایگزین می‌شه
+// - اگه بک‌اند خالی یا در دسترس نباشه، fallback می‌مونه
 // ============================================================
 "use client";
 
 import { useEffect, useState } from "react";
 
-export default function useRokadData(fetcher, fallback) {
-  const [data, setData] = useState([]);
+export default function useRokadData(fetcher, fallback = []) {
+  const [data, setData] = useState(fallback);
 
   useEffect(() => {
     let active = true;
@@ -23,7 +23,7 @@ export default function useRokadData(fetcher, fallback) {
         }
       })
       .catch(() => {
-        // بک‌اند در دسترس نیست — محتوا خالی میمونه
+        // بک‌اند در دسترس نیست — fallback فعلی می‌مونه
       });
 
     return () => {

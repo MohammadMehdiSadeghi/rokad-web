@@ -81,32 +81,32 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* عکس کارکتر زیر متن */}
-            <div className="relative z-[1] flex justify-center -mb-0">
-              <img
-                src="/assets/home/Hero/character.png"
-                alt=""
-                aria-hidden="true"
-                draggable={false}
-                className="w-[19rem] sm:w-[22rem] h-auto select-none pointer-events-none"
-              />
-            </div>
-
             {/* هاله/سایه کادر پایین */}
             <div className="pointer-events-none absolute inset-0 z-[0] bg-gradient-to-t from-[#0e1633]/10 to-transparent" />
           </div>
 
-          {/* دکمه‌ها — پایین، بیرون از کادر، مستطیل */}
-          <div className="mt-6 flex flex-col gap-3">
+          {/* عکس کارکتر — نصفش از لبه پایین کارت بیرون می‌زند */}
+          <div className="relative z-[1] flex justify-center -mt-12 sm:-mt-14">
+            <img
+              src="/assets/home/Hero/character.png"
+              alt=""
+              aria-hidden="true"
+              draggable={false}
+              className="w-[19rem] sm:w-[22rem] h-auto select-none pointer-events-none"
+            />
+          </div>
+
+          {/* دکمه‌ها — کنار هم، بیرون از کادر، مستطیل */}
+          <div className="mt-6 flex flex-row gap-3">
             <a
               href="#"
-              className="block w-full text-center no-underline bg-[#202A5A] text-white font-black text-[0.9375rem] py-3 rounded-xl transition-colors duration-300 hover:bg-[#2a3a7a]"
+              className="flex-1 text-center no-underline bg-[#202A5A] text-white font-black text-[0.9375rem] py-3 rounded-xl transition-colors duration-300 hover:bg-[#2a3a7a]"
             >
               ثبت‌نام و رزرو مصاحبه
             </a>
             <a
               href="#"
-              className="block w-full text-center no-underline bg-white text-[#202A5A] font-black text-[0.9375rem] py-3 rounded-xl transition-colors duration-300 hover:bg-[#f2f2f2]"
+              className="flex-1 text-center no-underline bg-white text-[#202A5A] font-black text-[0.9375rem] py-3 rounded-xl transition-colors duration-300 hover:bg-[#f2f2f2]"
             >
               درخواست مشاوره
             </a>

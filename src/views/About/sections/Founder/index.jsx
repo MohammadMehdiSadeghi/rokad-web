@@ -56,9 +56,9 @@ export default function AboutFounder() {
               {/* Left: credentials + social */}
               <div className="flex-1 p-5 sm:p-7 lg:p-9">
                 {/* Title */}
-                <h3 className="font-black text-[1.5rem] sm:text-[2rem] lg:text-[2.4375rem] text-[#202A5A] leading-[1.4] mb-6 sm:mb-8">
-                  مدیرعامل مؤسسه آموزشی و شتاب‌دهی رکاد
-                </h3>
+                <h3 className="font-black text-[1.25rem] sm:text-[1.5rem] lg:text-[1.6875rem] text-[#202A5A] leading-[1.4] mb-6 sm:mb-8 whitespace-nowrap">
+                                  مدیرعامل مؤسسه آموزشی و شتاب‌دهی رکاد
+                                </h3>
 
                 {/* Credentials grid */}
                 <div className="flex flex-wrap gap-2.5 justify-start">

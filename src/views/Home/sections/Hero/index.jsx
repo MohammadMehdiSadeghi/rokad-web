@@ -89,7 +89,7 @@ export default function Hero() {
               alt=""
               aria-hidden="true"
               draggable={false}
-              className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-[45%] w-[14.5rem] sm:w-[16rem] h-auto z-[1] select-none pointer-events-none"
+              className="absolute left-1/2 -translate-x-1/2 bottom-[5px] translate-y-[45%] w-[14.5rem] sm:w-[16rem] h-auto z-[1] select-none pointer-events-none"
             />
 
             {/* هاله/سایه کادر پایین */}

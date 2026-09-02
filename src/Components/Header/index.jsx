@@ -40,6 +40,7 @@ export default function Header() {
   const close = () => setOpen(false);
 
   const isActive = (to) => {
+    if (typeof window === "undefined") return false;
     const [path, hash] = to.split("#");
     if (hash) return pathname === path && window.location.hash === `#${hash}`;
     return pathname === to;

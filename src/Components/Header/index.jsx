@@ -35,6 +35,7 @@ const softSpring = {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
+  const [headerOpacity, setHeaderOpacity] = useState(1);
   const [tabsHidden, setTabsHidden] = useState(false);
   const { openEnrollment } = useEnrollment();
   const pathname = usePathname();
@@ -50,8 +51,11 @@ export default function Header() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
+      const vh50 = window.innerHeight * 0.5;
+      const progress = Math.min(y / vh50, 1);
       setTabsHidden(y > 4);
-      setCompact(y > 10);
+      setCompact(progress >= 1);
+      setHeaderOpacity(1 - progress);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -72,7 +76,7 @@ export default function Header() {
     <>
       <motion.header
         initial={false}
-        animate={{ y: 0, opacity: 1 }}
+        animate={{ y: 0, opacity: compact ? 1 : Math.max(0.001, headerOpacity) }}
         transition={spring}
         style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
         className={`transition-[padding] duration-300 ease-out w-full ${

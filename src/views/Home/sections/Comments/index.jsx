@@ -111,23 +111,42 @@ export default function Comments() {
             filter: blur(2px);
           }
         }
-        /* Mobile: کارت‌های ساده با چرخش متناوب ملایم (زبان استیکری سایت) */
-        @media (max-width: 639px) {
-          .comments-swiper .card-inner-wrap {
-            opacity: 1 !important;
-            transform: rotate(1.2deg) !important;
-            pointer-events: auto !important;
-          }
-          .comments-swiper .swiper-slide:nth-child(even) .card-inner-wrap {
-            transform: rotate(-1.2deg) !important;
-          }
-          .comments-swiper .swiper-slide {
-            z-index: 1 !important;
-          }
-          .comments-swiper .swiper-slide-active {
-            z-index: 1 !important;
-          }
-        }
+        /* Mobile: همون استایل افتخارات — کارت وسط بزرگ، کناری‌ها کوچیک+چرخیده */
+                @media (max-width: 639px) {
+                  .comments-swiper .card-inner-wrap {
+                    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+                    opacity: 0.55;
+                    transform: scale(0.78);
+                    pointer-events: none;
+                  }
+                  .comments-swiper .swiper-slide-active {
+                    z-index: 30 !important;
+                  }
+                  .comments-swiper .swiper-slide-active .card-inner-wrap {
+                    transform: scale(1.15);
+                    opacity: 1;
+                    z-index: 30;
+                    pointer-events: auto;
+                  }
+                  .comments-swiper .swiper-slide-prev {
+                    z-index: 10 !important;
+                  }
+                  .comments-swiper .swiper-slide-prev .card-inner-wrap {
+                    transform: scale(0.78) rotate(5deg);
+                    opacity: 0.55;
+                    z-index: 10;
+                    pointer-events: auto;
+                  }
+                  .comments-swiper .swiper-slide-next {
+                    z-index: 10 !important;
+                  }
+                  .comments-swiper .swiper-slide-next .card-inner-wrap {
+                    transform: scale(0.78) rotate(-6deg);
+                    opacity: 0.55;
+                    z-index: 10;
+                    pointer-events: auto;
+                  }
+                }
       `}</style>
 
       {/* ── لایه پترن — همون ماسک گرادیانی هیرو/دوئال‌اسکول؛ روی
@@ -184,10 +203,10 @@ export default function Comments() {
                 swiperRef.current = swiper;
               }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-              spaceBetween={16}
+              spaceBetween={-40}
               speed={500}
               breakpoints={{
-                320: { slidesPerView: 1.05, spaceBetween: 8 },
+                320: { slidesPerView: 1.3, spaceBetween: -40 },
                 640: { slidesPerView: 1.5, spaceBetween: 12 },
                 768: { slidesPerView: 2, spaceBetween: -10 },
                 1024: { slidesPerView: 2.5, spaceBetween: 20 },

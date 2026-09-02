@@ -61,12 +61,12 @@ export default function AboutFounder() {
                 </h3>
 
                 {/* Credentials grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {credentials.map((cred, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2.5 rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 w-full"
-                      style={{ backgroundColor: "#BABDCC", borderRadius: "7.3px" }}
+                <div className="flex flex-wrap gap-2.5">
+                                  {credentials.map((cred, i) => (
+                                    <div
+                                      key={i}
+                                      className="flex items-center gap-2.5 rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2"
+                                      style={{ backgroundColor: "#BABDCC", borderRadius: "7.3px" }}
                     >
                       <ShieldCheckIcon className="w-5 h-5 sm:w-[1.3125rem] sm:h-[1.3125rem] flex-shrink-0" />
                       <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#202A5A] font-semibold leading-[1.6]">{cred}</span>

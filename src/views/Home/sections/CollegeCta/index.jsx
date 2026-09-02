@@ -91,7 +91,7 @@ function StickyNote({ s }) {
 function PolaroidCta() {
   return (
     <div
-      className="absolute top-[160px] left-1/2 -translate-x-1/2 -rotate-2 bg-white border-[0.1875rem] border-[#292827] p-3 pb-5 shadow-[6px_6px_0_#292827] z-5 w-[260px] text-center hidden lg:block"
+      className="absolute top-[170px] left-1/2 -translate-x-1/2 -rotate-2 bg-white border-[0.1875rem] border-[#292827] p-3 pb-5 shadow-[6px_6px_0_#292827] z-5 w-[260px] text-center hidden lg:block"
     >
       {/* نوار چسب */}
       <div

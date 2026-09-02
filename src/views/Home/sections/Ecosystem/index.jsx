@@ -260,12 +260,12 @@ export default function Ecosystem() {
                         {Array.from({ length: totalPages }).map((_, pg) => {
                           const group = cards.slice(pg * CARDS_PER_PAGE, (pg + 1) * CARDS_PER_PAGE);
                           const isCurrent = pg === page;
-                          // صفحه‌ی بعدی از راست (+30%) میاد وسط، صفحه‌ی قبلی به چپ (-30%) می‌ره
+                          // موبایل: صفحه‌ی بعدی از چپ (-30%) میاد وسط، صفحه‌ی قبلی به راست (+30%) می‌ره
                           const slideX = isCurrent
                             ? "translate-x-0 opacity-100"
                             : pg < page
-                              ? "-translate-x-[30%] opacity-0"
-                              : "translate-x-[30%] opacity-0";
+                              ? "translate-x-[30%] opacity-0"
+                              : "-translate-x-[30%] opacity-0";
                           return (
                             <div
                               key={pg}

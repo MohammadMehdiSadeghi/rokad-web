@@ -65,7 +65,7 @@ export default function AboutFounder() {
                                   {credentials.map((cred, i) => (
                                     <div
                                       key={i}
-                                      className="flex items-center gap-2.5 rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2"
+                                      className="inline-flex items-center gap-2.5 rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2"
                                       style={{ backgroundColor: "#BABDCC", borderRadius: "7.3px" }}
                     >
                       <ShieldCheckIcon className="w-5 h-5 sm:w-[1.3125rem] sm:h-[1.3125rem] flex-shrink-0" />

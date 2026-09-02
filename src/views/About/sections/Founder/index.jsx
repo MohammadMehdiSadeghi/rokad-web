@@ -61,7 +61,7 @@ export default function AboutFounder() {
                 </h3>
 
                 {/* Credentials grid */}
-                <div className="flex flex-wrap gap-2.5">
+                <div className="flex flex-wrap gap-2.5 justify-start">
                                   {credentials.map((cred, i) => (
                                     <div
                                       key={i}

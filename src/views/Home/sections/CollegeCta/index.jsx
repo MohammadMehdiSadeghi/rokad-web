@@ -149,22 +149,21 @@ export default function CollegeCta() {
         <div className="relative">
           <style>{`
             .college-swiper .swiper-wrapper {
-              transition-timing-function: linear;
+              align-items: center;
             }
           `}</style>
           <Swiper
             modules={[A11y, Autoplay]}
             ref={swiperRef}
-            loop={false}
+            loop={true}
             dir="rtl"
             slidesPerView="auto"
             spaceBetween={16}
-            speed={3000}
+            speed={700}
             autoplay={{
-              delay: 1,
+              delay: 2200,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
-              stopOnLastSlide: false,
             }}
             allowTouchMove={true}
             className="college-swiper !py-4"

@@ -111,7 +111,7 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
             padding: "4px 12px",
             boxShadow: "2px 2px 0 0 #292827",
             fontWeight: 700,
-            fontSize: "clamp(14px, 2vw, 20px)",
+            fontSize: "clamp(11px, 1.5vw, 14px)",
             lineHeight: "1.9",
             whiteSpace: "nowrap",
             fontFamily: "IRANSansX, sans-serif",

@@ -15,8 +15,8 @@ const stickies = [
   { id: 3, title: "طراحی گرافیک", meta: "Figma · Photoshop", bg: "#FFD641", top: 70, right: 500, w: 190, rotate: -2 },
   { id: 4, title: "تولید محتوا", meta: "نوشتن · سئو · شبکه‌های اجتماعی", bg: "#FBE4E4", top: 40, right: 740, w: 200, rotate: 4 },
   { id: 5, title: "MBA نوجوان", meta: "مدیریت و کسب‌وکار", bg: "#EDE7F6", top: 260, right: 60, w: 220, rotate: 2 },
-  { id: 6, title: "رویدادهای کارآفرینی", meta: "استارتاپ ویکند · هکاتون", bg: "#FFF6E6", top: 260, right: 560, w: 200, rotate: -3 },
-  { id: 7, title: "IELTS", meta: "آمادگی آکادمیک زبان", bg: "#E4F4F2", top: 280, right: 320, w: 190, rotate: -1.5 },
+  { id: 6, title: "رویدادهای کارآفرینی", meta: "استارتاپ ویکند · هکاتون", bg: "#FFF6E6", top: 380, right: 60, w: 200, rotate: -3 },
+  { id: 7, title: "IELTS", meta: "آمادگی آکادمیک زبان", bg: "#E4F4F2", top: 170, right: 800, w: 190, rotate: -1.5 },
   { id: 8, title: "Free Discussion", meta: "مکالمهٔ آزاد انگلیسی", bg: "#FFFFFF", top: 300, right: 800, w: 210, rotate: 3.5 },
 ];
 

@@ -98,25 +98,27 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
           gap: "10px",
         }}
       >
-        {/* ── بج — مثل Founder ── */}
-                <div
-                  className="relative z-20"
-                  style={{
-                    display: "inline-flex",
-                    width: "fit-content",
-                    backgroundColor: "#BABDCC",
-                    color: "#202A5A",
-                    borderRadius: "7.3px",
-                    padding: "4px 12px",
-                    fontWeight: 600,
-                    fontSize: "clamp(11px, 1.5vw, 14px)",
-                    lineHeight: "1.6",
-                    whiteSpace: "nowrap",
-                    fontFamily: "IRANSansX, sans-serif",
-                  }}
-                >
-                  {badge}
-                </div>
+        {/* ── بج — عرض به اندازه محتوا ── */}
+        <div
+          className="relative z-20"
+          style={{
+            display: "inline-flex",
+            width: "fit-content",
+            backgroundColor: color.main,
+            color: color.badgeText,
+            border: "1.5px solid #292827",
+            borderRadius: "9px",
+            padding: "4px 12px",
+            boxShadow: "2px 2px 0 0 #292827",
+            fontWeight: 700,
+            fontSize: "clamp(11px, 1.5vw, 14px)",
+            lineHeight: "1.9",
+            whiteSpace: "nowrap",
+            fontFamily: "IRANSansX, sans-serif",
+          }}
+        >
+          {badge}
+        </div>
 
         {/* ── عنوان — یک‌خطی ── */}
         <h3

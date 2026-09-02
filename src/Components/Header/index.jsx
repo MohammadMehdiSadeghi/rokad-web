@@ -50,13 +50,21 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => {
-      const y = window.scrollY;
-      const vh50 = window.innerHeight * 0.5;
-      const progress = Math.min(y / vh50, 1);
-      setTabsHidden(y > 4);
-      setCompact(progress >= 1);
-      setHeaderOpacity(1 - progress);
-    };
+          const y = window.scrollY;
+          const vh50 = window.innerHeight * 0.5;
+          const progress = Math.min(y / vh50, 1);
+          setTabsHidden(y > 4);
+          if (y <= 1) {
+            setCompact(false);
+            setHeaderOpacity(1);
+          } else if (progress >= 1) {
+            setCompact(true);
+            setHeaderOpacity(1);
+          } else {
+            setCompact(false);
+            setHeaderOpacity(0);
+          }
+        };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);

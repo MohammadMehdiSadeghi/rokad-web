@@ -285,22 +285,98 @@ export default function HonorsCarousel() {
           </div>
         </div>
 
-        {/* =================================================
-            CAROUSEL
-        ================================================== */}
+                {/* =================================================
+                    MOBILE STACK — کارت‌های استک عمودی
+                ================================================== */}
 
-        <div
-          className="
-            relative
-            w-full
-            pt-6
-            sm:pt-8
-            lg:pt-10
-            pb-6
-            sm:pb-8
-            overflow-visible
-          "
-        >
+                <div className="lg:hidden relative w-full pt-6 pb-4">
+                  <div className="relative flex flex-col items-center">
+                    {honors.slice(0, 2).map((honor, ci) => {
+                      const theme = THEME_MAP[honor.rank];
+                      const badgeRotation = ci % 2 === 0 ? -6 : 6;
+                      const isBack = ci === 1;
+
+                      return (
+                        <div
+                          key={ci}
+                          className="relative"
+                          style={
+                            isBack
+                              ? { zIndex: 0, transform: "rotate(3deg)", marginTop: "-3rem", marginRight: "1.5rem", alignSelf: "flex-end" }
+                              : { zIndex: 10 }
+                          }
+                        >
+                          <div className="p-2 overflow-visible">
+                            <div className={isBack ? "opacity-70" : ""}>
+                              {/* Card Container */}
+                              <div className="relative max-w-[16rem] sm:max-w-[21.25rem] mx-auto">
+                                {/* Shadow */}
+                                <div
+                                  aria-hidden="true"
+                                  className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_2rem_0_2rem] [corner-shape:squircle]"
+                                  style={{ backgroundColor: theme.accent }}
+                                />
+                                {/* Main Card */}
+                                <div
+                                  className="relative z-10 w-full bg-white border-[0.140625rem] rounded-[0_2rem_0_2rem] [corner-shape:squircle] overflow-hidden"
+                                  style={{ borderColor: theme.accent }}
+                                >
+                                  {/* Background */}
+                                  <div className="absolute inset-0 pointer-events-none">
+                                    <div className="absolute inset-0" style={{ backgroundColor: theme.tint }} />
+                                    <img src={theme.pattern} alt="" draggable="false" className="absolute inset-0 w-full h-full object-cover scale-125 select-none opacity-100" />
+                                  </div>
+                                  {/* Content */}
+                                  <div className="relative z-20 min-h-[10rem] sm:min-h-[12.5rem] flex flex-col items-center justify-center text-center gap-2.5 sm:gap-3 px-3 sm:px-5 pt-8 sm:pt-10 pb-4 sm:pb-5">
+                                    <p className="text-[0.625rem] sm:text-[0.6875rem] leading-5 sm:leading-6 font-semibold" style={{ color: theme.accent, opacity: 0.7 }}>
+                                      {honor.meta}
+                                    </p>
+                                    <h4 className="font-black text-[0.8125rem] sm:text-[1rem] leading-snug" style={{ color: theme.accent }}>
+                                      {honor.title}
+                                    </h4>
+                                    {/* CTA */}
+                                    <div className="relative inline-flex items-center justify-center mt-1 sm:mt-2 -rotate-1 hover:rotate-0 transition-transform duration-300">
+                                      <div aria-hidden="true" className="absolute top-[0.0625rem] left-[0.0625rem] sm:top-[0.0625rem] sm:left-[0.0625rem] w-full h-full rounded-[0.6875rem] sm:rounded-[0.75rem] [corner-shape:squircle] bg-black" />
+                                      <a href="#" className="relative z-10 inline-flex items-center justify-center text-white text-[0.6875rem] sm:text-[0.75rem] font-bold px-3 sm:px-4 py-1 sm:py-2 rounded-[0.6875rem] sm:rounded-[0.75rem] [corner-shape:squircle] border border-black whitespace-nowrap" style={{ backgroundColor: theme.accent }}>
+                                        {honor.ctaLabel}
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                {/* Medal Badge */}
+                                <div
+                                  className="absolute -top-6 sm:-top-6 left-1/2 w-14 h-14 sm:w-16 sm:h-16 z-30"
+                                  style={{ transform: `translateX(-50%) rotate(${badgeRotation}deg)` }}
+                                >
+                                  <img src={honor.badge} alt={honor.title} draggable="false" className="w-full h-full object-contain drop-shadow-md select-none" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* =================================================
+                    CAROUSEL
+                ================================================== */}
+
+                <div
+                  className="
+                    hidden
+                    lg:block
+                    relative
+                    w-full
+                    pt-6
+                    sm:pt-8
+                    lg:pt-10
+                    pb-6
+                    sm:pb-8
+                    overflow-visible
+                  "
+                >
           {/* =================================================
               NEXT BUTTON - LEFT IN RTL
           ================================================== */}

@@ -150,6 +150,7 @@ export default function CollegeCta() {
           <style>{`
             .college-swiper .swiper-wrapper {
               align-items: center;
+              transition-timing-function: linear !important;
             }
           `}</style>
           <Swiper
@@ -159,9 +160,9 @@ export default function CollegeCta() {
             dir="rtl"
             slidesPerView="auto"
             spaceBetween={16}
-            speed={700}
+            speed={3500}
             autoplay={{
-              delay: 2200,
+              delay: 0,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
@@ -183,6 +184,18 @@ export default function CollegeCta() {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/* ── فید لبه‌ها — محو شدن پیل‌ها به سمت لبه ── */}
+          <div
+            aria-hidden="true"
+            className="absolute top-0 bottom-0 right-0 w-16 sm:w-24 lg:w-32 z-10 pointer-events-none"
+            style={{ background: "linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0.9) 30%, transparent 100%)" }}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute top-0 bottom-0 left-0 w-16 sm:w-24 lg:w-32 z-10 pointer-events-none"
+            style={{ background: "linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.9) 30%, transparent 100%)" }}
+          />
         </div>
 
         {/* ════ BOTTOM CTA ════ */}
@@ -201,7 +214,7 @@ export default function CollegeCta() {
             />
             <a
               href="#"
-              className="relative z-10 inline-flex items-center gap-2.5 px-6 py-3 border-2 border-[#292827] rounded-[0.875rem_0_0.875rem_0] [corner-shape:squircle] font-extrabold text-[0.9375rem]"
+              className="relative z-10 inline-flex items-center gap-2.5 px-6 py-3 border-2 border-[#292827] rounded-[0.875rem_0_0.875rem_0] [corner-shape:squircle] font-extrabold text-[0.9375rem] whitespace-nowrap"
               style={{ background: "#F8A41D", color: "#292827" }}
             >
               ثبت‌نام در کالج رکاد

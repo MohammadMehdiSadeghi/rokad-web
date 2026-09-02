@@ -73,7 +73,9 @@ export default function Hero() {
             <div className="relative z-[1] px-5 pt-9 pb-[16rem] sm:pb-[17rem] flex flex-col items-center text-center">
               {/* تیتر */}
               <h1 dir="rtl" className="text-white font-black leading-[1.2] text-[2.25rem] sm:text-[2.5rem]">
-                آینده از اینجا شروع میشود
+                آینده از اینجا
+                <br />
+                شروع میشود
               </h1>
               {/* زیرعنوان */}
               <p dir="rtl" className="mt-3 text-[#202A5A] font-black text-[1rem] sm:text-[1.0625rem] leading-relaxed">

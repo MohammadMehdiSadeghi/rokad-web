@@ -12,6 +12,7 @@ const RokadHierarchy = dynamic(() => import("../src/views/Home/sections/RokadHie
 const EventsCarousel = dynamic(() => import("../src/views/Home/sections/EventsCarousel"));
 const Faq = dynamic(() => import("../src/views/Home/sections/Faq"));
 const Honors = dynamic(() => import("../src/views/Home/sections/Honors"));
+const CollegeCta = dynamic(() => import("../src/views/Home/sections/CollegeCta"));
 const Rokadians = dynamic(() => import("../src/views/Home/sections/Rokadians"));
 const Comments = dynamic(() => import("../src/views/Home/sections/Comments"));
 const TeamTeaser = dynamic(() => import("../src/views/Home/sections/TeamTeaser"));
@@ -31,7 +32,8 @@ export default function Home() {
       <EventsCarousel />
       <Faq />
       <Honors />
-      <Rokadians />
+            <CollegeCta />
+            <Rokadians />
       <Comments />
       <TeamTeaser />
       <Blogs />

@@ -87,7 +87,7 @@ export default function Hero() {
               alt=""
               aria-hidden="true"
               draggable={false}
-              className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 w-[14.5rem] sm:w-[16rem] h-auto z-[1] select-none pointer-events-none"
+              className="absolute left-1/2 -translate-x-1/2 bottom-8 translate-y-[38%] w-[14.5rem] sm:w-[16rem] h-auto z-[1] select-none pointer-events-none"
             />
 
             {/* هاله/سایه کادر پایین */}
@@ -104,7 +104,7 @@ export default function Hero() {
             </a>
             <a
               href="#"
-              className="flex-1 text-center no-underline bg-white text-[#202A5A] font-black text-[0.9375rem] py-3 rounded-xl transition-colors duration-300 hover:bg-[#f2f2f2]"
+              className="flex-1 text-center no-underline bg-white text-[#202A5A] font-black text-[0.9375rem] py-3 rounded-xl border-2 border-[#202A5A] shadow-[0_4px_14px_rgba(32,42,90,0.25)] transition-all duration-300 hover:bg-[#f2f6ff] hover:shadow-[0_6px_18px_rgba(32,42,90,0.32)]"
             >
               درخواست مشاوره
             </a>

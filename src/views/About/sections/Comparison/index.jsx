@@ -98,12 +98,12 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
           gap: "10px",
         }}
       >
-        {/* ── بج — عرض کامل کارت (هم‌اندازه بک‌گراند) ── */}
+        {/* ── بج — عرض به اندازه محتوا ── */}
         <div
-          className="relative z-20 text-center"
+          className="relative z-20"
           style={{
-            display: "block",
-            width: "100%",
+            display: "inline-flex",
+            width: "fit-content",
             backgroundColor: color.main,
             color: color.badgeText,
             border: "1.5px solid #292827",
@@ -113,6 +113,7 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
             fontWeight: 700,
             fontSize: "clamp(14px, 2vw, 20px)",
             lineHeight: "1.9",
+            whiteSpace: "nowrap",
             fontFamily: "IRANSansX, sans-serif",
           }}
         >

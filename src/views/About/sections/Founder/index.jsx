@@ -64,13 +64,13 @@ export default function AboutFounder() {
                 <div className="flex flex-wrap gap-2.5 justify-start">
                                   {credentials.map((cred, i) => (
                                     <div
-                                                          key={i}
-                                                          className="inline-flex items-center gap-2 rounded-[6px_0_6px_0] px-[0.6875rem] py-[0.0625rem]"
-                                                          style={{ backgroundColor: "#202A5A", border: "1px solid #0D1636", boxShadow: "1px 1px 0 0 #0D1636" }}
-                                                        >
-                                                          <ShieldCheckIcon className="w-4 h-4 sm:w-[1.0625rem] sm:h-[1.0625rem] flex-shrink-0" />
-                                                          <span className="text-[0.7rem] font-bold text-white whitespace-nowrap">{cred}</span>
-                                                        </div>
+                                      key={i}
+                                      className="inline-flex items-center gap-2.5 rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2"
+                                      style={{ backgroundColor: "#BABDCC", borderRadius: "7.3px" }}
+                    >
+                      <ShieldCheckIcon className="w-5 h-5 sm:w-[1.3125rem] sm:h-[1.3125rem] flex-shrink-0" />
+                      <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#202A5A] font-semibold leading-[1.6] whitespace-nowrap">{cred}</span>
+                    </div>
                   ))}
                 </div>
 

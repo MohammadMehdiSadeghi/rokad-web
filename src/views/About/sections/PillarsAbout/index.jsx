@@ -7,7 +7,7 @@ const PATTERNS = {
   teal: "/assets/about/Team/patterngreen.png",
   navy: "/assets/about/Team/Patternblue.png",
   magenta: "/assets/about/Team/Patternpink.png",
-  orange: cardPattern,
+  orange: "/assets/about/Team/Patternyellow.png",
 };
 
 // پالت سکشن — دقیقاً طبق توضیحات
@@ -135,7 +135,7 @@ export default function AboutPillars() {
                       src={PATTERNS[p.theme]}
                       alt=""
                       aria-hidden="true"
-                      className="w-full h-full object-cover opacity-100 select-none"
+                      className="w-full h-full object-cover opacity-60 select-none"
                     />
                   </div>
 

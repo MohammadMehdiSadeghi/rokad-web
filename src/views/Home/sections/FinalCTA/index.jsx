@@ -89,8 +89,8 @@ export default function FinalCTA() {
                   type="button"
                   onClick={openEnrollment}
                   className="inline-flex items-center justify-center w-full sm:w-auto max-w-[90%] sm:max-w-none min-w-[10rem] sm:min-w-[14rem] lg:min-w-[16rem] h-[3rem] sm:h-[3.5rem] lg:h-[4rem]
-                              px-5 sm:px-7 lg:px-8 bg-ink text-white font-extrabold text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.625rem] sm:rounded-[0.75rem] lg:rounded-[1rem] [corner-shape:squircle]
-                              hover:bg-ink-faq transition-colors duration-300 cursor-pointer"
+                              px-5 sm:px-7 lg:px-8 bg-navy text-white font-extrabold text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem] rounded-[0.625rem] sm:rounded-[0.75rem] lg:rounded-[1rem] [corner-shape:squircle]
+                              hover:bg-navy-alt transition-colors duration-300 cursor-pointer"
                 >
                   تکمیل فرم پیش‌ثبت‌نام
                 </button>

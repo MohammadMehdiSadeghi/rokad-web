@@ -185,7 +185,7 @@ export default function BlogIndexPage() {
                     className="absolute left-1 top-1 bottom-[-0.25rem] right-[-0.25rem] rounded-[1.25rem_0_1.25rem_0]"
                     style={{ background: p.color }}
                   />
-                  <span className="relative z-10 flex flex-col items-center gap-1 rounded-[1.25rem_0_1.25rem_0] border-2 border-ink bg-white px-3 py-4 text-center transition-transform duration-300 group-hover:scale-[1.02]">
+                  <span className="relative z-10 flex flex-col items-center gap-1 rounded-[1.25rem_0_1.25rem_0] border-2 bg-white px-3 py-4 text-center transition-transform duration-300 group-hover:scale-[1.02]" style={{ borderColor: p.color }}>
                     <span className="text-[1.75rem] leading-none">{p.emoji}</span>
                     <span className="text-[0.9375rem] font-black text-ink">{p.label}</span>
                     <span className="text-[0.6875rem] font-bold text-ink/50">

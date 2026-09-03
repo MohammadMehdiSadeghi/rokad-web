@@ -1,65 +1,195 @@
 "use client";
-import Link from "next/link";
 import Container from "../../layout/Container";
 import { useEnrollment } from "../../lib/EnrollmentContext";
+import { post, blocks, related } from "./data.js";
+
+// ── رنگ‌های تم تیل (هم‌خانواده) ──
+const C = {
+  accent: "#58bdaf",
+  dark: "#2e7068",
+  tint: "#f2faf9",
+  ink: "#292827",
+};
+
+// ── بلوک‌های محتوا ──
+function Block({ b }) {
+  if (b.type === "h2")
+    return (
+      <h2 id={b.id} className="mb-4 mt-10 flex items-center gap-3 text-[1.375rem] sm:text-[1.625rem] font-black text-ink">
+        <span className="inline-block h-7 w-2 rounded-full" style={{ background: C.accent }} />
+        {b.text}
+      </h2>
+    );
+  if (b.type === "quote")
+    return (
+      <div className="relative my-8 rounded-[0_1.5rem_0_1.5rem] border-2 bg-[#f2faf9] p-6 sm:p-8" style={{ borderColor: C.accent, boxShadow: `5px 5px 0 0 ${C.dark}` }}>
+        <span className="absolute -top-5 right-6 text-[4rem] leading-[1] font-black select-none" style={{ color: C.accent }}>”</span>
+        <p className="text-[1.0625rem] sm:text-[1.1875rem] font-bold leading-[1.9] text-ink">{b.text}</p>
+      </div>
+    );
+  if (b.type === "info")
+    return (
+      <div className="my-8 overflow-hidden rounded-[0_1.25rem_0_1.25rem] border-2" style={{ borderColor: C.ink, boxShadow: `4px 4px 0 0 ${C.dark}` }}>
+        <div className="px-6 py-2.5 text-white text-[0.875rem] font-black" style={{ background: C.accent }}>{b.label}</div>
+        <div className="bg-[#f2faf9] px-6 py-5 text-[0.9375rem] sm:text-[1rem] font-semibold leading-[1.9] text-ink">{b.text}</div>
+      </div>
+    );
+  return (
+    <p className="mb-6 text-[1rem] sm:text-[1.0625rem] leading-[2.1] text-ink/85 font-medium">{b.text}</p>
+  );
+}
 
 export default function BlogSingle() {
   const { openEnrollment } = useEnrollment();
 
   return (
-    <main className="min-h-screen bg-white overflow-x-hidden">
+    <main className="min-h-screen overflow-x-hidden bg-white">
       {/* پترن پس‌زمینه */}
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage: "url(/assets/Pattern/layout-pattern.png)",
-          backgroundSize: "22rem",
-        }}
+        className="pointer-events-none fixed inset-0 opacity-[0.3]"
+        style={{ backgroundImage: "url(/assets/Pattern/layout-pattern.png)", backgroundSize: "22rem" }}
       />
 
-      <Container className="relative z-10">
-        <div className="flex min-h-[70vh] flex-col items-center justify-center py-24 text-center">
-          {/* آیکون */}
-          <div className="mb-8 flex h-24 w-24 items-center justify-center rounded-[0_1.75rem_0_1.75rem] border-2 border-ink bg-teal shadow-[5px_5px_0_0_#292827] rotate-2">
-            <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <path d="M14 2v6h6" />
-              <path d="M16 13H8" />
-              <path d="M16 17H8" />
-              <path d="M10 9H8" />
-            </svg>
-          </div>
+      <Container className="relative z-10 pt-[2.5rem] sm:pt-[3.5rem]">
+        {/* بریدکرامب */}
+        <nav className="mb-8 flex items-center gap-2 text-[0.8125rem] font-bold text-ink/50" aria-label="مسیر">
+          <a href="/" className="hover:text-teal transition-colors">خانه</a>
+          <span>/</span>
+          <a href="/blog" className="hover:text-teal transition-colors">وبلاگ</a>
+          <span>/</span>
+          <span className="text-ink/80">چطور یک نوجوان را عاشق کد کنیم؟</span>
+        </nav>
 
-          {/* تگ «به‌زودی» */}
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-[#F5A623] px-5 py-1.5 text-[0.8125rem] font-black text-ink shadow-[3px_3px_0_0_#292827] -rotate-1">
-            ✦ به‌زودی
-          </span>
+        {/* گرید اصلی: مقاله + سایدبار */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_20rem] gap-10 lg:gap-12 items-start">
 
-          <h1 className="max-w-3xl text-[2rem] sm:text-[3rem] font-black leading-[1.35] text-ink">
-            وبلاگ <span className="inline-block text-teal -rotate-2">در حال</span>{" "}
-            <span className="inline-block text-magenta rotate-1">توسعه</span> است
-          </h1>
+          {/* ══════ مقاله ══════ */}
+          <article className="min-w-0">
+            {/* تگ‌ها */}
+            <div className="mb-5 flex flex-wrap gap-2">
+              {post.tags.map((t, i) => (
+                <span
+                  key={i}
+                  className={`rounded-full border-2 px-4 py-1.5 text-[0.8125rem] font-extrabold ${i === 0 ? "text-white -rotate-1" : "bg-white text-ink"}`}
+                  style={i === 0
+                    ? { background: C.accent, borderColor: C.dark, boxShadow: `3px 3px 0 0 ${C.dark}` }
+                    : { borderColor: C.ink }}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
 
-          <p className="mt-6 max-w-xl text-[1rem] sm:text-[1.125rem] font-bold leading-[2] text-ink/60">
-            داریم روی مقالات، راهنماها و داستان‌های اکوسیستم استارتاپی رکاد کار
-            می‌کنیم. به‌زودی اینجا منتظرتونه — تا اون موقع، رویدادها رو از دست نده!
-          </p>
+            {/* تیتر کلمه‌ای چرخان */}
+            <h1 className="mb-6 flex flex-wrap gap-x-3 gap-y-2 text-[2rem] sm:text-[2.75rem] font-black leading-[1.4] text-ink">
+              {post.titleWords.map((w, i) => (
+                <span key={i} className={`inline-block ${i % 2 === 0 ? "-rotate-2" : "rotate-1"}`} style={w.accent ? { color: C.accent } : undefined}>
+                  {w.t}
+                </span>
+              ))}
+            </h1>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/events"
-              className="inline-flex items-center gap-2 rounded-[0_0.84375rem_0_0.84375rem] bg-ink px-7 py-3.5 text-[1rem] font-black text-white shadow-[4px_4px_0_0_rgba(41,40,39,0.25)] hover:-translate-y-1 transition-all"
+            {/* متا */}
+            <div className="mb-7 flex flex-wrap items-center gap-3 text-[0.875rem] font-bold text-ink/50">
+              {post.meta.map((m, i) => (
+                <span key={i} className="flex items-center gap-3">
+                  {i > 0 && <span className="text-[0.5rem]" style={{ color: C.accent }}>●</span>}
+                  {m}
+                </span>
+              ))}
+            </div>
+
+            {/* کاور */}
+            <div
+              className="relative mb-10 grid h-64 sm:h-80 place-items-center overflow-hidden rounded-[0_2rem_0_2rem] border-2"
+              style={{ borderColor: C.ink, boxShadow: `6px 6px 0 0 ${C.dark}`, background: "linear-gradient(135deg, #7ed3c6 0%, #58bdaf 55%, #2e7068 100%)" }}
             >
-              📅 دیدن ایونت‌ها
-            </Link>
-            <button
-              onClick={openEnrollment}
-              className="inline-flex items-center gap-2 rounded-[0_0.84375rem_0_0.84375rem] bg-white px-7 py-3.5 text-[1rem] font-black text-navy-alt border-2 border-ink shadow-[4px_4px_0_0_#292827] hover:-translate-y-1 hover:-rotate-1 transition-all"
-            >
-              پیش‌ثبت‌نام
-            </button>
-          </div>
+              <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full border-2 bg-white px-4 py-1.5 text-[0.75rem] font-extrabold text-ink whitespace-nowrap" style={{ borderColor: C.dark }}>
+                {post.coverCaption}
+              </span>
+            </div>
+
+            {/* بدنه */}
+            <div>
+              {blocks.map((b, i) => <Block key={i} b={b} />)}
+            </div>
+
+            {/* نویسنده پایین مقاله */}
+            <div className="mt-12 flex flex-col sm:flex-row items-center gap-5 rounded-[0_1.75rem_0_1.75rem] border-2 bg-white p-6" style={{ borderColor: C.ink, boxShadow: `5px 5px 0 0 ${C.dark}` }}>
+              <div className="grid h-16 w-16 shrink-0 place-items-center rounded-[0_1rem_0_1rem] border-2 text-[1.25rem] font-black text-white" style={{ background: C.accent, borderColor: C.ink }}>
+                {post.author.initials}
+              </div>
+              <div className="text-center sm:text-right">
+                <div className="text-[1.0625rem] font-black text-ink">{post.author.name}</div>
+                <div className="mb-1.5 text-[0.8125rem] font-bold" style={{ color: C.dark }}>{post.author.role}</div>
+                <p className="text-[0.875rem] leading-[1.9] text-ink/60">{post.author.bio}</p>
+              </div>
+            </div>
+
+            {/* مطالب مرتبط */}
+            <section className="mt-14">
+              <h3 className="mb-6 flex items-center gap-3 text-[1.375rem] font-black text-ink">
+                <span className="inline-block h-7 w-2 rounded-full" style={{ background: C.accent }} />
+                مطالب مرتبط
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                {related.map((r, i) => (
+                  <a key={i} href="/blog" className="group block overflow-hidden rounded-[0_1.5rem_0_1.5rem] border-2 bg-white transition-all duration-300 hover:-translate-y-1.5" style={{ borderColor: C.ink, boxShadow: `4px 4px 0 0 ${C.dark}` }}>
+                    <div className="h-24" style={{ background: r.tone === "teal" ? "linear-gradient(135deg,#7ed3c6,#2e7068)" : r.tone === "magenta" ? "linear-gradient(135deg,#e699b5,#a81344)" : "linear-gradient(135deg,#3b4b8f,#0f1430)" }} />
+                    <div className="p-4">
+                      <span className="mb-2 inline-block rounded-full border-2 px-3 py-0.5 text-[0.6875rem] font-black text-ink" style={{ borderColor: C.ink }}>{r.tag}</span>
+                      <div className="text-[0.9375rem] font-black leading-[1.8] text-ink group-hover:text-teal transition-colors">{r.title}</div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          </article>
+
+          {/* ══════ سایدبار (sticky) ══════ */}
+          <aside className="hidden lg:block sticky top-24 space-y-6">
+            {/* نویسنده */}
+            <div className="rounded-[0_1.5rem_0_1.5rem] border-2 bg-white p-5" style={{ borderColor: C.ink, boxShadow: `4px 4px 0 0 ${C.dark}` }}>
+              <div className="mb-3 flex items-center gap-3">
+                <div className="grid h-12 w-12 place-items-center rounded-[0_0.875rem_0_0.875rem] border-2 text-[1rem] font-black text-white" style={{ background: C.accent, borderColor: C.ink }}>
+                  {post.author.initials}
+                </div>
+                <div>
+                  <div className="text-[0.9375rem] font-black text-ink">{post.author.name}</div>
+                  <div className="text-[0.75rem] font-bold" style={{ color: C.dark }}>{post.author.role}</div>
+                </div>
+              </div>
+              <p className="text-[0.8125rem] leading-[1.9] text-ink/60">{post.author.bio}</p>
+            </div>
+
+            {/* فهرست مطالب */}
+            <div className="rounded-[0_1.5rem_0_1.5rem] border-2 bg-white p-5" style={{ borderColor: C.ink, boxShadow: `4px 4px 0 0 ${C.dark}` }}>
+              <div className="mb-3 text-[1rem] font-black text-ink">فهرست مطالب</div>
+              <ul className="space-y-1">
+                {post.toc.map((t, i) => (
+                  <li key={i}>
+                    <a href={`#${t.num === "۰۱" ? "s1" : t.num === "۰۲" ? "s2" : t.num === "۰۳" ? "s3" : t.num === "۰۴" ? "s4" : "s5"}`} className="flex items-start gap-2.5 py-1.5 text-[0.8125rem] font-bold text-ink/70 hover:text-teal transition-colors">
+                      <span className="font-black" style={{ color: C.accent }}>{t.num}</span>
+                      {t.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* اشتراک‌گذاری */}
+            <div className="rounded-[0_1.5rem_0_1.5rem] border-2 bg-white p-5" style={{ borderColor: C.ink, boxShadow: `4px 4px 0 0 ${C.dark}` }}>
+              <div className="mb-3 text-[0.9375rem] font-black text-ink">این مطلب رو به اشتراک بذار!</div>
+              <div className="flex flex-wrap gap-2">
+                {post.share.map((s, i) => (
+                  <button key={i} className="rounded-[0_0.625rem_0_0.625rem] border-2 bg-white px-4 py-2 text-[0.8125rem] font-extrabold text-ink transition-all hover:-translate-y-0.5" style={{ borderColor: C.ink, boxShadow: `3px 3px 0 0 ${C.dark}` }}>
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </aside>
         </div>
       </Container>
     </main>

@@ -127,7 +127,7 @@ export default function AboutPillars() {
                       src={cardPattern}
                       alt=""
                       aria-hidden="true"
-                      className="w-full h-full object-cover opacity-20 mix-blend-overlay select-none"
+                      className="w-full h-full object-cover opacity-100 select-none"
                     />
                   </div>
 

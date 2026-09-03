@@ -197,7 +197,7 @@ export default function EventsCarousel() {
                         {/* بخش پایین: دکمه (همیشه در پایین کارت) */}
                         <div className="relative z-10 flex justify-center mt-6 lg:mt-2">
                           <a
-                            href="#"
+                            href={event.href || "/events"}
                             className={`inline-flex items-center gap-2 ${theme.btnBg} text-white text-[0.8125rem] sm:text-base font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-[0.875rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-x-1`}
                           >
                             {event.ctaLabel}

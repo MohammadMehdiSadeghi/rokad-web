@@ -8,6 +8,7 @@ const fallbackEvents = [
     meta: "مشهد | ۱۴۰۲/۱۲/۰۳",
     body: "اینجا ایده‌های خام رو با طراحی، دلایل و افکار اولویت‌بندی‌شده تا محصولی که به بازار می‌رسونیم تبدیل می‌کنیم.",
     image: "/assets/home/Events/event-pic.png",
+    href: "/events/rokad-events-recap",
   },
   {
     index: "۰۲",
@@ -17,6 +18,7 @@ const fallbackEvents = [
     meta: "مشهد | تاریخ رویداد",
     body: "توضیحات این رویداد رو اینجا جایگزین کن.",
     image: "/assets/home/Events/event-pic.png",
+    href: "/events",
   },
   {
     index: "۰۳",
@@ -26,6 +28,7 @@ const fallbackEvents = [
     meta: "مشهد | تاریخ رویداد",
     body: "توضیحات این رویداد رو اینجا جایگزین کن.",
     image: "/assets/home/Events/event-pic.png",
+    href: "/events",
   },
 ];
 

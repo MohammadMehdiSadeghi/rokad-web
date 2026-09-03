@@ -12,17 +12,21 @@ const C = {
   navy: "#21295a",
   navyDark: "#0f1430",
   magenta: "#e0195b",
+  magentaDark: "#a81344",
+  magentaTint: "#fdf2f6",
 };
 
 // ── بلوک‌های محتوا ──
 function Block({ b }) {
-  if (b.type === "h2")
+  if (b.type === "h2") {
+    const hc = [C.accent, C.navy, C.magenta][parseInt(String(b.id || "s0").slice(1)) % 3];
     return (
-      <h2 id={b.id} className="mb-4 mt-10 flex items-center gap-3 text-[1.375rem] sm:text-[1.625rem] font-black text-ink">
-        <span className="inline-block h-7 w-2 rounded-full" style={{ background: parseInt(String(b.id || "s0").slice(1)) % 2 ? C.accent : C.navy }} />
+      <h2 id={b.id} className="mb-4 mt-10 flex items-center gap-3 text-[1.375rem] sm:text-[1.625rem] font-black" style={{ color: hc }}>
+        <span className="inline-block h-7 w-2 rounded-full" style={{ background: hc }} />
         {b.text}
       </h2>
     );
+  }
   if (b.type === "quote")
     return (
       <div className="relative my-8 rounded-[0_1.5rem_0_1.5rem] border-2 bg-[#f2faf9] p-6 sm:p-8" style={{ borderColor: C.accent, boxShadow: `5px 5px 0 0 ${C.accent}` }}>
@@ -32,9 +36,9 @@ function Block({ b }) {
     );
   if (b.type === "info")
     return (
-      <div className="my-8 overflow-hidden rounded-[0_1.25rem_0_1.25rem] border-2" style={{ borderColor: C.navy, boxShadow: `4px 4px 0 0 ${C.navy}` }}>
-        <div className="px-6 py-2.5 text-white text-[0.875rem] font-black" style={{ background: C.navy }}>{b.label}</div>
-        <div className="bg-[#f2faf9] px-6 py-5 text-[0.9375rem] sm:text-[1rem] font-semibold leading-[1.9] text-ink">{b.text}</div>
+      <div className="my-8 overflow-hidden rounded-[0_1.25rem_0_1.25rem] border-2" style={{ borderColor: C.magenta, boxShadow: `4px 4px 0 0 ${C.magenta}` }}>
+        <div className="px-6 py-2.5 text-white text-[0.875rem] font-black" style={{ background: C.magenta }}>{b.label}</div>
+        <div className="px-6 py-5 text-[0.9375rem] sm:text-[1rem] font-semibold leading-[1.9] text-ink" style={{ background: C.magentaTint }}>{b.text}</div>
       </div>
     );
   return (
@@ -133,9 +137,9 @@ export default function BlogSingle() {
             </div>
 
             {/* مطالب مرتبط */}
-            <section className="mt-14">
+            <section className="mt-14 mb-16">
               <h2 className="mb-6 flex items-center gap-3 text-[1.375rem] font-black text-ink">
-                <span className="inline-block h-7 w-2 rounded-full" style={{ background: C.accent }} />
+                <span className="inline-block h-7 w-2 rounded-full" style={{ background: C.magenta }} />
                 مطالب مرتبط
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">

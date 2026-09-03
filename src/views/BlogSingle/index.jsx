@@ -11,6 +11,7 @@ const C = {
   ink: "#292827",
   navy: "#21295a",
   navyDark: "#0f1430",
+  magenta: "#e0195b",
 };
 
 // ── بلوک‌های محتوا ──
@@ -88,7 +89,7 @@ export default function BlogSingle() {
             {/* تیتر کلمه‌ای چرخان */}
             <h1 className="mb-6 flex flex-wrap gap-x-3 gap-y-2 text-[2rem] sm:text-[2.75rem] font-black leading-[1.4] text-ink">
               {post.titleWords.map((w, i) => (
-                <span key={i} className={`inline-block ${i % 2 === 0 ? "-rotate-2" : "rotate-1"}`} style={w.accent ? { color: C.accent } : undefined}>
+                <span key={i} className={`inline-block ${i % 2 === 0 ? "-rotate-2" : "rotate-1"}`} style={w.accent ? { color: w.accent === "navy" ? C.navy : C.magenta } : undefined}>
                   {w.t}
                 </span>
               ))}
@@ -98,7 +99,7 @@ export default function BlogSingle() {
             <div className="mb-7 flex flex-wrap items-center gap-3 text-[0.875rem] font-bold text-ink/50">
               {post.meta.map((m, i) => (
                 <span key={i} className="flex items-center gap-3">
-                  {i > 0 && <span className="text-[0.5rem]" style={{ color: i % 2 ? C.navy : C.accent }}>●</span>}
+                  {i > 0 && <span className="text-[0.5rem]" style={{ color: i % 2 ? C.magenta : C.accent }}>●</span>}
                   {m}
                 </span>
               ))}
@@ -133,10 +134,10 @@ export default function BlogSingle() {
 
             {/* مطالب مرتبط */}
             <section className="mt-14">
-              <h3 className="mb-6 flex items-center gap-3 text-[1.375rem] font-black text-ink">
+              <h2 className="mb-6 flex items-center gap-3 text-[1.375rem] font-black text-ink">
                 <span className="inline-block h-7 w-2 rounded-full" style={{ background: C.accent }} />
                 مطالب مرتبط
-              </h3>
+              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 {related.map((r, i) => (
                   <a key={i} href="/blog" className="group block overflow-hidden rounded-[0_1.5rem_0_1.5rem] border-2 bg-white transition-all duration-300 hover:-translate-y-1.5" style={{ borderColor: C.ink, boxShadow: `4px 4px 0 0 ${C.ink}` }}>

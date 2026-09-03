@@ -4,10 +4,10 @@ export const post = {
   titleWords: [
     { t: "چطور", accent: false },
     { t: "یک", accent: false },
-    { t: "نوجوان", accent: true },
+    { t: "نوجوان", accent: "magenta" },
     { t: "را", accent: false },
     { t: "عاشق", accent: false },
-    { t: "کد", accent: true },
+    { t: "کد", accent: "navy" },
     { t: "کنیم؟", accent: false },
   ],
   meta: ["۱۸ شهریور ۱۴۰۴", "۸ دقیقه مطالعه", "۱٬۲۴۰ بازدید"],

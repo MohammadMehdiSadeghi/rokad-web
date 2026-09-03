@@ -10,7 +10,14 @@ export function generateStaticParams() {
 }
 
 export default function BlogPostPage({ params }) {
-  const slug = params.slug;
+  // Next در این مسیر slug را درصد-رمز (percent-encoded) تحویل می‌دهد؛
+  // برای مقایسه با slugهای فارسی باید اول decode شود
+  let slug = params.slug;
+  try {
+    slug = decodeURIComponent(slug);
+  } catch {
+    // اگر ورودی encode نشده بود، بدون تغییر بماند
+  }
   // مقاله اصلی (پرچم‌دار) — کامپوننت کامل
   if (slug === "rokad-events-recap") {
     return <BlogSingle />;

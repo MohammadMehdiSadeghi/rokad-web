@@ -2,6 +2,14 @@ import Container from "../../../../layout/Container";
 
 const cardPattern = "/assets/about/StatsSection/TrustSection-Pattern.png";
 
+// پترن همخانواده هر رنگ — از فایل‌های پوشه Team (مثل سکشن Team)
+const PATTERNS = {
+  teal: "/assets/about/Team/patterngreen.png",
+  navy: "/assets/about/Team/Patternblue.png",
+  magenta: "/assets/about/Team/Patternpink.png",
+  orange: cardPattern,
+};
+
 // پالت سکشن — دقیقاً طبق توضیحات
 const THEMES = {
   teal: { main: "#55BDB5" },
@@ -124,7 +132,7 @@ export default function AboutPillars() {
                   {/* پترن — همون دو سکشن بالا (TrustSection-Pattern) */}
                   <div className="absolute inset-0 pointer-events-none overflow-hidden">
                     <img
-                      src={cardPattern}
+                      src={PATTERNS[p.theme]}
                       alt=""
                       aria-hidden="true"
                       className="w-full h-full object-cover opacity-100 select-none"

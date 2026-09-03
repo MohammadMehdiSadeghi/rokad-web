@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y } from "swiper/modules";
 import { ChevronLeftIcon, ChevronRightIcon } from "../../../../common/Icons";
@@ -12,7 +13,8 @@ import "swiper/css";
 
 const patternBg = "/assets/Pattern/layout-pattern.png";
 
-function BlogCard({ image, date, title, body, rotation = 0 }) {
+function BlogCard({ image, date, title, body, slug, _id, id, rotation = 0 }) {
+  const href = `/blog/${slug || _id || id || "post"}`;
   return (
     <div
       className="
@@ -133,7 +135,8 @@ function BlogCard({ image, date, title, body, rotation = 0 }) {
               {date}
             </span>
 
-            <span
+            <Link
+              href={href}
               className="
                 inline-flex
                 items-center
@@ -166,7 +169,7 @@ function BlogCard({ image, date, title, body, rotation = 0 }) {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </span>
+            </Link>
           </div>
         </div>
       </article>
@@ -350,8 +353,8 @@ export default function Blogs() {
                   bg-[#21295A]
                 "
               />
-              <a
-                href="#"
+              <Link
+                href="/blog"
                 className="
                   relative
                   z-10
@@ -380,7 +383,7 @@ export default function Blogs() {
                 "
               >
                 همه مقالات
-              </a>
+              </Link>
             </div>
           </div>
 

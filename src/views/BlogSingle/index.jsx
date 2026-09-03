@@ -1,6 +1,7 @@
 "use client";
 import Container from "../../layout/Container";
 import { useEnrollment } from "../../lib/EnrollmentContext";
+import { ChevronLeftIcon, ChevronRightIcon } from "../../common/Icons";
 import {
   postMeta,
   toc,
@@ -311,12 +312,10 @@ function PostHero() {
         {/* خرده‌نان */}
         <nav className="mb-6 flex flex-wrap items-center gap-2 text-[0.8125rem] font-bold text-ink/50" aria-label="مسیر">
           <a href="/" className="hover:text-teal transition-colors">خانه</a>
-          <span className="text-teal">/</span>
-          <a href="#" className="hover:text-teal transition-colors">وبلاگ</a>
-          <span className="text-teal">/</span>
-          <a href="#" className="hover:text-teal transition-colors">رویدادها</a>
-          <span className="text-teal">/</span>
-          <span className="text-navy-alt">سه روایت از رویدادهای رکاد</span>
+          <ChevronLeftIcon className="w-3.5 h-3.5 text-ink/30" />
+          <a href="/blog" className="hover:text-teal transition-colors">وبلاگ</a>
+          <ChevronLeftIcon className="w-3.5 h-3.5 text-ink/30" />
+          <span className="text-ink/40">سه روایت از رویدادهای رکاد</span>
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center">
@@ -420,7 +419,7 @@ function Sidebar({ onCta }) {
           <ul className="list-none p-0 m-0 space-y-1">
             {relatedQuick.map((r, i) => (
               <li key={i}>
-                <a href="#" className="flex items-start gap-2.5 py-2 text-[0.8125rem] font-bold text-ink/75 hover:text-teal transition-colors leading-relaxed border-b border-ink/5 last:border-0">
+                <a href={r.href || "#"} className="flex items-start gap-2.5 py-2 text-[0.8125rem] font-bold text-ink/75 hover:text-teal transition-colors leading-relaxed border-b border-ink/5 last:border-0">
                   <span className="flex-shrink-0 text-[1rem]">{r.icon}</span>
                   {r.label}
                 </a>
@@ -625,7 +624,7 @@ export default function BlogSingle() {
             {relatedPosts.map((p, i) => {
               const t = tones[p.tone] || tones.teal;
               return (
-                <a key={i} href="#" className="group relative block">
+                <a key={i} href={p.href || "#"} className="group relative block">
                   <div className="absolute top-[7px] left-[7px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-ink" />
                   <div className="relative rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white overflow-hidden transition-transform group-hover:-translate-y-1">
                     <div className="relative flex flex-col items-center justify-center aspect-[16/9] border-b-2 border-ink overflow-hidden" style={{ backgroundColor: t.bg }}>

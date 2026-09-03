@@ -1,11 +1,24 @@
 import BlogSingle from "../../../src/views/BlogSingle";
+import BlogPostBasic from "../../../src/views/BlogPostBasic";
+import fallbackBlogs from "../../../src/lib/fallback/blog";
 
-export const metadata = {
-  title: "از ایده تا محصول: سه روایت از رویدادهای استارتاپی رکاد | وبلاگ رکاد",
-  description:
-    "گزارش کامل رویدادهای استارتاپی رکاد ۳۰، ۳۱ و رکاپ ۴؛ سه تجربه واقعی از تیم‌سازی، ایده‌پردازی و ساخت محصول توسط دانش‌آموزان اولین هنرستان استارتاپی ایران.",
-};
+const slugify = (s) => s.replace(/[؟?!.:،؛]/g, "").replace(/\s+/g, "-").trim();
 
-export default function BlogPostPage() {
-  return <BlogSingle />;
+export function generateStaticParams() {
+  const slugs = fallbackBlogs.map((p) => ({ slug: p.slug || slugify(p.title) }));
+  return [{ slug: "rokad-events-recap" }, ...slugs];
+}
+
+export default function BlogPostPage({ params }) {
+  const slug = params.slug;
+  // مقاله اصلی (پرچم‌دار) — کامپوننت کامل
+  if (slug === "rokad-events-recap") {
+    return <BlogSingle />;
+  }
+  // بقیه پست‌ها — نمای ساده
+  const post = fallbackBlogs.find((p) => (p.slug || slugify(p.title)) === slug);
+  if (post) {
+    return <BlogPostBasic post={{ ...post, slug }} />;
+  }
+  return <BlogPostBasic post={{ title: "مقاله یافت نشد", body: "", slug }} />;
 }

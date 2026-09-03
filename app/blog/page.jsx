@@ -18,6 +18,7 @@ const initialsOf = (name) =>
 const PERSONAS = [
   {
     id: "eco",
+    shadow: "#2e7068",
     label: "اکوسیستم",
     emoji: "🌿",
     color: "#58bdaf",
@@ -30,6 +31,7 @@ const PERSONAS = [
   },
   {
     id: "male",
+    shadow: "#0f1430",
     label: "هنرجویان",
     emoji: "🔵",
     color: "#21295a",
@@ -42,6 +44,7 @@ const PERSONAS = [
   },
   {
     id: "female",
+    shadow: "#a81344",
     label: "دخترها",
     emoji: "🌸",
     color: "#e0195b",
@@ -54,6 +57,7 @@ const PERSONAS = [
   },
   {
     id: "college",
+    shadow: "#a8641a",
     label: "کالج",
     emoji: "🟠",
     color: "#f4971f",
@@ -66,6 +70,7 @@ const PERSONAS = [
   },
   {
     id: "club",
+    shadow: "#2b1236",
     label: "کلوپ",
     emoji: "🟣",
     color: "#4f215a",
@@ -139,7 +144,7 @@ export default function BlogIndexPage() {
         <Container className="relative z-10 pt-[2.5rem] sm:pt-[3.5rem]">
           <div className="mx-auto max-w-4xl text-center">
             {/* برچسب زرد */}
-            <span className="mb-6 sm:mb-8 inline-block -rotate-2 rounded-full border-2 border-ink bg-[#ffd641] px-4 py-1.5 text-[0.8125rem] font-black text-ink shadow-[3px_3px_0_0_#292827]">
+            <span className="mb-6 sm:mb-8 inline-block -rotate-2 rounded-full border-2 border-ink bg-[#ffd641] px-4 py-1.5 text-[0.8125rem] font-black text-ink shadow-[3px_3px_0_0_#c9a21b]">
               🎨 پنج پرسونا · پنج رنگ · پنج داستان
             </span>
 
@@ -230,8 +235,8 @@ export default function BlogIndexPage() {
                 {/* CTA همه‌ی مقالات پرسونا */}
                 <a
                   href="#blog-personas"
-                  className="inline-flex shrink-0 -rotate-1 items-center gap-2 rounded-[0_0.625rem_0_0.625rem] border-2 border-ink px-5 py-2.5 text-[0.875rem] font-extrabold text-white shadow-[4px_4px_0_0_#292827] transition-all hover:-translate-y-0.5 hover:rotate-0"
-                  style={{ background: p.color }}
+                  className="inline-flex shrink-0 -rotate-1 items-center gap-2 rounded-[0_0.625rem_0_0.625rem] border-2 px-5 py-2.5 text-[0.875rem] font-extrabold text-white transition-all hover:-translate-y-0.5 hover:rotate-0"
+                  style={{ background: p.color, borderColor: p.shadow, boxShadow: `4px 4px 0 0 ${p.shadow}` }}
                 >
                   همه‌ی {faNum(group.length)} مقاله
                   <span aria-hidden="true">←</span>
@@ -251,11 +256,13 @@ export default function BlogIndexPage() {
                       {/* استیکر زیر کارت */}
                       <span
                         aria-hidden="true"
-                        className="absolute left-[0.3rem] top-[0.3rem] bottom-[-0.3rem] right-[-0.3rem] rounded-[1.875rem_0_1.875rem_0] bg-[#292827] [corner-shape:squircle]"
+                        className="absolute left-[0.3rem] top-[0.3rem] bottom-[-0.3rem] right-[-0.3rem] rounded-[1.875rem_0_1.875rem_0] [corner-shape:squircle]"
+                        style={{ background: p.shadow }}
                       />
                       <Link
                         href={`/blog/${post.slug}`}
-                        className="relative z-10 flex h-full flex-col overflow-hidden rounded-[1.875rem_0_1.875rem_0] border-2 border-ink bg-white [corner-shape:squircle]"
+                        className="relative z-10 flex h-full flex-col overflow-hidden rounded-[1.875rem_0_1.875rem_0] border-2 bg-white [corner-shape:squircle]"
+                        style={{ borderColor: p.color }}
                       >
                         {/* سربرگ رنگی */}
                         <div
@@ -264,12 +271,14 @@ export default function BlogIndexPage() {
                         >
                           {/* بج مقاله */}
                           {post.tag && (
-                            <span className="absolute right-3 top-3 z-10 -rotate-2 rounded-full border-2 border-ink bg-white px-2.5 py-1 text-[0.625rem] font-black text-ink shadow-[2px_2px_0_0_#292827]">
+                            <span className="absolute right-3 top-3 z-10 -rotate-2 rounded-full border-2 bg-white px-2.5 py-1 text-[0.625rem] font-black"
+                              style={{ borderColor: p.color, boxShadow: `3px 3px 0 0 ${p.shadow}`, color: p.color }}>
                               {post.tag}
                             </span>
                           )}
                           {/* آیکون */}
-                          <span className="relative z-[1] grid h-[3.9rem] w-[3.9rem] -rotate-3 place-items-center rounded-[0_0.75rem_0_0.75rem] border-2 border-ink bg-white text-[1.75rem] shadow-[4px_4px_0_0_#292827] [corner-shape:squircle]">
+                          <span className="relative z-[1] grid h-[3.9rem] w-[3.9rem] -rotate-3 place-items-center rounded-[0_0.75rem_0_0.75rem] border-2 bg-white text-[1.75rem] [corner-shape:squircle]"
+                            style={{ borderColor: p.color, boxShadow: `4px 4px 0 0 ${p.shadow}` }}>
                             {post.icon}
                           </span>
                         </div>
@@ -324,7 +333,7 @@ export default function BlogIndexPage() {
           </p>
           <a
             href="#blog-personas"
-            className="mt-8 inline-flex -rotate-2 items-center gap-2 rounded-[0_0.625rem_0_0.625rem] border-2 border-ink bg-[#f4971f] px-7 py-3.5 text-[1rem] font-black text-ink shadow-[4px_4px_0_0_#292827] transition-all hover:-translate-y-1 hover:rotate-0"
+            className="mt-8 inline-flex -rotate-2 items-center gap-2 rounded-[0_0.625rem_0_0.625rem] border-2 border-ink bg-[#f4971f] px-7 py-3.5 text-[1rem] font-black text-ink shadow-[4px_4px_0_0_#a8641a] transition-all hover:-translate-y-1 hover:rotate-0"
           >
             انتخاب پرسونای من
           </a>

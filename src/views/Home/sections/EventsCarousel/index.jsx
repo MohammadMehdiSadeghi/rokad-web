@@ -99,9 +99,6 @@ export default function EventsCarousel() {
             <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.3] mb-[1.5rem] sm:mb-[2rem] lg:mb-[0.75rem] xl:mb-[2rem]">
               جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
             </h2>
-            <p className="font-medium text-[#292827] text-[1rem] sm:text-[1.0625rem] lg:text-[1rem] xl:text-[1.125rem] leading-[1.7] max-w-xl mb-[1.5rem] sm:mb-[2rem] lg:mb-[1rem] xl:mb-[2rem]">
-              رویدادهایی که دانش‌آموزها توش از ایده تا اجرا رو با دست خودشون طی می‌کنن.
-            </p>
           </div>
 
         {/* ── کاروسل Swiper ── */}

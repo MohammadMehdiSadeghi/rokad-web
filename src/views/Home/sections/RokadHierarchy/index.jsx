@@ -137,8 +137,8 @@ export default function RokadHierarchy() {
       className="relative overflow-hidden bg-bg-neutral pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4.5rem] sm:pb-[5.5rem] lg:pb-[6.5rem] px-4 sm:px-6 lg:px-8"
     >
       <Container className="relative z-10">
-        {/* ════ MANIFESTO HEADER ════ */}
-        <div className="text-right mb-10 lg:mb-12">
+        {/* ════ MANIFESTO HEADER — فاصله ۴rem تا بخش پایینی ════ */}
+        <div className="text-right mb-[4rem]">
           {/* تیتر بزرگ */}
           <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.875rem] leading-[1.2] tracking-tight text-right">
             <span className="inline-block ml-1">رکاد،</span>
@@ -147,8 +147,8 @@ export default function RokadHierarchy() {
             <span className="inline-block text-[#E0195B]">مدرسه </span>
           </h2>
 
-          {/* زیرنویس */}
-          <p className="mt-5 sm:mt-6 text-[0.9375rem] sm:text-[1.0625rem] font-medium leading-[1.85] text-[#292827] max-w-[48rem]">
+          {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
+          <p className="sr-only">
             یک رکادین در سه فضای زنده به‌صورت هم‌زمان حضور دارد: کالج،
             شتاب‌دهنده و کافه. سه لایهٔ همزمان از یک زندگی — نه سه مرحلهٔ جدا.
           </p>

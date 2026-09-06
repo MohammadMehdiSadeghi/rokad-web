@@ -59,7 +59,7 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef, className = "
       style={{ "--tilt": `${tilt}deg` }}
       data-active={isActive || undefined}
       className={`
-      group p-4 xs:p-5 sm:p-6 flex flex-col justify-center gap-4 sm:gap-6 min-h-[9rem] xs:min-h-[10rem] sm:min-h-[11.5rem] items-center text-center
+      group p-4 xs:p-5 sm:p-6 flex flex-row items-center gap-3 xs:gap-4 sm:gap-5 min-h-[9rem] xs:min-h-[10rem] sm:min-h-[11.5rem] text-right
       backdrop-blur-[19.06px] rotate-[var(--tilt)] hover:rotate-0
       transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
       hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
@@ -72,9 +72,9 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef, className = "
       ${className}
       `}
     >
-      {/* Icon */}
+      {/* Icon — راست کارت (اول در DOM زیر RTL) */}
       <div
-        className={`w-12 h-12 xs:w-13 xs:h-13 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 mx-auto transition-colors duration-500 rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${isActive ? "bg-[#202A5A]" : ""}`}
+        className={`w-12 h-12 xs:w-13 xs:h-13 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 transition-colors duration-500 rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${isActive ? "bg-[#202A5A]" : ""}`}
       >
         <span
           className={`w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
@@ -85,8 +85,8 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef, className = "
         </span>
       </div>
 
-      {/* Text */}
-            <div className="flex flex-col items-center text-center">
+      {/* Text — چپِ آیکون */}
+            <div className="flex flex-col items-start text-right">
               <h4 className="font-black text-[0.8125rem] xs:text-[0.9375rem] sm:text-[1.125rem] text-white mb-1 sm:mb-2 leading-snug transition-colors duration-300">
                 {title}
               </h4>
@@ -300,10 +300,10 @@ export default function Ecosystem() {
                       </div>
                     </div>
 
-          {/* ── دسکتاپ: صفحات ۴تایی با اسکرول لاک ── */}
+          {/* ── دسکتاپ: صفحات ۴تایی (۲ بالا + ۲ پایین) با اسکرول لاک ── */}
           <div className="hidden lg:block relative" dir="rtl">
             {/* بدون overflow-hidden — وگرنه لبه‌ی کارت‌های چرخیده (rotate) بریده می‌شن */}
-            <div className="relative min-h-[11.5rem] sm:min-h-[12.5rem]">
+            <div className="relative min-h-[24.5rem]">
               {Array.from({ length: totalPages }).map((_, pg) => {
                 const group = cards.slice(pg * CARDS_PER_PAGE, (pg + 1) * CARDS_PER_PAGE);
                 const isCurrent = pg === page;
@@ -317,7 +317,7 @@ export default function Ecosystem() {
                 return (
                   <div
                     key={pg}
-                    className={`grid grid-cols-4 gap-5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] absolute inset-0 ${slideX}`}
+                    className={`grid grid-cols-2 gap-5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] absolute inset-0 ${slideX}`}
                     aria-hidden={!isCurrent}
                     style={{ pointerEvents: isCurrent ? "auto" : "none" }}
                   >

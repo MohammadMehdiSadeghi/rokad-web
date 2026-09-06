@@ -172,9 +172,7 @@ export default function HonorsCarousel() {
             text-center
             gap-5
             sm:gap-6
-            mb-[2rem]
-            sm:mb-[2.5rem]
-            lg:mb-[3rem]
+            mb-[4rem]
           "
         >
           {/* Heading + Button Row */}
@@ -212,23 +210,8 @@ export default function HonorsCarousel() {
                 ساختیم
               </h2>
 
-              <p
-                className="
-                  mt-4
-                  max-w-[20rem]
-                  sm:max-w-[28rem]
-                  lg:max-w-[36rem]
-                  font-medium
-                  text-[#292827]
-                  text-[0.8125rem]
-                  sm:text-[1rem]
-                  lg:text-[1.125rem]
-                  leading-normal
-                  sm:leading-normal
-                  text-center
-                  sm:text-right
-                "
-              >
+              {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
+              <p className="sr-only">
                 هر مدال اینجا یه اسم یه دانش‌آموزه که یه چیزی رو
                 از صفر ساخت و تا آخرش ایستاد.
               </p>

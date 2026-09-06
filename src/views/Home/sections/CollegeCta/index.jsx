@@ -162,14 +162,14 @@ export default function CollegeCta() {
       </div>
 
       <Container className="relative z-10">
-        {/* ════ HEADER ════ */}
-        <div className="text-center mb-10 lg:mb-12">
+        {/* ════ HEADER — فاصله ۴rem تا بخش پایینی ════ */}
+        <div className="text-center mb-[4rem]">
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#59BBAF] text-white border-2 border-[#292827] rounded-full font-extrabold text-[0.8125rem] -rotate-2 shadow-[3px_3px_0_#292827] mb-5">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             ویژه دبیرستانی‌ها
           </span>
 
-          <h2 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.375rem] leading-[1.05] tracking-tight">
+          <h2 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.375rem] leading-[1.05] tracking-tight mb-0">
             <span className="inline-block -rotate-1 ml-1">تختهٔ اعلانات</span>
             <span
               className="inline-block rotate-[1.5deg] ml-1 px-3 sm:px-4 rounded-[1rem_0_1rem_0] [corner-shape:squircle] border-2 border-[#292827] shadow-[4px_4px_0_#59BBAF]"
@@ -179,7 +179,8 @@ export default function CollegeCta() {
             </span>
           </h2>
 
-          <p className="mt-3 sm:mt-4 text-[0.9375rem] sm:text-[1rem] font-semibold leading-[1.85] text-[#777777] max-w-[36rem] mx-auto">
+          {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
+          <p className="sr-only">
             هر برچسب یه دپارتمان — هر یکی رو که خواستی برداشتی و بردی روی برنامهٔ درسیت.
           </p>
         </div>

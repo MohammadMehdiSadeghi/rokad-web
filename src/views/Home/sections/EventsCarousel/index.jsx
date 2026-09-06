@@ -94,12 +94,13 @@ export default function EventsCarousel() {
 
         <Container className="relative z-10">
         
-          {/* ── هدر: تایتل و توضیحات ── */}
-          <div className="mb-[2rem] sm:mb-[2.5rem] lg:mb-[1.5rem] xl:mb-[3rem]">
-            <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.3] mb-[1.5rem] sm:mb-[2rem] lg:mb-[0.75rem] xl:mb-[2rem]">
+          {/* ── هدر: تایتل و توضیحات — فاصله ۴rem تا بخش پایینی ── */}
+          <div className="mb-[4rem]">
+            <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.3] mb-0">
               جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
             </h2>
-            <p className="font-medium text-[#292827] text-[1rem] sm:text-[1.0625rem] lg:text-[1rem] xl:text-[1.125rem] leading-[1.7] max-w-xl mb-[1.5rem] sm:mb-[2rem] lg:mb-[1rem] xl:mb-[2rem]">
+            {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
+            <p className="sr-only">
               رویدادهایی که دانش‌آموزها توش از ایده تا اجرا رو با دست خودشون طی می‌کنن.
             </p>
           </div>

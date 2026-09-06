@@ -152,3 +152,462 @@ html {
 @media (min-width: 640px) and (max-width: 1023px) {
   .hero-vp { margin-top: 43px; }
 }
+
+/* ============================================================
+   BLOG INDEX — صفحهٔ همهٔ بلاگ‌ها
+   ساختار برگرفته از Blog Index پروژهٔ رکاد کالج
+   دیزاین: سیستم رکاد (تیل اصلی + سرمه‌ای/مجنتا/نارنجی/بنفش)
+   ============================================================ */
+.rk-bi {
+  --bi-primary:      #58bdaf;
+  --bi-primary-dark: #2e7068;
+  --bi-primary-light:#f2faf9;
+  --bi-navy:         #21295a;
+  --bi-navy-dark:    #0f1430;
+  --bi-navy-light:   #3b4b8f;
+  --bi-magenta:      #e0195b;
+  --bi-magenta-dark: #a81344;
+  --bi-orange:       #f4971f;
+  --bi-ink:          #292827;
+  --bi-ink-subtle:   #777777;
+  --bi-bg-neutral:   #f6f6f6;
+}
+
+/* ---------- هیرو ---------- */
+.rk-bi .bi-hero {
+  position: relative;
+  background: linear-gradient(135deg, #58bdaf 0%, #347e75 55%, #2e7068 100%);
+  padding: 2.5rem 0 4.5rem;
+  overflow: hidden;
+}
+.rk-bi .bi-hero-deco {
+  position: absolute;
+  border: 2px solid var(--bi-ink);
+  box-shadow: 4px 4px 0 var(--bi-ink);
+  display: none;
+}
+.rk-bi .bi-hero-deco-1 { top: 15%; left: 8%; width: 60px; height: 60px; border-radius: 20px 4px 20px 4px; transform: rotate(15deg); }
+.rk-bi .bi-hero-deco-2 { bottom: 18%; right: 5%; width: 80px; height: 80px; border-radius: 50%; transform: rotate(-8deg); }
+.rk-bi .bi-back {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255, 255, 255, .92); color: var(--bi-ink);
+  border: 2px solid var(--bi-ink); border-radius: 10px;
+  font-weight: 800; font-size: 13px; padding: 8px 15px;
+  margin-bottom: 2.25rem; transition: all .2s ease;
+}
+.rk-bi .bi-back:hover { background: var(--bi-navy); color: #fff; transform: translateY(-2px); }
+
+.rk-bi .bi-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: var(--bi-navy);
+  padding: .5rem 1.25rem; font-size: 14px; font-weight: 700;
+  border-radius: 999px; border: 2px solid var(--bi-ink);
+  transform: rotate(-1.5deg); box-shadow: 3px 3px 0 var(--bi-ink);
+}
+.rk-bi .bi-title {
+  text-align: center;
+  font-weight: 900; line-height: 1.2;
+  font-size: clamp(2rem, 5.5vw, 4.5rem);
+  color: #fff; margin: 0 0 1.25rem;
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+}
+.rk-bi .bi-line { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem .28em; }
+.rk-bi .bi-w { display: inline-block; }
+.rk-bi .bi-title .bi-w.hl { color: var(--bi-navy); }
+.rk-bi .bi-sub {
+  text-align: center; max-width: 620px;
+  margin: 0 auto 2.25rem;
+  font-size: 17px; font-weight: 600; line-height: 1.85;
+  color: rgba(255, 255, 255, .94);
+}
+
+.rk-bi .bi-search { position: relative; max-width: 560px; margin: 0 auto; }
+.rk-bi .bi-search-sh {
+  position: absolute; top: 6px; left: 6px; right: -6px; bottom: -6px;
+  background: var(--bi-ink); border-radius: 0 20px 0 20px;
+}
+.rk-bi .bi-search-box {
+  position: relative; z-index: 1; display: flex;
+  background: #fff; border: 2px solid var(--bi-ink);
+  border-radius: 0 20px 0 20px; padding: 6px; gap: 6px;
+}
+.rk-bi .bi-search-box input {
+  flex: 1; min-width: 0; border: none; outline: none;
+  padding: .8rem 1.1rem; font-size: 15px; font-family: inherit;
+  font-weight: 600; background: transparent; color: var(--bi-ink);
+}
+.rk-bi .bi-search-box button {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bi-navy); color: #fff; border: none;
+  padding: .7rem 1.25rem; border-radius: 0 16px 0 16px;
+  font-weight: 800; font-size: 14px; cursor: pointer;
+  font-family: inherit;
+  transition: background .2s ease;
+}
+.rk-bi .bi-search-box button:hover { background: var(--bi-navy-dark); }
+.rk-bi .bi-poptags {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 8px; margin-top: 1.5rem; max-width: 680px; margin-inline: auto;
+}
+.rk-bi .bi-poptags > span { color: rgba(255, 255, 255, .9); font-size: 14px; font-weight: 700; }
+.rk-bi .bi-poptags button {
+  background: rgba(255, 255, 255, .2); color: #fff;
+  font-size: 13px; font-weight: 700; padding: .35rem .9rem;
+  border-radius: 999px; border: 1px solid rgba(255, 255, 255, .35);
+  cursor: pointer; transition: background .2s ease; font-family: inherit;
+}
+.rk-bi .bi-poptags button:hover { background: rgba(255, 255, 255, .34); }
+
+/* ---------- مشترک هدر سکشن ---------- */
+.rk-bi .bi-sec-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px; margin-bottom: 2.25rem;
+}
+.rk-bi .bi-h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 900; color: var(--bi-ink); margin: 0; }
+.rk-bi .bi-more-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--bi-navy); font-weight: 800; font-size: 14.5px;
+  transition: color .2s ease;
+}
+.rk-bi .bi-more-link:hover { color: var(--bi-primary-dark); }
+
+/* ---------- مقاله ویژه ---------- */
+.rk-bi .bi-featured { background: #fff; padding: 4.5rem 0 3rem; }
+.rk-bi .bi-dot-ring {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  background: var(--bi-primary); box-shadow: 0 0 0 4px rgba(88, 189, 175, .28);
+}
+.rk-bi .bi-featured-card { position: relative; }
+.rk-bi .bi-featured-sh {
+  position: absolute; top: 6px; left: 6px; right: -6px; bottom: -6px;
+  background: var(--bi-ink); border-radius: 0 40px 0 40px; z-index: 0;
+}
+.rk-bi .bi-featured-grid {
+  position: relative; z-index: 1;
+  background: #fff; border: 2px solid var(--bi-ink);
+  border-radius: 0 40px 0 40px; overflow: hidden;
+  display: grid; grid-template-columns: 1fr;
+}
+.rk-bi .bi-featured-media {
+  position: relative; min-height: 300px; padding: 1.75rem;
+  display: flex; flex-direction: column; justify-content: space-between;
+  overflow: hidden;
+}
+.rk-bi .bi-feat-shape { position: absolute; border: 2px solid var(--bi-ink); }
+.rk-bi .bi-feat-shape-1 { top: -24px; left: -24px; width: 140px; height: 140px; border-radius: 50%; transform: rotate(-8deg); }
+.rk-bi .bi-feat-shape-2 { bottom: -34px; right: -34px; width: 180px; height: 180px; border-radius: 30px 0 30px 0; transform: rotate(12deg); }
+.rk-bi .bi-feat-rocket {
+  position: absolute; top: 35%; right: 22%; width: 60px; height: 60px;
+  background: #fff; border: 2px solid var(--bi-ink); border-radius: 14px;
+  transform: rotate(20deg); display: flex; align-items: center; justify-content: center;
+  box-shadow: 3px 3px 0 var(--bi-ink);
+}
+.rk-bi .bi-feat-top { position: relative; z-index: 2; }
+.rk-bi .bi-feat-hot {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bi-ink); color: #fff; padding: .4rem .9rem;
+  border-radius: 999px; font-size: 12px; font-weight: 900;
+  transform: rotate(-1.5deg);
+}
+.rk-bi .bi-feat-chips { position: relative; z-index: 2; display: flex; gap: 9px; flex-wrap: wrap; }
+.rk-bi .bi-feat-chips .chip {
+  padding: .4rem .9rem; font-size: 13px; font-weight: 800;
+  border: 2px solid var(--bi-ink); border-radius: 9px;
+  box-shadow: 2px 2px 0 var(--bi-ink);
+}
+.rk-bi .bi-feat-chips .chip.white { background: #fff; color: var(--bi-primary-dark); transform: rotate(1.5deg); }
+.rk-bi .bi-feat-chips .chip.navy { background: var(--bi-navy); color: #fff; transform: rotate(-1.5deg); }
+.rk-bi .bi-featured-body {
+  padding: 2rem 2rem 2.25rem;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem;
+}
+.rk-bi .bi-feat-meta {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  color: var(--bi-ink-subtle); font-size: 13px; font-weight: 600; margin-bottom: 1rem;
+}
+.rk-bi .bi-feat-meta span { display: inline-flex; align-items: center; gap: 5px; }
+.rk-bi .bi-feat-meta .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--bi-ink-subtle); }
+.rk-bi .bi-feat-title {
+  font-weight: 900; font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  line-height: 1.4; color: var(--bi-ink); margin: 0 0 1rem;
+}
+.rk-bi .bi-feat-desc {
+  font-size: 15.5px; line-height: 2; font-weight: 500;
+  color: var(--bi-ink-subtle); margin: 0 0 1.25rem;
+}
+.rk-bi .bi-progress { display: flex; align-items: center; gap: 10px; }
+.rk-bi .bi-progress span { font-size: 11px; font-weight: 700; color: var(--bi-ink-subtle); white-space: nowrap; }
+.rk-bi .bi-progress span:last-child { color: var(--bi-primary-dark); }
+.rk-bi .bi-progress .track {
+  flex: 1; height: 4px; background: #ededec; border-radius: 2px; overflow: hidden;
+}
+.rk-bi .bi-progress .fill { height: 100%; background: var(--bi-primary); border-radius: 2px; }
+.rk-bi .bi-feat-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; flex-wrap: wrap; padding-top: 1rem;
+  border-top: 1.5px dashed rgba(41, 40, 39, .16);
+}
+.rk-bi .bi-author-mini { display: flex; align-items: center; gap: 10px; }
+.rk-bi .bi-author-mini .avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--bi-magenta), var(--bi-magenta-dark));
+  border: 2px solid var(--bi-ink); display: grid; place-items: center;
+  color: #fff; font-weight: 900; font-size: 14px;
+}
+.rk-bi .bi-author-mini > span:last-child { display: flex; flex-direction: column; }
+.rk-bi .bi-author-mini strong { font-weight: 800; font-size: 13.5px; color: var(--bi-ink); }
+.rk-bi .bi-author-mini small { font-size: 11.5px; color: var(--bi-ink-subtle); font-weight: 600; }
+.rk-bi .bi-read-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bi-navy); color: #fff; font-weight: 900; font-size: 14.5px;
+  padding: .8rem 1.4rem; border-radius: 12px; border: 2px solid var(--bi-ink);
+  transform: rotate(1.5deg); box-shadow: 3px 3px 0 var(--bi-ink);
+  transition: transform .2s ease, background .2s ease;
+}
+.rk-bi .bi-read-btn:hover { transform: rotate(0deg) scale(1.04); background: var(--bi-primary); color: var(--bi-ink); }
+
+/* ---------- چیپ فیلتر ---------- */
+.rk-bi .bi-cats { background: #fff; padding: 1.25rem 0 1rem; }
+.rk-bi .bi-chip-row {
+  display: flex; gap: 10px; flex-wrap: nowrap;
+  overflow-x: auto; padding: .5rem 0;
+  scrollbar-width: none;
+}
+.rk-bi .bi-chip-row::-webkit-scrollbar { display: none; }
+.rk-bi .bi-chip-row button {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px;
+  padding: .65rem 1.1rem; border-radius: 999px;
+  border: 2px solid; font-weight: 800; font-size: 14px;
+  white-space: nowrap; cursor: pointer; transition: all .25s ease;
+  font-family: inherit;
+}
+.rk-bi .bi-chip-count {
+  font-size: 11px; font-weight: 900; padding: 1px 8px;
+  border-radius: 999px; border: 1px solid rgba(0, 0, 0, .06);
+}
+
+/* ---------- گرید مقاله‌ها ---------- */
+.rk-bi .bi-grid-sec { background: #fff; padding: 3rem 0 5rem; }
+.rk-bi .bi-sort {
+  background: #fff; border: 1.5px solid rgba(41, 40, 39, .18);
+  padding: .45rem .9rem; border-radius: 999px;
+  font-weight: 800; font-size: 13px; color: var(--bi-ink);
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  font-family: inherit;
+}
+.rk-bi .bi-blog-grid {
+  display: grid; grid-template-columns: repeat(1, 1fr); gap: 2rem;
+  grid-auto-flow: dense; /* پرهیز از حفرهٔ خالی کنار کارت‌های پهن */
+}
+/* چرخش روی خودِ سلول است (نه بدنهٔ کارت) تا لایهٔ سایه و کارت مثل یک برچسب، هم‌چرخ بمانند */
+.rk-bi .bi-card {
+  position: relative; transform-origin: center;
+  transition: transform .4s ease-out;
+}
+.rk-bi .bi-card:hover { transform: rotate(0deg) translateY(-4px) !important; }
+.rk-bi .bi-card-sh {
+  position: absolute; top: 5px; left: 5px; right: -5px; bottom: -5px;
+  background: var(--bi-ink); border-radius: 0 30px 0 30px; z-index: 0;
+}
+.rk-bi .bi-card-body {
+  position: relative; z-index: 1; display: flex; flex-direction: column;
+  background: #fff; border: 2px solid var(--bi-ink); border-radius: 0 30px 0 30px;
+  overflow: hidden; height: 100%;
+}
+.rk-bi .bi-card-media {
+  position: relative; height: 160px; flex-shrink: 0; overflow: hidden;
+}
+.rk-bi .bi-card-lg .bi-card-media { height: 200px; }
+.rk-bi .bi-card-circle {
+  position: absolute; top: -15px; right: -15px;
+  width: 70px; height: 70px; border-radius: 50%;
+}
+.rk-bi .bi-card-square {
+  position: absolute; bottom: -20px; left: -20px;
+  width: 90px; height: 90px; border-radius: 20px 4px 20px 4px;
+  background: rgba(0, 0, 0, .15); transform: rotate(15deg);
+}
+.rk-bi .bi-card-tag {
+  position: absolute; top: 14px; right: 14px; z-index: 2;
+  display: inline-block; background: #fff; padding: .35rem .85rem;
+  font-size: 12px; font-weight: 900; border-radius: 999px;
+  border: 2px solid var(--bi-ink); box-shadow: 2px 2px 0 var(--bi-ink);
+  transform: rotate(-1.5deg);
+}
+.rk-bi .bi-card-bookmark {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  width: 34px; height: 34px; background: rgba(41, 40, 39, .85); color: #fff;
+  border: 1.5px solid var(--bi-ink); border-radius: 0 10px 0 10px;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.rk-bi .bi-card-bookmark:hover { transform: translateY(-2px); }
+.rk-bi .bi-card-info {
+  padding: 1.25rem 1.35rem 1.35rem;
+  flex: 1; display: flex; flex-direction: column;
+}
+.rk-bi .bi-card-meta {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  font-size: 11px; font-weight: 700; color: var(--bi-ink-subtle); margin-bottom: .65rem;
+}
+.rk-bi .bi-card-meta span { display: inline-flex; align-items: center; gap: 4px; }
+.rk-bi .bi-card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--bi-ink-subtle); }
+.rk-bi .bi-card-title { font-weight: 900; font-size: 16.5px; line-height: 1.6; color: var(--bi-ink); margin: 0 0 .6rem; }
+.rk-bi .bi-card-title.lg { font-size: 20px; }
+.rk-bi .bi-card-excerpt {
+  font-size: 13.5px; line-height: 1.85; font-weight: 500;
+  color: var(--bi-ink-subtle); margin: 0 0 1rem; flex: 1;
+}
+.rk-bi .bi-card-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: .85rem; border-top: 1.5px dashed rgba(41, 40, 39, .12);
+}
+.rk-bi .bi-card-author {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 800; color: var(--bi-ink);
+}
+.rk-bi .bi-card-author .avatar {
+  width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--bi-ink);
+  display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 11px;
+}
+.rk-bi .bi-card-arr {
+  width: 34px; height: 34px; border: 1.5px solid var(--bi-ink);
+  border-radius: 0 10px 0 10px; display: grid; place-items: center;
+  color: #fff; transition: transform .2s ease;
+}
+.rk-bi .bi-card:hover .bi-card-arr { transform: rotate(-45deg); }
+
+/* دکمهٔ مقاله‌های بیشتر */
+.rk-bi .bi-loadmore {
+  position: relative; display: inline-block; transform-origin: center;
+  transform: rotate(-1.5deg); transition: transform .25s ease;
+}
+.rk-bi .bi-loadmore:hover { transform: rotate(0deg) scale(1.05); }
+.rk-bi .bi-loadmore-sh {
+  position: absolute; top: 5px; left: 5px; right: -5px; bottom: -5px;
+  background: var(--bi-navy); border-radius: 16px;
+}
+.rk-bi .bi-loadmore button {
+  position: relative; z-index: 1; display: flex; align-items: center; gap: 8px;
+  background: #fff; color: var(--bi-navy); border: 2px solid var(--bi-navy);
+  padding: .9rem 2rem; border-radius: 16px; font-weight: 900; font-size: 15px;
+  cursor: pointer; font-family: inherit;
+}
+.rk-bi .bi-loadmore-num {
+  background: var(--bi-primary); color: #fff; border-radius: 999px;
+  padding: 1px 8px; font-size: 12px; font-weight: 900;
+}
+
+/* ---------- پرخواننده‌ترین‌ها ---------- */
+.rk-bi .bi-trending {
+  position: relative; overflow: hidden;
+  background: var(--bi-bg-neutral); padding: 4rem 0;
+}
+.rk-bi .bi-trend-ic {
+  width: 44px; height: 44px; display: grid; place-items: center;
+  background: var(--bi-magenta); border: 2px solid var(--bi-ink);
+  border-radius: 0 12px 0 12px; transform: rotate(-1.5deg);
+  box-shadow: 3px 3px 0 var(--bi-ink); flex-shrink: 0;
+}
+.rk-bi .bi-update {
+  font-size: 12.5px; font-weight: 700; color: var(--bi-ink-subtle);
+  background: #fff; padding: .4rem .9rem; border-radius: 999px;
+  border: 1.5px solid rgba(41, 40, 39, .1);
+}
+.rk-bi .bi-trend-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
+}
+.rk-bi .bi-trend-cell {
+  position: relative; transform-origin: center;
+  transition: transform .3s ease;
+}
+.rk-bi .bi-trend-cell:hover { transform: rotate(0deg) translateY(-4px) !important; }
+.rk-bi .bi-trend-sh {
+  position: absolute; top: 5px; left: 5px; right: -5px; bottom: -5px;
+  background: var(--bi-ink); border-radius: 0 24px 0 24px; z-index: 0;
+}
+.rk-bi .bi-trend-card {
+  position: relative; z-index: 1; display: flex; flex-direction: column;
+  background: #fff; border: 2px solid var(--bi-ink); border-radius: 0 24px 0 24px;
+  padding: 1.75rem 1.5rem 1.5rem; min-height: 220px;
+}
+.rk-bi .bi-trend-rank {
+  position: absolute; top: -20px; left: 8px;
+  font-size: 130px; font-weight: 900; opacity: .14; line-height: 1;
+  pointer-events: none;
+}
+.rk-bi .bi-trend-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 1.25rem; position: relative; z-index: 1;
+}
+.rk-bi .bi-trend-badge {
+  color: #fff; font-weight: 900; font-size: 13px;
+  padding: .35rem .75rem; border-radius: 999px; border: 1.5px solid var(--bi-ink);
+}
+.rk-bi .bi-trend-card h3 {
+  font-weight: 900; font-size: 16.5px; line-height: 1.65; color: var(--bi-ink);
+  margin: 0 0 1rem; flex: 1; position: relative; z-index: 1;
+}
+.rk-bi .bi-trend-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px; font-weight: 700; color: var(--bi-ink-subtle);
+  padding-top: .85rem; border-top: 1.5px dashed rgba(41, 40, 39, .12);
+}
+
+/* ---------- نویسنده‌ها ---------- */
+.rk-bi .bi-authors { background: var(--bi-bg-neutral); padding: 4.5rem 0 5rem; }
+.rk-bi .bi-author-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
+}
+.rk-bi .bi-author-cell {
+  position: relative; transform-origin: center;
+  transition: transform .3s ease;
+}
+.rk-bi .bi-author-cell:hover { transform: rotate(0deg) translateY(-4px) !important; }
+.rk-bi .bi-author-sh {
+  position: absolute; top: 5px; left: 5px; right: -5px; bottom: -5px;
+  background: var(--bi-ink); border-radius: 0 20px 0 20px;
+}
+.rk-bi .bi-author-card {
+  position: relative; z-index: 1; background: #fff;
+  border: 2px solid var(--bi-ink); border-radius: 0 20px 0 20px;
+  padding: 1.75rem 1.25rem 1.35rem; text-align: center;
+  overflow: hidden;
+}
+.rk-bi .bi-author-strip {
+  position: absolute; top: 0; right: 0; left: 0; height: 70px;
+  border-radius: 0 18px 0 0;
+}
+.rk-bi .bi-author-avatar {
+  position: relative; z-index: 2; display: grid; place-items: center;
+  width: 82px; height: 82px; margin: 18px auto 1rem;
+  border: 3px solid var(--bi-ink); border-radius: 50%;
+  font-weight: 900; font-size: 22px; box-shadow: 3px 3px 0 var(--bi-ink);
+}
+.rk-bi .bi-author-card h4 { font-weight: 900; font-size: 16px; color: var(--bi-ink); margin: 0 0 4px; }
+.rk-bi .bi-author-card p { font-size: 12px; font-weight: 700; color: var(--bi-ink-subtle); margin: 0 0 1rem; }
+.rk-bi .bi-author-posts {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: .35rem .9rem; border-radius: 999px;
+  font-size: 12px; font-weight: 900; border: 1.5px solid;
+}
+
+/* ---------- ریسپانسیو ---------- */
+@media (min-width: 768px) {
+  .rk-bi .bi-hero-deco { display: block; }
+}
+@media (min-width: 900px) {
+  .rk-bi .bi-featured-grid { grid-template-columns: 1fr 1.15fr; }
+  .rk-bi .bi-featured-media { min-height: 460px; }
+}
+@media (min-width: 640px) {
+  .rk-bi .bi-blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .rk-bi .bi-card-lg { grid-column: span 2; }
+}
+@media (min-width: 1024px) {
+  .rk-bi .bi-blog-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .rk-bi .bi-hide-mobile, .rk-bi .bi-hide-mob-inline { display: none !important; }
+  .rk-bi .bi-featured-media { min-height: 260px; }
+}

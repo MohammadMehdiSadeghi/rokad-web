@@ -3,8 +3,6 @@
 import Container from "../../../../layout/Container";
 import { ChevronLeftIcon } from "../../../../common/Icons";
 
-const sectionPattern = "/assets/Pattern/layout-pattern.png";
-
 /* =========================================================
    HELPERS
 ========================================================= */
@@ -13,11 +11,12 @@ function toFa(n) {
 }
 
 /* =========================================================
-   DATA — سه شاخهٔ اکوسیستم
+   DATA — سه شاخهٔ اکوسیستم (طرح مرجع: کارت‌های تمام‌رنگی)
 ========================================================= */
 
 const branches = [
   {
+    en: "EDUCATION",
     label: "آموزش",
     title: "کالج رکاد",
     role: "یاد می‌گیری",
@@ -29,10 +28,10 @@ const branches = [
     ],
     color: "#F8A41D",
     dark: "#BA7B16",
-    tint: "#FEF6E8",
     darker: "#57390A",
   },
   {
+    en: "GROWTH",
     label: "رشد",
     title: "شتاب‌دهندهٔ رکاد",
     role: "می‌سازی",
@@ -44,10 +43,10 @@ const branches = [
     ],
     color: "#59BBAF",
     dark: "#438C83",
-    tint: "#EEF8F7",
     darker: "#1F413D",
   },
   {
+    en: "COMMUNITY",
     label: "جامعه",
     title: "کافه کارآفرینی",
     role: "زندگی می‌کنی",
@@ -59,138 +58,82 @@ const branches = [
     ],
     color: "#652D90",
     dark: "#4C226C",
-    tint: "#F0EAF4",
     darker: "#231032",
   },
 ];
 
 /* =========================================================
-   CTA BUTTON — دو لایهٔ رکادی
-========================================================= */
-
-function CtaBtn({ label, color }) {
-  return (
-    <button
-      type="button"
-      className="inline-flex items-center gap-1.5 px-[1.125rem] py-[0.5rem] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer -rotate-2 hover:rotate-0 hover:-translate-y-0.5 transition-transform"
-      style={{ background: color, color: "#ffffff" }}
-    >
-      <span>{label}</span>
-      <ChevronLeftIcon className="w-3 h-3" />
-    </button>
-  );
-}
-
-/* =========================================================
-   BRANCH CARD — کارت دو لایهٔ شاخه
+   BRANCH CARD — کارت تمام‌رنگی با نوار برچسب بالای کارت
 ========================================================= */
 
 function BranchCard({ branch, index }) {
-  const rots = [1, -1, 1];
-  const rotate = rots[index % rots.length];
-
   return (
-    <div
-      className="relative h-full"
-      style={{
-        transform: `rotate(${rotate}deg)`,
-        transition: "transform 500ms ease-out",
-      }}
-    >
-      {/* سایه پشتی */}
+    <div className="relative h-full flex flex-col">
+      {/* ── نوار بالای کارت: برچسب انگلیسی + شماره ── */}
+      <div className="flex items-end justify-between px-1.5 mb-3">
+        <span
+          className="text-[0.8125rem] font-black tracking-[0.22em]"
+          style={{ color: branch.dark }}
+        >
+          {branch.en}
+        </span>
+        <span
+          className="text-[1.625rem] font-black leading-none"
+          style={{ color: branch.color, opacity: 0.55 }}
+        >
+          {`۰${toFa(index + 1)}`}
+        </span>
+      </div>
+
+      {/* ── کارت تمام‌رنگی با لبهٔ سخت تیره ── */}
       <div
-        aria-hidden="true"
-        className="absolute inset-0 rounded-[0_2rem_0_2rem] [corner-shape:squircle]"
+        className="relative flex flex-1 flex-col rounded-[1.5rem] p-5 sm:p-6 text-white"
         style={{
           background: branch.color,
-          transform: "translate(0.3125rem, 0.3125rem)",
+          boxShadow: `0 0.4375rem 0 0 ${branch.darker}`,
         }}
-      />
-      {/* کارت جلو */}
-      <div
-        className="relative z-10 h-full border-[0.1875rem] rounded-[0_2rem_0_2rem] [corner-shape:squircle] flex flex-col"
-        style={{ background: branch.tint, borderColor: branch.color }}
       >
-        <div className="p-5 sm:p-6 flex flex-col h-full">
-          {/* هدر: Label + شماره */}
-          <div className="flex items-center justify-between mb-3">
-            <span
-              className="inline-block px-3 py-1 rounded-[0.75rem] [corner-shape:squircle] text-[0.8125rem] font-bold border"
-              style={{
-                borderColor: branch.color,
-                color: branch.color,
-                background: "#ffffff",
-                transform: "rotate(-2deg)",
-              }}
-            >
-              {branch.label}
-            </span>
-            <span
-              className="text-[2.375rem] font-black leading-none"
-              style={{ color: branch.color, opacity: 0.4 }}
-            >
-              {`۰${toFa(index + 1)}`}
-            </span>
-          </div>
+        {/* عنوان نقش */}
+        <h3 className="text-[1.5rem] sm:text-[1.75rem] font-black leading-[1.25] text-right">
+          اینجا {branch.role}
+        </h3>
 
-          {/* Role verb */}
-          <div className="text-right mb-1">
-            <span
-              className="inline-block text-[1.75rem] sm:text-[2rem] font-black leading-[1.15]"
-              style={{
-                color: branch.darker,
-                transform: `rotate(${index === 1 ? -1 : 1}deg)`,
-              }}
-            >
-              اینجا {branch.role}
-            </span>
-          </div>
+        {/* عنوان شاخه */}
+        <div className="mt-1.5 mb-3 text-right">
+          <span className="text-[0.9375rem] font-bold text-white/85">
+            → {branch.title}
+          </span>
+        </div>
 
-          {/* عنوان شاخه */}
-          <div className="text-right mb-2.5">
-            <span
-              className="text-[0.9375rem] font-bold"
-              style={{ color: branch.color }}
-            >
-              → {branch.title}
-            </span>
-          </div>
+        {/* بدنه */}
+        <p className="text-[0.8125rem] font-medium leading-[1.85] text-right text-white/90 flex-1 mb-4">
+          {branch.body}
+        </p>
 
-          {/* بدنه */}
-          <p
-            className="text-[0.8125rem] font-medium leading-[1.75] text-right flex-1 mb-3"
-            style={{ color: "#777777" }}
-          >
-            {branch.body}
-          </p>
-
-          {/* آمار افقی */}
-          <div
-            className="flex justify-between gap-2 pt-3.5 mb-3.5 border-t border-dashed"
-            style={{ borderColor: `${branch.color}55` }}
-          >
-            {branch.stats.map((s, si) => (
-              <div key={si} className="text-center flex-1">
-                <div
-                  className="font-black text-[1.375rem] leading-none"
-                  style={{ color: branch.darker }}
-                >
-                  {s.v}
-                </div>
-                <div
-                  className="text-[0.625rem] font-medium mt-1"
-                  style={{ color: "#777777" }}
-                >
-                  {s.l}
-                </div>
+        {/* آمار */}
+        <div className="flex justify-between gap-2 pt-4 mb-5 border-t border-dashed border-white/40">
+          {branch.stats.map((s, si) => (
+            <div key={si} className="text-center flex-1">
+              <div className="font-black text-[1.375rem] leading-none text-white">
+                {s.v}
               </div>
-            ))}
-          </div>
+              <div className="text-[0.625rem] font-medium mt-1.5 text-white/75">
+                {s.l}
+              </div>
+            </div>
+          ))}
+        </div>
 
-          {/* CTA */}
-          <div className="text-left">
-            <CtaBtn label="ورود" color={branch.color} />
-          </div>
+        {/* CTA */}
+        <div className="text-left">
+          <button
+            type="button"
+            className="inline-flex items-center gap-1.5 px-[1.25rem] py-[0.5625rem] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] text-white cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110"
+            style={{ background: branch.dark }}
+          >
+            <span>ورود</span>
+            <ChevronLeftIcon className="w-3 h-3" />
+          </button>
         </div>
       </div>
     </div>
@@ -198,7 +141,7 @@ function BranchCard({ branch, index }) {
 }
 
 /* =========================================================
-   MAIN SECTION — V4: Manifesto Grid
+   MAIN SECTION — مطابق طرح مرجع دسکتاپ
 ========================================================= */
 
 export default function RokadHierarchy() {
@@ -206,23 +149,8 @@ export default function RokadHierarchy() {
     <section
       id="rokad-hierarchy"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-bg-neutral pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4.5rem] sm:pb-[5.5rem] lg:pb-[6.5rem] px-4 sm:px-6 lg:px-8"
     >
-      {/* ── Background Pattern Layer ── */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60
-                [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
-                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
-      >
-        <img
-          src={sectionPattern}
-          alt=""
-          draggable="false"
-          className="w-full h-full object-cover select-none"
-        />
-      </div>
-
       <Container className="relative z-10">
         {/* ════ MANIFESTO HEADER ════ */}
         <div className="text-right mb-10 lg:mb-12">
@@ -242,7 +170,7 @@ export default function RokadHierarchy() {
         </div>
 
         {/* ════ GRID 3-COLUMN ════ */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-7 items-stretch">
           {branches.map((branch, i) => (
             <BranchCard key={i} branch={branch} index={i} />
           ))}

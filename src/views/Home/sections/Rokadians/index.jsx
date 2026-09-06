@@ -299,7 +299,7 @@ export default function Rokadians() {
           ================================================= */}
 
           <div className="text-center max-w-[50rem] mx-auto mb-[4rem]">
-            <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] lg:text-[2.25rem] xl:text-[2.625rem] leading-[1.4] text-[#292827] mb-0">
+            <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827] mb-0">
               <span
                 className="inline-block"
                 style={{ transform: "rotate(-3deg)" }}

@@ -211,7 +211,7 @@ export default function TeamTeaser() {
       <Container className="relative z-10">
         {/* ── هدر — فاصله ۴rem تا بخش پایینی ── */}
         <div className="max-w-[50rem] mb-[4rem]">
-          <h2 className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 font-black text-[1.75rem] sm:text-[2.25rem] lg:text-[2.625rem] leading-[1.3] text-[#292827] mb-0">
+          <h2 className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827] mb-0">
             <span className="inline-block -rotate-3">عوامل</span>
                         <span className="inline-block rotate-3 text-[#e0195b]">رکاد</span>
           </h2>

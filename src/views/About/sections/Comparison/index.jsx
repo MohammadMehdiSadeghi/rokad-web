@@ -16,22 +16,18 @@ const PINK = {
   badgeText: "#FCE8EF",
 };
 
-// ── پترن هندسی پس‌زمینه (دقیقاً از وکتورهای فیگما) ──
+// ── پترن پس‌زمینه — همان پترن استاندارد اکثر سکشن‌ها ──
+const sectionPattern = "/assets/Pattern/layout-pattern.png";
+
 function BackgroundPattern() {
   return (
-    <svg
-      viewBox="0 0 1440 900"
-      preserveAspectRatio="xMidYMid slice"
-      className="absolute inset-0 w-full h-full pointer-events-none select-none"
-    >
-      <path d="M-40 80 L260 -60 L520 40 L360 300 L-60 260 Z" fill="#1F2937" opacity="0.04" />
-      <path d="M1100 -100 L1420 40 L1280 320 L980 220 L1020 40 Z" fill="#1F2937" opacity="0.04" />
-      <path d="M240 560 L520 440 L720 640 L560 860 L180 780 Z" fill="#1F2937" opacity="0.035" />
-      <path d="M980 520 L1280 420 L1450 620 L1320 840 L900 760 Z" fill="#1F2937" opacity="0.03" />
-      <path d="M60 480 L300 380 L400 560 L220 720 Z" fill="#55BDB5" opacity="0.05" />
-      <path d="M1080 180 L1340 100 L1400 300 L1200 400 Z" fill="#E9145A" opacity="0.04" />
-      <line x1="720" y1="-20" x2="860" y2="900" stroke="#1F2937" strokeWidth="2" opacity="0.04" />
-    </svg>
+    <img
+      src={sectionPattern}
+      alt=""
+      aria-hidden="true"
+      draggable="false"
+      className="w-full h-full object-cover opacity-30 select-none"
+    />
   );
 }
 

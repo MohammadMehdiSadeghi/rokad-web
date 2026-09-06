@@ -111,7 +111,7 @@ function TeamCard({ member, index }) {
           <img
                       src={member.pattern}
                       alt=""
-                      className="absolute inset-0 w-full h-full object-cover opacity-100 select-none"
+                      className="absolute inset-0 w-full h-full object-cover opacity-70 select-none"
                     />
           {member.img ? (
             <img

@@ -212,7 +212,7 @@ export default function BlogIndexPage() {
             <Dots color={p.color} opacity={pi === 0 ? 0.32 : 0.16} size={24} />
             <Container className="relative z-10">
               {/* هدر سکشن */}
-              <div className="mb-12 flex flex-wrap items-end justify-between gap-x-6 gap-y-5 sm:mb-14">
+              <div className="mb-20 flex flex-wrap items-end justify-between gap-x-6 gap-y-5 sm:mb-28">
                 <div className="max-w-xl">
                   <span className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-white px-3.5 py-1.5 text-[0.8125rem] font-extrabold text-ink">
                     <span

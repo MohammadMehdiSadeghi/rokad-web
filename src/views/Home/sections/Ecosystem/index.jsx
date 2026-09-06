@@ -238,8 +238,8 @@ export default function Ecosystem() {
         </div>
 
         <Container className="relative z-10">
-          {/* Heading */}
-          <h2 className="text-center font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.375rem] lg:text-[2.875rem] leading-[1.3] text-white mb-12 sm:mb-14 lg:mb-16 flex flex-wrap justify-center items-center gap-x-2">
+          {/* Heading — فاصله ۴rem تا محتوای پایین */}
+          <h2 className="text-center font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.375rem] lg:text-[2.875rem] leading-[1.3] text-white mb-[4rem] flex flex-wrap justify-center items-center gap-x-2">
             <span className="inline-block -rotate-[1.9deg]">یه</span>
             <span className="inline-block rotate-[1.9deg] text-teal">
               اکوسیستم
@@ -248,6 +248,12 @@ export default function Ecosystem() {
             <span className="inline-block rotate-[1.9deg]">برای</span>
             <span className="inline-block -rotate-[1.9deg]">رشد</span>
           </h2>
+
+          {/* Subtitle — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
+          <p className="sr-only">
+            رکاد یه اکوسیستم کامل برای رشد نوجواناس — از آموزش و رویداد تا
+            شتاب‌دهی و شبکه‌ی حرفه‌ای، همه کنار هم.
+          </p>
 
           {/* ── موبایل/تبلت: اسلایدر ۴تایی (۲×۲) با سوایپ ── */}
                     <div

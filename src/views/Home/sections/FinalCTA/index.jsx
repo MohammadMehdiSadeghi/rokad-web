@@ -27,23 +27,23 @@ export default function FinalCTA() {
             />
           </div>
 
-          {/* Girl Image — چسبیده به لبه پایین سکشن (فقط دسکتاپ) — لپتاپ: کوچیک‌تر و دورتر از کاراکتر چپ */}
-                    <div className="hidden lg:block absolute bottom-0 right-[12%] lg:right-[7%] xl:right-[12%] pointer-events-none select-none z-10">
+          {/* Girl Image — چسبیده به لبه پایین و راست سکشن — کوچک و دور از تایتل */}
+                    <div className="hidden lg:block absolute bottom-0 right-[2%] pointer-events-none select-none z-10">
             <img
               src={imgGirl}
               alt=""
               aria-hidden="true"
-              className="h-[22rem] lg:h-[24rem] xl:h-[32rem] w-auto object-contain"
+              className="h-[18rem] lg:h-[19rem] xl:h-[23rem] w-auto object-contain"
             />
           </div>
 
-          {/* Boy Image — چسبیده به لبه پایین سکشن (فقط دسکتاپ) — لپتاپ: کوچیک‌تر و دورتر از کاراکتر راست */}
-                    <div className="hidden lg:block absolute bottom-0 left-[12%] lg:left-[7%] xl:left-[12%] pointer-events-none select-none z-10">
+          {/* Boy Image — چسبیده به لبه پایین و چپ سکشن — کوچک و دور از تایتل */}
+                    <div className="hidden lg:block absolute bottom-0 left-[2%] pointer-events-none select-none z-10">
             <img
               src={imgBoy}
               alt=""
               aria-hidden="true"
-              className="h-[22rem] lg:h-[24rem] xl:h-[32rem] w-auto object-contain"
+              className="h-[18rem] lg:h-[19rem] xl:h-[23rem] w-auto object-contain"
             />
           </div>
 

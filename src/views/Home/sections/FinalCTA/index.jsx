@@ -28,7 +28,7 @@ export default function FinalCTA() {
           </div>
 
           {/* Girl Image — چسبیده به لبه پایین و راست سکشن — کوچک و دور از تایتل */}
-                    <div className="hidden lg:block absolute bottom-0 right-[2%] pointer-events-none select-none z-10">
+                    <div className="hidden lg:block absolute bottom-0 right-[8%] pointer-events-none select-none z-10">
             <img
               src={imgGirl}
               alt=""
@@ -38,7 +38,7 @@ export default function FinalCTA() {
           </div>
 
           {/* Boy Image — چسبیده به لبه پایین و چپ سکشن — کوچک و دور از تایتل */}
-                    <div className="hidden lg:block absolute bottom-0 left-[2%] pointer-events-none select-none z-10">
+                    <div className="hidden lg:block absolute bottom-0 left-[8%] pointer-events-none select-none z-10">
             <img
               src={imgBoy}
               alt=""

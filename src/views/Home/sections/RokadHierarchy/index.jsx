@@ -4,13 +4,6 @@ import Container from "../../../../layout/Container";
 import { ChevronLeftIcon } from "../../../../common/Icons";
 
 /* =========================================================
-   HELPERS
-========================================================= */
-function toFa(n) {
-  return String(n).replace(/[0-9]/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
-}
-
-/* =========================================================
    DATA — سه شاخهٔ اکوسیستم (طرح مرجع: کارت‌های تمام‌رنگی)
 ========================================================= */
 
@@ -63,28 +56,12 @@ const branches = [
 ];
 
 /* =========================================================
-   BRANCH CARD — کارت تمام‌رنگی با نوار برچسب بالای کارت
+   BRANCH CARD — کارت تمام‌رنگی با برچسب انگلیسی داخل کارت
 ========================================================= */
 
-function BranchCard({ branch, index }) {
+function BranchCard({ branch }) {
   return (
     <div className="relative h-full flex flex-col">
-      {/* ── نوار بالای کارت: برچسب انگلیسی + شماره ── */}
-      <div className="flex items-end justify-between px-1.5 mb-3">
-        <span
-          className="text-[0.8125rem] font-black tracking-[0.22em]"
-          style={{ color: branch.dark }}
-        >
-          {branch.en}
-        </span>
-        <span
-          className="text-[1.625rem] font-black leading-none"
-          style={{ color: branch.color, opacity: 0.55 }}
-        >
-          {`۰${toFa(index + 1)}`}
-        </span>
-      </div>
-
       {/* ── کارت تمام‌رنگی با لبهٔ سخت تیره ── */}
       <div
         className="relative flex flex-1 flex-col rounded-[1.5rem] p-5 sm:p-6 text-white"
@@ -93,6 +70,14 @@ function BranchCard({ branch, index }) {
           boxShadow: `0 0.4375rem 0 0 ${branch.darker}`,
         }}
       >
+        {/* برچسب انگلیسی داخل کارت */}
+        <span
+          dir="ltr"
+          className="self-start mb-4 text-[0.8125rem] font-black tracking-[0.22em] text-white/70"
+        >
+          {branch.en}
+        </span>
+
         {/* عنوان نقش */}
         <h3 className="text-[1.5rem] sm:text-[1.75rem] font-black leading-[1.25] text-right">
           اینجا {branch.role}
@@ -171,8 +156,8 @@ export default function RokadHierarchy() {
 
         {/* ════ GRID 3-COLUMN ════ */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-7 items-stretch">
-          {branches.map((branch, i) => (
-            <BranchCard key={i} branch={branch} index={i} />
+          {branches.map((branch) => (
+            <BranchCard key={branch.en} branch={branch} />
           ))}
         </div>
       </Container>

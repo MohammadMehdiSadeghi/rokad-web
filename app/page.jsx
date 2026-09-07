@@ -32,8 +32,8 @@ export default function Home() {
       <EventsCarousel />
       <Faq />
       <Honors />
-            <CollegeCta />
-            <Rokadians />
+      <CollegeCta />
+      <Rokadians />
       <Comments />
       <TeamTeaser />
       <Blogs />

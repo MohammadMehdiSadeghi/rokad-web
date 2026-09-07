@@ -184,11 +184,11 @@ export default function AlumniProfileView({ slug }) {
                 height: "280px",
                 maxWidth: "70vw",
                 maxHeight: "70vw",
-                borderRadius: "34px",
+                borderRadius: "34px 0 34px 0",
                 background: "#fff",
                 color: p.normal,
                 border: "4px solid #fff",
-                boxShadow: `6px 6px 0 ${p.darker}`,
+                boxShadow: `2.75px 2.75px 0 ${p.darker}`,
                 fontSize: "80px",
               }}
             >
@@ -252,7 +252,7 @@ export default function AlumniProfileView({ slug }) {
                 className="mt-6 bg-white p-6 sm:p-7"
                 style={{
                   border: `1.5px solid ${p.normal}`,
-                  borderRadius: "24px",
+                  borderRadius: "24px 0 24px 0",
                   boxShadow: `2.75px 2.75px 0 ${p.normal}`,
                 }}
               >
@@ -277,7 +277,7 @@ export default function AlumniProfileView({ slug }) {
               style={{
                 background: p.light,
                 border: `1.5px solid ${p.normal}`,
-                borderRadius: "24px",
+                borderRadius: "24px 0 24px 0",
                 boxShadow: `2.75px 2.75px 0 ${p.normal}`,
               }}
             >
@@ -338,7 +338,7 @@ export default function AlumniProfileView({ slug }) {
                   className="bg-white overflow-hidden group cursor-pointer transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px]"
                   style={{
                     border: `1.5px solid ${p.normal}`,
-                    borderRadius: "24px",
+                    borderRadius: "24px 0 24px 0",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.boxShadow = `2.75px 2.75px 0 ${p.normal}`;
@@ -383,7 +383,7 @@ export default function AlumniProfileView({ slug }) {
                   className="bg-white p-5 sm:p-6 flex items-center justify-between gap-4 transition-all duration-150 hover:-translate-x-[2px] hover:-translate-y-[2px]"
                   style={{
                     border: `1.5px solid ${INK_LIGHT}`,
-                    borderRadius: "17px",
+                    borderRadius: "17px 0 17px 0",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = p.normal;

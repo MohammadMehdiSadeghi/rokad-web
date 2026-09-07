@@ -15,11 +15,11 @@ export const PERSONAS = {
   },
   male: {
     label: "پسران",
-    normal: "#202A5A",
-    dark: "#182044",
-    darker: "#0B0F1F",
-    light: "#E9EAEF",
-    lightActive: "#BABDCC",
+    normal: "#59BBAF",
+    dark: "#438C83",
+    darker: "#1F413D",
+    light: "#EEF8F7",
+    lightActive: "#CCEAE6",
     textOnNormal: "#FFFFFF",
   },
   female: {

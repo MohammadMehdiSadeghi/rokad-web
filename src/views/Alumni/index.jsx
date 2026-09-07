@@ -30,7 +30,7 @@ function Avatar({ member, size = 80 }) {
       style={{
         width: size,
         height: size,
-        borderRadius: "40px",
+        borderRadius: "24px 0 24px 0",
         background: `linear-gradient(135deg, ${p.light}, ${p.lightActive})`,
         color: p.dark,
         fontSize: size * 0.34,
@@ -53,7 +53,7 @@ function PersonaChip({ persona, children }) {
         color: p.dark,
         background: p.light,
         border: `1.5px solid ${p.normal}`,
-        borderRadius: "40px",
+        borderRadius: "12px 0 12px 0",
         padding: "4px 10px",
       }}
     >
@@ -71,10 +71,10 @@ function Tag({ persona, children }) {
       className="text-[0.6875rem] font-medium"
       style={{
         padding: "5px 10px",
-        borderRadius: "5px",
+        borderRadius: "8px 0 8px 0",
         background: p.light,
         color: p.dark,
-        border: `1px solid ${p.normal}`,
+        border: `1.5px solid ${p.normal}`,
       }}
     >
       {children}
@@ -93,10 +93,10 @@ function AlumniCard({ member }) {
       href={`/alumni/${member.slug}`}
       className="group relative block bg-white overflow-hidden transition-all duration-200 hover:-translate-x-[2px] hover:-translate-y-[2px]"
       style={{
-        border: `1.5px solid ${INK_LIGHT}`,
-        borderRadius: "24px",
+        border: `1.5px solid ${p.normal}`,
+        borderRadius: "24px 0 24px 0",
         padding: "24px",
-        boxShadow: `2.75px 2.75px 0 ${INK}`,
+        boxShadow: `2.75px 2.75px 0 ${p.normal}`,
       }}
     >
       {/* مثلث گوشه — رنگ تم پرسونا */}

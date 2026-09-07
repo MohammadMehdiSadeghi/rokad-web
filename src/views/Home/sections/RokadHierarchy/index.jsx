@@ -4,31 +4,19 @@ import Container from "../../../../layout/Container";
 import { ChevronLeftIcon } from "../../../../common/Icons";
 
 /* =========================================================
-   DATA — سه شاخهٔ اکوسیستم (طرح مرجع: کارت‌های تمام‌رنگی)
+   DATA — سه شاخهٔ اکوسیستم (طرح مرجع: پنل‌های تمام‌رنگ)
+   رنگ‌ها از Rokad-design-system.md:
+   تیل #59BBAF (اکو) · نارنجی #F8A41D (کالج) · بنفش #652D90 (کلوپ)
+   هر پنل: چیپ سفید بالا + متن سفید + عنوان بزرگ پایین + دکمه
 ========================================================= */
 
 const branches = [
   {
-    en: "EDUCATION",
-    label: "آموزش",
-    title: "کالج رکاد",
-    role: "یاد می‌گیری",
-    body: "مسیر یادگیری ساختاریافته، اساتید مسلط و پروژه‌های واقعی — پایه‌های مهارت اینجا شکل می‌گیرد.",
-    stats: [
-      { v: "۸۰۰+", l: "دانش‌آموخته" },
-      { v: "۴۵+", l: "دوره" },
-      { v: "۹۴٪", l: "رضایت" },
-    ],
-    color: "#F8A41D",
-    dark: "#BA7B16",
-    darker: "#57390A",
-  },
-  {
     en: "GROWTH",
-    label: "رشد",
+    label: "شتاب‌دهنده",
     title: "شتاب‌دهندهٔ رکاد",
     role: "می‌سازی",
-    body: "از ایده تا محصول قابل عرضه؛ منتورشیپ تخصصی، سرمایه اولیه و شبکه‌ای از سرمایه‌گذاران رکاد.",
+    body: "ایده‌ات را با منتورهای متخصص، سرمایهٔ اولیه و شبکه‌ای از سرمایه‌گذاران رکاد به یک محصول واقعی تبدیل کن — در یک دورهٔ شش‌ماههٔ فشرده.",
     stats: [
       { v: "۴۰+", l: "تیم" },
       { v: "۳۰+", l: "سرمایه‌گذار" },
@@ -40,10 +28,10 @@ const branches = [
   },
   {
     en: "COMMUNITY",
-    label: "جامعه",
+    label: "کافه کارآفرینی",
     title: "کافه کارآفرینی",
     role: "زندگی می‌کنی",
-    body: "محل ملاقات ایده‌ها، رویدادها و شبکه‌سازی روزمره در فضایی گرم و پویا.",
+    body: "محل ملاقات ایده‌ها، رویدادها و شبکه‌سازی روزمره در فضایی گرم و پویا؛ هر هفته کارگاه، هر ماه رویداد بزرگ.",
     stats: [
       { v: "۱۲۰+", l: "رویداد" },
       { v: "۵۰۰۰+", l: "عضو" },
@@ -53,68 +41,105 @@ const branches = [
     dark: "#4C226C",
     darker: "#231032",
   },
+  {
+    en: "EDUCATION",
+    label: "کالج",
+    title: "کالج رکاد",
+    role: "یاد می‌گیری",
+    body: "مسیر یادگیری ساختاریافته با اساتید مسلط و پروژه‌های واقعی؛ پایه‌های مهارت اینجا شکل می‌گیرد.",
+    stats: [
+      { v: "۸۰۰+", l: "دانش‌آموخته" },
+      { v: "۴۵+", l: "دوره" },
+      { v: "۹۴٪", l: "رضایت" },
+    ],
+    color: "#F8A41D",
+    dark: "#BA7B16",
+    darker: "#57390A",
+  },
 ];
 
 /* =========================================================
-   BRANCH CARD — کارت تمام‌رنگی با برچسب انگلیسی داخل کارت
+   BRANCH PANEL — پنل تمام‌رنگِ مرجع
+   چیپ سفید گوشه بالا-راست (LTR: بالا-چپ) + برچسب انگلیسی
+   + بدنه سفید + آمار خط‌چین + عنوان بزرگ پایین + دکمه
 ========================================================= */
 
 function BranchCard({ branch }) {
   return (
     <div className="relative h-full flex flex-col">
-      {/* ── کارت تمام‌رنگی با لبهٔ سخت تیره ── */}
+      {/* ── پنل تمام‌رنگ — ردیوس گوشه‌بریده و سایه سخت تیره ── */}
       <div
-        className="relative flex flex-1 flex-col rounded-[1.5rem] p-5 sm:p-6 text-white"
+        className="relative flex flex-1 flex-col p-5 sm:p-6 text-white"
         style={{
           background: branch.color,
-          boxShadow: `0 0.4375rem 0 0 ${branch.darker}`,
+          borderRadius: "24px 0 24px 0",
+          boxShadow: `2.75px 2.75px 0 ${branch.darker}`,
         }}
       >
-        {/* برچسب انگلیسی داخل کارت */}
-        <span
-          dir="ltr"
-          className="self-start mb-4 text-[0.8125rem] font-black tracking-[0.22em] text-white/70"
-        >
-          {branch.en}
-        </span>
-
-        {/* عنوان نقش */}
-        <h3 className="text-[1.5rem] sm:text-[1.75rem] font-black leading-[1.25] text-right">
-          اینجا {branch.role}
-        </h3>
-
-        {/* عنوان شاخه */}
-        <div className="mt-1.5 mb-3 text-right">
-          <span className="text-[0.9375rem] font-bold text-white/85">
-            → {branch.title}
+        {/* ردیف بالا: برچسب انگلیسی + چیپ سفید */}
+        <div className="flex items-center justify-between mb-6">
+          <span
+            className="inline-flex items-center text-[0.75rem] font-black text-ink/85 bg-white/95"
+            style={{
+              borderRadius: "8px 0 8px 0",
+              padding: "5px 14px",
+              boxShadow: `1.5px 1.5px 0 ${branch.darker}`,
+            }}
+          >
+            {branch.label}
+          </span>
+          <span
+            dir="ltr"
+            className="text-[0.75rem] font-black tracking-[0.22em] text-white/75"
+          >
+            {branch.en}
           </span>
         </div>
 
+        {/* نقش */}
+        <p className="text-[0.9375rem] font-bold text-white/85 text-right mb-1">
+          اینجا {branch.role}
+        </p>
+
+        {/* عنوان شاخه */}
+        <h3 className="text-[1.75rem] sm:text-[2rem] font-black leading-[1.25] text-right mb-3">
+          {branch.title}
+        </h3>
+
         {/* بدنه */}
-        <p className="text-[0.8125rem] font-medium leading-[1.85] text-right text-white/90 flex-1 mb-4">
+        <p className="text-[0.8125rem] font-medium leading-[1.9] text-right text-white/90 mb-5">
           {branch.body}
         </p>
 
-        {/* آمار */}
-        <div className="flex justify-between gap-2 pt-4 mb-5 border-t border-dashed border-white/40">
+        {/* آمار — جداکننده خط‌چین سفید */}
+        <div className="flex justify-between gap-2 pt-4 mb-6 border-t border-dashed border-white/45 mt-auto">
           {branch.stats.map((s, si) => (
             <div key={si} className="text-center flex-1">
               <div className="font-black text-[1.375rem] leading-none text-white">
                 {s.v}
               </div>
-              <div className="text-[0.625rem] font-medium mt-1.5 text-white/75">
+              <div className="text-[0.625rem] font-medium mt-1.5 text-white/80">
                 {s.l}
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-left">
+        {/* عنوان بزرگ پایین — همان «اینجا …» مرجع */}
+        <p className="font-black text-[1.5rem] sm:text-[1.75rem] leading-none text-white mb-5">
+          رکاد
+          <span
+            aria-hidden="true"
+            className="inline-block w-8 h-[3px] rounded-[2px] bg-white/70 align-middle mr-2"
+          />
+        </p>
+
+        {/* دکمه ورود — سفید روی رنگ تم */}
+        <div className="text-right">
           <button
             type="button"
-            className="inline-flex items-center gap-1.5 px-[1.25rem] py-[0.5625rem] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] text-white cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110"
-            style={{ background: branch.dark }}
+            className="inline-flex items-center gap-1.5 bg-white px-[1.25rem] py-[0.5625rem] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer transition-all duration-300 hover:-translate-y-0.5"
+            style={{ color: branch.darker, boxShadow: `2.75px 2.75px 0 ${branch.darker}` }}
           >
             <span>ورود</span>
             <ChevronLeftIcon className="w-3 h-3" />
@@ -126,7 +151,7 @@ function BranchCard({ branch }) {
 }
 
 /* =========================================================
-   MAIN SECTION — مطابق طرح مرجع دسکتاپ
+   MAIN SECTION — مطابق طرح مرجع: تیتر + ۳ پنل رنگی
 ========================================================= */
 
 export default function RokadHierarchy() {
@@ -137,24 +162,21 @@ export default function RokadHierarchy() {
       className="relative overflow-hidden bg-bg-neutral py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
     >
       <Container className="relative z-10">
-        {/* ════ MANIFESTO HEADER — فاصله ۳۲px در موبایل، ۴rem در تبلت/دسکتاپ ════ */}
-        <div className="text-right mb-8 sm:mb-[4rem]">
-          {/* تیتر بزرگ */}
-          <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.875rem] leading-[1.2] tracking-tight text-right">
-            <span className="inline-block ml-1">رکاد،</span>
-            <span className="inline-block ml-1">فراتر</span>
-            <span className="inline-block ml-1">از یک</span>
-            <span className="inline-block text-[#E0195B]">مدرسه </span>
+        {/* ── تیتر — کلمه‌به‌کلمه با رنگ تم (آکا پنل‌ها) ── */}
+        <div className="text-center mb-10 sm:mb-14">
+          <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.875rem] leading-[1.25] tracking-tight text-ink">
+            <span className="inline-block ml-2">سه</span>
+            <span className="inline-block ml-2 text-[#652D90]">فضای</span>
+            <span className="inline-block text-[#F8A41D]">زندهٔ</span>{" "}
+            <span className="inline-block text-[#59BBAF]">رکاد</span>
           </h2>
-
-          {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
-          <p className="sr-only">
-            یک رکادین در سه فضای زنده به‌صورت هم‌زمان حضور دارد: کالج،
-            شتاب‌دهنده و کافه. سه لایهٔ همزمان از یک زندگی — نه سه مرحلهٔ جدا.
+          <p className="mt-4 text-[0.875rem] sm:text-[1rem] text-ink/60 max-w-xl mx-auto leading-[1.9]">
+            یک رکادین به‌صورت هم‌زمان در سه فضای زنده حضور دارد: کالج،
+            شتاب‌دهنده و کافه — سه لایهٔ همزمان از یک زندگی، نه سه مرحلهٔ جدا.
           </p>
         </div>
 
-        {/* ════ GRID 3-COLUMN ════ */}
+        {/* ── سه پنل تمام‌رنگ ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-7 items-stretch">
           {branches.map((branch) => (
             <BranchCard key={branch.en} branch={branch} />

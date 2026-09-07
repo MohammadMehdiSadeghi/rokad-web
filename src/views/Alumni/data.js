@@ -51,16 +51,28 @@ export const PERSONAS = {
   },
 };
 
+/* تم جنسیتی — دختران صورتی، پسران سبز (accent / secondary دیزاین‌سیستم) */
+export const GENDER_THEMES = {
+  female: PERSONAS.female,
+  male: PERSONAS.male,
+};
+
+export function themeFor(alumnus) {
+  return GENDER_THEMES[alumnus.gender] ?? PERSONAS[alumnus.persona];
+}
+
 export const INK = "#292827";
 export const INK_LIGHT = "#EAEAE9";
 
 export const alumni = [
   {
     slug: "maryam-rezaei",
+    linkedIn: "https://www.linkedin.com/in/maryam-rezaei-rokad",
     name: "مریم رضایی",
     role: "مدیر محصول در دیجی‌کالا",
     gen: "نسل ۷",
     persona: "female",
+    gender: "female",
     year: "۱۴۰۱",
     field: "محصول و طراحی",
     projects: 12,
@@ -85,10 +97,12 @@ export const alumni = [
   },
   {
     slug: "ali-maradi",
+    linkedIn: "https://www.linkedin.com/in/ali-maradi-carno",
     name: "علی مرادی",
     role: "بنیان‌گذار و مدیرعامل استارتاپ «کارنو»",
     gen: "نسل ۵",
     persona: "eco",
+    gender: "male",
     year: "۱۳۹۹",
     field: "آموزش",
     projects: 9,
@@ -117,6 +131,7 @@ export const alumni = [
     role: "توسعه‌دهنده فرانت‌اند در اسنپ",
     gen: "نسل ۶",
     persona: "male",
+    gender: "male",
     year: "۱۴۰۰",
     field: "برنامه‌نویسی وب",
     projects: 15,
@@ -145,6 +160,7 @@ export const alumni = [
     role: "موسیقی‌دان، برنامه‌نویس، عضو کلوپ خلاق رُکاد",
     gen: "نسل ۹",
     persona: "club",
+    gender: "male",
     year: "۱۴۰۳",
     field: "هنر تعاملی / کد",
     projects: 7,
@@ -173,6 +189,7 @@ export const alumni = [
     role: "طراح رابط کاربری در کافه‌بازار",
     gen: "نسل ۷",
     persona: "female",
+    gender: "female",
     year: "۱۴۰۱",
     field: "UI/UX",
     projects: 11,
@@ -201,6 +218,7 @@ export const alumni = [
     role: "بنیان‌گذار پادکست «مسیر»",
     gen: "نسل ۴",
     persona: "college",
+    gender: "male",
     year: "۱۳۹۸",
     field: "رسانه و محتوا",
     projects: 6,
@@ -229,6 +247,7 @@ export const alumni = [
     role: "دانشجوی کامپیوتر و منتور دوره‌های رکاد",
     gen: "نسل ۸",
     persona: "female",
+    gender: "female",
     year: "۱۴۰۲",
     field: "هوش مصنوعی",
     projects: 8,
@@ -256,6 +275,7 @@ export const alumni = [
     role: "برنامه‌نویس موبایل در تپسی",
     gen: "نسل ۶",
     persona: "male",
+    gender: "male",
     year: "۱۴۰۰",
     field: "موبایل",
     projects: 10,
@@ -284,6 +304,7 @@ export const alumni = [
     role: "مدیر رشد در استارتاپ «کارنو»",
     gen: "نسل ۵",
     persona: "eco",
+    gender: "male",
     year: "۱۳۹۹",
     field: "رشد و مارکتینگ",
     projects: 7,
@@ -312,6 +333,7 @@ export const alumni = [
     role: "عکاس و سازنده محتوای ویدیویی",
     gen: "نسل ۹",
     persona: "club",
+    gender: "male",
     year: "۱۴۰۳",
     field: "تولید محتوا",
     projects: 14,
@@ -337,6 +359,7 @@ export const alumni = [
     role: "بنیان‌گذار فروشگاه اینترنتی «گلرنگ»",
     gen: "نسل ۸",
     persona: "college",
+    gender: "female",
     year: "۱۴۰۲",
     field: "کارآفرینی",
     projects: 5,
@@ -365,6 +388,7 @@ export const alumni = [
     role: "مهندس DevOps در دیجی‌نکست",
     gen: "نسل ۴",
     persona: "male",
+    gender: "male",
     year: "۱۳۹۸",
     field: "زیرساخت",
     projects: 9,

@@ -25,7 +25,7 @@ const THEMES = {
     badge: "border-navy-alt text-navy-alt",
     bg: "#F4F5FB",
     src: blueTexture,
-    opacity: 100,
+    opacity: 40,
   },
   magenta: {
     rotate: "rotate-[1deg] lg:rotate-[2.5deg]",

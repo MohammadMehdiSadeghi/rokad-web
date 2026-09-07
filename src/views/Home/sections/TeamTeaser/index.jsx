@@ -1,6 +1,7 @@
 "use client";
 
 import Container from "../../../../layout/Container";
+import Link from "next/link";
 import { ChevronLeftIcon, LinkedInIcon, InstagramIcon, TwitterIcon, GlobeIcon } from "../../../../common/Icons";
 
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
@@ -306,15 +307,15 @@ export default function TeamTeaser() {
           </div>
         </div>
 
-        {/* CTA — مشاهده همه عوامل (وسط‌چین، هم‌اندازه متن) */}
+        {/* CTA — مشاهده همه عوامل → صفحه عوامل */}
         <div className="mt-8 lg:mt-10 text-center">
-          <a
-            href="#"
+          <Link
+            href="/factors"
             className="relative inline-flex items-center justify-center gap-2 -rotate-1 hover:rotate-0 hover:-translate-y-1 transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[0.9375rem] sm:text-[1rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] [corner-shape:squircle] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] hover:shadow-[6px_6px_0_#21295a] whitespace-nowrap"
           >
             مشاهده همه
             <ChevronLeftIcon className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
       </Container>
     </section>

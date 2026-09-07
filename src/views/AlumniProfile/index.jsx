@@ -1,12 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import Container from "../../layout/Container";
-import { ChevronLeftIcon } from "../../common/Icons";
-import { PERSONAS, INK, INK_LIGHT, findAlumni } from "../Alumni/data";
+import { ChevronLeftIcon, LinkedInIcon } from "../../common/Icons";
+import { useEnrollment } from "../../lib/EnrollmentContext";
+import { PERSONAS, INK, INK_LIGHT, findAlumni, themeFor } from "../Alumni/data";
 
 /* =========================================================
    پروفایل دانش‌آموخته — DESIGN 04 «تم شخصیت»
-   هیرو تمام‌عرض با رنگ تم پرسونا + دایره‌های تزئینی،
+   رنگ‌بندی جنسیتی: دختران = صورتی (accent)، پسران = سبز
+   (secondary). پرسونا (کالج/کلوپ/اکو) فقط به‌عنوان
+   برچسب «بخش رُکاد» نمایش داده می‌شود.
+   هیرو تمام‌عرض با رنگ تم جنسیتی + دایره‌های تزئینی،
    آواتار بزرگ با شدو سخت 6px، کارت اطلاعات، نمونه‌کارها
    و مقالات — همه با توکن‌های دیزاین‌سیستم رکاد
 ========================================================= */
@@ -17,10 +22,11 @@ function initials(name) {
 }
 
 /* ── دکمه‌ها ── */
-function BtnSolid({ p, children }) {
+function BtnSolid({ p, onClick, children }) {
   return (
     <button
       type="button"
+      onClick={onClick}
       className="inline-flex items-center gap-1.5 font-extrabold text-[0.9375rem] cursor-pointer transition-all duration-200 hover:-translate-y-0.5"
       style={{
         background: "#fff",
@@ -36,10 +42,14 @@ function BtnSolid({ p, children }) {
   );
 }
 
-function BtnGhost({ children }) {
+/* لینکدین — فقط وقتی لینک واقعی در دیتا هست رندر می‌شود */
+function BtnLinkedIn({ href, name }) {
+  if (!href) return null;
   return (
-    <button
-      type="button"
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
       className="inline-flex items-center gap-1.5 font-bold text-[0.9375rem] text-white cursor-pointer transition-all duration-200 hover:bg-white hover:text-ink"
       style={{
         background: "transparent",
@@ -48,8 +58,9 @@ function BtnGhost({ children }) {
         padding: "10px 22px",
       }}
     >
-      {children}
-    </button>
+      <LinkedInIcon className="w-4 h-4" />
+      لینکدین {name}
+    </a>
   );
 }
 
@@ -110,6 +121,7 @@ function QuickPill({ k, v }) {
 
 export default function AlumniProfileView({ slug }) {
   const member = findAlumni(slug);
+  const { openEnrollment } = useEnrollment();
 
   if (!member) {
     return (
@@ -121,7 +133,7 @@ export default function AlumniProfileView({ slug }) {
           <p className="text-ink/60 mb-8">
             ممکنه آدرس اشتباه باشه یا پروفایل هنوز ساخته نشده باشه.
           </p>
-          <a
+          <Link
             href="/alumni"
             className="inline-flex items-center gap-1.5 font-extrabold text-[0.9375rem] text-white cursor-pointer transition-all duration-200 hover:-translate-y-0.5"
             style={{
@@ -134,13 +146,14 @@ export default function AlumniProfileView({ slug }) {
           >
             بازگشت به لیست دانش‌آموختگان
             <ChevronLeftIcon className="w-3.5 h-3.5" />
-          </a>
+          </Link>
         </Container>
       </section>
     );
   }
 
-  const p = PERSONAS[member.persona];
+  const p = themeFor(member); // تم جنسیتی: دختر = صورتی، پسر = سبز
+  const persona = PERSONAS[member.persona]; // فقط برای برچسب بخش
 
   return (
     <>
@@ -198,7 +211,7 @@ export default function AlumniProfileView({ slug }) {
             {/* مشخصات */}
             <div className="text-center lg:text-right">
               <GlassLabel>
-                {PERSONAS[member.persona].label} رُکاد — {member.gen}
+                بخش {persona.label} رُکاد — {member.gen}
               </GlassLabel>
               <h1 className="font-black text-[2.75rem] sm:text-[3.5rem] lg:text-[4.5rem] leading-[1] mb-2 tracking-tight">
                 {member.name}
@@ -215,8 +228,10 @@ export default function AlumniProfileView({ slug }) {
               </div>
 
               <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                <BtnSolid p={p}>تماس با {member.name.split(" ")[0]}</BtnSolid>
-                <BtnGhost>مشاهدهٔ لینکدین</BtnGhost>
+                <BtnSolid p={p} onClick={openEnrollment}>
+                  تماس با {member.name.split(" ")[0]}
+                </BtnSolid>
+                <BtnLinkedIn href={member.linkedIn} name={member.name.split(" ")[0]} />
               </div>
             </div>
           </div>
@@ -289,7 +304,8 @@ export default function AlumniProfileView({ slug }) {
               </h3>
               <dl className="grid gap-2.5">
                 {[
-                  ["نسل رُکاد", `${member.gen} · ${p.label}`],
+                  ["نسل رُکاد", member.gen],
+                  ["بخش رُکاد", persona.label],
                   ["حوزه", member.field],
                   ["محل کار", member.city],
                   ["سال فارغ‌التحصیلی", member.year],
@@ -310,14 +326,14 @@ export default function AlumniProfileView({ slug }) {
                 ))}
               </dl>
 
-              <a
+              <Link
                 href="/alumni"
                 className="inline-flex items-center gap-1 mt-5 text-[0.8125rem] font-bold transition-colors hover:opacity-80"
                 style={{ color: p.dark }}
               >
                 <ChevronLeftIcon className="w-3 h-3 rotate-180" />
                 بازگشت به همه دانش‌آموختگان
-              </a>
+              </Link>
             </aside>
           </div>
         </Container>

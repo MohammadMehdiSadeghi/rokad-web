@@ -63,8 +63,8 @@ export default function Faq() {
 
       <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-12 items-stretch">
         
-        {/* ۱. ستون راست: تایتل و باکس مشاوره (تنظیم تراز با آخرین سوال FAQ) */}
-        <div className="flex flex-col justify-between h-full lg:pt-2">
+        {/* ۱. ستون راست: تایتل و باکس مشاوره — باکس بعد از تیتر می‌آید (بالا) */}
+        <div className="flex flex-col h-full lg:pt-2">
           {/* تایتل */}
           <div>
             <h2 className="font-black text-[1.25rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-0 flex flex-wrap items-center gap-x-2">
@@ -85,8 +85,8 @@ export default function Faq() {
             </p>
           </div>
 
-          {/* باکس مشاوره — در یک راستا با آخرین سوال FAQ */}
-          <div className="relative rotate-2 mt-8 sm:mt-12 lg:mt-0">
+          {/* باکس مشاوره — بلافاصله بعد از تیتر */}
+          <div className="relative rotate-2 mt-8 sm:mt-12 lg:mt-10">
             {/* لایه پشتی باکس مشاوره */}
             <div className="absolute top-2 left-2 w-full h-full rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-ink [corner-shape:squircle]" />
             {/* لایه اصلی باکس مشاوره */}

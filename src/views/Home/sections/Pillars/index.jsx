@@ -61,7 +61,7 @@ export default function Pillars() {
 
       <Container className="relative z-10">
         {/* Title */}
-        <h2 className="text-right font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] mb-[1.5rem] sm:mb-[2rem] flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3">
+        <h2 className="text-right font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] mb-[1.5rem] sm:mb-[4rem] flex flex-wrap justify-start items-center gap-x-2 sm:gap-x-3">
           <span className="inline-block -rotate-[0.5deg] sm:-rotate-3">چرا</span>
           <span className="inline-block rotate-[0.5deg] sm:rotate-2">خانواده‌ها</span>
           <span className="inline-block -rotate-[0.5deg] sm:-rotate-3">به</span>
@@ -74,8 +74,8 @@ export default function Pillars() {
           </span>
         </h2>
 
-        {/* Subtitle */}
-        <p className="text-right font-medium text-[0.875rem] sm:text-[1rem] leading-[1.9] text-navy/60 max-w-[38.75rem] mb-[1.5rem] sm:mb-[2rem] lg:mb-[2.5rem]">
+        {/* Subtitle — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
+        <p className="sr-only">
           هر دانش‌آموز یه مسیر شخصی داره. سیستم آموزشی ما براساس چهار ستون طراحی
           شده تا هرفرد بهترین نسخه از خودش بشه
         </p>

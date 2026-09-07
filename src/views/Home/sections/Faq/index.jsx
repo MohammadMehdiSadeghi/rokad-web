@@ -66,7 +66,7 @@ export default function Faq() {
         {/* ۱. تایتل و متن */}
         <div className="order-1 lg:col-start-1 lg:row-start-1 lg:pt-2">
           {/* حذف <br/> و استفاده از flex flex-wrap برای ماندن در یک خط */}
-          <h2 className="font-black text-[1.25rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-[1rem] sm:mb-[2rem] flex flex-wrap items-center gap-x-2">
+          <h2 className="font-black text-[1.25rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-[4rem] flex flex-wrap items-center gap-x-2">
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دغدغه‌ی</span>
             <span className="inline-block text-navy whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>آینده</span>
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>و</span>
@@ -76,7 +76,8 @@ export default function Faq() {
             <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دارید؟</span>
           </h2>
 
-          <p className="text-[0.875rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.7] text-ink mb-[0.5rem] sm:mb-[1.5rem] lg:mb-[2rem]">
+          {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
+          <p className="sr-only">
             انتخاب مدرسه یعنی انتخاب آینده. اینجا صادقانه، مستقیم و بدون تعارف،
             به سوالات بی‌نهایت شما درباره‌ی کنکور، مدرک رسمی و آینده‌ی شغلی پاسخ
             می‌دین؛ چون باور داریم راهِ درست، از شفافیت می‌گذره.

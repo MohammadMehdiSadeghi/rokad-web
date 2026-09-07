@@ -262,7 +262,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-4 sm:pt-6 md:pt-8 lg:pt-10 pb-4 sm:pb-6 md:pb-8 lg:pb-10 px-4 sm:px-6 lg:px-0"
+      className="relative overflow-hidden bg-white pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-0"
     >
       {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول ── */}
       <div
@@ -298,8 +298,8 @@ export default function Rokadians() {
               TITLE
           ================================================= */}
 
-          <div className="text-center max-w-[50rem] mx-auto mb-4 sm:mb-6 lg:mb-8">
-            <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] lg:text-[2.25rem] xl:text-[2.625rem] leading-[1.4] text-[#292827]">
+          <div className="text-center max-w-[50rem] mx-auto mb-[4rem]">
+            <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827] mb-0">
               <span
                 className="inline-block"
                 style={{ transform: "rotate(-3deg)" }}
@@ -336,7 +336,8 @@ export default function Rokadians() {
               </span>
             </h2>
 
-            <p className="font-medium text-[#292827] text-[0.875rem] sm:text-[0.9375rem] lg:text-[1.125rem] leading-[1.9] sm:leading-[2] max-w-[32rem] sm:max-w-[36rem] lg:max-w-[38.75rem] mx-auto mt-4 lg:mt-6">
+            {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
+            <p className="sr-only">
               فارغ‌التحصیلان ما در بهترین تیم‌های فنی کشور و به‌عنوان بنیان‌گذار
               استارتاپ‌های خودشون فعال هستن.
             </p>

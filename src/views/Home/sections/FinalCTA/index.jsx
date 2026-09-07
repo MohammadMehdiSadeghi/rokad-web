@@ -27,23 +27,23 @@ export default function FinalCTA() {
             />
           </div>
 
-          {/* Girl Image — چسبیده به لبه پایین سکشن (فقط دسکتاپ) */}
-                    <div className="hidden lg:block absolute bottom-0 right-[12%] pointer-events-none select-none z-10">
+          {/* Girl Image — چسبیده به لبه پایین و راست سکشن — کوچک و دور از تایتل */}
+                    <div className="hidden lg:block absolute bottom-0 right-[8%] pointer-events-none select-none z-10">
             <img
               src={imgGirl}
               alt=""
               aria-hidden="true"
-              className="h-[22rem] lg:h-[28rem] xl:h-[32rem] w-auto object-contain"
+              className="h-[18rem] lg:h-[19rem] xl:h-[23rem] w-auto object-contain"
             />
           </div>
 
-          {/* Boy Image — چسبیده به لبه پایین سکشن (فقط دسکتاپ) */}
-                    <div className="hidden lg:block absolute bottom-0 left-[12%] pointer-events-none select-none z-10">
+          {/* Boy Image — چسبیده به لبه پایین و چپ سکشن — کوچک و دور از تایتل */}
+                    <div className="hidden lg:block absolute bottom-0 left-[8%] pointer-events-none select-none z-10">
             <img
               src={imgBoy}
               alt=""
               aria-hidden="true"
-              className="h-[22rem] lg:h-[28rem] xl:h-[32rem] w-auto object-contain"
+              className="h-[18rem] lg:h-[19rem] xl:h-[23rem] w-auto object-contain"
             />
           </div>
 
@@ -62,7 +62,7 @@ export default function FinalCTA() {
               {/* Text Content */}
               <div className="flex flex-col items-center text-center w-full lg:w-[48%] self-center mb-0">
                 <h2
-                  className="text-[2.2rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[3.75rem] leading-[1.5] sm:leading-[1.5] lg:leading-[1.5] text-white mb-[0.5rem] sm:mb-[0.75rem] lg:mb-[1rem] flex flex-col items-center gap-y-1 sm:gap-y-2"
+                  className="text-[2.2rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[3.75rem] leading-[1.5] sm:leading-[1.5] lg:leading-[1.5] text-white mb-[4rem] flex flex-col items-center gap-y-1 sm:gap-y-2"
                   style={{ fontWeight: 950 }}
                 >
                   <span className="flex flex-wrap justify-center gap-x-2 gap-y-1">
@@ -78,8 +78,8 @@ export default function FinalCTA() {
                   </span>
                 </h2>
 
-                {/* ساب‌تایتل */}
-                <p className="text-[1rem] sm:text-[1.0625rem] lg:text-[1.125rem] font-semibold leading-[1.7] sm:leading-[1.7] text-white/90 max-w-[33.75rem] mb-[2rem] sm:mb-[2.5rem] lg:mb-[3rem]">
+                {/* ساب‌تایتل — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
+                <p className="sr-only">
                   مصاحبه‌ی رایگان و تعیین سطح برای همه‌ی متقاضی‌ها. کافیه فرم رو
                   پر کنی، بقیه‌ش با ماست.
                 </p>

@@ -238,8 +238,8 @@ export default function Ecosystem() {
         </div>
 
         <Container className="relative z-10">
-          {/* Heading — فاصله ۴rem تا محتوای پایین */}
-          <h2 className="text-center font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.375rem] lg:text-[2.875rem] leading-[1.3] text-white mb-[4rem] flex flex-wrap justify-center items-center gap-x-2">
+          {/* Heading — فاصله استاندارد: ۳۲px در موبایل، ۴rem در تبلت/دسکتاپ */}
+          <h2 className="text-center font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.375rem] lg:text-[2.875rem] leading-[1.3] text-white mb-8 sm:mb-[4rem] flex flex-wrap justify-center items-center gap-x-2">
             <span className="inline-block -rotate-[1.9deg]">یه</span>
             <span className="inline-block rotate-[1.9deg] text-teal">
               اکوسیستم

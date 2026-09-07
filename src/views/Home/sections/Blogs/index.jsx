@@ -252,9 +252,8 @@ export default function Blogs() {
               justify-between
               gap-4
               sm:gap-6
-              mb-[2rem]
-              sm:mb-[2.5rem]
-              lg:mb-[3rem]
+              mb-8
+              sm:mb-[4rem]
             "
           >
             {/* Heading */}

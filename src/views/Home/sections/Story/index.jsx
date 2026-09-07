@@ -26,7 +26,7 @@ export default function Story() {
 
         {/* ── ستون چپ: متن ── */}
         <div className="max-w-full xl:max-w-[31.25rem]">
-          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.35] mb-[1.5rem] sm:mb-[2rem]">
+          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.35] mb-8 sm:mb-[2rem]">
             <span className="inline-block rotate-3">چرا</span>{" "}
             <span className="inline-block text-teal-wordmark -rotate-3">
               رکاد
@@ -44,7 +44,7 @@ export default function Story() {
           </p>
 
           {/* CTA Button */}
-          <div className="flex justify-start items-center w-full mb-[1.5rem] sm:mb-[2rem]">
+          <div className="flex justify-start items-center w-full">
             <span className="relative inline-block rotate-[2deg] hover:rotate-0 transition-transform duration-300">
               <span className="absolute inset-0 translate-x-[0.1875rem] translate-y-[0.1875rem] rounded-[1rem] [corner-shape:squircle] bg-teal-alt" />
               <span className="relative flex items-center gap-1.5 bg-[#E4F4F2] border-2 border-teal rounded-[0.9375rem] [corner-shape:squircle] px-3 sm:px-5 py-1.5 sm:py-2.5 font-bold text-[0.9375rem] text-teal-text cursor-pointer whitespace-nowrap

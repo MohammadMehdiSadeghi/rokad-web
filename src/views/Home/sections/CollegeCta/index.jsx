@@ -162,8 +162,8 @@ export default function CollegeCta() {
       </div>
 
       <Container className="relative z-10">
-        {/* ════ HEADER — فاصله ۴rem تا بخش پایینی ════ */}
-        <div className="text-center mb-[4rem]">
+        {/* ════ HEADER — فاصله ۳۲px در موبایل، ۴rem در تبلت/دسکتاپ ════ */}
+        <div className="text-center mb-8 sm:mb-[4rem]">
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#59BBAF] text-white border-2 border-[#292827] rounded-full font-extrabold text-[0.8125rem] -rotate-2 shadow-[3px_3px_0_#292827] mb-5">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             ویژه دبیرستانی‌ها
@@ -187,7 +187,7 @@ export default function CollegeCta() {
 
         {/* ════ BOARD (دسکتاپ) ════ */}
         <div
-          className="relative bg-[#F6F6F6] border-[0.1875rem] border-[#292827] rounded-[1.25rem_0_1.25rem_0] [corner-shape:squircle] shadow-[8px_8px_0_#292827] min-h-[520px] p-8 sm:p-10 mb-8 hidden lg:block"
+          className="relative bg-[#F6F6F6] border-[0.1875rem] border-[#292827] rounded-[1.25rem_0_1.25rem_0] [corner-shape:squircle] shadow-[8px_8px_0_#292827] min-h-[520px] p-8 sm:p-10 mb-0 hidden lg:block"
           style={{
             backgroundImage: `
               linear-gradient(rgba(41,40,39,0.04) 1px, transparent 1px),

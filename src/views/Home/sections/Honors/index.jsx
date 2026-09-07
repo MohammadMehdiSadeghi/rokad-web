@@ -70,9 +70,9 @@ export default function HonorsCarousel() {
         pt-[4rem]
         sm:pt-[5rem]
         lg:pt-[6rem]
-        pb-[3rem]
-        sm:pb-[4rem]
-        lg:pb-[4rem]
+        pb-[4rem]
+        sm:pb-[5rem]
+        lg:pb-[6rem]
         px-4
         sm:px-6
         lg:px-8
@@ -172,7 +172,8 @@ export default function HonorsCarousel() {
             text-center
             gap-5
             sm:gap-6
-            mb-[4rem]
+            mb-8
+            sm:mb-[4rem]
           "
         >
           {/* Heading + Button Row */}

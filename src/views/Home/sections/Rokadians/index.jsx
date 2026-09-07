@@ -298,7 +298,7 @@ export default function Rokadians() {
               TITLE
           ================================================= */}
 
-          <div className="text-center max-w-[50rem] mx-auto mb-[4rem]">
+          <div className="text-center max-w-[50rem] mx-auto mb-8 sm:mb-[4rem]">
             <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827] mb-0">
               <span
                 className="inline-block"

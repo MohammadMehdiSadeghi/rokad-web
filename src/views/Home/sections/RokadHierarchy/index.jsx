@@ -134,11 +134,11 @@ export default function RokadHierarchy() {
     <section
       id="rokad-hierarchy"
       dir="rtl"
-      className="relative overflow-hidden bg-bg-neutral pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4.5rem] sm:pb-[5.5rem] lg:pb-[6.5rem] px-4 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-bg-neutral py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
     >
       <Container className="relative z-10">
-        {/* ════ MANIFESTO HEADER — فاصله ۴rem تا بخش پایینی ════ */}
-        <div className="text-right mb-[4rem]">
+        {/* ════ MANIFESTO HEADER — فاصله ۳۲px در موبایل، ۴rem در تبلت/دسکتاپ ════ */}
+        <div className="text-right mb-8 sm:mb-[4rem]">
           {/* تیتر بزرگ */}
           <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.875rem] leading-[1.2] tracking-tight text-right">
             <span className="inline-block ml-1">رکاد،</span>

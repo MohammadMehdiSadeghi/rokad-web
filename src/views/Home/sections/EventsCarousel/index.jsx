@@ -94,8 +94,8 @@ export default function EventsCarousel() {
 
         <Container className="relative z-10">
         
-          {/* ── هدر: تایتل و توضیحات — فاصله ۴rem تا بخش پایینی ── */}
-          <div className="mb-[4rem]">
+          {/* ── هدر: تایتل و توضیحات — فاصله ۳۲px در موبایل، ۴rem در تبلت/دسکتاپ ── */}
+          <div className="mb-8 sm:mb-[4rem]">
             <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.3] mb-0">
               جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
             </h2>

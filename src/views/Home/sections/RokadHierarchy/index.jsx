@@ -17,11 +17,6 @@ const branches = [
     title: "شتاب‌دهندهٔ رکاد",
     role: "می‌سازی",
     body: "ایده‌ات را با منتورهای متخصص، سرمایهٔ اولیه و شبکه‌ای از سرمایه‌گذاران رکاد به یک محصول واقعی تبدیل کن — در یک دورهٔ شش‌ماههٔ فشرده.",
-    stats: [
-      { v: "۴۰+", l: "تیم" },
-      { v: "۳۰+", l: "سرمایه‌گذار" },
-      { v: "۶ ماه", l: "دوره" },
-    ],
     color: "#59BBAF",
     dark: "#438C83",
     darker: "#1F413D",
@@ -32,11 +27,6 @@ const branches = [
     title: "کافه کارآفرینی",
     role: "زندگی می‌کنی",
     body: "محل ملاقات ایده‌ها، رویدادها و شبکه‌سازی روزمره در فضایی گرم و پویا؛ هر هفته کارگاه، هر ماه رویداد بزرگ.",
-    stats: [
-      { v: "۱۲۰+", l: "رویداد" },
-      { v: "۵۰۰۰+", l: "عضو" },
-      { v: "۷/۷", l: "باز" },
-    ],
     color: "#652D90",
     dark: "#4C226C",
     darker: "#231032",
@@ -47,11 +37,6 @@ const branches = [
     title: "کالج رکاد",
     role: "یاد می‌گیری",
     body: "مسیر یادگیری ساختاریافته با اساتید مسلط و پروژه‌های واقعی؛ پایه‌های مهارت اینجا شکل می‌گیرد.",
-    stats: [
-      { v: "۸۰۰+", l: "دانش‌آموخته" },
-      { v: "۴۵+", l: "دوره" },
-      { v: "۹۴٪", l: "رضایت" },
-    ],
     color: "#F8A41D",
     dark: "#BA7B16",
     darker: "#57390A",
@@ -111,34 +96,11 @@ function BranchCard({ branch }) {
           {branch.body}
         </p>
 
-        {/* آمار — جداکننده خط‌چین سفید */}
-        <div className="flex justify-between gap-2 pt-4 mb-6 border-t border-dashed border-white/45 mt-auto">
-          {branch.stats.map((s, si) => (
-            <div key={si} className="text-center flex-1">
-              <div className="font-black text-[1.375rem] leading-none text-white">
-                {s.v}
-              </div>
-              <div className="text-[0.625rem] font-medium mt-1.5 text-white/80">
-                {s.l}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* عنوان بزرگ پایین — همان «اینجا …» مرجع */}
-        <p className="font-black text-[1.5rem] sm:text-[1.75rem] leading-none text-white mb-5">
-          رکاد
-          <span
-            aria-hidden="true"
-            className="inline-block w-8 h-[3px] rounded-[2px] bg-white/70 align-middle mr-2"
-          />
-        </p>
-
-        {/* دکمه ورود — سفید روی رنگ تم */}
-        <div className="text-right">
+        {/* دکمه ورود — سفید روی رنگ تم، فول عرض وسط‌چین */}
+        <div className="mt-auto">
           <button
             type="button"
-            className="inline-flex items-center gap-1.5 bg-white px-[1.25rem] py-[0.5625rem] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer transition-all duration-300 hover:-translate-y-0.5"
+            className="w-full flex items-center justify-center gap-1.5 bg-white px-[1.25rem] py-[0.5625rem] rounded-[0.625rem] [corner-shape:squircle] font-extrabold text-[0.9375rem] cursor-pointer transition-all duration-300 hover:-translate-y-0.5"
             style={{ color: branch.darker, boxShadow: `2.75px 2.75px 0 ${branch.darker}` }}
           >
             <span>ورود</span>

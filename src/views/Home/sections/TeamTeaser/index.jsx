@@ -139,7 +139,7 @@ export default function TeamTeaser() {
           {/* کارت اصلی */}
           <article className="relative bg-white border-2 border-navy rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] min-h-[200px] lg:min-h-[220px]">
             {/* ستون تصویر بنیان‌گذار (راست در RTL) */}
-            <div className="relative bg-[#58bdaf] overflow-hidden min-h-[170px] sm:min-h-[190px] lg:min-h-[210px] flex items-end justify-center">
+            <div className="relative bg-[#58bdaf] overflow-hidden min-h-[185px] sm:min-h-[210px] lg:min-h-[230px] flex items-end justify-center">
               {/* پترن پس‌زمینه */}
               <img
                 src={patternGreen}
@@ -159,7 +159,7 @@ export default function TeamTeaser() {
                 alt={FOUNDER.name}
                 loading="lazy"
                 draggable="false"
-                className="relative z-10 h-[160px] sm:h-[185px] lg:h-[210px] w-auto object-contain object-bottom translate-y-1"
+                className="relative z-10 h-[180px] sm:h-[210px] lg:h-[235px] w-auto object-contain object-bottom translate-y-3 scale-105"
               />
             </div>
 
@@ -231,7 +231,7 @@ export default function TeamTeaser() {
                 <div>
                   {/* بخش تصویر */}
                   <div
-                    className="relative h-[115px] sm:h-[125px] overflow-hidden flex items-end justify-center"
+                    className="relative h-[130px] sm:h-[145px] overflow-hidden flex items-end justify-center"
                     style={{ backgroundColor: member.color }}
                   >
                     {/* پترن رنگی */}
@@ -253,7 +253,7 @@ export default function TeamTeaser() {
                       alt={member.name}
                       loading="lazy"
                       draggable="false"
-                      className="relative z-10 h-[105px] sm:h-[118px] w-auto object-contain object-bottom translate-y-0.5"
+                      className="relative z-10 h-[125px] sm:h-[142px] w-auto object-contain object-bottom translate-y-2.5 sm:translate-y-3 scale-105"
                     />
                   </div>
 

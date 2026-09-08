@@ -76,6 +76,7 @@ const MEMBERS = [
     bgLight: "bg-[#FEFAFB]",
     pattern: patternPink,
     shadowColor: "#E0195B",
+    imgClass: "translate-y-5 sm:translate-y-5 lg:translate-y-6 scale-155",
   },
   {
     name: "علیرضا عزیزپور",
@@ -146,7 +147,7 @@ function MiniCard({ member }) {
               alt={member.name}
               loading="lazy"
               draggable="false"
-              className="relative z-10 h-[9.25rem] sm:h-[10.75rem] lg:h-[12.25rem] w-auto object-contain object-bottom translate-y-3.5 scale-135"
+              className={`relative z-10 h-[9.25rem] sm:h-[10.75rem] lg:h-[12.25rem] w-auto object-contain object-bottom ${member.imgClass || "translate-y-3.5 scale-135"}`}
             />
           </div>
 
@@ -242,7 +243,7 @@ export default function TeamTeaser() {
             {/* کارت اصلی */}
             <article className="relative bg-white border-2 border-navy rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden flex flex-col justify-between h-full">
               {/* عکس بزرگ */}
-              <div className="relative bg-[#58bdaf] h-[19rem] sm:h-[22rem] lg:h-[24.5rem] overflow-hidden flex items-end justify-center">
+              <div className="relative bg-[#58bdaf] h-[18rem] sm:h-[20.5rem] lg:h-[23rem] overflow-hidden flex items-end justify-center">
                 <img
                   src={patternGreen}
                   alt=""
@@ -254,7 +255,7 @@ export default function TeamTeaser() {
                   alt={FEATURED.name}
                   loading="lazy"
                   draggable="false"
-                  className="relative z-10 h-[18.5rem] sm:h-[21.5rem] lg:h-[24rem] w-auto object-contain object-bottom translate-y-7 sm:translate-y-8 lg:translate-y-10 scale-125"
+                  className="relative z-10 h-[17rem] sm:h-[19.5rem] lg:h-[22rem] w-auto object-contain object-bottom translate-y-9 sm:translate-y-11 lg:translate-y-14 scale-110"
                 />
               </div>
 

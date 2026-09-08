@@ -1,353 +1,372 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Container from "../../layout/Container";
-import { TEAM, GROUPS } from "./data";
+import {
+  FOUNDER_STAFF,
+  MANAGEMENT_STAFF,
+  BOYS_STAFF,
+  GIRLS_STAFF,
+  getInitials,
+} from "./data";
 
 /* =========================================================
-   صفحه «عوامل رکاد» — کادر انسانی
-   گرید ۳تایی؛ کارت افقی: عکس سمت راست، اطلاعات سمت چپ
-   کارت بنیان‌گذار (featured) عرض ۲ ستون را می‌گیرد.
-   زبان بصری از Rokad-design-system.md:
-   شدو سخت آفست + بوردر 2px جوهری + ردیوس گوشه‌بریده
+   کامپوننت کارت استیکری استاندارد (Sticker Card)
 ========================================================= */
+function StickerCard({
+  member,
+  school = "male",
+  index = 0,
+  isFeatured = false,
+}) {
+  const [imgError, setImgError] = useState(false);
 
-/* رنگ تیره‌تر برای بوردر/شدو بج — همان تابع سکشن Team فیگما */
-function darker(hex) {
-  const c = parseInt(hex.slice(1), 16);
-  const r = Math.max(0, ((c >> 16) & 255) - 40);
-  const g = Math.max(0, ((c >> 8) & 255) - 40);
-  const b = Math.max(0, (c & 255) - 40);
-  return `rgb(${r},${g},${b})`;
-}
-
-/* ── کارت افقیfeatured — حامد آرون (عرض ۲ ستون) ── */
-function FeaturedCard({ member }) {
-  return (
-    <article
-      className="relative lg:col-span-2"
-      style={{ gridRow: "span 2" }}
-    >
-      <div
-        aria-hidden="true"
-        className="absolute top-[0.3125rem] left-[0.3125rem] w-full h-full bg-[#292827]"
-        style={{ borderRadius: "25px 0 25px 0" }}
-      />
-      <div
-        className="relative z-10 flex flex-col sm:flex-row-reverse bg-[#EAEAE9] h-full overflow-hidden transition-transform duration-200 hover:-translate-x-[2px] hover:-translate-y-[2px]"
-        style={{
-          border: "2px solid #292827",
-          borderRadius: "25px 0 25px 0",
-        }}
-      >
-        {/* عکس — سمت راست */}
-        <div
-          className="relative w-full sm:w-[42%] min-h-[16rem] sm:min-h-0 overflow-hidden shrink-0"
-          style={{
-            backgroundColor: member.color,
-            borderLeft: "2px solid #292827",
-          }}
-        >
-          <img
-            src={member.pattern}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-70 select-none"
-          />
-          {member.img ? (
-            <img
-              src={member.img}
-              alt={member.name}
-              className="relative z-10 w-full h-full object-cover object-top"
-            />
-          ) : (
-            <div className="relative z-10 w-full h-full flex items-center justify-center">
-              <span className="text-white font-black text-[5rem] leading-none select-none">
-                {member.name.charAt(0)}
-              </span>
-            </div>
-          )}
-        </div>
-
-        {/* اطلاعات — سمت چپ */}
-        <div className="flex-1 p-5 sm:p-6 flex flex-col">
-          <span
-            className="self-start inline-flex items-center text-[0.7rem] font-bold text-white mb-3"
-            style={{
-              backgroundColor: member.color,
-              border: `1px solid ${darker(member.color)}`,
-              borderRadius: "6px 0 6px 0",
-              padding: "2px 12px",
-              boxShadow: `1px 1px 0 0 ${darker(member.color)}`,
-            }}
-          >
-            {member.badge}
-          </span>
-
-          <h3 className="font-extrabold text-[1.5rem] sm:text-[1.75rem] text-[#292827] mb-2">
-            {member.name}
-          </h3>
-          <p className="text-[0.9375rem] font-medium text-[#292827]/80 leading-[1.6] mb-4">
-            {member.role}
-          </p>
-
-          {member.bio && (
-            <p className="text-[0.8125rem] font-medium text-[#292827]/60 leading-[1.9] mb-4">
-              {member.bio}
-            </p>
-          )}
-
-          <div className="w-full h-px bg-[#292827]/20 my-auto" />
-
-          {/* آیکون‌های تزئینی پایین */}
-          <div className="flex items-center gap-2 pt-4">
-            {[0, 1, 2].map((i) => (
-              <span
-                key={i}
-                className="w-[25px] h-[25px] flex items-center justify-center text-[0.6rem] text-white/70"
-                style={{
-                  backgroundColor: member.color,
-                  border: `1px solid ${darker(member.color)}`,
-                  borderRadius: "4.6px 0 4.6px 0",
-                  boxShadow: `1px 1px 0 0 ${darker(member.color)}`,
-                }}
-              >
-                ✦
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </article>
-  );
-}
-
-/* ── کارت افقی استاندارد — عکس راست، اطلاعات چپ ── */
-function HorizontalCard({ member }) {
-  return (
-    <article className="relative">
-      <div
-        aria-hidden="true"
-        className="absolute top-[0.3125rem] left-[0.3125rem] w-full h-full bg-[#292827]"
-        style={{ borderRadius: "25px 0 25px 0" }}
-      />
-      <div
-        className="relative z-10 flex flex-row bg-[#EAEAE9] h-full overflow-hidden transition-transform duration-200 hover:-translate-x-[2px] hover:-translate-y-[2px]"
-        style={{
-          border: "2px solid #292827",
-          borderRadius: "25px 0 25px 0",
-        }}
-      >
-        {/* عکس — سمت راست */}
-        <div
-          className="relative w-[38%] shrink-0 overflow-hidden min-h-[10rem]"
-          style={{
-            backgroundColor: member.color,
-            borderLeft: "2px solid #292827",
-          }}
-        >
-          <img
-            src={member.pattern}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-70 select-none"
-          />
-          {member.img ? (
-            <img
-              src={member.img}
-              alt={member.name}
-              className="relative z-10 w-full h-full object-cover object-top"
-            />
-          ) : (
-            <div className="relative z-10 w-full h-full flex items-center justify-center">
-              <span className="text-white font-black text-[3rem] leading-none select-none">
-                {member.name.charAt(0)}
-              </span>
-            </div>
-          )}
-        </div>
-
-        {/* اطلاعات — سمت چپ */}
-        <div className="flex-1 p-4 flex flex-col justify-between gap-2 min-w-0">
-          <div>
-            <h3 className="font-extrabold text-[1rem] sm:text-[1.125rem] text-[#292827] leading-[1.35] mb-1">
-              {member.name}
-            </h3>
-            <p className="text-[0.75rem] font-medium text-[#292827]/70 leading-[1.55]">
-              {member.role}
-            </p>
-          </div>
-
-          <div className="flex items-center justify-between gap-2">
-            <div className="flex items-center gap-1.5">
-              {[0, 1, 2].map((i) => (
-                <span
-                  key={i}
-                  className="w-[22px] h-[22px] flex items-center justify-center text-[0.55rem] text-white/70"
-                  style={{
-                    backgroundColor: member.color,
-                    border: `1px solid ${darker(member.color)}`,
-                    borderRadius: "4.6px 0 4.6px 0",
-                    boxShadow: `1px 1px 0 0 ${darker(member.color)}`,
-                  }}
-                >
-                  ✦
-                </span>
-              ))}
-            </div>
-            <span
-              className="inline-flex items-center text-[0.65rem] font-bold text-white whitespace-nowrap"
-              style={{
-                backgroundColor: member.color,
-                border: `1px solid ${darker(member.color)}`,
-                borderRadius: "6px 0 6px 0",
-                padding: "1px 10px",
-                boxShadow: `1px 1px 0 0 ${darker(member.color)}`,
-              }}
-            >
-              {member.badge}
-            </span>
-          </div>
-        </div>
-      </div>
-    </article>
-  );
-}
-
-/* ── پیل فیلتر ── */
-function FilterPill({ active, onClick, label }) {
-  const base = {
-    borderRadius: "40px",
-    padding: "8px 18px",
-    fontSize: "0.8125rem",
-    fontWeight: 700,
-    transition: "all .15s",
+  // تنظیم رنگ‌ها و سایه‌ها متناسب با نوع دسته‌بندی
+  const themeConfig = {
+    founder: {
+      border: "border-[#202A5A]",
+      shadow: "shadow-[7px_7px_0_0_#59BBAF] hover:shadow-[11px_11px_0_0_#59BBAF]",
+      avatarBg: "bg-[#59BBAF]",
+      avatarBorder: "border-[#202A5A]",
+      roleBg: "bg-[#59BBAF]",
+      badgeBorder: "border-[#202A5A]",
+      badgeText: "text-[#202A5A]",
+      dashedBorder: "border-[#59BBAF]/40",
+    },
+    management: {
+      border: "border-[#202A5A]",
+      shadow: "shadow-[6px_6px_0_0_#59BBAF] hover:shadow-[10px_10px_0_0_#59BBAF]",
+      avatarBg: "bg-[#59BBAF]",
+      avatarBorder: "border-[#202A5A]",
+      roleBg: "bg-[#202A5A]",
+      badgeBorder: "border-[#59BBAF]",
+      badgeText: "text-[#202A5A]",
+      dashedBorder: "border-[#59BBAF]/40",
+    },
+    male: {
+      border: "border-[#202A5A]",
+      shadow: "shadow-[6px_6px_0_0_#202A5A] hover:shadow-[10px_10px_0_0_#202A5A]",
+      avatarBg: "bg-[#202A5A]",
+      avatarBorder: "border-[#202A5A]",
+      roleBg: "bg-[#202A5A]",
+      badgeBorder: "border-[#202A5A]",
+      badgeText: "text-[#202A5A]",
+      dashedBorder: "border-[#202A5A]/30",
+    },
+    female: {
+      border: "border-[#E0195B]",
+      shadow: "shadow-[6px_6px_0_0_#E0195B] hover:shadow-[10px_10px_0_0_#E0195B]",
+      avatarBg: "bg-[#E0195B]",
+      avatarBorder: "border-[#E0195B]",
+      roleBg: "bg-[#E0195B]",
+      badgeBorder: "border-[#E0195B]",
+      badgeText: "text-[#E0195B]",
+      dashedBorder: "border-[#E0195B]/30",
+    },
   };
-  if (active) {
-    return (
-      <button
-        type="button"
-        onClick={onClick}
-        className="cursor-pointer text-white"
-        style={{
-          ...base,
-          background: "#59BBAF",
-          border: "1.5px solid #59BBAF",
-          boxShadow: "2.75px 2.75px 0 #292827",
-        }}
-      >
-        {label}
-      </button>
-    );
-  }
+
+  const theme = themeConfig[school] || themeConfig.male;
+
+  // تناوب زوایای چرخش ملایم استیکرها
+  const tiltStyle =
+    index % 3 === 0
+      ? "-rotate-[1.5deg]"
+      : index % 3 === 1
+      ? "rotate-[1.2deg]"
+      : "rotate-0";
+
+  const imageSrc =
+    !imgError && (member.img || member.fallbackImg)
+      ? member.img || member.fallbackImg
+      : null;
+
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="bg-white text-ink cursor-pointer hover:-translate-y-[1px]"
-      style={{ ...base, border: "1.5px solid #EAEAE9" }}
+    <div
+      className={`group relative bg-white border-[3px] ${theme.border} rounded-[1.75rem] p-5 sm:p-6 text-center transition-all duration-200 cursor-pointer ${theme.shadow} ${tiltStyle} hover:rotate-0 hover:-translate-x-1 hover:-translate-y-1 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0_0_#202A5A] flex flex-col justify-between ${
+        isFeatured ? "max-w-md mx-auto w-full" : ""
+      }`}
     >
-      {label}
-    </button>
+      {/* ── نشان بالای استیکر (Badge) ── */}
+      <span
+        className={`absolute -top-3.5 left-3.5 sm:left-4 z-20 bg-white px-3.5 py-1 border-[2.5px] ${theme.badgeBorder} ${theme.badgeText} rounded-full text-[0.6875rem] sm:text-[0.75rem] font-black -rotate-4 shadow-[1.5px_1.5px_0_0_#202A5A] select-none`}
+      >
+        {member.tag || member.badge || "عوامل رکاد"}
+      </span>
+
+      <div>
+        {/* ── آواتار دایره‌ای تمیز ── */}
+        <div className="relative mx-auto mb-3.5 w-24 h-24">
+          <div
+            className={`w-24 h-24 rounded-full flex items-center justify-center text-white text-[1.625rem] font-black border-[3px] border-[#202A5A] overflow-hidden ${theme.avatarBg} shadow-[2px_2px_0_0_#202A5A]`}
+          >
+            {imageSrc ? (
+              <img
+                src={imageSrc}
+                alt={member.name}
+                loading="lazy"
+                onError={() => setImgError(true)}
+                className="w-full h-full object-cover object-top"
+              />
+            ) : (
+              <span className="select-none tracking-wider">
+                {getInitials(member.name)}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* ── نام و سمت ── */}
+        <h3 className="text-[1.0625rem] sm:text-[1.1875rem] font-black text-[#202A5A] mb-1.5">
+          {member.name}
+        </h3>
+
+        <div className="mb-3">
+          <span
+            className={`inline-block text-white px-3.5 py-0.5 rounded-full text-[0.6875rem] sm:text-[0.75rem] font-black ${theme.roleBg} border border-[#202A5A]/20 shadow-[1px_1px_0_0_#202A5A]`}
+          >
+            {member.role}
+          </span>
+        </div>
+
+        {/* ── بیوگرافی و توضیحات ── */}
+        <p
+          className={`text-[0.75rem] sm:text-[0.8125rem] text-[#202A5A]/80 leading-[1.8] pt-2.5 border-t-2 border-dashed ${theme.dashedBorder}`}
+        >
+          {member.bio}
+        </p>
+      </div>
+    </div>
   );
 }
 
 /* =========================================================
-   MAIN
+   صفحه اصلی عوامل رُکاد
 ========================================================= */
-
 export default function FactorsPage() {
-  const [group, setGroup] = useState("all");
+  const [activeTab, setActiveTab] = useState("all");
 
-  const counts = useMemo(() => {
-    const c = { all: TEAM.length };
-    for (const g of GROUPS) {
-      if (g.key !== "all") c[g.key] = TEAM.filter((m) => m.group === g.key).length;
-    }
-    return c;
-  }, []);
-
-  const list = useMemo(
-    () => (group === "all" ? TEAM : TEAM.filter((m) => m.group === group)),
-    [group],
-  );
-
-  const featured = list.find((m) => m.featured);
-  const rest = list.filter((m) => !m.featured);
+  const totalCount =
+    FOUNDER_STAFF.length +
+    MANAGEMENT_STAFF.length +
+    BOYS_STAFF.length +
+    GIRLS_STAFF.length;
 
   return (
-    <>
-      {/* ════ هیرو ════ */}
-      <section
-        dir="rtl"
-        className="relative overflow-hidden bg-white pt-14 sm:pt-20 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-8"
-      >
+    <div className="min-h-screen bg-[#fefdf8] text-[#202A5A] pb-16 sm:pb-24">
+      {/* ══════════════════════════════════════════════
+          هدر کمیک و استیکری صفحه
+      ══════════════════════════════════════════════ */}
+      <header className="relative pt-12 sm:pt-16 pb-8 sm:pb-12 text-center px-4 overflow-hidden">
+        {/* پترن پس‌زمینه محو */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60 rotate-180 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+          className="absolute inset-0 w-full h-full opacity-30 pointer-events-none [mask-image:linear-gradient(to_bottom,black_20%,transparent)]"
         >
           <img
             src="/assets/Pattern/layout-pattern.png"
             alt=""
-            draggable="false"
-            className="w-full h-full object-cover select-none"
+            className="w-full h-full object-cover"
           />
         </div>
 
-        <Container className="relative z-10 text-center">
-          <span
-            className="inline-flex items-center gap-2 text-[0.6875rem] font-bold mb-4"
-            style={{
-              color: "#438C83",
-              background: "#EEF8F7",
-              border: "1.5px solid #59BBAF",
-              borderRadius: "40px",
-              padding: "6px 14px",
-            }}
-          >
-            ◉ کادر رکاد
-          </span>
-          <h1 className="font-black text-[1.75rem] sm:text-[2.625rem] lg:text-[3.25rem] leading-[1.35] text-ink mb-4">
-            عوامل <span className="text-teal-alt">رکاد</span>
-          </h1>
-          <p className="font-medium text-[0.875rem] sm:text-[1.0625rem] leading-[1.9] text-ink/60 max-w-2xl mx-auto">
-            هر پروژه یک قصه داره، پشت هر قصه یک تیم — این آدم‌ها هستند که
-            هرروز رکاد رو می‌سازن؛ از مدیریت تا راهبری هنرستان‌ها.
-          </p>
-        </Container>
-      </section>
-
-      {/* ════ فیلتر + گرید ۳تایی ════ */}
-      <section
-        dir="rtl"
-        className="bg-bg-neutral py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
-      >
-        <Container>
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-10">
-            <span className="text-[0.8125rem] font-bold text-ink/60 ml-1">
-              فیلتر:
+        <Container className="relative z-10">
+          {/* نشان کوچک بالای تیتر */}
+          <div className="inline-block mb-3">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#F8A41D] text-[#202A5A] border-2 border-[#202A5A] rounded-full text-[0.8125rem] font-black rotate-2 shadow-[2px_2px_0_0_#202A5A]">
+              ✦ عوامل رُکاد ✦
             </span>
-            {GROUPS.map((g) => (
-              <FilterPill
-                key={g.key}
-                active={group === g.key}
-                onClick={() => setGroup(g.key)}
-                label={`${g.label} (${counts[g.key]})`}
-              />
-            ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 auto-rows-min">
-            {/* کارت بنیان‌گذار — فقط در فیلتر «همه» و «مدیریت» دیده می‌شود */}
-            {featured && <FeaturedCard member={featured} />}
-            {rest.map((m) => (
-              <HorizontalCard key={m.name} member={m} />
-            ))}
+          {/* تیتر استیکری کادردار */}
+          <div>
+            <h1 className="inline-block bg-white border-[3px] border-[#202A5A] px-6 sm:px-10 py-3 rounded-2xl text-[1.625rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-[#202A5A] -rotate-1 shadow-[6px_6px_0_0_#59BBAF]">
+              معلمانی که یادت می‌مونن!
+            </h1>
           </div>
 
-          <p className="text-center text-[0.8125rem] text-ink/50 mt-12">
-            {list.length} نفر از کادر رکاد نمایش داده می‌شود
+          {/* زیرتیتر */}
+          <p className="mt-5 text-[0.875rem] sm:text-[1.0625rem] font-semibold text-[#202A5A]/80 max-w-xl mx-auto leading-relaxed">
+            تیم رُکاد با انرژی و انگیزه، مسیر یادگیری رو شیرین می‌کنه.
           </p>
+
+          {/* ── تب‌های دسته‌بندی سریع ── */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-8">
+            <button
+              type="button"
+              onClick={() => setActiveTab("all")}
+              className={`px-4 sm:px-5 py-2 rounded-full text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
+                activeTab === "all"
+                  ? "bg-[#202A5A] text-white shadow-[3px_3px_0_0_#59BBAF] -translate-y-0.5"
+                  : "bg-white text-[#202A5A] hover:bg-[#F4F5FB]"
+              }`}
+            >
+              همه کادر ({totalCount})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab("founder")}
+              className={`px-4 sm:px-5 py-2 rounded-full text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
+                activeTab === "founder"
+                  ? "bg-[#F8A41D] text-[#202A5A] shadow-[3px_3px_0_0_#202A5A] -translate-y-0.5"
+                  : "bg-white text-[#202A5A] hover:bg-[#FEF6E8]"
+              }`}
+            >
+              بنیان‌گذار (آقای آرون)
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab("management")}
+              className={`px-4 sm:px-5 py-2 rounded-full text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
+                activeTab === "management"
+                  ? "bg-[#59BBAF] text-white shadow-[3px_3px_0_0_#202A5A] -translate-y-0.5"
+                  : "bg-white text-[#202A5A] hover:bg-[#EEF8F7]"
+              }`}
+            >
+              مدیریت ارشد ({MANAGEMENT_STAFF.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab("male")}
+              className={`px-4 sm:px-5 py-2 rounded-full text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
+                activeTab === "male"
+                  ? "bg-[#202A5A] text-white shadow-[3px_3px_0_0_#F8A41D] -translate-y-0.5"
+                  : "bg-white text-[#202A5A] hover:bg-[#F4F5FB]"
+              }`}
+            >
+              مدرسه پسرانه ({BOYS_STAFF.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab("female")}
+              className={`px-4 sm:px-5 py-2 rounded-full text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#E0195B] transition-all cursor-pointer ${
+                activeTab === "female"
+                  ? "bg-[#E0195B] text-white shadow-[3px_3px_0_0_#202A5A] -translate-y-0.5"
+                  : "bg-white text-[#E0195B] hover:bg-[#FEFAFB]"
+              }`}
+            >
+              مدرسه دخترانه ({GIRLS_STAFF.length})
+            </button>
+          </div>
         </Container>
-      </section>
-    </>
+      </header>
+
+      {/* ══════════════════════════════════════════════
+          محتوای اصلی و سکشن‌ها
+      ══════════════════════════════════════════════ */}
+      <Container className="mt-4 sm:mt-6 space-y-12 sm:space-y-16">
+        {/* ════ ۱. سکشن اختصاصی بنیان‌گذار (آقای آرون تنها) ════ */}
+        {(activeTab === "all" || activeTab === "founder") && (
+          <section className="scroll-mt-24">
+            {/* هدر سکشن بنیان‌گذار */}
+            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
+              <span className="w-3.5 h-3.5 rounded-full bg-[#F8A41D] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
+              <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+                بنیان‌گذار و ایده‌پرداز رُکاد
+              </h2>
+              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-full text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#F8A41D]">
+                امضای رُکاد
+              </span>
+            </div>
+
+            {/* کارت اختصاصی حامد آرون */}
+            <div className="flex justify-center pt-2 px-1">
+              {FOUNDER_STAFF.map((staff, idx) => (
+                <StickerCard
+                  key={staff.name}
+                  member={staff}
+                  school="founder"
+                  index={idx}
+                  isFeatured={true}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ════ ۲. سکشن مدیریت و راهبری ارشد (عزیزپور و کمالی) ════ */}
+        {(activeTab === "all" || activeTab === "management") && (
+          <section className="scroll-mt-24">
+            {/* هدر سکشن مدیریت ارشد */}
+            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
+              <span className="w-3.5 h-3.5 rounded-full bg-[#59BBAF] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
+              <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+                مدیریت و راهبری اجرایی
+              </h2>
+              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-full text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#59BBAF]">
+                {MANAGEMENT_STAFF.length} نفر
+              </span>
+            </div>
+
+            {/* گرید استیکرهای عزیزپور و کمالی */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-8 sm:gap-7 pt-2 px-1">
+              {MANAGEMENT_STAFF.map((staff, idx) => (
+                <StickerCard
+                  key={staff.name}
+                  member={staff}
+                  school="management"
+                  index={idx}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ════ ۳. سکشن مدرسه پسرانه رُکاد ════ */}
+        {(activeTab === "all" || activeTab === "male") && (
+          <section className="scroll-mt-24">
+            {/* هدر سکشن پسرانه */}
+            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
+              <span className="w-3.5 h-3.5 rounded-full bg-[#202A5A] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#F8A41D]" />
+              <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+                مدرسه پسرانه رُکاد
+              </h2>
+              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-full text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#202A5A]">
+                {BOYS_STAFF.length} نفر
+              </span>
+            </div>
+
+            {/* گرید استیکرهای پسرانه */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-7 pt-2 px-1">
+              {BOYS_STAFF.map((staff, idx) => (
+                <StickerCard
+                  key={staff.name}
+                  member={staff}
+                  school="male"
+                  index={idx}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ════ ۴. سکشن مدرسه دخترانه رُکاد ════ */}
+        {(activeTab === "all" || activeTab === "female") && (
+          <section className="scroll-mt-24">
+            {/* هدر سکشن دخترانه */}
+            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#E0195B]/20">
+              <span className="w-3.5 h-3.5 rounded-full bg-[#E0195B] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#E0195B]" />
+              <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+                مدرسه دخترانه رُکاد
+              </h2>
+              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-full text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#E0195B] text-[#E0195B] shadow-[2px_2px_0_0_#E0195B]">
+                {GIRLS_STAFF.length} نفر
+              </span>
+            </div>
+
+            {/* گرید استیکرهای دخترانه */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-7 pt-2 px-1">
+              {GIRLS_STAFF.map((staff, idx) => (
+                <StickerCard
+                  key={staff.name}
+                  member={staff}
+                  school="female"
+                  index={idx}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+      </Container>
+    </div>
   );
 }

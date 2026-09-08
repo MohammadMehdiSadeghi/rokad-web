@@ -6,26 +6,24 @@ import Container from "../../layout/Container";
 import {
   FOUNDER_STAFF,
   MANAGEMENT_STAFF,
-  BOYS_STAFF,
-  GIRLS_STAFF,
+  LEADERS_STAFF,
+  DEPUTIES_BOYS,
+  DEPUTIES_GIRLS,
+  MENTORS_BOYS,
+  MENTORS_GIRLS,
   getInitials,
   darker,
 } from "./data";
-import {
-  GlobeIcon,
-  TwitterIcon,
-  InstagramIcon,
-  LinkedInIcon,
-} from "../../common/Icons";
+import { GlobeIcon } from "../../common/Icons";
 
 /* =========================================================
-   کارت کلاسیک رکاد (Signature Rokad Card)
+   کارت امضای رکاد (Signature Rokad Card)
    - گوشه‌های نامتقارن رکاد (squircle / 0_1.5rem_0_1.5rem)
    - لایه سایه سخت زیرین (Hard Drop Shadow)
    - هدر رنگی با پترن هندسی و عکس کات‌اوت
    - فوتر امضای رکاد با ۳ چیپ ✦ و نشان اختصاصی
 ========================================================= */
-function RokadCard({ member, school = "male", isFeatured = false }) {
+function RokadCard({ member, isFeatured = false }) {
   const [imgError, setImgError] = useState(false);
 
   const imageSrc =
@@ -92,7 +90,7 @@ function RokadCard({ member, school = "male", isFeatured = false }) {
 
           {/* اطلاعات متن */}
           <div className="p-4 sm:p-5 text-right">
-            <h3 className="font-black text-[1.125rem] sm:text-[1.25rem] text-[#202A5A] mb-1">
+            <h3 className="font-black text-[1.125rem] sm:text-[1.2rem] text-[#202A5A] mb-1">
               {member.name}
             </h3>
             <p className="text-[0.75rem] sm:text-[0.8125rem] font-bold text-[#202A5A]/75 leading-relaxed mb-3">
@@ -248,6 +246,74 @@ function FounderCard({ member }) {
 }
 
 /* =========================================================
+   ردیف دو ستونه ۴ کارتی (راست پسرانه، چپ دخترانه با فاصله)
+   - ۴ کارت در هر ردیف روی دسکتاپ (۲ راست پسرانه + فاصله + ۲ چپ دخترانه)
+========================================================= */
+function GenderSplitSection({ boysList, girlsList, sectionTitle, badgeText }) {
+  return (
+    <section className="scroll-mt-24">
+      {/* تیتر سکشن */}
+      <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
+        <span className="w-3.5 h-3.5 rounded-full bg-[#59BBAF] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
+        <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+          {sectionTitle}
+        </h2>
+        {badgeText && (
+          <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#59BBAF]">
+            {badgeText}
+          </span>
+        )}
+      </div>
+
+      {/* ستون‌های تفکیک‌شده: راست پسرانه (۲ کارت) | فاصله | چپ دخترانه (۲ کارت) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-12 pt-2 px-1">
+        {/* ── بخش راست: هنرستان پسرانه ── */}
+        <div className="flex flex-col">
+          {/* هدر ستون پسرانه */}
+          <div className="flex items-center gap-2 mb-4 pb-2 border-b border-dashed border-[#202A5A]/20">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#202A5A] inline-block" />
+            <h3 className="font-black text-[0.9375rem] sm:text-[1rem] text-[#202A5A]">
+              هنرستان پسرانه
+            </h3>
+            <span className="mr-auto text-[0.6875rem] font-black bg-[#202A5A] text-white px-2 py-0.5 rounded-[0_4px_0_4px]">
+              {boysList.length} نفر
+            </span>
+          </div>
+
+          {/* گرید ۲ کارتی پسرانه */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 flex-1">
+            {boysList.map((member) => (
+              <RokadCard key={member.name} member={member} />
+            ))}
+          </div>
+        </div>
+
+        {/* ── بخش چپ: هنرستان دخترانه ── */}
+        <div className="flex flex-col">
+          {/* هدر ستون دخترانه */}
+          <div className="flex items-center gap-2 mb-4 pb-2 border-b border-dashed border-[#E0195B]/30">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#E0195B] inline-block" />
+            <h3 className="font-black text-[0.9375rem] sm:text-[1rem] text-[#E0195B]">
+              هنرستان دخترانه
+            </h3>
+            <span className="mr-auto text-[0.6875rem] font-black bg-[#E0195B] text-white px-2 py-0.5 rounded-[0_4px_0_4px]">
+              {girlsList.length} نفر
+            </span>
+          </div>
+
+          {/* گرید ۲ کارتی دخترانه */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 flex-1">
+            {girlsList.map((member) => (
+              <RokadCard key={member.name} member={member} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
    صفحه اصلی عوامل رکاد
 ========================================================= */
 export default function FactorsPage() {
@@ -256,11 +322,14 @@ export default function FactorsPage() {
   const totalCount =
     FOUNDER_STAFF.length +
     MANAGEMENT_STAFF.length +
-    BOYS_STAFF.length +
-    GIRLS_STAFF.length;
+    LEADERS_STAFF.length +
+    DEPUTIES_BOYS.length +
+    DEPUTIES_GIRLS.length +
+    MENTORS_BOYS.length +
+    MENTORS_GIRLS.length;
 
   return (
-    <div className="min-h-screen bg-white text-[#202A5A] pb-16 sm:pb-24">
+    <div className="min-h-screen bg-white text-[#202A5A] pb-16 sm:pb-24" dir="rtl">
       {/* ══════════════════════════════════════════════
           هدر سکشن عوامل با استایل امضای رکاد
       ══════════════════════════════════════════════ */}
@@ -294,10 +363,10 @@ export default function FactorsPage() {
 
           {/* زیرتیتر */}
           <p className="text-[0.875rem] sm:text-[1.0625rem] font-semibold text-[#202A5A]/70 max-w-2xl mx-auto leading-relaxed">
-            هر پروژه یک قصه دارد، پشت هر قصه یک تیم — این آدم‌ها هستند که هرروز رکاد را می‌سازند؛ از ایده‌پردازی و مدیریت تا راهبری هنرستان‌ها.
+            هر پروژه یک قصه دارد، پشت هر قصه یک تیم — این آدم‌ها هستند که هرروز رکاد را می‌سازند؛ از ایده‌پردازی و مدیریت تا راهبری، معاونت و منتورینگ تخصصی.
           </p>
 
-          {/* ── تب‌های دسته‌بندی سریع ── */}
+          {/* ── تب‌های دسته‌بندی ── */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-8">
             <button
               type="button"
@@ -312,17 +381,6 @@ export default function FactorsPage() {
             </button>
             <button
               type="button"
-              onClick={() => setActiveTab("founder")}
-              className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
-                activeTab === "founder"
-                  ? "bg-[#F8A41D] text-[#202A5A] shadow-[3px_3px_0_0_#202A5A] -translate-y-0.5"
-                  : "bg-white text-[#202A5A] hover:bg-[#FEF6E8]"
-              }`}
-            >
-              بنیان‌گذار (آقای آرون)
-            </button>
-            <button
-              type="button"
               onClick={() => setActiveTab("management")}
               className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
                 activeTab === "management"
@@ -330,132 +388,131 @@ export default function FactorsPage() {
                   : "bg-white text-[#202A5A] hover:bg-[#EEF8F7]"
               }`}
             >
-              مدیریت ارشد ({MANAGEMENT_STAFF.length})
+              بنیان‌گذار و مدیریت ارشد
             </button>
             <button
               type="button"
-              onClick={() => setActiveTab("male")}
+              onClick={() => setActiveTab("leaders")}
               className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
-                activeTab === "male"
+                activeTab === "leaders"
+                  ? "bg-[#F8A41D] text-[#202A5A] shadow-[3px_3px_0_0_#202A5A] -translate-y-0.5"
+                  : "bg-white text-[#202A5A] hover:bg-[#FEF6E8]"
+              }`}
+            >
+              راهبران ({LEADERS_STAFF.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab("deputies")}
+              className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
+                activeTab === "deputies"
                   ? "bg-[#202A5A] text-white shadow-[3px_3px_0_0_#F8A41D] -translate-y-0.5"
                   : "bg-white text-[#202A5A] hover:bg-[#F4F5FB]"
               }`}
             >
-              هنرستان پسرانه ({BOYS_STAFF.length})
+              معاونان و دستیاران ({DEPUTIES_BOYS.length + DEPUTIES_GIRLS.length})
             </button>
             <button
               type="button"
-              onClick={() => setActiveTab("female")}
+              onClick={() => setActiveTab("mentors")}
               className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#E0195B] transition-all cursor-pointer ${
-                activeTab === "female"
+                activeTab === "mentors"
                   ? "bg-[#E0195B] text-white shadow-[3px_3px_0_0_#202A5A] -translate-y-0.5"
                   : "bg-white text-[#E0195B] hover:bg-[#FEFAFB]"
               }`}
             >
-              هنرستان دخترانه ({GIRLS_STAFF.length})
+              مربیان و منتورها ({MENTORS_BOYS.length + MENTORS_GIRLS.length})
             </button>
           </div>
         </Container>
       </header>
 
       {/* ══════════════════════════════════════════════
-          محتوای اصلی و سکشن‌ها
+          محتوای اصلی و سکشن‌ها به ترتیب درخواستی
       ══════════════════════════════════════════════ */}
-      <Container className="mt-4 sm:mt-6 space-y-14 sm:space-y-20">
-        {/* ════ ۱. سکشن اختصاصی بنیان‌گذار (آقای آرون تنها) ════ */}
-        {(activeTab === "all" || activeTab === "founder") && (
+      <Container className="mt-4 sm:mt-6 space-y-16 sm:space-y-24">
+        {/* ════ ۱. بنیان‌گذار (مهندس آرون) و مدیریت ارشد ════ */}
+        {(activeTab === "all" || activeTab === "management") && (
+          <section className="scroll-mt-24 space-y-10">
+            {/* بنیان‌گذار */}
+            <div>
+              <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
+                <span className="w-3.5 h-3.5 rounded-full bg-[#F8A41D] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
+                <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+                  بنیان‌گذار و ایده‌پرداز رکاد
+                </h2>
+                <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#F8A41D]">
+                  امضای رکاد
+                </span>
+              </div>
+
+              <div className="pt-2 px-1">
+                {FOUNDER_STAFF.map((staff) => (
+                  <FounderCard key={staff.name} member={staff} />
+                ))}
+              </div>
+            </div>
+
+            {/* مدیریت ارشد (مهندس عزیزپور و مهندس کمالی) */}
+            <div>
+              <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
+                <span className="w-3.5 h-3.5 rounded-full bg-[#59BBAF] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
+                <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+                  مدیریت و راهبری اجرایی
+                </h2>
+                <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#59BBAF]">
+                  {MANAGEMENT_STAFF.length} نفر
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6 sm:gap-7 pt-2 px-1">
+                {MANAGEMENT_STAFF.map((staff) => (
+                  <RokadCard key={staff.name} member={staff} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ════ ۲. راهبران (امیرحسین امیریان و رویا دولت‌آبادی) ════ */}
+        {(activeTab === "all" || activeTab === "leaders") && (
           <section className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
               <span className="w-3.5 h-3.5 rounded-full bg-[#F8A41D] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
               <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
-                بنیان‌گذار و ایده‌پرداز رکاد
+                راهبران
               </h2>
               <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#F8A41D]">
-                امضای رکاد
-              </span>
-            </div>
-
-            <div className="pt-2 px-1">
-              {FOUNDER_STAFF.map((staff) => (
-                <FounderCard key={staff.name} member={staff} />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* ════ ۲. سکشن مدیریت و راهبری ارشد (عزیزپور و کمالی) ════ */}
-        {(activeTab === "all" || activeTab === "management") && (
-          <section className="scroll-mt-24">
-            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
-              <span className="w-3.5 h-3.5 rounded-full bg-[#59BBAF] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
-              <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
-                مدیریت و راهبری اجرایی
-              </h2>
-              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#59BBAF]">
-                {MANAGEMENT_STAFF.length} نفر
+                {LEADERS_STAFF.length} نفر
               </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6 sm:gap-7 pt-2 px-1">
-              {MANAGEMENT_STAFF.map((staff) => (
-                <RokadCard
-                  key={staff.name}
-                  member={staff}
-                  school="management"
-                />
+              {LEADERS_STAFF.map((staff) => (
+                <RokadCard key={staff.name} member={staff} />
               ))}
             </div>
           </section>
         )}
 
-        {/* ════ ۳. سکشن هنرستان پسرانه رکاد ════ */}
-        {(activeTab === "all" || activeTab === "male") && (
-          <section className="scroll-mt-24">
-            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
-              <span className="w-3.5 h-3.5 rounded-full bg-[#202A5A] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#F8A41D]" />
-              <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
-                هنرستان پسرانه رکاد
-              </h2>
-              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#202A5A]">
-                {BOYS_STAFF.length} نفر
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-7 pt-2 px-1">
-              {BOYS_STAFF.map((staff) => (
-                <RokadCard
-                  key={staff.name}
-                  member={staff}
-                  school="male"
-                />
-              ))}
-            </div>
-          </section>
+        {/* ════ ۳. معاونان و دستیاران (۴ کارت در هر ردیف، ۲ راست پسرانه، ۲ چپ دخترانه) ════ */}
+        {(activeTab === "all" || activeTab === "deputies") && (
+          <GenderSplitSection
+            boysList={DEPUTIES_BOYS}
+            girlsList={DEPUTIES_GIRLS}
+            sectionTitle="معاونان و دستیاران"
+            badgeText={`${DEPUTIES_BOYS.length + DEPUTIES_GIRLS.length} نفر`}
+          />
         )}
 
-        {/* ════ ۴. سکشن هنرستان دخترانه رکاد ════ */}
-        {(activeTab === "all" || activeTab === "female") && (
-          <section className="scroll-mt-24">
-            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#E0195B]/20">
-              <span className="w-3.5 h-3.5 rounded-full bg-[#E0195B] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#E0195B]" />
-              <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
-                هنرستان دخترانه رکاد
-              </h2>
-              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#E0195B] text-[#E0195B] shadow-[2px_2px_0_0_#E0195B]">
-                {GIRLS_STAFF.length} نفر
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-7 pt-2 px-1">
-              {GIRLS_STAFF.map((staff) => (
-                <RokadCard
-                  key={staff.name}
-                  member={staff}
-                  school="female"
-                />
-              ))}
-            </div>
-          </section>
+        {/* ════ ۴. مربیان و منتورها (۴ کارت در هر ردیف، ۲ راست پسرانه، ۲ چپ دخترانه) ════ */}
+        {(activeTab === "all" || activeTab === "mentors") && (
+          <GenderSplitSection
+            boysList={MENTORS_BOYS}
+            girlsList={MENTORS_GIRLS}
+            sectionTitle="مربیان و منتورها"
+            badgeText={`${MENTORS_BOYS.length + MENTORS_GIRLS.length} نفر`}
+          />
         )}
       </Container>
     </div>

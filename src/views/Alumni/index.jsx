@@ -10,6 +10,7 @@ import {
 import {
   PERSONAS,
   alumni,
+  alumniStats,
   featuredProjects,
   hiringCompanies,
   alumniTestimonials,
@@ -19,6 +20,7 @@ import {
    صفحه گرید تفکیک‌شده دانش‌آموختگان رُکاد (Alumni Grid)
    - تا زمان انتخاب شعبه (دخترانه یا پسرانه) محتوا نمایش داده نمی‌شود.
    - دانش‌آموختگان دختر و پسر هرگز با هم قاطی نمی‌شوند.
+   - شدوها به صورت ثابت و پایدار بدون نیاز به هاور (Static Hard Shadows) اعمال شده‌اند.
    - استایل‌ها ۱۰۰٪ منطبق بر دیزاین‌سیستم رُکاد (سایه سخت، squircle، فونت IRANSansX).
 ========================================================= */
 
@@ -104,7 +106,7 @@ export default function AlumniPage() {
 
         <Container className="relative z-10 text-center">
           {/* Eyebrow badge */}
-          <div className="inline-flex items-center gap-2 bg-[#E4F4F2] border-2 border-teal rounded-full px-4 sm:px-5 py-1.5 mb-5 sm:mb-6">
+          <div className="inline-flex items-center gap-2 bg-[#E4F4F2] border-2 border-teal rounded-full px-4 sm:px-5 py-1.5 mb-5 sm:mb-6 shadow-[2px_2px_0_0_#58BDAF]">
             <span className="w-2.5 h-2.5 rounded-full bg-teal animate-pulse" />
             <span className="text-[0.8125rem] sm:text-[0.875rem] font-bold text-teal-text">
               جامعه متخصصان و فارغ‌التحصیلان رُکاداسکول
@@ -127,7 +129,7 @@ export default function AlumniPage() {
           </p>
 
           {/* ═════════════════════════════════════════════════════════
-              ۲. دو کارت بزرگ انتخاب شعبه (دخترانه / پسرانه)
+              ۲. دو کارت بزرگ انتخاب شعبه (دخترانه / پسرانه) با شدوی دائمی
           ═════════════════════════════════════════════════════════ */}
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
@@ -139,10 +141,10 @@ export default function AlumniPage() {
                   setGenFilter("all");
                   setPersonaFilter("all");
                 }}
-                className={`group relative text-right p-6 sm:p-8 rounded-[0_2rem_0_2rem] [corner-shape:squircle] border-2 transition-all duration-300 cursor-pointer overflow-hidden ${
+                className={`relative text-right p-6 sm:p-8 rounded-[0_2rem_0_2rem] [corner-shape:squircle] border-2 cursor-pointer overflow-hidden transition-colors ${
                   selectedBranch === "female"
-                    ? "bg-[#FEFAFB] border-[#E0195B] shadow-[6px_6px_0_0_#E0195B] -translate-y-1.5"
-                    : "bg-white border-navy/20 hover:border-[#E0195B]/70 shadow-[4px_4px_0_0_rgba(32,42,90,0.1)] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#E0195B]"
+                    ? "bg-[#FEFAFB] border-[#E0195B] shadow-[5px_5px_0_0_#E0195B]"
+                    : "bg-white border-[#E0195B] shadow-[5px_5px_0_0_#E0195B]"
                 }`}
               >
                 <div className="flex items-start justify-between mb-4">
@@ -151,7 +153,7 @@ export default function AlumniPage() {
                       className={`w-14 h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
                         selectedBranch === "female"
                           ? "bg-[#E0195B] text-white"
-                          : "bg-[#FCE8EF] text-[#E0195B] group-hover:bg-[#E0195B] group-hover:text-white"
+                          : "bg-[#FCE8EF] text-[#E0195B]"
                       }`}
                     >
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -171,8 +173,8 @@ export default function AlumniPage() {
                   <span
                     className={`text-[0.75rem] font-black px-3.5 py-1.5 rounded-full border transition-all ${
                       selectedBranch === "female"
-                        ? "bg-[#E0195B] text-white border-[#E0195B] shadow-sm"
-                        : "bg-[#FCE8EF] text-[#E0195B] border-[#E0195B]/30 group-hover:bg-[#E0195B] group-hover:text-white"
+                        ? "bg-[#E0195B] text-white border-[#E0195B]"
+                        : "bg-[#FCE8EF] text-[#E0195B] border-[#E0195B]/30"
                     }`}
                   >
                     {selectedBranch === "female" ? "✓ در حال نمایش" : "انتخاب شعبه"}
@@ -191,10 +193,10 @@ export default function AlumniPage() {
                   setGenFilter("all");
                   setPersonaFilter("all");
                 }}
-                className={`group relative text-right p-6 sm:p-8 rounded-[0_2rem_0_2rem] [corner-shape:squircle] border-2 transition-all duration-300 cursor-pointer overflow-hidden ${
+                className={`relative text-right p-6 sm:p-8 rounded-[0_2rem_0_2rem] [corner-shape:squircle] border-2 cursor-pointer overflow-hidden transition-colors ${
                   selectedBranch === "male"
-                    ? "bg-[#F4F5FB] border-[#21295A] shadow-[6px_6px_0_0_#21295A] -translate-y-1.5"
-                    : "bg-white border-navy/20 hover:border-[#21295A]/70 shadow-[4px_4px_0_0_rgba(32,42,90,0.1)] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#21295A]"
+                    ? "bg-[#F4F5FB] border-[#21295A] shadow-[5px_5px_0_0_#21295A]"
+                    : "bg-white border-[#21295A] shadow-[5px_5px_0_0_#21295A]"
                 }`}
               >
                 <div className="flex items-start justify-between mb-4">
@@ -203,7 +205,7 @@ export default function AlumniPage() {
                       className={`w-14 h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
                         selectedBranch === "male"
                           ? "bg-[#21295A] text-white"
-                          : "bg-[#E9EAEF] text-[#21295A] group-hover:bg-[#21295A] group-hover:text-white"
+                          : "bg-[#E9EAEF] text-[#21295A]"
                       }`}
                     >
                       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -224,8 +226,8 @@ export default function AlumniPage() {
                   <span
                     className={`text-[0.75rem] font-black px-3.5 py-1.5 rounded-full border transition-all ${
                       selectedBranch === "male"
-                        ? "bg-[#21295A] text-white border-[#21295A] shadow-sm"
-                        : "bg-[#E9EAEF] text-[#21295A] border-[#21295A]/30 group-hover:bg-[#21295A] group-hover:text-white"
+                        ? "bg-[#21295A] text-white border-[#21295A]"
+                        : "bg-[#E9EAEF] text-[#21295A] border-[#21295A]/30"
                     }`}
                   >
                     {selectedBranch === "male" ? "✓ در حال نمایش" : "انتخاب شعبه"}
@@ -246,7 +248,7 @@ export default function AlumniPage() {
       {!selectedBranch ? (
         <section className="py-16 sm:py-24 bg-[#F8FAF9] border-t border-navy/10 text-center">
           <Container className="max-w-xl mx-auto">
-            <div className="w-16 h-16 rounded-full bg-white border-2 border-navy/15 flex items-center justify-center text-teal mx-auto mb-4 shadow-sm">
+            <div className="w-16 h-16 rounded-full bg-white border-2 border-navy flex items-center justify-center text-teal mx-auto mb-4 shadow-[3px_3px_0_0_#202A5A]">
               <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 19V5M5 12l7-7 7 7" />
               </svg>
@@ -272,7 +274,7 @@ export default function AlumniPage() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-5 border-b border-navy/10">
                 <div>
                   <span
-                    className="text-[0.8125rem] font-black px-3 py-1 rounded-full text-white inline-block mb-2"
+                    className="text-[0.8125rem] font-black px-3 py-1 rounded-full text-white inline-block mb-2 shadow-[2px_2px_0_0_#202A5A]"
                     style={{ backgroundColor: branchColor }}
                   >
                     {isFemale ? "هنرستان دخترانه رُکاد" : "هنرستان پسرانه رُکاد"}
@@ -290,7 +292,7 @@ export default function AlumniPage() {
                     setGenFilter("all");
                     setPersonaFilter("all");
                   }}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-navy text-navy hover:text-white border-2 border-navy text-[0.8125rem] font-bold rounded-[0.75rem] [corner-shape:squircle] shadow-[2px_2px_0_0_#202A5A] transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-white text-navy border-2 border-navy text-[0.8125rem] font-bold rounded-[0.75rem] [corner-shape:squircle] shadow-[3px_3px_0_0_#202A5A] cursor-pointer"
                 >
                   <span>سوییچ به {isFemale ? "هنرستان پسرانه" : "هنرستان دخترانه"}</span>
                   <ChevronLeftIcon className="w-3.5 h-3.5" />
@@ -298,7 +300,7 @@ export default function AlumniPage() {
               </div>
 
               {/* نوار فیلتر دوگانه (نسل‌ها + حوزه‌ها) */}
-              <div className="bg-white border-2 border-navy/15 rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] p-5 sm:p-6 shadow-[3px_3px_0_0_rgba(32,42,90,0.06)] mb-10">
+              <div className="bg-white border-2 border-navy rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] p-5 sm:p-6 shadow-[4px_4px_0_0_#202A5A] mb-10">
                 {/* ردیف اول: فیلتر نسل‌ها */}
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-navy/10">
                   <div className="flex items-center gap-2">
@@ -316,7 +318,7 @@ export default function AlumniPage() {
                             className={`px-3.5 py-1.5 rounded-full text-[0.8125rem] font-bold border transition-all cursor-pointer ${
                               active
                                 ? "bg-navy text-white border-navy shadow-[2px_2px_0_0_#202A5A]"
-                                : "bg-[#F8FAF9] text-navy/70 border-navy/15 hover:border-navy"
+                                : "bg-[#F8FAF9] text-navy/70 border-navy/20 hover:border-navy"
                             }`}
                           >
                             {g.label}
@@ -339,10 +341,10 @@ export default function AlumniPage() {
                   <button
                     type="button"
                     onClick={() => setPersonaFilter("all")}
-                    className={`px-3 py-1 rounded-full text-[0.75rem] font-bold border transition-colors cursor-pointer ${
+                    className={`px-3 py-1 rounded-full text-[0.75rem] font-bold border cursor-pointer ${
                       personaFilter === "all"
-                        ? "text-white border-transparent shadow-[2px_2px_0_0_#202A5A]"
-                        : "bg-white text-navy/70 border-navy/15 hover:border-navy"
+                        ? "text-white border-navy shadow-[2px_2px_0_0_#202A5A]"
+                        : "bg-white text-navy/70 border-navy/20 hover:border-navy"
                     }`}
                     style={{ backgroundColor: personaFilter === "all" ? branchColor : undefined }}
                   >
@@ -356,10 +358,10 @@ export default function AlumniPage() {
                         key={pKey}
                         type="button"
                         onClick={() => setPersonaFilter(pKey)}
-                        className={`px-3 py-1 rounded-full text-[0.75rem] font-bold border transition-colors cursor-pointer ${
+                        className={`px-3 py-1 rounded-full text-[0.75rem] font-bold border cursor-pointer ${
                           active
-                            ? "bg-navy text-white border-navy"
-                            : "bg-white text-navy/70 border-navy/15 hover:border-navy"
+                            ? "bg-navy text-white border-navy shadow-[2px_2px_0_0_#202A5A]"
+                            : "bg-white text-navy/70 border-navy/20 hover:border-navy"
                         }`}
                       >
                         {p.label}
@@ -403,8 +405,8 @@ export default function AlumniPage() {
                     const tagColor = isFemale ? "text-[#E0195B]" : "text-[#21295A]";
 
                     return (
-                      <div key={member.slug} className="group relative">
-                        {/* لایه زیرین سایه سخت */}
+                      <div key={member.slug} className="relative">
+                        {/* لایه زیرین سایه سخت دائمی */}
                         <div
                           aria-hidden="true"
                           className="absolute inset-0 translate-x-[0.25rem] translate-y-[0.25rem] rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle]"
@@ -412,7 +414,7 @@ export default function AlumniPage() {
                         />
 
                         {/* کارت اصلی */}
-                        <div className="relative bg-white rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] border-2 border-navy p-6 sm:p-7 flex flex-col justify-between h-full transition-transform duration-300 group-hover:-translate-y-1">
+                        <div className="relative bg-white rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] border-2 border-navy p-6 sm:p-7 flex flex-col justify-between h-full">
                           <div>
                             {/* هدر کارت */}
                             <div className="flex items-center justify-between gap-2 mb-4">
@@ -439,7 +441,7 @@ export default function AlumniPage() {
                                 {initials(member.name)}
                               </div>
                               <div className="min-w-0">
-                                <h3 className="font-black text-[1.1875rem] text-navy group-hover:text-teal transition-colors">
+                                <h3 className="font-black text-[1.1875rem] text-navy">
                                   {member.name}
                                 </h3>
                                 <p className="text-[0.8125rem] font-bold text-teal-text line-clamp-1">
@@ -467,7 +469,7 @@ export default function AlumniPage() {
 
                             <Link
                               href={`/alumni/${member.slug}`}
-                              className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 bg-[#F8FAF9] hover:bg-navy text-navy hover:text-white border-2 border-navy text-[0.8125rem] font-black rounded-[0.75rem] [corner-shape:squircle] transition-all duration-300"
+                              className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 bg-[#F8FAF9] text-navy border-2 border-navy text-[0.8125rem] font-black rounded-[0.75rem] [corner-shape:squircle] shadow-[2px_2px_0_0_#202A5A]"
                             >
                               <span>مشاهده رزومه و نمونه‌کارها</span>
                               <ChevronLeftIcon className="w-4 h-4" />
@@ -503,13 +505,13 @@ export default function AlumniPage() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
                   {filteredProjects.map((p, i) => (
-                    <div key={i} className="relative group">
+                    <div key={i} className="relative">
                       <div
                         aria-hidden="true"
                         className="absolute inset-0 translate-x-[0.3rem] translate-y-[0.3rem] rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle]"
                         style={{ backgroundColor: p.color }}
                       />
-                      <div className="relative bg-white border-2 border-navy rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] p-6 sm:p-7 flex flex-col justify-between h-full transition-transform duration-300 group-hover:-translate-y-1">
+                      <div className="relative bg-white border-2 border-navy rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] p-6 sm:p-7 flex flex-col justify-between h-full">
                         <div>
                           <div className="flex items-center justify-between mb-4">
                             <span
@@ -545,7 +547,7 @@ export default function AlumniPage() {
 
                         <div className="pt-4 border-t border-navy/10 flex items-center justify-between text-[0.8125rem] font-bold text-navy">
                           <span>حوزه: {p.category}</span>
-                          <span className="text-teal-text group-hover:-translate-x-1 transition-transform">
+                          <span className="text-teal-text">
                             محصول فعال ←
                           </span>
                         </div>
@@ -557,7 +559,7 @@ export default function AlumniPage() {
             </section>
           )}
 
-          {/* ── شرکت‌های میزبان ── */}
+          {/* ── شرکت‌های میزبان با شدوی ثابت ── */}
           <section className="py-14 sm:py-20 bg-[#F8FAF9] border-t border-navy/10">
             <Container>
               <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
@@ -576,7 +578,7 @@ export default function AlumniPage() {
                 {hiringCompanies.map((c, i) => (
                   <div
                     key={i}
-                    className="bg-white border-2 border-navy/15 rounded-[0_1.25rem_0_1.25rem] [corner-shape:squircle] p-4 text-center transition-all duration-300 hover:border-navy hover:-translate-y-1 hover:shadow-[3px_3px_0_0_#202A5A]"
+                    className="bg-white border-2 border-navy rounded-[0_1.25rem_0_1.25rem] [corner-shape:squircle] p-4 text-center shadow-[3px_3px_0_0_#202A5A]"
                   >
                     <div
                       className="w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center font-black text-sm text-white"
@@ -599,7 +601,7 @@ export default function AlumniPage() {
             </Container>
           </section>
 
-          {/* ── نقل‌قول‌های شاخص شعبه ── */}
+          {/* ── نقل‌قول‌های شاخص شعبه با شدوی ثابت ── */}
           {filteredTestimonials.length > 0 && (
             <section className="py-14 sm:py-20 lg:py-24 bg-white border-t border-navy/10">
               <Container>
@@ -620,13 +622,13 @@ export default function AlumniPage() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
                   {filteredTestimonials.map((t, i) => (
-                    <div key={i} className="relative group">
+                    <div key={i} className="relative">
                       <div
                         aria-hidden="true"
                         className="absolute inset-0 translate-x-[0.25rem] translate-y-[0.25rem] rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle]"
                         style={{ backgroundColor: branchColor }}
                       />
-                      <div className="relative bg-white border-2 border-navy rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] p-6 sm:p-7 flex flex-col justify-between h-full transition-transform duration-300 group-hover:-translate-y-1">
+                      <div className="relative bg-white border-2 border-navy rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] p-6 sm:p-7 flex flex-col justify-between h-full">
                         <div>
                           <div className="flex items-center gap-3.5 mb-4">
                             <div
@@ -665,7 +667,7 @@ export default function AlumniPage() {
       )}
 
       {/* ═════════════════════════════════════════════════════════
-          دعوت به اقدام پایانی (Final CTA)
+          دعوت به اقدام پایانی (Final CTA) با شدوی ثابت
       ═════════════════════════════════════════════════════════ */}
       <section className="py-14 sm:py-20 lg:py-24 bg-teal text-white text-center relative overflow-hidden">
         <Container className="relative z-10 max-w-3xl mx-auto">
@@ -684,13 +686,13 @@ export default function AlumniPage() {
             <button
               type="button"
               onClick={openEnrollment}
-              className="inline-flex items-center justify-center min-w-[12rem] sm:min-w-[14rem] h-[3.25rem] sm:h-[3.75rem] px-6 sm:px-8 bg-navy text-white font-black text-[1rem] rounded-[0.875rem] [corner-shape:squircle] shadow-[4px_4px_0_0_#ffffff] hover:-translate-y-1 transition-all cursor-pointer"
+              className="inline-flex items-center justify-center min-w-[12rem] sm:min-w-[14rem] h-[3.25rem] sm:h-[3.75rem] px-6 sm:px-8 bg-navy text-white font-black text-[1rem] rounded-[0.875rem] [corner-shape:squircle] shadow-[4px_4px_0_0_#ffffff] cursor-pointer"
             >
               تکمیل فرم پیش‌ثبت‌نام
             </button>
             <Link
               href="/about"
-              className="inline-flex items-center justify-center min-w-[10rem] sm:min-w-[12rem] h-[3.25rem] sm:h-[3.75rem] px-6 bg-white text-navy font-black text-[0.9375rem] rounded-[0.875rem] [corner-shape:squircle] shadow-[4px_4px_0_0_#202A5A] hover:-translate-y-1 transition-all"
+              className="inline-flex items-center justify-center min-w-[10rem] sm:min-w-[12rem] h-[3.25rem] sm:h-[3.75rem] px-6 bg-white text-navy font-black text-[0.9375rem] rounded-[0.875rem] [corner-shape:squircle] shadow-[4px_4px_0_0_#202A5A]"
             >
               درباره رُکاد بیشتر بدانید
             </Link>

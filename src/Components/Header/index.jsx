@@ -12,9 +12,9 @@ const navLinks = [
   { label: "صفحه اصلی", to: "/" },
   { label: "مدارس", to: "/#schools" },
   { label: "افتخارات", to: "/honors" },
-  { label: "مشاوره هدایت تحصیلی و شغلی", to: "/#counseling" },
+  { label: "مشاوره تحصیلی", to: "/#counseling" },
   { label: "درباره ما", to: "/about" },
-  { label: "درخواست همکاری", to: "/#cooperation" },
+  { label: "همکاری با ما", to: "/#cooperation" },
 ];
 
 // تنظیمات انیمیشن سریع و یکدست برای جلوگیری از تداخل و تأخیر

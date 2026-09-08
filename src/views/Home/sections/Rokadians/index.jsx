@@ -265,12 +265,12 @@ export default function Rokadians() {
       dir="rtl"
       className="relative overflow-hidden bg-white pt-[2rem] sm:pt-[2.5rem] lg:pt-[2.5rem] pb-[3.5rem] sm:pb-[5rem] lg:pb-[6rem]"
     >
-      {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول ── */}
+      {/* ── Background Pattern Layer — ماسک گرادیانی عمیق‌تر و مشخص‌تر ── */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60 rotate-180
-                [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]
-                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-65 rotate-180
+                [mask-image:linear-gradient(to_bottom,transparent_0%,black_30%,black_70%,transparent_100%)]
+                [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_30%,black_70%,transparent_100%)]"
       >
         <img
           src={sectionPattern}

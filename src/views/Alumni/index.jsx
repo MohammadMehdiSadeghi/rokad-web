@@ -97,10 +97,10 @@ export default function AlumniPage() {
           ۱. هیرو و کارت‌های انتخاب شعبه (Branch Gatekeeper)
       ═════════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden bg-white pt-10 sm:pt-14 lg:pt-16 pb-10 sm:pb-14 w-full">
-        {/* لایه پترن پس‌زمینه با گرادیان ماسک استاندارد رکاد */}
+        {/* لایه پترن پس‌زمینه با گرادیان ماسک عمیق‌تر */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-50 rotate-180 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+          className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60 rotate-180 [mask-image:linear-gradient(to_bottom,transparent_0%,black_30%,black_70%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_30%,black_70%,transparent_100%)]"
         >
           <img
             src="/assets/Pattern/layout-pattern.png"

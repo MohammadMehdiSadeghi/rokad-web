@@ -59,7 +59,7 @@ function BranchCard({ branch }) {
           background: branch.color,
           borderRadius: "24px 0 24px 0",
           border: "2px solid #292827",
-          boxShadow: `2.75px 2.75px 0 ${branch.darker}`,
+          boxShadow: `1.75px 3.75px 0 ${branch.darker}`,
         }}
       >
         {/* ردیف بالا: برچسب انگلیسی + چیپ سفید */}

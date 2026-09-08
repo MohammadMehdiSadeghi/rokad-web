@@ -192,7 +192,7 @@ export default function TeamTeaser() {
     <section
       id="team-teaser"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] w-full"
+      className="relative overflow-hidden bg-white pt-10 sm:pt-[5rem] lg:pt-[6rem] pb-10 sm:pb-[5rem] lg:pb-[6rem] w-full"
     >
       {/* ── Background Pattern Layer ── */}
       <div
@@ -210,11 +210,11 @@ export default function TeamTeaser() {
       </div>
 
       <Container className="relative z-10">
-        {/* ── هدر — فاصله ۳۲px در موبایل، ۴rem در تبلت/دسکتاپ ── */}
-        <div className="max-w-[50rem] mb-8 sm:mb-[4rem]">
-          <h2 className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827] mb-0">
+        {/* ── هدر ── */}
+        <div className="max-w-[50rem] mb-4 sm:mb-8 lg:mb-[4rem]">
+          <h2 className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827] mb-0">
             <span className="inline-block -rotate-3">عوامل</span>
-                        <span className="inline-block rotate-3 text-[#e0195b]">رکاد</span>
+            <span className="inline-block rotate-3 text-[#e0195b]">رکاد</span>
           </h2>
           {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
           <p className="sr-only">

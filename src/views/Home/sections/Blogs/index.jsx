@@ -186,12 +186,13 @@ export default function Blogs() {
 
   return (
     <section
+      id="blogs"
       className="
         relative
-        pt-[4rem]
+        pt-10
         sm:pt-[5rem]
         lg:pt-[6rem]
-        pb-[4rem]
+        pb-10
         sm:pb-[5rem]
         lg:pb-[6rem]
         w-full
@@ -243,38 +244,35 @@ export default function Blogs() {
             className="
               relative
               flex
-              flex-col
-              sm:flex-row
+              flex-row
               items-center
-              sm:items-start
               justify-between
-              gap-4
+              gap-3
               sm:gap-6
-              mb-8
-              sm:mb-[4rem]
+              mb-3
+              sm:mb-6
+              lg:mb-10
             "
           >
             {/* Heading */}
 
-            <div className="flex-1 flex sm:justify-start">
+            <div className="flex-1 text-right">
               <h2
                 className="
-                  text-center
-                  sm:text-right
+                  text-right
                   font-black
-                  text-[1.5rem]
-                    sm:text-[2.25rem]
-                    md:text-[2.25rem]
-                    lg:text-[3.3125rem]
-                    xl:text-[3.3125rem]
-                  leading-[1.3]
+                  text-[1.25rem]
+                  xs:text-[1.375rem]
+                  sm:text-[2.25rem]
+                  lg:text-[3.3125rem]
+                  leading-tight
                   text-ink
                   flex
                   flex-wrap
-                  justify-center
-                  sm:justify-start
                   items-center
-                  gap-x-2
+                  gap-x-1.5
+                  xs:gap-x-2
+                  sm:gap-x-3
                   gap-y-1
                 "
               >
@@ -332,9 +330,6 @@ export default function Blogs() {
                 transition-all
                 duration-300
                 flex-shrink-0
-                ml-4
-                sm:ml-8
-                lg:ml-[6.5rem]
               "
             >
               <div
@@ -345,7 +340,7 @@ export default function Blogs() {
                   left-[0.125rem]
                   w-full
                   h-full
-                  rounded-[0_0.82rem_0_0.82rem]
+                  rounded-[0_0.75rem_0_0.75rem]
                   [corner-shape:squircle]
                   bg-[#21295A]
                 "
@@ -360,15 +355,18 @@ export default function Blogs() {
                   border-[#21295A]
                   text-[#21295A]
                   font-extrabold
-                  text-sm
+                  text-xs
+                  xs:text-sm
                   sm:text-base
-                  px-6
-                  py-3
-                  rounded-[0_0.82rem_0_0.82rem]
+                  px-3.5
+                  xs:px-4
+                  sm:px-6
+                  py-2
+                  sm:py-2.5
+                  rounded-[0_0.75rem_0_0.75rem]
                   [corner-shape:squircle]
                   whitespace-nowrap
                   cursor-pointer
-                  flex-shrink-0
                   [background-image:linear-gradient(to_right,#21295A,#21295A)]
                   bg-no-repeat
                   [background-size:0%_100%]

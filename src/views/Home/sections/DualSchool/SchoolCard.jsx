@@ -50,13 +50,13 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
                                     src={illustration}
                                     alt=""
                                     aria-hidden="true"
-                                    className="pointer-events-none select-none absolute bottom-0 left-0 h-[16rem] sm:h-[15rem] lg:h-[17rem] w-auto opacity-95 z-[1]"
+                                    className="pointer-events-none select-none absolute bottom-0 left-0 h-[10rem] sm:h-[15rem] lg:h-[17rem] w-auto opacity-40 sm:opacity-95 z-[1]"
                                   />
                                 )}
 
                         {/* Text Container — توزیع مساوی فضا بین همه‌ی آیتم‌ها:
                             تایتل بالا، دکمه پایین، متا و بج وسط با فاصله‌ی یکسان */}
-                                        <div className="relative z-10 flex flex-col justify-between flex-1 max-w-full sm:max-w-[70%] ml-0 sm:ml-auto">
+                                        <div className="relative z-10 flex flex-col justify-between flex-1 max-w-full sm:max-w-[70%] sm:ml-auto">
           {/* Title — سر جاش، بالای کارت */}
           <h3 className="font-black text-[1.625rem] sm:text-[2.125rem] lg:text-[2.25rem] leading-tight">
             {title}

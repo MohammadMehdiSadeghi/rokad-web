@@ -254,7 +254,7 @@ export default function TeamTeaser() {
                   alt={FEATURED.name}
                   loading="lazy"
                   draggable="false"
-                  className="relative z-10 h-[18.5rem] sm:h-[21.5rem] lg:h-[24rem] w-auto object-contain object-bottom translate-y-4 scale-125"
+                  className="relative z-10 h-[18.5rem] sm:h-[21.5rem] lg:h-[24rem] w-auto object-contain object-bottom translate-y-7 sm:translate-y-8 lg:translate-y-10 scale-125"
                 />
               </div>
 

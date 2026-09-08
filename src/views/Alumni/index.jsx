@@ -28,6 +28,9 @@ function initials(name) {
   return (parts[0]?.[0] ?? "") + "." + (parts[1]?.[0] ?? "");
 }
 
+const patternPink = "/assets/home/TeamTeaser/pink.png";
+const patternGreen = "/assets/home/TeamTeaser/green.png";
+
 const GENERATIONS = [
   { id: "all", label: "همه نسل‌ها" },
   { id: "نسل ۷", label: "نسل هفتم (۱۴۰۳)" },
@@ -87,6 +90,7 @@ export default function AlumniPage() {
   const isFemale = selectedBranch === "female";
   const branchColor = isFemale ? "#E0195B" : "#58BDAF";
   const branchBgLight = isFemale ? "#FEFAFB" : "#EEF8F7";
+  const branchPattern = isFemale ? patternPink : patternGreen;
 
   return (
     <div dir="rtl" className="w-full bg-white overflow-hidden">
@@ -394,17 +398,17 @@ export default function AlumniPage() {
 
                         {/* کارت اصلی کلاسیک رُکاد */}
                         <article className="relative bg-white rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden border-2 border-navy flex flex-col justify-between h-full">
-                          {/* هدر گرافیکی کارت با رنگ تخت و پترن رُکاد (بدون گرادیان) */}
+                          {/* هدر گرافیکی کارت با رنگ تخت و پترن همرنگ رُکاد */}
                           <div
                             className="relative w-full h-[5.5rem] shrink-0 overflow-hidden"
                             style={{ backgroundColor: branchColor }}
                           >
                             <img
-                              src="/assets/home/Rokadians/Frame 1000006407.png"
+                              src={branchPattern}
                               alt=""
                               aria-hidden="true"
                               draggable="false"
-                              className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-35"
+                              className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-40"
                             />
 
                             {/* تگ نسل در گوشه */}

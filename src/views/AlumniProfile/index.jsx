@@ -7,7 +7,7 @@ import { useEnrollment } from "../../lib/EnrollmentContext";
 import { PERSONAS, INK, INK_LIGHT, findAlumni, themeFor } from "../Alumni/data";
 
 /* =========================================================
-   پروفایل دانش‌آموخته — دیزاین سیستم رُکاد
+   پروفایل دانش‌آموخته — دیزاین سیستم رکاد
    شامل: جایگاه شغلی فعلی، دستاوردها و افتخارات،
    فعالیت‌های کلیدی در دوره دانش‌آموزی، پروژه‌های شاخص،
    پیام و نقل‌قول، و مشخصات کلیدی.
@@ -245,7 +245,7 @@ export default function AlumniProfileView({ slug }) {
             <div className="text-center lg:text-right">
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-2">
                 <GlassLabel>
-                  بخش {persona.label} رُکاد — {member.gen}
+                  بخش {persona.label} رکاد — {member.gen}
                 </GlassLabel>
                 {member.currentStatus && (
                   <span
@@ -318,7 +318,7 @@ export default function AlumniProfileView({ slug }) {
                 ))}
               </div>
 
-              {/* ۲. پیام و روایت دانش‌آموخته از رُکاد (یک‌بند شاخص) */}
+              {/* ۲. پیام و روایت دانش‌آموخته از رکاد (یک‌بند شاخص) */}
               {member.quote && (
                 <div
                   className="p-6 sm:p-7 relative"
@@ -334,7 +334,7 @@ export default function AlumniProfileView({ slug }) {
                     className="absolute -top-3 right-6 text-[0.75rem] font-black px-3 py-0.5 rounded-full text-white"
                     style={{ background: p.normal }}
                   >
-                    روایت تجربه در رُکاد
+                    روایت تجربه در رکاد
                   </span>
                   <p className="text-[1rem] sm:text-[1.0625rem] leading-[2] font-semibold text-ink pt-1">
                     «{member.quote}»
@@ -375,10 +375,10 @@ export default function AlumniProfileView({ slug }) {
                 </div>
               )}
 
-              {/* ۴. فعالیت‌های کلیدی در دوره دانش‌آموزی رُکاد (فیلد اختصاصی از ویس) */}
+              {/* ۴. فعالیت‌های کلیدی در دوره دانش‌آموزی رکاد (فیلد اختصاصی از ویس) */}
               {member.studentActivities && member.studentActivities.length > 0 && (
                 <div>
-                  <SectTitle p={p}>فعالیت‌های کلیدی در دوران دانش‌آموزی رُکاد</SectTitle>
+                  <SectTitle p={p}>فعالیت‌های کلیدی در دوران دانش‌آموزی رکاد</SectTitle>
                   <div className="grid gap-3">
                     {member.studentActivities.map((act, i) => (
                       <div
@@ -431,8 +431,8 @@ export default function AlumniProfileView({ slug }) {
                 <dl className="grid gap-3">
                   {[
                     ["وضعیت شغلی فعلی", member.currentStatus || member.role],
-                    ["نسل رُکاد", member.gen],
-                    ["بخش رُکاد", persona.label],
+                    ["نسل رکاد", member.gen],
+                    ["بخش رکاد", persona.label],
                     ["حوزه تخصصی", member.field],
                     ["شهر فعالیت", member.city],
                     ["سال فارغ‌التحصیلی", member.year],
@@ -519,7 +519,7 @@ export default function AlumniProfileView({ slug }) {
                 </h2>
               </div>
               <p className="text-[0.8125rem] text-ink/60 max-w-sm">
-                نمونه‌ای از محصولات، سامانه‌ها و پروژه‌های اجرا شده توسط {member.name.split(" ")[0]} در بازار کار و دوره رُکاد.
+                نمونه‌ای از محصولات، سامانه‌ها و پروژه‌های اجرا شده توسط {member.name.split(" ")[0]} در بازار کار و دوره رکاد.
               </p>
             </div>
 

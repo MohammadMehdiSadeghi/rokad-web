@@ -226,7 +226,7 @@ export default function TeamTeaser() {
           <div className="relative">
             {/* نشان امضای رکاد */}
             <span className="absolute -top-2.5 right-3 z-30 bg-[#F8A41D] text-navy border-2 border-navy rounded-[0_0.625rem_0_0.625rem] [corner-shape:squircle] px-3 py-1 font-black text-[0.75rem] rotate-[-2deg] shadow-[2px_2px_0_0_#202A5A]">
-              امضای رُکاد
+              امضای رکاد
             </span>
 
             {/* سایه پشتی */}

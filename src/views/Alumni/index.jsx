@@ -16,10 +16,10 @@ import {
 } from "./data";
 
 /* =========================================================
-   صفحه گرید کلاسیک دانش‌آموختگان رُکاد (Classic Alumni Grid)
+   صفحه گرید کلاسیک دانش‌آموختگان رکاد (Classic Alumni Grid)
    - ورود اولیه مشروط به انتخاب شعبه (دخترانه / پسرانه) است.
    - محتوا و دانش‌آموختگان کاملاً تفکیک‌شده و بدون تداخل هستند.
-   - کارت‌ها دقیقاً به سبک کلاسیک رُکاد (پترن بالایی، آواتار مدور همپوشان،
+   - کارت‌ها دقیقاً به سبک کلاسیک رکاد (پترن بالایی، آواتار مدور همپوشان،
      اطلاعات، برچسب تخصص، فوتر لینکدین و شدوی سخت دائمی).
 ========================================================= */
 
@@ -116,14 +116,14 @@ export default function AlumniPage() {
           <div className="inline-flex items-center gap-2 bg-[#E4F4F2] border-2 border-teal rounded-full px-4 sm:px-5 py-1.5 mb-4 shadow-[2px_2px_0_0_#58BDAF]">
             <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
             <span className="text-[0.8125rem] sm:text-[0.875rem] font-bold text-teal-text">
-              جامعه متخصصان و فارغ‌التحصیلان رُکاداسکول
+              جامعه متخصصان و فارغ‌التحصیلان رکاداسکول
             </span>
           </div>
 
           {/* Main Title */}
           <h1 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] leading-[1.3] text-navy mb-4 flex flex-wrap justify-center items-center gap-x-2.5">
             <span>ببین </span>
-            <span className="text-[#21295A]">رُکادی‌ها</span>
+            <span className="text-[#21295A]">رکادی‌ها</span>
             <span>الان </span>
             <span className="text-teal-wordmark">کجان؟</span>
           </h1>
@@ -168,7 +168,7 @@ export default function AlumniPage() {
                     </div>
                     <div>
                       <h3 className="font-black text-[1.25rem] text-[#E0195B]">
-                        هنرستان دخترانه رُکاد
+                        هنرستان دخترانه رکاد
                       </h3>
                       <span className="text-[0.8125rem] font-bold text-navy/50">
                         {counts.female} دانش‌آموخته
@@ -221,7 +221,7 @@ export default function AlumniPage() {
                     </div>
                     <div>
                       <h3 className="font-black text-[1.25rem] text-[#58BDAF]">
-                        هنرستان پسرانه رُکاد
+                        هنرستان پسرانه رکاد
                       </h3>
                       <span className="text-[0.8125rem] font-bold text-navy/50">
                         {counts.male} دانش‌آموخته
@@ -270,7 +270,7 @@ export default function AlumniPage() {
         </section>
       ) : (
         /* ═════════════════════════════════════════════════════════
-           حالت ۲: پس از انتخاب شعبه (گرید کلاسیک رُکاد)
+           حالت ۲: پس از انتخاب شعبه (گرید کلاسیک رکاد)
         ═════════════════════════════════════════════════════════ */
         <>
           {/* ── بخش گرید کلاسیک دانش‌آموختگان ── */}
@@ -283,7 +283,7 @@ export default function AlumniPage() {
                     className="text-[0.8125rem] font-black px-3.5 py-1 rounded-full text-white inline-block mb-2 shadow-[2px_2px_0_0_#202A5A]"
                     style={{ backgroundColor: branchColor }}
                   >
-                    {isFemale ? "هنرستان دخترانه رُکاد" : "هنرستان پسرانه رُکاد"}
+                    {isFemale ? "هنرستان دخترانه رکاد" : "هنرستان پسرانه رکاد"}
                   </span>
                   <h2 className="font-black text-[1.5rem] sm:text-[2rem] text-navy">
                     گرید دانش‌آموختگان {isFemale ? "دختر" : "پسر"}
@@ -354,7 +354,7 @@ export default function AlumniPage() {
               </div>
 
               {/* ═════════════════════════════════════════════════════
-                  گرید کارت‌های کلاسیک رُکاد (Classic Rokad Cards)
+                  گرید کارت‌های کلاسیک رکاد (Classic Rokad Cards)
               ═════════════════════════════════════════════════════ */}
               {filteredAlumni.length === 0 ? (
                 <div className="bg-white border-2 border-dashed border-navy/20 rounded-[0_2rem_0_2rem] p-10 text-center my-8">
@@ -396,9 +396,9 @@ export default function AlumniPage() {
                           style={{ backgroundColor: branchColor }}
                         />
 
-                        {/* کارت اصلی کلاسیک رُکاد */}
+                        {/* کارت اصلی کلاسیک رکاد */}
                         <article className="relative bg-white rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden border-2 border-navy flex flex-col justify-between h-full">
-                          {/* هدر گرافیکی کارت با رنگ تخت و پترن همرنگ رُکاد */}
+                          {/* هدر گرافیکی کارت با رنگ تخت و پترن همرنگ رکاد */}
                           <div
                             className="relative w-full h-[5.5rem] shrink-0 overflow-hidden"
                             style={{ backgroundColor: branchColor }}
@@ -497,7 +497,7 @@ export default function AlumniPage() {
                     پروژه‌های شاخص این شعبه
                   </h2>
                   <p className="text-[0.875rem] sm:text-[0.9375rem] leading-[1.8] text-navy/70">
-                    محصولاتی که از پروژه‌های کلاسی رُکاد متولد شدند و امروز در اشل صنعتی فعال هستند.
+                    محصولاتی که از پروژه‌های کلاسی رکاد متولد شدند و امروز در اشل صنعتی فعال هستند.
                   </p>
                 </div>
 
@@ -565,10 +565,10 @@ export default function AlumniPage() {
                   شبکه شغلی
                 </span>
                 <h2 className="font-black text-[1.625rem] sm:text-[2.125rem] lg:text-[2.5rem] leading-[1.3] text-navy mb-2">
-                  دانش‌آموختگان رُکاد در کدام شرکت‌ها هستند؟
+                  دانش‌آموختگان رکاد در کدام شرکت‌ها هستند؟
                 </h2>
                 <p className="text-[0.875rem] leading-[1.8] text-navy/70">
-                  معتبرترین استارتاپ‌های پیشروی کشور میزبان متخصصان آموزش‌دیده در رُکاد هستند.
+                  معتبرترین استارتاپ‌های پیشروی کشور میزبان متخصصان آموزش‌دیده در رکاد هستند.
                 </p>
               </div>
 
@@ -614,7 +614,7 @@ export default function AlumniPage() {
                     نظرات فارغ‌التحصیلان {isFemale ? "هنرستان دخترانه" : "هنرستان پسرانه"}
                   </h2>
                   <p className="text-[0.875rem] leading-[1.8] text-navy/70">
-                    تجربه حضور در دوره‌ها و اینکه چطور رُکاد مسیر شغلی‌شان را دگرگون کرد.
+                    تجربه حضور در دوره‌ها و اینکه چطور رکاد مسیر شغلی‌شان را دگرگون کرد.
                   </p>
                 </div>
 
@@ -672,11 +672,11 @@ export default function AlumniPage() {
           <h2 className="font-black text-[1.875rem] sm:text-[2.5rem] lg:text-[3rem] leading-[1.3] text-white mb-4 flex flex-wrap justify-center items-center gap-x-2">
             <span>می‌خوای </span>
             <span>جزو نسل بعدی </span>
-            <span>رُکادی‌ها </span>
+            <span>رکادی‌ها </span>
             <span>باشی؟</span>
           </h2>
           <p className="text-[0.875rem] sm:text-[1rem] leading-[1.85] text-white/90 max-w-2xl mx-auto mb-8">
-            پیش‌ثبت‌نام و تعیین‌سطح هنرستان دخترانه و پسرانه استارتاپی رُکاد برای
+            پیش‌ثبت‌نام و تعیین‌سطح هنرستان دخترانه و پسرانه استارتاپی رکاد برای
             سال تحصیلی جدید آغاز شده. کافیه فرم پیش‌ثبت‌نام رو تکمیل کنی تا باهات تماس بگیریم.
           </p>
 
@@ -692,7 +692,7 @@ export default function AlumniPage() {
               href="/about"
               className="inline-flex items-center justify-center min-w-[10rem] sm:min-w-[11rem] h-[3.25rem] px-5 bg-white text-navy font-black text-[0.875rem] rounded-[0.75rem] [corner-shape:squircle] shadow-[3px_3px_0_0_#202A5A]"
             >
-              درباره رُکاد بیشتر بدانید
+              درباره رکاد بیشتر بدانید
             </Link>
           </div>
         </Container>

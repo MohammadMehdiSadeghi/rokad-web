@@ -10,7 +10,7 @@ export async function generateMetadata({ params }) {
   const m = alumni.find((a) => a.slug === slug);
   return {
     title: m ? `${m.name} | دانش‌آموختگان رکاد` : "دانش‌آموخته | رکاد",
-    description: m ? `${m.name} — ${m.role}` : "پروفایل دانش‌آموخته رُکاداسکول",
+    description: m ? `${m.name} — ${m.role}` : "پروفایل دانش‌آموخته رکاداسکول",
   };
 }
 

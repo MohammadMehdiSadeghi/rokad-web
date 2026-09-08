@@ -19,11 +19,11 @@ import {
 } from "../../common/Icons";
 
 /* =========================================================
-   کارت کلاسیک رُکاد (Signature Rokad Card)
-   - گوشه‌های نامتقارن رُکاد (squircle / 0_1.5rem_0_1.5rem)
+   کارت کلاسیک رکاد (Signature Rokad Card)
+   - گوشه‌های نامتقارن رکاد (squircle / 0_1.5rem_0_1.5rem)
    - لایه سایه سخت زیرین (Hard Drop Shadow)
    - هدر رنگی با پترن هندسی و عکس کات‌اوت
-   - فوتر امضای رُکاد با ۳ چیپ ✦ و نشان اختصاصی
+   - فوتر امضای رکاد با ۳ چیپ ✦ و نشان اختصاصی
 ========================================================= */
 function RokadCard({ member, school = "male", isFeatured = false }) {
   const [imgError, setImgError] = useState(false);
@@ -152,9 +152,9 @@ function FounderCard({ member }) {
 
   return (
     <div className="relative max-w-2xl mx-auto w-full">
-      {/* نشان امضای رُکاد بالای کارت */}
+      {/* نشان امضای رکاد بالای کارت */}
       <span className="absolute -top-3 right-4 z-30 bg-[#F8A41D] text-[#202A5A] border-2 border-[#202A5A] rounded-[0_0.625rem_0_0.625rem] [corner-shape:squircle] px-3.5 py-1 font-black text-[0.75rem] sm:text-[0.8125rem] rotate-[-2deg] shadow-[2px_2px_0_0_#202A5A]">
-        امضای رُکاد
+        امضای رکاد
       </span>
 
       {/* لایه سایه سخت زیرین */}
@@ -248,7 +248,7 @@ function FounderCard({ member }) {
 }
 
 /* =========================================================
-   صفحه اصلی عوامل رُکاد
+   صفحه اصلی عوامل رکاد
 ========================================================= */
 export default function FactorsPage() {
   const [activeTab, setActiveTab] = useState("all");
@@ -262,7 +262,7 @@ export default function FactorsPage() {
   return (
     <div className="min-h-screen bg-white text-[#202A5A] pb-16 sm:pb-24">
       {/* ══════════════════════════════════════════════
-          هدر سکشن عوامل با استایل امضای رُکاد
+          هدر سکشن عوامل با استایل امضای رکاد
       ══════════════════════════════════════════════ */}
       <header className="relative pt-12 sm:pt-16 pb-8 sm:pb-12 text-center px-4 overflow-hidden">
         {/* پترن پس‌زمینه محو */}
@@ -283,18 +283,18 @@ export default function FactorsPage() {
           <div className="inline-flex items-center gap-2 bg-[#EEF8F7] border-2 border-[#59BBAF] rounded-full px-4 sm:px-5 py-1.5 mb-4 shadow-[2px_2px_0_0_#59BBAF]">
             <span className="w-2 h-2 rounded-full bg-[#59BBAF] animate-pulse" />
             <span className="text-[0.8125rem] sm:text-[0.875rem] font-black text-[#202A5A]">
-              کادر و عوامل انسانی رُکاداسکول
+              کادر و عوامل انسانی رکاداسکول
             </span>
           </div>
 
           {/* تیتر اصلی */}
           <h1 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] text-[#202A5A] leading-[1.25] mb-3">
-            عوامل <span className="text-[#59BBAF]">رُکاد</span>
+            عوامل <span className="text-[#59BBAF]">رکاد</span>
           </h1>
 
           {/* زیرتیتر */}
           <p className="text-[0.875rem] sm:text-[1.0625rem] font-semibold text-[#202A5A]/70 max-w-2xl mx-auto leading-relaxed">
-            هر پروژه یک قصه دارد، پشت هر قصه یک تیم — این آدم‌ها هستند که هرروز رُکاد را می‌سازند؛ از ایده‌پردازی و مدیریت تا راهبری هنرستان‌ها.
+            هر پروژه یک قصه دارد، پشت هر قصه یک تیم — این آدم‌ها هستند که هرروز رکاد را می‌سازند؛ از ایده‌پردازی و مدیریت تا راهبری هنرستان‌ها.
           </p>
 
           {/* ── تب‌های دسته‌بندی سریع ── */}
@@ -368,10 +368,10 @@ export default function FactorsPage() {
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
               <span className="w-3.5 h-3.5 rounded-full bg-[#F8A41D] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
               <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
-                بنیان‌گذار و ایده‌پرداز رُکاد
+                بنیان‌گذار و ایده‌پرداز رکاد
               </h2>
               <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#F8A41D]">
-                امضای رُکاد
+                امضای رکاد
               </span>
             </div>
 
@@ -408,13 +408,13 @@ export default function FactorsPage() {
           </section>
         )}
 
-        {/* ════ ۳. سکشن هنرستان پسرانه رُکاد ════ */}
+        {/* ════ ۳. سکشن هنرستان پسرانه رکاد ════ */}
         {(activeTab === "all" || activeTab === "male") && (
           <section className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
               <span className="w-3.5 h-3.5 rounded-full bg-[#202A5A] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#F8A41D]" />
               <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
-                هنرستان پسرانه رُکاد
+                هنرستان پسرانه رکاد
               </h2>
               <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#202A5A]">
                 {BOYS_STAFF.length} نفر
@@ -433,13 +433,13 @@ export default function FactorsPage() {
           </section>
         )}
 
-        {/* ════ ۴. سکشن هنرستان دخترانه رُکاد ════ */}
+        {/* ════ ۴. سکشن هنرستان دخترانه رکاد ════ */}
         {(activeTab === "all" || activeTab === "female") && (
           <section className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#E0195B]/20">
               <span className="w-3.5 h-3.5 rounded-full bg-[#E0195B] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#E0195B]" />
               <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
-                هنرستان دخترانه رُکاد
+                هنرستان دخترانه رکاد
               </h2>
               <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#E0195B] text-[#E0195B] shadow-[2px_2px_0_0_#E0195B]">
                 {GIRLS_STAFF.length} نفر

@@ -76,7 +76,7 @@ const MEMBERS = [
     bgLight: "bg-[#FEFAFB]",
     pattern: patternPink,
     shadowColor: "#E0195B",
-    imgClass: "translate-y-6 sm:translate-y-6 lg:translate-y-7 scale-170",
+    imgClass: "translate-y-3.5 sm:translate-y-4 lg:translate-y-4.5 scale-135",
   },
   {
     name: "علیرضا عزیزپور",
@@ -130,7 +130,7 @@ function MiniCard({ member }) {
         <div>
           {/* عکس پرسنل */}
           <div
-            className="relative h-[10.5rem] sm:h-[12rem] lg:h-[13.5rem] overflow-hidden flex items-end justify-center"
+            className="relative h-[8.5rem] sm:h-[9.5rem] lg:h-[10.5rem] overflow-hidden flex items-end justify-center"
             style={{ backgroundColor: member.color }}
           >
             <img
@@ -147,7 +147,7 @@ function MiniCard({ member }) {
               alt={member.name}
               loading="lazy"
               draggable="false"
-              className={`relative z-10 h-[10.25rem] sm:h-[11.75rem] lg:h-[13.25rem] w-auto object-contain object-bottom ${member.imgClass || "translate-y-4 sm:translate-y-4.5 lg:translate-y-5.5 scale-150"}`}
+              className={`relative z-10 h-[8.25rem] sm:h-[9.25rem] lg:h-[10.25rem] w-auto object-contain object-bottom ${member.imgClass || "translate-y-2 sm:translate-y-2.5 lg:translate-y-3 scale-120"}`}
             />
           </div>
 

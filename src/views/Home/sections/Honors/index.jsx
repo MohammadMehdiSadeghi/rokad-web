@@ -71,8 +71,8 @@ export default function HonorsCarousel() {
         sm:pt-[5rem]
         lg:pt-[6rem]
         pb-[2rem]
-        sm:pb-[4rem]
-        lg:pb-[6rem]
+        sm:pb-[2.5rem]
+        lg:pb-[2rem]
         w-full
       "
       dir="rtl"
@@ -202,7 +202,7 @@ export default function HonorsCarousel() {
             CAROUSEL
         ================================================== */}
 
-        <div className="relative w-full pt-1 sm:pt-4 lg:pt-8 pb-4 sm:pb-8 overflow-visible">
+        <div className="relative w-full pt-1 sm:pt-4 lg:pt-8 pb-2 sm:pb-4 lg:pb-3 overflow-visible">
           {/* =================================================
               NEXT BUTTON - LEFT IN RTL
           ================================================== */}

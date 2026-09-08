@@ -263,7 +263,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-[2rem] sm:pt-[4rem] lg:pt-[6rem] pb-[3.5rem] sm:pb-[5rem] lg:pb-[6rem]"
+      className="relative overflow-hidden bg-white pt-[2rem] sm:pt-[2.5rem] lg:pt-[2.5rem] pb-[3.5rem] sm:pb-[5rem] lg:pb-[6rem]"
     >
       {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول ── */}
       <div
@@ -379,7 +379,7 @@ export default function Rokadians() {
                   CARD RAIL
               ================================================= */}
 
-              <div className="rokadians-rail relative z-[10] flex flex-nowrap items-center justify-start gap-5 sm:gap-6 md:gap-8 lg:gap-[2.25rem] xl:gap-[2.5rem] 2xl:gap-[3rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-2 sm:py-3 lg:py-0 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[0.3125rem] 2xl:pl-[0.5rem] pr-8 lg:pr-0">
+              <div className="rokadians-rail relative z-[10] flex flex-nowrap items-center justify-start gap-5 sm:gap-6 md:gap-8 lg:gap-[2.25rem] xl:gap-[2.5rem] 2xl:gap-[3rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-2 sm:py-3 lg:py-0 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-16 xl:pl-24 2xl:pl-32 pr-8 lg:pr-0">
                 {students.map((student, index) => (
                   <StudentCard
                     key={index}

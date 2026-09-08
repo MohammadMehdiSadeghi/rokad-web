@@ -128,7 +128,7 @@ function MiniCard({ member }) {
         <div>
           {/* عکس پرسنل */}
           <div
-            className="relative h-[6.5rem] sm:h-[7.25rem] lg:h-[7.75rem] overflow-hidden flex items-end justify-center"
+            className="relative h-[7.5rem] sm:h-[8.5rem] lg:h-[9.25rem] overflow-hidden flex items-end justify-center"
             style={{ backgroundColor: member.color }}
           >
             <img
@@ -145,7 +145,7 @@ function MiniCard({ member }) {
               alt={member.name}
               loading="lazy"
               draggable="false"
-              className="relative z-10 h-[6.25rem] sm:h-[7rem] lg:h-[7.5rem] w-auto object-contain object-bottom translate-y-1.5 scale-105"
+              className="relative z-10 h-[7.25rem] sm:h-[8.25rem] lg:h-[9rem] w-auto object-contain object-bottom translate-y-2.5 scale-115"
             />
           </div>
 
@@ -241,7 +241,7 @@ export default function TeamTeaser() {
             {/* کارت اصلی */}
             <article className="relative bg-white border-2 border-navy rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden flex flex-col justify-between h-full">
               {/* عکس بزرگ */}
-              <div className="relative bg-[#58bdaf] h-[14.5rem] sm:h-[16.5rem] lg:h-[18rem] overflow-hidden flex items-end justify-center">
+              <div className="relative bg-[#58bdaf] h-[16rem] sm:h-[18rem] lg:h-[19.5rem] overflow-hidden flex items-end justify-center">
                 <img
                   src={patternGreen}
                   alt=""
@@ -253,7 +253,7 @@ export default function TeamTeaser() {
                   alt={FEATURED.name}
                   loading="lazy"
                   draggable="false"
-                  className="relative z-10 h-[14rem] sm:h-[16rem] lg:h-[17.5rem] w-auto object-contain object-bottom translate-y-2 scale-105"
+                  className="relative z-10 h-[15.5rem] sm:h-[17.5rem] lg:h-[19rem] w-auto object-contain object-bottom translate-y-3.5 scale-115"
                 />
               </div>
 

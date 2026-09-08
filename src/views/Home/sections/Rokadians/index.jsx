@@ -201,12 +201,12 @@ function StudentCard({ student, index, stacked }) {
               className="absolute top-[0.15rem] left-[0.15rem] w-full h-full bg-[#292827] rounded-[0_0.5rem_0_0.5rem]"
             />
 
-            <button
-              type="button"
-              className={`relative z-10 ${BADGE_SIZE} bg-white border-[0.09375rem] border-[#292827] text-[#292827] font-bold rounded-[0_0.5rem_0_0.5rem] whitespace-nowrap hover:bg-[#292827] hover:text-white transition-colors`}
+            <Link
+              href={student.slug ? `/alumni/${student.slug}` : "/alumni"}
+              className={`relative z-10 ${BADGE_SIZE} bg-white border-[0.09375rem] border-[#292827] text-[#292827] font-bold rounded-[0_0.5rem_0_0.5rem] whitespace-nowrap hover:bg-[#292827] hover:text-white transition-colors cursor-pointer inline-block`}
             >
               {student.experience || "نسل رکاد"}
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -315,10 +315,10 @@ export default function Rokadians() {
           </div>
 
           {/* =================================================
-              MAIN CONTENT — فاصله استاندارد بین ستون ۳۰۰+ و کارت‌ها
+              MAIN CONTENT — متمرکز در وسط و متوازن
           ================================================= */}
 
-          <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-14 xl:gap-20 2xl:gap-24">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-center gap-6 lg:gap-10 xl:gap-14 2xl:gap-16 max-w-full mx-auto">
             {/* =================================================
                 CARDS AREA
             ================================================= */}

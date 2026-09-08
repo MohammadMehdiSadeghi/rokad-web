@@ -263,7 +263,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-[2rem] sm:pt-[2.5rem] lg:pt-[2.5rem] pb-[3.5rem] sm:pb-[5rem] lg:pb-[6rem]"
+      className="relative overflow-hidden bg-white pt-[2rem] sm:pt-[2.5rem] lg:pt-[2.5rem] pb-[3.5rem] sm:pb-[5rem] lg:pb-[6rem] pl-4 sm:pl-8 lg:pl-16 xl:pl-24"
     >
       {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول ── */}
       <div

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Container from "../../layout/Container";
 import {
   FOUNDER_STAFF,
@@ -8,133 +9,240 @@ import {
   BOYS_STAFF,
   GIRLS_STAFF,
   getInitials,
+  darker,
 } from "./data";
+import {
+  GlobeIcon,
+  TwitterIcon,
+  InstagramIcon,
+  LinkedInIcon,
+} from "../../common/Icons";
 
 /* =========================================================
-   کامپوننت کارت استیکری استاندارد (Sticker Card)
+   کارت کلاسیک رُکاد (Signature Rokad Card)
+   - گوشه‌های نامتقارن رُکاد (squircle / 0_1.5rem_0_1.5rem)
+   - لایه سایه سخت زیرین (Hard Drop Shadow)
+   - هدر رنگی با پترن هندسی و عکس کات‌اوت
+   - فوتر امضای رُکاد با ۳ چیپ ✦ و نشان اختصاصی
 ========================================================= */
-function StickerCard({
-  member,
-  school = "male",
-  index = 0,
-  isFeatured = false,
-}) {
+function RokadCard({ member, school = "male", isFeatured = false }) {
   const [imgError, setImgError] = useState(false);
-
-  // تنظیم رنگ‌ها و سایه‌ها متناسب با نوع دسته‌بندی
-  const themeConfig = {
-    founder: {
-      border: "border-[#202A5A]",
-      shadow: "shadow-[7px_7px_0_0_#59BBAF] hover:shadow-[11px_11px_0_0_#59BBAF]",
-      avatarBg: "bg-[#59BBAF]",
-      avatarBorder: "border-[#202A5A]",
-      roleBg: "bg-[#59BBAF]",
-      badgeBorder: "border-[#202A5A]",
-      badgeText: "text-[#202A5A]",
-      dashedBorder: "border-[#59BBAF]/40",
-    },
-    management: {
-      border: "border-[#202A5A]",
-      shadow: "shadow-[6px_6px_0_0_#59BBAF] hover:shadow-[10px_10px_0_0_#59BBAF]",
-      avatarBg: "bg-[#59BBAF]",
-      avatarBorder: "border-[#202A5A]",
-      roleBg: "bg-[#202A5A]",
-      badgeBorder: "border-[#59BBAF]",
-      badgeText: "text-[#202A5A]",
-      dashedBorder: "border-[#59BBAF]/40",
-    },
-    male: {
-      border: "border-[#202A5A]",
-      shadow: "shadow-[6px_6px_0_0_#202A5A] hover:shadow-[10px_10px_0_0_#202A5A]",
-      avatarBg: "bg-[#202A5A]",
-      avatarBorder: "border-[#202A5A]",
-      roleBg: "bg-[#202A5A]",
-      badgeBorder: "border-[#202A5A]",
-      badgeText: "text-[#202A5A]",
-      dashedBorder: "border-[#202A5A]/30",
-    },
-    female: {
-      border: "border-[#E0195B]",
-      shadow: "shadow-[6px_6px_0_0_#E0195B] hover:shadow-[10px_10px_0_0_#E0195B]",
-      avatarBg: "bg-[#E0195B]",
-      avatarBorder: "border-[#E0195B]",
-      roleBg: "bg-[#E0195B]",
-      badgeBorder: "border-[#E0195B]",
-      badgeText: "text-[#E0195B]",
-      dashedBorder: "border-[#E0195B]/30",
-    },
-  };
-
-  const theme = themeConfig[school] || themeConfig.male;
-
-  // تناوب زوایای چرخش ملایم استیکرها
-  const tiltStyle =
-    index % 3 === 0
-      ? "-rotate-[1.5deg]"
-      : index % 3 === 1
-      ? "rotate-[1.2deg]"
-      : "rotate-0";
 
   const imageSrc =
     !imgError && (member.img || member.fallbackImg)
       ? member.img || member.fallbackImg
       : null;
 
-  return (
-    <div
-      className={`group relative bg-white border-[3px] ${theme.border} rounded-[1.75rem] p-5 sm:p-6 text-center transition-all duration-200 cursor-pointer ${theme.shadow} ${tiltStyle} hover:rotate-0 hover:-translate-x-1 hover:-translate-y-1 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0_0_#202A5A] flex flex-col justify-between ${
-        isFeatured ? "max-w-md mx-auto w-full" : ""
-      }`}
-    >
-      {/* ── نشان بالای استیکر (Badge) ── */}
-      <span
-        className={`absolute -top-3.5 left-3.5 sm:left-4 z-20 bg-white px-3.5 py-1 border-[2.5px] ${theme.badgeBorder} ${theme.badgeText} rounded-full text-[0.6875rem] sm:text-[0.75rem] font-black -rotate-4 shadow-[1.5px_1.5px_0_0_#202A5A] select-none`}
-      >
-        {member.tag || member.badge || "عوامل رکاد"}
-      </span>
+  const darkBorder = darker(member.color);
 
-      <div>
-        {/* ── آواتار دایره‌ای تمیز ── */}
-        <div className="relative mx-auto mb-3.5 w-24 h-24">
+  return (
+    <div className={`relative h-full flex flex-col ${isFeatured ? "max-w-md mx-auto w-full" : ""}`}>
+      {/* ── لایه سایه سخت زیرین ── */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 translate-x-[0.25rem] translate-y-[0.25rem] rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] bg-[#202A5A]"
+      />
+
+      {/* ── بدنه اصلی کارت ── */}
+      <article className="relative z-10 bg-white border-2 border-[#202A5A] rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden flex flex-col justify-between h-full transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5">
+        <div>
+          {/* بالای کارت: رنگ تم + پترن + عکس */}
           <div
-            className={`w-24 h-24 rounded-full flex items-center justify-center text-white text-[1.625rem] font-black border-[3px] border-[#202A5A] overflow-hidden ${theme.avatarBg} shadow-[2px_2px_0_0_#202A5A]`}
+            className="relative w-full h-[10.5rem] sm:h-[11.5rem] overflow-hidden flex items-end justify-center"
+            style={{
+              backgroundColor: member.color,
+              borderBottom: "2px solid #202A5A",
+            }}
           >
+            {/* پترن پس‌زمینه */}
+            {member.pattern && (
+              <img
+                src={member.pattern}
+                alt=""
+                draggable="false"
+                className="absolute inset-0 w-full h-full object-cover opacity-40 select-none pointer-events-none"
+              />
+            )}
+
+            {/* نشان تگ گوشه بالا */}
+            <span
+              className="absolute top-2.5 right-3 z-20 text-[0.6875rem] font-black px-3 py-0.5 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] bg-white text-[#202A5A] border border-[#202A5A] shadow-[1.5px_1.5px_0_0_#202A5A] select-none"
+            >
+              {member.tag || "عوامل رکاد"}
+            </span>
+
+            {/* عکس یا حروف اول */}
             {imageSrc ? (
               <img
                 src={imageSrc}
                 alt={member.name}
                 loading="lazy"
+                draggable="false"
                 onError={() => setImgError(true)}
-                className="w-full h-full object-cover object-top"
+                className="relative z-10 h-[9.75rem] sm:h-[10.75rem] w-auto object-contain object-bottom translate-y-1 scale-105"
               />
             ) : (
-              <span className="select-none tracking-wider">
-                {getInitials(member.name)}
-              </span>
+              <div className="relative z-10 w-full h-full flex items-center justify-center">
+                <span className="text-white font-black text-[3.5rem] leading-none select-none tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]">
+                  {getInitials(member.name)}
+                </span>
+              </div>
+            )}
+          </div>
+
+          {/* اطلاعات متن */}
+          <div className="p-4 sm:p-5 text-right">
+            <h3 className="font-black text-[1.125rem] sm:text-[1.25rem] text-[#202A5A] mb-1">
+              {member.name}
+            </h3>
+            <p className="text-[0.75rem] sm:text-[0.8125rem] font-bold text-[#202A5A]/75 leading-relaxed mb-3">
+              {member.role}
+            </p>
+
+            {member.bio && (
+              <p className="text-[0.75rem] sm:text-[0.8125rem] text-[#202A5A]/70 leading-[1.75] line-clamp-3">
+                {member.bio}
+              </p>
             )}
           </div>
         </div>
 
-        {/* ── نام و سمت ── */}
-        <h3 className="text-[1.0625rem] sm:text-[1.1875rem] font-black text-[#202A5A] mb-1.5">
-          {member.name}
-        </h3>
+        {/* فوتر کارت: ۳ ستاره چیپ + بج پایانی */}
+        <div className="p-4 sm:p-5 pt-0">
+          <div className="w-full h-px bg-[#202A5A]/15 mb-3" />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              {[0, 1, 2].map((i) => (
+                <span
+                  key={i}
+                  className="w-[20px] h-[20px] flex items-center justify-center text-[0.55rem] text-white rounded-[0_4px_0_4px] select-none"
+                  style={{
+                    backgroundColor: member.color,
+                    border: `1px solid ${darkBorder}`,
+                    boxShadow: `1px 1px 0 0 ${darkBorder}`,
+                  }}
+                >
+                  ✦
+                </span>
+              ))}
+            </div>
 
-        <div className="mb-3">
-          <span
-            className={`inline-block text-white px-3.5 py-0.5 rounded-full text-[0.6875rem] sm:text-[0.75rem] font-black ${theme.roleBg} border border-[#202A5A]/20 shadow-[1px_1px_0_0_#202A5A]`}
-          >
-            {member.role}
-          </span>
+            <span
+              className="text-[0.6875rem] font-black text-white px-2.5 py-0.5 rounded-[0_6px_0_6px] select-none"
+              style={{
+                backgroundColor: member.color,
+                border: `1px solid ${darkBorder}`,
+                boxShadow: `1px 1px 0 0 ${darkBorder}`,
+              }}
+            >
+              {member.tag}
+            </span>
+          </div>
+        </div>
+      </article>
+    </div>
+  );
+}
+
+/* =========================================================
+   کارت اختصاصی بنیان‌گذار (Featured Founder Card)
+========================================================= */
+function FounderCard({ member }) {
+  const darkBorder = darker(member.color);
+
+  return (
+    <div className="relative max-w-2xl mx-auto w-full">
+      {/* نشان امضای رُکاد بالای کارت */}
+      <span className="absolute -top-3 right-4 z-30 bg-[#F8A41D] text-[#202A5A] border-2 border-[#202A5A] rounded-[0_0.625rem_0_0.625rem] [corner-shape:squircle] px-3.5 py-1 font-black text-[0.75rem] sm:text-[0.8125rem] rotate-[-2deg] shadow-[2px_2px_0_0_#202A5A]">
+        امضای رُکاد
+      </span>
+
+      {/* لایه سایه سخت زیرین */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 translate-x-[0.35rem] translate-y-[0.35rem] rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] bg-[#202A5A]"
+      />
+
+      {/* بدنه کارت افقی/عمودی بنیان‌گذار */}
+      <article className="relative z-10 bg-white border-2 border-[#202A5A] rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden flex flex-col sm:flex-row justify-between transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5">
+        {/* سمت تصویر: پترن سبز + پرتره بزرگ */}
+        <div className="relative sm:w-[42%] bg-[#59BBAF] min-h-[14rem] sm:min-h-[16rem] overflow-hidden flex items-end justify-center border-b-2 sm:border-b-0 sm:border-l-2 border-[#202A5A]">
+          <img
+            src={member.pattern}
+            alt=""
+            draggable="false"
+            className="absolute inset-0 w-full h-full object-cover opacity-40 select-none pointer-events-none"
+          />
+          <img
+            src={member.img}
+            alt={member.name}
+            loading="lazy"
+            draggable="false"
+            className="relative z-10 h-[13rem] sm:h-[15rem] w-auto object-contain object-bottom translate-y-3 scale-110"
+          />
         </div>
 
-        {/* ── بیوگرافی و توضیحات ── */}
-        <p
-          className={`text-[0.75rem] sm:text-[0.8125rem] text-[#202A5A]/80 leading-[1.8] pt-2.5 border-t-2 border-dashed ${theme.dashedBorder}`}
-        >
-          {member.bio}
-        </p>
-      </div>
+        {/* سمت توضیحات و بیوگرافی */}
+        <div className="sm:w-[58%] p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <span
+              className="inline-block text-[0.6875rem] font-black text-white px-3 py-0.5 rounded-[0_6px_0_6px] mb-2"
+              style={{
+                backgroundColor: member.color,
+                border: `1px solid ${darkBorder}`,
+                boxShadow: `1px 1px 0 0 ${darkBorder}`,
+              }}
+            >
+              {member.tag}
+            </span>
+
+            <h3 className="font-black text-[1.375rem] sm:text-[1.5rem] text-[#202A5A] mb-1">
+              {member.name}
+            </h3>
+
+            <p className="text-[0.8125rem] sm:text-[0.875rem] font-bold text-[#202A5A]/80 mb-3">
+              {member.role}
+            </p>
+
+            <p className="text-[0.8125rem] text-[#202A5A]/75 leading-[1.8] mb-4">
+              {member.bio}
+            </p>
+          </div>
+
+          <div>
+            <div className="w-full h-px bg-[#202A5A]/15 my-3" />
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1.5">
+                {[0, 1, 2].map((i) => (
+                  <span
+                    key={i}
+                    className="w-[22px] h-[22px] flex items-center justify-center text-[0.6rem] text-white rounded-[0_4px_0_4px]"
+                    style={{
+                      backgroundColor: member.color,
+                      border: `1px solid ${darkBorder}`,
+                      boxShadow: `1px 1px 0 0 ${darkBorder}`,
+                    }}
+                  >
+                    ✦
+                  </span>
+                ))}
+              </div>
+
+              {member.website && (
+                <a
+                  href={member.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[0.75rem] font-black text-[#202A5A] bg-[#EEF8F7] border border-[#59BBAF] px-3 py-1 rounded-[0_6px_0_6px] shadow-[1.5px_1.5px_0_0_#202A5A] hover:bg-[#59BBAF] hover:text-white transition-all"
+                >
+                  <GlobeIcon className="w-3.5 h-3.5" />
+                  <span>وب‌سایت شخصی</span>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   );
 }
@@ -152,41 +260,41 @@ export default function FactorsPage() {
     GIRLS_STAFF.length;
 
   return (
-    <div className="min-h-screen bg-[#fefdf8] text-[#202A5A] pb-16 sm:pb-24">
+    <div className="min-h-screen bg-white text-[#202A5A] pb-16 sm:pb-24">
       {/* ══════════════════════════════════════════════
-          هدر کمیک و استیکری صفحه
+          هدر سکشن عوامل با استایل امضای رُکاد
       ══════════════════════════════════════════════ */}
       <header className="relative pt-12 sm:pt-16 pb-8 sm:pb-12 text-center px-4 overflow-hidden">
         {/* پترن پس‌زمینه محو */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full opacity-30 pointer-events-none [mask-image:linear-gradient(to_bottom,black_20%,transparent)]"
+          className="absolute inset-0 w-full h-full opacity-40 pointer-events-none rotate-180 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]"
         >
           <img
             src="/assets/Pattern/layout-pattern.png"
             alt=""
-            className="w-full h-full object-cover"
+            draggable="false"
+            className="w-full h-full object-cover select-none"
           />
         </div>
 
         <Container className="relative z-10">
-          {/* نشان کوچک بالای تیتر */}
-          <div className="inline-block mb-3">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#F8A41D] text-[#202A5A] border-2 border-[#202A5A] rounded-full text-[0.8125rem] font-black rotate-2 shadow-[2px_2px_0_0_#202A5A]">
-              ✦ عوامل رُکاد ✦
+          {/* Eyebrow badge */}
+          <div className="inline-flex items-center gap-2 bg-[#EEF8F7] border-2 border-[#59BBAF] rounded-full px-4 sm:px-5 py-1.5 mb-4 shadow-[2px_2px_0_0_#59BBAF]">
+            <span className="w-2 h-2 rounded-full bg-[#59BBAF] animate-pulse" />
+            <span className="text-[0.8125rem] sm:text-[0.875rem] font-black text-[#202A5A]">
+              کادر و عوامل انسانی رُکاداسکول
             </span>
           </div>
 
-          {/* تیتر استیکری کادردار */}
-          <div>
-            <h1 className="inline-block bg-white border-[3px] border-[#202A5A] px-6 sm:px-10 py-3 rounded-2xl text-[1.625rem] sm:text-[2.25rem] lg:text-[2.75rem] font-black text-[#202A5A] -rotate-1 shadow-[6px_6px_0_0_#59BBAF]">
-              معلمانی که یادت می‌مونن!
-            </h1>
-          </div>
+          {/* تیتر اصلی */}
+          <h1 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] text-[#202A5A] leading-[1.25] mb-3">
+            عوامل <span className="text-[#59BBAF]">رُکاد</span>
+          </h1>
 
           {/* زیرتیتر */}
-          <p className="mt-5 text-[0.875rem] sm:text-[1.0625rem] font-semibold text-[#202A5A]/80 max-w-xl mx-auto leading-relaxed">
-            تیم رُکاد با انرژی و انگیزه، مسیر یادگیری رو شیرین می‌کنه.
+          <p className="text-[0.875rem] sm:text-[1.0625rem] font-semibold text-[#202A5A]/70 max-w-2xl mx-auto leading-relaxed">
+            هر پروژه یک قصه دارد، پشت هر قصه یک تیم — این آدم‌ها هستند که هرروز رُکاد را می‌سازند؛ از ایده‌پردازی و مدیریت تا راهبری هنرستان‌ها.
           </p>
 
           {/* ── تب‌های دسته‌بندی سریع ── */}
@@ -194,7 +302,7 @@ export default function FactorsPage() {
             <button
               type="button"
               onClick={() => setActiveTab("all")}
-              className={`px-4 sm:px-5 py-2 rounded-full text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
                 activeTab === "all"
                   ? "bg-[#202A5A] text-white shadow-[3px_3px_0_0_#59BBAF] -translate-y-0.5"
                   : "bg-white text-[#202A5A] hover:bg-[#F4F5FB]"
@@ -205,7 +313,7 @@ export default function FactorsPage() {
             <button
               type="button"
               onClick={() => setActiveTab("founder")}
-              className={`px-4 sm:px-5 py-2 rounded-full text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
                 activeTab === "founder"
                   ? "bg-[#F8A41D] text-[#202A5A] shadow-[3px_3px_0_0_#202A5A] -translate-y-0.5"
                   : "bg-white text-[#202A5A] hover:bg-[#FEF6E8]"
@@ -216,7 +324,7 @@ export default function FactorsPage() {
             <button
               type="button"
               onClick={() => setActiveTab("management")}
-              className={`px-4 sm:px-5 py-2 rounded-full text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
                 activeTab === "management"
                   ? "bg-[#59BBAF] text-white shadow-[3px_3px_0_0_#202A5A] -translate-y-0.5"
                   : "bg-white text-[#202A5A] hover:bg-[#EEF8F7]"
@@ -227,24 +335,24 @@ export default function FactorsPage() {
             <button
               type="button"
               onClick={() => setActiveTab("male")}
-              className={`px-4 sm:px-5 py-2 rounded-full text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
                 activeTab === "male"
                   ? "bg-[#202A5A] text-white shadow-[3px_3px_0_0_#F8A41D] -translate-y-0.5"
                   : "bg-white text-[#202A5A] hover:bg-[#F4F5FB]"
               }`}
             >
-              مدرسه پسرانه ({BOYS_STAFF.length})
+              هنرستان پسرانه ({BOYS_STAFF.length})
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("female")}
-              className={`px-4 sm:px-5 py-2 rounded-full text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#E0195B] transition-all cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#E0195B] transition-all cursor-pointer ${
                 activeTab === "female"
                   ? "bg-[#E0195B] text-white shadow-[3px_3px_0_0_#202A5A] -translate-y-0.5"
                   : "bg-white text-[#E0195B] hover:bg-[#FEFAFB]"
               }`}
             >
-              مدرسه دخترانه ({GIRLS_STAFF.length})
+              هنرستان دخترانه ({GIRLS_STAFF.length})
             </button>
           </div>
         </Container>
@@ -253,31 +361,23 @@ export default function FactorsPage() {
       {/* ══════════════════════════════════════════════
           محتوای اصلی و سکشن‌ها
       ══════════════════════════════════════════════ */}
-      <Container className="mt-4 sm:mt-6 space-y-12 sm:space-y-16">
+      <Container className="mt-4 sm:mt-6 space-y-14 sm:space-y-20">
         {/* ════ ۱. سکشن اختصاصی بنیان‌گذار (آقای آرون تنها) ════ */}
         {(activeTab === "all" || activeTab === "founder") && (
           <section className="scroll-mt-24">
-            {/* هدر سکشن بنیان‌گذار */}
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
               <span className="w-3.5 h-3.5 rounded-full bg-[#F8A41D] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
               <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
                 بنیان‌گذار و ایده‌پرداز رُکاد
               </h2>
-              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-full text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#F8A41D]">
+              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#F8A41D]">
                 امضای رُکاد
               </span>
             </div>
 
-            {/* کارت اختصاصی حامد آرون */}
-            <div className="flex justify-center pt-2 px-1">
-              {FOUNDER_STAFF.map((staff, idx) => (
-                <StickerCard
-                  key={staff.name}
-                  member={staff}
-                  school="founder"
-                  index={idx}
-                  isFeatured={true}
-                />
+            <div className="pt-2 px-1">
+              {FOUNDER_STAFF.map((staff) => (
+                <FounderCard key={staff.name} member={staff} />
               ))}
             </div>
           </section>
@@ -286,81 +386,72 @@ export default function FactorsPage() {
         {/* ════ ۲. سکشن مدیریت و راهبری ارشد (عزیزپور و کمالی) ════ */}
         {(activeTab === "all" || activeTab === "management") && (
           <section className="scroll-mt-24">
-            {/* هدر سکشن مدیریت ارشد */}
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
               <span className="w-3.5 h-3.5 rounded-full bg-[#59BBAF] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
               <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
                 مدیریت و راهبری اجرایی
               </h2>
-              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-full text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#59BBAF]">
+              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#59BBAF]">
                 {MANAGEMENT_STAFF.length} نفر
               </span>
             </div>
 
-            {/* گرید استیکرهای عزیزپور و کمالی */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-8 sm:gap-7 pt-2 px-1">
-              {MANAGEMENT_STAFF.map((staff, idx) => (
-                <StickerCard
+            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6 sm:gap-7 pt-2 px-1">
+              {MANAGEMENT_STAFF.map((staff) => (
+                <RokadCard
                   key={staff.name}
                   member={staff}
                   school="management"
-                  index={idx}
                 />
               ))}
             </div>
           </section>
         )}
 
-        {/* ════ ۳. سکشن مدرسه پسرانه رُکاد ════ */}
+        {/* ════ ۳. سکشن هنرستان پسرانه رُکاد ════ */}
         {(activeTab === "all" || activeTab === "male") && (
           <section className="scroll-mt-24">
-            {/* هدر سکشن پسرانه */}
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
               <span className="w-3.5 h-3.5 rounded-full bg-[#202A5A] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#F8A41D]" />
               <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
-                مدرسه پسرانه رُکاد
+                هنرستان پسرانه رُکاد
               </h2>
-              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-full text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#202A5A]">
+              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#202A5A]">
                 {BOYS_STAFF.length} نفر
               </span>
             </div>
 
-            {/* گرید استیکرهای پسرانه */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-7 pt-2 px-1">
-              {BOYS_STAFF.map((staff, idx) => (
-                <StickerCard
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-7 pt-2 px-1">
+              {BOYS_STAFF.map((staff) => (
+                <RokadCard
                   key={staff.name}
                   member={staff}
                   school="male"
-                  index={idx}
                 />
               ))}
             </div>
           </section>
         )}
 
-        {/* ════ ۴. سکشن مدرسه دخترانه رُکاد ════ */}
+        {/* ════ ۴. سکشن هنرستان دخترانه رُکاد ════ */}
         {(activeTab === "all" || activeTab === "female") && (
           <section className="scroll-mt-24">
-            {/* هدر سکشن دخترانه */}
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#E0195B]/20">
               <span className="w-3.5 h-3.5 rounded-full bg-[#E0195B] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#E0195B]" />
               <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
-                مدرسه دخترانه رُکاد
+                هنرستان دخترانه رُکاد
               </h2>
-              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-full text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#E0195B] text-[#E0195B] shadow-[2px_2px_0_0_#E0195B]">
+              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#E0195B] text-[#E0195B] shadow-[2px_2px_0_0_#E0195B]">
                 {GIRLS_STAFF.length} نفر
               </span>
             </div>
 
-            {/* گرید استیکرهای دخترانه */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-7 pt-2 px-1">
-              {GIRLS_STAFF.map((staff, idx) => (
-                <StickerCard
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-7 pt-2 px-1">
+              {GIRLS_STAFF.map((staff) => (
+                <RokadCard
                   key={staff.name}
                   member={staff}
                   school="female"
-                  index={idx}
                 />
               ))}
             </div>

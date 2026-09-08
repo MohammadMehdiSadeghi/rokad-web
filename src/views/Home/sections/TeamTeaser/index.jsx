@@ -86,12 +86,12 @@ export default function TeamTeaser() {
     <section
       id="team-teaser"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 w-full"
+      className="relative overflow-hidden bg-white py-6 sm:py-8 lg:py-10 w-full"
     >
       {/* ── Background Pattern Layer ── */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60 rotate-180 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-50 rotate-180 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"
       >
         <img
           src={sectionPattern}
@@ -103,13 +103,13 @@ export default function TeamTeaser() {
 
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10 sm:mb-12">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5 sm:mb-6">
           <div>
-            <span className="inline-flex items-center gap-2 bg-[#E4F4F2] border-2 border-teal rounded-full px-4 py-1.5 text-[0.8125rem] font-bold text-teal-text mb-3 shadow-[2px_2px_0_0_#58BDAF]">
-              <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
+            <span className="inline-flex items-center gap-2 bg-[#E4F4F2] border-2 border-teal rounded-full px-3.5 py-1 text-[0.75rem] font-bold text-teal-text mb-2 shadow-[2px_2px_0_0_#58BDAF]">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
               تیم مدیریت و راهبری رُکاداسکول
             </span>
-            <h2 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] leading-[1.25] text-navy flex items-center gap-x-2.5">
+            <h2 className="font-black text-[1.625rem] sm:text-[2rem] lg:text-[2.25rem] leading-[1.2] text-navy flex items-center gap-x-2">
               <span>عوامل</span>
               <span className="text-magenta rotate-[-2deg] inline-block">
                 رکاد
@@ -119,7 +119,7 @@ export default function TeamTeaser() {
 
           <Link
             href="/factors"
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-white text-navy border-2 border-navy text-[0.875rem] font-black rounded-[0.75rem] [corner-shape:squircle] shadow-[3px_3px_0_0_#202A5A] hover:bg-[#F8FAF9] transition-all"
+            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white text-navy border-2 border-navy text-[0.8125rem] font-black rounded-[0.625rem] [corner-shape:squircle] shadow-[3px_3px_0_0_#202A5A] hover:bg-[#F8FAF9] transition-all"
           >
             <span>مشاهده همه عوامل</span>
             <ChevronLeftIcon className="w-4 h-4" />
@@ -129,17 +129,17 @@ export default function TeamTeaser() {
         {/* ═════════════════════════════════════════════════════════
             ۱. کارت افقی عریض بنیان‌گذار (Horizontal Founder Card)
         ═════════════════════════════════════════════════════════ */}
-        <div className="relative mb-8 sm:mb-10">
+        <div className="relative mb-5 sm:mb-6">
           {/* سایه سخت زیرین */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 translate-x-[0.35rem] translate-y-[0.35rem] rounded-[0_2rem_0_2rem] [corner-shape:squircle] bg-teal"
+            className="absolute inset-0 translate-x-[0.35rem] translate-y-[0.35rem] rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] bg-teal"
           />
 
           {/* کارت اصلی */}
-          <article className="relative bg-white border-2 border-navy rounded-[0_2rem_0_2rem] [corner-shape:squircle] overflow-hidden grid grid-cols-1 lg:grid-cols-[1.1fr_1.3fr] min-h-[360px]">
+          <article className="relative bg-white border-2 border-navy rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] min-h-[200px] lg:min-h-[220px]">
             {/* ستون تصویر بنیان‌گذار (راست در RTL) */}
-            <div className="relative bg-[#58bdaf] overflow-hidden min-h-[280px] sm:min-h-[340px] flex items-end justify-center">
+            <div className="relative bg-[#58bdaf] overflow-hidden min-h-[170px] sm:min-h-[190px] lg:min-h-[210px] flex items-end justify-center">
               {/* پترن پس‌زمینه */}
               <img
                 src={patternGreen}
@@ -149,7 +149,7 @@ export default function TeamTeaser() {
               />
 
               {/* نشان امضای رکاد */}
-              <span className="absolute top-4 right-4 z-20 bg-[#F8A41D] text-navy border-2 border-navy rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] px-3.5 py-1.5 font-black text-[0.8125rem] rotate-[-3deg] shadow-[3px_3px_0_0_#202A5A]">
+              <span className="absolute top-3 right-3 z-20 bg-[#F8A41D] text-navy border-2 border-navy rounded-[0_0.625rem_0_0.625rem] [corner-shape:squircle] px-3 py-1 font-black text-[0.75rem] rotate-[-3deg] shadow-[2px_2px_0_0_#202A5A]">
                 امضای رُکاد
               </span>
 
@@ -159,36 +159,36 @@ export default function TeamTeaser() {
                 alt={FOUNDER.name}
                 loading="lazy"
                 draggable="false"
-                className="relative z-10 h-[260px] sm:h-[320px] lg:h-[360px] w-auto object-contain object-bottom translate-y-2"
+                className="relative z-10 h-[160px] sm:h-[185px] lg:h-[210px] w-auto object-contain object-bottom translate-y-1"
               />
             </div>
 
             {/* ستون اطلاعات (چپ در RTL) */}
-            <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-white">
+            <div className="p-4 sm:p-5 lg:py-4 lg:px-6 flex flex-col justify-between bg-white">
               <div>
-                <span className="inline-flex items-center gap-2 bg-[#58bdaf] text-white px-4 py-1 rounded-full text-[0.75rem] font-black mb-4 border border-navy/20 shadow-[2px_2px_0_0_#202A5A]">
-                  <span className="w-2 h-2 rounded-full bg-white" />
+                <span className="inline-flex items-center gap-1.5 bg-[#58bdaf] text-white px-3 py-0.5 rounded-full text-[0.6875rem] font-black mb-2 border border-navy/20 shadow-[1.5px_1.5px_0_0_#202A5A]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
                   {FOUNDER.role}
                 </span>
 
-                <h3 className="font-black text-[1.75rem] sm:text-[2.25rem] text-navy mb-3">
+                <h3 className="font-black text-[1.375rem] sm:text-[1.625rem] text-navy mb-1.5">
                   {FOUNDER.name}
                 </h3>
 
-                <p className="text-[0.9375rem] sm:text-[1rem] leading-[1.9] text-navy/75 mb-6 max-w-xl">
+                <p className="text-[0.8125rem] sm:text-[0.875rem] leading-[1.7] text-navy/75 mb-3 max-w-xl">
                   {FOUNDER.desc}
                 </p>
               </div>
 
               <div>
                 {/* نوار آمار و تجربه */}
-                <div className="flex items-center gap-6 sm:gap-8 pt-4 border-t-2 border-dashed border-navy/15 mb-5">
+                <div className="flex items-center gap-6 sm:gap-8 pt-2.5 border-t border-dashed border-navy/15 mb-3">
                   {FOUNDER.stats.map((st, i) => (
                     <div key={i} className="flex flex-col">
-                      <strong className="font-black text-[1.375rem] sm:text-[1.625rem] text-teal-text leading-none mb-1">
+                      <strong className="font-black text-[1.125rem] sm:text-[1.25rem] text-teal-text leading-none mb-0.5">
                         {st.num}
                       </strong>
-                      <span className="text-[0.75rem] font-bold text-navy/60">
+                      <span className="text-[0.6875rem] font-bold text-navy/60">
                         {st.label}
                       </span>
                     </div>
@@ -202,9 +202,9 @@ export default function TeamTeaser() {
                       key={i}
                       href={href}
                       aria-label={label}
-                      className="inline-flex items-center justify-center w-9 h-9 bg-white border-2 border-navy rounded-[0.5rem] [corner-shape:squircle] text-navy shadow-[2px_2px_0_0_#202A5A] hover:bg-teal hover:text-white transition-colors"
+                      className="inline-flex items-center justify-center w-7 h-7 bg-white border-2 border-navy rounded-[0.4rem] [corner-shape:squircle] text-navy shadow-[1.5px_1.5px_0_0_#202A5A] hover:bg-teal hover:text-white transition-colors"
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-3.5 h-3.5" />
                     </a>
                   ))}
                 </div>
@@ -216,22 +216,22 @@ export default function TeamTeaser() {
         {/* ═════════════════════════════════════════════════════════
             ۲. ردیف ۴ ستونه اعضای تیم (4-Across Members Grid)
         ═════════════════════════════════════════════════════════ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {MEMBERS.map((member, i) => (
             <div key={i} className="relative">
               {/* سایه سخت */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 translate-x-[0.25rem] translate-y-[0.25rem] rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle]"
+                className="absolute inset-0 translate-x-[0.25rem] translate-y-[0.25rem] rounded-[0_1.25rem_0_1.25rem] [corner-shape:squircle]"
                 style={{ backgroundColor: member.shadowColor }}
               />
 
               {/* کارت عضو */}
-              <article className="relative bg-white border-2 border-navy rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden flex flex-col justify-between h-full">
+              <article className="relative bg-white border-2 border-navy rounded-[0_1.25rem_0_1.25rem] [corner-shape:squircle] overflow-hidden flex flex-col justify-between h-full">
                 <div>
                   {/* بخش تصویر */}
                   <div
-                    className="relative h-[180px] sm:h-[200px] overflow-hidden flex items-end justify-center"
+                    className="relative h-[115px] sm:h-[125px] overflow-hidden flex items-end justify-center"
                     style={{ backgroundColor: member.color }}
                   >
                     {/* پترن رنگی */}
@@ -243,7 +243,7 @@ export default function TeamTeaser() {
                     />
 
                     {/* برچسب گوشه */}
-                    <span className="absolute top-3 right-3 z-20 text-[0.6875rem] font-bold text-white bg-black/35 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-white/20">
+                    <span className="absolute top-2.5 right-2.5 z-20 text-[0.625rem] font-bold text-white bg-black/35 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/20">
                       {member.tag}
                     </span>
 
@@ -253,36 +253,36 @@ export default function TeamTeaser() {
                       alt={member.name}
                       loading="lazy"
                       draggable="false"
-                      className="relative z-10 h-[170px] sm:h-[190px] w-auto object-contain object-bottom translate-y-1"
+                      className="relative z-10 h-[105px] sm:h-[118px] w-auto object-contain object-bottom translate-y-0.5"
                     />
                   </div>
 
                   {/* بخش مشخصات */}
-                  <div className="p-4 sm:p-5 text-center">
-                    <h4 className="font-black text-[1.0625rem] text-navy mb-1">
+                  <div className="p-3 text-center">
+                    <h4 className="font-black text-[0.9375rem] text-navy mb-0.5">
                       {member.name}
                     </h4>
-                    <p className="text-[0.8125rem] font-semibold text-navy/60">
+                    <p className="text-[0.75rem] font-semibold text-navy/60">
                       {member.role}
                     </p>
                   </div>
                 </div>
 
                 {/* فوتر و آیکون‌ها */}
-                <div className="px-4 py-3 border-t border-dashed border-navy/15 flex items-center justify-center gap-2">
+                <div className="px-3 py-2 border-t border-dashed border-navy/15 flex items-center justify-center gap-2">
                   <a
                     href="#"
                     aria-label="توییتر"
-                    className="inline-flex items-center justify-center w-7 h-7 bg-white border border-navy rounded-[0.4rem] text-navy hover:bg-navy hover:text-white transition-colors"
+                    className="inline-flex items-center justify-center w-6 h-6 bg-white border border-navy rounded-[0.35rem] text-navy hover:bg-navy hover:text-white transition-colors"
                   >
-                    <TwitterIcon className="w-3.5 h-3.5" />
+                    <TwitterIcon className="w-3 h-3" />
                   </a>
                   <a
                     href="#"
                     aria-label="لینکدین"
-                    className="inline-flex items-center justify-center w-7 h-7 bg-white border border-navy rounded-[0.4rem] text-navy hover:bg-navy hover:text-white transition-colors"
+                    className="inline-flex items-center justify-center w-6 h-6 bg-white border border-navy rounded-[0.35rem] text-navy hover:bg-navy hover:text-white transition-colors"
                   >
-                    <LinkedInIcon className="w-3.5 h-3.5" />
+                    <LinkedInIcon className="w-3 h-3" />
                   </a>
                 </div>
               </article>
@@ -291,10 +291,10 @@ export default function TeamTeaser() {
         </div>
 
         {/* ── دکمه مشاهده همه در موبایل ── */}
-        <div className="mt-8 text-center sm:hidden">
+        <div className="mt-6 text-center sm:hidden">
           <Link
             href="/factors"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-navy border-2 border-navy text-[0.875rem] font-black rounded-[0.75rem] [corner-shape:squircle] shadow-[3px_3px_0_0_#202A5A]"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-navy border-2 border-navy text-[0.8125rem] font-black rounded-[0.625rem] [corner-shape:squircle] shadow-[3px_3px_0_0_#202A5A]"
           >
             <span>مشاهده همه عوامل</span>
             <ChevronLeftIcon className="w-4 h-4" />

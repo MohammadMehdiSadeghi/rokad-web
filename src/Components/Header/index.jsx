@@ -12,7 +12,6 @@ const navLinks = [
   { label: "صفحه اصلی", to: "/" },
   { label: "مدارس", to: "/#schools" },
   { label: "افتخارات", to: "/honors" },
-  { label: "دانش‌آموختگان", to: "/alumni" },
   { label: "مشاوره هدایت تحصیلی و شغلی", to: "/#counseling" },
   { label: "درباره ما", to: "/about" },
   { label: "درخواست همکاری", to: "/#cooperation" },

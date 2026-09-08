@@ -105,10 +105,6 @@ export default function TeamTeaser() {
         {/* ── هدر سکشن ── */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5 sm:mb-6">
           <div>
-            <span className="inline-flex items-center gap-2 bg-[#E4F4F2] border-2 border-teal rounded-full px-3.5 py-1 text-[0.75rem] font-bold text-teal-text mb-2 shadow-[2px_2px_0_0_#58BDAF]">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
-              تیم مدیریت و راهبری رُکاداسکول
-            </span>
             <h2 className="font-black text-[1.625rem] sm:text-[2rem] lg:text-[2.25rem] leading-[1.2] text-navy flex items-center gap-x-2">
               <span>عوامل</span>
               <span className="text-magenta rotate-[-2deg] inline-block">

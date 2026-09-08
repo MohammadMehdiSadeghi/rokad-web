@@ -9,7 +9,6 @@ import {
   LinkedInIcon,
 } from "../../common/Icons";
 import {
-  PERSONAS,
   alumni,
   featuredProjects,
   hiringCompanies,
@@ -44,10 +43,9 @@ export default function AlumniPage() {
   // مقدار پیش‌فرض null تا کاربر ابتدا شعبه را انتخاب کند
   const [selectedBranch, setSelectedBranch] = useState(null); // null | "female" | "male"
   const [genFilter, setGenFilter] = useState("all");
-  const [personaFilter, setPersonaFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // فیلتر دانش‌آموختگان منحصراً بر اساس شعبه انتخابی + فیلترها
+  // فیلتر دانش‌آموختگان منحصراً بر اساس شعبه انتخابی + فیلتر نسل و جستجو
   const filteredAlumni = useMemo(() => {
     if (!selectedBranch) return [];
     return alumni.filter((m) => {
@@ -56,17 +54,15 @@ export default function AlumniPage() {
         genFilter === "all"
           ? true
           : m.gen.includes(genFilter.replace("نسل ", "")) || m.gen === genFilter;
-      const matchPersona =
-        personaFilter === "all" ? true : m.persona === personaFilter;
       const matchSearch =
         !searchQuery.trim() ||
         m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         m.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
         m.field.toLowerCase().includes(searchQuery.toLowerCase()) ||
         m.city.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchBranch && matchGen && matchPersona && matchSearch;
+      return matchBranch && matchGen && matchSearch;
     });
-  }, [selectedBranch, genFilter, personaFilter, searchQuery]);
+  }, [selectedBranch, genFilter, searchQuery]);
 
   // پروژه‌های برتر مربوط به شعبه
   const filteredProjects = useMemo(() => {
@@ -148,7 +144,6 @@ export default function AlumniPage() {
                 onClick={() => {
                   setSelectedBranch("female");
                   setGenFilter("all");
-                  setPersonaFilter("all");
                   setSearchQuery("");
                 }}
                 className={`relative text-right p-6 sm:p-7 rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] border-2 cursor-pointer overflow-hidden transition-colors ${
@@ -201,7 +196,6 @@ export default function AlumniPage() {
                 onClick={() => {
                   setSelectedBranch("male");
                   setGenFilter("all");
-                  setPersonaFilter("all");
                   setSearchQuery("");
                 }}
                 className={`relative text-right p-6 sm:p-7 rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] border-2 cursor-pointer overflow-hidden transition-colors ${
@@ -301,7 +295,6 @@ export default function AlumniPage() {
                   onClick={() => {
                     setSelectedBranch(isFemale ? "male" : "female");
                     setGenFilter("all");
-                    setPersonaFilter("all");
                     setSearchQuery("");
                   }}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-white text-navy border-2 border-navy text-[0.8125rem] font-bold rounded-[0.625rem] [corner-shape:squircle] shadow-[3px_3px_0_0_#202A5A] cursor-pointer"
@@ -335,7 +328,7 @@ export default function AlumniPage() {
                 </div>
 
                 {/* ردیف فیلتر نسل‌ها */}
-                <div className="flex flex-wrap items-center gap-2 pt-4 pb-3 border-b border-dashed border-navy/10">
+                <div className="flex flex-wrap items-center gap-2 pt-4">
                   <span className="text-[0.8125rem] font-black text-navy whitespace-nowrap ml-2">
                     فیلتر نسل:
                   </span>
@@ -357,43 +350,6 @@ export default function AlumniPage() {
                     );
                   })}
                 </div>
-
-                {/* ردیف فیلتر حوزه‌های تخصصی */}
-                <div className="flex flex-wrap items-center gap-2 pt-3">
-                  <span className="text-[0.8125rem] font-bold text-navy/60 ml-2">
-                    تخصص:
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setPersonaFilter("all")}
-                    className={`px-3 py-0.5 rounded-full text-[0.75rem] font-bold border cursor-pointer ${
-                      personaFilter === "all"
-                        ? "text-white border-navy shadow-[2px_2px_0_0_#202A5A]"
-                        : "bg-white text-navy/70 border-navy/20 hover:border-navy"
-                    }`}
-                    style={{ backgroundColor: personaFilter === "all" ? branchColor : undefined }}
-                  >
-                    همه تخصص‌ها
-                  </button>
-                  {Object.keys(PERSONAS).map((pKey) => {
-                    const p = PERSONAS[pKey];
-                    const active = personaFilter === pKey;
-                    return (
-                      <button
-                        key={pKey}
-                        type="button"
-                        onClick={() => setPersonaFilter(pKey)}
-                        className={`px-3 py-0.5 rounded-full text-[0.75rem] font-bold border cursor-pointer ${
-                          active
-                            ? "bg-navy text-white border-navy shadow-[2px_2px_0_0_#202A5A]"
-                            : "bg-white text-navy/70 border-navy/20 hover:border-navy"
-                        }`}
-                      >
-                        {p.label}
-                      </button>
-                    );
-                  })}
-                </div>
               </div>
 
               {/* ═════════════════════════════════════════════════════
@@ -411,18 +367,17 @@ export default function AlumniPage() {
                     دانش‌آموخته‌ای با این مشخصات یافت نشد
                   </h3>
                   <p className="text-[0.8125rem] text-navy/60 mb-4">
-                    می‌توانید فیلترها را ریست یا متن جستجو را تغییر دهید.
+                    می‌توانید فیلتر نسل را ریست یا متن جستجو را تغییر دهید.
                   </p>
                   <button
                     type="button"
                     onClick={() => {
                       setGenFilter("all");
-                      setPersonaFilter("all");
                       setSearchQuery("");
                     }}
                     className="inline-flex items-center gap-1.5 px-4 py-2 bg-navy text-white text-[0.8125rem] font-bold rounded-full shadow-[2px_2px_0_0_#202A5A] cursor-pointer"
                   >
-                    بازنشانی همه فیلترها
+                    بازنشانی فیلترها
                   </button>
                 </div>
               ) : (

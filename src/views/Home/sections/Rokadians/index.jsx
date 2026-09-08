@@ -263,7 +263,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-[2rem] sm:pt-[2.5rem] lg:pt-[2.5rem] pb-[3.5rem] sm:pb-[5rem] lg:pb-[6rem] pl-4 sm:pl-8 lg:pl-16 xl:pl-24"
+      className="relative overflow-hidden bg-white pt-[2rem] sm:pt-[2.5rem] lg:pt-[2.5rem] pb-[3.5rem] sm:pb-[5rem] lg:pb-[6rem]"
     >
       {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول ── */}
       <div
@@ -315,15 +315,15 @@ export default function Rokadians() {
           </div>
 
           {/* =================================================
-              MAIN CONTENT
+              MAIN CONTENT — فاصله استاندارد بین ستون ۳۰۰+ و کارت‌ها
           ================================================= */}
 
-          <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-8">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-14 xl:gap-20 2xl:gap-24">
             {/* =================================================
                 CARDS AREA
             ================================================= */}
 
-            <div className="relative w-full lg:w-[70%] order-2 lg:order-1 overflow-visible">
+            <div className="relative w-full lg:flex-1 order-2 lg:order-1 overflow-visible">
               {/* =================================================
                   MOBILE STATS & CTA (Centered & Balanced Bar)
               ================================================= */}
@@ -379,7 +379,7 @@ export default function Rokadians() {
                   CARD RAIL
               ================================================= */}
 
-              <div className="rokadians-rail relative z-[10] flex flex-nowrap items-center justify-start gap-5 sm:gap-6 md:gap-8 lg:gap-[2.25rem] xl:gap-[2.5rem] 2xl:gap-[3rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-2 sm:py-3 lg:py-0 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-16 xl:pl-24 2xl:pl-32 pr-8 lg:pr-0">
+              <div className="rokadians-rail relative z-[10] flex flex-nowrap items-center justify-start gap-5 sm:gap-6 md:gap-8 lg:gap-[2.25rem] xl:gap-[2.5rem] 2xl:gap-[3rem] overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none py-2 sm:py-3 lg:py-0 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:pl-[0.3125rem] 2xl:pl-[0.5rem] pr-8 lg:pr-0">
                 {students.map((student, index) => (
                   <StudentCard
                     key={index}
@@ -407,7 +407,7 @@ export default function Rokadians() {
                 DESKTOP STATS
             ================================================= */}
 
-            <div className="hidden lg:flex w-full lg:w-[30%] flex-shrink-0 flex-col justify-center text-center lg:text-right order-2 lg:pt-8">
+            <div className="hidden lg:flex w-full lg:w-[17rem] xl:w-[19rem] 2xl:w-[21rem] flex-shrink-0 flex-col justify-center text-center lg:text-right order-2 lg:pt-8">
               <div className="rotate-[2deg] items-center justify-center flex flex-col mx-auto lg:mx-0">
                 <p className="font-black text-[4rem] 2xl:text-[4.5rem] leading-[1] text-[#21295a]">
                   ۳۰۰+

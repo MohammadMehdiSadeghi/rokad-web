@@ -105,6 +105,7 @@ const MEMBERS = [
     color: "#202A5A",
     bgLight: "bg-[#F4F5FB]",
     pattern: patternBlue,
+    patternOpacity: "opacity-20",
     shadowColor: "#202A5A",
   },
 ];
@@ -135,7 +136,7 @@ function MiniCard({ member }) {
               src={member.pattern}
               alt=""
               draggable="false"
-              className="absolute inset-0 w-full h-full object-cover opacity-40 select-none"
+              className={`absolute inset-0 w-full h-full object-cover ${member.patternOpacity || "opacity-40"} select-none`}
             />
             <span className="absolute top-2 right-2 z-20 text-[0.5625rem] sm:text-[0.625rem] font-bold text-white bg-black/35 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/20">
               {member.tag}

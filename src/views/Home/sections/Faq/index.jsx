@@ -88,10 +88,10 @@ export default function Faq() {
 
           {/* باکس مشاوره — بلافاصله بعد از تیتر */}
           <div className="relative rotate-0 sm:rotate-2 mt-5 sm:mt-12 lg:mt-10">
-            {/* لایه پشتی باکس مشاوره — متناسب با بقیه سکشن‌ها */}
-            <div className="absolute top-1 left-1 sm:top-1.5 sm:left-1.5 w-full h-full rounded-tl-[1.5rem] sm:rounded-tl-[2.5rem] rounded-br-[1.5rem] sm:rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-ink [corner-shape:squircle]" />
+            {/* لایه پشتی باکس مشاوره */}
+            <div className="absolute top-1 left-1 sm:top-2 sm:left-2 w-full h-full rounded-tl-[1.5rem] sm:rounded-tl-[2.5rem] rounded-br-[1.5rem] sm:rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-ink [corner-shape:squircle]" />
             {/* لایه اصلی باکس مشاوره */}
-            <div className="relative z-10 border-2 sm:border-[0.21875rem] border-ink rounded-tl-[1.5rem] sm:rounded-tl-[2.5rem] rounded-br-[1.5rem] sm:rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-[#F8A41D] p-4 sm:p-7 min-h-[6.5rem] sm:min-h-[8rem] overflow-hidden [corner-shape:squircle] flex flex-col justify-between">
+            <div className="relative z-10 border-2 sm:border-[0.21875rem] border-ink rounded-tl-[1.5rem] sm:rounded-tl-[2.5rem] rounded-br-[1.5rem] sm:rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-[#F8A41D] p-4 sm:p-7 min-h-[6.5rem] sm:min-h-[8rem] overflow-hidden [corner-shape:squircle]">
               <div className="absolute inset-0 pointer-events-none">
                 <img
                   src={faqPatternBoxStrong}
@@ -100,8 +100,8 @@ export default function Faq() {
                 />
               </div>
 
-              <div className="relative z-10 max-w-full sm:max-w-[62%]">
-                <h3 className="font-black text-[1rem] xs:text-[1.125rem] sm:text-[1.6875rem] leading-[1.4] text-ink mb-1.5 sm:mb-2">
+              <div className="relative z-10 max-w-full sm:max-w-[64%]">
+                <h3 className="font-black text-[1rem] xs:text-[1.125rem] sm:text-[1.6875rem] leading-[1.4] text-ink mb-1.5 sm:mb-2 sm:whitespace-nowrap">
                   <span className="text-white">دریافت</span> مشاوره و هدایت تحصیلی{" "}
                   <span className="text-white">تخصصی</span>
                 </h3>
@@ -111,16 +111,16 @@ export default function Faq() {
                 </p>
               </div>
 
-              {/* دکمه با استایل جدید */}
-              <div className="relative sm:absolute self-start sm:self-auto sm:-rotate-2 hover:rotate-0 transition-transform duration-300 ease-out z-10 mt-3.5 sm:mt-0 sm:left-4 sm:bottom-6">
+              {/* دکمه با استایل اصلی دسکتاپ */}
+              <div className="relative sm:absolute self-start sm:self-auto sm:-rotate-3 hover:rotate-0 transition-transform duration-500 ease-out z-10 mt-3.5 sm:mt-0 sm:left-4 sm:bottom-6">
                 <div className="relative group inline-flex items-center justify-center">
                   {/* لایه پشتی دکمه */}
-                  <div className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0.75rem] bg-white transition-colors duration-300 ease-out group-hover:bg-black [corner-shape:squircle]"></div>
+                  <div className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0.75rem] sm:rounded-[0.9375rem] bg-white transition-colors duration-300 ease-out group-hover:bg-black [corner-shape:squircle]"></div>
                   {/* خود دکمه */}
                   <button
                     type="button"
                     onClick={openEnrollment}
-                    className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] font-bold px-3.5 sm:px-5 py-2 sm:py-3 rounded-[0.75rem] border-[0.125rem] border-white group-hover:border-ink whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] active:scale-95 cursor-pointer [corner-shape:squircle]"
+                    className="relative z-10 inline-flex items-center justify-center bg-ink text-white text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] font-bold px-3.5 sm:px-5 py-2 sm:py-3 rounded-[0.75rem] sm:rounded-[0.9375rem] border-[0.125rem] border-white group-hover:border-ink whitespace-nowrap transition-all duration-300 ease-out group-hover:bg-white group-hover:text-black group-hover:scale-[1.03] group-hover:shadow-lg active:scale-95 cursor-pointer [corner-shape:squircle]"
                   >
                     رزرو تایم مشاوره
                   </button>

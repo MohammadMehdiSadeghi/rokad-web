@@ -75,7 +75,6 @@ const MEMBERS = [
     color: "#E0195B",
     bgLight: "bg-[#FEFAFB]",
     pattern: patternPink,
-    shadowColor: "#E0195B",
     imgClass: "translate-y-3.5 sm:translate-y-4 lg:translate-y-4.5 scale-135",
   },
   {
@@ -86,7 +85,6 @@ const MEMBERS = [
     color: "#58BDAF",
     bgLight: "bg-[#EEF8F7]",
     pattern: patternGreen,
-    shadowColor: "#58BDAF",
   },
   {
     name: "رویا دولت‌آبادی",
@@ -96,7 +94,6 @@ const MEMBERS = [
     color: "#F8A41D",
     bgLight: "bg-[#FEF6E8]",
     pattern: patternYellow,
-    shadowColor: "#F8A41D",
   },
   {
     name: "امیرحسین امیریان",
@@ -107,7 +104,6 @@ const MEMBERS = [
     bgLight: "bg-[#F4F5FB]",
     pattern: patternBlue,
     patternOpacity: "opacity-20",
-    shadowColor: "#202A5A",
   },
 ];
 
@@ -121,8 +117,7 @@ function MiniCard({ member }) {
       {/* سایه سخت */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 translate-x-[0.25rem] translate-y-[0.25rem] rounded-[0_1.25rem_0_1.25rem] [corner-shape:squircle]"
-        style={{ backgroundColor: member.shadowColor }}
+        className="absolute inset-0 translate-x-[0.25rem] translate-y-[0.25rem] rounded-[0_1.25rem_0_1.25rem] [corner-shape:squircle] bg-navy"
       />
 
       {/* کارت اصلی */}
@@ -237,7 +232,7 @@ export default function TeamTeaser() {
             {/* سایه پشتی */}
             <div
               aria-hidden="true"
-              className="absolute inset-0 translate-x-[0.35rem] translate-y-[0.35rem] rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] bg-teal"
+              className="absolute inset-0 translate-x-[0.35rem] translate-y-[0.35rem] rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] bg-navy"
             />
 
             {/* کارت اصلی */}

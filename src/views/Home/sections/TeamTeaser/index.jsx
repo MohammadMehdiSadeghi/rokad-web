@@ -129,7 +129,7 @@ export default function TeamTeaser() {
         {/* ═════════════════════════════════════════════════════════
             ۱. کارت افقی عریض بنیان‌گذار (Horizontal Founder Card)
         ═════════════════════════════════════════════════════════ */}
-        <div className="relative mb-5 sm:mb-6">
+        <div className="relative mb-5 sm:mb-6 max-w-3xl lg:max-w-4xl mx-auto">
           {/* سایه سخت زیرین */}
           <div
             aria-hidden="true"

@@ -7,7 +7,7 @@ const vectorIcon = "/assets/home/Story/Vector.svg";
 
 export default function Story() {
   return (
-    <section id="about" className="py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-[#F6F6F6]">
+    <section id="about" className="py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full bg-[#F6F6F6] overflow-hidden">
       {/* تغییر lg به xl برای رفع باگ در سایز 1024px */}
       <Container className="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-16 xl:gap-40 items-center">
         {/* ── ستون راست: تصویر ── */}

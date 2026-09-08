@@ -17,26 +17,27 @@ const navLinks = [
   { label: "درخواست همکاری", to: "/#cooperation" },
 ];
 
-// تنظیمات فنری اپل‌گونه — نرم و لوکس
+// تنظیمات انیمیشن سریع و یکدست برای جلوگیری از تداخل و تأخیر
 const spring = {
   type: "spring",
-  stiffness: 120,
-  damping: 28,
-  mass: 0.8,
+  stiffness: 300,
+  damping: 30,
+  mass: 0.6,
 };
 
-const softSpring = {
-  type: "spring",
-  stiffness: 80,
-  damping: 20,
-  mass: 1,
+const fastFade = {
+  duration: 0.14,
+  ease: "easeOut",
+};
+
+const fastExit = {
+  duration: 0.08,
+  ease: "easeIn",
 };
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
-  const [headerOpacity, setHeaderOpacity] = useState(1);
-  const [tabsHidden, setTabsHidden] = useState(false);
   const { openEnrollment } = useEnrollment();
   const pathname = usePathname();
   const close = () => setOpen(false);
@@ -50,21 +51,9 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => {
-          const y = window.scrollY;
-          const vh50 = window.innerHeight * 0.5;
-          const progress = Math.min(y / vh50, 1);
-          setTabsHidden(y > 4);
-          if (y <= 1) {
-            setCompact(false);
-            setHeaderOpacity(1);
-          } else if (progress >= 1) {
-            setCompact(true);
-            setHeaderOpacity(1);
-          } else {
-            setCompact(false);
-            setHeaderOpacity(0);
-          }
-        };
+      const y = window.scrollY;
+      setCompact(y > 35);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -84,16 +73,16 @@ export default function Header() {
     <>
       <motion.header
         initial={false}
-        animate={{ y: 0, opacity: compact ? 1 : Math.max(0.001, headerOpacity) }}
+        animate={{ y: 0 }}
         transition={spring}
         style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
-        className={`transition-[padding] duration-300 ease-out w-full ${
+        className={`transition-[padding] duration-200 ease-out w-full ${
           compact ? "pt-0 pb-0" : "pt-4 sm:pt-5"
         }`}
       >
         <nav
           aria-label="ناوبری اصلی"
-          className={`relative w-full ${compact ? "px-0" : "max-w-[75rem] mx-auto"}`}
+          className={`relative ${compact ? "w-full px-0" : "w-full max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8"}`}
         >
           <motion.div
             initial={false}
@@ -108,7 +97,7 @@ export default function Header() {
               boxShadow: compact
                 ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"
                 : "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.05), 0 1.25rem 2.5rem -0.25rem rgba(33,41,90,0.06)",
-              transition: "box-shadow 0.6s ease",
+              transition: "box-shadow 0.3s ease",
             }}
           >
             {/* ── همبرگری موبایل ── */}
@@ -157,13 +146,13 @@ export default function Header() {
             </Link>
 
             {/* ── وسط: پیش‌ثبت‌نام + لینک‌ها (دسکتاپ) ── */}
-            <AnimatePresence>
-              {!tabsHidden && (
+            <AnimatePresence mode="wait">
+              {!compact && (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9, y: -5 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9, y: -5 }}
-                  transition={softSpring}
+                  key="full-nav"
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0, transition: fastFade }}
+                  exit={{ opacity: 0, y: -4, transition: fastExit }}
                   className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-7"
                 >
                   <button
@@ -203,15 +192,15 @@ export default function Header() {
             {/* ── سمت چپ: اکشن‌ها ── */}
             <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 flex-shrink-0">
               {/* پیش‌ثبت‌نام — فقط وقتی کمپکت (دسکتاپ) */}
-              <AnimatePresence>
+              <AnimatePresence mode="wait">
                 {compact && (
                   <motion.button
+                    key="compact-enroll"
                     type="button"
                     onClick={openEnrollment}
-                    initial={{ opacity: 0, x: 20, scale: 0.9 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                    transition={softSpring}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0, transition: fastFade }}
+                    exit={{ opacity: 0, x: 10, transition: fastExit }}
                     className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-navy transition-colors duration-300 hover:bg-teal hover:text-white hover:border-teal cursor-pointer"
                   >
                     پیش‌ثبت‌نام

@@ -1,4 +1,4 @@
-﻿function PersonIcon({ className }) {
+function PersonIcon({ className }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
       <circle cx="12" cy="8" r="3.2" />
@@ -94,7 +94,7 @@ function ContactRow({ icon: Icon, img, circleClass, children, alt }) {
 export default function Footer() {
   return (
     <footer className="relative bg-[#252C5C] text-white overflow-hidden" dir="rtl">
-      <div className="max-w-[75rem] mx-auto px-6 lg:px-8">
+      <div className="w-full max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── ردیف بالایی ── */}
         <div className="pt-[3rem] lg:pt-[3.75rem] pb-8 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
           {/* ستون ۱: دسترسی سریع (راست) */}

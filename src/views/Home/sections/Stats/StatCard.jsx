@@ -1,50 +1,37 @@
 const yellowTexture = "/assets/home/StatCard/yellow.png";
 const blueTexture = "/assets/home/StatCard/blue.png";
-const pinkTexture = "/assets/home/StatCard/pink.png"; // عکس پترن قرمز/مژنتایی را اینجا بگذارید
-const greenTexture = "/assets/home/StatCard/green.png"; // عکس پترن فیروزه‌ای/سبز را اینجا بگذارید
+const pinkTexture = "/assets/home/StatCard/pink.png";
+const greenTexture = "/assets/home/StatCard/green.png";
 
 const THEMES = {
   orange: {
-    // موبایل ۱ درجه، دسکتاپ (lg+) مقدار کامل
-    rotate: "rotate-[1deg] lg:rotate-[2.5deg]",
-    badgeRotate: "rotate-[3deg]",
     back: "bg-orange-alt",
     border: "border-orange-alt",
     text: "text-orange",
-    badge: "border-orange text-orange",
     bg: "#FEF7EC",  
     src: yellowTexture,
     opacity: 100,
   },
   navy: {
-    rotate: "-rotate-[1deg] lg:-rotate-[2deg]",
-    badgeRotate: "-rotate-[2.5deg]",
     back: "bg-navy-alt",
     border: "border-navy",
     text: "text-navy-alt",
-    badge: "border-navy-alt text-navy-alt",
     bg: "#F4F5FB",
     src: blueTexture,
     opacity: 40,
   },
   magenta: {
-    rotate: "rotate-[1deg] lg:rotate-[2.5deg]",
-    badgeRotate: "rotate-[3deg]",
     back: "bg-magenta",
     border: "border-magenta",
     text: "text-magenta-text",
-    badge: "border-magenta-text text-magenta-text",
     bg: "#FEFAFB",
     src: pinkTexture,
     opacity: 100, 
   },
   teal: {
-    rotate: "-rotate-[1deg] lg:-rotate-[2deg]",
-    badgeRotate: "-rotate-[2.5deg]",
     back: "bg-teal-alt",
     border: "border-teal",
     text: "text-teal-text",
-    badge: "border-teal-text text-teal-text",
     bg: "#F2FAF9",
     src: greenTexture,
     opacity: 100, 
@@ -53,22 +40,21 @@ const THEMES = {
 
 const DEFAULT_THEME = "teal";
 
-export default function StatCard({ theme, label, value, caption = {} }) {
+export default function StatCard({ theme, label, value, caption = {}, rotationLg = 0 }) {
   const t = THEMES[theme] ?? THEMES[DEFAULT_THEME];
-
-  if (!THEMES[theme] && theme !== undefined) {
-    console.warn(
-      `StatCard: unknown theme "${theme}", falling back to "${DEFAULT_THEME}".`,
-    );
-  }
-
   const { strong: captionStrong = "" } = caption;
 
-  // کلاس ردیوس نامتقارن: چپ‌بالا و راست‌پایین 48px، بقیه صفر
-  const shapeClass = "rounded-tl-[2rem] rounded-br-[2rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]";
+  // ردیوس نامتقارن استیکری: چپ‌بالا و راست‌پایین
+  const shapeClass = "rounded-tl-[1.5rem] rounded-br-[1.5rem] sm:rounded-tl-[2rem] sm:rounded-br-[2rem] rounded-tr-none rounded-bl-none [corner-shape:squircle]";
 
   return (
-    <div className={`relative ${t.rotate} h-full`}>
+    <div
+      className="relative w-full h-full [transform:rotate(var(--rotation-sm))] lg:[transform:rotate(var(--rotation-lg))]"
+      style={{
+        "--rotation-sm": `${rotationLg / 4}deg`,
+        "--rotation-lg": `${rotationLg}deg`,
+      }}
+    >
       {/* Back Shadow Layer */}
       <div
         className={`
@@ -83,26 +69,25 @@ export default function StatCard({ theme, label, value, caption = {} }) {
       />
 
       {/* Main Card */}
-      <div
+      <article
         className={`
           relative
           z-10
           h-full
+          w-full
           flex
           flex-col
           items-center
+          justify-center
           ${shapeClass}
           border-[0.1875rem]
           ${t.border}
-          px-3
-          xs:px-4
-          pt-3
-          xs:pt-5
-          pb-3
-          xs:pb-5
+          px-4
+          py-4
+          sm:px-4
+          sm:py-5
           lg:px-5
-          lg:pt-6
-          lg:pb-6
+          lg:py-6
           text-center
           overflow-visible
         `}
@@ -119,49 +104,13 @@ export default function StatCard({ theme, label, value, caption = {} }) {
           />
         </div>
 
-        {/* Badge - label/chip: 15px، bold، leading-1.35 (فونت‌سایز طبق design.md) */}
-        {label && (
-          <span
-            className={`relative
-              z-20
-              inline-block
-              -mt-1
-              mb-2
-              xs:mb-3
-              lg:-mt-2
-              lg:mb-6
-              bg-white
-              border-[0.0625rem]
-              rounded-xl
-              [corner-shape:squircle]
-              px-1.5
-              py-0.5
-              lg:px-4
-              lg:py-1.5
-              whitespace-nowrap
-              text-[0.75rem]
-              xs:text-[0.8125rem]
-              lg:text-[0.9375rem]
-              font-bold
-              shadow-sm
-              ${t.badgeRotate}
-              ${t.badge}
-            `}
-          >
-            {label}
-          </span>
-        )}
-
-        {/* Number - display/stat: 70px، extrablack، leading-1.0 */}
+        {/* Number - display/stat (بدون بج برای فشردگی و زیبایی ابعاد) */}
         <div
           className={`relative
             z-20
-            mb-1.5
-            xs:mb-2
-            lg:mb-4
-            text-[2.75rem]
-            xs:text-[3rem]
-            lg:text-[4.375rem]
+            text-[2.5rem]
+            sm:text-[2.75rem]
+            lg:text-[3.5rem]
             leading-none
             font-black
             ${t.text}
@@ -170,15 +119,15 @@ export default function StatCard({ theme, label, value, caption = {} }) {
           {value}
         </div>
 
-        {/* Caption - فقط خط اصلی؛ خط دوم حذف شده */}
-        {captionStrong && (
-          <div className={`relative z-20 ${t.text} mt-auto`}>
-            <strong className="block text-[0.8125rem] xs:text-[0.875rem] lg:text-[1rem] font-black">
-              {captionStrong}
+        {/* Caption */}
+        {(captionStrong || label) && (
+          <div className={`relative z-20 ${t.text} mt-2 sm:mt-2.5`}>
+            <strong className="block text-[0.875rem] sm:text-[0.9375rem] lg:text-[1rem] font-black leading-snug">
+              {captionStrong || label}
             </strong>
           </div>
         )}
-      </div>
+      </article>
     </div>
   );
 }

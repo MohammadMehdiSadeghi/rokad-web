@@ -7,10 +7,10 @@
 //   layout.container = 1200px
 //   layout.gutter-outer = 120px (هر طرف)
 //
+// روی mobile: w-[95%] (عرض ۹۵٪ صفحه گوشی)
 // روی دسکتاپ (xl+): max-w-[1200px]
 // روی lg: max-w-[1024px]
-// روی sm/md: max-w-full (پدینگ از section والد)
-const WIDTH_STEPS = "w-full max-w-[75rem]"; // 1200px
+const WIDTH_STEPS = "w-full max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8"; // 1200px با گاترهای استاندارد
 
 export default function Container({
   as: Tag = "div",
@@ -19,7 +19,7 @@ export default function Container({
   ...rest
 }) {
   return (
-    <Tag className={`${WIDTH_STEPS} mx-auto ${className}`} {...rest}>
+    <Tag className={`${WIDTH_STEPS} ${className}`} {...rest}>
       {children}
     </Tag>
   );

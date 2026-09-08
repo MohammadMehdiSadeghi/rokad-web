@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Container from "../../../../layout/Container";
 import useRokadData from "../../../../lib/useRokadData";
 import { fetchStudents } from "../../../../lib/api";
@@ -262,7 +263,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-0"
+      className="relative overflow-hidden bg-white pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem]"
     >
       {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول ── */}
       <div
@@ -292,7 +293,7 @@ export default function Rokadians() {
         }
       `}</style>
 
-      <Container className="relative z-10 px-0 sm:px-2 lg:px-0">
+      <Container className="relative z-10">
         <div className="w-full">
           {/* =================================================
               TITLE
@@ -354,38 +355,41 @@ export default function Rokadians() {
 
             <div className="relative w-full lg:w-[70%] order-2 lg:order-1 overflow-visible">
               {/* =================================================
-                  MOBILE STATS
+                  MOBILE STATS & CTA (Centered & Responsive Wrap)
               ================================================= */}
 
-              <div className="lg:hidden flex flex-col items-center mb-9">
-                {/* کارت آمار — همون زبان استیکری دکمه‌ی زیرش:
-                    سفید + بوردر سرمه‌ای + سایه‌ی آفست + چرخش مخالف دکمه */}
-                <div className="relative text-center rotate-[2deg] bg-white border-[0.125rem] border-[#21295a] rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] px-7 py-4 [corner-shape:squircle]">
-                  <p
-                    className="text-[2.5rem] sm:text-[2.75rem] leading-none text-[#21295a]"
+              <div className="lg:hidden flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-[24rem] sm:max-w-[27rem] mx-auto mb-6 px-2">
+                {/* کارت آمار */}
+                <div className="flex items-center justify-center gap-2.5 bg-white border-[0.125rem] border-[#21295a] rounded-[0_0.75rem_0_0.75rem] shadow-[3px_3px_0_#21295a] px-3.5 py-2 sm:px-4 sm:py-2.5 rotate-[1deg] [corner-shape:squircle]">
+                  <span
+                    className="text-[1.625rem] sm:text-[1.875rem] leading-none text-[#21295a] tracking-tight"
                     style={{ fontWeight: 950 }}
                   >
-                    ۳۰۰<span className="text-teal">+</span>
-                  </p>
-
-                  <p
-                    className="text-[1rem] sm:text-[1.0625rem] text-[#21295a] mt-1.5"
-                    style={{ fontWeight: 950 }}
-                  >
-                    دانش‌آموز
-                  </p>
-
-                  <p className="text-[0.75rem] sm:text-[0.8125rem] font-bold text-[#21295a]/60 mt-0.5">
-                    در مسیر ساخت آینده
-                  </p>
+                    ۳۰۰<span className="text-[#4bb5a8]">+</span>
+                  </span>
+                  <div className="flex flex-col text-right leading-tight">
+                    <span
+                      className="text-[0.8125rem] sm:text-[0.875rem] text-[#21295a]"
+                      style={{ fontWeight: 950 }}
+                    >
+                      دانش‌آموز
+                    </span>
+                    <span className="text-[0.625rem] sm:text-[0.6875rem] font-bold text-[#21295a]/60 whitespace-nowrap">
+                      در مسیر ساخت آینده
+                    </span>
+                  </div>
                 </div>
 
-                <a
-                  href="#"
-                  className="mt-4 relative inline-flex items-center justify-center -rotate-1 hover:rotate-0 hover:-translate-y-1 hover:shadow-[6px_7px_0_#21295a] transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[0.9rem] px-7 py-2.5 rounded-[0_0.75rem_0_0.75rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap [corner-shape:squircle]"
+                {/* دکمه مشاهده همه */}
+                <Link
+                  href="/alumni"
+                  className="shrink-0 inline-flex items-center justify-center gap-1.5 bg-[#21295a] hover:bg-white text-white hover:text-[#21295a] border-[0.125rem] border-[#21295a] font-black text-[0.8125rem] sm:text-[0.875rem] px-4 py-2.5 sm:py-3 rounded-[0_0.75rem_0_0.75rem] shadow-[3px_3px_0_#4bb5a8] -rotate-1 hover:rotate-0 hover:shadow-[3px_3px_0_#21295a] transition-all duration-300 active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_#21295a] whitespace-nowrap [corner-shape:squircle] group"
                 >
-                  مشاهده همه رکادی‌ها
-                </a>
+                  <span>مشاهده همه</span>
+                  <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1 text-[#4bb5a8] group-hover:text-[#21295a] font-bold text-sm">
+                    ←
+                  </span>
+                </Link>
               </div>
 
               {/* =================================================
@@ -447,12 +451,12 @@ export default function Rokadians() {
                   در مسیر ساخت آینده
                 </p>
 
-                <a
-                  href="#"
+                <Link
+                  href="/alumni"
                   className="relative inline-flex items-center justify-center -rotate-1 hover:rotate-0 hover:-translate-y-1 hover:shadow-[6px_7px_0_#21295a] transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[1.125rem] 2xl:text-[1.25rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap mt-6 [corner-shape:squircle]"
                 >
                   مشاهده همه
-                </a>
+                </Link>
               </div>
             </div>
           </div>

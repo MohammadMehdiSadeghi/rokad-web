@@ -76,7 +76,7 @@ export default function EventsCarousel() {
   }, [events]);
 
   return (
-      <section className="pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white">
+      <section className="pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] w-full relative overflow-hidden bg-white">
         {/* 1. لایه پترن پس‌زمینه — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
             بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن */}
         <div

@@ -14,7 +14,7 @@ export default function FinalCTA() {
 
   return (
     <section
-      className="relative overflow-hidden bg-teal flex items-start lg:items-center px-4 sm:px-6 lg:px-8 pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem]"
+      className="relative overflow-hidden bg-teal flex items-start lg:items-center w-full pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem]"
       dir="rtl"
     >
       {/* Background Pattern — همه سایزها */}

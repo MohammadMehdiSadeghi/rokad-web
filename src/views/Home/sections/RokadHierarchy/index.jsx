@@ -122,7 +122,7 @@ export default function RokadHierarchy() {
     <section
       id="rokad-hierarchy"
       dir="rtl"
-      className="relative overflow-hidden bg-bg-neutral py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-bg-neutral py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full"
     >
       <Container className="relative z-10">
         {/* ── تیتر — کلمه‌به‌کلمه با رنگ تم (آکا پنل‌ها) ── */}

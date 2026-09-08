@@ -53,7 +53,7 @@ export default function Comments() {
   const comments = useRokadData(fetchComments, fallbackComments);
 
   return (
-    <section className="relative w-full pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] px-4 sm:px-6 lg:px-8 bg-[#E4F4F2] overflow-hidden">
+    <section className="relative w-full pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] bg-[#E4F4F2] overflow-hidden">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;

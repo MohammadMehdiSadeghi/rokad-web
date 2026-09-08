@@ -73,9 +73,7 @@ export default function HonorsCarousel() {
         pb-[4rem]
         sm:pb-[5rem]
         lg:pb-[6rem]
-        px-4
-        sm:px-6
-        lg:px-8
+        w-full
       "
       dir="rtl"
     >

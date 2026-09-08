@@ -43,7 +43,7 @@ export default function Faq() {
   return (
     <section
           id="counseling"
-        className="relative overflow-hidden bg-[#E4F4F2] py-[4rem] sm:py-[5rem] lg:py-[6rem] px-4 sm:px-6 lg:px-8"
+        className="relative overflow-hidden bg-[#E4F4F2] py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full"
           dir="rtl"
         >
       {/* ── لایه پترن — همون ماسک گرادیانی هیرو/دوئال‌اسکول؛ روی

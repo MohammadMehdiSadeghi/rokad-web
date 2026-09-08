@@ -22,8 +22,8 @@ export const postMeta = {
     { icon: "user", text: "نویسنده:", strong: "تیم محتوای رکاد" },
     { icon: "comment", text: "۱۸ نظر", strong: null },
   ],
-  sticker: "🚀 داغ‌ترین",
-  coverLabel: "📸 تصویر کاور",
+  sticker: "داغ‌ترین گزارش",
+  coverLabel: "تصویر کاور",
   coverCaption: "تصویر پانورامای اختتامیه رویداد",
   breadcrumb: ["خانه", "وبلاگ", "رویدادها", "سه روایت از رویدادهای رکاد"],
 };
@@ -38,9 +38,9 @@ export const toc = [
 ];
 
 export const relatedQuick = [
-  { icon: "📅", label: "رکاد ۲۹: آغاز مسیر رویدادهای استارتاپی", href: "/events/rokad-events-recap" },
-  { icon: "🎯", label: "چطور یه ایده استارتاپی خوب پیدا کنیم؟", href: "/blog" },
-  { icon: "🚀", label: "راهنمای کامل آماده‌سازی برای Pitch Day", href: "/blog" },
+  { icon: "calendar", label: "رکاد ۲۹: آغاز مسیر رویدادهای استارتاپی", href: "/events/rokad-events-recap" },
+  { icon: "target", label: "چطور یه ایده استارتاپی خوب پیدا کنیم؟", href: "/blog" },
+  { icon: "rocket", label: "راهنمای کامل آماده‌سازی برای Pitch Day", href: "/blog" },
 ];
 
 // ── بلوک‌های محتوای مقاله ──
@@ -170,24 +170,24 @@ export const blocks = [
     type: "podium",
     items: [
       {
-        medal: "🥈",
-        rank: "تیم شایسته تقدیر",
+        medal: "۲",
+        rank: "تیم دوم",
         team: "تیم شایسته تقدیر",
         project: "راه‌حلی برای مدیریت زمان دانش‌آموزی",
         members: "۴ عضو تیم",
         tone: "silver",
       },
       {
-        medal: "🥇",
-        rank: "تیم برتر رویداد",
+        medal: "۱",
+        rank: "تیم اول رویداد",
         team: "تیم برتر رکاد ۳۰",
         project: "پلتفرم آموزشی برای دانش‌آموزان دبیرستان",
         members: "۵ عضو تیم",
         tone: "gold",
       },
       {
-        medal: "🥉",
-        rank: "تیم شایسته تقدیر",
+        medal: "۳",
+        rank: "تیم سوم",
         team: "تیم شایسته تقدیر",
         project: "اپلیکیشن کمکی برای درس‌های ریاضی",
         members: "۴ عضو تیم",

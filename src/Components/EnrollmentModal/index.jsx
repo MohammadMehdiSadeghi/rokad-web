@@ -179,7 +179,7 @@ export default function EnrollmentModal({ open, onClose }) {
                   </svg>
                 </div>
                 <h4 className="font-black text-[1.375rem] text-[#292827] mb-2">
-                  درخواست شما ثبت شد 🎉
+                  درخواست شما با موفقیت ثبت شد
                 </h4>
                 <p className="text-[0.9375rem] text-[#292827]/60 font-medium leading-7 max-w-md mx-auto">
                   به‌زودی کارشناسان ما برای هماهنگی و تکمیل ثبت‌نام با شما

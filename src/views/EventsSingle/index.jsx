@@ -420,7 +420,11 @@ function Sidebar({ onCta }) {
             {relatedQuick.map((r, i) => (
               <li key={i}>
                 <a href={r.href || "#"} className="flex items-start gap-2.5 py-2 text-[0.8125rem] font-bold text-ink/75 hover:text-teal transition-colors leading-relaxed border-b border-ink/5 last:border-0">
-                  <span className="flex-shrink-0 text-[1rem]">{r.icon}</span>
+                  <span className="flex-shrink-0 w-4 h-4 text-teal mt-0.5">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
+                    </svg>
+                  </span>
                   {r.label}
                 </a>
               </li>

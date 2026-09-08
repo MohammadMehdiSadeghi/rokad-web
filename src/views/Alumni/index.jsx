@@ -148,13 +148,15 @@ export default function AlumniPage() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3.5">
                     <div
-                      className={`w-14 h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center font-black text-2xl transition-colors ${
+                      className={`w-14 h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
                         selectedBranch === "female"
                           ? "bg-[#E0195B] text-white"
                           : "bg-[#FCE8EF] text-[#E0195B] group-hover:bg-[#E0195B] group-hover:text-white"
                       }`}
                     >
-                      ♀
+                      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 2l2.4 7.2h7.6l-6.2 4.5 2.4 7.3-6.2-4.5-6.2 4.5 2.4-7.3-6.2-4.5h7.6z" />
+                      </svg>
                     </div>
                     <div>
                       <h3 className="font-black text-[1.375rem] text-[#E0195B]">
@@ -198,13 +200,16 @@ export default function AlumniPage() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3.5">
                     <div
-                      className={`w-14 h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center font-black text-2xl transition-colors ${
+                      className={`w-14 h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
                         selectedBranch === "male"
                           ? "bg-[#21295A] text-white"
                           : "bg-[#E9EAEF] text-[#21295A] group-hover:bg-[#21295A] group-hover:text-white"
                       }`}
                     >
-                      ♂
+                      <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" opacity="0.3" />
+                      </svg>
                     </div>
                     <div>
                       <h3 className="font-black text-[1.375rem] text-[#21295A]">
@@ -241,8 +246,10 @@ export default function AlumniPage() {
       {!selectedBranch ? (
         <section className="py-16 sm:py-24 bg-[#F8FAF9] border-t border-navy/10 text-center">
           <Container className="max-w-xl mx-auto">
-            <div className="w-16 h-16 rounded-full bg-white border-2 border-navy/15 flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm">
-              👆
+            <div className="w-16 h-16 rounded-full bg-white border-2 border-navy/15 flex items-center justify-center text-teal mx-auto mb-4 shadow-sm">
+              <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 19V5M5 12l7-7 7 7" />
+              </svg>
             </div>
             <h2 className="font-black text-[1.375rem] sm:text-[1.625rem] text-navy mb-3">
               یکی از دو کارت بالا را انتخاب کنید
@@ -285,7 +292,7 @@ export default function AlumniPage() {
                   }}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-navy text-navy hover:text-white border-2 border-navy text-[0.8125rem] font-bold rounded-[0.75rem] [corner-shape:squircle] shadow-[2px_2px_0_0_#202A5A] transition-all cursor-pointer"
                 >
-                  <span>سوییچ به {isFemale ? "هنرستان پسرانه ♂" : "هنرستان دخترانه ♀"}</span>
+                  <span>سوییچ به {isFemale ? "هنرستان پسرانه" : "هنرستان دخترانه"}</span>
                   <ChevronLeftIcon className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -365,7 +372,12 @@ export default function AlumniPage() {
               {/* شبکه کارت‌های دانش‌آموختگان */}
               {filteredAlumni.length === 0 ? (
                 <div className="bg-white border-2 border-dashed border-navy/20 rounded-[0_2rem_0_2rem] p-12 text-center my-8">
-                  <div className="text-4xl mb-3">🔍</div>
+                  <div className="w-12 h-12 rounded-full bg-[#F4F5FB] border border-navy/20 flex items-center justify-center text-navy/40 mx-auto mb-3">
+                    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="11" cy="11" r="8" />
+                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                  </div>
                   <h3 className="font-black text-[1.25rem] text-navy mb-2">
                     دانش‌آموخته‌ای با این فیلترها در این بخش یافت نشد
                   </h3>
@@ -518,8 +530,12 @@ export default function AlumniPage() {
                             سازنده: {p.creator}
                           </div>
 
-                          <div className="inline-block bg-[#F4F5FB] border border-navy/15 rounded-lg px-3 py-1.5 text-[0.75rem] font-bold text-navy mb-4">
-                            📈 {p.stats}
+                          <div className="inline-flex items-center gap-1.5 bg-[#F4F5FB] border border-navy/15 rounded-lg px-3 py-1.5 text-[0.75rem] font-bold text-navy mb-4">
+                            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-teal" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                              <polyline points="17 6 23 6 23 12" />
+                            </svg>
+                            <span>{p.stats}</span>
                           </div>
 
                           <p className="text-[0.8125rem] text-navy/70 leading-[1.9] mb-6">

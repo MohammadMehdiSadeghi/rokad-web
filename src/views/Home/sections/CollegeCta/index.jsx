@@ -116,8 +116,11 @@ function PolaroidCta() {
         </span>
       </div>
 
-      <div className="font-extrabold text-[0.875rem] mb-3" style={{ color: "#292827" }}>
-        مسیر شغلی نوجوونت 📌
+      <div className="font-extrabold text-[0.875rem] mb-3 flex items-center justify-center gap-1.5" style={{ color: "#292827" }}>
+        <span>مسیر شغلی نوجوونت</span>
+        <svg viewBox="0 0 24 24" className="w-4 h-4 text-orange" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2a3 3 0 0 0-3 3v7L7 14v2h4v6l1 1 1-1v-6h4v-2l-2-2V5a3 3 0 0 0-3-3z" />
+        </svg>
       </div>
 
       {/* دکمه CTA دو لایه */}

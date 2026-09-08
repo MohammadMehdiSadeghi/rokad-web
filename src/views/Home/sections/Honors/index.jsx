@@ -67,11 +67,11 @@ export default function HonorsCarousel() {
         relative
         bg-white
         overflow-x-clip
-        pt-[4rem]
+        pt-[3.5rem]
         sm:pt-[5rem]
         lg:pt-[6rem]
-        pb-[4rem]
-        sm:pb-[5rem]
+        pb-[2rem]
+        sm:pb-[4rem]
         lg:pb-[6rem]
         w-full
       "
@@ -159,49 +159,12 @@ export default function HonorsCarousel() {
             HEADER
         ================================================== */}
 
-        <div
-          className="
-            relative
-            w-full
-            flex
-            flex-col
-            items-center
-            justify-center
-            text-center
-            gap-5
-            sm:gap-6
-            mb-8
-            sm:mb-[4rem]
-          "
-        >
-          {/* Heading + Button Row */}
-
-          <div
-            className="
-              w-full
-              flex
-              flex-col
-              sm:flex-row
-              items-center
-              justify-between
-              gap-4
-              sm:gap-6
-            "
-          >
-            {/* Left: Title + Subtitle */}
-            <div className="flex-1 flex flex-col items-center sm:items-start">
-              <h2
-                className="
-                  font-black
-                  text-center
-                  sm:text-right
-                  text-[1.5rem]
-                  sm:text-[2.25rem]
-                  lg:text-[3.3125rem]
-                  xl:text-[3.3125rem]
-                  leading-tight
-                "
-              >
+        <div className="relative w-full mb-3 sm:mb-6 lg:mb-10">
+          {/* Heading + Button Row — کنار هم در تمام سایزها */}
+          <div className="w-full flex flex-row items-center justify-between gap-3 sm:gap-6">
+            {/* Title */}
+            <div className="flex-1 text-right">
+              <h2 className="font-black text-right text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-tight">
                 افتخاراتی که{" "}
                 <span className="text-[#21295A]">
                   با هم
@@ -215,71 +178,23 @@ export default function HonorsCarousel() {
                 از صفر ساخت و تا آخرش ایستاد.
               </p>
             </div>
-         {/* Right: Button */}
-
-            <div
-              className="
-                relative
-                inline-flex
-                items-center
-                justify-center
-                rotate-[-1.55deg]
-                hover:rotate-0
-                transition-all
-                duration-300
-                flex-shrink-0
-              "
-            >
-            {/* Shadow */}
-
-            <div
-              aria-hidden="true"
-              className="
-                absolute
-                top-[0.125rem]
-                left-[0.125rem]
-                w-full
-                h-full
-                rounded-[0_0.82rem_0_0.82rem]
-                [corner-shape:squircle]
-                bg-[#21295A]
-              "
-            />
 
             {/* Button */}
+            <div className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0">
+              {/* Shadow */}
+              <div
+                aria-hidden="true"
+                className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#21295A]"
+              />
 
-            <a
-              href="#"
-              className="
-                relative
-                z-10
-                bg-white
-                border-[0.125rem]
-                border-[#21295A]
-                text-[#21295A]
-                font-extrabold
-                text-sm
-                sm:text-base
-                px-6
-                py-3
-                rounded-[0_0.82rem_0_0.82rem]
-                [corner-shape:squircle]
-                whitespace-nowrap
-                cursor-pointer
-                flex-shrink-0
-                [background-image:linear-gradient(to_right,#21295A,#21295A)]
-                bg-no-repeat
-                [background-size:0%_100%]
-                hover:[background-size:100%_100%]
-                hover:text-white
-                transition-all
-                duration-300
-                ease-out
-              "
-            >
-              همه افتخارات
-            </a>
-          </div>
+              {/* Button */}
+              <a
+                href="/honors"
+                className="relative z-10 bg-white border-[0.125rem] border-[#21295A] text-[#21295A] font-extrabold text-xs xs:text-sm sm:text-base px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer flex-shrink-0 [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
+              >
+                همه افتخارات
+              </a>
+            </div>
           </div>
         </div>
 
@@ -287,18 +202,7 @@ export default function HonorsCarousel() {
             CAROUSEL
         ================================================== */}
 
-        <div
-          className="
-            relative
-            w-full
-            pt-6
-            sm:pt-8
-            lg:pt-10
-            pb-6
-            sm:pb-8
-            overflow-visible
-          "
-        >
+        <div className="relative w-full pt-1 sm:pt-4 lg:pt-8 pb-4 sm:pb-8 overflow-visible">
           {/* =================================================
               NEXT BUTTON - LEFT IN RTL
           ================================================== */}

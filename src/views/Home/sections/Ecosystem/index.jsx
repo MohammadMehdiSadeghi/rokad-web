@@ -52,32 +52,34 @@ const cards = [
 // تعداد کارت در هر «صفحه» در دسکتاپ
 const CARDS_PER_PAGE = 4;
 
-function EcoCard({ title, body, featured, tilt, isActive, cardRef, className = "" }) {
+function EcoCard({ title, body, featured, tilt = 0, isActive, cardRef, className = "" }) {
   return (
     <article
       ref={cardRef}
       style={{ "--tilt": `${tilt}deg` }}
       data-active={isActive || undefined}
       className={`
-      group p-4 xs:p-5 sm:p-6 flex flex-row items-center gap-3 xs:gap-4 sm:gap-5 min-h-[9rem] xs:min-h-[10rem] sm:min-h-[11.5rem] text-right
-      backdrop-blur-[19.06px] rotate-[var(--tilt)] hover:rotate-0
-      transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
-      hover:-translate-y-1.5 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
+      group p-3 xs:p-3.5 sm:p-4 lg:p-5 flex flex-row items-center gap-3 xs:gap-4 sm:gap-5 min-h-[4.25rem] xs:min-h-[4.75rem] sm:min-h-[5.5rem] lg:min-h-[6.5rem] text-right
+      backdrop-blur-[19.06px] sm:rotate-[var(--tilt)] hover:rotate-0
+      transition-all duration-300 ease-out
+      hover:-translate-y-1 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
 
       bg-[#FFFFFF12] hover:bg-[#59BBAF]
       border-[0.11875rem] border-[#59BBAF] hover:border-[#FFFFFF]
-      rounded-[0_1.90875rem_0_1.90875rem] [corner-shape:squircle]
+      rounded-[0_1.25rem_0_1.25rem] sm:rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle]
 
-      ${isActive ? "-translate-y-1.5 shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)] bg-[#59BBAF] border-[#FFFFFF] rotate-0" : ""}
+      ${isActive ? "-translate-y-1 shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)] bg-[#59BBAF] border-[#FFFFFF] rotate-0" : ""}
       ${className}
       `}
     >
-      {/* Icon — راست کارت (اول در DOM زیر RTL) */}
+      {/* Icon — راست کارت */}
       <div
-        className={`w-12 h-12 xs:w-13 xs:h-13 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 transition-colors duration-500 rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${isActive ? "bg-[#202A5A]" : ""}`}
+        className={`w-10 h-10 xs:w-11 xs:h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14 flex items-center justify-center flex-shrink-0 transition-colors duration-300 rounded-[0.5rem_0_0.5rem_0] sm:rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${
+          isActive ? "bg-[#202A5A]" : ""
+        }`}
       >
         <span
-          className={`w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
+          className={`w-5 h-5 xs:w-5.5 xs:h-5.5 sm:w-6.5 sm:h-6.5 lg:w-7 lg:h-7 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
             isActive ? "text-white" : ""
           }`}
         >
@@ -85,15 +87,13 @@ function EcoCard({ title, body, featured, tilt, isActive, cardRef, className = "
         </span>
       </div>
 
-      {/* Text — چپِ آیکون */}
-            <div className="flex flex-col items-start text-right">
-              <h4 className="font-black text-[0.8125rem] xs:text-[0.9375rem] sm:text-[1.125rem] text-white mb-1 sm:mb-2 leading-snug transition-colors duration-300">
-                {title}
-              </h4>
-              <p className="hidden font-medium text-[0.6875rem] xs:text-[0.75rem] sm:text-[0.9375rem] text-white/70 leading-relaxed transition-colors duration-300">
-                {body}
-              </p>
-            </div>
+      {/* Text — چپِ آیکون (فقط تایتل) */}
+      <div className="flex flex-col items-start text-right min-w-0 flex-1">
+        <h4 className="font-black text-[0.875rem] xs:text-[0.9375rem] sm:text-[1.0625rem] lg:text-[1.125rem] text-white leading-snug transition-colors duration-300">
+          {title}
+        </h4>
+        {body && <p className="sr-only">{body}</p>}
+      </div>
     </article>
   );
 }
@@ -255,55 +255,63 @@ export default function Ecosystem() {
             شتاب‌دهی و شبکه‌ی حرفه‌ای، همه کنار هم.
           </p>
 
-          {/* ── موبایل/تبلت: اسلایدر ۴تایی (۲×۲) با سوایپ ── */}
-                    <div
-                      className="lg:hidden"
-                      dir="rtl"
-                      onTouchStart={onTouchStart}
-                      onTouchEnd={onTouchEnd}
-                    >
-                      <div className="relative min-h-[19.5rem] xs:min-h-[21.5rem] sm:min-h-[25rem]">
-                        {Array.from({ length: totalPages }).map((_, pg) => {
-                          const group = cards.slice(pg * CARDS_PER_PAGE, (pg + 1) * CARDS_PER_PAGE);
-                          const isCurrent = pg === page;
-                          // موبایل: صفحه‌ی بعدی از چپ (-30%) میاد وسط، صفحه‌ی قبلی به راست (+30%) می‌ره
-                          const slideX = isCurrent
-                            ? "translate-x-0 opacity-100"
-                            : pg < page
-                              ? "translate-x-[30%] opacity-0"
-                              : "-translate-x-[30%] opacity-0";
-                          return (
-                            <div
-                              key={pg}
-                              className={`grid grid-cols-2 gap-2.5 xs:gap-3 sm:gap-5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] absolute inset-0 ${slideX}`}
-                              aria-hidden={!isCurrent}
-                              style={{ pointerEvents: isCurrent ? "auto" : "none" }}
-                            >
-                              {group.map((c, i) => (
-                                <EcoCard key={i} {...c} isActive={false} />
-                              ))}
-                            </div>
-                          );
-                        })}
-                      </div>
+          {/* ── موبایل/تبلت: اسلایدر واکنش‌گرا با سوایپ ── */}
+          <div
+            className="lg:hidden"
+            dir="rtl"
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
+            <div className="relative min-h-[20rem] xs:min-h-[21.5rem] sm:min-h-[13.5rem]">
+              {Array.from({ length: totalPages }).map((_, pg) => {
+                const group = cards.slice(pg * CARDS_PER_PAGE, (pg + 1) * CARDS_PER_PAGE);
+                const isCurrent = pg === page;
+                const slideX = isCurrent
+                  ? "translate-x-0 opacity-100"
+                  : pg < page
+                    ? "translate-x-[30%] opacity-0"
+                    : "-translate-x-[30%] opacity-0";
+                return (
+                  <div
+                    key={pg}
+                    className={`grid grid-cols-1 sm:grid-cols-2 gap-2.5 xs:gap-3 sm:gap-4 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] absolute inset-0 ${slideX}`}
+                    aria-hidden={!isCurrent}
+                    style={{ pointerEvents: isCurrent ? "auto" : "none" }}
+                  >
+                    {group.map((c, i) => (
+                      <EcoCard key={i} {...c} isActive={false} />
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
 
-                      {/* نشانگر صفحه */}
-                      <div className="flex items-center justify-center gap-2 mt-6 lg:mt-8">
-                        {Array.from({ length: totalPages }).map((_, i) => (
-                          <span
-                            key={i}
-                            className={`h-1.5 rounded-full transition-all duration-300 ${
-                              i === page ? "w-6 bg-[#59BBAF]" : "w-1.5 bg-white/25"
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
+            {/* نشانگر صفحه و راهنمای سوایپ */}
+            <div className="flex items-center justify-between mt-6 px-1">
+              <div className="flex items-center gap-1.5 text-xs text-[#59BBAF]/80 font-medium">
+                <span>برای دیدن موارد بیشتر بکشید</span>
+                <span className="animate-pulse">←</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                {Array.from({ length: totalPages }).map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => goPage(i)}
+                    aria-label={`صفحه ${i + 1}`}
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      i === page ? "w-6 bg-[#59BBAF]" : "w-2 bg-white/25 hover:bg-white/40"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
 
           {/* ── دسکتاپ: صفحات ۴تایی (۲ بالا + ۲ پایین) با اسکرول لاک ── */}
           <div className="hidden lg:block relative" dir="rtl">
             {/* بدون overflow-hidden — وگرنه لبه‌ی کارت‌های چرخیده (rotate) بریده می‌شن */}
-            <div className="relative min-h-[24.5rem]">
+            <div className="relative min-h-[14.5rem]">
               {Array.from({ length: totalPages }).map((_, pg) => {
                 const group = cards.slice(pg * CARDS_PER_PAGE, (pg + 1) * CARDS_PER_PAGE);
                 const isCurrent = pg === page;

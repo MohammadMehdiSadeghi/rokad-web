@@ -1,12 +1,16 @@
 // SchoolCard.jsx
+"use client";
+
+import { useEnrollment } from "../../../../lib/EnrollmentContext";
+
 const THEMES = {
   boys: {
-    rotate: "rotate-1",
+    rotate: "rotate-0 sm:rotate-1",
     bg: "bg-navy-alt",
     ctaText: "text-navy-alt",
   },
   girls: {
-    rotate: "-rotate-1",
+    rotate: "rotate-0 sm:-rotate-1",
     bg: "bg-magenta",
     ctaText: "text-magenta",
   },
@@ -14,23 +18,34 @@ const THEMES = {
 
 function DotBullet() {
   return (
-    <span className="relative w-3 h-3 flex-shrink-0">
+    <span className="relative w-2.5 h-2.5 sm:w-3 sm:h-3 flex-shrink-0">
       <span className="absolute inset-0 rounded-full bg-white/60" />
-      <span className="absolute left-0.5 top-0.5 w-[0.4375rem] h-[0.4375rem] rounded-full bg-white/75" />
+      <span className="absolute left-0.5 top-0.5 w-[0.375rem] h-[0.375rem] rounded-full bg-white/80" />
     </span>
   );
 }
 
-export default function SchoolCard({ theme, category, title, meta, chips, ctaLabel, illustration, pattern, seoText }) {
-  const t = THEMES[theme];
+export default function SchoolCard({
+  theme,
+  category,
+  title,
+  meta,
+  chips,
+  ctaLabel,
+  illustration,
+  pattern,
+  seoText,
+}) {
+  const { openEnrollment } = useEnrollment();
+  const t = THEMES[theme] || THEMES.boys;
 
   return (
     <div
-      className={`${t.rotate} relative h-full transition-all duration-500 ease-out hover:rotate-0 hover:-translate-y-1.5`}
+      className={`${t.rotate} relative h-full transition-all duration-300 ease-out hover:rotate-0 hover:-translate-y-1`}
     >
-      {/* کارت اصلی — h-full تا دو کارت هم‌ارتفاع بمونن و فضای خالی هم‌تراز بشه */}
+      {/* کارت اصلی */}
       <div
-        className={`relative ${t.bg} text-white p-5 sm:p-8 lg:p-10 overflow-hidden h-full min-h-[20rem] sm:min-h-[18rem] lg:min-h-[22rem] flex flex-col border-2 border-white/10 rounded-[1.5rem] sm:rounded-[2.75rem] lg:rounded-[3.25rem] [corner-shape:squircle] transition-all duration-500 hover:shadow-2xl`}
+        className={`relative ${t.bg} text-white p-5 xs:p-6 sm:p-8 lg:p-10 overflow-hidden h-full min-h-[19rem] xs:min-h-[20.5rem] sm:min-h-[22rem] lg:min-h-[24rem] flex flex-col justify-between border-2 border-white/10 rounded-[1.75rem] sm:rounded-[2.5rem] lg:rounded-[3rem] [corner-shape:squircle] shadow-xl transition-all duration-300 hover:shadow-2xl`}
       >
         {/* ── Background Pattern ── */}
         {pattern && (
@@ -39,55 +54,62 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
               src={pattern}
               alt=""
               aria-hidden="true"
-              className="w-full h-full object-cover opacity-[80%] mix-blend-overlay"
+              className="w-full h-full object-cover opacity-80 mix-blend-overlay"
             />
           </div>
         )}
 
-        {/* Illustration */}
-                        {illustration && (
-                                  <img
-                                    src={illustration}
-                                    alt=""
-                                    aria-hidden="true"
-                                    className="pointer-events-none select-none absolute bottom-0 left-0 h-[12rem] sm:h-[15rem] lg:h-[17rem] w-auto opacity-95 z-[1]"
-                                  />
-                                )}
-
-                        {/* Text Container — توزیع مساوی فضا بین همه‌ی آیتم‌ها:
-                            تایتل بالا، دکمه پایین، متا و بج وسط با فاصله‌ی یکسان */}
-                                        <div className="relative z-10 flex flex-col justify-between flex-1 max-w-full sm:max-w-[70%] sm:ml-auto">
-          {/* Title — سر جاش، بالای کارت */}
-          <h3 className="font-black text-[1.625rem] sm:text-[2.125rem] lg:text-[2.25rem] leading-tight">
+        {/* ۱. بخش بالا: ۱. عنوان، ۲. رشته، ۳. آدرس */}
+        <div className="relative z-10 flex flex-col gap-2 xs:gap-2.5 sm:gap-3 w-full">
+          {/* خط اول: عنوان هنرستان — تک‌خطی */}
+          <h3 className="font-black text-[1.45rem] xs:text-[1.625rem] sm:text-[2rem] lg:text-[2.25rem] leading-tight whitespace-nowrap">
             {title}
           </h3>
 
-          {/* Chips — رشته، بالای آدرس */}
-          <div className="flex flex-col items-start gap-1 sm:gap-1.5">
-                {chips.map((chip) => (
-                  <span
-                    key={chip}
-                    className="-rotate-2 flex items-center gap-2 bg-white/[0.15] font-semibold text-[1rem] sm:text-[1.0625rem] rounded-chip px-2.5 py-1 sm:px-3.5 sm:py-2"
-                  >
-                    <DotBullet />
-                    {chip}
-                  </span>
-                ))}
-              </div>
+          {/* خط دوم: بج رشته — در سمت چپ */}
+          <div className="flex items-center justify-end w-full">
+            {chips.map((chip) => (
+              <span
+                key={chip}
+                className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-xs font-bold text-[0.75rem] xs:text-[0.8125rem] sm:text-[0.875rem] rounded-chip px-3 py-1 sm:py-1.5 whitespace-nowrap shadow-xs"
+              >
+                <DotBullet />
+                {chip}
+              </span>
+            ))}
+          </div>
 
-          {/* Meta — زیر بج رشته */}
-          <p className="text-[1rem] sm:text-[1.0625rem] opacity-80">{meta}</p>
+          {/* خط سوم: آدرس و لوکیشن — تک‌خطی */}
+          <p className="text-[0.875rem] xs:text-[0.9375rem] sm:text-[1rem] opacity-90 font-medium leading-normal whitespace-nowrap">
+            {meta}
+          </p>
+        </div>
 
-          {/* متن توضیح برای سئو — از نظر بصری کاملاً مخفی (sr-only) */}
-          {seoText && <p className="sr-only">{seoText}</p>}
+        {/* متن توضیح برای سئو */}
+        {seoText && <p className="sr-only">{seoText}</p>}
 
-          {/* دکمه — چسبیده به پایین کارت، مثل قبل */}
-          <a
-            href="#"
-            className={`self-start rotate-[1.5deg] bg-white font-extrabold text-[0.9375rem] sm:text-[0.9375rem] lg:text-[0.9375rem] rounded-[0.5rem] px-5 sm:px-7 py-2.5 sm:py-3 ${t.ctaText} transition-transform duration-300 hover:scale-105 hover:rotate-0`}
+        {/* ۲. بخش پایین: دکمه ثبت‌نام و عکس کاراکتر کنار هم در پایین کارت */}
+        <div className="relative z-10 mt-4 sm:mt-8 flex flex-row items-end justify-between w-full">
+          {/* دکمه پیش‌ثبت‌نام */}
+          <button
+            type="button"
+            onClick={() => openEnrollment()}
+            className={`inline-flex items-center justify-center bg-white font-black text-[0.8125rem] xs:text-[0.875rem] sm:text-[0.9375rem] rounded-xl px-4 xs:px-5 sm:px-7 py-2.5 sm:py-3 ${t.ctaText} shadow-[0_4px_14px_rgba(0,0,0,0.15)] transition-all duration-200 hover:scale-105 active:scale-[0.98] cursor-pointer shrink-0 mb-1 sm:mb-0`}
           >
             {ctaLabel}
-          </a>
+          </button>
+
+          {/* عکس کاراکتر — بزرگ، واضح و جذاب در گوشه پایین */}
+          {illustration && (
+            <div className="relative -mb-5 xs:-mb-6 sm:-mb-8 lg:-mb-10 -ml-3 xs:-ml-4 sm:absolute sm:bottom-0 sm:left-0 lg:left-2 flex items-end justify-end pointer-events-none select-none">
+              <img
+                src={illustration}
+                alt=""
+                aria-hidden="true"
+                className="h-[11rem] xs:h-[12.5rem] sm:h-[17.5rem] lg:h-[20.5rem] xl:h-[22.5rem] w-auto object-contain object-bottom drop-shadow-[0_8px_16px_rgba(0,0,0,0.2)]"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

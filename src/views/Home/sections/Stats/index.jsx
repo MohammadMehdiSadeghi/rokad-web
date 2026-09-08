@@ -39,7 +39,7 @@ export default function Stats() {
   const stats = useRokadData(fetchStats, fallbackStats);
 
   return (
-    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[8rem] w-full overflow-hidden bg-white">
+    <section className="relative pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[6rem] pb-[1.5rem] sm:pb-[2.5rem] lg:pb-[3.5rem] w-full overflow-hidden bg-white">
       {/* لایه پترن پس‌زمینه */}
       <div
         className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"

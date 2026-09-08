@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useEnrollment } from "../../../../lib/EnrollmentContext";
 
 const HEADING = [
   { word: "آینــده", pos: { left: 979.5, top: 60 } },
@@ -16,6 +17,7 @@ const SUBTITLE_TEXT = "اولین هنرستان استارتاپی ایران";
 const DESIGN_CARD = 1200;
 
 export default function Hero() {
+  const { openEnrollment } = useEnrollment();
   const vpRef = useRef(null);
   const canvasRef = useRef(null);
   const subtitleRef = useRef(null);
@@ -62,14 +64,15 @@ export default function Hero() {
       <section className="relative w-full px-4 sm:px-6 lg:hidden pt-[6.5rem] sm:pt-[7rem]">
         <div className="relative mx-auto w-full max-w-[27.5rem]">
           {/* کارت اصلی — عکس داخل کادر، نیمه پایینش با overflow-hidden کات می‌شود */}
-          <div
-            className="relative overflow-hidden rounded-[2rem]"
-            style={{
-              backgroundColor: "#58BDAF",
-              backgroundImage: "url('/assets/home/Hero/pattern.png')",
-              backgroundSize: "100% 100%",
-            }}
-          >
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#58BDAF]">
+            {/* پترن پس‌زمینه کارت با حفظ تناسب هندسی */}
+            <img
+              src="/assets/home/Hero/pattern.png"
+              alt=""
+              aria-hidden="true"
+              draggable={false}
+              className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
+            />
             <div className="relative z-[1] px-5 pt-9 pb-[16rem] sm:pb-[17rem] flex flex-col items-center text-center">
               {/* تیتر */}
               <h1 dir="rtl" className="text-white font-black leading-[1.2] text-[2.25rem] sm:text-[2.5rem]">
@@ -96,17 +99,18 @@ export default function Hero() {
             <div className="pointer-events-none absolute inset-0 z-[0] bg-gradient-to-t from-[#0e1633]/10 to-transparent" />
           </div>
 
-          {/* دکمه‌ها — کنار هم، بیرون از کادر، مستطیل */}
-          <div className="mt-6 flex flex-row gap-3">
-            <a
-              href="#"
-              className="flex-1 text-center no-underline bg-[#202A5A] text-white font-black text-[0.9375rem] py-3 rounded-xl transition-colors duration-300 hover:bg-[#2a3a7a]"
+          {/* دکمه‌ها — ریسپانسیو، ارتفاع یکسان، تراز وسط */}
+          <div className="mt-5 sm:mt-6 flex flex-row items-stretch gap-2.5 sm:gap-3.5 w-full">
+            <button
+              type="button"
+              onClick={() => openEnrollment()}
+              className="flex-[1.15] sm:flex-1 inline-flex items-center justify-center min-h-[3rem] sm:min-h-[3.25rem] px-2.5 sm:px-4 py-2 text-center bg-[#202A5A] text-white font-black text-xs xs:text-sm sm:text-base2 leading-tight rounded-xl shadow-md transition-all duration-200 hover:bg-[#2a3a7a] active:scale-[0.98] cursor-pointer"
             >
               ثبت‌نام و رزرو مصاحبه
-            </a>
+            </button>
             <a
-              href="#"
-              className="flex-1 text-center no-underline bg-white text-[#202A5A] font-black text-[0.9375rem] py-3 rounded-xl border-2 border-[#202A5A] shadow-[0_4px_14px_rgba(32,42,90,0.25)] transition-all duration-300 hover:bg-[#f2f6ff] hover:shadow-[0_6px_18px_rgba(32,42,90,0.32)]"
+              href="#counseling"
+              className="flex-[0.85] sm:flex-1 inline-flex items-center justify-center min-h-[3rem] sm:min-h-[3.25rem] px-2.5 sm:px-4 py-2 text-center no-underline bg-white text-[#202A5A] font-black text-xs xs:text-sm sm:text-base2 leading-tight rounded-xl border-2 border-[#202A5A] shadow-[0_4px_14px_rgba(32,42,90,0.15)] transition-all duration-200 hover:bg-[#f2f6ff] active:scale-[0.98] cursor-pointer"
             >
               درخواست مشاوره
             </a>
@@ -192,10 +196,12 @@ export default function Hero() {
                 }}
               />
 
-              <a
-                href="#"
-                className="absolute block no-underline cursor-pointer z-[2]"
+              <button
+                type="button"
+                onClick={() => openEnrollment()}
+                className="absolute block p-0 border-0 bg-transparent cursor-pointer z-[2] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 style={{ left: 830, top: 372, width: 370, height: 138 }}
+                aria-label="ثبت‌نام و رزرو مصاحبه"
               >
                 <img
                   src="/assets/home/Hero/pill-navy.png"
@@ -203,11 +209,12 @@ export default function Hero() {
                   className="absolute left-0 top-0 block pointer-events-none z-[1] w-[370px] h-[138px]"
                   draggable={false}
                 />
-              </a>
+              </button>
               <a
-                href="#"
-                className="absolute block no-underline cursor-pointer z-[2]"
+                href="#counseling"
+                className="absolute block no-underline cursor-pointer z-[2] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 style={{ left: 581, top: 418, width: 389, height: 92 }}
+                aria-label="درخواست مشاوره"
               >
                 <img
                   src="/assets/home/Hero/pill-white.png"

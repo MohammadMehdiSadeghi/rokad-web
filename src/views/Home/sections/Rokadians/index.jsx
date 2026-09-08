@@ -263,7 +263,7 @@ export default function Rokadians() {
     <section
       id="rokadians"
       dir="rtl"
-      className="relative overflow-hidden bg-white pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem]"
+      className="relative overflow-hidden bg-white pt-[2rem] sm:pt-[4rem] lg:pt-[6rem] pb-[3.5rem] sm:pb-[5rem] lg:pb-[6rem]"
     >
       {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول ── */}
       <div
@@ -299,42 +299,12 @@ export default function Rokadians() {
               TITLE
           ================================================= */}
 
-          <div className="text-center max-w-[50rem] mx-auto mb-8 sm:mb-[4rem]">
-            <h2 className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827] mb-0">
-              <span
-                className="inline-block"
-                style={{ transform: "rotate(-3deg)" }}
-              >
-                ببین
-              </span>
-
-              <span
-                className="inline-block"
-                style={{ transform: "rotate(3deg)" }}
-              >
-                رکادی‌ها
-              </span>
-
-              <span
-                className="inline-block"
-                style={{ transform: "rotate(-3deg)" }}
-              >
-                الان
-              </span>
-
-              <span
-                className="inline-block text-[#4bb5a8]"
-                style={{ transform: "rotate(3deg)" }}
-              >
-                کجان
-              </span>
-
-              <span
-                className="inline-block"
-                style={{ transform: "rotate(-3deg)" }}
-              >
-                ؟
-              </span>
+          <div className="text-center max-w-[50rem] mx-auto mb-4 sm:mb-6 lg:mb-10">
+            <h2 className="font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827]">
+              <span>ببین </span>
+              <span className="text-[#21295A]">رکادی‌ها</span>{" "}
+              <span>الان </span>
+              <span className="text-[#4bb5a8]">کجان؟</span>
             </h2>
 
             {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
@@ -348,33 +318,33 @@ export default function Rokadians() {
               MAIN CONTENT
           ================================================= */}
 
-          <div className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-8">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-8">
             {/* =================================================
                 CARDS AREA
             ================================================= */}
 
             <div className="relative w-full lg:w-[70%] order-2 lg:order-1 overflow-visible">
               {/* =================================================
-                  MOBILE STATS & CTA (Centered & Responsive Wrap)
+                  MOBILE STATS & CTA (Centered & Balanced Bar)
               ================================================= */}
 
-              <div className="lg:hidden flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-[24rem] sm:max-w-[27rem] mx-auto mb-6 px-2">
+              <div className="lg:hidden flex items-center justify-center gap-2.5 xs:gap-3.5 w-full max-w-[24.5rem] xs:max-w-[27rem] mx-auto mb-5 px-2">
                 {/* کارت آمار */}
-                <div className="flex items-center justify-center gap-2.5 bg-white border-[0.125rem] border-[#21295a] rounded-[0_0.75rem_0_0.75rem] shadow-[3px_3px_0_#21295a] px-3.5 py-2 sm:px-4 sm:py-2.5 rotate-[1deg] [corner-shape:squircle]">
+                <div className="flex-1 flex items-center justify-center gap-2 xs:gap-2.5 bg-white border-2 border-[#21295a] rounded-xl shadow-[2.5px_2.5px_0_#21295a] px-3 py-1.5 xs:px-4 xs:py-2 min-h-[2.85rem] xs:min-h-[3.15rem]">
                   <span
-                    className="text-[1.625rem] sm:text-[1.875rem] leading-none text-[#21295a] tracking-tight"
+                    className="text-[1.375rem] xs:text-[1.5rem] leading-none text-[#21295a] tracking-tight"
                     style={{ fontWeight: 950 }}
                   >
                     ۳۰۰<span className="text-[#4bb5a8]">+</span>
                   </span>
                   <div className="flex flex-col text-right leading-tight">
                     <span
-                      className="text-[0.8125rem] sm:text-[0.875rem] text-[#21295a]"
+                      className="text-[0.75rem] xs:text-[0.8125rem] text-[#21295a]"
                       style={{ fontWeight: 950 }}
                     >
                       دانش‌آموز
                     </span>
-                    <span className="text-[0.625rem] sm:text-[0.6875rem] font-bold text-[#21295a]/60 whitespace-nowrap">
+                    <span className="text-[0.625rem] xs:text-[0.6875rem] font-bold text-[#21295a]/60 whitespace-nowrap">
                       در مسیر ساخت آینده
                     </span>
                   </div>
@@ -383,10 +353,10 @@ export default function Rokadians() {
                 {/* دکمه مشاهده همه */}
                 <Link
                   href="/alumni"
-                  className="shrink-0 inline-flex items-center justify-center gap-1.5 bg-[#21295a] hover:bg-white text-white hover:text-[#21295a] border-[0.125rem] border-[#21295a] font-black text-[0.8125rem] sm:text-[0.875rem] px-4 py-2.5 sm:py-3 rounded-[0_0.75rem_0_0.75rem] shadow-[3px_3px_0_#4bb5a8] -rotate-1 hover:rotate-0 hover:shadow-[3px_3px_0_#21295a] transition-all duration-300 active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_#21295a] whitespace-nowrap [corner-shape:squircle] group"
+                  className="shrink-0 inline-flex items-center justify-center gap-1.5 bg-[#21295a] hover:bg-white text-white hover:text-[#21295a] border-2 border-[#21295a] font-black text-xs xs:text-[0.875rem] px-4 py-2 xs:px-5 xs:py-2.5 rounded-xl shadow-[2.5px_2.5px_0_#4bb5a8] hover:shadow-[2.5px_2.5px_0_#21295a] transition-all duration-200 active:scale-[0.98] whitespace-nowrap min-h-[2.85rem] xs:min-h-[3.15rem] group"
                 >
                   <span>مشاهده همه</span>
-                  <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1 text-[#4bb5a8] group-hover:text-[#21295a] font-bold text-sm">
+                  <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1 text-[#4bb5a8] group-hover:text-[#21295a] font-bold text-xs">
                     ←
                   </span>
                 </Link>

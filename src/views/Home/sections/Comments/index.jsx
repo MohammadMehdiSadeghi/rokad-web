@@ -53,7 +53,7 @@ export default function Comments() {
   const comments = useRokadData(fetchComments, fallbackComments);
 
   return (
-    <section className="relative w-full pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] bg-[#E4F4F2] overflow-hidden">
+    <section className="relative w-full pt-10 sm:pt-[5rem] lg:pt-[6rem] pb-10 sm:pb-[5rem] lg:pb-[6rem] bg-[#E4F4F2] overflow-hidden">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;
@@ -111,42 +111,42 @@ export default function Comments() {
             filter: blur(2px);
           }
         }
-        /* Mobile: همون استایل افتخارات — کارت وسط بزرگ، کناری‌ها کوچیک+چرخیده */
-                @media (max-width: 639px) {
-                  .comments-swiper .card-inner-wrap {
-                    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
-                    opacity: 0.55;
-                    transform: scale(0.78);
-                    pointer-events: none;
-                  }
-                  .comments-swiper .swiper-slide-active {
-                    z-index: 30 !important;
-                  }
-                  .comments-swiper .swiper-slide-active .card-inner-wrap {
-                    transform: scale(1.15);
-                    opacity: 1;
-                    z-index: 30;
-                    pointer-events: auto;
-                  }
-                  .comments-swiper .swiper-slide-prev {
-                    z-index: 10 !important;
-                  }
-                  .comments-swiper .swiper-slide-prev .card-inner-wrap {
-                    transform: scale(0.78) rotate(5deg);
-                    opacity: 0.55;
-                    z-index: 10;
-                    pointer-events: auto;
-                  }
-                  .comments-swiper .swiper-slide-next {
-                    z-index: 10 !important;
-                  }
-                  .comments-swiper .swiper-slide-next .card-inner-wrap {
-                    transform: scale(0.78) rotate(-6deg);
-                    opacity: 0.55;
-                    z-index: 10;
-                    pointer-events: auto;
-                  }
-                }
+        /* Mobile: کارت کامپکت، متناسب و بسیار تمیز بدون پرش و بیرون‌زدگی */
+        @media (max-width: 639px) {
+          .comments-swiper .card-inner-wrap {
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            opacity: 0.45;
+            transform: scale(0.82);
+            pointer-events: none;
+          }
+          .comments-swiper .swiper-slide-active {
+            z-index: 30 !important;
+          }
+          .comments-swiper .swiper-slide-active .card-inner-wrap {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            z-index: 30;
+            pointer-events: auto;
+          }
+          .comments-swiper .swiper-slide-prev {
+            z-index: 10 !important;
+          }
+          .comments-swiper .swiper-slide-prev .card-inner-wrap {
+            transform: scale(0.82) rotate(2.5deg);
+            opacity: 0.45;
+            z-index: 10;
+            pointer-events: auto;
+          }
+          .comments-swiper .swiper-slide-next {
+            z-index: 10 !important;
+          }
+          .comments-swiper .swiper-slide-next .card-inner-wrap {
+            transform: scale(0.82) rotate(-2.5deg);
+            opacity: 0.45;
+            z-index: 10;
+            pointer-events: auto;
+          }
+        }
       `}</style>
 
       {/* ── لایه پترن — همون ماسک گرادیانی هیرو/دوئال‌اسکول؛ روی
@@ -167,7 +167,7 @@ export default function Comments() {
 
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}
-        <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-[#292827] mb-8 sm:mb-[4rem] flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
+        <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827] mb-4 sm:mb-8 lg:mb-[4rem] flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
           <span className="inline-block -rotate-3">از</span>
           <span className="inline-block rotate-3">زبون</span>
           <span className="inline-block -rotate-3">کسایی</span>
@@ -192,7 +192,7 @@ export default function Comments() {
           </div>
 
           {/* کانتینر کاروسل — پدینگ ریسپانسیو */}
-          <div className="w-full  px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 [overflow-x:clip] [overflow-y:visible]">
+          <div className="w-full px-1 xs:px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 [overflow-x:clip] [overflow-y:visible]">
             <Swiper
               modules={[A11y, Autoplay]}
               centeredSlides={true}
@@ -203,10 +203,12 @@ export default function Comments() {
                 swiperRef.current = swiper;
               }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-              spaceBetween={-40}
-              speed={500}
+              spaceBetween={-15}
+              speed={450}
               breakpoints={{
-                320: { slidesPerView: 1.3, spaceBetween: -40 },
+                320: { slidesPerView: 1.2, spaceBetween: -20 },
+                380: { slidesPerView: 1.25, spaceBetween: -15 },
+                480: { slidesPerView: 1.35, spaceBetween: -10 },
                 640: { slidesPerView: 1.5, spaceBetween: 12 },
                 768: { slidesPerView: 2, spaceBetween: -10 },
                 1024: { slidesPerView: 2.5, spaceBetween: 20 },
@@ -217,7 +219,7 @@ export default function Comments() {
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
               }}
-              className="comments-swiper !pt-4 sm:!pt-10 lg:!pt-12 !pb-4 sm:!pb-6 lg:!pb-8"
+              className="comments-swiper !pt-2 sm:!pt-8 lg:!pt-12 !pb-2 sm:!pb-6 lg:!pb-8"
             >
               {comments.map((comment) => {
                 const theme = THEME_MAP[comment.theme];
@@ -227,41 +229,41 @@ export default function Comments() {
                     key={comment.id}
                     className="!h-auto overflow-visible"
                   >
-                    <div className="p-1.5 sm:p-2 lg:p-3 overflow-visible">
+                    <div className="p-1 sm:p-2 lg:p-3 overflow-visible">
                       <div className="card-inner-wrap">
-                        {" "}
-                        <div className="relative max-w-[19.5rem] sm:max-w-[20rem] md:max-w-[22rem] lg:max-w-[25rem] xl:max-w-[28.125rem] mx-auto">
+                        <div className="relative max-w-[15.5rem] xs:max-w-[17rem] sm:max-w-[20rem] md:max-w-[22rem] lg:max-w-[25rem] xl:max-w-[28.125rem] mx-auto">
                           {/* لایه پشتی کارت */}
                           <div
                             aria-hidden="true"
-                            className={`absolute top-[0.125rem] left-[0.125rem] sm:top-[0.1875rem] sm:left-[0.25rem] w-full h-full ${theme.solidColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle]`}
+                            className={`absolute top-[0.125rem] left-[0.125rem] sm:top-[0.1875rem] sm:left-[0.25rem] w-full h-full ${theme.solidColor} rounded-[0_0.875rem_0_0.875rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle]`}
                           ></div>
 
                           {/* کارت اصلی */}
                           <div
-                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_1.375rem_0_1.375rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-5 sm:p-6 lg:p-6 min-h-[8rem] sm:min-h-[9rem] md:min-h-[8rem] lg:min-h-[10rem] flex flex-col`}>
+                            className={`relative z-10 bg-white border-[0.09375rem] sm:border-[0.125rem] ${theme.borderColor} rounded-[0_0.875rem_0_0.875rem] sm:rounded-[2.5rem_0_2.5rem_0] [corner-shape:squircle] p-3.5 xs:p-4 sm:p-6 min-h-[7rem] sm:min-h-[9rem] flex flex-col`}
+                          >
                             <span
-                              className={`text-3xl sm:text-4xl font-black mb-1 sm:mb-2 ${theme.quoteColor}`}
+                              className={`text-xl sm:text-4xl font-black leading-none mb-0.5 sm:mb-2 ${theme.quoteColor}`}
                             >
                               "
                             </span>
 
-                            <p className="text-[0.9375rem] sm:text-[1rem] lg:text-[0.9375rem] leading-7 sm:leading-7 text-[#292827] flex-grow">
+                            <p className="text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] lg:text-[0.9375rem] leading-[1.55] sm:leading-7 text-[#292827] flex-grow font-medium">
                               {comment.text}
                             </p>
 
                             <div
-                              className={`mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-dashed ${theme.borderColor} flex items-center gap-2 sm:gap-3`}
+                              className={`mt-2.5 sm:mt-6 pt-2 sm:pt-4 border-t border-dashed ${theme.borderColor} flex items-center gap-2 sm:gap-3`}
                             >
                               <div className="relative flex-shrink-0">
                                 {/* لایه پشتی آواتار */}
-                                <div className="absolute top-[0.0625rem] left-[0.0625rem] w-full h-full bg-[#292827] rounded-[0.614375rem_0_0.614375rem_0] [corner-shape:squircle]"></div>
+                                <div className="absolute top-[0.0625rem] left-[0.0625rem] w-full h-full bg-[#292827] rounded-[0.375rem_0_0.375rem_0] sm:rounded-[0.614375rem_0_0.614375rem_0] [corner-shape:squircle]"></div>
 
                                 {/* لایه اصلی آواتار */}
                                 <div
-                                  className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-[0.614375rem_0_0.614375rem_0] [corner-shape:squircle] border-[0.003125rem] border-[#292827] ${theme.solidColor} flex items-center justify-center`}
+                                  className={`relative w-7 h-7 sm:w-10 sm:h-10 rounded-[0.375rem_0_0.375rem_0] sm:rounded-[0.614375rem_0_0.614375rem_0] [corner-shape:squircle] border-[0.003125rem] border-[#292827] ${theme.solidColor} flex items-center justify-center`}
                                 >
-                                  <span className="font-black text-[0.75rem] sm:text-[0.875rem] text-white">
+                                  <span className="font-black text-[0.625rem] xs:text-[0.6875rem] sm:text-[0.875rem] text-white">
                                     {getInitials(comment.name)}
                                   </span>
                                 </div>
@@ -269,11 +271,11 @@ export default function Comments() {
 
                               <div className="flex flex-col">
                                 <h4
-                                  className={`font-black text-[0.9375rem] sm:text-[1rem] ${theme.nameColor}`}
+                                  className={`font-black text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] ${theme.nameColor}`}
                                 >
                                   {comment.name}
                                 </h4>
-                                <p className="text-[0.75rem] sm:text-[0.75rem] text-gray-500 mt-0.5 sm:mt-1">
+                                <p className="text-[0.625rem] xs:text-[0.6875rem] text-gray-500 mt-0.5">
                                   {comment.role}
                                 </p>
                               </div>

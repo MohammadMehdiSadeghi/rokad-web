@@ -12,7 +12,7 @@ export default function DualSchool() {
   return (
     <section
       id="schools"
-      className="relative bg-white w-full snap-start py-[4rem] sm:py-[5rem] lg:py-[4rem] overflow-hidden flex flex-col justify-center"
+      className="relative bg-white w-full snap-start pt-[1.5rem] sm:pt-[2.5rem] lg:pt-[3.5rem] pb-[3.5rem] sm:pb-[4.5rem] lg:pb-[5.5rem] overflow-hidden flex flex-col justify-center"
     >
       {/* ── Background Pattern Layer ── */}
       <div
@@ -34,9 +34,9 @@ export default function DualSchool() {
           دخترونه یا پسرونه؟ هنرستان‌های دخترانه و پسرانه رکاد در مشهد
         </h2>
 
-        {/* Grid — گپ طبق DESIGN.md (1.5rem/2rem) و کارت‌ها نزدیک‌تر */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1.5rem] lg:gap-[2rem]">
-          <div className="mx-auto w-full md:w-[96%] xl:w-[93%] h-full">
+        {/* Grid — کارت‌های واکنش‌گرا و هم‌تراز */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-stretch">
+          <div className="w-full h-full">
             <SchoolCard
               theme="boys"
               category="مدرسه پسرانه"
@@ -49,7 +49,7 @@ export default function DualSchool() {
               seoText="هنرستان پسرانه رکاد در مشهد، رشته شبکه و نرم‌افزار رایانه با آموزش پروژه‌محور، منتورهای متخصص و اکوسیستم استارتاپی — پیش‌ثبت‌نام باز است."
             />
           </div>
-          <div className="mx-auto w-full md:w-[96%] xl:w-[93%] h-full">
+          <div className="w-full h-full">
             <SchoolCard
               theme="girls"
               category="مدرسه دخترانه"

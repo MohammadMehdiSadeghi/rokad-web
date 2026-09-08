@@ -30,7 +30,7 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
     >
       {/* کارت اصلی — h-full تا دو کارت هم‌ارتفاع بمونن و فضای خالی هم‌تراز بشه */}
       <div
-        className={`relative ${t.bg} text-white p-5 sm:p-8 lg:p-10 overflow-hidden h-full min-h-[20rem] sm:min-h-[18rem] lg:min-h-[22rem] flex flex-col border-2 border-white/10 rounded-[1.5rem] sm:rounded-[2.75rem] lg:rounded-[3.25rem] [corner-shape:squircle] transition-all duration-500 hover:shadow-2xl`}
+        className={`relative ${t.bg} text-white p-5 sm:p-8 lg:p-10 overflow-hidden h-full min-h-[15rem] sm:min-h-[18rem] lg:min-h-[22rem] flex flex-col border-2 border-white/10 rounded-[1.5rem] sm:rounded-[2.75rem] lg:rounded-[3.25rem] [corner-shape:squircle] transition-all duration-500 hover:shadow-2xl`}
       >
         {/* ── Background Pattern ── */}
         {pattern && (
@@ -50,7 +50,7 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
                                     src={illustration}
                                     alt=""
                                     aria-hidden="true"
-                                    className="pointer-events-none select-none absolute bottom-0 left-0 h-[12rem] sm:h-[15rem] lg:h-[17rem] w-auto opacity-95 z-[1]"
+                                    className="pointer-events-none select-none absolute -bottom-2 -left-2 h-[11rem] sm:h-[15rem] lg:h-[17rem] w-auto opacity-95 z-[1]"
                                   />
                                 )}
 

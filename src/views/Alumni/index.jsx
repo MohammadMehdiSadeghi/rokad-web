@@ -83,13 +83,10 @@ export default function AlumniPage() {
     };
   }, []);
 
-  // مشخصات بصری بر اساس شعبه
+  // مشخصات بصری بر اساس شعبه (رنگ‌های استاندارد و بدون گرادیان: دختر = صورتی #E0195B، پسر = سبز #58BDAF)
   const isFemale = selectedBranch === "female";
-  const branchColor = isFemale ? "#E0195B" : "#202A5A";
-  const branchBgLight = isFemale ? "#FEFAFB" : "#F4F5FB";
-  const branchGrad = isFemale
-    ? "from-[#E0195B] to-[#A81344]"
-    : "from-[#202A5A] to-[#58BDAF]";
+  const branchColor = isFemale ? "#E0195B" : "#58BDAF";
+  const branchBgLight = isFemale ? "#FEFAFB" : "#EEF8F7";
 
   return (
     <div dir="rtl" className="w-full bg-white overflow-hidden">
@@ -200,8 +197,8 @@ export default function AlumniPage() {
                 }}
                 className={`relative text-right p-6 sm:p-7 rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] border-2 cursor-pointer overflow-hidden transition-colors ${
                   selectedBranch === "male"
-                    ? "bg-[#F4F5FB] border-[#21295A] shadow-[5px_5px_0_0_#21295A]"
-                    : "bg-white border-[#21295A] shadow-[5px_5px_0_0_#21295A]"
+                    ? "bg-[#EEF8F7] border-[#58BDAF] shadow-[5px_5px_0_0_#58BDAF]"
+                    : "bg-white border-[#58BDAF] shadow-[5px_5px_0_0_#58BDAF]"
                 }`}
               >
                 <div className="flex items-start justify-between mb-4">
@@ -209,8 +206,8 @@ export default function AlumniPage() {
                     <div
                       className={`w-13 h-13 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
                         selectedBranch === "male"
-                          ? "bg-[#21295A] text-white"
-                          : "bg-[#E9EAEF] text-[#21295A]"
+                          ? "bg-[#58BDAF] text-white"
+                          : "bg-[#EEF8F7] text-[#58BDAF]"
                       }`}
                     >
                       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -219,7 +216,7 @@ export default function AlumniPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-black text-[1.25rem] text-[#21295A]">
+                      <h3 className="font-black text-[1.25rem] text-[#58BDAF]">
                         هنرستان پسرانه رُکاد
                       </h3>
                       <span className="text-[0.8125rem] font-bold text-navy/50">
@@ -231,8 +228,8 @@ export default function AlumniPage() {
                   <span
                     className={`text-[0.75rem] font-black px-3 py-1 rounded-full border transition-all ${
                       selectedBranch === "male"
-                        ? "bg-[#21295A] text-white border-[#21295A]"
-                        : "bg-[#E9EAEF] text-[#21295A] border-[#21295A]/30"
+                        ? "bg-[#58BDAF] text-white border-[#58BDAF]"
+                        : "bg-[#EEF8F7] text-[#58BDAF] border-[#58BDAF]/30"
                     }`}
                   >
                     {selectedBranch === "male" ? "✓ در حال نمایش" : "انتخاب شعبه"}
@@ -397,19 +394,21 @@ export default function AlumniPage() {
 
                         {/* کارت اصلی کلاسیک رُکاد */}
                         <article className="relative bg-white rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden border-2 border-navy flex flex-col justify-between h-full">
-                          {/* هدر گرافیکی کارت با پترن رُکاد */}
-                          <div className={`relative w-full h-[5.5rem] shrink-0 overflow-hidden bg-gradient-to-l ${branchGrad}`}>
+                          {/* هدر گرافیکی کارت با رنگ تخت و پترن رُکاد (بدون گرادیان) */}
+                          <div
+                            className="relative w-full h-[5.5rem] shrink-0 overflow-hidden"
+                            style={{ backgroundColor: branchColor }}
+                          >
                             <img
                               src="/assets/home/Rokadians/Frame 1000006407.png"
                               alt=""
                               aria-hidden="true"
                               draggable="false"
-                              className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-40"
+                              className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-35"
                             />
-                            <div className="absolute inset-0 bg-black/5" />
 
                             {/* تگ نسل در گوشه */}
-                            <span className="absolute top-2.5 right-3 z-20 text-[0.6875rem] font-black px-2.5 py-0.5 rounded-full bg-white/95 text-navy border border-navy/20 shadow-[1.5px_1.5px_0_0_#202A5A]">
+                            <span className="absolute top-2.5 right-3 z-20 text-[0.6875rem] font-black px-2.5 py-0.5 rounded-full bg-white text-navy border border-navy/20 shadow-[1.5px_1.5px_0_0_#202A5A]">
                               {member.gen} · {isFemale ? "دخترانه" : "پسرانه"}
                             </span>
                           </div>

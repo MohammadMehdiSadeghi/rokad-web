@@ -47,12 +47,13 @@ function DotsIcon({ className }) {
 }
 
 const quickLinks = [
-  "پیش ثبت نام",
-  "مدارس",
-  "افتخارات",
-  "مشاوره هدایای تحصیلی و شغلی",
-  "بلاگ",
-  "درباره ما",
+  { label: "پیش ثبت نام", to: "/#counseling" },
+  { label: "مدارس", to: "/#schools" },
+  { label: "افتخارات", to: "/honors" },
+  { label: "دانش‌آموختگان", to: "/alumni" },
+  { label: "مشاوره هدایت تحصیلی و شغلی", to: "/#counseling" },
+  { label: "بلاگ", to: "/blog" },
+  { label: "درباره ما", to: "/about" },
 ];
 
 const schools = [
@@ -105,12 +106,12 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link}>
+                <li key={link.label}>
                   <a
-                    href="#"
+                    href={link.to}
                     className="text-[0.875rem] text-white/90 hover:text-[#4DB6A0] transition-colors leading-7"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}

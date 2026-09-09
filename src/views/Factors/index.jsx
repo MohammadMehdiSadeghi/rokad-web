@@ -455,7 +455,7 @@ export default function FactorsPage() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6 sm:gap-7 pt-2 px-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 pt-2 px-1">
                 {/* ترتیب: راهبر پسرانه → مدیرعامل → هم‌بنیان‌گذار → راهبر دخترانه */}
                 {[
                   LEADERS_STAFF.find((s) => s.name === "امیرحسین امیریان"),

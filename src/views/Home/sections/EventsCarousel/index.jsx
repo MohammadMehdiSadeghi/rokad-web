@@ -163,10 +163,11 @@ export default function EventsCarousel() {
                 <SwiperSlide key={i} className="!h-auto">
                   <div className="relative" style={{ transform: `rotate(${rotation}deg)` }}>
                     
-                    {/* لایه زیرین اصلی کارت — هم‌ردیوس کارت و فقط به پایین/چپ آفست */}
+                    {/* لایه زیرین اصلی کارت — الگوی افتخارات: آفست کوچک ۲px
+                        تا گوشه‌های گرد کارت سایه رو کامل بپوشونن */}
                     <div
                       aria-hidden="true"
-                      className={`absolute top-[0.25rem] left-[-0.25rem] w-full h-full ${theme.solidColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle]`}
+                      className={`absolute top-[0.125rem] left-[0.125rem] w-full h-full ${theme.solidColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle]`}
                     />
 
                     {/* کارت اصلی */}

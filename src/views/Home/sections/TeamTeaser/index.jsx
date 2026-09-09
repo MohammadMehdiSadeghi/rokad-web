@@ -75,7 +75,7 @@ const MEMBERS = [
     color: "#E0195B",
     bgLight: "bg-[#FEFAFB]",
     pattern: patternPink,
-    imgClass: "translate-y-3.5 sm:translate-y-4 lg:translate-y-4.5 scale-[1.4]",
+    imgClass: "translate-y-4 sm:translate-y-[1.15rem] lg:translate-y-[1.3rem] scale-[1.4]",
   },
   {
     name: "علیرضا عزیزپور",
@@ -85,7 +85,7 @@ const MEMBERS = [
     color: "#58BDAF",
     bgLight: "bg-[#EEF8F7]",
     pattern: patternGreen,
-    imgClass: "translate-y-3 sm:translate-y-3.5 lg:translate-y-4",
+    imgClass: "translate-y-3 sm:translate-y-3.5 lg:translate-y-4 scale-[1.12]",
   },
   {
     name: "رویا دولت‌آبادی",
@@ -95,7 +95,7 @@ const MEMBERS = [
     color: "#F8A41D",
     bgLight: "bg-[#FEF6E8]",
     pattern: patternYellow,
-    imgClass: "translate-y-3 sm:translate-y-3.5 lg:translate-y-4",
+    imgClass: "translate-y-3 sm:translate-y-3.5 lg:translate-y-4 scale-[1.12]",
   },
   {
     name: "امیرحسین امیریان",
@@ -106,7 +106,7 @@ const MEMBERS = [
     bgLight: "bg-[#F4F5FB]",
     pattern: patternBlue,
     patternOpacity: "opacity-20",
-    imgClass: "translate-y-3 sm:translate-y-3.5 lg:translate-y-4",
+    imgClass: "translate-y-3 sm:translate-y-3.5 lg:translate-y-4 scale-[1.12]",
   },
 ];
 
@@ -259,7 +259,7 @@ export default function TeamTeaser() {
                   alt={FEATURED.name}
                   loading="lazy"
                   draggable="false"
-                  className="relative z-10 h-[18.5rem] sm:h-[21rem] lg:h-[23.5rem] w-auto object-contain object-bottom translate-y-9 sm:translate-y-11 lg:translate-y-14 scale-[1.2]"
+                  className="relative z-10 h-[18.5rem] sm:h-[21rem] lg:h-[23.5rem] w-auto object-contain object-bottom translate-y-9 sm:translate-y-11 lg:translate-y-14 scale-[1.25]"
                 />
               </div>
 

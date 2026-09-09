@@ -13,8 +13,8 @@ const sectionPattern = "/assets/Pattern/layout-pattern.png";
    پسر: light #E9EAEF · normal #202A5A · dark #182044
    دختر: light #FCE8EF · normal #E0195B · dark #A81344 */
 const themeMap = {
-  boys: { bg: "#E9EAEF", text: "#202A5A", accent: "#202A5A", dark: "#182044", light: "#E9EAEF" },
-  girls: { bg: "#FCE8EF", text: "#E0195B", accent: "#E0195B", dark: "#A81344", light: "#FCE8EF" },
+  boys: { bg: "#E9EAEF", text: "#202A5A", accent: "#202A5A", dark: "#182044", light: "#E9EAEF", shadow: "#202A5A" },
+  girls: { bg: "#FCE8EF", text: "#E0195B", accent: "#E0195B", dark: "#A81344", light: "#FCE8EF", shadow: "#E0195B" },
 };
 
 export default function EventsPage() {
@@ -63,7 +63,8 @@ export default function EventsPage() {
               <Link
                 key={i}
                 href={ev.href || "/events"}
-                className="group relative block rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] border-2 border-[#292827] bg-white shadow-[2.75px_2.75px_0_#292827] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[4px_5px_0_#292827] overflow-hidden"
+                className="group relative block rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] border-2 border-[#292827] bg-white transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
+                style={{ boxShadow: `3.75px 3.75px 0 0 ${t.shadow}` }}
               >
                 {/* نوار رنگی بالا — گوشه‌هاش با overflow-hidden کارت کات می‌شه */}
                 <div

@@ -199,7 +199,7 @@ export default function Hero() {
               <button
                 type="button"
                 onClick={() => openEnrollment()}
-                className="absolute block p-0 border-0 bg-transparent cursor-pointer z-[2] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                className="absolute block p-0 border-0 bg-transparent cursor-pointer z-[2]"
                 style={{ left: 830, top: 372, width: 370, height: 138 }}
                 aria-label="ثبت‌نام و رزرو مصاحبه"
               >
@@ -212,7 +212,7 @@ export default function Hero() {
               </button>
               <a
                 href="#counseling"
-                className="absolute block no-underline cursor-pointer z-[2] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                className="absolute block no-underline cursor-pointer z-[2]"
                 style={{ left: 581, top: 418, width: 389, height: 92 }}
                 aria-label="درخواست مشاوره"
               >

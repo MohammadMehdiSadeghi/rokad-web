@@ -78,7 +78,7 @@ export default function BlogSingle() {
               {post.tags.map((t, i) => (
                 <span
                   key={i}
-                  className={`rounded-full border-2 px-4 py-1.5 text-[0.8125rem] font-extrabold ${i === 2 ? "bg-white text-ink" : "text-white"} ${i === 0 ? "-rotate-1" : i === 1 ? "rotate-1" : ""}`}
+                  className={`rounded-full border-2 px-4 py-1.5 text-[0.8125rem] font-extrabold ${i === 2 ? "bg-white text-ink" : "text-white"}`}
                   style={i === 0
                     ? { background: C.accent, borderColor: C.dark, boxShadow: `3px 3px 0 0 ${C.dark}` }
                     : i === 1
@@ -90,10 +90,10 @@ export default function BlogSingle() {
               ))}
             </div>
 
-            {/* تیتر کلمه‌ای چرخان */}
+            {/* تیتر */}
             <h1 className="mb-6 flex flex-wrap gap-x-3 gap-y-2 text-[2rem] sm:text-[2.75rem] font-black leading-[1.4] text-ink">
               {post.titleWords.map((w, i) => (
-                <span key={i} className={`inline-block ${i % 2 === 0 ? "-rotate-2" : "rotate-1"}`} style={w.accent ? { color: w.accent === "navy" ? C.navy : C.magenta } : undefined}>
+                <span key={i} className="inline-block" style={w.accent ? { color: w.accent === "navy" ? C.navy : C.magenta } : undefined}>
                   {w.t}
                 </span>
               ))}

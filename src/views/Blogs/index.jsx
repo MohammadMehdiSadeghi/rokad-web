@@ -125,12 +125,12 @@ function Hero({ query, setQuery }) {
         <h1 className="bi-title">
           <span className="bi-line">
             {line1.map((w, i) => (
-              <span key={i} className="bi-w" style={{ transform: `rotate(${w.rot})` }}>{w.text}</span>
+              <span key={i} className="bi-w">{w.text}</span>
             ))}
           </span>
           <span className="bi-line">
             {line2.map((w, i) => (
-              <span key={i} className={`bi-w${w.hl ? " hl" : ""}`} style={{ transform: `rotate(${w.rot})` }}>{w.text}</span>
+              <span key={i} className={`bi-w${w.hl ? " hl" : ""}`}>{w.text}</span>
             ))}
           </span>
         </h1>
@@ -182,9 +182,9 @@ function Featured({ featured }) {
           <div className="flex items-center gap-3">
             <span className="bi-dot-ring" />
             <h2 className="bi-h2">
-              <span className="inline-block" style={{ transform: "rotate(-1.5deg)" }}>مقاله</span>{" "}
-              <span className="inline-block" style={{ transform: "rotate(1.5deg)", color: "var(--bi-magenta)" }}>ویژه</span>{" "}
-              <span className="inline-block" style={{ transform: "rotate(-1.5deg)" }}>این هفته</span>
+              <span className="inline-block" >مقاله</span>{" "}
+              <span className="inline-block" style={{ color: "var(--bi-magenta)" }}>ویژه</span>{" "}
+              <span className="inline-block" >این هفته</span>
             </h2>
           </div>
           <a className="bi-more-link" href="#blog-grid">همه مقالات ویژه <I.Arrow style={{ width: 16, height: 16 }} /></a>
@@ -354,8 +354,8 @@ function BlogGrid({ posts }) {
       <Container className="px-4 sm:px-6 lg:px-8">
         <div className="bi-sec-head">
           <h2 className="bi-h2">
-            <span className="inline-block" style={{ transform: "rotate(-1.5deg)" }}>همه‌ی</span>{" "}
-            <span className="inline-block" style={{ transform: "rotate(1.5deg)", color: "var(--bi-primary-dark)" }}>مقاله‌ها</span>
+            <span className="inline-block" >همه‌ی</span>{" "}
+            <span className="inline-block" style={{ color: "var(--bi-primary-dark)" }}>مقاله‌ها</span>
           </h2>
           <div className="flex items-center gap-2">
             <span style={{ fontSize: 13, fontWeight: 700, color: "var(--bi-ink-subtle)" }}>مرتب‌سازی:</span>
@@ -408,8 +408,8 @@ function Trending({ posts }) {
               <I.Flame style={{ color: "#fff", width: 22, height: 22, transform: "rotate(4deg)" }} />
             </span>
             <h2 className="bi-h2">
-              <span className="inline-block" style={{ transform: "rotate(-1.5deg)" }}>پرخواننده‌ترین‌های</span>{" "}
-              <span className="inline-block" style={{ transform: "rotate(1.5deg)", color: "var(--bi-magenta)" }}>ماه</span>
+              <span className="inline-block" >پرخواننده‌ترین‌های</span>{" "}
+              <span className="inline-block" style={{ color: "var(--bi-magenta)" }}>ماه</span>
             </h2>
           </div>
           <span className="bi-update">به‌روزرسانی هر یکشنبه</span>
@@ -458,9 +458,9 @@ function Authors() {
       <Container className="px-4 sm:px-6 lg:px-8">
         <div className="bi-sec-head">
           <h2 className="bi-h2">
-            <span className="inline-block" style={{ transform: "rotate(-1.5deg)" }}>قلم‌های</span>{" "}
-            <span className="inline-block" style={{ transform: "rotate(1.5deg)", color: "var(--bi-primary-dark)" }}>پشت</span>{" "}
-            <span className="inline-block" style={{ transform: "rotate(-1.5deg)" }}>مقاله‌ها</span>
+            <span className="inline-block" >قلم‌های</span>{" "}
+            <span className="inline-block" style={{ color: "var(--bi-primary-dark)" }}>پشت</span>{" "}
+            <span className="inline-block" >مقاله‌ها</span>
           </h2>
           <a className="bi-more-link" href="#blog-grid">همه نویسنده‌ها <I.Arrow style={{ width: 16, height: 16 }} /></a>
         </div>

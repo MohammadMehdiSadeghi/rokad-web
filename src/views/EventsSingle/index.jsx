@@ -1,3 +1,4 @@
+// src/views/EventsSingle/index.jsx
 "use client";
 import Container from "../../layout/Container";
 import { useEnrollment } from "../../lib/EnrollmentContext";
@@ -15,12 +16,16 @@ import {
   relatedPosts,
 } from "./data.js";
 
+// ── پترن‌های رسمی رکاد ──
+const eventPattern = "/assets/home/Events/Event-Pattern.png";
+const sectionPattern = "/assets/Pattern/layout-pattern.png";
+
 // ── رنگ تم‌ها ──
 const tones = {
   teal: { bg: "#58bdaf", deep: "#347e75" },
   magenta: { bg: "#e0195b", deep: "#a80f42" },
   navy: { bg: "#202a5a", deep: "#0d1636" },
-  orange: { bg: "#f4971f", deep: "#b96e0a" },
+  orange: { bg: "#F8A41D", deep: "#BA7B16" },
 };
 
 const toneText = {
@@ -165,7 +170,9 @@ function Gallery({ items }) {
               className="relative flex flex-col items-center justify-center aspect-[4/3] rounded-[0_0.875rem_0_0.875rem] border-2 border-ink overflow-hidden"
               style={{ backgroundColor: t.bg }}
             >
-              <div className="absolute inset-0 opacity-15 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(135deg, rgba(255,255,255,.5) 0 2px, transparent 2px 14px)" }} />
+              <div className="absolute inset-0 opacity-20 pointer-events-none">
+                <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+              </div>
               <div className="absolute top-2 right-2 text-[0.625rem] font-black text-white bg-ink/85 rounded px-1.5 py-0.5">{g.num}</div>
               <GalleryIcon name={g.icon} className="w-8 h-8 sm:w-9 sm:h-9 text-white relative z-10" />
               <div className="relative z-10 mt-1.5 text-[0.6875rem] sm:text-[0.75rem] font-extrabold text-white">{g.label}</div>
@@ -305,8 +312,8 @@ function MetaIcon({ name }) {
 function PostHero() {
   return (
     <section className="relative overflow-hidden bg-bg-mint">
-      <div className="absolute inset-0 pointer-events-none opacity-[0.5] [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]">
-        <img src="/assets/about/StatsSection/TrustSection-Pattern.png" alt="" className="w-full h-full object-cover" />
+      <div className="absolute inset-0 pointer-events-none opacity-60 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]">
+        <img src={sectionPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
       </div>
       <Container className="relative z-10 py-10 sm:py-14 lg:py-16">
         {/* خرده‌نان */}
@@ -349,12 +356,14 @@ function PostHero() {
 
           {/* کاور */}
           <div className="relative">
-            <div className="absolute -top-3 -right-3 rotate-[2deg] bg-magenta text-white text-[0.8125rem] font-black px-4 py-1.5 rounded-[0.5rem] border-2 border-ink shadow-[3px_3px_0_0_#292827] z-20">
+            <div className="absolute -top-3 -right-3 rotate-[2deg] bg-magenta text-white text-[0.8125rem] font-black px-4 py-1.5 rounded-[0.5rem] border-2 border-ink shadow-[2.75px_2.75px_0_#292827] z-20">
               {postMeta.sticker}
             </div>
             <div className="absolute top-[10px] left-[10px] w-full h-full rounded-[0_2rem_0_2rem] bg-navy-alt" />
             <div className="relative flex flex-col items-center justify-center aspect-[16/10] rounded-[0_2rem_0_2rem] border-[3px] border-ink bg-gradient-to-br from-teal/85 via-teal to-teal-text overflow-hidden">
-              <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(135deg, rgba(255,255,255,.6) 0 2px, transparent 2px 16px)" }} />
+              <div className="absolute inset-0 opacity-30 pointer-events-none">
+                <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+              </div>
               <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="relative z-10 opacity-90">
                 <rect x="3" y="5" width="18" height="14" rx="2" /><circle cx="8.5" cy="10.5" r="1.5" /><path d="m21 15-5-5L5 21" />
               </svg>
@@ -401,13 +410,19 @@ function Sidebar({ onCta }) {
           <p className="text-[0.8125rem] font-semibold text-white/90 leading-[1.9] mb-4">
             پیش‌ثبت‌نام هنرستان دخترانه و پسرانه رکاد باز شده. یه ایمیل بذار تا از رویداد بعدی خبردار بشی.
           </p>
-          <button
-            onClick={onCta}
-            className="inline-flex items-center gap-1.5 rounded-[0.6rem] bg-white px-4 py-2 text-[0.8125rem] font-black text-navy-alt border-2 border-ink -rotate-1 hover:rotate-0 hover:scale-[1.03] transition-all cursor-pointer"
-          >
-            پیش‌ثبت‌نام
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
-          </button>
+          <div className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0">
+            <div
+              aria-hidden="true"
+              className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-navy-alt"
+            />
+            <button
+              onClick={onCta}
+              className="relative z-10 inline-flex items-center gap-1.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-white px-3.5 py-2 text-xs font-extrabold text-navy-alt cursor-pointer whitespace-nowrap border-2 border-[#202A5A] [background-image:linear-gradient(to_right,#202A5A,#202A5A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
+            >
+              پیش‌ثبت‌نام
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -474,7 +489,7 @@ function Comments() {
             <input type="email" placeholder="ایمیل (نمایش داده نمی‌شه)" required className="w-full rounded-[0.75rem] border-2 border-ink/15 bg-bg-mint px-4 py-3 text-[0.875rem] font-semibold text-ink outline-none focus:border-teal transition-colors placeholder:text-ink/40" />
           </div>
           <textarea rows={4} placeholder="نظرت رو بنویس..." required className="w-full rounded-[0.75rem] border-2 border-ink/15 bg-bg-mint px-4 py-3 text-[0.875rem] font-semibold text-ink outline-none focus:border-teal transition-colors placeholder:text-ink/40 mb-4 resize-none" />
-          <button type="submit" className="inline-flex items-center gap-2 rounded-[0.6rem] bg-navy-alt px-5 py-2.5 text-[0.875rem] font-black text-white border-2 border-ink shadow-[3px_3px_0_0_#292827] hover:-translate-y-0.5 transition-all cursor-pointer">
+          <button type="submit" className="inline-flex items-center gap-2 rounded-[0.6rem] bg-navy-alt px-5 py-2.5 text-[0.875rem] font-extrabold text-white border-2 border-ink shadow-[2.75px_2.75px_0_#292827] hover:-translate-y-0.5 transition-all cursor-pointer">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z" /></svg>
             ارسال نظر
           </button>
@@ -509,7 +524,9 @@ function Comments() {
 function Newsletter() {
   return (
     <section id="newsletter" className="relative overflow-hidden bg-navy-alt py-12 sm:py-16">
-      <div className="absolute inset-0 opacity-[0.12] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(135deg, rgba(255,255,255,.5) 0 2px, transparent 2px 18px)" }} />
+      <div className="absolute inset-0 opacity-25 pointer-events-none">
+        <img src={sectionPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+      </div>
       <Container className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div>
           <h2 className="font-black text-[1.75rem] sm:text-[2.25rem] text-white flex flex-wrap gap-x-2">
@@ -521,7 +538,7 @@ function Newsletter() {
         </div>
         <form className="flex w-full max-w-md gap-3" onSubmit={(e) => e.preventDefault()}>
           <input type="email" placeholder="ایمیل تو" required className="flex-1 rounded-[0.75rem] border-2 border-white/20 bg-white/10 px-4 py-3 text-[0.875rem] font-semibold text-white outline-none focus:border-teal transition-colors placeholder:text-white/40 backdrop-blur-sm" />
-          <button type="submit" className="rounded-[0.6rem] bg-teal px-6 py-3 text-[0.875rem] font-black text-white border-2 border-ink shadow-[3px_3px_0_0_#292827] hover:-translate-y-0.5 transition-all cursor-pointer">
+          <button type="submit" className="rounded-[0.6rem] bg-teal px-6 py-3 text-[0.875rem] font-extrabold text-white border-2 border-ink shadow-[2.75px_2.75px_0_#292827] hover:-translate-y-0.5 transition-all cursor-pointer">
             عضویت
           </button>
         </form>
@@ -544,13 +561,25 @@ function FinalCta({ onCta }) {
         </h2>
         <p className="text-[0.9375rem] sm:text-[1.0625rem] text-ink/75 leading-[2] max-w-2xl mx-auto mb-9">{finalCta.desc}</p>
         <div className="flex flex-wrap justify-center gap-5">
-          <button onClick={onCta} className="inline-flex items-center gap-2 rounded-[0_0.84375rem_0_0.84375rem] bg-navy-alt px-7 py-3.5 text-[1rem] font-black text-white border-2 border-ink shadow-[4px_4px_0_0_#292827] hover:-translate-y-1 hover:rotate-1 transition-all cursor-pointer">
-            پیش‌ثبت‌نام کن
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
-          </button>
-          <a href="/about" className="inline-flex items-center gap-2 rounded-[0_0.84375rem_0_0.84375rem] bg-white px-7 py-3.5 text-[1rem] font-black text-navy-alt border-2 border-ink shadow-[4px_4px_0_0_#292827] hover:-translate-y-1 hover:-rotate-1 transition-all">
-            درباره رکاد بیشتر بدون
-          </a>
+          <div className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0">
+            <div
+              aria-hidden="true"
+              className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-ink"
+            />
+            <button onClick={onCta} className="relative z-10 inline-flex items-center gap-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-navy-alt border-2 border-ink px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 text-xs xs:text-sm sm:text-base font-extrabold text-white cursor-pointer whitespace-nowrap [background-image:linear-gradient(to_right,#292827,#292827)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] transition-all duration-300 ease-out">
+              پیش‌ثبت‌نام کن
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+            </button>
+          </div>
+          <div className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0">
+            <div
+              aria-hidden="true"
+              className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-ink"
+            />
+            <a href="/about" className="relative z-10 inline-flex items-center gap-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-white border-2 border-ink px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 text-xs xs:text-sm sm:text-base font-extrabold text-navy-alt cursor-pointer whitespace-nowrap [background-image:linear-gradient(to_right,#292827,#292827)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
+              درباره رکاد بیشتر بدون
+            </a>
+          </div>
         </div>
       </Container>
     </section>
@@ -582,7 +611,7 @@ export default function EventsSingle() {
                       : t.tone === "navy"
                       ? "border-navy-alt text-navy-alt bg-bg-lavender"
                       : t.tone === "orange"
-                      ? "border-orange text-orange bg-[#fef7ec]"
+                      ? "border-[#F8A41D] text-[#BA7B16] bg-[#FEF6E8]"
                       : "border-ink/20 text-ink/70 bg-bg-neutral"
                   }`}
                 >
@@ -632,7 +661,9 @@ export default function EventsSingle() {
                   <div className="absolute top-[7px] left-[7px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-ink" />
                   <div className="relative rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white overflow-hidden transition-transform group-hover:-translate-y-1">
                     <div className="relative flex flex-col items-center justify-center aspect-[16/9] border-b-2 border-ink overflow-hidden" style={{ backgroundColor: t.bg }}>
-                      <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(135deg, rgba(255,255,255,.6) 0 2px, transparent 2px 14px)" }} />
+                      <div className="absolute inset-0 opacity-30 pointer-events-none">
+                        <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+                      </div>
                       <span className="absolute top-2.5 right-2.5 text-[0.6875rem] font-black text-white bg-ink/85 rounded px-2 py-1">{p.cat}</span>
                       <GalleryIcon name={p.icon} className="w-10 h-10 text-white relative z-10" />
                     </div>

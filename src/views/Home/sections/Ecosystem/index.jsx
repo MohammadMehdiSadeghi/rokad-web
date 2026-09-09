@@ -74,12 +74,12 @@ function EcoCard({ title, body, featured, tilt = 0, isActive, cardRef, className
     >
       {/* Icon — راست کارت */}
       <div
-        className={`w-10 h-10 xs:w-11 xs:h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14 flex items-center justify-center flex-shrink-0 transition-colors duration-300 rounded-[0.5rem_0_0.5rem_0] sm:rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${
+        className={`w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center flex-shrink-0 transition-colors duration-300 rounded-[0.5rem_0_0.5rem_0] sm:rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${
           isActive ? "bg-[#202A5A]" : ""
         }`}
       >
         <span
-          className={`w-5 h-5 xs:w-5.5 xs:h-5.5 sm:w-6.5 sm:h-6.5 lg:w-7 lg:h-7 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
+          className={`w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 lg:w-7 lg:h-7 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
             isActive ? "text-white" : ""
           }`}
         >
@@ -239,14 +239,14 @@ export default function Ecosystem() {
 
         <Container className="relative z-10">
           {/* Heading — فاصله استاندارد: ۳۲px در موبایل، ۴rem در تبلت/دسکتاپ */}
-          <h2 className="text-center font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.375rem] lg:text-[2.875rem] leading-[1.3] text-white mb-8 sm:mb-[4rem] flex flex-wrap justify-center items-center gap-x-2">
-            <span className="inline-block -rotate-[1.9deg]">یه</span>
-            <span className="inline-block rotate-[1.9deg] text-teal">
+          <h2 className="text-center font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-white mb-8 sm:mb-[4rem] flex flex-wrap justify-center items-center gap-x-2">
+            <span className="inline-block rotate-[-1deg]">یه</span>
+            <span className="inline-block rotate-[1deg] text-teal">
               اکوسیستم
             </span>
-            <span className="inline-block -rotate-[1.9deg]">کامل</span>
-            <span className="inline-block rotate-[1.9deg]">برای</span>
-            <span className="inline-block -rotate-[1.9deg]">رشد</span>
+            <span className="inline-block rotate-[-1deg]">کامل</span>
+            <span className="inline-block rotate-[1deg]">برای</span>
+            <span className="inline-block rotate-[-1deg]">رشد</span>
           </h2>
 
           {/* Subtitle — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}

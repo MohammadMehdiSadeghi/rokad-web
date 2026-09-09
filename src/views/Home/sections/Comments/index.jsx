@@ -306,7 +306,7 @@ export default function Comments() {
 
         {/* ── نوار پیشرفت (فقط در موبایل و تبلت) ── */}
         <div className="mt-2 flex justify-center md:hidden">
-          <div className="w-[9.375rem] h-1.5 bg-gray-200 rounded-full overflow-hidden">
+          <div className="w-[9.375rem] h-1.5 bg-[#EAEAE9] rounded-full overflow-hidden">
             <div
               className="h-full bg-[#292827] transition-all duration-500 ease-out rounded-full"
               style={{

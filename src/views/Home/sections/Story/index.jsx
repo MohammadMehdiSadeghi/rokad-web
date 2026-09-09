@@ -27,7 +27,7 @@ export default function Story() {
 
         {/* ── ستون چپ: متن ── */}
         <div className="max-w-full xl:max-w-[31.25rem]">
-          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.35] mb-8 sm:mb-[2rem]">
+          <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.35] mb-4 sm:mb-8 lg:mb-[4rem]">
             <span className="inline-block rotate-3">چرا</span>{" "}
             <span className="inline-block text-teal-wordmark -rotate-3">
               رکاد

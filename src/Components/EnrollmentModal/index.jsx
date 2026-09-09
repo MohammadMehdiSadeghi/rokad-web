@@ -305,7 +305,7 @@ export default function EnrollmentModal({ open, onClose }) {
                     disabled={status === "submitting"}
                     className={`relative inline-flex items-center justify-center text-white font-extrabold text-[0.9375rem] px-10 py-3.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] transition-all duration-300 ${
                       status === "submitting"
-                        ? "bg-gray-400 cursor-not-allowed"
+                        ? "bg-[#EAEAE9] cursor-not-allowed"
                         : "bg-navy hover:bg-[#15244a] hover:-translate-y-0.5 shadow-[0.25rem_0.25rem_0_#58bdaf]"
                     }`}
                   >

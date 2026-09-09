@@ -33,13 +33,45 @@ const patternGreen = "/assets/home/TeamTeaser/green.png";
 
 const GENERATIONS = [
   { id: "all", label: "همه نسل‌ها" },
-  { id: "نسل ۷", label: "نسل هفتم (۱۴۰۳)" },
-  { id: "نسل ۶", label: "نسل ششم (۱۴۰۲)" },
-  { id: "نسل ۵", label: "نسل پنجم (۱۴۰۱)" },
-  { id: "نسل ۴", label: "نسل چهارم (۱۴۰۰)" },
-  { id: "نسل ۳", label: "نسل سوم (۱۳۹۹)" },
-  { id: "نسل ۲", label: "نسل دوم (۱۳۹۸)" },
+  { id: "8", label: "نسل هشتم" },
+  { id: "7", label: "نسل هفتم (۱۴۰۳)" },
+  { id: "6", label: "نسل ششم (۱۴۰۲)" },
+  { id: "5", label: "نسل پنجم (۱۴۰۱)" },
+  { id: "4", label: "نسل چهارم (۱۴۰۰)" },
+  { id: "3", label: "نسل سوم (۱۳۹۹)" },
+  { id: "2", label: "نسل دوم (۱۳۹۸)" },
 ];
+
+/* تبدیل هر فرمت gen («نسل ۷»، «نسل هفتم»، «نسل دوم»، ...) به شماره نسل
+   تا فیلتر مستقل از فرمت متن داده‌ها درست کار کنه */
+const FA_DIGITS = "۰۱۲۳۴۵۶۷۸۹";
+const GEN_WORDS = {
+  اول: 1,
+  دوم: 2,
+  سوم: 3,
+  چهارم: 4,
+  پنجم: 5,
+  ششم: 6,
+  هفتم: 7,
+  هشتم: 8,
+  نهم: 9,
+  دهم: 10,
+};
+
+function genNumber(gen) {
+  if (!gen) return null;
+  // عدد فارسی یا انگلیسی داخل رشته (مثل «نسل ۷» یا «نسل پنجم · پسرانه»)
+  for (const ch of gen) {
+    if (/[0-9]/.test(ch)) return Number(ch);
+    const faIdx = FA_DIGITS.indexOf(ch);
+    if (faIdx > 0) return faIdx;
+  }
+  // عدد به حروف (مثل «نسل دوم»)
+  for (const [word, num] of Object.entries(GEN_WORDS)) {
+    if (gen.includes(word)) return num;
+  }
+  return null;
+}
 
 export default function AlumniPage() {
   const { openEnrollment } = useEnrollment();
@@ -54,9 +86,7 @@ export default function AlumniPage() {
     return alumni.filter((m) => {
       const matchBranch = m.gender === selectedBranch;
       const matchGen =
-        genFilter === "all"
-          ? true
-          : m.gen.includes(genFilter.replace("نسل ", "")) || m.gen === genFilter;
+        genFilter === "all" ? true : genNumber(m.gen) === Number(genFilter);
       const matchSearch =
         !searchQuery.trim() ||
         m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -129,7 +159,7 @@ export default function AlumniPage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="font-medium text-[0.9375rem] sm:text-[1.0625rem] leading-[1.85] text-navy/70 max-w-2xl mx-auto mb-8 sm:mb-10">
+          <p className="font-medium text-[0.9375rem] sm:text-[1.0625rem] leading-[1.85] text-navy/70 max-w-2xl mx-auto mb-8 sm:mb-10 lg:mb-[4rem]">
             برای مشاهده سوابق، پروژه‌ها و مسیر شغلی فارغ‌التحصیلان، ابتدا شعبه
             مورد نظر خود را انتخاب فرمایید:
           </p>
@@ -156,7 +186,7 @@ export default function AlumniPage() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3.5">
                     <div
-                      className={`w-13 h-13 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
+                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
                         selectedBranch === "female"
                           ? "bg-[#E0195B] text-white"
                           : "bg-[#FCE8EF] text-[#E0195B]"
@@ -208,7 +238,7 @@ export default function AlumniPage() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3.5">
                     <div
-                      className={`w-13 h-13 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
+                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
                         selectedBranch === "male"
                           ? "bg-[#58BDAF] text-white"
                           : "bg-[#EEF8F7] text-[#58BDAF]"

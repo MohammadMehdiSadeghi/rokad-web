@@ -159,7 +159,7 @@ export default function HonorsCarousel() {
             HEADER
         ================================================== */}
 
-        <div className="relative w-full mb-3 sm:mb-6 lg:mb-10">
+        <div className="relative w-full mb-4 sm:mb-8 lg:mb-[4rem]">
           {/* Heading + Button Row — کنار هم در تمام سایزها */}
           <div className="w-full flex flex-row items-center justify-between gap-3 sm:gap-6">
             {/* Title */}

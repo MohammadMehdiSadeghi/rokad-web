@@ -255,7 +255,7 @@ function GenderSplitSection({ boysList, girlsList, sectionTitle, badgeText }) {
       {/* تیتر سکشن */}
       <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
         <span className="w-3.5 h-3.5 rounded-full bg-[#59BBAF] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
-        <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+        <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[2.75rem] text-[#202A5A]">
           {sectionTitle}
         </h2>
         {badgeText && (
@@ -357,7 +357,7 @@ export default function FactorsPage() {
           </div>
 
           {/* تیتر اصلی */}
-          <h1 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] text-[#202A5A] leading-[1.25] mb-3">
+          <h1 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] text-[#202A5A] leading-[1.25] mb-4 sm:mb-8">
             عوامل <span className="text-[#59BBAF]">رکاد</span>
           </h1>
 
@@ -438,7 +438,7 @@ export default function FactorsPage() {
             <div>
               <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
                 <span className="w-3.5 h-3.5 rounded-full bg-[#F8A41D] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
-                <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+                <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[2.75rem] text-[#202A5A]">
                   بنیان‌گذار و ایده‌پرداز رکاد
                 </h2>
                 <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#F8A41D]">
@@ -457,7 +457,7 @@ export default function FactorsPage() {
             <div>
               <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
                 <span className="w-3.5 h-3.5 rounded-full bg-[#59BBAF] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
-                <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+                <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[2.75rem] text-[#202A5A]">
                   مدیریت و راهبری اجرایی
                 </h2>
                 <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#59BBAF]">
@@ -479,7 +479,7 @@ export default function FactorsPage() {
           <section className="scroll-mt-24">
             <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
               <span className="w-3.5 h-3.5 rounded-full bg-[#F8A41D] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
-              <h2 className="text-[1.25rem] sm:text-[1.5rem] font-black text-[#202A5A]">
+              <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[2.75rem] text-[#202A5A]">
                 راهبران
               </h2>
               <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#F8A41D]">

@@ -203,8 +203,8 @@ export default function TeamTeaser() {
 
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}
-        <div className="flex items-center justify-between gap-3 mb-4 sm:mb-6">
-          <h2 className="font-black text-[1.625rem] sm:text-[2rem] lg:text-[2.25rem] leading-[1.2] text-navy flex items-center gap-x-2">
+        <div className="flex items-center justify-between gap-3 mb-4 sm:mb-8 lg:mb-[4rem]">
+          <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.2] text-navy flex items-center gap-x-2">
             <span>عوامل</span>
             <span className="text-magenta rotate-[-2deg] inline-block">
               رکاد
@@ -213,10 +213,16 @@ export default function TeamTeaser() {
 
           <Link
             href="/factors"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white text-navy border-2 border-navy text-[0.8125rem] font-black rounded-[0.625rem] [corner-shape:squircle] shadow-[3px_3px_0_0_#202A5A] hover:bg-[#F8FAF9] transition-all"
+            className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0 group"
           >
-            <span>مشاهده همه</span>
-            <ChevronLeftIcon className="w-4 h-4" />
+            <span
+              aria-hidden="true"
+              className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#21295A]"
+            />
+            <span className="relative z-10 inline-flex items-center gap-2 bg-white border-[0.125rem] border-[#21295A] text-[#21295A] font-extrabold text-xs xs:text-sm sm:text-base px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
+              <span>مشاهده همه</span>
+              <ChevronLeftIcon className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
+            </span>
           </Link>
         </div>
 

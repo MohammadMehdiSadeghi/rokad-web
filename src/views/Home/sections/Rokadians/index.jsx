@@ -299,8 +299,8 @@ export default function Rokadians() {
               TITLE
           ================================================= */}
 
-          <div className="text-center max-w-[50rem] mx-auto mb-4 sm:mb-6 lg:mb-10">
-            <h2 className="font-black text-[1.375rem] xs:text-[1.5rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827]">
+          <div className="text-center max-w-[50rem] mx-auto mb-4 sm:mb-8 lg:mb-[4rem]">
+            <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827]">
               <span>ببین </span>
               <span className="text-[#21295A]">رکادی‌ها</span>{" "}
               <span>الان </span>
@@ -353,11 +353,17 @@ export default function Rokadians() {
                 {/* دکمه مشاهده همه */}
                 <Link
                   href="/alumni"
-                  className="shrink-0 inline-flex items-center justify-center gap-1.5 bg-[#21295a] hover:bg-white text-white hover:text-[#21295a] border-2 border-[#21295a] font-black text-xs xs:text-[0.875rem] px-4 py-2 xs:px-5 xs:py-2.5 rounded-xl shadow-[2.5px_2.5px_0_#4bb5a8] hover:shadow-[2.5px_2.5px_0_#21295a] transition-all duration-200 active:scale-[0.98] whitespace-nowrap min-h-[2.85rem] xs:min-h-[3.15rem] group"
+                  className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0 group"
                 >
-                  <span>مشاهده همه</span>
-                  <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1 text-[#4bb5a8] group-hover:text-[#21295a] font-bold text-xs">
-                    ←
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#21295A]"
+                  />
+                  <span className="relative z-10 inline-flex items-center justify-center gap-1.5 bg-white border-[0.125rem] border-[#21295A] text-[#21295A] font-extrabold text-xs xs:text-sm px-3.5 xs:px-4 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer min-h-[2.85rem] xs:min-h-[3.15rem] [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
+                    <span>مشاهده همه</span>
+                    <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1 text-[#4bb5a8] group-hover:text-white font-bold text-xs">
+                      ←
+                    </span>
                   </span>
                 </Link>
               </div>
@@ -421,12 +427,18 @@ export default function Rokadians() {
                   در مسیر ساخت آینده
                 </p>
 
-                <Link
-                  href="/alumni"
-                  className="relative inline-flex items-center justify-center -rotate-1 hover:rotate-0 hover:-translate-y-1 hover:shadow-[6px_7px_0_#21295a] transition-all duration-300 bg-white border-[0.125rem] border-[#21295a] text-[#21295a] font-black text-[1.125rem] 2xl:text-[1.25rem] px-5 py-2 rounded-[0_0.625rem_0_0.625rem] shadow-[4px_4px_0_#21295a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_#21295a] whitespace-nowrap mt-6 [corner-shape:squircle]"
-                >
-                  مشاهده همه
-                </Link>
+                <div className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0 mt-6">
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#21295A]"
+                  />
+                  <Link
+                    href="/alumni"
+                    className="relative z-10 bg-white border-[0.125rem] border-[#21295A] text-[#21295A] font-extrabold text-xs xs:text-sm sm:text-base 2xl:text-lg px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
+                  >
+                    مشاهده همه
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

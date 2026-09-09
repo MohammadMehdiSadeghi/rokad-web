@@ -4,11 +4,13 @@ const THEMES = {
     rotate: "rotate-1",
     bg: "bg-navy-alt",
     ctaText: "text-navy-alt",
+    fill: "#202A5A",
   },
   girls: {
     rotate: "-rotate-1",
     bg: "bg-magenta",
     ctaText: "text-magenta",
+    fill: "#E0195B",
   },
 };
 
@@ -81,12 +83,19 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
           {seoText && <p className="sr-only">{seoText}</p>}
 
           {/* دکمه */}
-          <a
-            href="#"
-            className={`self-start rotate-[1.5deg] bg-white font-extrabold text-[0.9375rem] sm:text-[0.9375rem] lg:text-[0.9375rem] rounded-[0.5rem] px-5 sm:px-7 py-2.5 sm:py-3 ${t.ctaText} transition-transform duration-300 hover:scale-105 hover:rotate-0`}
-          >
-            {ctaLabel}
-          </a>
+          <div className="relative inline-flex items-center justify-center self-start rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0">
+            <div
+              aria-hidden="true"
+              className={`absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] ${t.bg}`}
+            />
+            <a
+              href="#"
+              className={`relative z-10 bg-white border-2 border-[color:var(--btn-fill)] font-extrabold text-xs xs:text-sm sm:text-base rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 ${t.ctaText} whitespace-nowrap [background-image:linear-gradient(to_right,var(--btn-fill),var(--btn-fill))] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out`}
+              style={{ "--btn-fill": t.fill }}
+            >
+              {ctaLabel}
+            </a>
+          </div>
         </div>
       </div>
     </div>

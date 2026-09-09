@@ -249,9 +249,9 @@ export default function Blogs() {
               justify-between
               gap-3
               sm:gap-6
-              mb-3
-              sm:mb-6
-              lg:mb-10
+              mb-4
+              sm:mb-8
+              lg:mb-[4rem]
             "
           >
             {/* Heading */}
@@ -372,7 +372,7 @@ export default function Blogs() {
                   [background-size:0%_100%]
                   hover:[background-size:100%_100%]
                   hover:text-white
-                  transition-all
+                  transition-[background-size,transform]
                   duration-300
                   ease-out
                 "

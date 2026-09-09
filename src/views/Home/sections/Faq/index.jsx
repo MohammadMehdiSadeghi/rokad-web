@@ -68,7 +68,7 @@ export default function Faq() {
         <div className="flex flex-col h-full lg:pt-2">
           {/* تایتل */}
           <div>
-            <h2 className="font-black text-[1.25rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-0 flex flex-wrap items-center gap-x-2">
+            <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-0 flex flex-wrap items-center gap-x-2">
               <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دغدغه‌ی</span>
               <span className="inline-block text-navy whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>آینده</span>
               <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>و</span>
@@ -87,7 +87,7 @@ export default function Faq() {
           </div>
 
           {/* باکس مشاوره — بلافاصله بعد از تیتر */}
-          <div className="relative rotate-0 sm:rotate-2 mt-5 sm:mt-12 lg:mt-10">
+          <div className="relative rotate-0 sm:rotate-2 mt-4 sm:mt-8 lg:mt-[4rem]">
             {/* لایه پشتی باکس مشاوره */}
             <div className="absolute top-1 left-1 sm:top-2 sm:left-2 w-full h-full rounded-tl-[1.5rem] sm:rounded-tl-[2.5rem] rounded-br-[1.5rem] sm:rounded-br-[2.5rem] rounded-tr-none rounded-bl-none bg-ink [corner-shape:squircle]" />
             {/* لایه اصلی باکس مشاوره */}

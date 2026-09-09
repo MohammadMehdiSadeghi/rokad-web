@@ -64,7 +64,7 @@ export default function EventsPage() {
                 key={i}
                 href={ev.href || "/events"}
                 className="group relative block rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] border-2 border-[#292827] bg-white transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
-                style={{ boxShadow: `3.75px 3.75px 0 0 ${t.shadow}` }}
+                style={{ boxShadow: `4.75px 4.75px 0 0 ${t.shadow}` }}
               >
                 {/* نوار رنگی بالا — گوشه‌هاش با overflow-hidden کارت کات می‌شه */}
                 <div

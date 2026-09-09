@@ -4,16 +4,12 @@ import Container from "../../layout/Container";
 import { useEnrollment } from "../../lib/EnrollmentContext";
 import { ChevronLeftIcon, ChevronRightIcon } from "../../common/Icons";
 import {
-  postMeta,
-  toc,
-  relatedQuick,
-  blocks,
-  tags,
+  allEvents,
   author,
-  comments,
   newsletter,
   finalCta,
   relatedPosts,
+  getRelatedQuick,
 } from "./data.js";
 
 // ── پترن‌های رسمی رکاد ──
@@ -229,7 +225,7 @@ function Timeline({ items }) {
 }
 
 // ═══════════════ بلوک‌رندر ═══════════════
-function ArticleBlocks() {
+function ArticleBlocks({ blocks }) {
   return (
     <>
       {blocks.map((b, i) => {
@@ -309,7 +305,7 @@ function MetaIcon({ name }) {
 }
 
 // ═══════════════ هدر مقاله ═══════════════
-function PostHero() {
+function PostHero({ postMeta }) {
   return (
     <section className="relative overflow-hidden bg-bg-mint">
       <div className="absolute inset-0 pointer-events-none opacity-60 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]">
@@ -378,7 +374,7 @@ function PostHero() {
 }
 
 // ═══════════════ سایدبار ═══════════════
-function Sidebar({ onCta }) {
+function Sidebar({ onCta, toc, relatedQuick }) {
   return (
     <aside className="lg:sticky lg:top-28 self-start space-y-5">
       {/* فهرست مطالب */}
@@ -471,7 +467,7 @@ function AuthorCard() {
 }
 
 // ═══════════════ نظرات ═══════════════
-function Comments() {
+function Comments({ comments }) {
   return (
     <section className="py-12 sm:py-16 bg-bg-neutral">
       <Container>
@@ -587,18 +583,23 @@ function FinalCta({ onCta }) {
 }
 
 // ═══════════════ کامپوننت اصلی ═══════════════
-export default function EventsSingle() {
+export default function EventsSingle({ slug }) {
   const { openEnrollment } = useEnrollment();
+
+  // رویداد مربوط به این slug — پیش‌فرض: رویداد اول
+  const entry = allEvents.find((e) => e.slug === slug) || allEvents[0];
+  const { postMeta, toc, blocks, tags, comments } = entry.event;
+  const relatedQuick = getRelatedQuick(entry.slug);
 
   return (
     <>
-      <PostHero />
+      <PostHero postMeta={postMeta} />
 
       {/* مقاله + سایدبار */}
       <section className="py-10 sm:py-14 bg-white">
         <Container className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 lg:gap-12">
           <article className="min-w-0">
-            <ArticleBlocks />
+            <ArticleBlocks blocks={blocks} />
 
             {/* تگ‌ها */}
             <div className="flex flex-wrap gap-2.5 mt-9 pt-7 border-t border-ink/10">
@@ -640,7 +641,7 @@ export default function EventsSingle() {
             <AuthorCard />
           </article>
 
-          <Sidebar onCta={openEnrollment} />
+          <Sidebar onCta={openEnrollment} toc={toc} relatedQuick={relatedQuick} />
         </Container>
       </section>
 
@@ -686,7 +687,7 @@ export default function EventsSingle() {
         </Container>
       </section>
 
-      <Comments />
+      <Comments comments={comments} />
       <Newsletter />
       <FinalCta onCta={openEnrollment} />
     </>

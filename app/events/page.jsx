@@ -9,9 +9,6 @@ export const metadata = {
 
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
 
-const slugify = (s) =>
-  encodeURIComponent(String(s || "").trim().replace(/\s+/g, "-"));
-
 /* رنگ‌ها از دیزاین‌سیستم رکاد:
    پسر: light #E9EAEF · normal #202A5A · dark #182044
    دختر: light #FCE8EF · normal #E0195B · dark #A81344 */
@@ -65,11 +62,7 @@ export default function EventsPage() {
             return (
               <Link
                 key={i}
-                href={
-                  i === 0
-                    ? "/events/rokad-events-recap"
-                    : `/events/${slugify(ev.title)}`
-                }
+                href={ev.href || "/events"}
                 className="group relative block rounded-[0_1.5rem_0_1.5rem] border-2 border-[#292827] bg-white shadow-[2.75px_2.75px_0_#292827] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[4px_5px_0_#292827]"
               >
                 {/* نوار رنگی بالا */}

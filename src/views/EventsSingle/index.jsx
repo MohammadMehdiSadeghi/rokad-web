@@ -40,11 +40,7 @@ function SectionHeading({ words, id }) {
       className="font-black text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] leading-[1.3] mb-6 mt-4 flex flex-wrap items-baseline gap-x-2"
     >
       {words.map((w, i) => (
-        <span
-          key={i}
-          className={`inline-block ${w.color || "text-ink"}`}
-          style={{ transform: `rotate(${w.rotate})` }}
-        >
+        <span key={i} className={`inline-block ${w.color || "text-ink"}`}>
           {w.text}
         </span>
       ))}
@@ -330,7 +326,7 @@ function PostHero({ postMeta }) {
             </div>
             <h1 className="font-black text-[2.25rem] sm:text-[3rem] lg:text-[3.75rem] leading-[1.25] flex flex-wrap gap-x-2.5 mb-6">
               {postMeta.titleWords.map((w, i) => (
-                <span key={i} className={`inline-block ${w.color}`} style={{ transform: `rotate(${w.rotate})` }}>
+                <span key={i} className={`inline-block ${w.color}`}>
                   {w.text}
                 </span>
               ))}
@@ -473,8 +469,8 @@ function Comments({ comments }) {
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
           <h2 className="font-black text-[1.75rem] sm:text-[2.25rem] flex items-center gap-3">
-            <span className="inline-block -rotate-1 text-ink">نظرت</span>
-            <span className="inline-block rotate-2 text-magenta">چیه؟</span>
+            <span className="inline-block text-ink">نظرت</span>
+            <span className="inline-block text-magenta">چیه؟</span>
           </h2>
           <p className="text-[0.8125rem] font-bold text-ink/50">{comments.count}</p>
         </div>
@@ -527,7 +523,7 @@ function Newsletter() {
         <div>
           <h2 className="font-black text-[1.75rem] sm:text-[2.25rem] text-white flex flex-wrap gap-x-2">
             {newsletter.words.map((w, i) => (
-              <span key={i} className="inline-block" style={{ transform: `rotate(${i % 2 ? "1deg" : "-1deg"})` }}>{w}</span>
+              <span key={i} className="inline-block">{w}</span>
             ))}
           </h2>
           <p className="text-[0.875rem] text-white/70 leading-[1.9] mt-3 max-w-md">{newsletter.desc}</p>
@@ -550,7 +546,7 @@ function FinalCta({ onCta }) {
       <Container className="relative z-10 text-center">
         <h2 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] leading-[1.3] text-navy-alt flex flex-wrap justify-center gap-x-3 mb-6">
           {finalCta.words.map((w, i) => (
-            <span key={i} className="inline-block" style={{ transform: `rotate(${i % 2 ? "-1.5deg" : "1.5deg"})`, color: i === 3 ? "var(--tw-ink,#292827)" : undefined }}>
+            <span key={i} className="inline-block" style={{ color: i === 3 ? "var(--tw-ink,#292827)" : undefined }}>
               {w}
             </span>
           ))}
@@ -649,10 +645,10 @@ export default function EventsSingle({ slug }) {
       <section className="py-12 sm:py-16 bg-bg-mint/60">
         <Container>
           <h2 className="font-black text-[1.75rem] sm:text-[2.25rem] flex flex-wrap gap-x-2 mb-9">
-            <span className="inline-block -rotate-1 text-ink">این‌ها</span>
-            <span className="inline-block rotate-1 text-ink">رو</span>
-            <span className="inline-block -rotate-2 text-ink">هم</span>
-            <span className="inline-block rotate-2 text-teal">بخون</span>
+            <span className="inline-block text-ink">این‌ها</span>
+            <span className="inline-block text-ink">رو</span>
+            <span className="inline-block text-ink">هم</span>
+            <span className="inline-block text-teal">بخون</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {relatedPosts.map((p, i) => {

@@ -203,6 +203,15 @@ const RANK_BADGE_FALLBACK = {
   second: "/assets/home/Honors/s2.png", // مقام دوم — نقره
   third: "/assets/home/Honors/t3.png", // مقام سوم — برنز
 };
+// برندگان هر جایزه — طبق اسکیمای Award: winners[{fullName,job,generation,img}]
+// مستقر (populate) نشده باشه آرایه خالی برمی‌گرده (سکشن برنده‌ها empty state نشون می‌ده)
+const awardWinnerMapper = (w) => ({
+  name: toFaNum(w.fullName || ""),
+  role: toFaNum(w.job || ""),
+  gen: w.generation ? toFaNum(`نسل ${w.generation}`) : "",
+  avatar: getImageUrl(w.img) || "",
+});
+
 const awardMapper = (a, i) => ({
   id: a._id,
   rank: RANK_MAP[a.rank] || "first",
@@ -212,6 +221,7 @@ const awardMapper = (a, i) => ({
   // بج همیشه از روی rank خودِ جایزه انتخاب میشه (نه عکس برنده)
   // تا «مقام اول» همیشه مدال طلا نشون بده
   badge: RANK_BADGE_FALLBACK[RANK_MAP[a.rank] || "first"],
+  winners: Array.isArray(a.winners) ? a.winners.map(awardWinnerMapper) : [],
 });
 
 export const fetchAwards = () =>

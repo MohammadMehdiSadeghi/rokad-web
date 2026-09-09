@@ -388,18 +388,7 @@ export default function FactorsPage() {
                   : "bg-white text-[#202A5A] hover:bg-[#EEF8F7]"
               }`}
             >
-              بنیان‌گذار و مدیریت ارشد
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveTab("leaders")}
-              className={`px-4 sm:px-5 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] text-[0.8125rem] sm:text-[0.875rem] font-black border-2 border-[#202A5A] transition-all cursor-pointer ${
-                activeTab === "leaders"
-                  ? "bg-[#F8A41D] text-[#202A5A] shadow-[3px_3px_0_0_#202A5A] -translate-y-0.5"
-                  : "bg-white text-[#202A5A] hover:bg-[#FEF6E8]"
-              }`}
-            >
-              راهبران ({LEADERS_STAFF.length})
+              بنیان‌گذار و مدیریت ارشد ({MANAGEMENT_STAFF.length + LEADERS_STAFF.length})
             </button>
             <button
               type="button"
@@ -453,7 +442,8 @@ export default function FactorsPage() {
               </div>
             </div>
 
-            {/* مدیریت ارشد (مهندس عزیزپور و مهندس کمالی) */}
+            {/* مدیریت ارشد + راهبران — ترکیب‌شده طبق درخواست کارفرما:
+                امیریان، عزیزپور، کمالی، دولت‌آبادی */}
             <div>
               <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
                 <span className="w-3.5 h-3.5 rounded-full bg-[#59BBAF] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
@@ -461,36 +451,23 @@ export default function FactorsPage() {
                   مدیریت و راهبری اجرایی
                 </h2>
                 <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#59BBAF]">
-                  {MANAGEMENT_STAFF.length} نفر
+                  {MANAGEMENT_STAFF.length + LEADERS_STAFF.length} نفر
                 </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6 sm:gap-7 pt-2 px-1">
-                {MANAGEMENT_STAFF.map((staff) => (
-                  <RokadCard key={staff.name} member={staff} />
-                ))}
+                {/* ترتیب: راهبر پسرانه → مدیرعامل → هم‌بنیان‌گذار → راهبر دخترانه */}
+                {[
+                  LEADERS_STAFF.find((s) => s.name === "امیرحسین امیریان"),
+                  MANAGEMENT_STAFF.find((s) => s.name === "علیرضا عزیزپور"),
+                  MANAGEMENT_STAFF.find((s) => s.name === "محمد کمالی"),
+                  LEADERS_STAFF.find((s) => s.name === "رویا دولت‌آبادی"),
+                ]
+                  .filter(Boolean)
+                  .map((staff) => (
+                    <RokadCard key={staff.name} member={staff} />
+                  ))}
               </div>
-            </div>
-          </section>
-        )}
-
-        {/* ════ ۲. راهبران (امیرحسین امیریان و رویا دولت‌آبادی) ════ */}
-        {(activeTab === "all" || activeTab === "leaders") && (
-          <section className="scroll-mt-24">
-            <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-[#202A5A]/15">
-              <span className="w-3.5 h-3.5 rounded-full bg-[#F8A41D] border-2 border-[#202A5A] inline-block shadow-[1px_1px_0_0_#202A5A]" />
-              <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[2.75rem] text-[#202A5A]">
-                راهبران
-              </h2>
-              <span className="mr-auto inline-block bg-white px-3 py-1 rounded-[0_0.5rem_0_0.5rem] [corner-shape:squircle] text-[0.75rem] sm:text-[0.8125rem] font-black border-2 border-[#202A5A] text-[#202A5A] shadow-[2px_2px_0_0_#F8A41D]">
-                {LEADERS_STAFF.length} نفر
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6 sm:gap-7 pt-2 px-1">
-              {LEADERS_STAFF.map((staff) => (
-                <RokadCard key={staff.name} member={staff} />
-              ))}
             </div>
           </section>
         )}

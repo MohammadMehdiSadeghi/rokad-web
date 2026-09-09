@@ -19,10 +19,6 @@ const THEME_MAP = {
     accentText: "text-[#21295A]",
     metaColor: "text-[#21295A]/50",
     btnBg: "bg-[#21295A] hover:bg-[#15244a]",
-    btnFillImage: "[background-image:linear-gradient(to_right,#21295A,#21295A)]",
-    btnBorderColor: "border-[#21295A]",
-    btnTextColor: "text-[#21295A]",
-    btnShadowColor: "#21295A",
     solidColor: "bg-[#21295A]",
     borderColor: "border-[#21295A]",
     indexColor: "text-[#D7DBF1]",
@@ -38,10 +34,6 @@ const THEME_MAP = {
     accentText: "text-[#E0195B]",
     metaColor: "text-[#E0195B]/50",
     btnBg: "bg-[#E0195B] hover:bg-[#c0154d]",
-    btnFillImage: "[background-image:linear-gradient(to_right,#E0195B,#E0195B)]",
-    btnBorderColor: "border-[#E0195B]",
-    btnTextColor: "text-[#E0195B]",
-    btnShadowColor: "#E0195B",
     solidColor: "bg-[#E0195B]",
     borderColor: "border-[#E0195B]",
     indexColor: "text-[#FAD9E4]",
@@ -85,27 +77,15 @@ export default function EventsCarousel() {
 
   return (
       <section className="pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] w-full relative overflow-hidden bg-white">
-        {/* ── مدیریت اسلاید فعال/غیرفعال — اسلایدهای همسایه محو و زیر کارت
-            فعلی می‌افتند تا محتوای چند ایونت با هم مخلوط دیده نشه ── */}
+        {/* اسلایدهای همسایه محو می‌شن تا محتوای چند ایونت مخلوط دیده نشه */}
         <style>{`
-          .events-swiper .swiper-slide {
-            transition: opacity 0.4s ease;
-            opacity: 0.35;
-            z-index: 10;
-          }
-          .events-swiper .swiper-slide-active {
-            opacity: 1;
-            z-index: 30 !important;
-          }
+          .events-swiper .swiper-slide { opacity: 0.3; }
+          .events-swiper .swiper-slide-active { opacity: 1; }
           @media (min-width: 1024px) {
             .events-swiper .swiper-slide { opacity: 0; }
             .events-swiper .swiper-slide-active { opacity: 1; }
           }
-          @media (prefers-reduced-motion: reduce) {
-            .events-swiper .swiper-slide { transition: none; }
-          }
         `}</style>
-
         {/* 1. لایه پترن پس‌زمینه — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
             بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن */}
         <div
@@ -125,7 +105,7 @@ export default function EventsCarousel() {
         
           {/* ── هدر: تایتل و توضیحات — فاصله ۳۲px در موبایل، ۴rem در تبلت/دسکتاپ ── */}
           <div className="mb-8 sm:mb-[4rem]">
-            <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-0">
+            <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.3] mb-0">
               جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
             </h2>
             {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
@@ -163,11 +143,10 @@ export default function EventsCarousel() {
                 <SwiperSlide key={i} className="!h-auto">
                   <div className="relative" style={{ transform: `rotate(${rotation}deg)` }}>
                     
-                    {/* لایه زیرین اصلی کارت — الگوی افتخارات: آفست کوچک ۲px
-                        تا گوشه‌های گرد کارت سایه رو کامل بپوشونن */}
-                    <div
-                      aria-hidden="true"
-                      className={`absolute top-[0.125rem] left-[0.125rem] w-full h-full ${theme.solidColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle]`}
+                    {/* لایه زیرین اصلی کارت */}
+                    <div 
+                      aria-hidden="true" 
+                      className={`absolute top-[0.25rem] left-[0.4375rem] w-full h-full ${theme.solidColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle]`} 
                     />
 
                     {/* کارت اصلی */}
@@ -197,17 +176,15 @@ export default function EventsCarousel() {
                             </span>
                           </div>
 
-                          {/* بَج — فقط وقتی رویداد متن اختصاصی داره (بدون تکرار روی همه کارت‌ها) */}
-                          {event.badge && (
-                            <div className="relative self-start">
-                              <div
-                                className={`absolute top-[0.1875rem] left-[0.1875rem] w-full h-full ${theme.badgeOffset} rounded-[0.875rem] [corner-shape:squircle] pointer-events-none`}
-                              ></div>
-                              <div className={`relative ${theme.badgeBg} border-[0.0625rem] ${theme.badgeBorder} ${theme.badgeText} rounded-[0.875rem] [corner-shape:squircle] px-4 sm:px-6 py-2 sm:py-3 text-[0.75rem] sm:text-base font-bold`}>
-                                {event.badge}
-                              </div>
+                          {/* بَج */}
+                          <div className="relative self-start">
+                            <div 
+                              className={`absolute top-[0.1875rem] left-[0.1875rem] w-full h-full ${theme.badgeOffset} rounded-[0.875rem] [corner-shape:squircle] pointer-events-none`}
+                            ></div>
+                            <div className={`relative ${theme.badgeBg} border-[0.0625rem] ${theme.badgeBorder} ${theme.badgeText} rounded-[0.875rem] [corner-shape:squircle] px-4 sm:px-6 py-2 sm:py-3 text-[0.75rem] sm:text-base font-bold`}>
+                              ساخت محصول واقعی
                             </div>
-                          )}
+                          </div>
 
                           {/* تایتل و ساب‌تایتل */}
                           <div className="flex flex-col gap-3 sm:gap-4">
@@ -229,25 +206,19 @@ export default function EventsCarousel() {
 
                         {/* بخش پایین: دکمه (همیشه در پایین کارت) */}
                         <div className="relative z-10 flex justify-center mt-6 lg:mt-2">
-                          <div className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0">
-                            <div
-                              aria-hidden="true"
-                              className={`absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] ${theme.btnShadowColor}`}
-                            />
-                            <a
-                              href={event.href || "/events"}
-                              className={`relative z-10 inline-flex items-center gap-2 bg-white border-[0.125rem] text-[0.6875rem] sm:text-[0.8125rem] font-extrabold px-3.5 sm:px-4 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer ${theme.btnBorderColor} ${theme.btnTextColor} ${theme.btnFillImage} bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out`}
-                            >
-                              {event.ctaLabel}
-                              <ArrowIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                            </a>
-                          </div>
+                          <a
+                            href={event.href || "/events"}
+                            className={`inline-flex items-center gap-2 ${theme.btnBg} text-white text-[0.8125rem] sm:text-base font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-[0.875rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-x-1`}
+                          >
+                            {event.ctaLabel}
+                            <ArrowIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                          </a>
                         </div>
                       </div>
 
                       {/* تصویر رویداد (سمت چپ در دسکتاپ / بالا در موبایل) */}
                       {/* افزایش ارتفاع عکس در موبایل برای هماهنگی با ارتفاع کل کارت */}
-                      <div className="relative w-full h-[10rem] sm:h-[11rem] md:h-[10rem] lg:h-auto overflow-hidden bg-bg-lavender">
+                      <div className="relative w-full h-[10rem] sm:h-[11rem] md:h-[10rem] lg:h-auto overflow-hidden bg-gray-100">
                         <img
                           src={event.image}
                           alt={event.title}

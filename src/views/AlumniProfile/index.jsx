@@ -103,7 +103,7 @@ function BtnLinkedIn({ href, name }) {
 function SectTitle({ p, children }) {
   return (
     <h2 className="font-black text-[1.375rem] sm:text-[1.75rem] leading-[1.3] text-ink mb-6 flex items-center gap-3">
-      <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: p.normal }} />
+      <span className="flex-shrink-0 w-3 h-3 rounded-full" style={{ background: p.normal }} />
       <span className="whitespace-nowrap">{children}</span>
       <span
         aria-hidden="true"
@@ -143,7 +143,7 @@ function QuickPill({ k, v }) {
         padding: "6px 14px",
       }}
     >
-      {k}: <strong className="font-extrabold mr-1">{v}</strong>
+      {k}: <strong className="mr-1 font-extrabold">{v}</strong>
     </div>
   );
 }
@@ -163,7 +163,7 @@ export default function AlumniProfileView({ slug }) {
           <h1 className="font-black text-[1.75rem] sm:text-[2.25rem] text-ink mb-4">
             این دانش‌آموخته پیدا نشد
           </h1>
-          <p className="text-ink/60 mb-8">
+          <p className="mb-8 text-ink/60">
             ممکنه آدرس اشتباه باشه یا پروفایل هنوز ساخته نشده باشه.
           </p>
           <Link
@@ -224,7 +224,7 @@ export default function AlumniProfileView({ slug }) {
           <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-8 lg:gap-12 items-center">
             {/* آواتار */}
             <div
-              className="mx-auto lg:mx-0 grid place-items-center font-black select-none"
+              className="grid mx-auto font-black select-none lg:mx-0 place-items-center"
               style={{
                 width: "260px",
                 height: "260px",
@@ -243,7 +243,7 @@ export default function AlumniProfileView({ slug }) {
 
             {/* مشخصات فردی */}
             <div className="text-center lg:text-right">
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-2">
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-2 lg:justify-start">
                 <GlassLabel>
                   بخش {persona.label} رکاد — {member.gen}
                 </GlassLabel>
@@ -278,7 +278,7 @@ export default function AlumniProfileView({ slug }) {
               </div>
 
               {/* دکمه‌های اقدام */}
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+              <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
                 <BtnSolid p={p} onClick={openEnrollment}>
                   ارتباط و همکاری با {member.name.split(" ")[0]}
                 </BtnSolid>
@@ -290,7 +290,7 @@ export default function AlumniProfileView({ slug }) {
       </section>
 
       {/* ════ بدنه اصلی: ستون محتوا + سایدبار اطلاعات ════ */}
-      <section dir="rtl" className="bg-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section dir="rtl" className="px-4 py-12 bg-white sm:py-16 sm:px-6 lg:px-8">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-12 items-start">
             
@@ -321,7 +321,7 @@ export default function AlumniProfileView({ slug }) {
               {/* ۲. پیام و روایت دانش‌آموخته از رکاد (یک‌بند شاخص) */}
               {member.quote && (
                 <div
-                  className="p-6 sm:p-7 relative"
+                  className="relative p-6 sm:p-7"
                   style={{
                     background: p.light,
                     border: `1.5px solid ${p.normal}`,
@@ -412,7 +412,7 @@ export default function AlumniProfileView({ slug }) {
 
             {/* ── سایدبار اطلاعات کلیدی و برچسب‌ها ── */}
             <aside
-              className="p-6 sm:p-7 lg:sticky lg:top-24 space-y-6"
+              className="p-6 space-y-6 sm:p-7 lg:sticky lg:top-24"
               style={{
                 background: p.light,
                 border: `1.5px solid ${p.normal}`,
@@ -447,7 +447,7 @@ export default function AlumniProfileView({ slug }) {
                       }}
                     >
                       <dt className="text-ink/65 whitespace-nowrap">{k}</dt>
-                      <dd className="font-bold text-ink text-left">{v}</dd>
+                      <dd className="font-bold text-left text-ink">{v}</dd>
                     </div>
                   ))}
                 </dl>
@@ -480,7 +480,7 @@ export default function AlumniProfileView({ slug }) {
               {/* ابزارهای تخصصی */}
               {member.tools && (
                 <div className="text-[0.8125rem] text-ink/75 pt-2" style={{ borderTop: `1px dashed ${p.normal}40` }}>
-                  <span className="font-bold text-ink block mb-1">ابزارهای مسلط:</span>
+                  <span className="block mb-1 font-bold text-ink">ابزارهای مسلط:</span>
                   <span className="leading-relaxed">{member.tools}</span>
                 </div>
               )}
@@ -502,11 +502,11 @@ export default function AlumniProfileView({ slug }) {
       {member.portfolio && member.portfolio.length > 0 && (
         <section
           dir="rtl"
-          className="bg-bg-neutral py-14 sm:py-16 px-4 sm:px-6 lg:px-8 border-t"
+          className="px-4 border-t bg-bg-neutral py-14 sm:py-16 sm:px-6 lg:px-8"
           style={{ borderColor: INK_LIGHT }}
         >
           <Container>
-            <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="flex flex-col justify-between gap-4 mb-8 sm:flex-row sm:items-end">
               <div>
                 <span
                   className="text-[0.6875rem] font-bold tracking-[0.15em] block mb-2"
@@ -523,11 +523,11 @@ export default function AlumniProfileView({ slug }) {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {member.portfolio.map((proj, i) => (
                 <article
                   key={i}
-                  className="bg-white overflow-hidden flex flex-col justify-between"
+                  className="flex flex-col justify-between overflow-hidden bg-white"
                   style={{
                     border: `1.5px solid ${INK_LIGHT}`,
                     borderRadius: "24px 0 24px 0",
@@ -535,7 +535,7 @@ export default function AlumniProfileView({ slug }) {
                   }}
                 >
                   <div
-                    className="p-6 relative overflow-hidden"
+                    className="relative p-6 overflow-hidden"
                     style={{
                       background: p.light,
                       borderBottom: `1.5px solid ${p.normal}30`,
@@ -567,7 +567,7 @@ export default function AlumniProfileView({ slug }) {
                   </div>
 
                   {proj.desc && (
-                    <div className="p-5 flex-1 flex flex-col justify-between">
+                    <div className="flex flex-col justify-between flex-1 p-5">
                       <p className="text-[0.8125rem] text-ink/75 leading-[1.9]">
                         {proj.desc}
                       </p>
@@ -582,14 +582,14 @@ export default function AlumniProfileView({ slug }) {
 
       {/* ════ مقالات و یادداشت‌ها ════ */}
       {member.articles && member.articles.length > 0 && (
-        <section dir="rtl" className="bg-white py-14 sm:py-16 px-4 sm:px-6 lg:px-8 border-t" style={{ borderColor: INK_LIGHT }}>
+        <section dir="rtl" className="px-4 bg-white border-t py-14 sm:py-16 sm:px-6 lg:px-8" style={{ borderColor: INK_LIGHT }}>
           <Container>
             <SectTitle p={p}>مقالات و تجربیات مکتوب</SectTitle>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               {member.articles.map((art, i) => (
                 <div
                   key={i}
-                  className="bg-white p-5 sm:p-6 flex items-center justify-between gap-4"
+                  className="flex items-center justify-between gap-4 p-5 bg-white sm:p-6"
                   style={{
                     border: `1.5px solid ${INK_LIGHT}`,
                     borderRadius: "17px 0 17px 0",
@@ -604,7 +604,7 @@ export default function AlumniProfileView({ slug }) {
                   </div>
                   <span
                     aria-hidden="true"
-                    className="w-9 h-9 flex-shrink-0 grid place-items-center rounded-full"
+                    className="grid flex-shrink-0 rounded-full w-9 h-9 place-items-center"
                     style={{
                       background: p.light,
                       border: `1.5px solid ${p.normal}`,

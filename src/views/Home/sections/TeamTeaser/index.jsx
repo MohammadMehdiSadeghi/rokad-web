@@ -125,7 +125,7 @@ function MiniCard({ member }) {
         <div>
           {/* عکس پرسنل */}
           <div
-            className="relative h-[8.5rem] sm:h-[9.5rem] lg:h-[10.5rem] overflow-hidden flex items-end justify-center"
+            className="relative h-[9.25rem] sm:h-[10.25rem] lg:h-[11.25rem] overflow-hidden flex items-end justify-center"
             style={{ backgroundColor: member.color }}
           >
             <img
@@ -142,7 +142,7 @@ function MiniCard({ member }) {
               alt={member.name}
               loading="lazy"
               draggable="false"
-              className={`relative z-10 h-[8.25rem] sm:h-[9.25rem] lg:h-[10.25rem] w-auto object-contain object-bottom ${member.imgClass || "translate-y-2 sm:translate-y-2.5 lg:translate-y-3 scale-120"}`}
+              className={`relative z-10 h-[9rem] sm:h-[10rem] lg:h-[11rem] w-auto object-contain object-bottom ${member.imgClass || "translate-y-2 sm:translate-y-2.5 lg:translate-y-3 scale-125"}`}
             />
           </div>
 
@@ -244,7 +244,7 @@ export default function TeamTeaser() {
             {/* کارت اصلی */}
             <article className="relative bg-white border-2 border-navy rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden flex flex-col justify-between h-full">
               {/* عکس بزرگ */}
-              <div className="relative bg-[#58bdaf] h-[18rem] sm:h-[20.5rem] lg:h-[23rem] overflow-hidden flex items-end justify-center">
+              <div className="relative bg-[#58bdaf] h-[19.5rem] sm:h-[22rem] lg:h-[24.5rem] overflow-hidden flex items-end justify-center">
                 <img
                   src={patternGreen}
                   alt=""
@@ -256,7 +256,7 @@ export default function TeamTeaser() {
                   alt={FEATURED.name}
                   loading="lazy"
                   draggable="false"
-                  className="relative z-10 h-[17rem] sm:h-[19.5rem] lg:h-[22rem] w-auto object-contain object-bottom translate-y-9 sm:translate-y-11 lg:translate-y-14 scale-110"
+                  className="relative z-10 h-[18.5rem] sm:h-[21rem] lg:h-[23.5rem] w-auto object-contain object-bottom translate-y-9 sm:translate-y-11 lg:translate-y-14 scale-115"
                 />
               </div>
 

@@ -105,7 +105,7 @@ const MEMBERS = [
     color: "#202A5A",
     bgLight: "bg-[#F4F5FB]",
     pattern: patternBlue,
-    patternOpacity: "opacity-20",
+    patternOpacity: "opacity-10",
     imgClass: "translate-y-3 sm:translate-y-3.5 lg:translate-y-4 scale-[1.12]",
   },
 ];

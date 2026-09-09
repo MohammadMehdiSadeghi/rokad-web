@@ -75,7 +75,7 @@ const MEMBERS = [
     color: "#E0195B",
     bgLight: "bg-[#FEFAFB]",
     pattern: patternPink,
-    imgClass: "translate-y-4 sm:translate-y-[1.15rem] lg:translate-y-[1.3rem] scale-[1.4]",
+    imgClass: "translate-y-[1.15rem] sm:translate-y-[1.3rem] lg:translate-y-[1.55rem] scale-[1.4]",
   },
   {
     name: "علیرضا عزیزپور",

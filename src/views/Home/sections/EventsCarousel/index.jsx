@@ -77,15 +77,6 @@ export default function EventsCarousel() {
 
   return (
       <section className="pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] w-full relative overflow-hidden bg-white">
-        {/* اسلایدهای همسایه محو می‌شن تا محتوای چند ایونت مخلوط دیده نشه */}
-        <style>{`
-          .events-swiper .swiper-slide { opacity: 0.3; }
-          .events-swiper .swiper-slide-active { opacity: 1; }
-          @media (min-width: 1024px) {
-            .events-swiper .swiper-slide { opacity: 0; }
-            .events-swiper .swiper-slide-active { opacity: 1; }
-          }
-        `}</style>
         {/* 1. لایه پترن پس‌زمینه — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
             بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن */}
         <div
@@ -132,7 +123,7 @@ export default function EventsCarousel() {
               swiper.params.navigation.nextEl = nextRef.current;
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-            className="events-swiper !overflow-visible"
+            className="!overflow-visible"
           >
             {events.map((event, i) => {
               const theme = THEME_MAP[event.theme];

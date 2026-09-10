@@ -59,7 +59,10 @@ function RokadCard({ member, isFeatured = false }) {
                 alt=""
                 draggable="false"
                 className="absolute inset-0 w-full h-full object-cover opacity-40 select-none pointer-events-none"
-              />
+
+          loading="lazy"
+          decoding="async"
+          />
             )}
 
             {/* نشان تگ گوشه بالا */}
@@ -170,6 +173,9 @@ function FounderCard({ member }) {
             alt=""
             draggable="false"
             className="absolute inset-0 w-full h-full object-cover opacity-40 select-none pointer-events-none"
+
+          loading="lazy"
+          decoding="async"
           />
           <img
             src={member.img}
@@ -344,6 +350,9 @@ export default function FactorsPage() {
             alt=""
             draggable="false"
             className="w-full h-full object-cover select-none"
+
+          loading="lazy"
+          decoding="async"
           />
         </div>
 

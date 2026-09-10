@@ -1,4 +1,6 @@
 // SchoolCard.jsx (کپی از Home/sections/DualSchool)
+"use client";
+import { useEnrollment } from "../../../../lib/EnrollmentContext";
 const THEMES = {
   boys: {
     rotate: "rotate-1",
@@ -25,6 +27,7 @@ function DotBullet() {
 
 export default function SchoolCard({ theme, category, title, meta, chips, ctaLabel, illustration, pattern, seoText }) {
   const t = THEMES[theme];
+  const { openEnrollment } = useEnrollment();
 
   return (
     <div
@@ -42,7 +45,10 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
               alt=""
               aria-hidden="true"
               className="w-full h-full object-cover opacity-[80%] mix-blend-overlay"
-            />
+
+          loading="lazy"
+          decoding="async"
+          />
           </div>
         )}
 
@@ -53,6 +59,9 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
             alt=""
             aria-hidden="true"
             className="pointer-events-none select-none absolute bottom-0 left-0 h-[16rem] sm:h-[15rem] lg:h-[17rem] w-auto opacity-95 z-[1]"
+
+          loading="lazy"
+          decoding="async"
           />
         )}
 
@@ -88,13 +97,14 @@ export default function SchoolCard({ theme, category, title, meta, chips, ctaLab
               aria-hidden="true"
               className={`absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] ${t.bg}`}
             />
-            <a
-              href="#"
+            <button
+              type="button"
+              onClick={openEnrollment}
               className={`relative z-10 bg-white border-2 border-[color:var(--btn-fill)] font-extrabold text-xs xs:text-sm sm:text-base rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 ${t.ctaText} whitespace-nowrap [background-image:linear-gradient(to_right,var(--btn-fill),var(--btn-fill))] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out`}
               style={{ "--btn-fill": t.fill }}
             >
               {ctaLabel}
-            </a>
+            </button>
           </div>
         </div>
       </div>

@@ -74,7 +74,7 @@ function EcoCard({ title, body, featured, tilt = 0, isActive, cardRef, className
     >
       {/* Icon — راست کارت */}
       <div
-        className={`w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center flex-shrink-0 transition-colors duration-300 rounded-[0.5rem_0_0.5rem_0] sm:rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#58BDAF] group-hover:bg-[#202A5A] ${
+        className={`w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center flex-shrink-0 transition-colors duration-300 rounded-[0.5rem_0_0.5rem_0] sm:rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#59bbaf] group-hover:bg-[#202A5A] ${
           isActive ? "bg-[#202A5A]" : ""
         }`}
       >

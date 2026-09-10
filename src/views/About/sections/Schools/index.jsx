@@ -13,7 +13,10 @@ export default function AboutSchools() {
     <section className="relative bg-white w-full py-[3.5rem] sm:py-[4.5rem] lg:py-[5rem] px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* ── Background Pattern Layer ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
-        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-60" />
+        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-60"
+          loading="lazy"
+          decoding="async"
+          />
       </div>
 
       <Container className="relative z-10">

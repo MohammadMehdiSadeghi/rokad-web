@@ -18,7 +18,7 @@ const sectionPattern = "/assets/Pattern/layout-pattern.png";
 
 // ── رنگ تم‌ها ──
 const tones = {
-  teal: { bg: "#58bdaf", deep: "#347e75" },
+  teal: { bg: "#59bbaf", deep: "#347e75" },
   magenta: { bg: "#e0195b", deep: "#a80f42" },
   navy: { bg: "#202a5a", deep: "#0d1636" },
   orange: { bg: "#F8A41D", deep: "#BA7B16" },
@@ -163,7 +163,10 @@ function Gallery({ items }) {
               style={{ backgroundColor: t.bg }}
             >
               <div className="absolute inset-0 opacity-20 pointer-events-none">
-                <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+                <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none"
+          loading="lazy"
+          decoding="async"
+          />
               </div>
               <div className="absolute top-2 right-2 text-[0.625rem] font-black text-white bg-ink/85 rounded px-1.5 py-0.5">{g.num}</div>
               <GalleryIcon name={g.icon} className="w-8 h-8 sm:w-9 sm:h-9 text-white relative z-10" />
@@ -305,7 +308,10 @@ function PostHero({ postMeta }) {
   return (
     <section className="relative overflow-hidden bg-bg-mint">
       <div className="absolute inset-0 pointer-events-none opacity-60 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]">
-        <img src={sectionPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+        <img src={sectionPattern} alt="" draggable="false" className="w-full h-full object-cover select-none"
+          loading="lazy"
+          decoding="async"
+          />
       </div>
       <Container className="relative z-10 py-10 sm:py-14 lg:py-16">
         {/* خرده‌نان */}
@@ -354,7 +360,10 @@ function PostHero({ postMeta }) {
             <div className="absolute top-[10px] left-[10px] w-full h-full rounded-[0_2rem_0_2rem] bg-navy-alt" />
             <div className="relative flex flex-col items-center justify-center aspect-[16/10] rounded-[0_2rem_0_2rem] border-[3px] border-ink bg-gradient-to-br from-teal/85 via-teal to-teal-text overflow-hidden">
               <div className="absolute inset-0 opacity-30 pointer-events-none">
-                <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+                <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none"
+          loading="lazy"
+          decoding="async"
+          />
               </div>
               <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="relative z-10 opacity-90">
                 <rect x="3" y="5" width="18" height="14" rx="2" /><circle cx="8.5" cy="10.5" r="1.5" /><path d="m21 15-5-5L5 21" />
@@ -475,7 +484,7 @@ function Comments({ comments }) {
           <p className="text-[0.8125rem] font-bold text-ink/50">{comments.count}</p>
         </div>
 
-        <form className="mb-10 rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white p-5 sm:p-7" onSubmit={(e) => e.preventDefault()}>
+        <form id="comment-form" className="mb-10 rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white p-5 sm:p-7" onSubmit={(e) => e.preventDefault()}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <input type="text" placeholder="نام تو" required className="w-full rounded-[0.75rem] border-2 border-ink/15 bg-bg-mint px-4 py-3 text-[0.875rem] font-semibold text-ink outline-none focus:border-teal transition-colors placeholder:text-ink/40" />
             <input type="email" placeholder="ایمیل (نمایش داده نمی‌شه)" required className="w-full rounded-[0.75rem] border-2 border-ink/15 bg-bg-mint px-4 py-3 text-[0.875rem] font-semibold text-ink outline-none focus:border-teal transition-colors placeholder:text-ink/40" />
@@ -499,7 +508,7 @@ function Comments({ comments }) {
                   <span className="text-[0.75rem] font-semibold text-ink/40">{c.date}</span>
                 </div>
                 <p className="text-[0.875rem] text-ink/80 leading-[1.95]">{c.text}</p>
-                <a href="#" className="inline-flex items-center gap-1.5 mt-2.5 text-[0.8125rem] font-extrabold text-teal-text hover:text-teal transition-colors">
+                <a href="#comment-form" className="inline-flex items-center gap-1.5 mt-2.5 text-[0.8125rem] font-extrabold text-teal-text hover:text-teal transition-colors">
                   پاسخ
                   <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 17l-5-5 5-5M4 12h16" /></svg>
                 </a>
@@ -517,7 +526,10 @@ function Newsletter() {
   return (
     <section id="newsletter" className="relative overflow-hidden bg-navy-alt py-12 sm:py-16">
       <div className="absolute inset-0 opacity-25 pointer-events-none">
-        <img src={sectionPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+        <img src={sectionPattern} alt="" draggable="false" className="w-full h-full object-cover select-none"
+          loading="lazy"
+          decoding="async"
+          />
       </div>
       <Container className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div>
@@ -659,7 +671,10 @@ export default function EventsSingle({ slug }) {
                   <div className="relative rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white overflow-hidden transition-transform group-hover:-translate-y-1">
                     <div className="relative flex flex-col items-center justify-center aspect-[16/9] border-b-2 border-ink overflow-hidden" style={{ backgroundColor: t.bg }}>
                       <div className="absolute inset-0 opacity-30 pointer-events-none">
-                        <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+                        <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none"
+          loading="lazy"
+          decoding="async"
+          />
                       </div>
                       <span className="absolute top-2.5 right-2.5 text-[0.6875rem] font-black text-white bg-ink/85 rounded px-2 py-1">{p.cat}</span>
                       <GalleryIcon name={p.icon} className="w-10 h-10 text-white relative z-10" />

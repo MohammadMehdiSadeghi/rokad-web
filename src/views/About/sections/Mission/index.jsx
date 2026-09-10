@@ -21,8 +21,8 @@ const missions = [
 ];
 
 const THEME_MAP = {
-  magenta: { bg: "bg-magenta", shadowBg: "bg-[#21295A]" },
-  teal: { bg: "bg-teal", shadowBg: "bg-[#21295A]" },
+  magenta: { bg: "bg-magenta", shadowBg: "bg-[#202a5a]" },
+  teal: { bg: "bg-teal", shadowBg: "bg-[#202a5a]" },
 };
 
 const squircle = "rounded-tr-[1.75rem] rounded-bl-[1.75rem] rounded-tl-none rounded-br-none [corner-shape:squircle]";

@@ -16,11 +16,11 @@ const toFa = (n) => String(n).replace(/\d/g, (d) => FA[d]);
 
 /* ---------- پالت رکاد ---------- */
 const TONES = {
-  teal:    { solid: "#58bdaf", dark: "#2e7068", tint: "#f2faf9", darker: "#1f413d", light: "#7ed3c6" },
-  navy:    { solid: "#21295a", dark: "#0f1430", tint: "#f4f5fb", darker: "#0f1430", light: "#3b4b8f" },
+  teal:    { solid: "#59bbaf", dark: "#2e7068", tint: "#f2faf9", darker: "#1f413d", light: "#7ed3c6" },
+  navy:    { solid: "#202a5a", dark: "#0f1430", tint: "#f4f5fb", darker: "#0f1430", light: "#3b4b8f" },
   magenta: { solid: "#e0195b", dark: "#a81344", tint: "#fefafb", darker: "#a81344", light: "#e699b5" },
-  orange:  { solid: "#f4971f", dark: "#a8641a", tint: "#fef6e8", darker: "#a8641a", light: "#ffd641" },
-  purple:  { solid: "#4f215a", dark: "#2b1236", tint: "#f3eef7", darker: "#2b1236", light: "#8654b3" },
+  orange:  { solid: "#f8a41d", dark: "#a8641a", tint: "#fef6e8", darker: "#a8641a", light: "#ffd641" },
+  purple:  { solid: "#4c226c", dark: "#2b1236", tint: "#f3eef7", darker: "#2b1236", light: "#8654b3" },
 };
 
 /* پرسونای هر پست → تن رنگی */

@@ -27,7 +27,7 @@ const socialLinks = [
     Icon: GlobeIcon,
     bg: "bg-[#eef8f7]",
     border: "border-[#70b8e8]",
-    fg: "text-[#58bdaf]",
+    fg: "text-[#59bbaf]",
   },
   {
     label: "توییتر",
@@ -82,7 +82,7 @@ const MEMBERS = [
     role: "مدیرعامل",
     tag: "مدیرعامل",
     image: "/assets/about/Team/azizpoor.png",
-    color: "#58BDAF",
+    color: "#59bbaf",
     bgLight: "bg-[#EEF8F7]",
     pattern: patternGreen,
     imgClass: "translate-y-3 sm:translate-y-3.5 lg:translate-y-4 scale-[1.12]",
@@ -136,7 +136,10 @@ function MiniCard({ member }) {
               alt=""
               draggable="false"
               className={`absolute inset-0 w-full h-full object-cover ${member.patternOpacity || "opacity-40"} select-none`}
-            />
+
+          loading="lazy"
+          decoding="async"
+          />
             <span className="absolute top-2 right-2 z-20 text-[0.5625rem] sm:text-[0.625rem] font-bold text-white bg-black/35 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/20">
               {member.tag}
             </span>
@@ -201,7 +204,10 @@ export default function TeamTeaser() {
           alt=""
           draggable="false"
           className="w-full h-full object-cover select-none"
-        />
+
+          loading="lazy"
+          decoding="async"
+          />
       </div>
 
       <Container className="relative z-10">
@@ -220,9 +226,9 @@ export default function TeamTeaser() {
           >
             <span
               aria-hidden="true"
-              className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#21295A]"
+              className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#202a5a]"
             />
-            <span className="relative z-10 inline-flex items-center gap-2 bg-white border-[0.125rem] border-[#21295A] text-[#21295A] font-extrabold text-xs xs:text-sm sm:text-base px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
+            <span className="relative z-10 inline-flex items-center gap-2 bg-white border-[0.125rem] border-[#202a5a] text-[#202a5a] font-extrabold text-xs xs:text-sm sm:text-base px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer [background-image:linear-gradient(to_right,#202a5a,#202a5a)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
               <span>مشاهده همه</span>
               <ChevronLeftIcon className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
             </span>
@@ -247,13 +253,16 @@ export default function TeamTeaser() {
             {/* کارت اصلی */}
             <article className="relative bg-white border-2 border-navy rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] overflow-hidden flex flex-col justify-between h-full">
               {/* عکس بزرگ */}
-              <div className="relative bg-[#58bdaf] h-[19.5rem] sm:h-[22rem] lg:h-[24.5rem] overflow-hidden flex items-end justify-center">
+              <div className="relative bg-[#59bbaf] h-[19.5rem] sm:h-[22rem] lg:h-[24.5rem] overflow-hidden flex items-end justify-center">
                 <img
                   src={patternGreen}
                   alt=""
                   draggable="false"
                   className="absolute inset-0 w-full h-full object-cover opacity-40 select-none"
-                />
+
+          loading="lazy"
+          decoding="async"
+          />
                 <img
                   src={FEATURED.image}
                   alt={FEATURED.name}
@@ -266,7 +275,7 @@ export default function TeamTeaser() {
               {/* اطلاعات */}
               <div className="p-4 sm:p-5 bg-white flex flex-col justify-between flex-1">
                 <div>
-                  <span className="inline-flex items-center gap-1.5 bg-[#58bdaf] text-white px-3 py-0.5 rounded-full text-[0.6875rem] font-black mb-1.5 border border-navy/20 shadow-[1.5px_1.5px_0_0_#202A5A]">
+                  <span className="inline-flex items-center gap-1.5 bg-[#59bbaf] text-white px-3 py-0.5 rounded-full text-[0.6875rem] font-black mb-1.5 border border-navy/20 shadow-[1.5px_1.5px_0_0_#202A5A]">
                     <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     {FEATURED.role}
                   </span>

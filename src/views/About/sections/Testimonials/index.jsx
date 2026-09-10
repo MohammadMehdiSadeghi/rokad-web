@@ -26,10 +26,10 @@ const getInitials = (name) => {
 
 const THEME_MAP = {
   navy: {
-    borderColor: "border-[#21295A]",
-    solidColor: "bg-[#21295A]",
-    nameColor: "text-[#21295A]",
-    quoteColor: "text-[#21295A]",
+    borderColor: "border-[#202a5a]",
+    solidColor: "bg-[#202a5a]",
+    nameColor: "text-[#202a5a]",
+    quoteColor: "text-[#202a5a]",
   },
   pink: {
     borderColor: "border-[#E0195B]",
@@ -38,10 +38,10 @@ const THEME_MAP = {
     quoteColor: "text-[#E0195B]",
   },
   teal: {
-    borderColor: "border-[#58BDAF]",
-    solidColor: "bg-[#58BDAF]",
-    nameColor: "text-[#58BDAF]",
-    quoteColor: "text-[#58BDAF]",
+    borderColor: "border-[#59bbaf]",
+    solidColor: "bg-[#59bbaf]",
+    nameColor: "text-[#59bbaf]",
+    quoteColor: "text-[#59bbaf]",
   },
 };
 
@@ -143,7 +143,10 @@ export default function AboutTestimonials() {
           aria-hidden="true"
           draggable="false"
           className="w-full h-full object-cover opacity-70 select-none"
-        />
+
+          loading="lazy"
+          decoding="async"
+          />
       </div>
 
       <Container className="relative z-10">

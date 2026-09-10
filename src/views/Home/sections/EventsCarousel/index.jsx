@@ -16,11 +16,11 @@ const patternBg = "/assets/home/Events/Event-Pattern.png";
 const THEME_MAP = {
   boys: {
     cardBg: "bg-[#F4F5FB]",
-    accentText: "text-[#21295A]",
-    metaColor: "text-[#21295A]/50",
-    btnBg: "bg-[#21295A] hover:bg-[#15244a]",
-    solidColor: "bg-[#21295A]",
-    borderColor: "border-[#21295A]",
+    accentText: "text-[#202a5a]",
+    metaColor: "text-[#202a5a]/50",
+    btnBg: "bg-[#202a5a] hover:bg-[#15244a]",
+    solidColor: "bg-[#202a5a]",
+    borderColor: "border-[#202a5a]",
     indexColor: "text-[#D7DBF1]",
     titleColor: "text-[#202A5A]",
     bodyColor: "text-[#202A5A]/70",
@@ -86,7 +86,10 @@ export default function EventsCarousel() {
         >
           <img
             src={patternBg}
+            alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
             draggable="false"
             className="w-full h-full object-cover opacity-60 rotate-180 select-none"
           />
@@ -131,7 +134,7 @@ export default function EventsCarousel() {
               const titleWords = event.title.split(" ");
 
               return (
-                <SwiperSlide key={i} className="!h-auto">
+                <SwiperSlide key={event.title || i} className="!h-auto">
                   <div className="relative" style={{ transform: `rotate(${rotation}deg)` }}>
                     
                     {/* لایه زیرین اصلی کارت */}
@@ -213,6 +216,8 @@ export default function EventsCarousel() {
                         <img
                           src={event.image}
                           alt={event.title}
+                          loading="lazy"
+                          decoding="async"
                           className="absolute inset-0 w-full h-full object-cover object-top"
                         />
                       </div>
@@ -241,12 +246,12 @@ export default function EventsCarousel() {
           <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 items-center gap-3 sm:gap-4">
             {/* دکمه قبلی */}
             <div className="relative">
-              <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle]"></div>
+              <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#202a5a] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle]"></div>
               <button
                 type="button"
                 ref={prevRef}
                 aria-label="رویداد قبلی"
-                className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#F4F5FB] border-[0.125rem] border-[#21295A] text-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#F4F5FB] border-[0.125rem] border-[#202a5a] text-[#202a5a] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
                 <ChevronRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
@@ -254,12 +259,12 @@ export default function EventsCarousel() {
 
             {/* دکمه بعدی */}
             <div className="relative">
-              <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle]"></div>
+              <div className="absolute top-[0.125rem] left-[0.1875rem] w-full h-full bg-[#202a5a] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle]"></div>
               <button
                 type="button"
                 ref={nextRef}
                 aria-label="رویداد بعدی"
-                className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#F4F5FB] border-[0.125rem] border-[#21295A] text-[#21295A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#F4F5FB] border-[0.125rem] border-[#202a5a] text-[#202a5a] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
               >
                 <ChevronLeftIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>

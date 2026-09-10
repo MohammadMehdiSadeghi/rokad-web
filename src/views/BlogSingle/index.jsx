@@ -5,11 +5,11 @@ import { post, blocks, related } from "./data.js";
 
 // ── رنگ‌های تم تیل (هم‌خانواده) ──
 const C = {
-  accent: "#58bdaf",
+  accent: "#59bbaf",
   dark: "#2e7068",
   tint: "#f2faf9",
   ink: "#292827",
-  navy: "#21295a",
+  navy: "#202a5a",
   navyDark: "#0f1430",
   magenta: "#e0195b",
   magentaDark: "#a81344",
@@ -112,7 +112,7 @@ export default function BlogSingle() {
             {/* کاور */}
             <div
               className="relative mb-10 grid h-64 sm:h-80 place-items-center overflow-hidden rounded-[0_2rem_0_2rem] border-2"
-              style={{ borderColor: C.ink, boxShadow: `6px 6px 0 0 ${C.ink}`, background: "linear-gradient(135deg, #7ed3c6 0%, #58bdaf 45%, #21295a 100%)" }}
+              style={{ borderColor: C.ink, boxShadow: `6px 6px 0 0 ${C.ink}`, background: "linear-gradient(135deg, #7ed3c6 0%, #59bbaf 45%, #202a5a 100%)" }}
             >
               <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full border-2 bg-white px-4 py-1.5 text-[0.75rem] font-extrabold text-ink whitespace-nowrap" style={{ borderColor: C.dark, boxShadow: `2px 2px 0 0 ${C.dark}` }}>
                 {post.coverCaption}
@@ -145,7 +145,7 @@ export default function BlogSingle() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 {related.map((r, i) => (
                   <a key={i} href="/blog" className="group block overflow-hidden rounded-[0_1.5rem_0_1.5rem] border-2 bg-white transition-all duration-300 hover:-translate-y-1.5" style={{ borderColor: C.ink, boxShadow: `4px 4px 0 0 ${C.ink}` }}>
-                    <div className="h-24" style={{ background: r.tone === "teal" ? "linear-gradient(135deg,#7ed3c6,#2e7068)" : r.tone === "magenta" ? "linear-gradient(135deg,#e699b5,#a81344)" : "linear-gradient(135deg,#3b4b8f,#21295a)" }} />
+                    <div className="h-24" style={{ background: r.tone === "teal" ? "linear-gradient(135deg,#7ed3c6,#2e7068)" : r.tone === "magenta" ? "linear-gradient(135deg,#e699b5,#a81344)" : "linear-gradient(135deg,#3b4b8f,#202a5a)" }} />
                     <div className="p-4">
                       <span className="mb-2 inline-block rounded-full border-2 px-3 py-0.5 text-[0.6875rem] font-black text-ink" style={{ borderColor: C.ink }}>{r.tag}</span>
                       <div className="text-[0.9375rem] font-black leading-[1.8] text-ink group-hover:text-teal transition-colors">{r.title}</div>

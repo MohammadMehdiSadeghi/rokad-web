@@ -342,7 +342,7 @@ export default function Blogs() {
                   h-full
                   rounded-[0_0.75rem_0_0.75rem]
                   [corner-shape:squircle]
-                  bg-[#21295A]
+                  bg-[#202a5a]
                 "
               />
               <Link
@@ -352,8 +352,8 @@ export default function Blogs() {
                   z-10
                   bg-white
                   border-[0.125rem]
-                  border-[#21295A]
-                  text-[#21295A]
+                  border-[#202a5a]
+                  text-[#202a5a]
                   font-extrabold
                   text-xs
                   xs:text-sm
@@ -367,7 +367,7 @@ export default function Blogs() {
                   [corner-shape:squircle]
                   whitespace-nowrap
                   cursor-pointer
-                  [background-image:linear-gradient(to_right,#21295A,#21295A)]
+                  [background-image:linear-gradient(to_right,#202a5a,#202a5a)]
                   bg-no-repeat
                   [background-size:0%_100%]
                   hover:[background-size:100%_100%]

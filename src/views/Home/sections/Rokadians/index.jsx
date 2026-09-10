@@ -81,14 +81,17 @@ function StackCard({ layer, rotation }) {
       }}
     >
       <div
-        className={`relative w-full ${HEADER_SIZE} bg-gradient-to-l from-[#59bbaf] to-[#58bdaf] overflow-hidden`}
+        className={`relative w-full ${HEADER_SIZE} bg-gradient-to-l from-[#59bbaf] to-[#59bbaf] overflow-hidden`}
       >
         <img
           src="/assets/home/Rokadians/Frame 1000006407.png"
           alt=""
           draggable="false"
           className="absolute inset-0 w-full h-full object-cover"
-        />
+
+          loading="lazy"
+          decoding="async"
+          />
       </div>
 
       <div className="absolute left-2 right-2 bottom-10 border-t border-dashed border-[#292827]/20" />
@@ -147,7 +150,7 @@ function StudentCard({ student, index, stacked }) {
       <div className="relative z-[10] w-full h-full bg-white rounded-[0_1.25rem_0_1.25rem] lg:rounded-[0_0.875rem_0_0.875rem] overflow-hidden border-[0.125rem] border-[#292827] flex flex-col">
         {/* Header */}
         <div
-          className={`relative w-full ${HEADER_SIZE} shrink-0 overflow-hidden bg-gradient-to-l from-[#59bbaf] to-[#58bdaf]`}
+          className={`relative w-full ${HEADER_SIZE} shrink-0 overflow-hidden bg-gradient-to-l from-[#59bbaf] to-[#59bbaf]`}
         >
           <img
             src="/assets/home/Rokadians/Frame 1000006407.png"
@@ -155,6 +158,9 @@ function StudentCard({ student, index, stacked }) {
             aria-hidden="true"
             draggable="false"
             className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+
+          loading="lazy"
+          decoding="async"
           />
 
           {/* subtle overlay */}
@@ -175,6 +181,9 @@ function StudentCard({ student, index, stacked }) {
             src={student.avatar || "/assets/home/Rokadians/Ellipse 83.png"}
             alt={student.name}
             className={`relative z-[10] ${AVATAR_SIZE} rounded-full object-cover border-[0.12rem] border-[#292827] bg-white`}
+
+          loading="lazy"
+          decoding="async"
           />
         </div>
 
@@ -219,13 +228,13 @@ function StudentCard({ student, index, stacked }) {
             <div className="flex items-center gap-1">
               {(Array.isArray(student.socials) && student.socials.length
                 ? student.socials
-                : [{ type: "", link: "#" }]
+                : []
               )
                 .slice(0, 3)
                 .map((social, si) => (
                   <a
                     key={si}
-                    href={social.link || "#"}
+                    href={social.link}
                     target="_blank"
                     rel="noreferrer"
                     aria-label={social.type || "شبکه اجتماعی"}
@@ -277,7 +286,10 @@ export default function Rokadians() {
           alt=""
           draggable="false"
           className="w-full h-full object-cover select-none"
-        />
+
+          loading="lazy"
+          decoding="async"
+          />
       </div>
 
       {/* Hide scrollbar */}
@@ -302,7 +314,7 @@ export default function Rokadians() {
           <div className="text-center max-w-[50rem] mx-auto mb-4 sm:mb-8 lg:mb-[4rem]">
             <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827]">
               <span>ببین </span>
-              <span className="text-[#21295A]">رکادی‌ها</span>{" "}
+              <span className="text-[#202a5a]">رکادی‌ها</span>{" "}
               <span>الان </span>
               <span className="text-[#4bb5a8]">کجان؟</span>
             </h2>
@@ -330,21 +342,21 @@ export default function Rokadians() {
 
               <div className="lg:hidden flex items-center justify-center gap-2.5 xs:gap-3.5 w-full max-w-[24.5rem] xs:max-w-[27rem] mx-auto mb-5 px-2">
                 {/* کارت آمار */}
-                <div className="flex-1 flex items-center justify-center gap-2 xs:gap-2.5 bg-white border-2 border-[#21295a] rounded-xl shadow-[2.5px_2.5px_0_#21295a] px-3 py-1.5 xs:px-4 xs:py-2 min-h-[2.85rem] xs:min-h-[3.15rem]">
+                <div className="flex-1 flex items-center justify-center gap-2 xs:gap-2.5 bg-white border-2 border-[#202a5a] rounded-xl shadow-[2.5px_2.5px_0_#202a5a] px-3 py-1.5 xs:px-4 xs:py-2 min-h-[2.85rem] xs:min-h-[3.15rem]">
                   <span
-                    className="text-[1.375rem] xs:text-[1.5rem] leading-none text-[#21295a] tracking-tight"
+                    className="text-[1.375rem] xs:text-[1.5rem] leading-none text-[#202a5a] tracking-tight"
                     style={{ fontWeight: 950 }}
                   >
                     ۳۰۰<span className="text-[#4bb5a8]">+</span>
                   </span>
                   <div className="flex flex-col text-right leading-tight">
                     <span
-                      className="text-[0.75rem] xs:text-[0.8125rem] text-[#21295a]"
+                      className="text-[0.75rem] xs:text-[0.8125rem] text-[#202a5a]"
                       style={{ fontWeight: 950 }}
                     >
                       دانش‌آموز
                     </span>
-                    <span className="text-[0.625rem] xs:text-[0.6875rem] font-bold text-[#21295a]/60 whitespace-nowrap">
+                    <span className="text-[0.625rem] xs:text-[0.6875rem] font-bold text-[#202a5a]/60 whitespace-nowrap">
                       در مسیر ساخت آینده
                     </span>
                   </div>
@@ -357,9 +369,9 @@ export default function Rokadians() {
                 >
                   <span
                     aria-hidden="true"
-                    className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#21295A]"
+                    className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#202a5a]"
                   />
-                  <span className="relative z-10 inline-flex items-center justify-center gap-1.5 bg-white border-[0.125rem] border-[#21295A] text-[#21295A] font-extrabold text-xs xs:text-sm px-3.5 xs:px-4 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer min-h-[2.85rem] xs:min-h-[3.15rem] [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
+                  <span className="relative z-10 inline-flex items-center justify-center gap-1.5 bg-white border-[0.125rem] border-[#202a5a] text-[#202a5a] font-extrabold text-xs xs:text-sm px-3.5 xs:px-4 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer min-h-[2.85rem] xs:min-h-[3.15rem] [background-image:linear-gradient(to_right,#202a5a,#202a5a)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
                     <span>مشاهده همه</span>
                     <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1 text-[#4bb5a8] group-hover:text-white font-bold text-xs">
                       ←
@@ -415,26 +427,26 @@ export default function Rokadians() {
 
             <div className="hidden lg:flex w-full lg:w-[17rem] xl:w-[19rem] 2xl:w-[21rem] flex-shrink-0 flex-col justify-center text-center lg:text-right order-2 lg:pt-8">
               <div className="rotate-[2deg] items-center justify-center flex flex-col mx-auto lg:mx-0">
-                <p className="font-black text-[4rem] 2xl:text-[4.5rem] leading-[1] text-[#21295a]">
+                <p className="font-black text-[4rem] 2xl:text-[4.5rem] leading-[1] text-[#202a5a]">
                   ۳۰۰+
                 </p>
 
-                <p className="font-black text-[1.5rem] 2xl:text-[1.6875rem] text-[#21295a] mt-2.5">
+                <p className="font-black text-[1.5rem] 2xl:text-[1.6875rem] text-[#202a5a] mt-2.5">
                   دانش‌آموز
                 </p>
 
-                <p className="font-bold text-[0.875rem] 2xl:text-[0.9375rem] text-[#21295a]/80 mt-2">
+                <p className="font-bold text-[0.875rem] 2xl:text-[0.9375rem] text-[#202a5a]/80 mt-2">
                   در مسیر ساخت آینده
                 </p>
 
                 <div className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0 mt-6">
                   <span
                     aria-hidden="true"
-                    className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#21295A]"
+                    className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#202a5a]"
                   />
                   <Link
                     href="/alumni"
-                    className="relative z-10 bg-white border-[0.125rem] border-[#21295A] text-[#21295A] font-extrabold text-xs xs:text-sm sm:text-base 2xl:text-lg px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
+                    className="relative z-10 bg-white border-[0.125rem] border-[#202a5a] text-[#202a5a] font-extrabold text-xs xs:text-sm sm:text-base 2xl:text-lg px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer [background-image:linear-gradient(to_right,#202a5a,#202a5a)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
                   >
                     مشاهده همه
                   </Link>

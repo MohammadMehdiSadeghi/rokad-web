@@ -27,7 +27,10 @@ function BackgroundPattern() {
       aria-hidden="true"
       draggable="false"
       className="w-full h-full object-cover opacity-30 select-none"
-    />
+
+          loading="lazy"
+          decoding="async"
+          />
   );
 }
 

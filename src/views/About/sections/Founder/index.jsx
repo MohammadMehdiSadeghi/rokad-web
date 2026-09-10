@@ -1,4 +1,5 @@
 import Container from "../../../../layout/Container";
+import InertLink from "../../../../common/InertLink";
 
 const patternBg = "/assets/about/StatsSection/TrustSection-Pattern.png";
 const founderPhoto = "/assets/about/Founder/founder.png";
@@ -24,7 +25,7 @@ const socialLinks = [
 function ShieldCheckIcon({ className }) {
   return (
     <svg viewBox="0 0 21 21" fill="none" className={className}>
-      <path d="M10.5 2.625l2.7 5.475 6.037.879-4.368 4.256 1.03 6.012L10.5 16.2l-5.399 2.837 1.03-6.012L1.763 8.98l6.037-.879L10.5 2.625z" fill="#21295A" />
+      <path d="M10.5 2.625l2.7 5.475 6.037.879-4.368 4.256 1.03 6.012L10.5 16.2l-5.399 2.837 1.03-6.012L1.763 8.98l6.037-.879L10.5 2.625z" fill="#202a5a" />
       <path d="M7.875 10.5l1.75 1.75 3.5-3.5" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -43,14 +44,20 @@ export default function AboutFounder() {
           <div className="relative z-10 bg-[#E9EAEF] border-[0.125rem] border-[#202A5A] rounded-tl-[2.1875rem] rounded-br-[2.1875rem] rounded-tr-none rounded-bl-none [corner-shape:squircle] overflow-hidden">
             {/* Pattern overlay */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-100" />
+              <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-100"
+          loading="lazy"
+          decoding="async"
+          />
             </div>
 
             {/* Content: flex row (RTL) */}
             <div className="relative z-10 flex flex-col lg:flex-row">
               {/* Right: photo */}
               <div className="relative w-full lg:w-[38%] min-h-[250px] sm:min-h-[300px] lg:min-h-[400px]">
-                <img src={founderPhoto} alt="مدیرعامل رکاد" className="absolute inset-0 w-full h-full object-cover object-top" />
+                <img src={founderPhoto} alt="مدیرعامل رکاد" className="absolute inset-0 w-full h-full object-cover object-top"
+          loading="lazy"
+          decoding="async"
+          />
               </div>
 
               {/* Left: credentials + social */}
@@ -77,14 +84,14 @@ export default function AboutFounder() {
                 {/* Social links */}
                 <div className="flex justify-center gap-3 mt-6 sm:mt-8">
                   {socialLinks.map((link, i) => (
-                    <a
+                    <InertLink
                       key={i}
                       href={link.href}
                       aria-label={link.label}
                       className="w-10 h-10 sm:w-11 sm:h-11 bg-[#202A5A] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                     >
                       <span className="text-white text-[0.7rem] font-bold">&nbsp;</span>
-                    </a>
+                    </InertLink>
                   ))}
                 </div>
               </div>

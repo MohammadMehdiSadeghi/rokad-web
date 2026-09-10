@@ -116,9 +116,9 @@ export default function AlumniPage() {
     };
   }, []);
 
-  // مشخصات بصری بر اساس شعبه (رنگ‌های استاندارد و بدون گرادیان: دختر = صورتی #E0195B، پسر = سبز #58BDAF)
+  // مشخصات بصری بر اساس شعبه (رنگ‌های استاندارد و بدون گرادیان: دختر = صورتی #E0195B، پسر = سبز #59bbaf)
   const isFemale = selectedBranch === "female";
-  const branchColor = isFemale ? "#E0195B" : "#58BDAF";
+  const branchColor = isFemale ? "#E0195B" : "#59bbaf";
   const branchBgLight = isFemale ? "#FEFAFB" : "#EEF8F7";
   const branchPattern = isFemale ? patternPink : patternGreen;
 
@@ -138,12 +138,15 @@ export default function AlumniPage() {
             alt=""
             draggable="false"
             className="w-full h-full object-cover select-none"
+
+          loading="lazy"
+          decoding="async"
           />
         </div>
 
         <Container className="relative z-10 text-center">
           {/* Eyebrow badge */}
-          <div className="inline-flex items-center gap-2 bg-[#E4F4F2] border-2 border-teal rounded-full px-4 sm:px-5 py-1.5 mb-4 shadow-[2px_2px_0_0_#58BDAF]">
+          <div className="inline-flex items-center gap-2 bg-[#E4F4F2] border-2 border-teal rounded-full px-4 sm:px-5 py-1.5 mb-4 shadow-[2px_2px_0_0_#59bbaf]">
             <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
             <span className="text-[0.8125rem] sm:text-[0.875rem] font-bold text-teal-text">
               جامعه متخصصان و فارغ‌التحصیلان رکاداسکول
@@ -153,7 +156,7 @@ export default function AlumniPage() {
           {/* Main Title */}
           <h1 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] leading-[1.3] text-navy mb-4 flex flex-wrap justify-center items-center gap-x-2.5">
             <span>ببین </span>
-            <span className="text-[#21295A]">رکادی‌ها</span>
+            <span className="text-[#202a5a]">رکادی‌ها</span>
             <span>الان </span>
             <span className="text-teal-wordmark">کجان؟</span>
           </h1>
@@ -231,8 +234,8 @@ export default function AlumniPage() {
                 }}
                 className={`relative text-right p-6 sm:p-7 rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] border-2 cursor-pointer overflow-hidden transition-colors ${
                   selectedBranch === "male"
-                    ? "bg-[#EEF8F7] border-[#58BDAF] shadow-[5px_5px_0_0_#58BDAF]"
-                    : "bg-white border-[#58BDAF] shadow-[5px_5px_0_0_#58BDAF]"
+                    ? "bg-[#EEF8F7] border-[#59bbaf] shadow-[5px_5px_0_0_#59bbaf]"
+                    : "bg-white border-[#59bbaf] shadow-[5px_5px_0_0_#59bbaf]"
                 }`}
               >
                 <div className="flex items-start justify-between mb-4">
@@ -240,8 +243,8 @@ export default function AlumniPage() {
                     <div
                       className={`w-12 h-12 sm:w-14 sm:h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
                         selectedBranch === "male"
-                          ? "bg-[#58BDAF] text-white"
-                          : "bg-[#EEF8F7] text-[#58BDAF]"
+                          ? "bg-[#59bbaf] text-white"
+                          : "bg-[#EEF8F7] text-[#59bbaf]"
                       }`}
                     >
                       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -250,7 +253,7 @@ export default function AlumniPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-black text-[1.25rem] text-[#58BDAF]">
+                      <h3 className="font-black text-[1.25rem] text-[#59bbaf]">
                         هنرستان پسرانه رکاد
                       </h3>
                       <span className="text-[0.8125rem] font-bold text-navy/50">
@@ -262,8 +265,8 @@ export default function AlumniPage() {
                   <span
                     className={`text-[0.75rem] font-black px-3 py-1 rounded-full border transition-all ${
                       selectedBranch === "male"
-                        ? "bg-[#58BDAF] text-white border-[#58BDAF]"
-                        : "bg-[#EEF8F7] text-[#58BDAF] border-[#58BDAF]/30"
+                        ? "bg-[#59bbaf] text-white border-[#59bbaf]"
+                        : "bg-[#EEF8F7] text-[#59bbaf] border-[#59bbaf]/30"
                     }`}
                   >
                     {selectedBranch === "male" ? "✓ در حال نمایش" : "انتخاب شعبه"}
@@ -415,7 +418,7 @@ export default function AlumniPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
                   {filteredAlumni.map((member, idx) => {
                     const tagBg = isFemale ? "bg-[#FCE8EF]" : "bg-[#E9EAEF]";
-                    const tagColor = isFemale ? "text-[#E0195B]" : "text-[#21295A]";
+                    const tagColor = isFemale ? "text-[#E0195B]" : "text-[#202a5a]";
 
                     return (
                       <div key={member.slug} className="relative">
@@ -439,7 +442,10 @@ export default function AlumniPage() {
                               aria-hidden="true"
                               draggable="false"
                               className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-40"
-                            />
+
+          loading="lazy"
+          decoding="async"
+          />
 
                             {/* تگ نسل در گوشه */}
                             <span className="absolute top-2.5 right-3 z-20 text-[0.6875rem] font-black px-2.5 py-0.5 rounded-full bg-white text-navy border border-navy/20 shadow-[1.5px_1.5px_0_0_#202A5A]">
@@ -481,15 +487,17 @@ export default function AlumniPage() {
                           {/* فوتر کارت */}
                           <div className="border-t border-dashed border-navy/15 pt-3 pb-3 px-4 flex items-center justify-between text-[0.75rem] text-navy/60 bg-[#FAFAFA]">
                             <div className="flex items-center gap-1.5">
-                              <a
-                                href={member.linkedIn || "#"}
-                                target="_blank"
-                                rel="noreferrer"
-                                aria-label="لینکدین"
-                                className="w-6 h-6 rounded-[0.3rem] border border-navy bg-white flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors"
-                              >
-                                <LinkedInIcon className="w-3.5 h-3.5" />
-                              </a>
+                              {member.linkedIn ? (
+                                <a
+                                  href={member.linkedIn}
+                                  target="_blank"
+                                  rel="noreferrer noopener"
+                                  aria-label="لینکدین"
+                                  className="w-6 h-6 rounded-[0.3rem] border border-navy bg-white flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors"
+                                >
+                                  <LinkedInIcon className="w-3.5 h-3.5" />
+                                </a>
+                              ) : null}
                               <span className="text-[0.6875rem] font-bold text-navy/50">
                                 {member.city} · {member.year}
                               </span>

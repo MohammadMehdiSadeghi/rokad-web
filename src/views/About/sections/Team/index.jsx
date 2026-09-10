@@ -112,13 +112,19 @@ function TeamCard({ member, index }) {
                       src={member.pattern}
                       alt=""
                       className="absolute inset-0 w-full h-full object-cover opacity-70 select-none"
-                    />
+
+          loading="lazy"
+          decoding="async"
+          />
           {member.img ? (
             <img
               src={member.img}
               alt={member.name}
               className="relative z-10 w-full h-full object-cover object-top"
-            />
+
+          loading="lazy"
+          decoding="async"
+          />
           ) : (
             <div className="relative z-10 w-full h-full flex items-center justify-center">
               <span className="text-white font-black text-[4rem] leading-none select-none">

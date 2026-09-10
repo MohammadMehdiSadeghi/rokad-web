@@ -1,4 +1,6 @@
+"use client";
 import Container from "../../../../layout/Container";
+import { useEnrollment } from "../../../../lib/EnrollmentContext";
 
 const patternBg = "/assets/about/Hero/Hero-Pattern.png";
 const characterImg = "/assets/about/Hero/hero-character.png";
@@ -19,6 +21,7 @@ const badges = [
 ];
 
 export default function AboutHero() {
+  const { openEnrollment } = useEnrollment();
   return (
     <section className="relative max-h-[100svh] lg:h-[100svh] w-full px-4 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-12 bg-[#F6F6F6] overflow-hidden flex flex-col justify-center">
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
@@ -55,16 +58,17 @@ export default function AboutHero() {
 
             <div className="flex flex-wrap gap-3 sm:gap-5">
               {/* پیش‌ثبت‌نام کن */}
-              <a
-                href="#"
-                className="inline-flex items-center justify-center px-5 sm:px-8 py-2.5 sm:py-3.5 bg-teal/10 border-[0.1875rem] border-teal text-teal font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] shadow-[2px_3px_0_0_rgba(88,189,175,0.9)] transition-all duration-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_2px_0_0_rgba(88,189,175,0.9)]"
+              <button
+                type="button"
+                onClick={openEnrollment}
+                className="inline-flex items-center justify-center px-5 sm:px-8 py-2.5 sm:py-3.5 bg-teal/10 border-[0.1875rem] border-teal text-teal font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] shadow-[2px_3px_0_0_rgba(89,187,175,0.9)] transition-all duration-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_2px_0_0_rgba(89,187,175,0.9)]"
               >
                 پیش‌ثبت‌نام کن
-              </a>
+              </button>
               {/* داستانمون رو بخون */}
               <a
                 href="#story"
-                className="inline-flex items-center justify-center px-5 sm:px-8 py-2.5 sm:py-3.5 bg-[#21295A]/10 border-[0.1875rem] border-[#21295A] text-[#21295A] font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] shadow-[2px_3px_0_0_rgba(33,41,90,0.9)] transition-all duration-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_2px_0_0_rgba(33,41,90,0.9)]"
+                className="inline-flex items-center justify-center px-5 sm:px-8 py-2.5 sm:py-3.5 bg-[#202a5a]/10 border-[0.1875rem] border-[#202a5a] text-[#202a5a] font-extrabold text-[0.875rem] sm:text-[1rem] rounded-[0_0.84375rem_0_0.84375rem] [corner-shape:squircle] shadow-[2px_3px_0_0_rgba(32,42,90,0.9)] transition-all duration-300 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_2px_0_0_rgba(32,42,90,0.9)]"
               >
                 داستانمون رو بخون
               </a>

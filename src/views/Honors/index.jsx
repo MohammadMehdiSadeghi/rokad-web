@@ -27,7 +27,7 @@ const THEME_MAP = {
   first: { accent: "#F8A41D", tint: "#FEF6E8", textOn: "#57390A", pattern: goldPattern },
   second: { accent: "#525252", tint: "#F2F2F2", textOn: "#FFFFFF", pattern: silverPattern },
   third: { accent: "#A56216", tint: "#FEF3E8", textOn: "#FFFFFF", pattern: bronzePattern },
-  district: { accent: "#21295A", tint: "#F4F5FB", textOn: "#FFFFFF", pattern: navyPattern },
+  district: { accent: "#202a5a", tint: "#F4F5FB", textOn: "#FFFFFF", pattern: navyPattern },
 };
 const DEFAULT_THEME = THEME_MAP.first;
 
@@ -109,7 +109,10 @@ export default function HonorsPage() {
                       aria-hidden="true"
                       draggable="false"
                       className="absolute inset-0 w-full h-full object-cover scale-125 select-none opacity-[0.18]"
-                    />
+
+          loading="lazy"
+          decoding="async"
+          />
                   </div>
 
                   {/* ۱) مدال — راست‌ترین (اولین فرزند در RTL) */}
@@ -119,7 +122,10 @@ export default function HonorsPage() {
                       alt={honor.title}
                       draggable="false"
                       className="w-full h-full object-contain drop-shadow-md select-none"
-                    />
+
+          loading="lazy"
+          decoding="async"
+          />
                   </div>
 
                   {/* ۲) مقام */}
@@ -195,7 +201,10 @@ export default function HonorsPage() {
                                 aria-hidden="true"
                                 draggable="false"
                                 className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-40"
-                              />
+
+          loading="lazy"
+          decoding="async"
+          />
                               {w.gen && (
                                 <span className="absolute top-2.5 right-3 z-20 text-[0.6875rem] font-black px-2.5 py-0.5 rounded-full bg-white text-navy border border-navy/20 shadow-[1.5px_1.5px_0_0_rgba(32,42,90,0.35)]">
                                   {w.gen}
@@ -210,7 +219,10 @@ export default function HonorsPage() {
                                   src={w.avatar}
                                   alt={w.name}
                                   className="w-[4.5rem] h-[4.5rem] rounded-full object-cover border-2 border-navy shadow-[2.5px_2.5px_0_0_rgba(32,42,90,0.35)]"
-                                />
+
+          loading="lazy"
+          decoding="async"
+          />
                               ) : (
                                 <div
                                   className="w-[4.5rem] h-[4.5rem] rounded-full border-2 border-navy flex items-center justify-center font-black text-base shadow-[2.5px_2.5px_0_0_rgba(32,42,90,0.35)]"

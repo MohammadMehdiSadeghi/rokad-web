@@ -136,7 +136,10 @@ export default function AboutPillars() {
                       alt=""
                       aria-hidden="true"
                       className="w-full h-full object-cover opacity-60 select-none"
-                    />
+
+          loading="lazy"
+          decoding="async"
+          />
                   </div>
 
                   {/* ردیف بالا: آیکون (راست) + شماره (چپ) */}

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay } from "swiper/modules";
@@ -41,7 +42,7 @@ const THEME_MAP = {
   },
 
   district: {
-    accent: "#21295A",
+    accent: "#202a5a",
     tint: "#F4F5FB",
     pattern: navyPattern,
   },
@@ -99,7 +100,10 @@ export default function HonorsCarousel() {
           aria-hidden="true"
           draggable="false"
           className="w-full h-full object-cover select-none"
-        />
+
+          loading="lazy"
+          decoding="async"
+          />
       </div>
 
       {/* =====================================================
@@ -166,7 +170,7 @@ export default function HonorsCarousel() {
             <div className="flex-1 text-right">
               <h2 className="font-black text-right text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-tight">
                 افتخاراتی که{" "}
-                <span className="text-[#21295A]">
+                <span className="text-[#202a5a]">
                   با هم
                 </span>{" "}
                 ساختیم
@@ -184,13 +188,13 @@ export default function HonorsCarousel() {
               {/* Shadow */}
               <div
                 aria-hidden="true"
-                className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#21295A]"
+                className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#202a5a]"
               />
 
               {/* Button */}
               <a
                 href="/honors"
-                className="relative z-10 bg-white border-[0.125rem] border-[#21295A] text-[#21295A] font-extrabold text-xs xs:text-sm sm:text-base px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer flex-shrink-0 [background-image:linear-gradient(to_right,#21295A,#21295A)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
+                className="relative z-10 bg-white border-[0.125rem] border-[#202a5a] text-[#202a5a] font-extrabold text-xs xs:text-sm sm:text-base px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer flex-shrink-0 [background-image:linear-gradient(to_right,#202a5a,#202a5a)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
               >
                 همه افتخارات
               </a>
@@ -328,7 +332,7 @@ export default function HonorsCarousel() {
 
                 return (
                   <SwiperSlide
-                    key={i}
+                    key={honor.id || honor.title || i}
                     className="!h-auto overflow-visible"
                   >
                     <div
@@ -420,7 +424,10 @@ export default function HonorsCarousel() {
                                   select-none
                                   opacity-100
                                 "
-                              />
+
+          loading="lazy"
+          decoding="async"
+          />
                             </div>
 
                             {/* Card Content */}
@@ -520,8 +527,8 @@ export default function HonorsCarousel() {
                                   "
                                 />
 
-                                <a
-                                  href="#"
+                                <Link
+                                  href="/honors"
                                   className="
                                     relative
                                     z-10
@@ -549,7 +556,7 @@ export default function HonorsCarousel() {
                                   }}
                                 >
                                   {honor.ctaLabel}
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -586,7 +593,10 @@ export default function HonorsCarousel() {
                                 drop-shadow-md
                                 select-none
                               "
-                            />
+
+          loading="lazy"
+          decoding="async"
+          />
                           </div>
                         </div>
                       </div>

@@ -64,7 +64,7 @@ export default function Hero() {
       <section className="relative w-full px-4 sm:px-6 lg:hidden pt-[6.5rem] sm:pt-[7rem]">
         <div className="relative mx-auto w-full max-w-[27.5rem]">
           {/* کارت اصلی — عکس داخل کادر، نیمه پایینش با overflow-hidden کات می‌شود */}
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#58BDAF]">
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#59bbaf]">
             {/* پترن پس‌زمینه کارت با حفظ تناسب هندسی */}
             <img
               src="/assets/home/Hero/pattern.png"
@@ -75,11 +75,11 @@ export default function Hero() {
             />
             <div className="relative z-[1] px-5 pt-9 pb-[16rem] sm:pb-[17rem] flex flex-col items-center text-center">
               {/* تیتر */}
-              <h1 dir="rtl" className="text-white font-black leading-[1.2] text-[2.25rem] sm:text-[2.5rem]">
+              <p dir="rtl" className="text-white font-black leading-[1.2] text-[2.25rem] sm:text-[2.5rem] m-0">
                 آینده از اینجا
                 <br />
                 شروع میشود
-              </h1>
+              </p>
               {/* زیرعنوان */}
               <p dir="rtl" className="mt-3 text-[#202A5A] font-black text-[1rem] sm:text-[1.0625rem] leading-relaxed">
                 {SUBTITLE_TEXT}
@@ -125,7 +125,7 @@ export default function Hero() {
             <div
               className="absolute left-[120px] top-[36px] w-[1200px] h-[510px] rounded-[36px] overflow-hidden"
               style={{
-                backgroundColor: "#58BDAF",
+                backgroundColor: "#59bbaf",
                 backgroundImage: "url('/assets/home/Hero/pattern.png')",
                 backgroundSize: "100% 100%",
               }}

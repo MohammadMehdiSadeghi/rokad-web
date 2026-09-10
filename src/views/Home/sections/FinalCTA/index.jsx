@@ -14,6 +14,7 @@ export default function FinalCTA() {
 
   return (
     <section
+      id="join"
       className="relative overflow-hidden bg-teal flex items-start lg:items-center w-full pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem]"
       dir="rtl"
     >

@@ -410,11 +410,11 @@ export const timelineGenerations = [
 ];
 
 export const milestones = [
-  { year: "۱۳۹۸", title: "تأسیس هنرستان استارتاپی رکاد", desc: "با ۱۸ دانش‌آموز مستعد و دوره‌های عملی اولیه", dotColor: "#58BDAF" },
+  { year: "۱۳۹۸", title: "تأسیس هنرستان استارتاپی رکاد", desc: "با ۱۸ دانش‌آموز مستعد و دوره‌های عملی اولیه", dotColor: "#59bbaf" },
   { year: "۱۳۹۹", title: "راه‌اندازی نسل دوم و پروژه‌های تیمی", desc: "شروع همکاری‌های واقعی با استارتاپ‌ها", dotColor: "#202A5A" },
   { year: "۱۴۰۰", title: "افتتاح استودیو و فضای فیزیکی نوآوری", desc: "تجهیز کارگاه‌های نرم‌افزار، محصول و دیزاین", dotColor: "#E0195B" },
   { year: "۱۴۰۱", title: "عبور از ۱۰۰+ فارغ‌التحصیل شاغل", desc: "رسیدن به جامعه گسترده متخصصان جوان در صنعت", dotColor: "#F8A41D" },
-  { year: "۱۴۰۲", title: "برگزاری اولین دمو دی رسمی رکاد", desc: "ارائه استارتاپ‌های دانش‌آموزی به سرمایه‌گذاران", dotColor: "#58BDAF" },
+  { year: "۱۴۰۲", title: "برگزاری اولین دمو دی رسمی رکاد", desc: "ارائه استارتاپ‌های دانش‌آموزی به سرمایه‌گذاران", dotColor: "#59bbaf" },
   { year: "۱۴۰۳", title: "۳۰۰+ فارغ‌التحصیل و شبکه شغلی رکاد", desc: "حضور فعال دانش‌آموختگان در شرکت‌های تراز اول کشور", dotColor: "#E0195B" },
 ];
 
@@ -423,7 +423,7 @@ export const alumniStats = [
     num: "۳۲۰+",
     label: "فارغ‌التحصیل کل",
     desc: "جمع کل ۶ نسل از ۱۳۹۸ تا امروز",
-    color: "#58BDAF",
+    color: "#59bbaf",
     tag: "کل دانش‌آموختگان",
   },
   {
@@ -489,16 +489,16 @@ export const successStories = [
 ];
 
 export const cityDistributions = [
-  { city: "تهران", count: 180, percent: 100, color: "#58BDAF" },
+  { city: "تهران", count: 180, percent: 100, color: "#59bbaf" },
   { city: "مشهد", count: 54, percent: 45, color: "#202A5A" },
   { city: "اصفهان", count: 42, percent: 35, color: "#E0195B" },
   { city: "شیراز", count: 28, percent: 24, color: "#F8A41D" },
   { city: "تبریز", count: 19, percent: 18, color: "#652D90" },
-  { city: "کرج و یزد", count: 17, percent: 15, color: "#58BDAF" },
+  { city: "کرج و یزد", count: 17, percent: 15, color: "#59bbaf" },
 ];
 
 export const momentsGallery = [
-  { icon: "cap", title: "جشن فارغ‌التحصیلی و دمو دی", meta: "پایان دوره و ورود مستقیم به اکوسیستم", color: "#58BDAF" },
+  { icon: "cap", title: "جشن فارغ‌التحصیلی و دمو دی", meta: "پایان دوره و ورود مستقیم به اکوسیستم", color: "#59bbaf" },
   { icon: "bulb", title: "ارائه پروژه‌ها به سرمایه‌گذاران", meta: "پیچ دک و ارائه زنده در استیج رکاد", color: "#E0195B" },
   { icon: "users", title: "کارگاه‌های انتقال تجربه منتورها", meta: "همراهی مداوم با مدیران ارشد فناوری", color: "#202A5A" },
   { icon: "trophy", title: "اهدای نشان‌های تخصصی و گواهی", meta: "تقدیر از پروژه‌ها و مهارت‌های برتر", color: "#F8A41D" },
@@ -524,7 +524,7 @@ export const featuredProjects = [
     gender: "female",
     stats: "۱۲۰ کامپوننت فعال در کافه‌بازار",
     desc: "طراحی جامع الگوهای تعاملی و کامپوننت‌های دسترسی‌پذیر برای بزرگ‌ترین استور اندرویدی ایران.",
-    color: "#58BDAF",
+    color: "#59bbaf",
     tag: "محصول صنعتی",
   },
   {
@@ -542,10 +542,10 @@ export const featuredProjects = [
 
 export const hiringCompanies = [
   { name: "دیجی‌کالا", role: "مدیریت محصول و طراحی", count: "۱۸ نفر", color: "#E0195B" },
-  { name: "اسنپ", role: "توسعه وب و موبایل", count: "۱۵ نفر", color: "#58BDAF" },
+  { name: "اسنپ", role: "توسعه وب و موبایل", count: "۱۵ نفر", color: "#59bbaf" },
   { name: "کافه‌بازار", role: "طراحی UI/UX و فرانت‌اند", count: "۱۲ نفر", color: "#202A5A" },
   { name: "تپسی", role: "برنامه‌نویسی Flutter", count: "۹ نفر", color: "#F8A41D" },
-  { name: "دیجی‌نکست", role: "زیرساخت و هوش مصنوعی", count: "۸ نفر", color: "#58BDAF" },
+  { name: "دیجی‌نکست", role: "زیرساخت و هوش مصنوعی", count: "۸ نفر", color: "#59bbaf" },
   { name: "نوبیتکس", role: "امنیت و فین‌تک", count: "۷ نفر", color: "#652D90" },
 ];
 

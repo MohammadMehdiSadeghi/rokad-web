@@ -52,7 +52,9 @@ export default function Header() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setCompact(y > 35);
+      // حالت فشرده فقط بعد از اسکرول بیشتر از 50vh فعال می‌شود
+      const threshold = window.innerHeight * (COMPACT_THRESHOLD_VH / 100);
+      setCompact(y > threshold);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

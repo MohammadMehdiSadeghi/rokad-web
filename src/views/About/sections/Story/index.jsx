@@ -74,21 +74,21 @@ export default function AboutStory() {
         {/* ── تایم‌لاین ۳ ستونه: سال | خطچین | متن ── */}
                 <div className="relative max-w-[60rem] mx-auto">
                   {milestones.map((m, i) => (
-                    <div key={m.year} className="relative grid grid-cols-[auto_auto_1fr] items-start gap-8 sm:gap-10 lg:gap-12">
+                    <div key={m.year} className="relative grid grid-cols-[auto_auto_1fr] items-start gap-3 xs:gap-6 sm:gap-10 lg:gap-12">
 
                       {/* ستون ۱: عدد سال + متن — سمت راست */}
-                      <div className="flex flex-col items-start flex-shrink-0 w-20 sm:w-28 lg:w-36 text-left">
-                        <span className="text-[2.5rem] sm:text-[4rem] lg:text-[5rem] leading-none font-black whitespace-nowrap">
+                      <div className="flex flex-col items-start flex-shrink-0 w-16 xs:w-20 sm:w-28 lg:w-36 text-left">
+                        <span className="text-[1.5rem] xs:text-[2rem] sm:text-[4rem] lg:text-[5rem] leading-none font-black whitespace-nowrap">
                           <span className={m.textColor}>{m.year}</span>
                         </span>
-                        <span className={`mt-2 sm:mt-3 text-[0.75rem] sm:text-[0.875rem] font-bold text-[#9CA3AF]`}>
+                        <span className={`mt-1.5 xs:mt-2 sm:mt-3 text-[0.7rem] sm:text-[0.875rem] font-bold text-[#9CA3AF]`}>
                           {m.label}
                         </span>
                       </div>
 
                       {/* ستون ۲: دایره + خطچین پیوسته تا انتهای ردیف — وسط */}
-                      <div className="flex flex-col items-center flex-shrink-0 w-6 sm:w-8 self-stretch">
-                        <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[0.1875rem] ${m.dotColor} z-10`} />
+                      <div className="flex flex-col items-center flex-shrink-0 w-4 xs:w-6 sm:w-8 self-stretch">
+                        <div className={`w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 rounded-full bg-white border-[0.1875rem] ${m.dotColor} z-10`} />
                         <div className={`w-[0.125rem] flex-1 ${i === milestones.length - 1 ? "max-h-[13rem]" : ""}`}
                                                   style={{
                             backgroundImage: `repeating-linear-gradient(to bottom, ${m.lineColor} 0 12px, transparent 12px 20px)`,

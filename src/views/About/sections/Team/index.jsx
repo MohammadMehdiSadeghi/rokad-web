@@ -183,7 +183,7 @@ export default function AboutTeam() {
 
           <Container className="relative z-10">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.8125rem] leading-[1.2] mb-4 text-[#292827]">
+          <h2 className="font-black text-[1.75rem] xs:text-[2.25rem] sm:text-[3rem] lg:text-[3.8125rem] leading-[1.2] mb-4 text-[#292827]">
             <span>آدم‌هایی</span> <span className="text-[#202A5A]">که</span>{" "}
             <span>هرروز</span> <span className="text-[#59BBAF]">رکاد</span>{" "}
             <span>رو</span> <span className="text-[#E0195B]">می‌سازن</span>

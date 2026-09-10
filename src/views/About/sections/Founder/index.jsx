@@ -56,20 +56,20 @@ export default function AboutFounder() {
               {/* Left: credentials + social */}
               <div className="flex-1 p-5 sm:p-7 lg:p-9">
                 {/* Title */}
-                <h3 className="font-black text-[clamp(1.125rem,1.2vw+0.75rem,1.75rem)] text-[#202A5A] leading-[1.4] mb-6 sm:mb-8 whitespace-nowrap">
-                                  مدیرعامل مؤسسه آموزشی و شتاب‌دهی رکاد
-                                </h3>
+                <h3 className="font-black text-[clamp(1.125rem,1.2vw+0.75rem,1.75rem)] text-[#202A5A] leading-[1.4] mb-6 sm:mb-8 whitespace-normal sm:whitespace-nowrap">
+                  مدیرعامل مؤسسه آموزشی و شتاب‌دهی رکاد
+                </h3>
 
                 {/* Credentials grid */}
                 <div className="flex flex-wrap gap-2.5 justify-start">
-                                  {credentials.map((cred, i) => (
-                                    <div
-                                      key={i}
-                                      className="inline-flex items-center gap-2.5 rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2"
-                                      style={{ backgroundColor: "#BABDCC", borderRadius: "7.3px" }}
+                  {credentials.map((cred, i) => (
+                    <div
+                      key={i}
+                      className="inline-flex items-center gap-2.5 rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2"
+                      style={{ backgroundColor: "#BABDCC", borderRadius: "7.3px" }}
                     >
                       <ShieldCheckIcon className="w-5 h-5 sm:w-[1.3125rem] sm:h-[1.3125rem] flex-shrink-0" />
-                      <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#202A5A] font-semibold leading-[1.6] whitespace-nowrap">{cred}</span>
+                      <span className="text-[0.8rem] sm:text-[0.85rem] lg:text-[0.9rem] text-[#202A5A] font-semibold leading-[1.6] whitespace-normal">{cred}</span>
                     </div>
                   ))}
                 </div>

@@ -231,9 +231,9 @@ export default function EnrollmentModal({ open, onClose }) {
                   <div>
                     <label className={labelClass}>تاریخ تولد *</label>
                     <div className="flex gap-2">
-                      <input className={inputClass(errors.birthDate)} value={form.birthDay} onChange={set("birthDay")} placeholder="روز" inputMode="numeric" maxLength={2} />
-                      <input className={inputClass(errors.birthDate)} value={form.birthMonth} onChange={set("birthMonth")} placeholder="ماه" inputMode="numeric" maxLength={2} />
-                      <input className={inputClass(errors.birthDate)} value={form.birthYear} onChange={set("birthYear")} placeholder="سال" inputMode="numeric" maxLength={4} />
+                      <input className={`${inputClass(errors.birthDate)} text-center !px-1.5 sm:!px-4`} value={form.birthDay} onChange={set("birthDay")} placeholder="روز" inputMode="numeric" maxLength={2} />
+                      <input className={`${inputClass(errors.birthDate)} text-center !px-1.5 sm:!px-4`} value={form.birthMonth} onChange={set("birthMonth")} placeholder="ماه" inputMode="numeric" maxLength={2} />
+                      <input className={`${inputClass(errors.birthDate)} text-center !px-1.5 sm:!px-4`} value={form.birthYear} onChange={set("birthYear")} placeholder="سال" inputMode="numeric" maxLength={4} />
                     </div>
                     {errors.birthDate && <p className="text-red-500 text-[0.75rem] mt-1 font-medium">{errors.birthDate}</p>}
                   </div>
@@ -303,7 +303,7 @@ export default function EnrollmentModal({ open, onClose }) {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className={`relative inline-flex items-center justify-center text-white font-extrabold text-[0.9375rem] px-10 py-3.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] transition-all duration-300 ${
+                    className={`relative inline-flex items-center justify-center text-white font-extrabold text-[0.9375rem] w-full sm:w-auto px-6 sm:px-10 py-3.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] transition-all duration-300 ${
                       status === "submitting"
                         ? "bg-[#EAEAE9] cursor-not-allowed"
                         : "bg-navy hover:bg-[#15244a] hover:-translate-y-0.5 shadow-[0.25rem_0.25rem_0_#58bdaf]"

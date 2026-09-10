@@ -50,15 +50,23 @@ export default function BlogSingle() {
   const { openEnrollment } = useEnrollment();
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-white">
-      {/* پترن پس‌زمینه */}
+    <main className="relative min-h-screen bg-white">
+      {/* ── پترن سازمانی پس‌زمینه با ماسک گرادیانی استاندارد ── */}
       <div
-        aria-hidden
-        className="pointer-events-none fixed inset-0 opacity-[0.3]"
-        style={{ backgroundImage: "url(/assets/Pattern/layout-pattern.png)", backgroundSize: "22rem" }}
-      />
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 w-full h-full opacity-60
+                [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]
+                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
+      >
+        <img
+          src="/assets/Pattern/layout-pattern.png"
+          alt=""
+          draggable="false"
+          className="w-full h-full object-cover select-none"
+        />
+      </div>
 
-      <Container className="relative z-10 pt-[2.5rem] sm:pt-[3.5rem]">
+      <Container className="relative z-10 pt-[2.5rem] sm:pt-[3.5rem] pb-16 sm:pb-20 lg:pb-24">
         {/* بریدکرامب */}
         <nav className="mb-8 flex items-center gap-2 text-[0.8125rem] font-bold text-ink/50" aria-label="مسیر">
           <a href="/" className="hover:text-teal transition-colors">خانه</a>
@@ -91,7 +99,7 @@ export default function BlogSingle() {
             </div>
 
             {/* تیتر */}
-            <h1 className="mb-6 flex flex-wrap gap-x-3 gap-y-2 text-[2rem] sm:text-[2.75rem] font-black leading-[1.4] text-ink">
+            <h1 className="mb-6 flex flex-wrap gap-x-3 gap-y-2 text-[1.625rem] xs:text-[2rem] sm:text-[2.75rem] font-black leading-[1.4] text-ink">
               {post.titleWords.map((w, i) => (
                 <span key={i} className="inline-block" style={w.accent ? { color: w.accent === "navy" ? C.navy : C.magenta } : undefined}>
                   {w.t}
@@ -137,7 +145,7 @@ export default function BlogSingle() {
             </div>
 
             {/* مطالب مرتبط */}
-            <section className="mt-14 mb-16">
+            <section className="mt-14 mb-0">
               <h2 className="mb-6 flex items-center gap-3 text-[1.375rem] font-black text-ink">
                 <span className="inline-block h-7 w-2 rounded-full" style={{ background: C.magenta }} />
                 مطالب مرتبط
@@ -157,7 +165,7 @@ export default function BlogSingle() {
           </article>
 
           {/* ══════ سایدبار (sticky) ══════ */}
-          <aside className="hidden lg:block sticky top-24 space-y-6">
+          <aside className="hidden lg:block sticky top-28 self-start space-y-6">
             {/* نویسنده */}
             <div className="rounded-[0_1.5rem_0_1.5rem] border-2 bg-white p-5" style={{ borderColor: C.ink, boxShadow: `4px 4px 0 0 ${C.ink}` }}>
               <div className="mb-3 flex items-center gap-3">

@@ -39,7 +39,7 @@ export default function AboutAwards() {
         <img src={patternBg} alt="" aria-hidden="true" draggable="false" className="w-full h-full object-cover opacity-30" />
       </div>
       <Container>
-        <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.8125rem] leading-[1.2] mb-10 text-center">
+        <h2 className="font-black text-[1.75rem] xs:text-[2.25rem] sm:text-[3rem] lg:text-[3.8125rem] leading-[1.2] mb-10 text-center">
           <span className="inline-block">۹</span>{" "}
           <span className="inline-block">سال</span>{" "}
           <span className="inline-block text-[rgb(223,148,26)]">رد</span>{" "}
@@ -49,20 +49,20 @@ export default function AboutAwards() {
 
         <div className="relative max-w-3xl mx-auto">
           {/* خط عمودی */}
-          <div className="absolute right-[2.5rem] sm:right-[3rem] top-0 bottom-0 w-[3px] bg-[#202A5A] rounded-full"></div>
+          <div className="absolute right-[1.875rem] sm:right-[2.5rem] top-0 bottom-0 w-[3px] bg-[#202A5A] rounded-full"></div>
 
-          <div className="space-y-8 sm:space-y-10">
+          <div className="space-y-6 sm:space-y-10">
             {awards.map((item, i) => (
-              <div key={i} className="relative flex items-start gap-5 sm:gap-6">
+              <div key={i} className="relative flex items-start gap-4 sm:gap-6">
                 {/* آیکون مربع گرد رنگی */}
                 <div
-                  className="relative w-[4.5rem] h-[4.5rem] sm:w-[5rem] sm:h-[5rem] flex-shrink-0 rounded-[16px_0_16px_0] [corner-shape:squircle] flex items-center justify-center z-10"
+                  className="relative w-[3.75rem] h-[3.75rem] sm:w-[5rem] sm:h-[5rem] flex-shrink-0 rounded-[14px_0_14px_0] sm:rounded-[16px_0_16px_0] [corner-shape:squircle] flex items-center justify-center z-10"
                   style={{
                     backgroundColor: item.color,
                     boxShadow: `4px 4px 0 0 ${item.shadow}`,
                   }}
                 >
-                  <MedalIcon className="w-8 h-8 sm:w-10 sm:h-10" />
+                  <MedalIcon className="w-7 h-7 sm:w-10 sm:h-10" />
                 </div>
 
                 {/* متن */}

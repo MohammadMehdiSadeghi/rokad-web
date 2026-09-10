@@ -84,12 +84,12 @@ function StatCard({ theme, value, label }) {
           />
         </div>
         <div
-          className={`relative z-20 mb-2 xs:mb-3 lg:mb-4 text-[2.75rem] xs:text-[3rem] lg:text-[4.375rem] leading-none font-black ${t.text}`}
+          className={`relative z-20 mb-2 xs:mb-3 lg:mb-4 text-[1.875rem] xs:text-[2.75rem] sm:text-[3rem] lg:text-[4.375rem] leading-none font-black ${t.text}`}
         >
           {value}
         </div>
         <div className={`relative z-20 ${t.text}`}>
-          <strong className="block text-[0.8125rem] xs:text-[0.875rem] lg:text-[1rem] font-black">
+          <strong className="block text-[0.75rem] xs:text-[0.875rem] lg:text-[1rem] font-black">
             {label}
           </strong>
         </div>

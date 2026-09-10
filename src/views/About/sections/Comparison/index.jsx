@@ -116,13 +116,13 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
           {badge}
         </div>
 
-        {/* ── عنوان — یک‌خطی ── */}
+        {/* ── عنوان — یک‌خطی در دسکتاپ، چندخطی در موبایل ── */}
         <h3
-          className="relative z-10 text-right whitespace-nowrap"
+          className="relative z-10 text-right whitespace-normal sm:whitespace-nowrap"
           style={{
-            fontSize: "clamp(22px, 3.5vw, 39px)",
+            fontSize: "clamp(20px, 3.5vw, 39px)",
             fontWeight: 900,
-            lineHeight: "1.9",
+            lineHeight: "1.6",
             color: "#292827",
             fontFamily: "IRANSansX, sans-serif",
           }}
@@ -136,25 +136,23 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
           {items.map((text, i) => (
             <div
               key={i}
-              className="inline-flex items-center self-start"
+              className="inline-flex items-start sm:items-center self-start max-w-full"
               style={{
                 backgroundColor: color.itemBg,
                 borderRadius: "7.3px",
                 gap: isPink ? "12px" : "10px",
                 padding: isPink ? "7px 10px" : "7px 12px",
-                whiteSpace: "nowrap",
               }}
             >
               {isPink ? (
-                <CrossIcon style={{ color: color.deep, width: "12px", height: "12px" }} />
+                <CrossIcon style={{ color: color.deep, width: "12px", height: "12px" }} className="flex-shrink-0 mt-1 sm:mt-0" />
               ) : (
-                <CheckIcon style={{ color: color.deep, width: "14px", height: "16px" }} />
+                <CheckIcon style={{ color: color.deep, width: "14px", height: "16px" }} className="flex-shrink-0 mt-1 sm:mt-0" />
               )}
               <span
-                className="text-[13px] sm:text-[14px] lg:text-[16px]"
+                className="text-[13px] sm:text-[14px] lg:text-[16px] leading-[1.7] sm:leading-[1.86]"
                 style={{
                   fontWeight: 600,
-                  lineHeight: "1.86",
                   color: "#292827",
                   fontFamily: "IRANSansX, sans-serif",
                 }}
@@ -166,7 +164,7 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
 
           {/* ── ردیف خروجی ── */}
           <div
-            className="flex items-center"
+            className="flex items-start sm:items-center max-w-full"
             style={{
               backgroundColor: color.itemBg,
               borderRadius: "7.3px",
@@ -175,15 +173,14 @@ function ComparisonCard({ badge, title, titleAccent, items, outcome, color, tilt
             }}
           >
             {isPink ? (
-              <CrossIcon style={{ color: color.deep, width: "12px", height: "12px" }} />
+              <CrossIcon style={{ color: color.deep, width: "12px", height: "12px" }} className="flex-shrink-0 mt-1 sm:mt-0" />
             ) : (
-              <CheckIcon style={{ color: color.deep, width: "16px", height: "20px" }} />
+              <CheckIcon style={{ color: color.deep, width: "16px", height: "20px" }} className="flex-shrink-0 mt-1 sm:mt-0" />
             )}
             <span
-              className="text-[14px] sm:text-[16px] lg:text-[18.26px]"
+              className="text-[13px] sm:text-[16px] lg:text-[18.26px] leading-[1.7] sm:leading-[1.86]"
               style={{
                 fontWeight: 600,
-                lineHeight: "1.86",
                 color: "#292827",
                 fontFamily: "IRANSansX, sans-serif",
               }}

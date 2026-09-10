@@ -70,7 +70,7 @@ function InfoBox({ label, items, tone }) {
   const t = tones[tone] || tones.teal;
   return (
     <div className="relative my-8 overflow-hidden rounded-[0_1.25rem_0_1.25rem] border-2 border-ink">
-      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundColor: t.bg }} />
+      <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundColor: t.bg }} />
       <div className="relative p-6 sm:p-7">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-white text-[0.8125rem] font-extrabold" style={{ backgroundColor: t.bg }}>
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
@@ -113,13 +113,13 @@ function PersonCard({ person, tone }) {
 function PeopleGrid({ items, accentItems }) {
   return (
     <div className="my-6">
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {items.map((p, i) => (
           <PersonCard key={i} person={p} tone="teal" />
         ))}
       </div>
       {accentItems.length > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-3">
+        <div className="grid grid-cols-2 gap-3 mt-3 sm:grid-cols-3">
           {accentItems.map((p, i) => (
             <PersonCard key={i} person={p} tone="magenta" />
           ))}
@@ -152,7 +152,7 @@ function GalleryIcon({ name, className }) {
 
 function Gallery({ items }) {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 my-8">
+    <div className="grid grid-cols-2 gap-3 my-8 sm:grid-cols-4 sm:gap-4">
       {items.map((g, i) => {
         const t = tones[g.tone] || tones.teal;
         return (
@@ -162,11 +162,11 @@ function Gallery({ items }) {
               className="relative flex flex-col items-center justify-center aspect-[4/3] rounded-[0_0.875rem_0_0.875rem] border-2 border-ink overflow-hidden"
               style={{ backgroundColor: t.bg }}
             >
-              <div className="absolute inset-0 opacity-20 pointer-events-none">
-                <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+              <div className="absolute inset-0 pointer-events-none opacity-20">
+                <img src={eventPattern} alt="" draggable="false" className="object-cover w-full h-full select-none" />
               </div>
               <div className="absolute top-2 right-2 text-[0.625rem] font-black text-white bg-ink/85 rounded px-1.5 py-0.5">{g.num}</div>
-              <GalleryIcon name={g.icon} className="w-8 h-8 sm:w-9 sm:h-9 text-white relative z-10" />
+              <GalleryIcon name={g.icon} className="relative z-10 w-8 h-8 text-white sm:w-9 sm:h-9" />
               <div className="relative z-10 mt-1.5 text-[0.6875rem] sm:text-[0.75rem] font-extrabold text-white">{g.label}</div>
             </div>
           </div>
@@ -179,7 +179,7 @@ function Gallery({ items }) {
 function Podium({ items }) {
   const podiumTone = { gold: "#f8a41d", silver: "#9aa0ad", bronze: "#a56216" };
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
+    <div className="grid grid-cols-1 gap-4 my-8 sm:grid-cols-3">
       {items.map((p, i) => (
         <div key={i} className={`relative ${i === 1 ? "sm:-mt-4 sm:scale-[1.04]" : ""}`}>
           <div className="absolute top-[6px] left-[6px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-ink" />
@@ -202,7 +202,7 @@ function Podium({ items }) {
 
 function Timeline({ items }) {
   return (
-    <div className="relative my-8 pr-6 sm:pr-7">
+    <div className="relative pr-6 my-8 sm:pr-7">
       <div className="absolute right-[7px] top-1 bottom-1 w-[3px] rounded-full bg-navy-alt" />
       <div className="space-y-6">
         {items.map((t, i) => (
@@ -305,14 +305,14 @@ function PostHero({ postMeta }) {
   return (
     <section className="relative overflow-hidden bg-bg-mint">
       <div className="absolute inset-0 pointer-events-none opacity-60 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]">
-        <img src={sectionPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+        <img src={sectionPattern} alt="" draggable="false" className="object-cover w-full h-full select-none" />
       </div>
       <Container className="relative z-10 py-10 sm:py-14 lg:py-16">
         {/* خرده‌نان */}
         <nav className="mb-6 flex flex-wrap items-center gap-2 text-[0.8125rem] font-bold text-ink/50" aria-label="مسیر">
-          <a href="/" className="hover:text-teal transition-colors">خانه</a>
+          <a href="/" className="transition-colors hover:text-teal">خانه</a>
           <ChevronLeftIcon className="w-3.5 h-3.5 text-ink/30" />
-          <a href="/events" className="hover:text-teal transition-colors">ایونت‌ها</a>
+          <a href="/events" className="transition-colors hover:text-teal">ایونت‌ها</a>
           <ChevronLeftIcon className="w-3.5 h-3.5 text-ink/30" />
           <span className="text-ink/40">سه روایت از رویدادهای رکاد</span>
         </nav>
@@ -325,6 +325,7 @@ function PostHero({ postMeta }) {
               <span className="text-[0.8125rem] font-extrabold text-ink">{postMeta.eyebrow}</span>
             </div>
             <h1 className="font-black text-[2.25rem] sm:text-[3rem] lg:text-[3.75rem] leading-[1.25] flex flex-wrap gap-x-2.5 mb-6">
+            <h1 className="font-black text-[1.75rem] xs:text-[2.25rem] sm:text-[3rem] lg:text-[3.75rem] leading-[1.25] flex flex-wrap gap-x-2.5 mb-6">
               {postMeta.titleWords.map((w, i) => (
                 <span key={i} className={`inline-block ${w.color}`}>
                   {w.text}
@@ -353,8 +354,8 @@ function PostHero({ postMeta }) {
             </div>
             <div className="absolute top-[10px] left-[10px] w-full h-full rounded-[0_2rem_0_2rem] bg-navy-alt" />
             <div className="relative flex flex-col items-center justify-center aspect-[16/10] rounded-[0_2rem_0_2rem] border-[3px] border-ink bg-gradient-to-br from-teal/85 via-teal to-teal-text overflow-hidden">
-              <div className="absolute inset-0 opacity-30 pointer-events-none">
-                <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+              <div className="absolute inset-0 pointer-events-none opacity-30">
+                <img src={eventPattern} alt="" draggable="false" className="object-cover w-full h-full select-none" />
               </div>
               <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="relative z-10 opacity-90">
                 <rect x="3" y="5" width="18" height="14" rx="2" /><circle cx="8.5" cy="10.5" r="1.5" /><path d="m21 15-5-5L5 21" />
@@ -372,7 +373,7 @@ function PostHero({ postMeta }) {
 // ═══════════════ سایدبار ═══════════════
 function Sidebar({ onCta, toc, relatedQuick }) {
   return (
-    <aside className="lg:sticky lg:top-28 self-start space-y-5">
+    <aside className="self-start space-y-5 lg:sticky lg:top-28">
       {/* فهرست مطالب */}
       <div className="relative">
         <div className="absolute top-[6px] left-[6px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-navy-alt" />
@@ -381,7 +382,7 @@ function Sidebar({ onCta, toc, relatedQuick }) {
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" /></svg>
             فهرست مطالب
           </div>
-          <ol className="list-none p-0 m-0 space-y-1">
+          <ol className="p-0 m-0 space-y-1 list-none">
             {toc.map((t) => (
               <li key={t.id}>
                 <a href={`#${t.id}`} className="flex items-start gap-2.5 py-1.5 text-[0.8125rem] font-bold text-ink/70 hover:text-teal transition-colors leading-relaxed">
@@ -423,7 +424,7 @@ function Sidebar({ onCta, toc, relatedQuick }) {
         <div className="absolute top-[6px] left-[6px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-teal" />
         <div className="relative bg-white rounded-[0_1.25rem_0_1.25rem] border-2 border-ink p-5 sm:p-6">
           <div className="text-[1rem] font-black text-navy-alt mb-3">مطالب مرتبط</div>
-          <ul className="list-none p-0 m-0 space-y-1">
+          <ul className="p-0 m-0 space-y-1 list-none">
             {relatedQuick.map((r, i) => (
               <li key={i}>
                 <a href={r.href || "#"} className="flex items-start gap-2.5 py-2 text-[0.8125rem] font-bold text-ink/75 hover:text-teal transition-colors leading-relaxed border-b border-ink/5 last:border-0">
@@ -476,7 +477,7 @@ function Comments({ comments }) {
         </div>
 
         <form className="mb-10 rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white p-5 sm:p-7" onSubmit={(e) => e.preventDefault()}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-1 gap-4 mb-4 sm:grid-cols-2">
             <input type="text" placeholder="نام تو" required className="w-full rounded-[0.75rem] border-2 border-ink/15 bg-bg-mint px-4 py-3 text-[0.875rem] font-semibold text-ink outline-none focus:border-teal transition-colors placeholder:text-ink/40" />
             <input type="email" placeholder="ایمیل (نمایش داده نمی‌شه)" required className="w-full rounded-[0.75rem] border-2 border-ink/15 bg-bg-mint px-4 py-3 text-[0.875rem] font-semibold text-ink outline-none focus:border-teal transition-colors placeholder:text-ink/40" />
           </div>
@@ -515,11 +516,11 @@ function Comments({ comments }) {
 // ═══════════════ خبرنامه ═══════════════
 function Newsletter() {
   return (
-    <section id="newsletter" className="relative overflow-hidden bg-navy-alt py-12 sm:py-16">
+    <section id="newsletter" className="relative py-12 overflow-hidden bg-navy-alt sm:py-16">
       <div className="absolute inset-0 opacity-25 pointer-events-none">
-        <img src={sectionPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+        <img src={sectionPattern} alt="" draggable="false" className="object-cover w-full h-full select-none" />
       </div>
-      <Container className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+      <Container className="relative z-10 flex flex-col items-center justify-between gap-8 lg:flex-row">
         <div>
           <h2 className="font-black text-[1.75rem] sm:text-[2.25rem] text-white flex flex-wrap gap-x-2">
             {newsletter.words.map((w, i) => (
@@ -529,8 +530,10 @@ function Newsletter() {
           <p className="text-[0.875rem] text-white/70 leading-[1.9] mt-3 max-w-md">{newsletter.desc}</p>
         </div>
         <form className="flex w-full max-w-md gap-3" onSubmit={(e) => e.preventDefault()}>
+        <form className="flex flex-col xs:flex-row w-full max-w-md gap-2.5 sm:gap-3" onSubmit={(e) => e.preventDefault()}>
           <input type="email" placeholder="ایمیل تو" required className="flex-1 rounded-[0.75rem] border-2 border-white/20 bg-white/10 px-4 py-3 text-[0.875rem] font-semibold text-white outline-none focus:border-teal transition-colors placeholder:text-white/40 backdrop-blur-sm" />
           <button type="submit" className="rounded-[0.6rem] bg-teal px-6 py-3 text-[0.875rem] font-extrabold text-white border-2 border-ink shadow-[2.75px_2.75px_0_#292827] hover:-translate-y-0.5 transition-all cursor-pointer">
+          <button type="submit" className="flex-shrink-0 rounded-[0.6rem] bg-teal px-6 py-3 text-[0.875rem] font-extrabold text-white border-2 border-ink shadow-[2.75px_2.75px_0_#292827] hover:-translate-y-0.5 transition-all cursor-pointer">
             عضویت
           </button>
         </form>
@@ -592,7 +595,7 @@ export default function EventsSingle({ slug }) {
       <PostHero postMeta={postMeta} />
 
       {/* مقاله + سایدبار */}
-      <section className="py-10 sm:py-14 bg-white">
+      <section className="py-10 bg-white sm:py-14">
         <Container className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 lg:gap-12">
           <article className="min-w-0">
             <ArticleBlocks blocks={blocks} />
@@ -650,19 +653,19 @@ export default function EventsSingle({ slug }) {
             <span className="inline-block text-ink">هم</span>
             <span className="inline-block text-teal">بخون</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8">
             {relatedPosts.map((p, i) => {
               const t = tones[p.tone] || tones.teal;
               return (
-                <a key={i} href={p.href || "#"} className="group relative block">
+                <a key={i} href={p.href || "#"} className="relative block group">
                   <div className="absolute top-[7px] left-[7px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-ink" />
                   <div className="relative rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white overflow-hidden transition-transform group-hover:-translate-y-1">
                     <div className="relative flex flex-col items-center justify-center aspect-[16/9] border-b-2 border-ink overflow-hidden" style={{ backgroundColor: t.bg }}>
-                      <div className="absolute inset-0 opacity-30 pointer-events-none">
-                        <img src={eventPattern} alt="" draggable="false" className="w-full h-full object-cover select-none" />
+                      <div className="absolute inset-0 pointer-events-none opacity-30">
+                        <img src={eventPattern} alt="" draggable="false" className="object-cover w-full h-full select-none" />
                       </div>
                       <span className="absolute top-2.5 right-2.5 text-[0.6875rem] font-black text-white bg-ink/85 rounded px-2 py-1">{p.cat}</span>
-                      <GalleryIcon name={p.icon} className="w-10 h-10 text-white relative z-10" />
+                      <GalleryIcon name={p.icon} className="relative z-10 w-10 h-10 text-white" />
                     </div>
                     <div className="p-5">
                       <h3 className="font-black text-[1.0625rem] text-navy-alt leading-[1.5] mb-2 group-hover:text-teal transition-colors">{p.title}</h3>

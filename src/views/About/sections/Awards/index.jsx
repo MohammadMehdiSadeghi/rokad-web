@@ -1,79 +1,199 @@
 import Container from "../../../../layout/Container";
 
-const patternBg = "/assets/Pattern/layout-pattern.png";
+/* =========================================================
+   اینفوگرافیک عمودی — تایم‌لاین/چک‌لیست مسیر رکاد
+   سفید، RTL، بج بیضی صورتی بالا، تیتر راست‌چین،
+   ۷ ردیف: آیکون دایره‌ای رنگی راست + تیتر پررنگ + توضیح خاکستری با تاریخ
+========================================================= */
 
-// آیکون مدال/نشان
-function MedalIcon({ className = "" }) {
-  return (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      {/* دایره بیرونی مدال */}
-      <circle cx="16" cy="14" r="8" stroke="white" strokeWidth="2.5" fill="white" fillOpacity="0.15" />
-      {/* خطوط بالا (حلقه مدال) */}
-      <path d="M12 4L16 8L20 4" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      {/* ستاره داخل */}
-      <polygon
-        points="16,10 17.5,13 21,13.5 18.5,16 19,19.5 16,18 13,19.5 13.5,16 11,13.5 14.5,13"
-        fill="white"
-      />
-    </svg>
-  );
-}
-
-const awards = [
-  { color: "#E0195B", shadow: "#B0003E", text: "برگزاری لیگ ملی کسب‌وکار نوجوانان ایران با حمایت اتاق بازرگانی ایران | بهمن ۱۳۹۸" },
-  { color: "#58BDAF", shadow: "#3A9E96", text: "طراحی و برگزاری دو دوره فرهنگستان نوآوری و کارآفرینی نوجوانان در اتاق بازرگانی استان" },
-  { color: "#202A5A", shadow: "#0D1636", text: "انتخاب رکاد به‌عنوان سفیر کارآفرینی توسط اداره کل تعاون، کار و رفاه اجتماعی استان" },
-  { color: "#F5A623", shadow: "#C4810E", text: "تقدیر شده در هفته جهانی کارآفرینی از سوی استانداری خراسان رضوی | آبان ۱۳۹۷" },
-  { color: "#58BDAF", shadow: "#3A9E96", text: "تأسیس اولین هنرستان استارتاپی پسرانه ایران در مشهد | ۱۳۹۸" },
+/* ── ۷ مایل مسیر رکاد ── */
+const milestones = [
+  {
+    title: "آغاز راه",
+    desc: "رُکاد با هدف پرورش نوجوانان ارزش‌آفرین شروع به کار کرد | ۱۳۹۵",
+    color: "#202A5A", // آبی
+    shadow: "#0B0F1F",
+    icon: "flag",
+  },
+  {
+    title: "تقدیر جهانی",
+    desc: "تقدیر از رکاد در هفته جهانی کارآفرینی از سوی استانداری خراسان رضوی | آبان ۱۳۹۷",
+    color: "#F8A41D", // نارنجی
+    shadow: "#BA7B16",
+    icon: "medal",
+  },
+  {
+    title: "اولین هنرستان استارتاپی",
+    desc: "تأسیس اولین هنرستان استارتاپی پسرانه ایران در مشهد | ۱۳۹۸",
+    color: "#009966", // سبز
+    shadow: "#006644",
+    icon: "school",
+  },
+  {
+    title: "لیگ ملی نوجوانان",
+    desc: "برگزاری لیگ ملی کسب‌وکار نوجوانان ایران با حمایت اتاق بازرگانی ایران | بهمن ۱۳۹۸",
+    color: "#652D90", // بنفش
+    shadow: "#231032",
+    icon: "trophy",
+  },
+  {
+    title: "فرهنگستان نوآوری",
+    desc: "طراحی و برگزاری دو دوره فرهنگستان نوآوری و کارآفرینی نوجوانان در اتاق بازرگانی استان",
+    color: "#F5A623", // زرد/کهربایی
+    shadow: "#B0780E",
+    icon: "certificate",
+  },
+  {
+    title: "سفیر کارآفرینی",
+    desc: "انتخاب رکاد به‌عنوان سفیر کارآفرینی توسط اداره کل تعاون، کار و رفاه اجتماعی استان",
+    color: "#E0195B", // قرمز/صورتی سازمانی
+    shadow: "#4E0920",
+    icon: "users",
+  },
+  {
+    title: "اکوسیستم کامل",
+    desc: "کالج، شتاب‌دهنده و کافه کارآفرینی؛ سه لایه از یک زندگی برای رشد نوجوان | امروز",
+    color: "#59BBAF", // فیروزه‌ای
+    shadow: "#1F413D",
+    icon: "growth",
+  },
 ];
+
+/* ── آیکون‌های مینیمال داخل دایره ── */
+function MilestoneIcon({ name }) {
+  const s = {
+    fill: "none",
+    stroke: "white",
+    strokeWidth: 2,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+  };
+  switch (name) {
+    case "flag": // پرچم شروع
+      return (
+        <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7" {...s}>
+          <path d="M5 21V4" />
+          <path d="M5 4c4-2 8 2 14 0v9c-6 2-10-2-14 0" fill="white" fillOpacity="0.15" />
+        </svg>
+      );
+    case "medal": // جایزه
+      return (
+        <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7" {...s}>
+          <circle cx="12" cy="14" r="6" />
+          <path d="M9 9L7 3M15 9l2-6" />
+          <path d="M12 11.5l1 2h-2l1-2z" fill="white" />
+        </svg>
+      );
+    case "school": // مدرسه/ساختمان
+      return (
+        <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7" {...s}>
+          <path d="M3 21h18" />
+          <path d="M5 21V9l7-5 7 5v12" />
+          <path d="M10 21v-5h4v5" />
+          <path d="M9 11h.01M15 11h.01" />
+        </svg>
+      );
+    case "trophy": // جام
+      return (
+        <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7" {...s}>
+          <path d="M8 21h8M12 17v4" />
+          <path d="M7 4h10v6a5 5 0 0 1-10 0V4z" fill="white" fillOpacity="0.15" />
+          <path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4" />
+        </svg>
+      );
+    case "certificate": // گواهی
+      return (
+        <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7" {...s}>
+          <rect x="4" y="4" width="16" height="12" rx="1.5" />
+          <path d="M7 8h6M7 11h4" />
+          <circle cx="15.5" cy="17.5" r="2.5" fill="white" fillOpacity="0.2" />
+          <path d="M14 19.5l-.5 3 2-1.2 2 1.2-.5-3" />
+        </svg>
+      );
+    case "users": // تیم/گروه
+      return (
+        <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7" {...s}>
+          <circle cx="9" cy="7" r="3" />
+          <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+          <circle cx="17" cy="8" r="2.5" />
+          <path d="M15 14.5c2.8 0 6 1.8 6 5.5" />
+        </svg>
+      );
+    default: // growth — نمودار رشد
+      return (
+        <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7" {...s}>
+          <path d="M3 3v18h18" />
+          <path d="M7 15l4-5 3 3 5-7" />
+          <path d="M16 6h3v3" />
+        </svg>
+      );
+  }
+}
 
 export default function AboutAwards() {
   return (
     <section className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none select-none">
-        <img src={patternBg} alt="" aria-hidden="true" draggable="false" className="w-full h-full object-cover opacity-30" />
-      </div>
       <Container>
-        <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.8125rem] leading-[1.2] mb-10 text-center">
-          <span className="inline-block">۹</span>{" "}
-          <span className="inline-block">سال</span>{" "}
-          <span className="inline-block text-[rgb(223,148,26)]">رد</span>{" "}
-          <span className="inline-block">پای</span>{" "}
-          <span className="inline-block text-teal">رکاد</span>
+        {/* ── بج بیضی صورتی — جای نام برند، گوشه بالا ── */}
+        <div className="flex justify-start mb-6">
+          <span
+            className="inline-flex items-center text-white text-[0.75rem] font-black tracking-wide"
+            style={{
+              background: "#E0195B",
+              borderRadius: "999px",
+              padding: "8px 22px",
+              boxShadow: "2.75px 2.75px 0 #4E0920",
+            }}
+          >
+            رُکاداسکول
+          </span>
+        </div>
+
+        {/* ── تیتر اصلی — درشت، بولد، سمت راست ── */}
+        <h2 className="font-black text-[2rem] sm:text-[2.75rem] lg:text-[3.5rem] leading-[1.25] text-right text-[#292827] mb-3">
+          ۹ سال <span className="text-teal">ردپای</span>{" "}
+          <span className="text-[#E0195B]">رُکاد</span>
         </h2>
+        <p className="text-right text-[0.875rem] sm:text-[1rem] text-[#292827]/60 leading-[1.8] max-w-2xl mb-12 sm:mb-14">
+          از یک کلاس کوچک تا اکوسیستمی کامل — هر ایستگاه با یک نشان رنگی.
+        </p>
 
-        <div className="relative max-w-3xl mx-auto">
-          {/* خط عمودی */}
-          <div className="absolute right-[2.5rem] sm:right-[3rem] top-0 bottom-0 w-[3px] bg-[#202A5A] rounded-full"></div>
+        {/* ── ردیف‌ها ── */}
+        <div className="relative max-w-3xl">
+          {/* خط تایم‌لاین عمودی پشت دایره‌ها */}
+          <span
+            aria-hidden="true"
+            className="absolute top-6 bottom-6 w-[2px] rounded-full bg-[#292827]/10"
+            style={{ right: "27px" }}
+          />
 
-          <div className="space-y-8 sm:space-y-10">
-            {awards.map((item, i) => (
-              <div key={i} className="relative flex items-start gap-5 sm:gap-6">
-                {/* آیکون مربع گرد رنگی */}
-                <div
-                  className="relative w-[4.5rem] h-[4.5rem] sm:w-[5rem] sm:h-[5rem] flex-shrink-0 rounded-[16px_0_16px_0] [corner-shape:squircle] flex items-center justify-center z-10"
+          <ul className="space-y-9 sm:space-y-10">
+            {milestones.map((m, i) => (
+              <li key={i} className="relative flex items-center gap-5">
+                {/* آیکون دایره‌ای رنگی — سمت راست */}
+                <span
+                  className="relative z-10 flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center"
                   style={{
-                    backgroundColor: item.color,
-                    boxShadow: `4px 4px 0 0 ${item.shadow}`,
+                    background: m.color,
+                    border: "2.5px solid #fff",
+                    boxShadow: `0 0 0 1.5px ${m.color}, 2.75px 2.75px 0 ${m.shadow}`,
                   }}
                 >
-                  <MedalIcon className="w-8 h-8 sm:w-10 sm:h-10" />
-                </div>
+                  <MilestoneIcon name={m.icon} />
+                </span>
 
-                {/* متن */}
-                <div className="flex-1 pt-2 sm:pt-3">
-                  <p className="text-[0.9375rem] sm:text-[1rem] lg:text-[1.125rem] text-[#292827] leading-[1.7] text-right">
-                    {item.text}
+                {/* دو خط متن */}
+                <div className="min-w-0">
+                  <h3 className="font-black text-[1.0625rem] sm:text-[1.1875rem] leading-[1.5] text-[#292827] text-right">
+                    {m.title}
+                  </h3>
+                  <p className="text-[0.78125rem] sm:text-[0.875rem] text-[#292827]/55 leading-[1.8] text-right mt-0.5">
+                    {m.desc}
                   </p>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </Container>
     </section>

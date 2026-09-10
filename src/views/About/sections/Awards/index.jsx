@@ -158,42 +158,40 @@ export default function AboutAwards() {
           از یک کلاس کوچک تا اکوسیستمی کامل — هر ایستگاه با یک نشان رنگی.
         </p>
 
-        {/* ── ردیف‌ها ── */}
-        <div className="relative max-w-3xl">
-          {/* خط تایم‌لاین عمودی پشت دایره‌ها */}
-          <span
-            aria-hidden="true"
-            className="absolute top-6 bottom-6 w-[2px] rounded-full bg-[#292827]/10"
-            style={{ right: "27px" }}
-          />
+        {/* ── ردیف‌ها — دو ستونه (RTL: ستون راست اول) ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 lg:gap-x-20 gap-y-9">
+          {[milestones.slice(0, 4), milestones.slice(4)].map((column, c) => (
+            <ul key={c} className="space-y-9 sm:space-y-10">
+              {column.map((m, r) => {
+                const i = c * 4 + r
+                return (
+                  <li key={i} className="flex items-center gap-4 sm:gap-5">
+                    {/* آیکون دایره‌ای رنگی — سمت راست */}
+                    <span
+                      className="relative z-10 flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center"
+                      style={{
+                        background: m.color,
+                        border: "2.5px solid #fff",
+                        boxShadow: `0 0 0 1.5px ${m.color}, 2.75px 2.75px 0 ${m.shadow}`,
+                      }}
+                    >
+                      <MilestoneIcon name={m.icon} />
+                    </span>
 
-          <ul className="space-y-9 sm:space-y-10">
-            {milestones.map((m, i) => (
-              <li key={i} className="relative flex items-center gap-5">
-                {/* آیکون دایره‌ای رنگی — سمت راست */}
-                <span
-                  className="relative z-10 flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center"
-                  style={{
-                    background: m.color,
-                    border: "2.5px solid #fff",
-                    boxShadow: `0 0 0 1.5px ${m.color}, 2.75px 2.75px 0 ${m.shadow}`,
-                  }}
-                >
-                  <MilestoneIcon name={m.icon} />
-                </span>
-
-                {/* دو خط متن */}
-                <div className="min-w-0">
-                  <h3 className="font-black text-[1.0625rem] sm:text-[1.1875rem] leading-[1.5] text-[#292827] text-right">
-                    {m.title}
-                  </h3>
-                  <p className="text-[0.78125rem] sm:text-[0.875rem] text-[#292827]/55 leading-[1.8] text-right mt-0.5">
-                    {m.desc}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
+                    {/* دو خط متن */}
+                    <div className="min-w-0">
+                      <h3 className="font-black text-[1rem] sm:text-[1.0625rem] leading-[1.5] text-[#292827] text-right">
+                        {m.title}
+                      </h3>
+                      <p className="text-[0.75rem] sm:text-[0.8125rem] text-[#292827]/55 leading-[1.8] text-right mt-0.5">
+                        {m.desc}
+                      </p>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          ))}
         </div>
       </Container>
     </section>

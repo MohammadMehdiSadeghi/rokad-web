@@ -211,7 +211,7 @@ const headingWords = [
 export default function AboutComparison() {
   return (
     <section
-      className="relative w-full bg-white overflow-hidden py-[4rem] sm:py-[5rem] lg:py-[7.375rem] px-4 sm:px-6 lg:px-8"
+      className="relative w-full bg-white overflow-hidden py-12 sm:py-20 lg:py-[3.25rem] px-4 sm:px-6 lg:px-8"
     >
       {/* ── پترن هندسی پس‌زمینه ── */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">

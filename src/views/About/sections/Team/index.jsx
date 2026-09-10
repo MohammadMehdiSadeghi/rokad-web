@@ -102,7 +102,7 @@ function TeamCard({ member, index }) {
       >
         {/* بالای کارت — پسزمینه رنگی + پترن + عکس */}
         <div
-          className="relative w-full aspect-[281/250] overflow-hidden"
+          className="relative w-full aspect-[281/195] overflow-hidden"
           style={{
             backgroundColor: member.color,
             borderBottom: "2px solid #292827",
@@ -179,22 +179,22 @@ function TeamCard({ member, index }) {
 
 export default function AboutTeam() {
   return (
-    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+    <section className="relative py-12 sm:py-20 lg:py-10 w-full px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
 
           <Container className="relative z-10">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.8125rem] leading-[1.2] mb-4 text-[#292827]">
+        <div className="text-center mb-7 sm:mb-8">
+          <h2 className="font-black text-[2rem] sm:text-[2.5rem] lg:text-[2.75rem] leading-[1.2] mb-2 sm:mb-3 text-[#292827]">
             <span>آدم‌هایی</span> <span className="text-[#202A5A]">که</span>{" "}
             <span>هرروز</span> <span className="text-[#59BBAF]">رکاد</span>{" "}
             <span>رو</span> <span className="text-[#E0195B]">می‌سازن</span>
           </h2>
-          <p className="text-[0.875rem] sm:text-[1rem] text-black max-w-2xl mx-auto leading-[1.8]">
+          <p className="text-[0.875rem] sm:text-[1rem] text-black max-w-2xl mx-auto leading-[1.6]">
             پشت هر رویداد، هر جلسه و هر پروژه، یه تیم پرانرژی هست. با چند نفر از
             این آدم‌ها آشنا شو.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-7 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-5 max-w-6xl mx-auto">
           {teamMembers.map((m, i) => (
             <TeamCard key={m.name} member={m} index={i} />
           ))}

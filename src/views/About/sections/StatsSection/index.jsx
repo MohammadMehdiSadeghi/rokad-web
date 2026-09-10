@@ -100,7 +100,7 @@ function StatCard({ theme, value, label }) {
 
 export default function AboutStats() {
   return (
-    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
+    <section className="relative py-12 sm:py-20 lg:py-[3.25rem] w-full px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
         <img
           src={patternBg}

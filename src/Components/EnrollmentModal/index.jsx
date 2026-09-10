@@ -137,7 +137,7 @@ export default function EnrollmentModal({ open, onClose }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#21295A]/60 backdrop-blur-sm overflow-y-auto"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#202a5a]/60 backdrop-blur-sm overflow-y-auto"
           onClick={close}
         >
           <motion.div
@@ -306,7 +306,7 @@ export default function EnrollmentModal({ open, onClose }) {
                     className={`relative inline-flex items-center justify-center text-white font-extrabold text-[0.9375rem] px-10 py-3.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] transition-all duration-300 ${
                       status === "submitting"
                         ? "bg-[#EAEAE9] cursor-not-allowed"
-                        : "bg-navy hover:bg-[#15244a] hover:-translate-y-0.5 shadow-[0.25rem_0.25rem_0_#58bdaf]"
+                        : "bg-navy hover:bg-[#15244a] hover:-translate-y-0.5 shadow-[0.25rem_0.25rem_0_#59bbaf]"
                     }`}
                   >
                     {status === "submitting" ? "در حال ارسال..." : "ثبت درخواست پیش‌ثبت‌نام"}

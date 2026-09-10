@@ -14,7 +14,7 @@ const navLinks = [
   { label: "افتخارات", to: "/honors" },
   { label: "مشاوره تحصیلی", to: "/#counseling" },
   { label: "درباره ما", to: "/about" },
-  { label: "همکاری با ما", to: "/#cooperation" },
+  { label: "همکاری با ما", to: "/#join" },
 ];
 
 // تنظیمات انیمیشن سریع و یکدست برای جلوگیری از تداخل و تأخیر
@@ -43,8 +43,12 @@ export default function Header() {
   const pathname = usePathname();
   const close = () => setOpen(false);
 
+  // برای جلوگیری از خطای hydration: مسیر/اسکرول فقط بعد از mount واقعی محاسبه می‌شود
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const isActive = (to) => {
-    if (typeof window === "undefined") return false;
+    if (!mounted) return false;
     const [path, hash] = to.split("#");
     if (hash) return pathname === path && window.location.hash === `#${hash}`;
     return pathname === to;
@@ -101,8 +105,8 @@ export default function Header() {
             }`}
             style={{
               boxShadow: compact
-                ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.08)"
-                : "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(33,41,90,0.05), 0 1.25rem 2.5rem -0.25rem rgba(33,41,90,0.06)",
+                ? "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(32,42,90,0.08)"
+                : "0 0.0625rem 0.1875rem rgba(0,0,0,0.04), 0 0.5rem 1.25rem rgba(32,42,90,0.05), 0 1.25rem 2.5rem -0.25rem rgba(32,42,90,0.06)",
               transition: "box-shadow 0.3s ease",
             }}
           >
@@ -216,7 +220,7 @@ export default function Header() {
 
               {/* پروفایل موبایل */}
               <a
-                href="#"
+                href="/alumni"
                 aria-label="ورود / پروفایل"
                 className="lg:hidden relative w-9 h-9 flex items-center justify-center flex-shrink-0 rounded-[0_0.55rem_0_0.55rem] [corner-shape:squircle] bg-white border-[0.09375rem] border-navy/15 text-navy transition-colors duration-200 hover:border-navy/40 active:bg-navy/5"
               >
@@ -237,7 +241,7 @@ export default function Header() {
 
               {/* ورود به پلتفرم — همیشه نمایش (دسکتاپ) */}
               <a
-                href="#"
+                href="/factors"
                 className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-colors duration-300 hover:bg-white hover:text-teal-text"
               >
                 ورود به پلتفرم
@@ -355,7 +359,7 @@ export default function Header() {
                 پیش‌ثبت‌نام
               </button>
               <a
-                href="#"
+                href="/factors"
                 onClick={close}
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-[8px] [corner-shape:squircle] bg-teal text-white text-[0.95rem] font-extrabold transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
               >

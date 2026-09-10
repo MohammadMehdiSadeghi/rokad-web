@@ -3,10 +3,26 @@ import Header from "../src/Components/Header";
 import Footer from "../src/Components/Footer";
 import ScrollToHash from "../src/layout/ScrollToHash";
 import { EnrollmentProvider } from "../src/lib/EnrollmentContext";
+import { pageMeta, SITE_URL } from "../src/lib/seo";
 
 export const metadata = {
-  title: "رکاد | هنرستان استارتاپی",
-  description: "اولین هنرستان استارتاپی ایران",
+  ...pageMeta({
+    title: "رکاد | هنرستان استارتاپی",
+    description:
+      "رُکاد‌اسکول — اولین هنرستان استارتاپی ایران از ۱۳۹۵. اکوسیستم آموزشی نوجوان کارآفرین: هنرستان، کالج، کلوپ و مدرسه دخترانه در مشهد.",
+    path: "/",
+  }),
+  metadataBase: new URL(SITE_URL),
+  applicationName: "رُکاد‌اسکول",
+  authors: [{ name: "رُکاد‌اسکول" }],
+  creator: "رُکاد‌اسکول",
+  publisher: "رُکاد‌اسکول",
+  formatDetection: { telephone: false },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }) {

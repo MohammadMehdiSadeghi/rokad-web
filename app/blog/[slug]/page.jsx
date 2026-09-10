@@ -1,5 +1,7 @@
 import BlogSingle from "../../../src/views/BlogSingle";
 
+
+
 export const metadata = {
   title: "چطور یک نوجوان را عاشق کد کنیم؟ | وبلاگ رکاد",
   description:

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Container from "../../src/layout/Container";
 import fallbackEvents from "../../src/lib/fallback/events";
+import { pageMeta } from "../../src/lib/seo";
 
-export const metadata = {
+export const metadata = pageMeta({
   title: "ایونت‌های رکاد",
-  description: "رویدادهای استارتاپی هنرستان استارتاپی رکاد.",
-};
+  description: "رویدادهای استارتاپی هنرستان استارتاپی رکاد — لیگ‌ها، کارگاه‌ها و رویدادهای اکوسیستم.",
+  path: "/events",
+});
 
 const sectionPattern = "/assets/Pattern/layout-pattern.png";
 

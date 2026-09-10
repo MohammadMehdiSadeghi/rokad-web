@@ -171,7 +171,7 @@ function MiniCard({ member }) {
               href={href}
               aria-label={label}
               target="_blank"
-              rel="noreferrer"
+                              rel="noopener noreferrer"
               className={`inline-flex items-center justify-center w-5 h-5 ${bg} border ${border} ${fg} rounded-[0.25rem] shrink-0 transition-transform hover:-translate-y-0.5`}
             >
               <Icon className="w-3 h-3" />
@@ -295,7 +295,7 @@ export default function TeamTeaser() {
                       href={href}
                       aria-label={label}
                       target="_blank"
-                      rel="noreferrer"
+                              rel="noopener noreferrer"
                       className={`inline-flex items-center justify-center w-6 h-6 ${bg} border ${border} ${fg} rounded-[0.35rem] shrink-0 transition-transform hover:-translate-y-0.5`}
                     >
                       <Icon className="w-3.5 h-3.5" />

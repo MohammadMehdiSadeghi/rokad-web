@@ -84,7 +84,7 @@ function BtnLinkedIn({ href, name }) {
     <a
       href={href}
       target="_blank"
-      rel="noreferrer"
+                              rel="noopener noreferrer"
       className="inline-flex items-center gap-1.5 font-bold text-[0.9375rem] text-white cursor-pointer transition-all duration-200 hover:bg-white hover:text-ink"
       style={{
         background: "transparent",

@@ -236,7 +236,7 @@ function StudentCard({ student, index, stacked }) {
                     key={si}
                     href={social.link}
                     target="_blank"
-                    rel="noreferrer"
+                              rel="noopener noreferrer"
                     aria-label={social.type || "شبکه اجتماعی"}
                   >
                     <LinkedinIcon />

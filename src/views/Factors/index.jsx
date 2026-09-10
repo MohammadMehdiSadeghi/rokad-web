@@ -236,7 +236,7 @@ function FounderCard({ member }) {
                 <a
                   href={member.website}
                   target="_blank"
-                  rel="noreferrer"
+                              rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-[0.75rem] font-black text-[#202A5A] bg-[#EEF8F7] border border-[#59BBAF] px-3 py-1 rounded-[0_6px_0_6px] shadow-[1.5px_1.5px_0_0_#202A5A] hover:bg-[#59BBAF] hover:text-white transition-all"
                 >
                   <GlobeIcon className="w-3.5 h-3.5" />

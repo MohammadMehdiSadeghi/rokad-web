@@ -38,6 +38,7 @@ const fastExit = {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
+  const [visible, setVisible] = useState(true);
   const { openEnrollment } = useEnrollment();
   const pathname = usePathname();
   const close = () => setOpen(false);
@@ -50,11 +51,26 @@ export default function Header() {
   };
 
   useEffect(() => {
+    let lastY = window.scrollY;
+    let pending = 0; // مجموع جابه‌جایی از آخرین تغییر جهت (برای اسکرول نرم/ترک‌پد)
     const onScroll = () => {
       const y = window.scrollY;
-      // حالت فشرده فقط بعد از اسکرول بیشتر از 50vh فعال می‌شود
       const threshold = window.innerHeight * (COMPACT_THRESHOLD_VH / 100);
+      // حالت فشرده فقط بعد از 50vh
       setCompact(y > threshold);
+      const delta = y - lastY;
+      lastY = y;
+      if (y < 10) {
+        setVisible(true); // بالای صفحه همیشه کپسول نمایان
+        pending = 0;
+        return;
+      }
+      pending = Math.sign(delta) !== Math.sign(pending) ? delta : pending + delta;
+      if (pending > 4) {
+        setVisible(false); // اسکرول به پایین ← هدر بلافاصله مخفی می‌شود
+      } else if (pending < -4) {
+        setVisible(true); // اسکرول به بالا ← هدر برمی‌گردد
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -75,7 +91,7 @@ export default function Header() {
     <>
       <motion.header
         initial={false}
-        animate={{ y: 0 }}
+        animate={{ y: visible ? 0 : "-110%" }}
         transition={spring}
         style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
         className={`transition-[padding] duration-200 ease-out w-full ${

@@ -17,7 +17,7 @@
     /* اصلاح_focus_visible با CSS خالص برای جلوگیری از ارور تایلیند */
     a:focus-visible,
     button:focus-visible {
-        outline: 0.125rem solid #58BDAF;
+        outline: 0.125rem solid #59bbaf;
         /* معادل outline-teal */
         outline-offset: 0.125rem;
         border-radius: 0.375rem;
@@ -91,7 +91,7 @@
 
 html {
     scrollbar-width: thin;
-    scrollbar-color: #58BDAF transparent;
+    scrollbar-color: #59bbaf transparent;
 }
 
 
@@ -106,7 +106,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #58BDAF;
+    background-color: #59bbaf;
     border-radius: 0.625rem;
     border: 0.125rem solid transparent;
     background-clip: content-box;
@@ -159,15 +159,15 @@ html {
    دیزاین: سیستم رکاد (تیل اصلی + سرمه‌ای/مجنتا/نارنجی/بنفش)
    ============================================================ */
 .rk-bi {
-  --bi-primary:      #58bdaf;
+  --bi-primary:      #59bbaf;
   --bi-primary-dark: #2e7068;
   --bi-primary-light:#f2faf9;
-  --bi-navy:         #21295a;
+  --bi-navy:         #202a5a;
   --bi-navy-dark:    #0f1430;
   --bi-navy-light:   #3b4b8f;
   --bi-magenta:      #e0195b;
   --bi-magenta-dark: #a81344;
-  --bi-orange:       #f4971f;
+  --bi-orange:       #f8a41d;
   --bi-ink:          #292827;
   --bi-ink-subtle:   #777777;
   --bi-bg-neutral:   #f6f6f6;
@@ -176,7 +176,7 @@ html {
 /* ---------- هیرو ---------- */
 .rk-bi .bi-hero {
   position: relative;
-  background: linear-gradient(135deg, #58bdaf 0%, #347e75 55%, #2e7068 100%);
+  background: linear-gradient(135deg, #59bbaf 0%, #347e75 55%, #2e7068 100%);
   padding: 2.5rem 0 4.5rem;
   overflow: hidden;
 }
@@ -275,7 +275,7 @@ html {
 .rk-bi .bi-featured { background: #fff; padding: 4.5rem 0 3rem; }
 .rk-bi .bi-dot-ring {
   width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-  background: var(--bi-primary); box-shadow: 0 0 0 4px rgba(88, 189, 175, .28);
+  background: var(--bi-primary); box-shadow: 0 0 0 4px rgba(89,187,175, .28);
 }
 .rk-bi .bi-featured-card { position: relative; }
 .rk-bi .bi-featured-sh {

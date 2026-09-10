@@ -78,7 +78,7 @@ export default function AboutHero() {
               <img
                 src={characterImg}
                 alt="کاراکترهای رکاد"
-                className="h-auto max-h-[24vh] sm:max-h-[28vh] lg:max-h-[58svh] w-auto max-w-full object-contain select-none pointer-events-none"
+                className="h-auto max-h-[19vh] sm:max-h-[26vh] lg:max-h-[58svh] w-auto max-w-full object-contain select-none pointer-events-none"
               />
             </div>
 

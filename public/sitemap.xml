@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://rokadschool.ir/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://rokadschool.ir/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rokadschool.ir/alumni</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rokadschool.ir/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rokadschool.ir/events</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rokadschool.ir/factors</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rokadschool.ir/honors</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>

@@ -51,27 +51,15 @@ export default function Header() {
   };
 
   useEffect(() => {
-    let lastY = window.scrollY;
-    let pending = 0; // مجموع جابه‌جایی از آخرین تغییر جهت (برای اسکرول نرم/ترک‌پد)
     const onScroll = () => {
       const y = window.scrollY;
       const threshold = window.innerHeight * (COMPACT_THRESHOLD_VH / 100);
-      // حالت فشرده فقط بعد از 50vh
+      // بعد از 50vh: نوار فول‌عرض ظاهر می‌شود و تا پایین صفحه می‌ماند
       setCompact(y > threshold);
-      const delta = y - lastY;
-      lastY = y;
-      if (y < 10) {
-        setVisible(true); // بالای صفحه همیشه کپسول نمایان
-        pending = 0;
-        return;
-      }
-      pending = Math.sign(delta) !== Math.sign(pending) ? delta : pending + delta;
-      if (pending > 4) {
-        setVisible(false); // اسکرول به پایین ← هدر بلافاصله مخفی می‌شود
-      } else if (pending < -4) {
-        setVisible(true); // اسکرول به بالا ← هدر برمی‌گردد
-      }
+      // کپسول فقط نزدیک بالای صفحه؛ با کوچک‌ترین اسکرول مخفی و تا 50vh برنمی‌گردد
+      setVisible(y > threshold || y < 10);
     };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);

@@ -9,7 +9,8 @@ import AboutTeam from "./sections/Team";
 import AboutAwards from "./sections/Awards";
 import AboutTestimonials from "./sections/Testimonials";
 import AboutSchools from "./sections/Schools";
-import AboutFinalCTA from "./sections/FinalCTA";
+// فاینال‌CTA: همان سکشن صفحه اصلی (کامپوننت مشترک)
+import FinalCTA from "../Home/sections/FinalCTA";
 
 export default function About() {
   return (
@@ -25,7 +26,7 @@ export default function About() {
       <AboutAwards />
       <AboutTestimonials />
       <AboutSchools />
-      <AboutFinalCTA />
+      <FinalCTA />
     </>
   );
 }

@@ -2,7 +2,7 @@
 import Container from "../../../../layout/Container";
 import { useEnrollment } from "../../../../lib/EnrollmentContext";
 
-const patternBg = "/assets/about/Hero/Hero-Pattern.png";
+const patternBg = "/assets/Pattern/layout-pattern.png";
 const characterImg = "/assets/about/Hero/hero-character.png";
 
 const headlineWords = [
@@ -23,9 +23,9 @@ const badges = [
 export default function AboutHero() {
   const { openEnrollment } = useEnrollment();
   return (
-    <section className="relative max-h-[100svh] lg:h-[100svh] w-full px-4 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-12 bg-[#F6F6F6] overflow-hidden flex flex-col justify-center">
+    <section className="relative max-h-[100svh] lg:h-[100svh] w-full px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-10 pb-8 sm:pb-10 lg:pb-12 bg-white overflow-hidden flex flex-col justify-start">
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
-        <img src={patternBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-40" />
+        <img src={patternBg} alt="" aria-hidden="true" draggable="false" className="w-full h-full object-cover opacity-30 select-none" />
       </div>
 
       <Container className="relative z-10 w-full min-h-0">

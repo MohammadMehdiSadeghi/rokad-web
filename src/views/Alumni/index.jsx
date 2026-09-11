@@ -180,13 +180,13 @@ export default function AlumniPage() {
                   setGenFilter("all");
                   setSearchQuery("");
                 }}
-                className={`relative text-right p-6 sm:p-7 rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] border-2 cursor-pointer overflow-hidden transition-colors ${
+                className={`relative text-right p-4 xs:p-6 sm:p-7 rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] border-2 cursor-pointer overflow-hidden transition-colors ${
                   selectedBranch === "female"
                     ? "bg-[#FEFAFB] border-[#E0195B] shadow-[5px_5px_0_0_#E0195B]"
                     : "bg-white border-[#E0195B] shadow-[5px_5px_0_0_#E0195B]"
                 }`}
               >
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4">
                   <div className="flex items-center gap-3.5">
                     <div
                       className={`w-12 h-12 sm:w-14 sm:h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
@@ -200,7 +200,7 @@ export default function AlumniPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-black text-[1.25rem] text-[#E0195B]">
+                      <h3 className="font-black text-[1.125rem] xs:text-[1.25rem] text-[#E0195B]">
                         هنرستان دخترانه رکاد
                       </h3>
                       <span className="text-[0.8125rem] font-bold text-navy/50">
@@ -232,13 +232,13 @@ export default function AlumniPage() {
                   setGenFilter("all");
                   setSearchQuery("");
                 }}
-                className={`relative text-right p-6 sm:p-7 rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] border-2 cursor-pointer overflow-hidden transition-colors ${
+                className={`relative text-right p-4 xs:p-6 sm:p-7 rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle] border-2 cursor-pointer overflow-hidden transition-colors ${
                   selectedBranch === "male"
                     ? "bg-[#EEF8F7] border-[#59bbaf] shadow-[5px_5px_0_0_#59bbaf]"
                     : "bg-white border-[#59bbaf] shadow-[5px_5px_0_0_#59bbaf]"
                 }`}
               >
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4">
                   <div className="flex items-center gap-3.5">
                     <div
                       className={`w-12 h-12 sm:w-14 sm:h-14 rounded-[0_1rem_0_1rem] [corner-shape:squircle] flex items-center justify-center transition-colors ${
@@ -253,7 +253,7 @@ export default function AlumniPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-black text-[1.25rem] text-[#59bbaf]">
+                      <h3 className="font-black text-[1.125rem] xs:text-[1.25rem] text-[#59bbaf]">
                         هنرستان پسرانه رکاد
                       </h3>
                       <span className="text-[0.8125rem] font-bold text-navy/50">

@@ -102,9 +102,9 @@ function BtnLinkedIn({ href, name }) {
 /* ── تیتر سکشن ── */
 function SectTitle({ p, children }) {
   return (
-    <h2 className="font-black text-[1.375rem] sm:text-[1.75rem] leading-[1.3] text-ink mb-6 flex items-center gap-3">
+    <h2 className="font-black text-[1.25rem] sm:text-[1.75rem] leading-[1.3] text-ink mb-6 flex items-center gap-3">
       <span className="flex-shrink-0 w-3 h-3 rounded-full" style={{ background: p.normal }} />
-      <span className="whitespace-nowrap">{children}</span>
+      <span className="flex-shrink-0">{children}</span>
       <span
         aria-hidden="true"
         className="flex-1 h-[2px] rounded-[2px]"
@@ -262,7 +262,7 @@ export default function AlumniProfileView({ slug }) {
                 )}
               </div>
 
-              <h1 className="font-black text-[2.5rem] sm:text-[3.25rem] lg:text-[4rem] leading-[1.1] mb-2 tracking-tight">
+              <h1 className="font-black text-[1.875rem] xs:text-[2.5rem] sm:text-[3.25rem] lg:text-[4rem] leading-[1.1] mb-2 tracking-tight">
                 {member.name}
               </h1>
               <p className="text-[1.0625rem] sm:text-[1.1875rem] font-medium opacity-90 mb-5">

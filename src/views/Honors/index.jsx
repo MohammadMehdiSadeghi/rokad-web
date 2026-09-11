@@ -32,7 +32,7 @@ const THEME_MAP = {
 const DEFAULT_THEME = THEME_MAP.first;
 
 /* عرض بنر افتخار: ~۳۶٪ از کانتینر، با کف و سقف ثابت */
-const BANNER_WIDTH = "clamp(20rem, 36%, 28rem)";
+const BANNER_WIDTH = "clamp(16rem, 36%, 28rem)";
 
 /* رقم فارسی */
 const toFa = (n) => String(n).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
@@ -86,7 +86,7 @@ export default function HonorsPage() {
             <Container>
               {/* ── بنر افقی افتخار — سمت راست، ~۳۶٪ عرض ── */}
               <div
-                className={`${tilt} hover:rotate-0 transition-transform duration-300 relative w-full sm:mx-0 mx-auto min-h-[6.5rem] sm:min-h-[7.5rem] max-h-[11rem]`}
+                className={`${tilt} hover:rotate-0 transition-transform duration-300 relative w-full sm:mx-0 mx-auto min-h-[6.5rem] sm:min-h-[7.5rem] sm:max-h-[11rem]`}
                 style={{ width: BANNER_WIDTH, maxWidth: "100%" }}
               >
                 {/* لایه سایه سخت — رنگ تم رتبه */}

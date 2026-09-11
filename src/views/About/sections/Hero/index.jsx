@@ -36,15 +36,17 @@ export default function AboutHero() {
           <span className="text-[0.875rem] font-semibold text-ink/60">درباره رکاد</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center min-h-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 lg:gap-10 items-center min-h-0">
           {/* متنها — سمت راست (RTL) */}
           <div className="order-2 lg:order-1 min-h-0">
-            <h1 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[3.25rem] xl:text-[3.75rem] leading-[1.2] mb-4 sm:mb-6 lg:mb-8">
-              <span className="flex flex-wrap gap-x-2 sm:gap-x-3">
+            <h1 className="font-black text-[1.125rem] xs:text-[1.25rem] sm:text-[1.875rem] lg:text-[1.9375rem] xl:text-[2.6875rem] leading-[1.25] mb-4 sm:mb-6 lg:mb-8">
+              {/* خط اول: «جایی که نوجوون فقط یاد نمی‌گیره،» */}
+              <span className="flex flex-wrap gap-x-1.5 sm:gap-x-3">
                 {headlineWords.map((w) => (
                   <span key={w.text} className={`inline-block ${w.color}`} style={{ transform: `rotate(${w.deg}deg)` }}>{w.text}</span>
                 ))}
               </span>
+              {/* خط دوم: «می‌سازه.» */}
               <span className="block mt-1.5 sm:mt-2 lg:mt-3">
                 <span className="inline-block text-magenta" style={{ transform: "rotate(-5deg)" }}>می‌سازه.</span>
               </span>

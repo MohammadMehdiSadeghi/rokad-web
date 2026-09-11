@@ -51,20 +51,15 @@ export default function BlogSingle() {
 
   return (
     <main className="relative min-h-screen bg-white">
-      {/* ── پترن سازمانی پس‌زمینه با ماسک گرادیانی استاندارد ── */}
+      {/* ── پترن سازمانی همیشگی: کاشی‌شده و ثابت پشت محتوا ── */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 w-full h-full opacity-60
-                [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]
-                [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
-      >
-        <img
-          src="/assets/Pattern/layout-pattern.png"
-          alt=""
-          draggable="false"
-          className="w-full h-full object-cover select-none"
-        />
-      </div>
+        className="pointer-events-none fixed inset-0 z-0 opacity-30"
+        style={{
+          backgroundImage: "url(/assets/Pattern/layout-pattern.png)",
+          backgroundSize: "22rem",
+        }}
+      />
 
       <Container className="relative z-10 pt-[2.5rem] sm:pt-[3.5rem] pb-16 sm:pb-20 lg:pb-24">
         {/* بریدکرامب */}

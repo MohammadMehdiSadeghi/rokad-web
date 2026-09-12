@@ -332,7 +332,7 @@ export default function HonorsCarousel() {
 
                 return (
                   <SwiperSlide
-                    key={honor.id || honor.title || i}
+                    key={`honor-${i}-${honor.id || honor.title || ""}`}
                     className="!h-auto overflow-visible"
                   >
                     <div

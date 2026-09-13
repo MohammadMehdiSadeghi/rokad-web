@@ -1,4 +1,6 @@
 "use client";
+import { useRef } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 
 import Container from "../../../../layout/Container";
 import { useEnrollment } from "../../../../lib/EnrollmentContext";
@@ -10,10 +12,14 @@ const pattern = "/assets/unassigned/pattern-boxes.png";
 const imgMobileHero = "/assets/unassigned/END2.svg";
 
 export default function FinalCTA() {
+  const scrollScope = useRef(null);
+  useScrollAnimations(scrollScope, "FinalCTA");
+
   const { openEnrollment } = useEnrollment();
 
   return (
     <section
+      ref={scrollScope}
       id="join"
       className="relative overflow-hidden bg-teal flex items-start lg:items-center w-full pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem]"
       dir="rtl"

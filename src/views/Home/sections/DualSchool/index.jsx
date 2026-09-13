@@ -1,4 +1,11 @@
 // DualSchool.jsx
+"use client";
+
+"use client";
+
+"use client";
+import { useRef } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 import Container from "../../../../layout/Container";
 import SchoolCard from "./SchoolCard";
 
@@ -9,8 +16,12 @@ const girlsCardPattern = "/assets/home/DualSchool/SchoolSelection-Girls.png";
 const patternBg = "/assets/home/DualSchool/Schools-Pattern.png";
 
 export default function DualSchool() {
+  const scrollScope = useRef(null);
+  useScrollAnimations(scrollScope, "DualSchool");
+
   return (
     <section
+      ref={scrollScope}
       id="schools"
       className="relative bg-white w-full snap-start pt-[1.5rem] sm:pt-[2.5rem] lg:pt-[3.5rem] pb-[3.5rem] sm:pb-[4.5rem] lg:pb-[5.5rem] overflow-hidden flex flex-col justify-center"
     >

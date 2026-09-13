@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
 import Container from "../../../../layout/Container";
@@ -47,6 +48,9 @@ const THEME_MAP = {
 };
 
 export default function EventsCarousel() {
+  const scrollScope = useRef(null);
+  useScrollAnimations(scrollScope, "EventsCarousel");
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -76,7 +80,8 @@ export default function EventsCarousel() {
   }, [events]);
 
   return (
-      <section className="pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] w-full relative overflow-hidden bg-white">
+      <section
+      ref={scrollScope} className="pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] w-full relative overflow-hidden bg-white">
         {/* 1. لایه پترن پس‌زمینه — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
             بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن */}
         <div

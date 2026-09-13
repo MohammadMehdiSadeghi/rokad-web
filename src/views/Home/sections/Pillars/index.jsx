@@ -1,3 +1,7 @@
+"use client";
+import { useRef } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
+
 import Container from "../../../../layout/Container";
 import PillarCard from "./PillarCard";
 import {
@@ -41,8 +45,12 @@ const pillars = [
 ];
 
 export default function Pillars() {
+  const scrollScope = useRef(null);
+  useScrollAnimations(scrollScope, "Pillars");
+
   return (
-    <section className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] bg-white overflow-hidden w-full">
+    <section
+      ref={scrollScope} className="relative py-[4rem] sm:py-[5rem] lg:py-[6rem] bg-white overflow-hidden w-full">
       {/* ── Background Pattern Layer — همون ماسک گرادیانی هیرو/دوئال‌اسکول:
           بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن ── */}
       <div

@@ -1,3 +1,7 @@
+"use client";
+import { useRef } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
+
 import Link from "next/link";
 import Container from "../../../../layout/Container";
 
@@ -7,8 +11,12 @@ const vectorIcon = "/assets/home/Story/Vector.svg";
 
 
 export default function Story() {
+  const scrollScope = useRef(null);
+  useScrollAnimations(scrollScope, "Story");
+
   return (
-    <section id="about" className="py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full bg-[#F6F6F6] overflow-hidden">
+    <section
+      ref={scrollScope} id="about" className="py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full bg-[#F6F6F6] overflow-hidden">
       {/* تغییر lg به xl برای رفع باگ در سایز 1024px */}
       <Container className="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-8 sm:gap-16 xl:gap-40 items-center">
         {/* ── ستون راست: تصویر ── */}

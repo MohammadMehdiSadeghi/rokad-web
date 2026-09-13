@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 import { useEnrollment } from "../../../../lib/EnrollmentContext";
 
 const HEADING = [
@@ -17,6 +18,11 @@ const SUBTITLE_TEXT = "اولین هنرستان استارتاپی ایران";
 const DESIGN_CARD = 1200;
 
 export default function Hero() {
+  const heroScopeM = useRef(null);
+  const heroScopeD = useRef(null);
+  useScrollAnimations(heroScopeM, "Hero");
+  useScrollAnimations(heroScopeD, "Hero");
+
   const { openEnrollment } = useEnrollment();
   const vpRef = useRef(null);
   const canvasRef = useRef(null);
@@ -61,7 +67,8 @@ export default function Hero() {
   return (
     <>
       {/* ── نسخه موبایل (زیر lg) ── */}
-      <section className="relative w-full px-4 sm:px-6 lg:hidden pt-[6.5rem] sm:pt-[7rem]">
+      <section
+      ref={heroScopeM} className="relative w-full px-4 sm:px-6 lg:hidden pt-[6.5rem] sm:pt-[7rem]">
         <div className="relative mx-auto w-full max-w-[27.5rem]">
           {/* کارت اصلی — عکس داخل کادر، نیمه پایینش با overflow-hidden کات می‌شود */}
           <div className="relative overflow-hidden rounded-[2rem] bg-[#59bbaf]">
@@ -119,7 +126,8 @@ export default function Hero() {
       </section>
 
       {/* ── نسخه دسکتاپ (lg به بالا) ── */}
-      <section className="relative w-full px-4 sm:px-6 lg:px-8 hidden lg:block">
+      <section
+      ref={heroScopeD} className="relative w-full px-4 sm:px-6 lg:px-8 hidden lg:block">
         <div ref={vpRef} className="hero-vp">
           <div ref={canvasRef} className="hero-canvas">
             <div

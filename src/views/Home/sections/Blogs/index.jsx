@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y } from "swiper/modules";
@@ -178,6 +179,9 @@ function BlogCard({ image, date, title, body, slug, _id, id, rotation = 0 }) {
 }
 
 export default function Blogs() {
+  const scrollScope = useRef(null);
+  useScrollAnimations(scrollScope, "Blogs");
+
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -186,6 +190,7 @@ export default function Blogs() {
 
   return (
     <section
+      ref={scrollScope}
       id="blogs"
       className="
         relative

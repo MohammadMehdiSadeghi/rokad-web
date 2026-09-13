@@ -1,4 +1,6 @@
 "use client";
+import { useRef } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 
 import Container from "../../../../layout/Container";
 import { ChevronLeftIcon } from "../../../../common/Icons";
@@ -76,10 +78,14 @@ function CourseChip({ d, i }) {
 ========================================================= */
 
 export default function CollegeCta() {
+  const scrollScope = useRef(null);
+  useScrollAnimations(scrollScope, "CollegeCta");
+
   const { openEnrollment } = useEnrollment();
 
   return (
     <section
+      ref={scrollScope}
       id="college-cta"
       dir="rtl"
       className="relative overflow-hidden bg-bg-neutral pt-[4rem] sm:pt-[5rem] lg:pt-[6rem] pb-[4rem] sm:pb-[5rem] lg:pb-[6rem] w-full"

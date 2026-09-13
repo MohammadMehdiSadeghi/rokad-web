@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
+import { getScrollTop, setScrollTop, onPageScroll, getSmoother } from "../../../../layout/ScrollSmooth";
 import Container from "../../../../layout/Container";
 import { UserIcon } from "../../../../common/Icons";
 
@@ -105,6 +107,7 @@ export default function Ecosystem() {
   // کارت‌های قبلی از سمت چپ میان و جایگزین می‌شن. بعد از جابجایی بین
   // دو صفحه، قفل باز میشه و اسکرول به سکشن بعدی می‌ره.
   const sectionRef = useRef(null);
+  useScrollAnimations(sectionRef, "Ecosystem");
   const pageRef = useRef(0);
   const [page, setPage] = useState(0);
   const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
@@ -170,18 +173,40 @@ export default function Ecosystem() {
       // اگه به لبه رسیدیم → قفل رو آزاد کن و بذار صفحه عادی اسکرول شه
       if (target < 0 || target >= totalPages) {
         lockedScrollY = null;
+        releaseSmoother();
         return;
       }
 
       e.preventDefault();
+      // با ScrollSmoother فعال: normalizer رویداد wheel رو می‌خونه، پس
+      // اسموثر رو موقتاً pause می‌کنیم تا preventDefault واقعاً اثر کنه
+      holdSmoother();
       goPage(target);
       // قفل کوتاه فقط برای جلوگیری از پریدن صفحه وسطِ انیمیشن؛
       // به محض اینکه اسکرول به لبه رسید یا سکشن از وسط خارج شد، آزاد می‌شه
-      lockedScrollY = window.scrollY;
+      lockedScrollY = getScrollTop();
       clearTimeout(lockTimer);
       lockTimer = setTimeout(() => {
         lockedScrollY = null;
+        releaseSmoother();
       }, 300);
+    };
+
+    // ── مکالمه با ScrollSmoother (pause/resume در طول قفل) ──
+    let smootherHeld = false;
+    const holdSmoother = () => {
+      const s = getSmoother();
+      if (s && !s.paused() && !smootherHeld) {
+        s.paused(true);
+        smootherHeld = true;
+      }
+    };
+    const releaseSmoother = () => {
+      const s = getSmoother();
+      if (s && s.paused() && smootherHeld) {
+        s.paused(false);
+      }
+      smootherHeld = false;
     };
 
     // ── نوار اسکرول / کیبورد / هر اسکرول دیگه ──
@@ -190,22 +215,24 @@ export default function Ecosystem() {
       // اگه سکشن از وسط دیدگاه خارج شد → قفل رو رها کن (کاربر داره می‌ره)
       if (!isSectionCentered()) {
         lockedScrollY = null;
+        releaseSmoother();
         return;
       }
       // فقط تا پایان انیمیشن، اسکرول رو سر جای قفل نگه دار
-      if (Math.abs(window.scrollY - lockedScrollY) > 2) {
-        window.scrollTo(0, lockedScrollY);
+      if (Math.abs(getScrollTop() - lockedScrollY) > 2) {
+        setScrollTop(lockedScrollY, false);
       }
     };
 
     window.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("scroll", onScroll, { passive: true });
+    const offScroll = onPageScroll(onScroll);
     window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("scroll", onScroll);
+      offScroll();
       window.removeEventListener("resize", onResize);
       if (lockTimer) clearTimeout(lockTimer);
+      releaseSmoother();
     };
   }, [totalPages]);
 
@@ -214,6 +241,7 @@ export default function Ecosystem() {
 
   return (
       <section
+      ref={sectionRef}
         ref={sectionRef}
         className="py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full relative overflow-hidden"
         style={{

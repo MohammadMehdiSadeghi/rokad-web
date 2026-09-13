@@ -1,4 +1,6 @@
 "use client";
+import { useRef } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 
 import Container from "../../../../layout/Container";
 import { ChevronLeftIcon } from "../../../../common/Icons";
@@ -139,8 +141,12 @@ function BranchCard({ branch }) {
 ========================================================= */
 
 export default function RokadHierarchy() {
+  const scrollScope = useRef(null);
+  useScrollAnimations(scrollScope, "RokadHierarchy");
+
   return (
     <section
+      ref={scrollScope}
       id="rokad-hierarchy"
       dir="rtl"
       className="relative overflow-hidden bg-bg-neutral py-[3rem] sm:py-[4.5rem] lg:py-[6rem] w-full"

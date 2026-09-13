@@ -8,6 +8,10 @@
         direction: rtl;
         font-size: 16px; /* Base font size for rem calculations */
     }
+    /* وقتی ScrollSmoother فعاله، اسکرول نرم CSS مزاحم رَفر GSAP می‌شه — خاموش */
+    html[data-smoother="on"] {
+        scroll-behavior: auto;
+    }
     body {
         @apply font-sans text-ink bg-white antialiased;
         direction: rtl;

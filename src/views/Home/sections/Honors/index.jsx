@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay } from "swiper/modules";
 import Container from "../../../../layout/Container";
@@ -49,6 +50,9 @@ const THEME_MAP = {
 };
 
 export default function HonorsCarousel() {
+  const scrollScope = useRef(null);
+  useScrollAnimations(scrollScope, "Honors");
+
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -63,6 +67,7 @@ export default function HonorsCarousel() {
 
   return (
     <section
+      ref={scrollScope}
       id="honors"
       className="
         relative

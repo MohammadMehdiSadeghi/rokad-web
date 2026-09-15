@@ -4,7 +4,7 @@
  * scrollAnimations — مرکز انیمیشن‌های اسکرول سایت Rokad College (GSAP + ScrollTrigger)
  *
  * اصول طراحی (مطابق DESIGN_SYSTEM سایت — نئوبروتالیسم):
- *  - toggleActions: play none none reverse — انیمیشن هنگام اسکرول پایین پخش میشه، بالا ریورس میشه، دوباره پایین تکرار میشه
+ *  - همه انیمیشن‌ها once: true — هنگام اسکرول بالا/پایین تکرار و پرش ندارند
  *  - fade+rise برای متن‌ها (power3.out)، stamp برای کارت‌ها (back.out)
  *  - clip-path wipe فقط روی تیترهای h2 (امضای بصری سکشن‌ها)
  *  - scrub‌ها محدود و سبک: پارالاکس روی لایه‌های پترین بک‌گراند و تصویر Story
@@ -55,7 +55,7 @@ function wipeIn(targets, opts = {}) {
       ease: "power4.out",
       stagger: opts.stagger ?? 0.1,
       clearProps: "clipPath,opacity",
-      scrollTrigger: { trigger: opts.trigger || els[0], start: "top 88%", toggleActions: "play none none reverse" },
+      scrollTrigger: { trigger: opts.trigger || els[0], start: "top 88%", once: true },
     }
   );
 }
@@ -80,7 +80,7 @@ function fadeUp(targets, opts = {}) {
       delay: opts.delay ?? 0,
       stagger: staggerFn,
       clearProps: "all",
-      scrollTrigger: { trigger: opts.trigger || els[0], start: opts.start || "top 88%", toggleActions: "play none none reverse" },
+      scrollTrigger: { trigger: opts.trigger || els[0], start: opts.start || "top 88%", once: true },
     }
   );
 }
@@ -105,7 +105,7 @@ function stampIn(targets, opts = {}) {
       stagger: staggerFn,
       delay: opts.delay ?? 0,
       clearProps: "all",
-      scrollTrigger: { trigger: opts.trigger || els[0], start: opts.start || "top 90%", toggleActions: "play none none reverse" },
+      scrollTrigger: { trigger: opts.trigger || els[0], start: opts.start || "top 90%", once: true },
     }
   );
 }
@@ -150,7 +150,7 @@ function countUp(el, opts = {}) {
     onComplete: () => {
       el.textContent = raw; // برگرداندن دقیق متن اصلی (علامت‌ها حفظ)
     },
-    scrollTrigger: { trigger: opts.trigger || el, start: "top 92%", toggleActions: "play none none reverse" },
+    scrollTrigger: { trigger: opts.trigger || el, start: "top 92%", once: true },
   });
 }
 
@@ -328,18 +328,18 @@ function animCollegeCta(scope) {
         y: 90,
         scale: 0.85,
         opacity: 0,
-        rotation: () => gsap.utils.random(-10, 10), // اضافه روی چرخش CSS فعلی، بعد clearProps
+        tr: () => gsap.utils.random(-10, 10), // اضافه روی چرخش CSS فعلی، بعد clearProps
       },
       {
         y: 0,
         scale: 1,
         opacity: 1,
-        rotation: 0,
+        tr: 0,
         duration: 0.85,
         ease: "back.out(1.5)",
         stagger: staggerFn,
         clearProps: "all",
-        scrollTrigger: { trigger: scope.current, start: "top 90%", toggleActions: "play none none reverse" },
+        scrollTrigger: { trigger: scope.current, start: "top 90%", once: true },
       }
     );
   } else safeReveal(scope);

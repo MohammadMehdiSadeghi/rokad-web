@@ -56,13 +56,16 @@ export default function Header() {
   };
 
   useEffect(() => {
+    let lastY = getScrollTop();
     const onScroll = () => {
       const y = getScrollTop();
       const threshold = window.innerHeight * (COMPACT_THRESHOLD_VH / 100);
+      const scrollingUp = y < lastY;
+      lastY = y;
       // بعد از 50vh: نوار فول‌عرض ظاهر می‌شود و تا پایین صفحه می‌ماند
       setCompact(y > threshold);
-      // کپسول فقط نزدیک بالای صفحه؛ با کوچک‌ترین اسکرول مخفی و تا 50vh برنمی‌گردد
-      setVisible(y > threshold || y < 10);
+      // هدر همیشه وقتی به بالا اسکرول میشه نمایش داده میشه
+      setVisible(y < 10 || y > threshold || scrollingUp);
     };
     onScroll();
     const off = onPageScroll(onScroll);

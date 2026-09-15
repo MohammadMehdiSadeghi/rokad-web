@@ -118,12 +118,14 @@ export default function EventsCarousel() {
           <Swiper
             modules={[Navigation, A11y]}
             slidesPerView={1}
-            spaceBetween={20}
+            spaceBetween={28}
             centeredSlides={true}
+            observer={true}
+            observeParents={true}
             breakpoints={{
               // تبلت: کارت کوچیک‌تر و وسط‌چین
-              768: { slidesPerView: 1.15, spaceBetween: 24 },
-              1024: { slidesPerView: 1, spaceBetween: 50 },
+              768: { slidesPerView: 1.15, spaceBetween: 32 },
+              1024: { slidesPerView: 1, spaceBetween: 60 },
             }}
             dir="rtl"
             onBeforeInit={(swiper) => {
@@ -151,7 +153,7 @@ export default function EventsCarousel() {
                     {/* کارت اصلی */}
                     <div
                       ref={(el) => (cardRefs.current[i] = el)}
-                      className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[16rem] sm:min-h-[16rem] md:min-h-[14rem] lg:min-h-[16.75rem] xl:min-h-[20rem]`}
+                      className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[18rem] sm:min-h-[18rem] md:min-h-[16rem] lg:min-h-[20rem] xl:min-h-[22rem]`}
                       style={{ minHeight: cardHeight || undefined }}
                     >
                       
@@ -216,14 +218,13 @@ export default function EventsCarousel() {
                       </div>
 
                       {/* تصویر رویداد (سمت چپ در دسکتاپ / بالا در موبایل) */}
-                      {/* افزایش ارتفاع عکس در موبایل برای هماهنگی با ارتفاع کل کارت */}
-                      <div className="relative w-full h-[10rem] sm:h-[11rem] md:h-[10rem] lg:h-auto overflow-hidden bg-gray-100">
+                      <div className="relative w-full h-[12rem] sm:h-[13rem] md:h-[12rem] lg:h-auto overflow-hidden bg-gray-100">
                         <img
                           src={event.image}
                           alt={event.title}
                           loading="lazy"
                           decoding="async"
-                          className="absolute inset-0 w-full h-full object-cover object-top"
+                          className="absolute inset-0 w-full h-full object-cover object-bottom"
                         />
                       </div>
                     </div>

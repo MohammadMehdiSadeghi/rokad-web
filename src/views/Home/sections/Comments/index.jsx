@@ -64,18 +64,19 @@ export default function Comments() {
           overflow: visible;
           height: auto;
           z-index: 1;
+          transition: opacity 0.45s ease, transform 0.45s ease;
         }
         .comments-swiper .card-inner-wrap {
-          transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
-          opacity: 0;
-          transform: scale(0.62);
+          transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+          opacity: 0.3;
+          transform: scale(0.88);
           pointer-events: none;
         }
         .comments-swiper .swiper-slide-active {
           z-index: 30 !important;
         }
         .comments-swiper .swiper-slide-active .card-inner-wrap {
-          transform: scale(1.4, 1.3) translateY(-6px) rotate(0deg);
+          transform: scale(1.25) translateY(-6px) rotate(0deg);
           opacity: 1;
           z-index: 30;
           pointer-events: auto;
@@ -84,9 +85,9 @@ export default function Comments() {
           z-index: 10 !important;
         }
         .comments-swiper .swiper-slide-prev .card-inner-wrap {
-          transform: scale(0.92) translateY(8px) rotate(5deg);
-          opacity: 0.72;
-          filter: blur(3px);
+          transform: scale(0.92) translateY(4px) rotate(4deg);
+          opacity: 0.7;
+          filter: blur(2px);
           z-index: 10;
           pointer-events: auto;
         }
@@ -94,34 +95,34 @@ export default function Comments() {
           z-index: 10 !important;
         }
         .comments-swiper .swiper-slide-next .card-inner-wrap {
-          transform: scale(0.92) translateY(8px) rotate(-6deg);
-          opacity: 0.72;
-          filter: blur(3px);
+          transform: scale(0.92) translateY(4px) rotate(-5deg);
+          opacity: 0.7;
+          filter: blur(2px);
           z-index: 10;
           pointer-events: auto;
         }
         /* Tablet (md): smaller scale so cards do not clip */
         @media (min-width: 768px) and (max-width: 1023px) {
           .comments-swiper .swiper-slide-active .card-inner-wrap {
-            transform: scale(1.22, 1.15) translateY(-4px) rotate(0deg);
+            transform: scale(1.15, 1.1) translateY(-4px) rotate(0deg);
           }
           .comments-swiper .swiper-slide-prev .card-inner-wrap {
-            transform: scale(0.85) translateY(6px) rotate(5deg);
-            opacity: 0.65;
-            filter: blur(2px);
+            transform: scale(0.88) translateY(4px) rotate(4deg);
+            opacity: 0.6;
+            filter: blur(1.5px);
           }
           .comments-swiper .swiper-slide-next .card-inner-wrap {
-            transform: scale(0.85) translateY(6px) rotate(-6deg);
-            opacity: 0.65;
-            filter: blur(2px);
+            transform: scale(0.88) translateY(4px) rotate(-5deg);
+            opacity: 0.6;
+            filter: blur(1.5px);
           }
         }
         /* Mobile: کارت کامپکت، متناسب و بسیار تمیز بدون پرش و بیرون‌زدگی */
         @media (max-width: 639px) {
           .comments-swiper .card-inner-wrap {
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            opacity: 0.45;
-            transform: scale(0.82);
+            transition: transform 0.4s ease, opacity 0.35s ease;
+            opacity: 0.4;
+            transform: scale(0.85);
             pointer-events: none;
           }
           .comments-swiper .swiper-slide-active {
@@ -137,8 +138,8 @@ export default function Comments() {
             z-index: 10 !important;
           }
           .comments-swiper .swiper-slide-prev .card-inner-wrap {
-            transform: scale(0.82) rotate(2.5deg);
-            opacity: 0.45;
+            transform: scale(0.85) rotate(2deg);
+            opacity: 0.4;
             z-index: 10;
             pointer-events: auto;
           }
@@ -146,8 +147,8 @@ export default function Comments() {
             z-index: 10 !important;
           }
           .comments-swiper .swiper-slide-next .card-inner-wrap {
-            transform: scale(0.82) rotate(-2.5deg);
-            opacity: 0.45;
+            transform: scale(0.85) rotate(-2deg);
+            opacity: 0.4;
             z-index: 10;
             pointer-events: auto;
           }
@@ -208,16 +209,17 @@ export default function Comments() {
                 swiperRef.current = swiper;
               }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-              spaceBetween={-15}
-              speed={450}
+              spaceBetween={0}
+              speed={500}
+              observer={true}
+              observeParents={true}
               breakpoints={{
-                320: { slidesPerView: 1.2, spaceBetween: -20 },
-                380: { slidesPerView: 1.25, spaceBetween: -15 },
-                480: { slidesPerView: 1.35, spaceBetween: -10 },
-                640: { slidesPerView: 1.5, spaceBetween: 12 },
-                768: { slidesPerView: 2, spaceBetween: -10 },
-                1024: { slidesPerView: 2.5, spaceBetween: 20 },
-                1280: { slidesPerView: 3, spaceBetween: 24 },
+                320: { slidesPerView: 1.15, spaceBetween: -8 },
+                480: { slidesPerView: 1.3, spaceBetween: -6 },
+                640: { slidesPerView: 1.5, spaceBetween: 4 },
+                768: { slidesPerView: 2, spaceBetween: -4 },
+                1024: { slidesPerView: 2.5, spaceBetween: 8 },
+                1280: { slidesPerView: 3, spaceBetween: 12 },
               }}
               autoplay={{
                 delay: 3500,

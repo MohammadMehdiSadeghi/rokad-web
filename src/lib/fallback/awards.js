@@ -7,6 +7,7 @@ const fallbackAwards = [
     title: "مقام اول جشنواره‌ی فردا",
     meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
     badge: "/assets/home/Honors/f1.png",
+    ctaLabel: "مشاهده منتخبین",
     winners: [
       { name: "مریم رضایی", role: "طراح محصول", gen: "نسل ۷", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
       { name: "امیرحسین تهرانی", role: "توسعه‌دهنده فرانت‌اند", gen: "نسل ۶", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
@@ -18,6 +19,7 @@ const fallbackAwards = [
     title: "مقام برتر جشنواره‌ی خوارزمی",
     meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
     badge: "/assets/home/Honors/s2.png",
+    ctaLabel: "مشاهده منتخبین",
     winners: [
       { name: "علی مرادی", role: "بنیان‌گذار کارنو", gen: "نسل ۵", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
       { name: "سارا احمدی", role: "طراح رابط کاربری", gen: "نسل ۷", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
@@ -28,6 +30,7 @@ const fallbackAwards = [
     title: "مقام برتر جشنواره‌ی خوارزمی",
     meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
     badge: "/assets/home/Honors/t3.png",
+    ctaLabel: "مشاهده منتخبین",
     winners: [
       { name: "پارسا رستمی", role: "برنامه‌نویس موبایل", gen: "نسل ۶", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
       { name: "ریحانه کریمی", role: "بنیان‌گذار گلرنگ", gen: "نسل ۸", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
@@ -39,6 +42,7 @@ const fallbackAwards = [
     title: "مقام برتر جشنواره",
     meta: "نشان افتخار",
     badge: "/assets/home/Honors/district-honor-badge.png",
+    ctaLabel: "مشاهده منتخبین",
     winners: [
       { name: "نگار صادقی", role: "مدیر رشد", gen: "نسل ۵", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
       { name: "پوریا رحمانی", role: "هنرمند تعاملی", gen: "نسل ۹", avatar: "/assets/home/Rokadians/Ellipse 83.png" },

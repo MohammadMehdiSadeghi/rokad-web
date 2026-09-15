@@ -11,6 +11,7 @@ const fallbackEvents = [
     body: "سی‌امین رویداد استارتاپی رکاد برای دانش‌آموزان هنرستان دخترانه — تیم تشکیل بدید، مسئله رو بررسی کنید و ایده‌تون رو به یه محصول قابل ارائه برسونید.",
     image: "/assets/home/Events/event-pic.png",
     href: "/events/startup-weekend-30",
+    ctaLabel: "داستان رویداد رو ببین",
   },
   {
     index: "۰۲",
@@ -22,6 +23,7 @@ const fallbackEvents = [
     body: "سی‌ویکمین رویداد استارتاپی رکاد برای هنرستان پسرانه — پنج روز فشرده برای عمیق‌تر شدن در مسئله و پختن ایده.",
     image: "/assets/home/Events/event-pic.png",
     href: "/events/startup-weekend-31",
+    ctaLabel: "داستان رویداد رو ببین",
   },
   {
     index: "۰۳",
@@ -33,6 +35,7 @@ const fallbackEvents = [
     body: "چهارمین دوره رکاپ — رویداد جمع‌بندی پایان سال هر دو هنرستان؛ همه چیزایی که کل سال یاد گرفتی رو توی یه پروژه واقعی به کار بگیر.",
     image: "/assets/home/Events/event-pic.png",
     href: "/events/rokap-4",
+    ctaLabel: "داستان رویداد رو ببین",
   },
 ];
 

@@ -241,7 +241,6 @@ export default function Ecosystem() {
 
   return (
       <section
-      ref={sectionRef}
         ref={sectionRef}
         className="py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full relative overflow-hidden"
         style={{

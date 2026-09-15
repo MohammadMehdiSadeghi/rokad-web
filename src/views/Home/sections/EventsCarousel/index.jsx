@@ -224,7 +224,7 @@ export default function EventsCarousel() {
                           alt={event.title}
                           loading="lazy"
                           decoding="async"
-                          className="absolute inset-0 w-full h-full object-cover object-bottom"
+                          className="absolute inset-0 w-full h-full object-cover object-top"
                         />
                       </div>
                     </div>

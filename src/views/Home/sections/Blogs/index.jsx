@@ -76,7 +76,7 @@ function BlogCard({ image, date, title, body, slug, _id, id, rotation = 0 }) {
             w-full
             h-[10.625rem]
             sm:h-[11.875rem]
-            object-cover
+            object-cover object-top
             border-b-[0.09375rem]
             sm:border-b-[0.125rem]
             border-[#292827]

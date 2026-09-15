@@ -328,13 +328,13 @@ function animCollegeCta(scope) {
         y: 90,
         scale: 0.85,
         opacity: 0,
-        tr: () => gsap.utils.random(-10, 10), // اضافه روی چرخش CSS فعلی، بعد clearProps
+        rotation: () => gsap.utils.random(-10, 10), // اضافه روی چرخش CSS فعلی، بعد clearProps
       },
       {
         y: 0,
         scale: 1,
         opacity: 1,
-        tr: 0,
+        rotation: 0,
         duration: 0.85,
         ease: "back.out(1.5)",
         stagger: staggerFn,

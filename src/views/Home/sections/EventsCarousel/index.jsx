@@ -153,7 +153,7 @@ export default function EventsCarousel() {
                     {/* کارت اصلی */}
                     <div
                       ref={(el) => (cardRefs.current[i] = el)}
-                      className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[40%_60%] min-h-[18rem] sm:min-h-[18rem] md:min-h-[16rem] lg:min-h-[20rem] xl:min-h-[22rem]`}
+                      className={`relative bg-white border-[0.140625rem] ${theme.borderColor} rounded-[0_2.75rem_0_2.75rem] [corner-shape:squircle] overflow-hidden flex flex-col-reverse lg:grid lg:grid-cols-[50%_50%] min-h-[18rem] sm:min-h-[20rem] lg:min-h-[20rem] xl:min-h-[22rem]`}
                       style={{ minHeight: cardHeight || undefined }}
                     >
                       
@@ -218,13 +218,13 @@ export default function EventsCarousel() {
                       </div>
 
                       {/* تصویر رویداد (سمت چپ در دسکتاپ / بالا در موبایل) */}
-                      <div className="relative w-full h-[12rem] sm:h-[13rem] md:h-[12rem] lg:h-auto overflow-hidden bg-gray-100">
+                      <div className="relative w-full aspect-[827/465] lg:aspect-auto lg:h-full overflow-hidden bg-gray-100">
                         <img
                           src={event.image}
                           alt={event.title}
                           loading="lazy"
                           decoding="async"
-                          className="absolute inset-0 w-full h-full object-cover object-top"
+                          className="absolute inset-0 w-full h-full object-cover"
                         />
                       </div>
                     </div>

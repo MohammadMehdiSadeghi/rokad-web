@@ -21,9 +21,6 @@ function BlogCard({ image, date, title, body, slug, _id, id, rotation = 0 }) {
       className="
         relative
         w-full
-        max-w-[36rem]
-        sm:max-w-[44rem]
-        mx-auto
         transition-transform
         duration-500
         ease-out
@@ -40,7 +37,7 @@ function BlogCard({ image, date, title, body, slug, _id, id, rotation = 0 }) {
           absolute
           top-[0.25rem]
           left-[0.25rem]
-          h-[25.625rem]
+          h-full
           sm:top-[0.3125rem]
           sm:left-[0.3125rem]
           w-full
@@ -62,7 +59,7 @@ function BlogCard({ image, date, title, body, slug, _id, id, rotation = 0 }) {
           rounded-[1.875rem_0_1.875rem_0]
           [corner-shape:squircle]
           overflow-hidden
-          h-[25.625rem]
+          min-h-[25.625rem]
           flex
           flex-col
         "
@@ -74,9 +71,8 @@ function BlogCard({ image, date, title, body, slug, _id, id, rotation = 0 }) {
           loading="lazy"
           className="
             w-full
-            h-[10.625rem]
-            sm:h-[11.875rem]
-            object-cover object-top
+            aspect-[376/194]
+            object-cover
             border-b-[0.09375rem]
             sm:border-b-[0.125rem]
             border-[#292827]

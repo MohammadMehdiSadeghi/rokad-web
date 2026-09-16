@@ -121,10 +121,10 @@ export default function HonorsCarousel() {
                     }
                     .honors-swiper .card-inner-wrap {
                       transition:
-                        transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
-                        opacity 0.35s ease;
-                      opacity: 0.6;
-                      transform: scale(0.88);
+                        transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        opacity 0.45s ease;
+                      opacity: 0.55;
+                      transform: scale(0.85);
                     }
 
                     .honors-swiper .swiper-slide-active {
@@ -132,7 +132,7 @@ export default function HonorsCarousel() {
                     }
 
                     .honors-swiper .swiper-slide-active .card-inner-wrap {
-                      transform: scale(1.05);
+                      transform: scale(1);
                       opacity: 1;
                       z-index: 30;
                     }
@@ -144,14 +144,14 @@ export default function HonorsCarousel() {
 
                     @media (max-width: 1023px) {
                       .honors-swiper .swiper-slide-prev .card-inner-wrap {
-                        transform: scale(0.88) rotate(3deg);
-                        opacity: 0.55;
+                        transform: scale(0.82) rotate(2deg);
+                        opacity: 0.45;
                         z-index: 10;
                       }
 
                       .honors-swiper .swiper-slide-next .card-inner-wrap {
-                        transform: scale(0.88) rotate(-4deg);
-                        opacity: 0.55;
+                        transform: scale(0.82) rotate(-3deg);
+                        opacity: 0.45;
                         z-index: 10;
                       }
                     }
@@ -159,8 +159,8 @@ export default function HonorsCarousel() {
                     @media (min-width: 1024px) {
                       .honors-swiper .swiper-slide-prev .card-inner-wrap,
                       .honors-swiper .swiper-slide-next .card-inner-wrap {
-                        transform: scale(0.88);
-                        opacity: 0.55;
+                        transform: scale(0.82);
+                        opacity: 0.45;
                         z-index: 10;
                       }
                     }
@@ -308,7 +308,7 @@ export default function HonorsCarousel() {
                 setActiveIndex(swiper.realIndex);
               }}
               spaceBetween={-15}
-              speed={500}
+              speed={600}
               observer={true}
               observeParents={true}
               breakpoints={{
@@ -328,7 +328,7 @@ export default function HonorsCarousel() {
                               },
                             }}
               autoplay={{
-                delay: 3500,
+                delay: 4000,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
               }}

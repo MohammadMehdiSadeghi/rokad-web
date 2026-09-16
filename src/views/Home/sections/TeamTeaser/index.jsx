@@ -1,6 +1,4 @@
 "use client";
-import { useRef } from "react";
-import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 
 import Link from "next/link";
 import Container from "../../../../layout/Container";
@@ -190,12 +188,8 @@ function MiniCard({ member }) {
 ========================================================= */
 
 export default function TeamTeaser() {
-  const scrollScope = useRef(null);
-  useScrollAnimations(scrollScope, "TeamTeaser");
-
   return (
     <section
-      ref={scrollScope}
       id="team-teaser"
       dir="rtl"
       className="relative overflow-hidden bg-white py-6 sm:py-8 lg:py-10 w-full"

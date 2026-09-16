@@ -1,6 +1,5 @@
 "use client";
 import { useState, useRef } from "react";
-import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -47,9 +46,6 @@ const THEME_MAP = {
 };
 
 export default function Comments() {
-  const scrollScope = useRef(null);
-  useScrollAnimations(scrollScope, "Comments");
-
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -57,8 +53,7 @@ export default function Comments() {
   const comments = useRokadData(fetchComments, fallbackComments);
 
   return (
-    <section
-      ref={scrollScope} className="relative w-full pt-10 sm:pt-[5rem] lg:pt-[6rem] pb-10 sm:pb-[5rem] lg:pb-[6rem] bg-[#E4F4F2] overflow-hidden">
+    <section className="relative w-full pt-10 sm:pt-[5rem] lg:pt-[6rem] pb-10 sm:pb-[5rem] lg:pb-[6rem] bg-[#E4F4F2] overflow-hidden">
       <style>{`
         .comments-swiper .swiper-slide {
           overflow: visible;

@@ -1,6 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
-import { useScrollAnimations } from "../../../../lib/scrollAnimations";
+import { useState } from "react";
 import Container from "../../../../layout/Container";
 import { ChevronDownIcon, PlusIcon } from "../../../../common/Icons";
 import { useEnrollment } from "../../../../lib/EnrollmentContext";
@@ -38,9 +37,6 @@ const faqs = [
 ];
 
 export default function Faq() {
-  const scrollScope = useRef(null);
-  useScrollAnimations(scrollScope, "Faq");
-
   const [openIndex, setOpenIndex] = useState(-1);
   const { openEnrollment } = useEnrollment();
 
@@ -48,7 +44,6 @@ export default function Faq() {
 
   return (
     <section
-      ref={scrollScope}
       id="counseling"
       className="relative overflow-hidden bg-[#E4F4F2] py-10 sm:py-[5rem] lg:py-[6rem] w-full"
       dir="rtl"

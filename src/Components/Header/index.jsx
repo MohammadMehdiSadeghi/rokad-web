@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEnrollment } from "../../lib/EnrollmentContext";
-import { getScrollTop, onPageScroll } from "../../layout/ScrollSmooth";
 
 const logo = "/assets/Shared/Logos/logo.png";
 const COMPACT_THRESHOLD_VH = 50;
@@ -57,7 +56,7 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => {
-      const y = getScrollTop();
+      const y = window.scrollY;
       const threshold = window.innerHeight * (COMPACT_THRESHOLD_VH / 100);
       // بعد از 50vh: نوار فول‌عرض ظاهر می‌شود و تا پایین صفحه می‌ماند
       setCompact(y > threshold);
@@ -65,8 +64,8 @@ export default function Header() {
       setVisible(y > threshold || y < 10);
     };
     onScroll();
-    const off = onPageScroll(onScroll);
-    return off;
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {

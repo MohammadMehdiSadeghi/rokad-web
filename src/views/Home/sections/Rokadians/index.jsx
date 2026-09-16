@@ -1,6 +1,4 @@
 "use client";
-import { useRef } from "react";
-import { useScrollAnimations } from "../../../../lib/scrollAnimations";
 
 import Link from "next/link";
 import Container from "../../../../layout/Container";
@@ -264,9 +262,6 @@ function StudentCard({ student, index, stacked }) {
 ========================================================= */
 
 export default function Rokadians() {
-  const scrollScope = useRef(null);
-  useScrollAnimations(scrollScope, "Rokadians");
-
   // دیتای داینامیک از بک‌اند؛ api.js آیتم‌های بدون تصویر رو فیلتر می‌کنه
   // و اگه API آفلاینه fallback (۳ کارت با تصویر) برمی‌گرده
   const allStudents = useRokadData(fetchStudents, fallbackStudents);
@@ -275,7 +270,6 @@ export default function Rokadians() {
 
   return (
     <section
-      ref={scrollScope}
       id="rokadians"
       dir="rtl"
       className="relative overflow-hidden bg-white pt-[2rem] sm:pt-[2.5rem] lg:pt-[2.5rem] pb-[3.5rem] sm:pb-[5rem] lg:pb-[6rem]"

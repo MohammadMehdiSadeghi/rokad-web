@@ -662,14 +662,14 @@ export default function EventsSingle({ slug }) {
             <span className="inline-block text-ink">هم</span>
             <span className="inline-block text-teal">بخون</span>
           </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8">
+          <div className="grid grid-cols-1 auto-rows-fr gap-6 md:grid-cols-3 sm:gap-8">
             {relatedPosts.map((p, i) => {
               const t = tones[p.tone] || tones.teal;
               return (
                 <a key={i} href={p.href || "#"} className="relative block group">
                   <div className="absolute top-[7px] left-[7px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-ink" />
-                  <div className="relative rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white overflow-hidden transition-transform group-hover:-translate-y-1">
-                    <div className="relative flex flex-col items-center justify-center aspect-[16/9] border-b-2 border-ink overflow-hidden" style={{ backgroundColor: t.bg }}>
+                  <div className="relative flex h-full flex-col rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white overflow-hidden transition-transform group-hover:-translate-y-1">
+                    <div className="relative flex shrink-0 flex-col items-center justify-center aspect-[16/9] border-b-2 border-ink overflow-hidden" style={{ backgroundColor: t.bg }}>
                       <div className="absolute inset-0 pointer-events-none opacity-30">
                         <img src={eventPattern} alt="" draggable="false" className="object-cover w-full h-full select-none"
                   loading="lazy"
@@ -679,10 +679,10 @@ export default function EventsSingle({ slug }) {
                       <span className="absolute top-2.5 right-2.5 text-[0.6875rem] font-black text-white bg-ink/85 rounded px-2 py-1">{p.cat}</span>
                       <GalleryIcon name={p.icon} className="relative z-10 w-10 h-10 text-white" />
                     </div>
-                    <div className="p-5">
+                    <div className="flex flex-1 flex-col p-5">
                       <h3 className="font-black text-[1.0625rem] text-navy-alt leading-[1.5] mb-2 group-hover:text-teal transition-colors">{p.title}</h3>
                       <p className="text-[0.8125rem] text-ink/65 leading-[1.9] mb-4">{p.excerpt}</p>
-                      <div className="flex items-center justify-between">
+                      <div className="mt-auto flex items-center justify-between">
                         <span className="text-[0.75rem] font-bold text-ink/45">{p.date}</span>
                         <span className="inline-flex items-center gap-1 text-[0.8125rem] font-extrabold text-teal-text">
                           مطالعه

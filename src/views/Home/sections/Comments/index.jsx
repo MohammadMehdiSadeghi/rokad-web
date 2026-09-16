@@ -67,16 +67,16 @@ export default function Comments() {
           transition: opacity 0.45s ease, transform 0.45s ease;
         }
         .comments-swiper .card-inner-wrap {
-          transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
-          opacity: 0.3;
-          transform: scale(0.88);
+          transition: transform 0.35s ease, opacity 0.3s ease;
+          opacity: 0.4;
+          transform: scale(0.9);
           pointer-events: none;
         }
         .comments-swiper .swiper-slide-active {
           z-index: 30 !important;
         }
         .comments-swiper .swiper-slide-active .card-inner-wrap {
-          transform: scale(1.25) translateY(-6px) rotate(0deg);
+          transform: scale(1) translateY(0);
           opacity: 1;
           z-index: 30;
           pointer-events: auto;
@@ -85,9 +85,8 @@ export default function Comments() {
           z-index: 10 !important;
         }
         .comments-swiper .swiper-slide-prev .card-inner-wrap {
-          transform: scale(0.92) translateY(4px) rotate(4deg);
-          opacity: 0.7;
-          filter: blur(2px);
+          transform: scale(0.9);
+          opacity: 0.5;
           z-index: 10;
           pointer-events: auto;
         }
@@ -95,62 +94,42 @@ export default function Comments() {
           z-index: 10 !important;
         }
         .comments-swiper .swiper-slide-next .card-inner-wrap {
-          transform: scale(0.92) translateY(4px) rotate(-5deg);
-          opacity: 0.7;
-          filter: blur(2px);
+          transform: scale(0.9);
+          opacity: 0.5;
           z-index: 10;
           pointer-events: auto;
         }
-        /* Tablet (md): smaller scale so cards do not clip */
+        /* Tablet (md) */
         @media (min-width: 768px) and (max-width: 1023px) {
           .comments-swiper .swiper-slide-active .card-inner-wrap {
-            transform: scale(1.15, 1.1) translateY(-4px) rotate(0deg);
+            transform: scale(1.05) translateY(-2px);
           }
           .comments-swiper .swiper-slide-prev .card-inner-wrap {
-            transform: scale(0.88) translateY(4px) rotate(4deg);
-            opacity: 0.6;
-            filter: blur(1.5px);
+            transform: scale(0.9);
+            opacity: 0.5;
           }
           .comments-swiper .swiper-slide-next .card-inner-wrap {
-            transform: scale(0.88) translateY(4px) rotate(-5deg);
-            opacity: 0.6;
-            filter: blur(1.5px);
+            transform: scale(0.9);
+            opacity: 0.5;
           }
         }
-        /* Mobile: کارت کامپکت، متناسب و بسیار تمیز بدون پرش و بیرون‌زدگی */
+        /* Mobile */
         @media (max-width: 639px) {
           .comments-swiper .card-inner-wrap {
-            transition: transform 0.4s ease, opacity 0.35s ease;
             opacity: 0.4;
-            transform: scale(0.85);
-            pointer-events: none;
-          }
-          .comments-swiper .swiper-slide-active {
-            z-index: 30 !important;
+            transform: scale(0.9);
           }
           .comments-swiper .swiper-slide-active .card-inner-wrap {
-            transform: scale(1) translateY(0);
+            transform: scale(1);
             opacity: 1;
-            z-index: 30;
-            pointer-events: auto;
-          }
-          .comments-swiper .swiper-slide-prev {
-            z-index: 10 !important;
           }
           .comments-swiper .swiper-slide-prev .card-inner-wrap {
-            transform: scale(0.85) rotate(2deg);
+            transform: scale(0.9);
             opacity: 0.4;
-            z-index: 10;
-            pointer-events: auto;
-          }
-          .comments-swiper .swiper-slide-next {
-            z-index: 10 !important;
           }
           .comments-swiper .swiper-slide-next .card-inner-wrap {
-            transform: scale(0.85) rotate(-2deg);
+            transform: scale(0.9);
             opacity: 0.4;
-            z-index: 10;
-            pointer-events: auto;
           }
         }
       `}</style>
@@ -211,8 +190,6 @@ export default function Comments() {
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
               spaceBetween={0}
               speed={500}
-              observer={true}
-              observeParents={true}
               breakpoints={{
                 320: { slidesPerView: 1.15, spaceBetween: -8 },
                 480: { slidesPerView: 1.3, spaceBetween: -6 },

@@ -309,8 +309,7 @@ export default function HonorsCarousel() {
               }}
               spaceBetween={-15}
               speed={600}
-              observer={true}
-              observeParents={true}
+
               breakpoints={{
                               640: {
                                 slidesPerView: 2,

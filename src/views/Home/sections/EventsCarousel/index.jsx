@@ -120,8 +120,6 @@ export default function EventsCarousel() {
             slidesPerView={1}
             spaceBetween={28}
             centeredSlides={true}
-            observer={true}
-            observeParents={true}
             breakpoints={{
               // تبلت: کارت کوچیک‌تر و وسط‌چین
               768: { slidesPerView: 1.15, spaceBetween: 32 },

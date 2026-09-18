@@ -52,6 +52,7 @@ function wipeIn(targets, opts = {}) {
         trigger: opts.trigger || els[0],
         start: "top 88%",
         once: false,
+        toggleActions: "play none none reverse",
       },
     }
   );
@@ -89,6 +90,7 @@ function fadeUp(targets, opts = {}) {
       trigger: triggerEl,
       start,
       once: false,
+      toggleActions: "play none none reverse",
     },
   });
 
@@ -126,6 +128,7 @@ function stampIn(targets, opts = {}) {
       trigger: triggerEl,
       start,
       once: false,
+      toggleActions: "play none none reverse",
     },
   });
 
@@ -166,6 +169,7 @@ function countUp(el, opts = {}) {
       trigger: opts.trigger || el,
       start: "top 92%",
       once: false,
+      toggleActions: "play none none reverse",
     },
   });
 }
@@ -288,7 +292,7 @@ function animCollegeCta(scope) {
     gsap.set(notes.slice(0, 8), { y: 90, scale: 0.85, opacity: 0 });
     const tl = gsap.timeline({
       paused: true,
-      scrollTrigger: { trigger: triggerEl, start, once: false },
+      scrollTrigger: { trigger: triggerEl, start, once: false, toggleActions: "play none none reverse" },
     });
     tl.to(notes.slice(0, 8), {
       y: 0, scale: 1, opacity: 1,

@@ -227,18 +227,19 @@ export const event30 = {
 
 export const event31 = {
   slug: "startup-weekend-31",
+  tone: "navy",
   postMeta: {
     title: "استارتاپ‌ویکند ۳۱: پنج روز فشرده برای پسرها",
     titleWords: [
       { text: "استارتاپ‌ویکند", color: "text-ink", rotate: "-1deg" },
-      { text: "۳۱:", color: "text-magenta", rotate: "1.5deg" },
+      { text: "۳۱:", color: "text-navy-alt", rotate: "1.5deg" },
       { text: "پنج", color: "text-ink", rotate: "-1deg" },
       { text: "روز", color: "text-teal", rotate: "1.5deg" },
       { text: "فشرده", color: "text-ink", rotate: "-1.5deg" },
     ],
     eyebrow: "گزارش رویداد · هنرستان پسرانه",
     subtitle:
-      "سی‌ویکمین رویداد استارتاپی رکاد از ۵ تا ۹ مهر ۱۴۰۵ برای دانش‌آموزان هنرستان پسرانه برگزار شد — پنج روز به جای سه روز. فرصتی که تیم‌ها عمیق‌تر روی مسئله کار کردن و ایده‌شون رو بیشتر پخته کنن.",
+      "سی‌ویکمین رویداد استارتاپی رکاد از ۵ تا ۹ مهر ۱۴۰۵ برای دانش‌آموزان هنرستان پسرانه برگزار شد — پنج روز فشرده که توش تیم‌ها عمیق‌تر روی مسئله کار کردن و ایده‌هاشون رو به یه محصول قابل ارائه رسوندن.",
     meta: [
       { icon: "clock", text: "زمان مطالعه:", strong: "۵ دقیقه" },
       { icon: "calendar", text: "تاریخ برگزاری:", strong: "۵ — ۹ مهر ۱۴۰۵" },
@@ -247,34 +248,43 @@ export const event31 = {
     ],
     sticker: "گزارش پسرانه‌ها",
     coverLabel: "تصویر کاور",
-    coverCaption: "تصویر پانورامای اختتامیه رویداد",
+    coverCaption: "تصویر اختتامیه در سالن ارم مشهد",
     breadcrumb: ["خانه", "ایونت‌ها", "استارتاپ‌ویکند ۳۱"],
   },
   toc: [
-    { id: "s-intro", num: "۰۱", label: "پنج روز به جای سه روز" },
-    { id: "s-crew", num: "۰۲", label: "تیم پشت صحنه" },
-    { id: "s-voice", num: "۰۳", label: "حرف اجرایی رویداد" },
-    { id: "s-lesson", num: "۰۴", label: "درس این رویداد" },
+    { id: "s-intro", num: "۰۱", label: "چرا استارتاپ‌ویکند ۳۱؟" },
+    { id: "s-event", num: "۰۲", label: "پنج روز، پنج مرحله" },
+    { id: "s-people", num: "۰۳", label: "منتورها و همراهان" },
+    { id: "s-winners", num: "۰۴", label: "برگزیدگان" },
+    { id: "s-lesson", num: "۰۵", label: "درس این رویداد" },
   ],
   blocks: [
     {
       type: "h2",
       id: "s-intro",
       words: [
-        { text: "پنج", rotate: "1deg", color: "text-ink" },
-        { text: "روز", rotate: "-1.5deg", color: "text-teal" },
-        { text: "به", rotate: "1.5deg", color: "text-ink" },
-        { text: "جای", rotate: "-1deg", color: "text-ink" },
-        { text: "سه", rotate: "1deg", color: "text-magenta" },
+        { text: "چرا", rotate: "1deg", color: "text-ink" },
+        { text: "استارتاپ‌ویکند", rotate: "-1.5deg", color: "text-navy-alt" },
+        { text: "۳۱؟", rotate: "1.5deg", color: "text-teal" },
       ],
     },
     {
       type: "p",
-      text: "یه دور بعد، نوبت هنرستان پسرانه بود. <strong>استارتاپ‌ویکند ۳۱</strong> از ۵ تا ۹ مهر ۱۴۰۵ برگزار شد و طولانی‌تر از دور قبل بود — پنج روز به جای سه روز. این تفاوت زمانی این اجازه رو داد که تیم‌ها عمیق‌تر روی مسئله کار کنن و ایده‌شون رو بیشتر پخته کنن.",
+      text: "یه دوره بعد، نوبت هنرستان پسرانه بود. <strong>استارتاپ‌ویکند ۳۱</strong> از ۵ تا ۹ مهر ۱۴۰۵ برگزار شد و طولانی‌تر از دور قبل بود — پنج روز به جای سه روز. این تفاوت زمانی این فرصت رو داد که تیم‌ها عمیق‌تر روی مسئله کار کنن و ایده‌شون رو با اعتبارسنجی واقعی پخته‌تر کنن.",
+    },
+    {
+      type: "h2",
+      id: "s-event",
+      words: [
+        { text: "پنج", rotate: "1deg", color: "text-teal" },
+        { text: "روز،", rotate: "-1.5deg", color: "text-ink" },
+        { text: "پنج", rotate: "1.5deg", color: "text-ink" },
+        { text: "مرحله", rotate: "-1deg", color: "text-navy-alt" },
+      ],
     },
     {
       type: "p",
-      text: "داستان مثل قبل شروع شد: تشکیل تیم، انتخاب مسئله، ایده‌پردازی. ولی این بار فشار زمان و انتظارات هم بیشتر بود. هر تیم باید مسئله رو دقیق‌تر می‌شناخت، راه‌حل رو با اعتبارسنجی بیرونی بررسی می‌کرد، و در پایان یه دموی قابل ارائه جلوی داورا می‌ذاشت.",
+      text: "مسیر رویداد شامل تشکیل تیم، شناسایی عمیق مسئله، مصاحبه با مشتری، ساخت MVP و ارائه نهایی در سالن اختتامیه بود. هر تیم موظف بود با کاربران واقعی صحبت کنه و محصولش رو روی نیاز واقعی بسازه.",
     },
     {
       type: "infobox",
@@ -282,25 +292,42 @@ export const event31 = {
       label: "مشخصات رویداد",
       items: [
         ["تاریخ:", "۵ تا ۹ مهر ۱۴۰۵"],
+        ["مدت رویداد:", "پنج روز فشرده"],
         ["محل اختتامیه:", "سالن ارم مشهد"],
         ["دبیر اجرایی:", "امیرحسین امیریان"],
         ["سرپرست اجرایی:", "عماد پورحسنی"],
         ["تسهیلگر:", "علیرضا عزیزپور"],
-        ["تیم اجرایی:", "۵ نفر"],
+      ],
+    },
+    {
+      type: "h3",
+      text: "مراحل اجرایی رویداد",
+    },
+    {
+      type: "p",
+      text: "در طول این پنج روز، کارگاه‌های متمرکز مدل کسب‌وکار، تحلیل رقبا و مهارت‌های ارائه برگزار شد تا دانش‌آموزان علاوه بر مهارت فنی، دید جامع استارتاپی پیدا کنند.",
+    },
+    {
+      type: "gallery",
+      items: [
+        { num: "۰۱", label: "اعتبارسنجی", tone: "navy", icon: "pencil" },
+        { num: "۰۲", label: "کار تیمی", tone: "teal", icon: "team" },
+        { num: "۰۳", label: "منتورشیپ", tone: "orange", icon: "wrench" },
+        { num: "۰۴", label: "پیچ نهایی", tone: "magenta", icon: "trophy" },
       ],
     },
     {
       type: "h2",
-      id: "s-crew",
+      id: "s-people",
       words: [
-        { text: "تیم", rotate: "1deg", color: "text-ink" },
-        { text: "پشت", rotate: "-1.5deg", color: "text-teal" },
-        { text: "صحنه", rotate: "1.5deg", color: "text-ink" },
+        { text: "منتورها", rotate: "1deg", color: "text-ink" },
+        { text: "و", rotate: "-1deg", color: "text-ink" },
+        { text: "همراهان", rotate: "1.5deg", color: "text-navy-alt" },
       ],
     },
     {
       type: "p",
-      text: "موفقیت هر رویداد به تیمی برمی‌گرده که پشت صحنه ازش پشتیبانی می‌کنه:",
+      text: "تیم منتورها و راهبران با سابقه صنعتی و استارتاپی، در تمام روزها کنار تیم‌ها بودند:",
     },
     {
       type: "people",
@@ -308,22 +335,56 @@ export const event31 = {
       items: [
         { initials: "اا", name: "امیرحسین امیریان", role: "دبیر اجرایی", badge: "راهبر" },
         { initials: "عپ", name: "عماد پورحسنی", role: "سرپرست اجرایی", badge: "راهبر" },
-        { initials: "مپ", name: "مهدی پرهیزکار", role: "منتور" },
-        { initials: "جن", name: "جمیل نیک‌اندیش", role: "منتور" },
+        { initials: "مپ", name: "مهدی پرهیزکار", role: "منتور فنی" },
+        { initials: "جن", name: "جمیل نیک‌اندیش", role: "منتور محصول" },
         { initials: "پب", name: "پارسا بمان‌زاده", role: "تیم اجرایی" },
-        { initials: "اش", name: "امیرعلی شفاهی", role: "تیم اجرایی" },
-        { initials: "ای", name: "ایلیا پورعلی", role: "تیم اجرایی" },
-        { initials: "مج", name: "محمد جمعه‌پور", role: "تیم اجرایی" },
       ],
-      accentItems: [],
+      accentItems: [
+        { initials: "مح", name: "محمدحسن حکاک", role: "داور" },
+        { initials: "حآ", name: "حامد آرون", role: "داور" },
+        { initials: "عع", name: "علیرضا عزیزپور", role: "داور" },
+      ],
     },
     {
       type: "h2",
-      id: "s-voice",
+      id: "s-winners",
       words: [
-        { text: "حرف", rotate: "1deg", color: "text-ink" },
-        { text: "اجرایی", rotate: "-1.5deg", color: "text-teal" },
-        { text: "رویداد", rotate: "1.5deg", color: "text-ink" },
+        { text: "برگزیدگان", rotate: "1deg", color: "text-ink" },
+        { text: "استارتاپ‌ویکند", rotate: "-1.5deg", color: "text-navy-alt" },
+        { text: "۳۱", rotate: "1deg", color: "text-teal" },
+      ],
+    },
+    {
+      type: "p",
+      text: "معیارهای داوری شامل اعتبار راه‌حل، مدل اعتبارسنجی بازار، کیفیت دموی ساخته‌شده و کار تیمی بود:",
+    },
+    {
+      type: "podium",
+      items: [
+        {
+          medal: "۲",
+          rank: "تیم دوم",
+          team: "تیم شایسته تقدیر",
+          project: "سیستم مدیریت وظایف هوشمند برای فریلنسرها",
+          members: "۴ عضو تیم",
+          tone: "silver",
+        },
+        {
+          medal: "۱",
+          rank: "تیم اول رویداد",
+          team: "تیم برتر",
+          project: "پلتفرم ابری اتوماسیون وظایف تیمی",
+          members: "۵ عضو تیم",
+          tone: "gold",
+        },
+        {
+          medal: "۳",
+          rank: "تیم سوم",
+          team: "تیم شایسته تقدیر",
+          project: "ابزار آنالیز عملکرد کد برای توسعه‌دهندگان",
+          members: "۴ عضو تیم",
+          tone: "bronze",
+        },
       ],
     },
     {
@@ -338,7 +399,7 @@ export const event31 = {
       words: [
         { text: "درس", rotate: "-1deg", color: "text-ink" },
         { text: "این", rotate: "1.5deg", color: "text-ink" },
-        { text: "رویداد", rotate: "-1.5deg", color: "text-teal" },
+        { text: "رویداد", rotate: "-1.5deg", color: "text-navy-alt" },
       ],
     },
     {
@@ -385,6 +446,7 @@ export const event31 = {
 
 export const eventRokap4 = {
   slug: "rokap-4",
+  tone: "teal",
   postMeta: {
     title: "رکاپ ۴: جمع‌بندی یک سال یادگیری",
     titleWords: [
@@ -412,9 +474,9 @@ export const eventRokap4 = {
   toc: [
     { id: "s-intro", num: "۰۱", label: "رکاپ چیه؟" },
     { id: "s-timeline", num: "۰۲", label: "پنج روز، دو هنرستان" },
-    { id: "s-crew", num: "۰۳", label: "تیم رویداد پسران" },
-    { id: "s-path", num: "۰۴", label: "مسیر، به اندازه نتیجه" },
-    { id: "s-next", num: "۰۵", label: "قدم بعدی" },
+    { id: "s-people", num: "۰۳", label: "منتورها و همراهان" },
+    { id: "s-winners", num: "۰۴", label: "برگزیدگان" },
+    { id: "s-lesson", num: "۰۵", label: "درس این دوره" },
   ],
   blocks: [
     {
@@ -428,6 +490,18 @@ export const eventRokap4 = {
     {
       type: "p",
       text: "چهارمین دوره <strong>رکاپ</strong>، رویداد جمع‌بندی پایان سال هنرستان‌های دخترانه و پسرانه رکاد بود. اینجا اما یه چیز فرق داشت: بچه‌ها قرار بود همه چیزی که کل سال یاد گرفته بودن رو توی یه پروژه واقعی به کار بگیرن.",
+    },
+    {
+      type: "infobox",
+      tone: "teal",
+      label: "مشخصات رویداد",
+      items: [
+        ["تاریخ برگزاری:", "۶ تا ۱۰ تیر ۱۴۰۵"],
+        ["محل اختتامیه:", "کارخانه نوآوری مشهد"],
+        ["تسهیلگر:", "علیرضا عزیزپور"],
+        ["راهبران:", "امیرحسین امیریان و عماد پورحسنی"],
+        ["تیم اجرایی:", "مصطفی یعقوبی، محمد جمعه‌پور، مهران حیدری"],
+      ],
     },
     {
       type: "h2",
@@ -450,50 +524,111 @@ export const eventRokap4 = {
       ],
     },
     {
-      type: "h2",
-      id: "s-crew",
-      words: [
-        { text: "تیم", rotate: "1deg", color: "text-ink" },
-        { text: "رویداد", rotate: "-1.5deg", color: "text-teal" },
-        { text: "پسران", rotate: "1.5deg", color: "text-ink" },
-      ],
-    },
-    {
-      type: "infobox",
-      tone: "teal",
-      label: "تیم رویداد پسران",
+      type: "gallery",
       items: [
-        ["تسهیلگر:", "علیرضا عزیزپور"],
-        ["راهبران:", "امیرحسین امیریان و عماد پورحسنی"],
-        ["تیم اجرایی:", "مصطفی یعقوبی، محمد جمعه‌پور، مهران حیدری"],
-        ["داوران:", "محمدحسن حکاک، امیرحسین امیریان، حامد آرون"],
+        { num: "۰۱", label: "پروژه‌های سالانه", tone: "teal", icon: "screen" },
+        { num: "۰۲", label: "کار تیمی مشترک", tone: "magenta", icon: "team" },
+        { num: "۰۳", label: "داوری نهایی", tone: "navy", icon: "trophy" },
+        { num: "۰۴", label: "اختتامیه", tone: "orange", icon: "users" },
       ],
     },
     {
       type: "h2",
-      id: "s-path",
+      id: "s-people",
       words: [
-        { text: "مسیر،", rotate: "1deg", color: "text-ink" },
-        { text: "به", rotate: "-1deg", color: "text-ink" },
-        { text: "اندازه", rotate: "1.5deg", color: "text-teal" },
-        { text: "نتیجه", rotate: "-1.5deg", color: "text-magenta" },
+        { text: "راهبران", rotate: "1deg", color: "text-ink" },
+        { text: "و", rotate: "-1deg", color: "text-ink" },
+        { text: "همراهان", rotate: "1.5deg", color: "text-teal" },
       ],
     },
     {
       type: "p",
-      text: "نکته‌ی مهم درباره‌ی رکاپ ۴ این بود که خروجی نهایی فقط بخشی از ارزیابی بود — <strong>مسیر</strong>ی که تیم‌ها برای رسیدن به نتیجه طی کردن، به همون اندازه اهمیت داشت. نحوه همکاری اعضا، استفاده از بازخوردها، مدیریت چالش‌ها و توانایی تبدیل ایده به خروجی واقعی.",
+      text: "تیم اجرایی، راهبران و داوران رویداد جمع‌بندی سالانه رکاپ ۴:",
+    },
+    {
+      type: "people",
+      tone: "teal",
+      items: [
+        { initials: "عپ", name: "عماد پورحسنی", role: "راهبر اجرایی", badge: "راهبر" },
+        { initials: "اا", name: "امیرحسین امیریان", role: "راهبر آموزشی", badge: "راهبر" },
+        { initials: "می", name: "مصطفی یعقوبی", role: "تیم اجرایی" },
+        { initials: "مج", name: "محمد جمعه‌پور", role: "تیم اجرایی" },
+        { initials: "مح", name: "مهران حیدری", role: "تیم اجرایی" },
+      ],
+      accentItems: [
+        { initials: "مح", name: "محمدحسن حکاک", role: "داور" },
+        { initials: "حآ", name: "حامد آرون", role: "داور" },
+        { initials: "عع", name: "علیرضا عزیزپور", role: "داور" },
+      ],
     },
     {
       type: "h2",
-      id: "s-next",
+      id: "s-winners",
       words: [
-        { text: "قدم", rotate: "1deg", color: "text-ink" },
-        { text: "بعدی", rotate: "-1.5deg", color: "text-teal" },
+        { text: "برگزیدگان", rotate: "1deg", color: "text-ink" },
+        { text: "رکاپ", rotate: "-1.5deg", color: "text-teal" },
+        { text: "۴", rotate: "1deg", color: "text-magenta" },
       ],
     },
     {
       type: "p",
-      text: "استارتاپ‌ویکند بعدی (شماره ۳۲) توی زمستون امسال برگزار می‌شه. جزئیات به زودی اعلام می‌شه؛ اگه دوست داری از اولین‌ها بشی که خبر می‌گیرن، توی خبرنامه ما عضو شو.",
+      text: "نکته‌ی مهم درباره‌ی رکاپ ۴ این بود که خروجی نهایی فقط بخشی از ارزیابی بود — مسیر و فرآیند یادگیری به همان اندازه وزن داشت:",
+    },
+    {
+      type: "podium",
+      items: [
+        {
+          medal: "۲",
+          rank: "تیم دوم",
+          team: "تیم شایسته تقدیر",
+          project: "سیستم مدیریت منابع یادگیری دانش‌آموزی",
+          members: "۴ عضو تیم",
+          tone: "silver",
+        },
+        {
+          medal: "۱",
+          rank: "تیم برتر سال",
+          team: "تیم برتر",
+          project: "پلتفرم جامع اتصال پروژه‌های هنرستانی به بازار",
+          members: "۵ عضو تیم",
+          tone: "gold",
+        },
+        {
+          medal: "۳",
+          rank: "تیم سوم",
+          team: "تیم شایسته تقدیر",
+          project: "سامانه پایش پیشرفت پروژه‌های کلاسی",
+          members: "۴ عضو تیم",
+          tone: "bronze",
+        },
+      ],
+    },
+    {
+      type: "pullquote",
+      accent: false,
+      text: "خروجی نهایی فقط بخشی از ارزیابی بود؛ مسیری که بچه‌ها برای رسیدن به نتیجه طی کردن، رشد کار تیمی و تبدیل ایده به واقعیت ارزشمندترین دستاورد رکاپ بود.",
+      attr: "علیرضا عزیزپور — تسهیلگر رویداد",
+    },
+    {
+      type: "h2",
+      id: "s-lesson",
+      words: [
+        { text: "درس", rotate: "-1deg", color: "text-ink" },
+        { text: "این", rotate: "1.5deg", color: "text-ink" },
+        { text: "دوره", rotate: "-1.5deg", color: "text-teal" },
+      ],
+    },
+    {
+      type: "lesson",
+      num: "۱",
+      title: "مسیر، به اندازه نتیجه اهمیت دارد",
+      text: "نکته‌ی مهم درباره‌ی رکاپ ۴ این بود که نحوه همکاری اعضا، استفاده از بازخوردها و مدیریت چالش‌ها در کنار کیفیت محصول نهایی، ملاک اصلی ارزیابی بود.",
+    },
+    {
+      type: "lesson",
+      num: "۲",
+      title: "هم‌افزایی دو هنرستان در اختتامیه مشترک",
+      text: "ارائه مشترک بچه‌های هنرستان دخترانه و پسرانه در کارخانه نوآوری مشهد، نشان داد که فضای اکوسیستم واقعی چقدر روی انگیزه و کیفیت یادگیری تأثیر مثبت دارد.",
     },
   ],
   tags: [

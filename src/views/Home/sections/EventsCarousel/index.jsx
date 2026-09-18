@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper/modules";
@@ -97,9 +98,10 @@ export default function EventsCarousel() {
 
         <Container className="relative z-10">
         
-          {/* ── هدر: تایتل و توضیحات — فاصله ۳۲px در موبایل، ۴rem در تبلت/دسکتاپ ── */}
-          <div className="mb-8 sm:mb-[4rem]">
-            <h2 className="font-black text-[1.5rem] sm:text-[2.25rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.3] mb-0">
+        {/* ── هدر: تایتل و دکمه مشاهده همه ── */}
+        <div className="flex items-center justify-between gap-3 mb-8 sm:mb-[4rem]">
+          <div>
+            <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.3] mb-0">
               جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
             </h2>
             {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
@@ -107,6 +109,21 @@ export default function EventsCarousel() {
               رویدادهایی که دانش‌آموزها توش از ایده تا اجرا رو با دست خودشون طی می‌کنن.
             </p>
           </div>
+
+          <Link
+            href="/events"
+            className="relative inline-flex items-center justify-center rotate-[-1.55deg] hover:rotate-0 transition-all duration-300 flex-shrink-0 group"
+          >
+            <span
+              aria-hidden="true"
+              className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#202a5a]"
+            />
+            <span className="relative z-10 inline-flex items-center gap-2 bg-white border-[0.125rem] border-[#202a5a] text-[#202a5a] font-extrabold text-xs xs:text-sm sm:text-base px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer [background-image:linear-gradient(to_right,#202a5a,#202a5a)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
+              <span>مشاهده همه</span>
+              <ChevronLeftIcon className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
+            </span>
+          </Link>
+        </div>
 
         {/* ── کاروسل Swiper ── */}
         <div className="relative">

@@ -367,18 +367,27 @@ html {
 .rk-bi .bi-read-btn:hover { transform: rotate(0deg) scale(1.04); background: var(--bi-primary); color: var(--bi-ink); }
 
 /* ---------- چیپ فیلتر ---------- */
-.rk-bi .bi-cats { background: #fff; padding: 1.25rem 0 1rem; }
+.rk-bi .bi-cats { background: #fff; padding: 1.25rem 0 1rem; overflow: hidden; }
 .rk-bi .bi-chip-row {
-  display: flex; gap: 10px; flex-wrap: nowrap;
-  overflow-x: auto; padding: .5rem 0;
-  scrollbar-width: none;
+  display: flex; gap: 10px; flex-wrap: wrap;
+  align-items: center;
+  padding: .75rem 4px;
+}
+@media (max-width: 640px) {
+  .rk-bi .bi-chip-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: .75rem 6px;
+    margin: 0 -6px;
+    scrollbar-width: none;
+  }
 }
 .rk-bi .bi-chip-row::-webkit-scrollbar { display: none; }
 .rk-bi .bi-chip-row button {
   flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px;
   padding: .65rem 1.1rem; border-radius: 999px;
   border: 2px solid; font-weight: 800; font-size: 14px;
-  white-space: nowrap; cursor: pointer; transition: all .25s ease;
+  white-space: nowrap; cursor: pointer; transition: all .2s ease;
   font-family: inherit;
 }
 .rk-bi .bi-chip-count {

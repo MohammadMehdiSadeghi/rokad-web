@@ -274,8 +274,8 @@ function Categories({ active, setActive, counts }) {
                   background: isActive ? t.solid : t.tint,
                   color: isActive ? "#fff" : c.tone ? t.dark : "var(--bi-ink)",
                   borderColor: isActive ? "var(--bi-ink)" : "rgba(41,40,39,.15)",
-                  transform: isActive ? "rotate(0deg) scale(1.05)" : `rotate(${ROT(i)})`,
-                  boxShadow: isActive ? "3px 3px 0 var(--bi-ink)" : "none",
+                  transform: isActive ? "rotate(0deg) translateY(-2px)" : `rotate(${ROT(i)})`,
+                  boxShadow: isActive ? "2.5px 2.5px 0 var(--bi-ink)" : "none",
                 }}
               >
                 {c.label}

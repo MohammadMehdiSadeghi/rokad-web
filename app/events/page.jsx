@@ -58,23 +58,23 @@ export default function EventsPage() {
         </div>
 
         {/* ════ کارت‌ها ════ */}
-        <div className="grid grid-cols-1 gap-6 sm:gap-7 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:gap-7 lg:grid-cols-3 items-stretch">
           {fallbackEvents.map((ev, i) => {
             const t = themeMap[ev.theme] || themeMap.boys;
             return (
               <Link
                 key={i}
                 href={ev.href || "/events"}
-                className="group relative block rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] border-2 border-[#292827] bg-white transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
-                style={{ boxShadow: `4.75px 4.75px 0 0 ${t.shadow}` }}
+                className="group relative flex flex-col h-full rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] border-2 border-[#292827] transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
+                style={{ backgroundColor: t.bg, boxShadow: `4.75px 4.75px 0 0 ${t.shadow}` }}
               >
                 {/* نوار رنگی بالا — گوشه‌هاش با overflow-hidden کارت کات می‌شه */}
                 <div
-                  className="h-2.5 w-full"
+                  className="h-2.5 w-full shrink-0"
                   style={{ backgroundColor: t.accent }}
                 />
 
-                <div className="p-5 sm:p-6" style={{ backgroundColor: t.bg }}>
+                <div className="p-5 sm:p-6 flex-1 flex flex-col">
                   <div className="mb-3 flex items-center justify-between">
                     <span
                       className="inline-flex rounded-[0_0.625rem_0_0.625rem] border-2 border-[#292827] px-3.5 py-1 text-[0.75rem] font-extrabold bg-white"
@@ -105,7 +105,7 @@ export default function EventsPage() {
                     {ev.meta}
                   </p>
 
-                  <p className="text-[0.9375rem] leading-[1.9] text-ink/70">
+                  <p className="text-[0.9375rem] leading-[1.9] text-ink/70 flex-1">
                     {ev.body}
                   </p>
 

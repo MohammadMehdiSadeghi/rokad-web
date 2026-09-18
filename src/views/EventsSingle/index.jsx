@@ -304,9 +304,12 @@ function MetaIcon({ name }) {
 }
 
 // ═══════════════ هدر مقاله ═══════════════
-function PostHero({ postMeta }) {
+function PostHero({ postMeta, tone = "teal" }) {
+  const t = tones[tone] || tones.teal;
+  const breadcrumbLast = postMeta.breadcrumb ? postMeta.breadcrumb[postMeta.breadcrumb.length - 1] : postMeta.title;
+
   return (
-    <section className="relative overflow-hidden bg-bg-mint">
+    <section className="relative overflow-hidden" style={{ backgroundColor: t.bg === "#e0195b" ? "#FCE8EF" : t.bg === "#202a5a" ? "#E9EAEF" : "#f2faf9" }}>
       <div className="absolute inset-0 pointer-events-none opacity-60 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]">
         <img src={sectionPattern} alt="" draggable="false" className="object-cover w-full h-full select-none"
                   loading="lazy"
@@ -320,14 +323,14 @@ function PostHero({ postMeta }) {
           <ChevronLeftIcon className="w-3.5 h-3.5 text-ink/30" />
           <a href="/events" className="transition-colors hover:text-teal">ایونت‌ها</a>
           <ChevronLeftIcon className="w-3.5 h-3.5 text-ink/30" />
-          <span className="text-ink/40">سه روایت از رویدادهای رکاد</span>
+          <span className="text-ink/70 font-extrabold">{breadcrumbLast}</span>
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center">
           {/* متن */}
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-white border-2 border-ink px-4 py-1.5 mb-5">
-              <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
+              <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: t.bg }} />
               <span className="text-[0.8125rem] font-extrabold text-ink">{postMeta.eyebrow}</span>
             </div>
             <h1 className="font-black text-[1.75rem] xs:text-[2.25rem] sm:text-[3rem] lg:text-[3.75rem] leading-[1.25] flex flex-wrap gap-x-2.5 mb-6">
@@ -344,7 +347,7 @@ function PostHero({ postMeta }) {
             <div className="flex flex-wrap gap-x-6 gap-y-2.5">
               {postMeta.meta.map((m, i) => (
                 <div key={i} className="flex items-center gap-1.5 text-[0.8125rem] font-semibold text-ink/60">
-                  <span className="text-teal"><MetaIcon name={m.icon} /></span>
+                  <span style={{ color: t.bg }}><MetaIcon name={m.icon} /></span>
                   <span>{m.text}</span>
                   {m.strong && <strong className="font-extrabold text-navy-alt">{m.strong}</strong>}
                 </div>
@@ -358,7 +361,10 @@ function PostHero({ postMeta }) {
               {postMeta.sticker}
             </div>
             <div className="absolute top-[10px] left-[10px] w-full h-full rounded-[0_2rem_0_2rem] bg-navy-alt" />
-            <div className="relative flex flex-col items-center justify-center aspect-[16/10] rounded-[0_2rem_0_2rem] border-[3px] border-ink bg-gradient-to-br from-teal/85 via-teal to-teal-text overflow-hidden">
+            <div
+              className="relative flex flex-col items-center justify-center aspect-[16/10] rounded-[0_2rem_0_2rem] border-[3px] border-ink overflow-hidden"
+              style={{ background: `linear-gradient(135deg, ${t.bg}dd 0%, ${t.bg} 50%, ${t.deep} 100%)` }}
+            >
               <div className="absolute inset-0 pointer-events-none opacity-30">
                 <img src={eventPattern} alt="" draggable="false" className="object-cover w-full h-full select-none"
                   loading="lazy"
@@ -601,7 +607,7 @@ export default function EventsSingle({ slug }) {
 
   return (
     <>
-      <PostHero postMeta={postMeta} />
+      <PostHero postMeta={postMeta} tone={entry.event.tone || "teal"} />
 
       {/* مقاله + سایدبار */}
       <section className="py-10 bg-white sm:py-14">
@@ -662,14 +668,14 @@ export default function EventsSingle({ slug }) {
             <span className="inline-block text-ink">هم</span>
             <span className="inline-block text-teal">بخون</span>
           </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8 items-stretch">
             {relatedPosts.map((p, i) => {
               const t = tones[p.tone] || tones.teal;
               return (
-                <a key={i} href={p.href || "#"} className="relative block group">
+                <a key={i} href={p.href || "#"} className="relative flex flex-col h-full group">
                   <div className="absolute top-[7px] left-[7px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-ink" />
-                  <div className="relative rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white overflow-hidden transition-transform group-hover:-translate-y-1">
-                    <div className="relative flex flex-col items-center justify-center aspect-[16/9] border-b-2 border-ink overflow-hidden" style={{ backgroundColor: t.bg }}>
+                  <div className="relative flex flex-col h-full rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white overflow-hidden transition-transform group-hover:-translate-y-1">
+                    <div className="relative flex flex-col items-center justify-center aspect-[16/9] border-b-2 border-ink overflow-hidden shrink-0" style={{ backgroundColor: t.bg }}>
                       <div className="absolute inset-0 pointer-events-none opacity-30">
                         <img src={eventPattern} alt="" draggable="false" className="object-cover w-full h-full select-none"
                   loading="lazy"
@@ -679,10 +685,12 @@ export default function EventsSingle({ slug }) {
                       <span className="absolute top-2.5 right-2.5 text-[0.6875rem] font-black text-white bg-ink/85 rounded px-2 py-1">{p.cat}</span>
                       <GalleryIcon name={p.icon} className="relative z-10 w-10 h-10 text-white" />
                     </div>
-                    <div className="p-5">
-                      <h3 className="font-black text-[1.0625rem] text-navy-alt leading-[1.5] mb-2 group-hover:text-teal transition-colors">{p.title}</h3>
-                      <p className="text-[0.8125rem] text-ink/65 leading-[1.9] mb-4">{p.excerpt}</p>
-                      <div className="flex items-center justify-between">
+                    <div className="p-5 flex-1 flex flex-col justify-between">
+                      <div>
+                        <h3 className="font-black text-[1.0625rem] text-navy-alt leading-[1.5] mb-2 group-hover:text-teal transition-colors">{p.title}</h3>
+                        <p className="text-[0.8125rem] text-ink/65 leading-[1.9] mb-4">{p.excerpt}</p>
+                      </div>
+                      <div className="flex items-center justify-between pt-2 mt-auto">
                         <span className="text-[0.75rem] font-bold text-ink/45">{p.date}</span>
                         <span className="inline-flex items-center gap-1 text-[0.8125rem] font-extrabold text-teal-text">
                           مطالعه

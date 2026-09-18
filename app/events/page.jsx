@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "../../src/layout/Container";
 import fallbackEvents from "../../src/lib/fallback/events";
+import { fetchEvents } from "../../src/lib/api";
 import { pageMeta } from "../../src/lib/seo";
 
 export const metadata = pageMeta({
@@ -19,7 +20,16 @@ const themeMap = {
   girls: { bg: "#FCE8EF", text: "#E0195B", accent: "#E0195B", dark: "#A81344", light: "#FCE8EF", shadow: "#E0195B" },
 };
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  let events = fallbackEvents;
+  try {
+    const fetched = await fetchEvents();
+    if (fetched && fetched.length > 0) {
+      events = fetched;
+    }
+  } catch (err) {
+    events = fallbackEvents;
+  }
   return (
     <section
       dir="rtl"
@@ -59,7 +69,7 @@ export default function EventsPage() {
 
         {/* ════ کارت‌ها ════ */}
         <div className="grid grid-cols-1 gap-6 sm:gap-7 lg:grid-cols-3 items-stretch">
-          {fallbackEvents.map((ev, i) => {
+          {events.map((ev, i) => {
             const t = themeMap[ev.theme] || themeMap.boys;
             return (
               <Link

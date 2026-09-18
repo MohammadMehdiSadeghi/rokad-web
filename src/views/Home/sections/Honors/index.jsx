@@ -192,12 +192,12 @@ export default function HonorsCarousel() {
               />
 
               {/* Button */}
-              <a
+              <Link
                 href="/honors"
                 className="relative z-10 bg-white border-[0.125rem] border-[#202a5a] text-[#202a5a] font-extrabold text-xs xs:text-sm sm:text-base px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer flex-shrink-0 [background-image:linear-gradient(to_right,#202a5a,#202a5a)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out"
               >
                 همه افتخارات
-              </a>
+              </Link>
             </div>
           </div>
         </div>

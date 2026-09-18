@@ -1,7 +1,9 @@
+import { Suspense } from "react";
 import "../src/index.css";
 import Header from "../src/Components/Header";
 import Footer from "../src/Components/Footer";
 import ScrollToHash from "../src/layout/ScrollToHash";
+import RouteProgressBar from "../src/Components/Loading/RouteProgressBar";
 import { EnrollmentProvider } from "../src/lib/EnrollmentContext";
 import { pageMeta, SITE_URL } from "../src/lib/seo";
 
@@ -29,6 +31,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body className="font-iransans">
+        <Suspense fallback={null}>
+          <RouteProgressBar />
+        </Suspense>
         <EnrollmentProvider>
           <ScrollToHash />
           <Header />

@@ -1,3 +1,8 @@
+"use client";
+
+import Link from "next/link";
+import { useEnrollment } from "../../lib/EnrollmentContext";
+
 function PersonIcon({ className }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -47,10 +52,11 @@ function DotsIcon({ className }) {
 }
 
 const quickLinks = [
-  { label: "پیش ثبت نام", to: "/#counseling" },
+  { label: "پیش ثبت نام", action: "enroll" },
   { label: "مدارس", to: "/#schools" },
   { label: "افتخارات", to: "/honors" },
   { label: "دانش‌آموختگان", to: "/alumni" },
+  { label: "رویدادها", to: "/events" },
   { label: "مشاوره هدایت تحصیلی و شغلی", to: "/#counseling" },
   { label: "بلاگ", to: "/blog" },
   { label: "درباره ما", to: "/about" },
@@ -93,6 +99,8 @@ function ContactRow({ icon: Icon, img, circleClass, children, alt }) {
 }
 
 export default function Footer() {
+  const { openEnrollment } = useEnrollment();
+
   return (
     <footer className="relative bg-[#252C5C] text-white overflow-hidden" dir="rtl">
       <div className="w-full max-w-[75rem] mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,12 +115,22 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.to}
-                    className="text-[0.875rem] text-white/90 hover:text-[#4DB6A0] transition-colors leading-7"
-                  >
-                    {link.label}
-                  </a>
+                  {link.action === "enroll" ? (
+                    <button
+                      type="button"
+                      onClick={openEnrollment}
+                      className="text-[0.875rem] text-white/90 hover:text-[#4DB6A0] transition-colors leading-7 text-right cursor-pointer bg-transparent border-0 p-0 font-iransans"
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.to}
+                      className="text-[0.875rem] text-white/90 hover:text-[#4DB6A0] transition-colors leading-7 inline-block"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -148,7 +166,6 @@ export default function Footer() {
             © ۱۴۰۵ هنرستان رکاد . همه‌ی حقوق محفوظ است
           </p>
 
-          {/* جای خالی ۴ لوگو/آیکون — بعداً با عکس‌های /assets/footer/ جایگزین میشه */}
           <div className="flex items-center gap-2.5">
             {[1, 2, 3, 4].map((n) => (
               <div

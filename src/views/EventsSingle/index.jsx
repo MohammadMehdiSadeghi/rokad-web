@@ -1,5 +1,6 @@
 // src/views/EventsSingle/index.jsx
 "use client";
+import Link from "next/link";
 import Container from "../../layout/Container";
 import { useEnrollment } from "../../lib/EnrollmentContext";
 import { ChevronLeftIcon, ChevronRightIcon } from "../../common/Icons";
@@ -319,9 +320,9 @@ function PostHero({ postMeta, tone = "teal" }) {
       <Container className="relative z-10 py-10 sm:py-14 lg:py-16">
         {/* خرده‌نان */}
         <nav className="mb-6 flex flex-wrap items-center gap-2 text-[0.8125rem] font-bold text-ink/50" aria-label="مسیر">
-          <a href="/" className="transition-colors hover:text-teal">خانه</a>
+          <Link href="/" className="transition-colors hover:text-teal">خانه</Link>
           <ChevronLeftIcon className="w-3.5 h-3.5 text-ink/30" />
-          <a href="/events" className="transition-colors hover:text-teal">ایونت‌ها</a>
+          <Link href="/events" className="transition-colors hover:text-teal">ایونت‌ها</Link>
           <ChevronLeftIcon className="w-3.5 h-3.5 text-ink/30" />
           <span className="text-ink/70 font-extrabold">{breadcrumbLast}</span>
         </nav>
@@ -586,9 +587,9 @@ function FinalCta({ onCta }) {
               aria-hidden="true"
               className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-ink"
             />
-            <a href="/about" className="relative z-10 inline-flex items-center gap-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-white border-2 border-ink px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 text-xs xs:text-sm sm:text-base font-extrabold text-navy-alt cursor-pointer whitespace-nowrap [background-image:linear-gradient(to_right,#292827,#292827)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
+            <Link href="/about" className="relative z-10 inline-flex items-center gap-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-white border-2 border-ink px-3.5 xs:px-4 sm:px-6 py-2 sm:py-2.5 text-xs xs:text-sm sm:text-base font-extrabold text-navy-alt cursor-pointer whitespace-nowrap [background-image:linear-gradient(to_right,#292827,#292827)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
               درباره رکاد بیشتر بدون
-            </a>
+            </Link>
           </div>
         </div>
       </Container>

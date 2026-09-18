@@ -1,12 +1,8 @@
 "use client";
 import { useState, useRef } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { A11y, Autoplay } from "swiper/modules";
-
 import Container from "../../../../layout/Container";
-
 import { ChevronLeftIcon, ChevronRightIcon } from "../../../../common/Icons";
 import useRokadData from "../../../../lib/useRokadData";
 import { fetchComments } from "../../../../lib/api";
@@ -47,10 +43,19 @@ const THEME_MAP = {
 
 export default function Comments() {
   const swiperRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
 
   // دیتای داینامیک از بک‌اند؛ اگه API در دسترس نبود، fallback نمایش داده می‌شه
-  const comments = useRokadData(fetchComments, fallbackComments);
+  const rawComments = useRokadData(fetchComments, fallbackComments);
+
+  // اطمینان از وجود آیتم‌های کافی برای لوپ ۳ بعدی و نمایش پیوسته اسلایدها در دو طرف
+  const comments =
+    rawComments && rawComments.length > 0 && rawComments.length < 6
+      ? [
+          ...rawComments,
+          ...rawComments.map((c, i) => ({ ...c, id: `${c.id || i}-dup-${i}` })),
+        ]
+      : rawComments || [];
 
   return (
     <section className="relative w-full pt-10 sm:pt-[5rem] lg:pt-[6rem] pb-10 sm:pb-[5rem] lg:pb-[6rem] bg-[#E4F4F2] overflow-hidden">
@@ -66,29 +71,35 @@ export default function Comments() {
           transform: scale(0.62);
           pointer-events: none;
         }
-        .comments-swiper .swiper-slide-active {
+        .comments-swiper .swiper-slide-active,
+        .comments-swiper .swiper-slide-duplicate-active {
           z-index: 30 !important;
         }
-        .comments-swiper .swiper-slide-active .card-inner-wrap {
+        .comments-swiper .swiper-slide-active .card-inner-wrap,
+        .comments-swiper .swiper-slide-duplicate-active .card-inner-wrap {
           transform: scale(1.4, 1.3) translateY(-6px) rotate(0deg);
           opacity: 1;
           z-index: 30;
           pointer-events: auto;
         }
-        .comments-swiper .swiper-slide-prev {
+        .comments-swiper .swiper-slide-prev,
+        .comments-swiper .swiper-slide-duplicate-prev {
           z-index: 10 !important;
         }
-        .comments-swiper .swiper-slide-prev .card-inner-wrap {
+        .comments-swiper .swiper-slide-prev .card-inner-wrap,
+        .comments-swiper .swiper-slide-duplicate-prev .card-inner-wrap {
           transform: scale(0.92) translateY(8px) rotate(5deg);
           opacity: 0.72;
           filter: blur(3px);
           z-index: 10;
           pointer-events: auto;
         }
-        .comments-swiper .swiper-slide-next {
+        .comments-swiper .swiper-slide-next,
+        .comments-swiper .swiper-slide-duplicate-next {
           z-index: 10 !important;
         }
-        .comments-swiper .swiper-slide-next .card-inner-wrap {
+        .comments-swiper .swiper-slide-next .card-inner-wrap,
+        .comments-swiper .swiper-slide-duplicate-next .card-inner-wrap {
           transform: scale(0.92) translateY(8px) rotate(-6deg);
           opacity: 0.72;
           filter: blur(3px);
@@ -97,15 +108,18 @@ export default function Comments() {
         }
         /* Tablet (md): smaller scale so cards do not clip */
         @media (min-width: 768px) and (max-width: 1023px) {
-          .comments-swiper .swiper-slide-active .card-inner-wrap {
+          .comments-swiper .swiper-slide-active .card-inner-wrap,
+          .comments-swiper .swiper-slide-duplicate-active .card-inner-wrap {
             transform: scale(1.22, 1.15) translateY(-4px) rotate(0deg);
           }
-          .comments-swiper .swiper-slide-prev .card-inner-wrap {
+          .comments-swiper .swiper-slide-prev .card-inner-wrap,
+          .comments-swiper .swiper-slide-duplicate-prev .card-inner-wrap {
             transform: scale(0.85) translateY(6px) rotate(5deg);
             opacity: 0.65;
             filter: blur(2px);
           }
-          .comments-swiper .swiper-slide-next .card-inner-wrap {
+          .comments-swiper .swiper-slide-next .card-inner-wrap,
+          .comments-swiper .swiper-slide-duplicate-next .card-inner-wrap {
             transform: scale(0.85) translateY(6px) rotate(-6deg);
             opacity: 0.65;
             filter: blur(2px);
@@ -119,28 +133,34 @@ export default function Comments() {
             transform: scale(0.82);
             pointer-events: none;
           }
-          .comments-swiper .swiper-slide-active {
+          .comments-swiper .swiper-slide-active,
+          .comments-swiper .swiper-slide-duplicate-active {
             z-index: 30 !important;
           }
-          .comments-swiper .swiper-slide-active .card-inner-wrap {
+          .comments-swiper .swiper-slide-active .card-inner-wrap,
+          .comments-swiper .swiper-slide-duplicate-active .card-inner-wrap {
             transform: scale(1) translateY(0);
             opacity: 1;
             z-index: 30;
             pointer-events: auto;
           }
-          .comments-swiper .swiper-slide-prev {
+          .comments-swiper .swiper-slide-prev,
+          .comments-swiper .swiper-slide-duplicate-prev {
             z-index: 10 !important;
           }
-          .comments-swiper .swiper-slide-prev .card-inner-wrap {
+          .comments-swiper .swiper-slide-prev .card-inner-wrap,
+          .comments-swiper .swiper-slide-duplicate-prev .card-inner-wrap {
             transform: scale(0.82) rotate(2.5deg);
             opacity: 0.45;
             z-index: 10;
             pointer-events: auto;
           }
-          .comments-swiper .swiper-slide-next {
+          .comments-swiper .swiper-slide-next,
+          .comments-swiper .swiper-slide-duplicate-next {
             z-index: 10 !important;
           }
-          .comments-swiper .swiper-slide-next .card-inner-wrap {
+          .comments-swiper .swiper-slide-next .card-inner-wrap,
+          .comments-swiper .swiper-slide-duplicate-next .card-inner-wrap {
             transform: scale(0.82) rotate(-2.5deg);
             opacity: 0.45;
             z-index: 10;
@@ -178,12 +198,12 @@ export default function Comments() {
 
         {/* ── کاروسل ── */}
         <div className="relative w-full overflow-visible">
-          {/* دکمه راست */}
+          {/* دکمه چپ در RTL (اسلاید بعدی) */}
           <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 z-30 flex-shrink-0 hidden lg:block">
             <div className="absolute top-[0.09375rem] left-[0.125rem] sm:top-[0.125rem] sm:left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle]"></div>
             <button
               type="button"
-              aria-label="کامت بعدی"
+              aria-label="کامنت بعدی"
               onClick={() => swiperRef.current?.slideNext()}
               className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[0.09375rem] sm:border-[0.125rem] border-[#292827] text-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
@@ -194,24 +214,28 @@ export default function Comments() {
           {/* کانتینر کاروسل — پدینگ ریسپانسیو */}
           <div className="w-full px-1 xs:px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 [overflow-x:clip] [overflow-y:visible]">
             <Swiper
+              key={`comments-${comments.length}`}
               modules={[A11y, Autoplay]}
               centeredSlides={true}
+              initialSlide={1}
               loop={true}
+              loopAdditionalSlides={2}
+              loopedSlides={3}
               dir="rtl"
-              slidesPerView={1}
+              slidesPerView={3}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
               }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-              spaceBetween={-15}
+              spaceBetween={20}
               speed={450}
               breakpoints={{
                 320: { slidesPerView: 1.2, spaceBetween: -20 },
                 380: { slidesPerView: 1.25, spaceBetween: -15 },
                 480: { slidesPerView: 1.35, spaceBetween: -10 },
                 640: { slidesPerView: 1.5, spaceBetween: 12 },
-                768: { slidesPerView: 2, spaceBetween: -10 },
-                1024: { slidesPerView: 2.5, spaceBetween: 20 },
+                768: { slidesPerView: 2.2, spaceBetween: 16 },
+                1024: { slidesPerView: 3, spaceBetween: 20 },
                 1280: { slidesPerView: 3, spaceBetween: 24 },
               }}
               autoplay={{
@@ -222,7 +246,7 @@ export default function Comments() {
               className="comments-swiper !pt-2 sm:!pt-8 lg:!pt-12 !pb-2 sm:!pb-6 lg:!pb-8"
             >
               {comments.map((comment) => {
-                const theme = THEME_MAP[comment.theme];
+                const theme = THEME_MAP[comment.theme] || THEME_MAP.navy;
 
                 return (
                   <SwiperSlide
@@ -290,12 +314,12 @@ export default function Comments() {
             </Swiper>
           </div>
 
-          {/* دکمه چپ */}
+          {/* دکمه راست در RTL (اسلاید قبلی) */}
           <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4 z-30 flex-shrink-0 hidden lg:block">
             <div className="absolute top-[0.09375rem] left-[0.125rem] sm:top-[0.125rem] sm:left-[0.1875rem] w-full h-full bg-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle]"></div>
             <button
               type="button"
-              aria-label="کامت قبلی"
+              aria-label="کامنت قبلی"
               onClick={() => swiperRef.current?.slidePrev()}
               className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white border-[0.09375rem] sm:border-[0.125rem] border-[#292827] text-[#292827] rounded-[0_0.375rem_0_0.375rem] sm:rounded-[0_0.853125rem_0_0.853125rem] [corner-shape:squircle] transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
@@ -310,7 +334,7 @@ export default function Comments() {
             <div
               className="h-full bg-[#292827] transition-all duration-500 ease-out rounded-full"
               style={{
-                width: `${((activeIndex + 1) / comments.length) * 100}%`,
+                width: `${(((activeIndex % comments.length) + 1) / comments.length) * 100}%`,
               }}
             />
           </div>

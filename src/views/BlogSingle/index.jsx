@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Container from "../../layout/Container";
 import { useEnrollment } from "../../lib/EnrollmentContext";
 import { post, blocks, related } from "./data.js";
@@ -64,9 +65,9 @@ export default function BlogSingle() {
       <Container className="relative z-10 pt-[2.5rem] sm:pt-[3.5rem] pb-16 sm:pb-20 lg:pb-24">
         {/* بریدکرامب */}
         <nav className="mb-8 flex items-center gap-2 text-[0.8125rem] font-bold text-ink/50" aria-label="مسیر">
-          <a href="/" className="hover:text-teal transition-colors">خانه</a>
+          <Link href="/" className="hover:text-teal transition-colors">خانه</Link>
           <span>/</span>
-          <a href="/blog" className="hover:text-teal transition-colors">وبلاگ</a>
+          <Link href="/blog" className="hover:text-teal transition-colors">وبلاگ</Link>
           <span>/</span>
           <span className="text-ink/80">چطور یک نوجوان را عاشق کد کنیم؟</span>
         </nav>
@@ -147,13 +148,13 @@ export default function BlogSingle() {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 {related.map((r, i) => (
-                  <a key={i} href="/blog" className="group block overflow-hidden rounded-[0_1.5rem_0_1.5rem] border-2 bg-white transition-all duration-300 hover:-translate-y-1.5" style={{ borderColor: C.ink, boxShadow: `4px 4px 0 0 ${C.ink}` }}>
+                  <Link key={i} href="/blog" className="group block overflow-hidden rounded-[0_1.5rem_0_1.5rem] border-2 bg-white transition-all duration-300 hover:-translate-y-1.5" style={{ borderColor: C.ink, boxShadow: `4px 4px 0 0 ${C.ink}` }}>
                     <div className="h-24" style={{ background: r.tone === "teal" ? "linear-gradient(135deg,#7ed3c6,#2e7068)" : r.tone === "magenta" ? "linear-gradient(135deg,#e699b5,#a81344)" : "linear-gradient(135deg,#3b4b8f,#202a5a)" }} />
                     <div className="p-4">
                       <span className="mb-2 inline-block rounded-full border-2 px-3 py-0.5 text-[0.6875rem] font-black text-ink" style={{ borderColor: C.ink }}>{r.tag}</span>
                       <div className="text-[0.9375rem] font-black leading-[1.8] text-ink group-hover:text-teal transition-colors">{r.title}</div>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </section>

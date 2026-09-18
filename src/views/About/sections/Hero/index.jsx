@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Container from "../../../../layout/Container";
 import { useEnrollment } from "../../../../lib/EnrollmentContext";
 
@@ -31,7 +32,7 @@ export default function AboutHero() {
       <Container className="relative z-10 w-full min-h-0">
         {/* ── بریدکرامب ── */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-teal/10 rounded-[0.5rem] mb-4 sm:mb-6 lg:mb-8">
-          <a href="/" className="text-[0.875rem] font-medium text-teal hover:text-teal-text transition-colors">خانه</a>
+          <Link href="/" className="text-[0.875rem] font-medium text-teal hover:text-teal-text transition-colors">خانه</Link>
           <span className="text-[0.875rem] text-ink/30">|</span>
           <span className="text-[0.875rem] font-semibold text-ink/60">درباره رکاد</span>
         </div>

@@ -12,12 +12,15 @@ const navLinks = [
   { label: "صفحه اصلی", to: "/" },
   { label: "مدارس", to: "/#schools" },
   { label: "افتخارات", to: "/honors" },
-  { label: "مشاوره تحصیلی", to: "/#counseling" },
+  { label: "دانش‌آموختگان", to: "/alumni" },
+  { label: "رویدادها", to: "/events" },
+  { label: "بلاگ", to: "/blog" },
   { label: "درباره ما", to: "/about" },
+  { label: "مشاوره تحصیلی", to: "/#counseling" },
   { label: "همکاری با ما", to: "/#join" },
 ];
 
-// تنظیمات انیمیشن سریع و یکدست برای جلوگیری از تداخل و تأخیر
+// تنظیمات انیمیشن سریع و یکدست
 const spring = {
   type: "spring",
   stiffness: 300,
@@ -39,28 +42,40 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [platformNotice, setPlatformNotice] = useState(false);
   const { openEnrollment } = useEnrollment();
   const pathname = usePathname();
   const close = () => setOpen(false);
 
-  // برای جلوگیری از خطای hydration: مسیر/اسکرول فقط بعد از mount واقعی محاسبه می‌شود
+  // برای جلوگیری از خطای hydration: مسیر/اسکرول بعد از mount واقعی
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
   const isActive = (to) => {
     if (!mounted) return false;
     const [path, hash] = to.split("#");
-    if (hash) return pathname === path && window.location.hash === `#${hash}`;
-    return pathname === to;
+    if (hash) {
+      return (
+        pathname === (path || "/") &&
+        typeof window !== "undefined" &&
+        window.location.hash === `#${hash}`
+      );
+    }
+    if (to === "/") return pathname === "/";
+    return pathname === to || pathname.startsWith(`${to}/`);
+  };
+
+  const handlePlatformClick = (e) => {
+    e.preventDefault();
+    setPlatformNotice(true);
+    setTimeout(() => setPlatformNotice(false), 3000);
   };
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       const threshold = window.innerHeight * (COMPACT_THRESHOLD_VH / 100);
-      // بعد از 50vh: نوار فول‌عرض ظاهر می‌شود و تا پایین صفحه می‌ماند
       setCompact(y > threshold);
-      // کپسول فقط نزدیک بالای صفحه؛ با کوچک‌ترین اسکرول مخفی و تا 50vh برنمی‌گردد
       setVisible(y > threshold || y < 10);
     };
     onScroll();
@@ -163,17 +178,17 @@ export default function Header() {
                   initial={{ opacity: 0, y: -4 }}
                   animate={{ opacity: 1, y: 0, transition: fastFade }}
                   exit={{ opacity: 0, y: -4, transition: fastExit }}
-                  className="hidden lg:flex flex-1 items-center justify-center gap-4 xl:gap-7"
+                  className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-5 mx-2"
                 >
                   <button
                     type="button"
                     onClick={openEnrollment}
-                    className="whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-navy transition-colors duration-300 hover:bg-teal hover:text-white hover:border-teal cursor-pointer"
+                    className="whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-3.5 xl:px-5 py-[0.5rem] text-xs xl:text-sm font-extrabold text-navy transition-colors duration-300 hover:bg-teal hover:text-white hover:border-teal cursor-pointer"
                   >
                     پیش‌ثبت‌نام
                   </button>
 
-                  <ul className="flex items-center gap-4 xl:gap-8 list-none m-0 p-0">
+                  <ul className="flex items-center gap-2.5 xl:gap-5 list-none m-0 p-0">
                     {navLinks.map((link) => {
                       const active = isActive(link.to);
                       return (
@@ -182,8 +197,8 @@ export default function Header() {
                             href={link.to}
                             className={
                               active
-                                ? "whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105 inline-block"
-                                : "whitespace-nowrap text-base2 font-semibold text-navy transition-colors duration-200 hover:text-teal relative group inline-block"
+                                ? "whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-3.5 xl:px-4 py-[0.45rem] text-xs xl:text-sm font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105 inline-block"
+                                : "whitespace-nowrap text-xs xl:text-sm font-semibold text-navy transition-colors duration-200 hover:text-teal relative group inline-block"
                             }
                           >
                             {link.label}
@@ -218,34 +233,31 @@ export default function Header() {
                 )}
               </AnimatePresence>
 
-              {/* پروفایل موبایل */}
-              <a
-                href="/alumni"
-                aria-label="ورود / پروفایل"
-                className="lg:hidden relative w-9 h-9 flex items-center justify-center flex-shrink-0 rounded-[0_0.55rem_0_0.55rem] [corner-shape:squircle] bg-white border-[0.09375rem] border-navy/15 text-navy transition-colors duration-200 hover:border-navy/40 active:bg-navy/5"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                  className="w-[1.125rem] h-[1.125rem]"
+              {/* دکمه ورود به پلتفرم — در صورت عدم وجود پلتفرم نوتیس نمایش داده می‌شود */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={handlePlatformClick}
+                  className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-colors duration-300 hover:bg-[#47968C] active:scale-[0.98] cursor-pointer"
+                  title="سامانه پلتفرم رکاد"
                 >
-                  <circle cx="12" cy="8.2" r="3.4" />
-                  <path d="M5 19.6c1.5-3.1 4-4.7 7-4.7s5.5 1.6 7 4.7" />
-                </svg>
-              </a>
+                  ورود به پلتفرم
+                </button>
 
-              {/* ورود به پلتفرم — همیشه نمایش (دسکتاپ) */}
-              <a
-                href="/factors"
-                className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-colors duration-300 hover:bg-white hover:text-teal-text"
-              >
-                ورود به پلتفرم
-              </a>
+                {/* پیام اطلاع‌رسانی پلتفرم */}
+                <AnimatePresence>
+                  {platformNotice && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      className="absolute left-0 top-full mt-2 z-50 whitespace-nowrap rounded-xl bg-navy text-white text-xs font-bold px-4 py-2.5 shadow-xl border border-white/20"
+                    >
+                      🚀 سامانه‌ی جامع رکاد به‌زودی راه‌اندازی می‌شود.
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </motion.div>
         </nav>
@@ -358,13 +370,13 @@ export default function Header() {
               >
                 پیش‌ثبت‌نام
               </button>
-              <a
-                href="/factors"
-                onClick={close}
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-[8px] [corner-shape:squircle] bg-teal text-white text-[0.95rem] font-extrabold transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
+              <button
+                type="button"
+                onClick={handlePlatformClick}
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-[8px] [corner-shape:squircle] bg-teal text-white text-[0.95rem] font-extrabold transition-all duration-200 hover:brightness-110 active:scale-[0.98] cursor-pointer"
               >
                 ورود به پلتفرم
-              </a>
+              </button>
             </div>
 
             <p className="text-white/35 text-[0.6875rem] font-medium mt-6">

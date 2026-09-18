@@ -4,3 +4,4 @@ dist/
 .freebuff/
 *.log
 .next/
+.env.local

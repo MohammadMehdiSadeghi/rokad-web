@@ -124,6 +124,8 @@ async function withFallback(fetcher, fallback, mapper) {
 // ------------------------------------------------------------------
 const blogMapper = (b) => ({
   id: b._id,
+  _id: b._id,
+  slug: b.slug || b._id,
   title: toFaNum(b.title),
   body: toFaNum(b.description || ""),
   date: formatDate(b.date),
@@ -139,16 +141,24 @@ export const fetchBlogs = () =>
 //  بک‌اند: title, type, date, description, branch(دخترانه/پسرانه), img
 //  UI:     index, theme(boys/girls), category, title, meta, body, image
 // ------------------------------------------------------------------
-const eventMapper = (e, i) => ({
-  index: toFaNum(String(i + 1).padStart(2, "0")),
-  theme: e.branch === "دخترانه" ? "girls" : "boys",
-  category: toFaNum(e.type || ""),
-  title: toFaNum(e.title),
-  meta: toFaNum(e.date || ""),
-  body: toFaNum(e.description || ""),
-  ctaLabel: "داستان رویداد رو ببین",
-  image: getImageUrl(e.img) || undefined,
-});
+const eventMapper = (e, i) => {
+  const isGirls = Array.isArray(e.branch)
+    ? e.branch.includes("دخترانه")
+    : e.branch === "دخترانه";
+  return {
+    id: e._id,
+    _id: e._id,
+    index: toFaNum(String(i + 1).padStart(2, "0")),
+    theme: isGirls ? "girls" : "boys",
+    category: toFaNum(e.type || ""),
+    title: toFaNum(e.title),
+    meta: toFaNum(e.date || ""),
+    body: toFaNum(e.description || ""),
+    ctaLabel: "داستان رویداد رو ببین",
+    image: getImageUrl(e.img) || undefined,
+    href: e.href || `/events`,
+  };
+};
 
 export const fetchEvents = () =>
   withFallback(() => request("/event?limit=10&sort=-_id"), fallbackEvents, eventMapper)

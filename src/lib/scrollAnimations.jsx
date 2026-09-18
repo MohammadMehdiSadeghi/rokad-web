@@ -3,12 +3,10 @@
 /**
  * scrollAnimations — GSAP + ScrollTrigger for Rokad College
  *
- * Key principles:
- *  - once: false → animations repeat on every scroll in/out
- *  - No clearProps → ScrollTrigger can reverse properly
- *  - Honors & Comments excluded → they use Swiper CSS transitions
+ *  - Timeline + ScrollTrigger pattern → guaranteed repeat on every scroll
+ *  - once: false → play forward on enter, reverse on leave, repeat forever
+ *  - Honors & Comments: only title wipe + carousel container fade
  *  - Hero excluded → static hero, no scroll animation
- *  - ScrollTrigger.config for performance
  *  - prefers-reduced-motion respected
  */
 
@@ -18,7 +16,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
-  // بهینه‌سازی عملکرد — کاهش callback و محاسبات اضافی
   ScrollTrigger.config({ limitCallbacks: true, ignoreMobileResize: true });
 }
 
@@ -29,8 +26,7 @@ const prefersReduced = () =>
 const FA = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
 const toFa = (n) => String(n).replace(/\d/g, (d) => FA[+d]);
 
-const q = (scope, sel) =>
-  scope?.current?.querySelector(sel) ?? null;
+const q = (scope, sel) => scope?.current?.querySelector(sel) ?? null;
 
 const qa = (scope, sel) =>
   scope?.current
@@ -71,50 +67,77 @@ function staggerize(els) {
   );
 }
 
-/* ── FADE + RISE ── */
+/* ── FADE + RISE — با reset دستی برای تکرار مطمئن ── */
 function fadeUp(targets, opts = {}) {
   const els = Array.isArray(targets)
     ? targets.filter(Boolean)
     : [targets].filter(Boolean);
   if (!els.length) return;
-  gsap.from(els, {
-    y: opts.y ?? 40,
-    x: opts.x ?? 0,
-    opacity: 0,
+
+  const fromY = opts.y ?? 40;
+  const fromX = opts.x ?? 0;
+  const triggerEl = opts.trigger || els[0];
+  const start = opts.start || "top 88%";
+
+  // حالت اولیه: مخفی
+  gsap.set(els, { y: fromY, x: fromX, opacity: 0 });
+
+  // Timeline متوقف → ScrollTrigger کنترلش می‌کنه
+  const tl = gsap.timeline({
+    paused: true,
+    scrollTrigger: {
+      trigger: triggerEl,
+      start,
+      once: false,
+    },
+  });
+
+  tl.to(els, {
+    y: 0,
+    x: 0,
+    opacity: 1,
     duration: opts.duration ?? 0.8,
     ease: "power3.out",
     delay: opts.delay ?? 0,
     stagger: staggerFn,
-    scrollTrigger: {
-      trigger: opts.trigger || els[0],
-      start: opts.start || "top 88%",
-      once: false,
-    },
   });
 }
 
-/* ── STAMP (کارت‌ها) ── */
+/* ── STAMP (کارت‌ها) — با reset دستی ── */
 function stampIn(targets, opts = {}) {
   const els =
     targets instanceof NodeList || Array.isArray(targets)
       ? Array.from(targets).filter(Boolean)
       : [targets].filter(Boolean);
   if (!els.length) return;
-  gsap.from(els, {
-    y: opts.y ?? 70,
-    x: opts.x ?? 0,
-    scale: opts.scale ?? 0.86,
-    opacity: 0,
-    rotate: () => gsap.utils.random(-4, 4),
+
+  const fromY = opts.y ?? 70;
+  const fromX = opts.x ?? 0;
+  const fromScale = opts.scale ?? 0.86;
+  const triggerEl = opts.trigger || els[0];
+  const start = opts.start || "top 90%";
+
+  // حالت اولیه: مخفی
+  gsap.set(els, { y: fromY, x: fromX, scale: fromScale, opacity: 0 });
+
+  const tl = gsap.timeline({
+    paused: true,
+    scrollTrigger: {
+      trigger: triggerEl,
+      start,
+      once: false,
+    },
+  });
+
+  tl.to(els, {
+    y: 0,
+    x: 0,
+    scale: 1,
+    opacity: 1,
     duration: 0.7,
     ease: opts.ease ?? "back.out(1.7)",
     stagger: staggerFn,
     delay: opts.delay ?? 0,
-    scrollTrigger: {
-      trigger: opts.trigger || els[0],
-      start: opts.start || "top 90%",
-      once: false,
-    },
   });
 }
 
@@ -191,7 +214,6 @@ function animStory(scope) {
   if (h) wipeIn(h, { trigger: scope.current });
   if (img) fadeUp(img, { trigger: scope.current, y: 40, duration: 0.9 });
   const text = h?.closest("div");
-  // h2 رو از لیست حذف کن چون قبلاً wipeIn خورده
   const paras = text ? Array.from(text.children).filter((el) => el !== h) : qa(scope, "p");
   if (paras.length) {
     staggerize(paras.slice(0, 6));
@@ -212,7 +234,6 @@ function animPillars(scope) {
   }
 }
 
-/* ── Ecosystem: فقط تیتر wipe — کارت‌ها توسط سیستم صفحه‌بندی CSS مدیریت میشن ── */
 function animEcosystem(scope) {
   const h = q(scope, "h2:not(.sr-only)");
   if (h) wipeIn(h, { trigger: scope.current });
@@ -249,7 +270,6 @@ function animFaq(scope) {
   }
 }
 
-/* ── Honors: تیتر wipe + فید کانتینر کاروسل ── */
 function animHonors(scope) {
   const h = q(scope, "h2:not(.sr-only)");
   if (h) wipeIn(h, { trigger: scope.current });
@@ -263,15 +283,17 @@ function animCollegeCta(scope) {
   const notes = qa(scope, "[class*='shadow-[']");
   if (notes.length) {
     staggerize(notes.slice(0, 8));
-    gsap.fromTo(
-      notes.slice(0, 8),
-      { y: 90, scale: 0.85, opacity: 0, rotation: () => gsap.utils.random(-10, 10) },
-      {
-        y: 0, scale: 1, opacity: 1, rotation: 0,
-        duration: 0.85, ease: "back.out(1.5)", stagger: staggerFn,
-        scrollTrigger: { trigger: scope.current, start: "top 90%", once: false },
-      }
-    );
+    const triggerEl = scope.current;
+    const start = "top 90%";
+    gsap.set(notes.slice(0, 8), { y: 90, scale: 0.85, opacity: 0 });
+    const tl = gsap.timeline({
+      paused: true,
+      scrollTrigger: { trigger: triggerEl, start, once: false },
+    });
+    tl.to(notes.slice(0, 8), {
+      y: 0, scale: 1, opacity: 1,
+      duration: 0.85, ease: "back.out(1.5)", stagger: staggerFn,
+    });
   }
 }
 
@@ -289,7 +311,6 @@ function animRokadians(scope) {
   });
 }
 
-/* ── Comments: تیتر wipe + فید کانتینر کاروسل ── */
 function animComments(scope) {
   const h = q(scope, "h2:not(.sr-only)");
   if (h) wipeIn(h, { trigger: scope.current });

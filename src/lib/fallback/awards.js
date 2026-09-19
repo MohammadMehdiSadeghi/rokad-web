@@ -1,11 +1,20 @@
 // src/lib/fallback/awards.js
-// winners — ساختار مطابق awardWinnerMapper در lib/api.js
-// (name, role, gen, avatar) تا سکشن برنده‌ها با دیتای نمونه هم کار کنه
+// ------------------------------------------------------------
+// دیتای نمونهٔ افتخارات — ساختار سلسله‌مراتبی:
+//   جشنواره  →  مقام  →  رشته
+// هر رکورد یک «مقام در یک رشتهٔ یک جشنواره» است.
+// فیلدهای festival و field اختیاری‌اند؛ اگر نباشن از title/meta
+// استخراج می‌شن (تابع normalize در صفحهٔ افتخارات).
+// ------------------------------------------------------------
 const fallbackAwards = [
+  /* ══════════ جشنوارهٔ فردا ══════════ */
   {
+    id: "farda-first-prog",
+    festival: "جشنواره‌ی فردا",
+    field: "برنامه‌نویسی",
     rank: "first",
-    title: "مقام اول جشنواره‌ی فردا",
-    meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
+    title: "مقام اول کشوری",
+    meta: "رتبه‌ی اول کشوری در بخش برنامه‌نویسی جشنواره‌ی فردا",
     badge: "/assets/home/Honors/f1.png",
     winners: [
       { name: "مریم رضایی", role: "طراح محصول", gen: "نسل ۷", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
@@ -14,9 +23,25 @@ const fallbackAwards = [
     ],
   },
   {
+    id: "farda-first-graphic",
+    festival: "جشنواره‌ی فردا",
+    field: "گرافیک",
+    rank: "first",
+    title: "مقام اول کشوری",
+    meta: "رتبه‌ی اول کشوری در بخش گرافیک جشنواره‌ی فردا",
+    badge: "/assets/home/Honors/f1.png",
+    winners: [
+      { name: "نگار صادقی", role: "طراح گرافیک", gen: "نسل ۵", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
+      { name: "پوریا رحمانی", role: "هنرمند تعاملی", gen: "نسل ۹", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
+    ],
+  },
+  {
+    id: "farda-second-prog",
+    festival: "جشنواره‌ی فردا",
+    field: "برنامه‌نویسی",
     rank: "second",
-    title: "مقام برتر جشنواره‌ی خوارزمی",
-    meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
+    title: "مقام دوم کشوری",
+    meta: "رتبه‌ی دوم کشوری در بخش برنامه‌نویسی جشنواره‌ی فردا",
     badge: "/assets/home/Honors/s2.png",
     winners: [
       { name: "علی مرادی", role: "بنیان‌گذار کارنو", gen: "نسل ۵", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
@@ -24,24 +49,68 @@ const fallbackAwards = [
     ],
   },
   {
+    id: "farda-third-graphic",
+    festival: "جشنواره‌ی فردا",
+    field: "گرافیک",
     rank: "third",
-    title: "مقام برتر جشنواره‌ی خوارزمی",
-    meta: "رتبه‌ی استانی و کشوری در بخش وب و نرم‌افزار",
+    title: "مقام سوم کشوری",
+    meta: "رتبه‌ی سوم کشوری در بخش گرافیک جشنواره‌ی فردا",
     badge: "/assets/home/Honors/t3.png",
     winners: [
-      { name: "پارسا رستمی", role: "برنامه‌نویس موبایل", gen: "نسل ۶", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
       { name: "ریحانه کریمی", role: "بنیان‌گذار گلرنگ", gen: "نسل ۸", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
+    ],
+  },
+
+  /* ══════════ جشنوارهٔ خوارزمی ══════════ */
+  {
+    id: "kharazmi-first-web",
+    festival: "جشنواره‌ی خوارزمی",
+    field: "وب و نرم‌افزار",
+    rank: "first",
+    title: "مقام اول کشوری",
+    meta: "رتبه‌ی اول کشوری در بخش وب و نرم‌افزار جشنواره‌ی خوارزمی",
+    badge: "/assets/home/Honors/f1.png",
+    winners: [
       { name: "مهدی یوسفی", role: "مهندس DevOps", gen: "نسل ۴", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
+      { name: "زهرا کاظمی", role: "برنامه‌نویس بک‌اند", gen: "نسل ۷", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
     ],
   },
   {
+    id: "kharazmi-second-ai",
+    festival: "جشنواره‌ی خوارزمی",
+    field: "هوش مصنوعی",
+    rank: "second",
+    title: "مقام دوم کشوری",
+    meta: "رتبه‌ی دوم کشوری در بخش هوش مصنوعی جشنواره‌ی خوارزمی",
+    badge: "/assets/home/Honors/s2.png",
+    winners: [
+      { name: "پارسا رستمی", role: "برنامه‌نویس موبایل", gen: "نسل ۶", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
+    ],
+  },
+  {
+    id: "kharazmi-third-game",
+    festival: "جشنواره‌ی خوارزمی",
+    field: "بازی‌سازی",
+    rank: "third",
+    title: "مقام سوم کشوری",
+    meta: "رتبه‌ی سوم کشوری در بخش بازی‌سازی جشنواره‌ی خوارزمی",
+    badge: "/assets/home/Honors/t3.png",
+    winners: [
+      { name: "آرش نیک‌پور", role: "طراح گیم‌پلی", gen: "نسل ۹", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
+    ],
+  },
+
+  /* ══════════ نشان افتخار ══════════ */
+  {
+    id: "honor-district",
+    festival: "نشان‌های افتخار",
+    field: "افتخارات منطقه‌ای",
     rank: "district",
-    title: "مقام برتر جشنواره",
-    meta: "نشان افتخار",
+    title: "نشان افتخار",
+    meta: "نشان افتخار منطقه‌ای برای فعالیت‌های اکوسیستمی رکاد",
     badge: "/assets/home/Honors/district-honor-badge.png",
     winners: [
-      { name: "نگار صادقی", role: "مدیر رشد", gen: "نسل ۵", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
-      { name: "پوریا رحمانی", role: "هنرمند تعاملی", gen: "نسل ۹", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
+      { name: "حسین حسینی", role: "راهبر اکوسیستم", gen: "نسل ۶", avatar: "/assets/home/Rokadians/Ellipse 83.png" },
     ],
   },
 ];

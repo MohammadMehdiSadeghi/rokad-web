@@ -168,7 +168,7 @@ export default function HonorsCarousel() {
           <div className="w-full flex flex-row items-center justify-between gap-3 sm:gap-6">
             {/* Title */}
             <div className="flex-1 text-right">
-              <h2 className="font-black text-right text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-tight">
+              <h2 className="font-black text-right text-[1.5rem] xs:text-[1.625rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-tight">
                 افتخاراتی که{" "}
                 <span className="text-[#202a5a]">
                   با هم
@@ -457,25 +457,6 @@ export default function HonorsCarousel() {
                                 sm:pb-5
                               "
                             >
-                              {/* Meta */}
-
-                              <p
-                                className="
-                                  text-[0.625rem]
-                                  sm:text-[0.6875rem]
-                                  lg:text-[0.75rem]
-                                  leading-5
-                                  sm:leading-6
-                                  font-semibold
-                                "
-                                style={{
-                                  color: theme.accent,
-                                  opacity: 0.7,
-                                }}
-                              >
-                                {honor.meta}
-                              </p>
-
                               {/* Title */}
 
                               <h4

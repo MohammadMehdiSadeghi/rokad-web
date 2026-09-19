@@ -59,14 +59,14 @@ function EcoCard({ title, body, featured, tilt = 0, isActive, cardRef, className
       style={{ "--tilt": `${tilt}deg` }}
       data-active={isActive || undefined}
       className={`
-      group p-3 xs:p-3.5 sm:p-4 lg:p-5 flex flex-row items-center gap-3 xs:gap-4 sm:gap-5 min-h-[4.25rem] xs:min-h-[4.75rem] sm:min-h-[5.5rem] lg:min-h-[6.5rem] text-right
+      group p-2.5 xs:p-3 sm:p-4 lg:p-5 flex flex-row items-center gap-2.5 xs:gap-3.5 sm:gap-5 min-h-[3.5rem] xs:min-h-[4rem] sm:min-h-[5.5rem] lg:min-h-[6.5rem] text-right
       backdrop-blur-[19.06px] sm:rotate-[var(--tilt)] hover:rotate-0
       transition-all duration-300 ease-out
       hover:-translate-y-1 hover:shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)]
 
       bg-[#FFFFFF12] hover:bg-[#59BBAF]
       border-[0.11875rem] border-[#59BBAF] hover:border-[#FFFFFF]
-      rounded-[0_1.25rem_0_1.25rem] sm:rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle]
+      rounded-[0_1rem_0_1rem] sm:rounded-[0_1.75rem_0_1.75rem] [corner-shape:squircle]
 
       ${isActive ? "-translate-y-1 shadow-[0_15px_40px_-5px_rgba(89,187,175,0.25)] bg-[#59BBAF] border-[#FFFFFF] rotate-0" : ""}
       ${className}
@@ -74,12 +74,12 @@ function EcoCard({ title, body, featured, tilt = 0, isActive, cardRef, className
     >
       {/* Icon — راست کارت */}
       <div
-        className={`w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center flex-shrink-0 transition-colors duration-300 rounded-[0.5rem_0_0.5rem_0] sm:rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#59bbaf] group-hover:bg-[#202A5A] ${
+        className={`w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center flex-shrink-0 transition-colors duration-300 rounded-[0.4rem_0_0.4rem_0] sm:rounded-[0.62625rem_0_0.62625rem_0] [corner-shape:squircle] bg-[#59bbaf] group-hover:bg-[#202A5A] ${
           isActive ? "bg-[#202A5A]" : ""
         }`}
       >
         <span
-          className={`w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 lg:w-7 lg:h-7 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
+          className={`w-4.5 h-4.5 xs:w-5 xs:h-5 sm:w-7 sm:h-7 text-[#0e1633] group-hover:text-white transition-colors duration-300 ${
             isActive ? "text-white" : ""
           }`}
         >
@@ -89,7 +89,7 @@ function EcoCard({ title, body, featured, tilt = 0, isActive, cardRef, className
 
       {/* Text — چپِ آیکون (فقط تایتل) */}
       <div className="flex flex-col items-start text-right min-w-0 flex-1">
-        <h4 className="font-black text-[0.875rem] xs:text-[0.9375rem] sm:text-[1.0625rem] lg:text-[1.125rem] text-white leading-snug transition-colors duration-300">
+        <h4 className="font-black text-[0.8125rem] xs:text-[0.875rem] sm:text-[1.0625rem] lg:text-[1.125rem] text-white leading-snug transition-colors duration-300">
           {title}
         </h4>
         {body && <p className="sr-only">{body}</p>}
@@ -215,7 +215,7 @@ export default function Ecosystem() {
   return (
       <section
         ref={sectionRef}
-        className="py-[4rem] sm:py-[5rem] lg:py-[6rem] w-full relative overflow-hidden"
+        className="py-[2.75rem] sm:py-[4.5rem] lg:py-[6rem] w-full relative overflow-hidden"
         style={{
           background:
             "radial-gradient(ellipse at 30% 20%, #1c2c60 0%, #0e1633 60%, #0b1228 100%)",
@@ -239,20 +239,19 @@ export default function Ecosystem() {
 
         <Container className="relative z-10">
           {/* Heading — فاصله استاندارد: ۳۲px در موبایل، ۴rem در تبلت/دسکتاپ */}
-          <h2 className="text-center font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-white mb-8 sm:mb-[4rem] flex flex-wrap justify-center items-center gap-x-2">
-            <span className="inline-block rotate-[-1deg]">یه</span>
+          <h2 className="text-center font-black text-[1.5rem] xs:text-[1.625rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-white mb-5 sm:mb-[4rem] flex flex-wrap justify-center items-center gap-x-2">
+            <span className="inline-block rotate-[-1deg]">فرصت‌های</span>
             <span className="inline-block rotate-[1deg] text-teal">
-              اکوسیستم
+              رشد
             </span>
-            <span className="inline-block rotate-[-1deg]">کامل</span>
-            <span className="inline-block rotate-[1deg]">برای</span>
-            <span className="inline-block rotate-[-1deg]">رشد</span>
+            <span className="inline-block rotate-[-1deg]">در</span>
+            <span className="inline-block rotate-[1deg]">رکاد</span>
           </h2>
 
           {/* Subtitle — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
           <p className="sr-only">
-            رکاد یه اکوسیستم کامل برای رشد نوجواناس — از آموزش و رویداد تا
-            شتاب‌دهی و شبکه‌ی حرفه‌ای، همه کنار هم.
+            فرصت‌های رشد و مسیرهای پیشرفت در رکاد — از استعدادسنجی دقیق تا
+            آموزش پروژه‌محور و شبکه‌سازی حرفه‌ای.
           </p>
 
           {/* ── موبایل/تبلت: اسلایدر واکنش‌گرا با سوایپ ── */}
@@ -262,7 +261,7 @@ export default function Ecosystem() {
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
           >
-            <div className="relative min-h-[20rem] xs:min-h-[21.5rem] sm:min-h-[13.5rem]">
+            <div className="relative min-h-[16.5rem] xs:min-h-[18rem] sm:min-h-[13.5rem]">
               {Array.from({ length: totalPages }).map((_, pg) => {
                 const group = cards.slice(pg * CARDS_PER_PAGE, (pg + 1) * CARDS_PER_PAGE);
                 const isCurrent = pg === page;
@@ -287,7 +286,7 @@ export default function Ecosystem() {
             </div>
 
             {/* نشانگر صفحه و راهنمای سوایپ */}
-            <div className="flex items-center justify-between mt-6 px-1">
+            <div className="flex items-center justify-between mt-4 sm:mt-6 px-1">
               <div className="flex items-center gap-1.5 text-xs text-[#59BBAF]/80 font-medium">
                 <span>برای دیدن موارد بیشتر بکشید</span>
                 <span className="animate-pulse">←</span>

@@ -66,11 +66,14 @@ function LinkedinIcon() {
   );
 }
 
+const patternPink = "/assets/home/TeamTeaser/pink.png";
+const patternBlue = "/assets/home/TeamTeaser/blue.png";
+
 /* =========================================================
    STACK CARD — فقط دسکتاپ
 ========================================================= */
 
-function StackCard({ layer, rotation }) {
+function StackCard({ layer, rotation, isGirl }) {
   return (
     <div
       aria-hidden="true"
@@ -81,17 +84,18 @@ function StackCard({ layer, rotation }) {
       }}
     >
       <div
-        className={`relative w-full ${HEADER_SIZE} bg-gradient-to-l from-[#59bbaf] to-[#59bbaf] overflow-hidden`}
+        className={`relative w-full ${HEADER_SIZE} ${
+          isGirl ? "bg-[#E0195B]" : "bg-[#202A5A]"
+        } overflow-hidden`}
       >
         <img
-          src="/assets/home/Rokadians/Frame 1000006407.png"
+          src={isGirl ? patternPink : patternBlue}
           alt=""
           draggable="false"
-          className="absolute inset-0 w-full h-full object-cover"
-
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
           loading="lazy"
           decoding="async"
-          />
+        />
       </div>
 
       <div className="absolute left-2 right-2 bottom-10 border-t border-dashed border-[#292827]/20" />
@@ -117,6 +121,11 @@ function StackCard({ layer, rotation }) {
 
 function StudentCard({ student, index, stacked }) {
   const rotation = index % 2 === 0 ? 1 : -1;
+  const isGirl =
+    student.gender === "female" ||
+    student.gender === "girl" ||
+    student.theme === "girls" ||
+    (student.gender ? false : index % 2 === 1);
 
   return (
     <div
@@ -126,17 +135,17 @@ function StudentCard({ student, index, stacked }) {
         transformOrigin: "center center",
       }}
     >
-      {/* Stack فقط روی دسکتاپ */}
+      {/* Stack فقط روی دسکتاپ — رنگ‌های متناوب صورتی و آبی */}
       {stacked && (
         <div
           aria-hidden="true"
           className={`hidden lg:block absolute top-0 left-0 ${CARD_SIZE} pointer-events-none z-[1]`}
         >
-          <StackCard layer={5} rotation={1} />
-          <StackCard layer={4} rotation={-1} />
-          <StackCard layer={3} rotation={1} />
-          <StackCard layer={2} rotation={-1} />
-          <StackCard layer={1} rotation={1} />
+          <StackCard layer={5} rotation={1} isGirl={!isGirl} />
+          <StackCard layer={4} rotation={-1} isGirl={isGirl} />
+          <StackCard layer={3} rotation={1} isGirl={!isGirl} />
+          <StackCard layer={2} rotation={-1} isGirl={isGirl} />
+          <StackCard layer={1} rotation={1} isGirl={!isGirl} />
         </div>
       )}
 
@@ -148,19 +157,20 @@ function StudentCard({ student, index, stacked }) {
 
       {/* Main Card */}
       <div className="relative z-[10] w-full h-full bg-white rounded-[0_1.25rem_0_1.25rem] lg:rounded-[0_0.875rem_0_0.875rem] overflow-hidden border-[0.125rem] border-[#292827] flex flex-col">
-        {/* Header */}
+        {/* Header — دختر صورتی (#E0195B) و پسر آبی (#202A5A) با پترن مخصوص هرکدام */}
         <div
-          className={`relative w-full ${HEADER_SIZE} shrink-0 overflow-hidden bg-gradient-to-l from-[#59bbaf] to-[#59bbaf]`}
+          className={`relative w-full ${HEADER_SIZE} shrink-0 overflow-hidden ${
+            isGirl ? "bg-[#E0195B]" : "bg-[#202A5A]"
+          }`}
         >
           <img
-            src="/assets/home/Rokadians/Frame 1000006407.png"
+            src={isGirl ? patternPink : patternBlue}
             alt=""
             aria-hidden="true"
             draggable="false"
-            className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-
-          loading="lazy"
-          decoding="async"
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-25"
+            loading="lazy"
+            decoding="async"
           />
 
           {/* subtle overlay */}
@@ -181,9 +191,8 @@ function StudentCard({ student, index, stacked }) {
             src={student.avatar || "/assets/home/Rokadians/Ellipse 83.png"}
             alt={student.name}
             className={`relative z-[10] ${AVATAR_SIZE} rounded-full object-cover border-[0.12rem] border-[#292827] bg-white`}
-
-          loading="lazy"
-          decoding="async"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -212,7 +221,9 @@ function StudentCard({ student, index, stacked }) {
 
             <Link
               href={student.slug ? `/alumni/${student.slug}` : "/alumni"}
-              className={`relative z-10 ${BADGE_SIZE} bg-white border-[0.09375rem] border-[#292827] text-[#292827] font-bold rounded-[0_0.5rem_0_0.5rem] whitespace-nowrap hover:bg-[#292827] hover:text-white transition-colors cursor-pointer inline-block`}
+              className={`relative z-10 ${BADGE_SIZE} bg-white border-[0.09375rem] border-[#292827] ${
+                isGirl ? "text-[#E0195B]" : "text-[#202A5A]"
+              } font-bold rounded-[0_0.5rem_0_0.5rem] whitespace-nowrap hover:bg-[#292827] hover:text-white transition-colors cursor-pointer inline-block`}
             >
               {student.experience || "نسل رکاد"}
             </Link>
@@ -236,7 +247,7 @@ function StudentCard({ student, index, stacked }) {
                     key={si}
                     href={social.link}
                     target="_blank"
-                              rel="noopener noreferrer"
+                    rel="noopener noreferrer"
                     aria-label={social.type || "شبکه اجتماعی"}
                   >
                     <LinkedinIcon />
@@ -263,9 +274,8 @@ function StudentCard({ student, index, stacked }) {
 
 export default function Rokadians() {
   // دیتای داینامیک از بک‌اند؛ api.js آیتم‌های بدون تصویر رو فیلتر می‌کنه
-  // و اگه API آفلاینه fallback (۳ کارت با تصویر) برمی‌گرده
+  // و اگه API آفلاینه fallback (۴ کارت ترکیبی دختر و پسر با تصویر) برمی‌گرده
   const allStudents = useRokadData(fetchStudents, fallbackStudents);
-  // فقط ۳ کارت — کارت سوم state استک‌شده داره (مثل دیزاین اصلی)
   const students = allStudents.slice(0, 3);
 
   return (
@@ -277,7 +287,7 @@ export default function Rokadians() {
       {/* ── Background Pattern Layer — ماسک گرادیانی عمیق‌تر و مشخص‌تر ── */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-65 rotate-180
+        className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-60 rotate-180
                 [mask-image:linear-gradient(to_bottom,transparent_0%,black_30%,black_70%,transparent_100%)]
                 [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_30%,black_70%,transparent_100%)]"
       >
@@ -286,10 +296,9 @@ export default function Rokadians() {
           alt=""
           draggable="false"
           className="w-full h-full object-cover select-none"
-
           loading="lazy"
           decoding="async"
-          />
+        />
       </div>
 
       {/* Hide scrollbar */}
@@ -312,7 +321,7 @@ export default function Rokadians() {
           ================================================= */}
 
           <div className="text-center max-w-[50rem] mx-auto mb-4 sm:mb-8 lg:mb-[4rem]">
-            <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827]">
+            <h2 className="font-black text-[1.5rem] xs:text-[1.625rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827]">
               <span>ببین </span>
               <span className="text-[#202a5a]">رکادی‌ها</span>{" "}
               <span>الان </span>
@@ -337,26 +346,26 @@ export default function Rokadians() {
 
             <div className="relative w-full lg:flex-1 order-2 lg:order-1 overflow-visible">
               {/* =================================================
-                  MOBILE STATS & CTA (Centered & Balanced Bar)
+                  MOBILE STATS & CTA (Full Width & Clean Margins)
               ================================================= */}
 
-              <div className="lg:hidden flex items-center justify-center gap-2.5 xs:gap-3.5 w-full max-w-[24.5rem] xs:max-w-[27rem] mx-auto mb-5 px-2">
+              <div className="lg:hidden flex items-center justify-between gap-3 w-full mb-6">
                 {/* کارت آمار */}
-                <div className="flex-1 flex items-center justify-center gap-2 xs:gap-2.5 bg-white border-2 border-[#202a5a] rounded-xl shadow-[2.5px_2.5px_0_#202a5a] px-3 py-1.5 xs:px-4 xs:py-2 min-h-[2.85rem] xs:min-h-[3.15rem]">
+                <div className="flex-1 flex items-center justify-start sm:justify-center gap-2.5 xs:gap-3 bg-white border-2 border-[#202a5a] rounded-xl shadow-[2.5px_2.5px_0_#202a5a] px-3.5 py-2 min-h-[3.15rem]">
                   <span
-                    className="text-[1.375rem] xs:text-[1.5rem] leading-none text-[#202a5a] tracking-tight"
+                    className="text-[1.5rem] xs:text-[1.625rem] leading-none text-[#202a5a] tracking-tight"
                     style={{ fontWeight: 950 }}
                   >
                     ۳۰۰<span className="text-[#4bb5a8]">+</span>
                   </span>
                   <div className="flex flex-col text-right leading-tight">
                     <span
-                      className="text-[0.75rem] xs:text-[0.8125rem] text-[#202a5a]"
+                      className="text-[0.8125rem] xs:text-[0.875rem] text-[#202a5a]"
                       style={{ fontWeight: 950 }}
                     >
                       دانش‌آموز
                     </span>
-                    <span className="text-[0.625rem] xs:text-[0.6875rem] font-bold text-[#202a5a]/60 whitespace-nowrap">
+                    <span className="text-[0.65rem] xs:text-[0.72rem] font-bold text-[#202a5a]/60 whitespace-nowrap">
                       در مسیر ساخت آینده
                     </span>
                   </div>
@@ -371,7 +380,7 @@ export default function Rokadians() {
                     aria-hidden="true"
                     className="absolute top-[0.125rem] left-[0.125rem] w-full h-full rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] bg-[#202a5a]"
                   />
-                  <span className="relative z-10 inline-flex items-center justify-center gap-1.5 bg-white border-[0.125rem] border-[#202a5a] text-[#202a5a] font-extrabold text-xs xs:text-sm px-3.5 xs:px-4 py-2 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer min-h-[2.85rem] xs:min-h-[3.15rem] [background-image:linear-gradient(to_right,#202a5a,#202a5a)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
+                  <span className="relative z-10 inline-flex items-center justify-center gap-1.5 bg-white border-[0.125rem] border-[#202a5a] text-[#202a5a] font-extrabold text-xs xs:text-sm px-4 py-2.5 rounded-[0_0.75rem_0_0.75rem] [corner-shape:squircle] whitespace-nowrap cursor-pointer min-h-[3.15rem] [background-image:linear-gradient(to_right,#202a5a,#202a5a)] bg-no-repeat [background-size:0%_100%] hover:[background-size:100%_100%] hover:text-white transition-all duration-300 ease-out">
                     <span>مشاهده همه</span>
                     <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1 text-[#4bb5a8] group-hover:text-white font-bold text-xs">
                       ←

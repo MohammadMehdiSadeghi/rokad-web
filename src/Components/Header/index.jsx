@@ -9,15 +9,11 @@ const logo = "/assets/Shared/Logos/logo.png";
 const COMPACT_THRESHOLD_VH = 50;
 
 const navLinks = [
-  { label: "صفحه اصلی", to: "/" },
-  { label: "مدارس", to: "/#schools" },
-  { label: "افتخارات", to: "/honors" },
-  { label: "دانش‌آموختگان", to: "/alumni" },
-  { label: "رویدادها", to: "/events" },
-  { label: "بلاگ", to: "/blog" },
   { label: "درباره ما", to: "/about" },
-  { label: "مشاوره تحصیلی", to: "/#counseling" },
   { label: "همکاری با ما", to: "/#join" },
+  { label: "مشاوره تحصیلی", to: "/#counseling" },
+  { label: "مقاله‌ها", to: "/blog" },
+  { label: "افتخارات", to: "/honors" },
 ];
 
 // تنظیمات انیمیشن سریع و یکدست
@@ -170,7 +166,7 @@ export default function Header() {
               />
             </Link>
 
-            {/* ── وسط: پیش‌ثبت‌نام + لینک‌ها (دسکتاپ) ── */}
+            {/* ── وسط: لینک‌ها (دسکتاپ) ── */}
             <AnimatePresence mode="wait">
               {!compact && (
                 <motion.div
@@ -178,17 +174,9 @@ export default function Header() {
                   initial={{ opacity: 0, y: -4 }}
                   animate={{ opacity: 1, y: 0, transition: fastFade }}
                   exit={{ opacity: 0, y: -4, transition: fastExit }}
-                  className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-5 mx-2"
+                  className="hidden lg:flex flex-1 items-center justify-center mx-4"
                 >
-                  <button
-                    type="button"
-                    onClick={openEnrollment}
-                    className="whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-3.5 xl:px-5 py-[0.5rem] text-xs xl:text-sm font-extrabold text-navy transition-colors duration-300 hover:bg-teal hover:text-white hover:border-teal cursor-pointer"
-                  >
-                    پیش‌ثبت‌نام
-                  </button>
-
-                  <ul className="flex items-center gap-2.5 xl:gap-5 list-none m-0 p-0">
+                  <ul className="flex items-center gap-5 xl:gap-7 list-none m-0 p-0">
                     {navLinks.map((link) => {
                       const active = isActive(link.to);
                       return (
@@ -197,13 +185,13 @@ export default function Header() {
                             href={link.to}
                             className={
                               active
-                                ? "whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-3.5 xl:px-4 py-[0.45rem] text-xs xl:text-sm font-extrabold text-white transition-transform duration-200 hover:rotate-0 hover:scale-105 inline-block"
-                                : "whitespace-nowrap text-xs xl:text-sm font-semibold text-navy transition-colors duration-200 hover:text-teal relative group inline-block"
+                                ? "whitespace-nowrap -rotate-3 rounded-[12px] [corner-shape:squircle] bg-navy px-3.5 xl:px-4 py-[0.45rem] text-[0.875rem] xl:text-[0.9375rem] font-black text-white transition-transform duration-200 hover:rotate-0 hover:scale-105 inline-block"
+                                : "whitespace-nowrap text-[0.875rem] xl:text-[0.9375rem] font-bold text-navy transition-colors duration-200 hover:text-teal relative group inline-block py-1"
                             }
                           >
                             {link.label}
                             {!active && (
-                              <span className="absolute -bottom-1 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full" />
+                              <span className="absolute bottom-0 right-0 w-0 h-[0.125rem] bg-teal transition-all duration-300 group-hover:w-full" />
                             )}
                           </Link>
                         </li>
@@ -215,30 +203,22 @@ export default function Header() {
             </AnimatePresence>
 
             {/* ── سمت چپ: اکشن‌ها ── */}
-            <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 flex-shrink-0">
-              {/* پیش‌ثبت‌نام — فقط وقتی کمپکت (دسکتاپ) */}
-              <AnimatePresence mode="wait">
-                {compact && (
-                  <motion.button
-                    key="compact-enroll"
-                    type="button"
-                    onClick={openEnrollment}
-                    initial={{ opacity: 0, x: 10 }}
-                    animate={{ opacity: 1, x: 0, transition: fastFade }}
-                    exit={{ opacity: 0, x: 10, transition: fastExit }}
-                    className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-navy transition-colors duration-300 hover:bg-teal hover:text-white hover:border-teal cursor-pointer"
-                  >
-                    پیش‌ثبت‌نام
-                  </motion.button>
-                )}
-              </AnimatePresence>
+            <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+              {/* پیش‌ثبت‌نام (دسکتاپ) */}
+              <button
+                type="button"
+                onClick={openEnrollment}
+                className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-white border-2 border-navy px-4 xl:px-5 py-[0.55rem] text-[0.875rem] font-extrabold text-navy transition-colors duration-300 hover:bg-teal hover:text-white hover:border-teal cursor-pointer"
+              >
+                پیش‌ثبت‌نام
+              </button>
 
               {/* دکمه ورود به پلتفرم — در صورت عدم وجود پلتفرم نوتیس نمایش داده می‌شود */}
               <div className="relative">
                 <button
                   type="button"
                   onClick={handlePlatformClick}
-                  className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-base2 font-extrabold text-white transition-colors duration-300 hover:bg-[#47968C] active:scale-[0.98] cursor-pointer"
+                  className="hidden lg:inline-flex whitespace-nowrap rounded-[12px] [corner-shape:squircle] bg-teal px-5 xl:px-6 py-[0.5875rem] text-[0.875rem] font-extrabold text-white transition-colors duration-300 hover:bg-[#47968C] active:scale-[0.98] cursor-pointer"
                   title="سامانه پلتفرم رکاد"
                 >
                   ورود به پلتفرم

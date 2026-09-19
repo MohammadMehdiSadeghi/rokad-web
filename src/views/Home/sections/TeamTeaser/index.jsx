@@ -22,22 +22,6 @@ const patternYellow = "/assets/home/TeamTeaser/yellow.png";
 
 const socialLinks = [
   {
-    label: "وبسایت",
-    href: "https://arvan.me",
-    Icon: GlobeIcon,
-    bg: "bg-[#eef8f7]",
-    border: "border-[#70b8e8]",
-    fg: "text-[#59bbaf]",
-  },
-  {
-    label: "توییتر",
-    href: "https://twitter.com",
-    Icon: TwitterIcon,
-    bg: "bg-[#eef7ff]",
-    border: "border-[#70b8e8]",
-    fg: "text-[#0a78b5]",
-  },
-  {
     label: "اینستاگرام",
     href: "https://instagram.com",
     Icon: InstagramIcon,
@@ -136,13 +120,9 @@ function MiniCard({ member }) {
               alt=""
               draggable="false"
               className={`absolute inset-0 w-full h-full object-cover ${member.patternOpacity || "opacity-40"} select-none`}
-
-          loading="lazy"
-          decoding="async"
-          />
-            <span className="absolute top-2 right-2 z-20 text-[0.5625rem] sm:text-[0.625rem] font-bold text-white bg-black/35 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/20">
-              {member.tag}
-            </span>
+              loading="lazy"
+              decoding="async"
+            />
             <img
               src={member.image}
               alt={member.name}
@@ -163,15 +143,15 @@ function MiniCard({ member }) {
           </div>
         </div>
 
-        {/* فوتر سوشال */}
-        <div className="px-3 py-1.5 border-t border-dashed border-navy/15 flex items-center justify-center gap-1.5 bg-[#FAFAFA]">
-          {socialLinks.slice(0, 3).map(({ label, href, Icon, bg, border, fg }, i) => (
+        {/* فوتر سوشال: فقط اینستاگرام و لینکدین */}
+        <div className="px-3 py-1.5 border-t border-dashed border-navy/15 flex items-center justify-center gap-2 bg-[#FAFAFA]">
+          {socialLinks.map(({ label, href, Icon, bg, border, fg }, i) => (
             <a
               key={i}
               href={href}
               aria-label={label}
               target="_blank"
-                              rel="noopener noreferrer"
+              rel="noopener noreferrer"
               className={`inline-flex items-center justify-center w-5 h-5 ${bg} border ${border} ${fg} rounded-[0.25rem] shrink-0 transition-transform hover:-translate-y-0.5`}
             >
               <Icon className="w-3 h-3" />
@@ -204,17 +184,16 @@ export default function TeamTeaser() {
           alt=""
           draggable="false"
           className="w-full h-full object-cover select-none"
-
           loading="lazy"
           decoding="async"
-          />
+        />
       </div>
 
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}
         <div className="flex items-center justify-between gap-3 mb-4 sm:mb-8 lg:mb-[4rem]">
-          <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.2] text-navy flex items-center gap-x-2">
-            <span>عوامل</span>
+          <h2 className="font-black text-[1.5rem] xs:text-[1.625rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.2] text-navy flex items-center gap-x-2">
+            <span>تیم</span>
             <span className="text-magenta rotate-[-2deg] inline-block">
               رکاد
             </span>
@@ -239,11 +218,6 @@ export default function TeamTeaser() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1.3fr] gap-5 sm:gap-6 items-stretch">
           {/* ════ Featured — بنیان‌گذار (راست در RTL) ════ */}
           <div className="relative">
-            {/* نشان امضای رکاد */}
-            <span className="absolute -top-2.5 right-3 z-30 bg-[#F8A41D] text-navy border-2 border-navy rounded-[0_0.625rem_0_0.625rem] [corner-shape:squircle] px-3 py-1 font-black text-[0.75rem] rotate-[-2deg] shadow-[2px_2px_0_0_#202A5A]">
-              امضای رکاد
-            </span>
-
             {/* سایه پشتی */}
             <div
               aria-hidden="true"
@@ -259,10 +233,9 @@ export default function TeamTeaser() {
                   alt=""
                   draggable="false"
                   className="absolute inset-0 w-full h-full object-cover opacity-40 select-none"
-
-          loading="lazy"
-          decoding="async"
-          />
+                  loading="lazy"
+                  decoding="async"
+                />
                 <img
                   src={FEATURED.image}
                   alt={FEATURED.name}
@@ -279,7 +252,7 @@ export default function TeamTeaser() {
                     <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     {FEATURED.role}
                   </span>
-                  <h3 className="text-[1.25rem] sm:text-[1.375rem] font-black text-navy mb-1">
+                  <h3 className="text-[1.125rem] sm:text-[1.25rem] font-black text-navy mb-1">
                     {FEATURED.name}
                   </h3>
                   <p className="text-[0.8125rem] font-medium text-navy/70 leading-[1.7] line-clamp-2">
@@ -287,15 +260,15 @@ export default function TeamTeaser() {
                   </p>
                 </div>
 
-                {/* شبکه‌های اجتماعی */}
-                <div className="flex items-center gap-2 pt-3 mt-3 border-t border-dashed border-navy/15">
+                {/* شبکه‌های اجتماعی: فقط اینستاگرام و لینکدین */}
+                <div className="flex items-center gap-2.5 pt-3 mt-3 border-t border-dashed border-navy/15">
                   {socialLinks.map(({ label, href, Icon, bg, border, fg }, i) => (
                     <a
                       key={i}
                       href={href}
                       aria-label={label}
                       target="_blank"
-                              rel="noopener noreferrer"
+                      rel="noopener noreferrer"
                       className={`inline-flex items-center justify-center w-6 h-6 ${bg} border ${border} ${fg} rounded-[0.35rem] shrink-0 transition-transform hover:-translate-y-0.5`}
                     >
                       <Icon className="w-3.5 h-3.5" />

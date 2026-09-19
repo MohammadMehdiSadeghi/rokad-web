@@ -441,7 +441,7 @@ export default function AlumniPage() {
                               alt=""
                               aria-hidden="true"
                               draggable="false"
-                              className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-40"
+                              className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none opacity-25"
 
           loading="lazy"
           decoding="async"

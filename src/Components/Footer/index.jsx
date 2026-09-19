@@ -52,14 +52,16 @@ function DotsIcon({ className }) {
 }
 
 const quickLinks = [
+  { label: "صفحه اصلی", to: "/" },
   { label: "پیش ثبت نام", action: "enroll" },
   { label: "مدارس", to: "/#schools" },
   { label: "افتخارات", to: "/honors" },
   { label: "دانش‌آموختگان", to: "/alumni" },
   { label: "رویدادها", to: "/events" },
-  { label: "مشاوره هدایت تحصیلی و شغلی", to: "/#counseling" },
-  { label: "بلاگ", to: "/blog" },
+  { label: "مقاله‌ها", to: "/blog" },
   { label: "درباره ما", to: "/about" },
+  { label: "همکاری با ما", to: "/#join" },
+  { label: "مشاوره تحصیلی", to: "/#counseling" },
 ];
 
 const schools = [

@@ -101,7 +101,7 @@ export default function EventsCarousel() {
         {/* ── هدر: تایتل و دکمه مشاهده همه ── */}
         <div className="flex items-center justify-between gap-3 mb-8 sm:mb-[4rem]">
           <div>
-            <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[2.5rem] xl:text-[3.3125rem] leading-[1.3] mb-0">
+            <h2 className="font-black text-[1.5rem] xs:text-[1.625rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] mb-0">
               جایی که ایده‌ها<span className="text-magenta"> جون می‌گیرن</span>
             </h2>
             {/* زیرنویس — بصری هاید شده ولی برای سئو توی DOM می‌مونه */}
@@ -147,12 +147,10 @@ export default function EventsCarousel() {
           >
             {events.map((event, i) => {
               const theme = THEME_MAP[event.theme];
-              const rotation = i % 2 === 0 ? -1 : 1;
-              const titleWords = event.title.split(" ");
 
               return (
                 <SwiperSlide key={event.title || i} className="!h-auto">
-                  <div className="relative" style={{ transform: `rotate(${rotation}deg)` }}>
+                  <div className="relative">
                     
                     {/* لایه زیرین اصلی کارت */}
                     <div 
@@ -171,20 +169,17 @@ export default function EventsCarousel() {
                       <div className={`relative ${theme.cardBg} p-4 sm:p-6 md:p-5 lg:p-6 xl:p-10 flex flex-col justify-between flex-1 lg:flex-none overflow-hidden`}>
                         
                         {/* بخش بالا: متون و بَج */}
-                        <div className="relative z-10 flex flex-col gap-5 sm:gap-8 lg:gap-3 xl:gap-8">
-                          {/* ردیف اول: عنوان/تاریخ و عدد */}
+                        <div className="relative z-10 flex flex-col gap-4 sm:gap-6 lg:gap-3 xl:gap-6">
+                          {/* ردیف اول: عنوان/تاریخ */}
                           <div className="flex justify-between items-start w-full">
                             <div className="flex flex-col items-start">
                               <span className={`font-black text-[0.875rem] sm:text-[1rem] ${theme.accentText}`}>
                                 {event.category}
                               </span>
-                              <span className={`font-medium text-[0.6875rem] sm:text-[0.8125rem] mt-1.5 ${theme.metaColor}`}>
+                              <span className={`font-medium text-[0.6875rem] sm:text-[0.8125rem] mt-1 ${theme.metaColor}`}>
                                 {event.meta}
                               </span>
                             </div>
-                            <span className={`font-black text-[2.5rem] sm:text-[4.5rem] lg:text-[3.25rem] xl:text-[4.5rem] ${theme.indexColor} leading-none`}>
-                              {event.index}
-                            </span>
                           </div>
 
                           {/* بَج */}
@@ -192,24 +187,17 @@ export default function EventsCarousel() {
                             <div 
                               className={`absolute top-[0.1875rem] left-[0.1875rem] w-full h-full ${theme.badgeOffset} rounded-[0.875rem] [corner-shape:squircle] pointer-events-none`}
                             ></div>
-                            <div className={`relative ${theme.badgeBg} border-[0.0625rem] ${theme.badgeBorder} ${theme.badgeText} rounded-[0.875rem] [corner-shape:squircle] px-4 sm:px-6 py-2 sm:py-3 text-[0.75rem] sm:text-base font-bold`}>
-                              ساخت محصول واقعی
+                            <div className={`relative ${theme.badgeBg} border-[0.0625rem] ${theme.badgeBorder} ${theme.badgeText} rounded-[0.875rem] [corner-shape:squircle] px-4 sm:px-5 py-1.5 sm:py-2 text-[0.75rem] sm:text-[0.875rem] font-bold`}>
+                              {event.badge || "ساخت محصول واقعی"}
                             </div>
                           </div>
 
-                          {/* تایتل و ساب‌تایتل */}
-                          <div className="flex flex-col gap-3 sm:gap-4">
-                            <h3 className={`font-black text-[1.25rem] sm:text-[1.75rem] md:text-[1.5rem] lg:text-[2.25rem] leading-tight flex flex-wrap justify-start gap-x-2 ${theme.titleColor}`}>
-                              {titleWords.map((word, idx) => (
-                                <span 
-                                  key={idx} 
-                                  className={`inline-block ${idx % 2 === 0 ? '-rotate-3' : 'rotate-1'}`}
-                                >
-                                  {word}
-                                </span>
-                              ))}
+                          {/* تایتل و ساب‌تایتل بدون روتیت و با توضیح خطی */}
+                          <div className="flex flex-col gap-2 sm:gap-3">
+                            <h3 className={`font-black text-[1.0625rem] xs:text-[1.125rem] sm:text-[1.375rem] lg:text-[1.5rem] leading-tight ${theme.titleColor}`}>
+                              {event.title}
                             </h3>
-                            <p className={`font-semibold text-[0.75rem] sm:text-[0.875rem] md:text-[0.8125rem] lg:text-[1rem] leading-6 sm:leading-7 lg:leading-7 line-clamp-4 sm:line-clamp-none lg:line-clamp-2 xl:line-clamp-none ${theme.bodyColor}`}>
+                            <p className={`font-semibold text-[0.75rem] sm:text-[0.875rem] md:text-[0.8125rem] lg:text-[0.9375rem] leading-6 sm:leading-7 line-clamp-1 sm:line-clamp-2 ${theme.bodyColor}`}>
                               {event.body}
                             </p>
                           </div>

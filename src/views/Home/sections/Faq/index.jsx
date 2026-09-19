@@ -68,7 +68,7 @@ export default function Faq() {
         <div className="flex flex-col h-full lg:pt-2">
           {/* تایتل */}
           <div>
-            <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-0 flex flex-wrap items-center gap-x-2">
+            <h2 className="font-black text-[1.5rem] xs:text-[1.625rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] sm:leading-[1.4] text-navy mb-0 flex flex-wrap items-center gap-x-2">
               <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(3deg)" }}>دغدغه‌ی</span>
               <span className="inline-block text-navy whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>آینده</span>
               <span className="inline-block text-ink whitespace-nowrap" style={{ transform: "rotate(-3deg)" }}>و</span>
@@ -101,9 +101,8 @@ export default function Faq() {
               </div>
 
               <div className="relative z-10 max-w-full sm:max-w-[64%]">
-                <h3 className="font-black text-[1rem] xs:text-[1.125rem] sm:text-[1.6875rem] leading-[1.4] text-ink mb-1.5 sm:mb-2 sm:whitespace-nowrap">
-                  <span className="text-white">دریافت</span> مشاوره و هدایت تحصیلی{" "}
-                  <span className="text-white">تخصصی</span>
+                <h3 className="font-black text-[1rem] xs:text-[1.0625rem] sm:text-[1.25rem] lg:text-[1.375rem] leading-[1.4] text-[#202A5A] mb-1.5 sm:mb-2 sm:whitespace-nowrap">
+                  دریافت مشاوره و هدایت تحصیلی تخصصی
                 </h3>
                 <p className="text-[0.75rem] xs:text-[0.8125rem] sm:text-[1rem] font-medium leading-[1.6] sm:leading-[1.9] text-ink">
                   می‌توانید یک جلسه‌ی مشاوره‌ی رایگان با تیم متخصصان ما رزرو

@@ -9,7 +9,7 @@ const sectionPattern = "/assets/Pattern/layout-pattern.png";
    مثل تیترهای بقیه سکشن‌ها (Comments، Story و…) */
 function RotatedTitle({ words }) {
   return (
-    <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-ink flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
+    <h2 className="font-black text-[1.5rem] xs:text-[1.625rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-ink flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
       {words.map((w, i) => (
         <span
           key={i}
@@ -73,23 +73,19 @@ const branches = [
 function BranchCard({ branch }) {
   return (
     <div className="relative h-full flex flex-col">
-      {/* ── پنل تمام‌رنگ — ردیوس گوشه‌بریده و سایه سخت ۳px ── */}
+      {/* ── پنل تمام‌رنگ — ردیوس گوشه‌بریده و سایه سخت ── */}
       <div
-        className="relative flex flex-1 flex-col p-4 xs:p-5 sm:p-6 lg:p-7 text-white"
+        className="relative flex flex-1 flex-col p-3.5 xs:p-4 sm:p-6 lg:p-7 text-white rounded-[0_1.25rem_0_1.25rem] sm:rounded-[0_1.5rem_0_1.5rem] [corner-shape:squircle] border-2 border-[#292827]"
         style={{
           background: branch.color,
-          borderRadius: "20px 0 20px 0",
-          border: "2px solid #292827",
-          boxShadow: `3px 4px 0 ${branch.darker}`,
+          boxShadow: `3px 3px 0 ${branch.darker}`,
         }}
       >
         {/* ردیف بالا: برچسب انگلیسی + چیپ سفید */}
-        <div className="flex items-center justify-between mb-3.5 sm:mb-5">
+        <div className="flex items-center justify-between mb-2.5 sm:mb-4">
           <span
-            className="inline-flex items-center text-[0.6875rem] xs:text-[0.75rem] font-black text-ink/90 bg-white/95"
+            className="inline-flex items-center text-[0.625rem] xs:text-[0.6875rem] sm:text-[0.75rem] font-black text-ink/90 bg-white/95 px-2.5 py-1 sm:px-3 sm:py-1 rounded-[4px_0_4px_0] sm:rounded-[6px_0_6px_0]"
             style={{
-              borderRadius: "6px 0 6px 0",
-              padding: "4px 12px",
               boxShadow: `1.5px 1.5px 0 ${branch.darker}`,
             }}
           >
@@ -97,24 +93,24 @@ function BranchCard({ branch }) {
           </span>
           <span
             dir="ltr"
-            className="text-[0.6875rem] xs:text-[0.75rem] font-black tracking-[0.2em] text-white/80"
+            className="text-[0.625rem] xs:text-[0.6875rem] sm:text-[0.75rem] font-black tracking-[0.15em] sm:tracking-[0.2em] text-white/80"
           >
             {branch.en}
           </span>
         </div>
 
         {/* نقش */}
-        <p className="text-[0.8125rem] xs:text-[0.875rem] font-bold text-white/90 text-right mb-1">
+        <p className="text-[0.75rem] xs:text-[0.8125rem] sm:text-[0.875rem] font-bold text-white/90 text-right mb-0.5 sm:mb-1">
           اینجا {branch.role}
         </p>
 
         {/* عنوان شاخه */}
-        <h3 className="text-[1.25rem] xs:text-[1.375rem] sm:text-[1.625rem] lg:text-[1.75rem] font-black leading-tight text-right mb-2.5 sm:mb-3">
+        <h3 className="text-[1.125rem] xs:text-[1.25rem] sm:text-[1.5rem] lg:text-[1.75rem] font-black leading-tight text-right mb-2 sm:mb-3">
           {branch.title}
         </h3>
 
         {/* بدنه */}
-        <p className="text-[0.75rem] xs:text-[0.8125rem] sm:text-[0.875rem] font-medium leading-relaxed text-right text-white/90 mb-4 sm:mb-5">
+        <p className="text-[0.72rem] xs:text-[0.78rem] sm:text-[0.875rem] font-medium leading-[1.65] sm:leading-relaxed text-right text-white/90 mb-3.5 sm:mb-5">
           {branch.body}
         </p>
 
@@ -122,7 +118,7 @@ function BranchCard({ branch }) {
         <div className="mt-auto">
           <button
             type="button"
-            className="w-full flex items-center justify-center gap-1.5 bg-white px-4 py-2 sm:py-2.5 rounded-xl [corner-shape:squircle] font-black text-xs xs:text-sm cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98]"
+            className="w-full flex items-center justify-center gap-1.5 bg-white px-3.5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl [corner-shape:squircle] font-black text-xs xs:text-sm cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98]"
             style={{ color: branch.darker, boxShadow: `2px 2px 0 ${branch.darker}` }}
           >
             <span>ورود</span>
@@ -143,7 +139,7 @@ export default function RokadHierarchy() {
     <section
       id="rokad-hierarchy"
       dir="rtl"
-      className="relative overflow-hidden bg-bg-neutral py-[3rem] sm:py-[4.5rem] lg:py-[6rem] w-full"
+      className="relative overflow-hidden bg-bg-neutral py-[2.5rem] sm:py-[4rem] lg:py-[6rem] w-full"
     >
       {/* ── پس‌زمینه پترن همیشگی — همون ماسک گرادیانی بقیه سکشن‌ها:
           بالا و پایین سکشن محو میشه که لبه‌ها بریده به نظر نرسن ── */}
@@ -158,19 +154,17 @@ export default function RokadHierarchy() {
           alt=""
           aria-hidden="true"
           draggable="false"
-          className="w-full h-full object-cover opacity-60 rotate-180 select-none"
+          className="w-full h-full object-cover opacity-35 rotate-180 select-none"
         />
       </div>
 
       <Container className="relative z-10">
         {/* ── تیتر — هر کلمه یک اسپن با روتیت متناوب −۱/+۱ ── */}
-        <div className="text-center mb-4 sm:mb-8 lg:mb-[4rem]">
+        <div className="text-center mb-4 sm:mb-6 lg:mb-[4rem]">
           <RotatedTitle
             words={[
-              { text: "سه" },
-              { text: "فضای", color: "text-[#652D90]" },
-              { text: "زندهٔ", color: "text-[#F8A41D]" },
-              { text: "رکاد", color: "text-[#59BBAF]" },
+              { text: "اکوسیستم", color: "text-[#59BBAF]" },
+              { text: "رکاد", color: "text-[#202A5A]" },
             ]}
           />
           {/* متن توضیح سئو — بصری مخفی */}
@@ -181,7 +175,7 @@ export default function RokadHierarchy() {
         </div>
 
         {/* ── سه پنل تمام‌رنگ ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 lg:gap-7 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 lg:gap-7 items-stretch">
           {branches.map((branch) => (
             <BranchCard key={branch.en} branch={branch} />
           ))}

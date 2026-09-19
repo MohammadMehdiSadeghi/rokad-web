@@ -66,9 +66,9 @@ export default function Comments() {
           z-index: 1;
         }
         .comments-swiper .card-inner-wrap {
-          transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
-          opacity: 0;
-          transform: scale(0.62);
+          transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease, filter 0.5s ease;
+          opacity: 0.55;
+          transform: scale(0.78);
           pointer-events: none;
         }
         .comments-swiper .swiper-slide-active,
@@ -79,6 +79,7 @@ export default function Comments() {
         .comments-swiper .swiper-slide-duplicate-active .card-inner-wrap {
           transform: scale(1.4, 1.3) translateY(-6px) rotate(0deg);
           opacity: 1;
+          filter: blur(0px);
           z-index: 30;
           pointer-events: auto;
         }
@@ -111,6 +112,7 @@ export default function Comments() {
           .comments-swiper .swiper-slide-active .card-inner-wrap,
           .comments-swiper .swiper-slide-duplicate-active .card-inner-wrap {
             transform: scale(1.22, 1.15) translateY(-4px) rotate(0deg);
+            filter: blur(0px);
           }
           .comments-swiper .swiper-slide-prev .card-inner-wrap,
           .comments-swiper .swiper-slide-duplicate-prev .card-inner-wrap {
@@ -125,13 +127,13 @@ export default function Comments() {
             filter: blur(2px);
           }
         }
-        /* Mobile: کارت کامپکت، متناسب و بسیار تمیز بدون پرش و بیرون‌زدگی */
-        @media (max-width: 639px) {
+        /* Mobile: کارت‌های کناری زیر کارت اصلی با بلر و روتیت مثل سکشن افتخارات */
+        @media (max-width: 767px) {
           .comments-swiper .card-inner-wrap {
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            opacity: 0.45;
-            transform: scale(0.82);
-            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease, filter 0.5s ease;
+            opacity: 0.5;
+            transform: scale(0.78);
+            filter: blur(2px);
           }
           .comments-swiper .swiper-slide-active,
           .comments-swiper .swiper-slide-duplicate-active {
@@ -139,8 +141,9 @@ export default function Comments() {
           }
           .comments-swiper .swiper-slide-active .card-inner-wrap,
           .comments-swiper .swiper-slide-duplicate-active .card-inner-wrap {
-            transform: scale(1) translateY(0);
+            transform: scale(1.06) translateY(0) rotate(0deg);
             opacity: 1;
+            filter: blur(0px);
             z-index: 30;
             pointer-events: auto;
           }
@@ -150,8 +153,9 @@ export default function Comments() {
           }
           .comments-swiper .swiper-slide-prev .card-inner-wrap,
           .comments-swiper .swiper-slide-duplicate-prev .card-inner-wrap {
-            transform: scale(0.82) rotate(2.5deg);
-            opacity: 0.45;
+            transform: scale(0.78) translateY(6px) rotate(5deg);
+            opacity: 0.5;
+            filter: blur(2.5px);
             z-index: 10;
             pointer-events: auto;
           }
@@ -161,8 +165,9 @@ export default function Comments() {
           }
           .comments-swiper .swiper-slide-next .card-inner-wrap,
           .comments-swiper .swiper-slide-duplicate-next .card-inner-wrap {
-            transform: scale(0.82) rotate(-2.5deg);
-            opacity: 0.45;
+            transform: scale(0.78) translateY(6px) rotate(-6deg);
+            opacity: 0.5;
+            filter: blur(2.5px);
             z-index: 10;
             pointer-events: auto;
           }
@@ -187,7 +192,7 @@ export default function Comments() {
 
       <Container className="relative z-10">
         {/* ── هدر سکشن ── */}
-        <h2 className="font-black text-[1.25rem] xs:text-[1.375rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827] mb-4 sm:mb-8 lg:mb-[4rem] flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
+        <h2 className="font-black text-[1.5rem] xs:text-[1.625rem] sm:text-[2.25rem] lg:text-[3.3125rem] leading-[1.3] text-[#292827] mb-4 sm:mb-8 lg:mb-[4rem] flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 gap-y-1 px-2">
           <span className="inline-block -rotate-3">از</span>
           <span className="inline-block rotate-3">زبون</span>
           <span className="inline-block -rotate-3">کسایی</span>
@@ -227,13 +232,13 @@ export default function Comments() {
                 swiperRef.current = swiper;
               }}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-              spaceBetween={20}
-              speed={450}
+              spaceBetween={-35}
+              speed={500}
               breakpoints={{
-                320: { slidesPerView: 1.2, spaceBetween: -20 },
-                380: { slidesPerView: 1.25, spaceBetween: -15 },
-                480: { slidesPerView: 1.35, spaceBetween: -10 },
-                640: { slidesPerView: 1.5, spaceBetween: 12 },
+                320: { slidesPerView: 1.4, spaceBetween: -35 },
+                380: { slidesPerView: 1.5, spaceBetween: -35 },
+                480: { slidesPerView: 1.55, spaceBetween: -25 },
+                640: { slidesPerView: 1.8, spaceBetween: -15 },
                 768: { slidesPerView: 2.2, spaceBetween: 16 },
                 1024: { slidesPerView: 3, spaceBetween: 20 },
                 1280: { slidesPerView: 3, spaceBetween: 24 },
@@ -243,7 +248,7 @@ export default function Comments() {
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
               }}
-              className="comments-swiper !pt-2 sm:!pt-8 lg:!pt-12 !pb-2 sm:!pb-6 lg:!pb-8"
+              className="comments-swiper !pt-6 sm:!pt-8 lg:!pt-12 !pb-6 sm:!pb-6 lg:!pb-8"
             >
               {comments.map((comment) => {
                 const theme = THEME_MAP[comment.theme] || THEME_MAP.navy;

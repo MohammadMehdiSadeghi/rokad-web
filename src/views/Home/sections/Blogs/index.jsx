@@ -261,8 +261,8 @@ export default function Blogs() {
                 className="
                   text-right
                   font-black
-                  text-[1.25rem]
-                  xs:text-[1.375rem]
+                  text-[1.5rem]
+                  xs:text-[1.625rem]
                   sm:text-[2.25rem]
                   lg:text-[3.3125rem]
                   leading-tight

@@ -7,9 +7,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "../../common/Icons";
 import {
   allEvents,
   author,
-  newsletter,
   finalCta,
-  relatedPosts,
   getRelatedQuick,
 } from "./data.js";
 
@@ -111,12 +109,17 @@ function PersonCard({ person, tone }) {
   );
 }
 
-function PeopleGrid({ items, accentItems }) {
+function PeopleGrid({ items, accentItems = [], tone = "teal" }) {
+  const n = items.length;
+  const cols =
+    n <= 2 ? "grid-cols-1 sm:grid-cols-2"
+    : n === 3 ? "grid-cols-1 sm:grid-cols-3"
+    : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4";
   return (
     <div className="my-6">
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+      <div className={`grid gap-3 ${cols}`}>
         {items.map((p, i) => (
-          <PersonCard key={i} person={p} tone="teal" />
+          <PersonCard key={i} person={p} tone={tone} />
         ))}
       </div>
       {accentItems.length > 0 && (
@@ -180,16 +183,16 @@ function Gallery({ items }) {
   );
 }
 
-function Podium({ items }) {
+function Teams({ items, columns = 3 }) {
   const podiumTone = { gold: "#f8a41d", silver: "#9aa0ad", bronze: "#a56216" };
+  const gridCls =
+    columns === 1 ? "grid-cols-1 max-w-md mx-auto" : "grid-cols-1 sm:grid-cols-2";
   return (
-    <div className="grid grid-cols-1 gap-4 my-8 sm:grid-cols-3">
+    <div className={`grid gap-4 my-8 ${gridCls}`}>
       {items.map((p, i) => (
-        <div key={i} className={`relative ${i === 1 ? "sm:-mt-4 sm:scale-[1.04]" : ""}`}>
+        <div key={i} className="relative">
           <div className="absolute top-[6px] left-[6px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-ink" />
-          <div
-            className="relative flex flex-col items-center text-center rounded-[0_1.25rem_0_1.25rem] border-2 border-ink px-5 py-6 h-full bg-white"
-          >
+          <div className="relative flex flex-col items-center text-center rounded-[0_1.25rem_0_1.25rem] border-2 border-ink px-5 py-6 h-full bg-white">
             <div className="text-[2.25rem] leading-none mb-2">{p.medal}</div>
             <div className="text-[0.75rem] font-black text-white rounded-full px-3 py-1 mb-2" style={{ backgroundColor: podiumTone[p.tone] }}>
               {p.rank}
@@ -264,11 +267,11 @@ function ArticleBlocks({ blocks }) {
           case "infobox":
             return <InfoBox key={i} label={b.label} items={b.items} tone={b.tone} />;
           case "people":
-            return <PeopleGrid key={i} items={b.items} accentItems={b.accentItems} />;
+            return <PeopleGrid key={i} items={b.items} accentItems={b.accentItems} tone={b.tone} />;
           case "gallery":
             return <Gallery key={i} items={b.items} />;
-          case "podium":
-            return <Podium key={i} items={b.items} />;
+          case "teams":
+            return <Teams key={i} items={b.items} columns={b.columns} />;
           case "timeline":
             return <Timeline key={i} items={b.items} />;
           case "lesson":
@@ -459,105 +462,6 @@ function Sidebar({ onCta, toc, relatedQuick }) {
   );
 }
 
-// ═══════════════ نویسنده ═══════════════
-function AuthorCard() {
-  return (
-    <div className="relative mt-10">
-      <div className="absolute top-[6px] left-[6px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-teal" />
-      <div className="relative flex flex-col sm:flex-row items-start gap-4 sm:items-center rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white p-5 sm:p-6">
-        <div className="w-14 h-14 flex items-center justify-center rounded-full bg-navy-alt text-white font-black text-[1.25rem] flex-shrink-0">
-          {author.initials}
-        </div>
-        <div className="flex-1">
-          <div className="text-[0.75rem] font-bold text-teal-text mb-0.5">{author.label}</div>
-          <div className="text-[1.0625rem] font-black text-navy-alt mb-1.5">{author.name}</div>
-          <p className="text-[0.8125rem] text-ink/70 leading-[1.9]">{author.bio}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ═══════════════ نظرات ═══════════════
-function Comments({ comments }) {
-  return (
-    <section className="py-12 sm:py-16 bg-bg-neutral">
-      <Container>
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
-          <h2 className="font-black text-[1.75rem] sm:text-[2.25rem] flex items-center gap-3">
-            <span className="inline-block text-ink">نظرت</span>
-            <span className="inline-block text-magenta">چیه؟</span>
-          </h2>
-          <p className="text-[0.8125rem] font-bold text-ink/50">{comments.count}</p>
-        </div>
-
-        <form id="comment-form" className="mb-10 rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white p-5 sm:p-7" onSubmit={(e) => e.preventDefault()}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            <input type="text" placeholder="نام تو" required className="w-full rounded-[0.75rem] border-2 border-ink/15 bg-bg-mint px-4 py-3 text-[0.875rem] font-semibold text-ink outline-none focus:border-teal transition-colors placeholder:text-ink/40" />
-            <input type="email" placeholder="ایمیل (نمایش داده نمی‌شه)" required className="w-full rounded-[0.75rem] border-2 border-ink/15 bg-bg-mint px-4 py-3 text-[0.875rem] font-semibold text-ink outline-none focus:border-teal transition-colors placeholder:text-ink/40" />
-          </div>
-          <textarea rows={4} placeholder="نظرت رو بنویس..." required className="w-full rounded-[0.75rem] border-2 border-ink/15 bg-bg-mint px-4 py-3 text-[0.875rem] font-semibold text-ink outline-none focus:border-teal transition-colors placeholder:text-ink/40 mb-4 resize-none" />
-          <button type="submit" className="inline-flex items-center gap-2 rounded-[0.6rem] bg-navy-alt px-5 py-2.5 text-[0.875rem] font-extrabold text-white border-2 border-ink shadow-[2.75px_2.75px_0_#292827] hover:-translate-y-0.5 transition-all cursor-pointer">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z" /></svg>
-            ارسال نظر
-          </button>
-        </form>
-
-        <div className="space-y-5">
-          {comments.list.map((c, i) => (
-            <div key={i} className="flex items-start gap-4 rounded-[0_1rem_0_1rem] border-2 border-ink/10 bg-white p-5">
-              <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full bg-teal text-white font-black text-[0.875rem]">
-                {c.initials}
-              </div>
-              <div className="flex-1">
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-1.5">
-                  <span className="text-[0.9375rem] font-black text-navy-alt">{c.name}</span>
-                  <span className="text-[0.75rem] font-semibold text-ink/40">{c.date}</span>
-                </div>
-                <p className="text-[0.875rem] text-ink/80 leading-[1.95]">{c.text}</p>
-                <a href="#comment-form" className="inline-flex items-center gap-1.5 mt-2.5 text-[0.8125rem] font-extrabold text-teal-text hover:text-teal transition-colors">
-                  پاسخ
-                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 17l-5-5 5-5M4 12h16" /></svg>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-// ═══════════════ خبرنامه ═══════════════
-function Newsletter() {
-  return (
-    <section id="newsletter" className="relative py-12 overflow-hidden bg-navy-alt sm:py-16">
-      <div className="absolute inset-0 opacity-25 pointer-events-none">
-        <img src={sectionPattern} alt="" draggable="false" className="object-cover w-full h-full select-none"
-                  loading="lazy"
-                  decoding="async"
-                />
-      </div>
-      <Container className="relative z-10 flex flex-col items-center justify-between gap-8 lg:flex-row">
-        <div>
-          <h2 className="font-black text-[1.75rem] sm:text-[2.25rem] text-white flex flex-wrap gap-x-2">
-            {newsletter.words.map((w, i) => (
-              <span key={i} className="inline-block">{w}</span>
-            ))}
-          </h2>
-          <p className="text-[0.875rem] text-white/70 leading-[1.9] mt-3 max-w-md">{newsletter.desc}</p>
-        </div>
-        <form className="flex flex-col xs:flex-row w-full max-w-md gap-2.5 sm:gap-3" onSubmit={(e) => e.preventDefault()}>
-          <input type="email" placeholder="ایمیل تو" required className="flex-1 rounded-[0.75rem] border-2 border-white/20 bg-white/10 px-4 py-3 text-[0.875rem] font-semibold text-white outline-none focus:border-teal transition-colors placeholder:text-white/40 backdrop-blur-sm" />
-          <button type="submit" className="flex-shrink-0 rounded-[0.6rem] bg-teal px-6 py-3 text-[0.875rem] font-extrabold text-white border-2 border-ink shadow-[2.75px_2.75px_0_#292827] hover:-translate-y-0.5 transition-all cursor-pointer">
-            عضویت
-          </button>
-        </form>
-      </Container>
-    </section>
-  );
-}
-
 // ═══════════════ CTA پایانی ═══════════════
 function FinalCta({ onCta }) {
   return (
@@ -603,7 +507,7 @@ export default function EventsSingle({ slug }) {
 
   // رویداد مربوط به این slug — پیش‌فرض: رویداد اول
   const entry = allEvents.find((e) => e.slug === slug) || allEvents[0];
-  const { postMeta, toc, blocks, tags, comments } = entry.event;
+  const { postMeta, toc, blocks, tags } = entry.event;
   const relatedQuick = getRelatedQuick(entry.slug);
 
   return (
@@ -653,62 +557,12 @@ export default function EventsSingle({ slug }) {
               </button>
             </div>
 
-            <AuthorCard />
           </article>
 
           <Sidebar onCta={openEnrollment} toc={toc} relatedQuick={relatedQuick} />
         </Container>
       </section>
 
-      {/* مقالات مرتبط */}
-      <section className="py-12 sm:py-16 bg-bg-mint/60">
-        <Container>
-          <h2 className="font-black text-[1.75rem] sm:text-[2.25rem] flex flex-wrap gap-x-2 mb-9">
-            <span className="inline-block text-ink">این‌ها</span>
-            <span className="inline-block text-ink">رو</span>
-            <span className="inline-block text-ink">هم</span>
-            <span className="inline-block text-teal">بخون</span>
-          </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8 items-stretch">
-            {relatedPosts.map((p, i) => {
-              const t = tones[p.tone] || tones.teal;
-              return (
-                <a key={i} href={p.href || "#"} className="relative flex flex-col h-full group">
-                  <div className="absolute top-[7px] left-[7px] w-full h-full rounded-[0_1.25rem_0_1.25rem] bg-ink" />
-                  <div className="relative flex flex-col h-full rounded-[0_1.25rem_0_1.25rem] border-2 border-ink bg-white overflow-hidden transition-transform group-hover:-translate-y-1">
-                    <div className="relative flex flex-col items-center justify-center aspect-[16/9] border-b-2 border-ink overflow-hidden shrink-0" style={{ backgroundColor: t.bg }}>
-                      <div className="absolute inset-0 pointer-events-none opacity-30">
-                        <img src={eventPattern} alt="" draggable="false" className="object-cover w-full h-full select-none"
-                  loading="lazy"
-                  decoding="async"
-                />
-                      </div>
-                      <span className="absolute top-2.5 right-2.5 text-[0.6875rem] font-black text-white bg-ink/85 rounded px-2 py-1">{p.cat}</span>
-                      <GalleryIcon name={p.icon} className="relative z-10 w-10 h-10 text-white" />
-                    </div>
-                    <div className="p-5 flex-1 flex flex-col justify-between">
-                      <div>
-                        <h3 className="font-black text-[1.0625rem] text-navy-alt leading-[1.5] mb-2 group-hover:text-teal transition-colors">{p.title}</h3>
-                        <p className="text-[0.8125rem] text-ink/65 leading-[1.9] mb-4">{p.excerpt}</p>
-                      </div>
-                      <div className="flex items-center justify-between pt-2 mt-auto">
-                        <span className="text-[0.75rem] font-bold text-ink/45">{p.date}</span>
-                        <span className="inline-flex items-center gap-1 text-[0.8125rem] font-extrabold text-teal-text">
-                          مطالعه
-                          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      <Comments comments={comments} />
-      <Newsletter />
       <FinalCta onCta={openEnrollment} />
     </>
   );
